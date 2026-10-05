@@ -20,11 +20,11 @@ const spaces: Record<string, Space> = {
     description: "Form & Flöde company and assignment layer: clients, assignments, RAMx, proposals, portfolio and commercial operating context.",
     notes: ["Existing domain material remains outside this shell until explicit integration."]
   },
-  conducellence: {
-    title: "Conducellence",
-    status: "FIRST-CLASS ROOM RESERVED",
-    description: "Dedicated operational domain for Conducellence, with its own future objects, dashboard, knowledge and dispatch flows.",
-    notes: ["Not subordinated to FFC or Pius.", "Domain ontology intentionally not hard-coded yet."]
+  conductellence: {
+    title: "Conductellence",
+    status: "EXTERNAL CANONICAL DOMAIN · RELEASE BINDING PENDING",
+    description: "Dedicated FFOS surface for Conductellence state, future objects, dashboard and governed dispatch flows without absorbing its canonical repository.",
+    notes: ["Canonical implementation remains in the Conductellence repository.", "FFOS runtime binding is NOT STARTED until Conductellence release closure and a versioned integration contract are complete."]
   },
   udl: {
     title: "UDL",
