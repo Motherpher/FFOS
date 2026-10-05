@@ -19,7 +19,7 @@ Status: CODE COMPLETE / VERCEL LINK BLOCKED
 
 - Next.js application shell created under `apps/web`
 - initial Dispatch Counter screen created
-- navigation rooms created for Work, FFC, Conducellence, UDL, Pius, Knowledge and System
+- navigation rooms created for Work, FFC, Conductellence, UDL, Pius, Knowledge and System
 - Pius explicitly reserved / not implemented
 - UDL represented as external destination / connector pending
 - responsive visual baseline created
@@ -81,11 +81,14 @@ Status: CONTRACT STAGED / IMPLEMENTATION NOT STARTED
 - external deployment confirmation
 - version/URL registration
 
-### WP-08 — Conducellence room
-Status: STRUCTURAL ROOM CREATED
+### WP-08 — Conductellence room
+Status: STRUCTURAL ROOM CREATED / CANONICAL RELEASE PENDING
 
-- reserved first-class module surface
-- no premature ontology lock
+- first-class external domain surface
+- canonical source remains the Conductellence repository
+- FFOS may surface Conductellence state but must not duplicate its canonical law, control, policy or evidence source
+- FFOS runtime binding: NOT STARTED
+- integration is gated by Conductellence release closure and an explicit versioned adapter contract
 
 ### WP-09 — FFC room
 Status: STRUCTURAL ROOM CREATED
