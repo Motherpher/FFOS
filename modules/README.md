@@ -6,7 +6,7 @@ Initial rooms:
 - `director/` — human decision surface
 - `work/` — projects, missions, work packages and runs
 - `ffc/` — Form & Flöde business/practice room
-- `conducellence/` — first-class domain room
+- `conductellence/` — first-class external domain room
 - `udl/` — UDL dispatch/status room
 - `pius/` — reserved integration room only
 - `knowledge/` — linked knowledge and artifacts
