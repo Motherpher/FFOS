@@ -11,7 +11,7 @@ FF Operating Environment
 │
 ├── FFC
 ├── FFOS
-├── Conducellence
+├── Conductellence
 ├── UDL
 ├── Pius [RESERVED]
 ├── Knowledge
@@ -52,6 +52,7 @@ Examples:
 - UDL source and site remain owned by UDL.
 - Pius source remains owned by Pius repositories.
 - FF-Spatial remains authoritative for spatial implementation.
+- Conductellence remains authoritative for its constitutional, control, policy, assurance and evidence architecture until and after FFOS integration.
 - FFC business/assignment logic may be surfaced in FFOS but retains its own domain semantics.
 
 ## Initial navigation
@@ -59,7 +60,7 @@ Examples:
 1. Counter
 2. Work
 3. FFC
-4. Conducellence
+4. Conductellence
 5. UDL
 6. Pius
 7. Knowledge
@@ -93,9 +94,11 @@ Work artifact
   → dispatch CLOSED
 ```
 
-## Conducellence boundary
+## Conductellence boundary
 
-Conducellence is a first-class domain surface with its own room, future objects and dispatch interfaces. Its ontology is intentionally not fixed in this baseline.
+Conductellence is a first-class external domain surface with its own FFOS room, but its canonical implementation remains in the Conductellence repository. FFOS must not absorb, fork or redefine Conductellence law, policy, control or evidence semantics.
+
+The FFOS room may surface Conductellence status before integration, but runtime binding remains `NOT STARTED` until Conductellence has completed release closure and exposes an explicit versioned integration contract. Once binding begins, FFOS owns the local enforcement point while Conductellence remains the canonical governance source.
 
 ## Architectural law
 
