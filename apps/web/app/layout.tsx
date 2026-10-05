@@ -4,14 +4,14 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "FFOS — Form & Flöde Operating System",
-  description: "Operational control plane for FFC, FFOS, Conducellence, UDL and future Pius integration.",
+  description: "Operational control plane for FFC, FFOS, Conductellence, UDL and future Pius integration.",
 };
 
 const nav = [
   ["Counter", "/"],
   ["Work", "/work"],
   ["FFC", "/ffc"],
-  ["Conducellence", "/conducellence"],
+  ["Conductellence", "/conductellence"],
   ["UDL", "/udl"],
   ["Pius", "/pius"],
   ["Knowledge", "/knowledge"],
