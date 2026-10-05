@@ -7,7 +7,7 @@ Establish the minimum viable operating spine before broad domain integration.
 ## Work packages
 
 ### WP-00 — Repository and architecture
-Status: STARTED
+Status: BASELINE COMPLETE
 
 - initialize canonical repository
 - establish architecture baseline
@@ -15,12 +15,18 @@ Status: STARTED
 - define control-plane boundary
 
 ### WP-01 — Vercel application shell
-Status: NOT STARTED
+Status: CODE COMPLETE / VERCEL LINK BLOCKED
 
-- Next.js application
-- production/preview environments
-- initial navigation shell
-- private operations surface
+- Next.js application shell created under `apps/web`
+- initial Dispatch Counter screen created
+- navigation rooms created for Work, FFC, Conducellence, UDL, Pius, Knowledge and System
+- Pius explicitly reserved / not implemented
+- UDL represented as external destination / connector pending
+- responsive visual baseline created
+- Vercel project creation attempted 2026-10-05
+- blocker: authenticated Vercel connection returned HTTP 403 `forbidden` for project creation
+- Vercel team visible as `Linus Fast's projects` on Hobby plan, with no linked projects
+- next action: resolve Vercel account/team project-creation permission, then link `Motherpher/FFOS` with root directory `apps/web`
 
 ### WP-02 — Authentication and authority
 Status: NOT STARTED
@@ -50,7 +56,7 @@ Status: NOT STARTED
 - integration event records
 
 ### WP-05 — Dispatch Counter
-Status: NOT STARTED
+Status: STRUCTURAL MOCK CREATED / LIVE DATA NOT STARTED
 
 - active traffic
 - holds
@@ -68,7 +74,7 @@ Status: NOT STARTED
 - governed override/waiver where applicable
 
 ### WP-07 — UDL connector
-Status: NOT STARTED
+Status: CONTRACT STAGED / IMPLEMENTATION NOT STARTED
 
 - `UDL_READY` route
 - Director approval gate
@@ -76,19 +82,19 @@ Status: NOT STARTED
 - version/URL registration
 
 ### WP-08 — Conducellence room
-Status: NOT STARTED
+Status: STRUCTURAL ROOM CREATED
 
 - reserved first-class module surface
 - no premature ontology lock
 
 ### WP-09 — FFC room
-Status: NOT STARTED
+Status: STRUCTURAL ROOM CREATED
 
 - assignment/project business surface
 - later RAMx linkage
 
 ### WP-10 — Pius reserved room
-Status: NOT STARTED
+Status: STRUCTURAL ROOM CREATED
 
 - visible reserved state only
 - no runtime implementation
