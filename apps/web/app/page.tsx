@@ -11,7 +11,7 @@ const counters = [
 const dispatches = [
   ["DSP-0001", "FFOS", "WP-01", "SYSTEM", "BUILDING", "Application shell"],
   ["DSP-0002", "UDL", "Connector", "UDL_READY", "STAGED", "Destination contract"],
-  ["DSP-0003", "Conducellence", "Room", "INTERNAL", "RESERVED", "Domain room"],
+  ["DSP-0003", "Conductellence", "Room", "INTERNAL", "RESERVED", "Domain room"],
   ["DSP-0004", "Pius", "Runtime", "NONE", "RESERVED", "Await canonical upgrade"],
 ] as const;
 
