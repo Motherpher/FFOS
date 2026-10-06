@@ -15,7 +15,7 @@ Status: BASELINE COMPLETE
 - define control-plane boundary
 
 ### WP-01 — Vercel application shell
-Status: DEPLOYED VIA PRIVATE MIRROR / CANONICAL ORG MIGRATION DEFERRED
+Status: CANONICAL ORG DEPLOYED / PRODUCTION READY
 
 - Next.js application shell created under `apps/web`
 - initial Dispatch Counter screen created
@@ -24,11 +24,12 @@ Status: DEPLOYED VIA PRIVATE MIRROR / CANONICAL ORG MIGRATION DEFERRED
 - UDL represented as external destination / connector pending
 - responsive visual baseline created
 - canonical source: `Motherpher/FFOS`
-- temporary private Vercel deployment mirror: `Hybrismannen/FFOSm`
-- production migration back to the Motherpher organization is deferred until the organization/Vercel plan constraint is intentionally resolved
+- Vercel project: `ffos`
+- canonical repository is linked directly to Vercel; the former `Hybrismannen/FFOSm` mirror is no longer the deployment path
+- production deployment from `main` is READY
 
 ### WP-02 — Authentication and authority
-Status: CODE COMPLETE / VERCEL ENV CONFIGURATION REQUIRED / ACCEPTANCE TEST PENDING
+Status: DEPLOYED / ACCESS GATE TESTED / DIRECTOR LOGIN ACCEPTANCE PENDING
 
 - deny-by-default operations boundary implemented
 - `DIRECTOR` established as the sole Phase 0 authority class
@@ -38,8 +39,12 @@ Status: CODE COMPLETE / VERCEL ENV CONFIGURATION REQUIRED / ACCEPTANCE TEST PEND
 - public login route separated from protected operational layout
 - credentials and signing secret are deployment environment variables only
 - missing authentication configuration fails closed
+- `FFOS_DIRECTOR_USER`, `FFOS_DIRECTOR_PASSWORD` and `FFOS_SESSION_SECRET` configured in Vercel
+- production redeployed after environment activation
+- unauthenticated `/work` verified to redirect to `/login?next=/work`
+- login surface verified reachable in production
+- successful Director credential login remains a manual acceptance step because the password is intentionally not available to the connector
 - multi-user identity-provider migration explicitly deferred until collaboration is introduced
-- remaining activation step: configure `FFOS_DIRECTOR_USER`, `FFOS_DIRECTOR_PASSWORD`, `FFOS_SESSION_SECRET` in Vercel and run the acceptance test
 
 ### WP-03 — Core object model
 Status: BASELINE COMPLETE
