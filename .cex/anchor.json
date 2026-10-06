@@ -19,7 +19,7 @@
     "ref": "a6a2a7d856ea206dc31e99f0065c0b9e25d96f0b",
     "digest": "CEX-GOV-ANCHOR-001"
   },
-  "binding_state": "ANCHOR_DECLARED",
+  "binding_state": "CEX_CI_MONITORED",
   "authority_context": {
     "authority_ref_required": true,
     "mandate_ref_required": true
@@ -40,8 +40,8 @@
     "reconciliation_surface": "FFOS_REGISTRY_PENDING_IMPLEMENTATION"
   },
   "verification": {
-    "last_verified_at": null,
-    "verification_state": "NOT_VERIFIED",
+    "last_verified_at": "2026-10-06T19:08:15Z",
+    "verification_state": "PASS",
     "verified_against": "a6a2a7d856ea206dc31e99f0065c0b9e25d96f0b"
   }
 }
