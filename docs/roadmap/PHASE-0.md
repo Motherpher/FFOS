@@ -42,16 +42,18 @@ Status: CODE COMPLETE / VERCEL ENV CONFIGURATION REQUIRED / ACCEPTANCE TEST PEND
 - remaining activation step: configure `FFOS_DIRECTOR_USER`, `FFOS_DIRECTOR_PASSWORD`, `FFOS_SESSION_SECRET` in Vercel and run the acceptance test
 
 ### WP-03 — Core object model
-Status: NOT STARTED
+Status: BASELINE COMPLETE / DATABASE BINDING DEFERRED TO WP-04
 
-- Programme
-- Project
-- Mission
-- Work Package
-- Run
-- Dispatch
-- Output
-- Decision
+- canonical hierarchy locked: Programme → Project → Mission → Work Package → Run → Dispatch → Output → Decision
+- shared base object fields defined
+- lifecycle vocabularies defined for work, run, dispatch and decision objects
+- provenance reference contract defined
+- append-only state-transition event shape defined for WP-04
+- Director authority transitions bounded without implementing Pius runtime semantics
+- generic dispatch gating supports PASS / PASS_WITH_WARNING / explicit Director waiver
+- Pius, FIELD, UDL and Conducellence boundaries explicitly preserved
+- TypeScript core model created at `packages/core-model/src/index.ts`
+- specification created at `docs/specifications/OBJECT-MODEL.md`
 
 ### WP-04 — Registry
 Status: NOT STARTED
