@@ -1,17 +1,7 @@
-# FFOS Integrations
+# Integrations
 
-Planned boundaries:
+External system bindings for FFOS live here.
 
-- `github/`
-- `udl/`
-- `vercel/`
-- `miro/`
-- `drive/`
+- `cdx/` — Conductellence (`CDX`) governance binding and runtime-integration boundary.
 
-## Integration rule
-
-An integration is not `CONNECTED` merely because an account, repository or external service exists. FFOS must distinguish:
-
-`DEFINED → IMPLEMENTED → CONNECTED → TESTED → CANONICAL`
-
-Each connector must report failures explicitly and preserve enough provenance to reconstruct the action.
+A documented protocol is not considered connected until its software binding is implemented, tested and registered.
