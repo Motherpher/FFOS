@@ -40,8 +40,8 @@
     "reconciliation_surface": "FFOS_REGISTRY_PENDING_IMPLEMENTATION"
   },
   "verification": {
-    "last_verified_at": null,
-    "verification_state": "NOT_VERIFIED",
+    "last_verified_at": "2026-10-06T19:56:34Z",
+    "verification_state": "PASS",
     "verified_against": "7edbc47899af23b415114628469aca2970779ea1"
   }
 }
