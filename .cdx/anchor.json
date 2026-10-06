@@ -16,7 +16,7 @@
   "binding_mode": "PINNED_COMMIT",
   "policy_pin": {
     "ref_type": "COMMIT",
-    "ref": "27b5605c47879cbaa93d768c1f5d8fe27399e111",
+    "ref": "7edbc47899af23b415114628469aca2970779ea1",
     "digest": "CDX-GOV-ANCHOR-001"
   },
   "binding_state": "CDX_CI_MONITORED",
@@ -42,6 +42,6 @@
   "verification": {
     "last_verified_at": null,
     "verification_state": "NOT_VERIFIED",
-    "verified_against": "27b5605c47879cbaa93d768c1f5d8fe27399e111"
+    "verified_against": "7edbc47899af23b415114628469aca2970779ea1"
   }
 }
