@@ -42,7 +42,7 @@ Status: CODE COMPLETE / VERCEL ENV CONFIGURATION REQUIRED / ACCEPTANCE TEST PEND
 - remaining activation step: configure `FFOS_DIRECTOR_USER`, `FFOS_DIRECTOR_PASSWORD`, `FFOS_SESSION_SECRET` in Vercel and run the acceptance test
 
 ### WP-03 — Core object model
-Status: BASELINE COMPLETE / DATABASE BINDING DEFERRED TO WP-04
+Status: BASELINE COMPLETE
 
 - canonical hierarchy locked: Programme → Project → Mission → Work Package → Run → Dispatch → Output → Decision
 - shared base object fields defined
@@ -56,12 +56,16 @@ Status: BASELINE COMPLETE / DATABASE BINDING DEFERRED TO WP-04
 - specification created at `docs/specifications/OBJECT-MODEL.md`
 
 ### WP-04 — Registry
-Status: NOT STARTED
+Status: SCHEMA + STORE CONTRACT COMPLETE / LIVE DATABASE BINDING PENDING
 
-- append-only event history
-- object state registry
-- provenance
-- integration event records
+- append-only PostgreSQL schema created
+- immutable object-version ledger created
+- immutable state-transition event ledger created
+- external destination receipt ledger created
+- current-object and current-state views derived from historical rows
+- update/delete mutation triggers reject history rewriting
+- registry store interface and transition-continuity invariants implemented
+- remaining step: bind a persistent PostgreSQL instance and deployment credentials, then connect the application
 
 ### WP-05 — Dispatch Counter
 Status: STRUCTURAL MOCK CREATED / LIVE DATA NOT STARTED
