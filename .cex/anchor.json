@@ -1,0 +1,47 @@
+{
+  "schema": "cex.anchor/v1",
+  "system_short_name": "CEX",
+  "governed_surface": {
+    "kind": "REPOSITORY",
+    "identity": "Motherpher/FFOS",
+    "repository": "Motherpher/FFOS",
+    "system_id": "FFOS"
+  },
+  "cex_authority": {
+    "repository": "Hybrismannen/Conductellence-",
+    "canonical_name": "Conductellence",
+    "short_name": "CEX"
+  },
+  "law_id": "CDX-LAW-001",
+  "binding_mode": "PINNED_COMMIT",
+  "policy_pin": {
+    "ref_type": "COMMIT",
+    "ref": "a6a2a7d856ea206dc31e99f0065c0b9e25d96f0b",
+    "digest": "CEX-GOV-ANCHOR-001"
+  },
+  "binding_state": "ANCHOR_DECLARED",
+  "authority_context": {
+    "authority_ref_required": true,
+    "mandate_ref_required": true
+  },
+  "local_enforcement": {
+    "owner": "FFOS",
+    "points": [],
+    "fail_closed_for_consequential_effects": true
+  },
+  "conformance": {
+    "ci_workflow": ".github/workflows/cex-binding-audit.yml",
+    "adapter_contract": "CDX-RUNTIME-001",
+    "runtime_state": "BOUND_PENDING_RUNTIME_INTEGRATION"
+  },
+  "evidence": {
+    "spetl_required": true,
+    "preservation_target": "PENDING_CEX_RELEASE_BINDING",
+    "reconciliation_surface": "FFOS_REGISTRY_PENDING_IMPLEMENTATION"
+  },
+  "verification": {
+    "last_verified_at": null,
+    "verification_state": "NOT_VERIFIED",
+    "verified_against": "a6a2a7d856ea206dc31e99f0065c0b9e25d96f0b"
+  }
+}
