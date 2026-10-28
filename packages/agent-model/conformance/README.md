@@ -1,6 +1,6 @@
 # AMA-06 — Static Agent Conformance
 
-Agent Stable's offline contract gate for an agent candidate. Python 3.11+ and pinned `jsonschema` are required.
+Offline, agent-agnostic contract gate for any candidate manifest. Python 3.11+ and pinned `jsonschema` are required.
 
 ```bash
 python -m pip install -r packages/agent-model/conformance/requirements.txt
@@ -22,6 +22,6 @@ Structured reports use `ffos.ama.conformance-report/v1`: `STATIC_PASS` or `FAIL`
 
 ## Explicit nonclaims
 
-C4 runtime execution and C5 live evidence are NOT evaluated by this tool. No CDX policy adapter, agent registry persistence, deployment, Director approval, MCP server, Pius HCC gate, or durable worker is implemented here. This is a deterministic pre-admission gate, not production runtime validation.
+C4 runtime execution and C5 live evidence are NOT evaluated by this tool. No production policy adapter, registered deployment, independently authorized activation, network endpoint, domain-specific governance extension, or durable worker is implemented here. This is a deterministic pre-admission gate, not production runtime validation.
 
-`FFOS.TEST.OBSERVER` is only a test fixture, not an instantiated FFOS agent. Household Janitor/Handyman/Verifier remain *workflows* and are not implemented by this fixture.
+The bundled synthetic fixture tests contract behavior only; it is not a real agent, an instance template, or an endorsement of any domain workflow.
