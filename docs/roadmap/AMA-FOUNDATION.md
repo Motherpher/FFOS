@@ -2,17 +2,17 @@
 
 **Workstream:** FFOS Agent Master Architecture  
 **Started:** 2026-10-28  
-**Current target:** AMA 0.1 foundation before Household migration
+**Current target:** AMA 0.1 universal foundation, separated from all agent instances
 
 ## AMA-01 — Source reconciliation
 **Status:** COMPLETE
 
-Reconcile Pius agent doctrine, FFOS control-plane boundaries, existing Household mechanics, Conductellence authority constraints and prior architecture decisions.
+Reconcile universal agent construction principles, FFOS control-plane boundaries, independent policy constraints and prior master-contract decisions. Domain-specific implementations and use cases are not part of the template.
 
 ## AMA-02 — Master architecture
 **Status:** IMPLEMENTED ON FEATURE BRANCH
 
-Define agent/workflow/command/capability separation, lifecycle, effect classes, state model, optional modules, authority model, evidence, version inheritance and Household boundary.
+Define agent/workflow/command/capability separation, lifecycle, effect classes, state model, optional modules, authority model, evidence, version inheritance and the template-to-instance separation.
 
 ## AMA-03 — Machine-readable contract
 **Status:** IMPLEMENTED ON FEATURE BRANCH
@@ -30,9 +30,9 @@ Define stable command-to-versioned-workflow resolution and invariants.
 Define technical stewardship, compatibility, maintenance, incident and upgrade responsibilities without architectural sovereignty.
 
 ## AMA-05A — Authority topology reconciliation
-**Status:** DOCUMENTED ON FEATURE BRANCH; RUNTIME PRECEDENCE UNVERIFIED
+**Status:** HOST INTEGRATION SEPARATED FROM MASTER CONTRACT; RUNTIME PRECEDENCE UNVERIFIED
 
-Director-defined target containment is Human Director → CDX → FFC → FFOS, with Agent Stable (AMA, Agent Mechanic, FFOS agents) and Pius (HCC linked to CDX; Piusites built on AMA). Maintain distinct operational authority and enforcement responsibilities. Record evidence boundaries and preserve Pius RESERVED status. See `docs/architecture/AMA-AUTHORITY-TOPOLOGY.md`. No claim of exhaustive chat/repository history or verified runtime binding.
+Host organization and governance topology are recorded in the separate system-integration document and are not normative AMA template content. The master contract defines only abstract authority, policy and verification interfaces. No claim of verified runtime binding.
 
 ## AMA-06 — Conformance harness
 **Status:** STATIC CONTRACT GATE IMPLEMENTED + GITHUB ACTIONS PASS; RUNTIME GATES PENDING
@@ -57,12 +57,12 @@ Implement inventory, conformance execution, drift detection, upgrade proposals, 
 ## AMA-10 — Reference agent fixture
 **Status:** PLANNED
 
-Build a minimal non-Household reference agent to prove the architecture without importing Household-specific semantics.
+Build and evaluate a synthetic, non-production reference fixture to prove generic contracts without importing any domain semantics.
 
-## AMA-11 — Household migration
+## AMA-11 — Generic adoption interface
 **Status:** DEFERRED UNTIL AMA RUNTIME AND AUTHORITY GATES PASS
 
-Rebuild Household on AMA. Preserve Director as external authority; model Janitor, Handyman and Verifier as workflows (not agents or roles), and preserve Household-specific J0/J1/J2 semantics as an extension.
+Deliver an instance-registration and extension interface allowing independently governed agents to implement the universal contract. No domain-specific agent, workflow, naming convention or repair classification is defined by this workstream.
 
 ## October 2026 research baseline
 
