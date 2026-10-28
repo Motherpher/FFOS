@@ -12,7 +12,7 @@ Human Director → CDX → FFC → FFOS
                              └─ Pius → HCC (linked to CDX) + Piusites (built on AMA)
 ```
 
-See [AMA authority topology](AMA-AUTHORITY-TOPOLOGY.md). Current repository surface layout and Pius RESERVED status below describe the implementation baseline, not an alternate target hierarchy.
+See [FFOS estate authority topology](FFOS-ESTATE-AUTHORITY-TOPOLOGY.md). Current repository surface layout and Pius RESERVED status below describe the implementation baseline, not an alternate target hierarchy.
 
 ## Top-level operating model
 
@@ -62,7 +62,7 @@ FFOS owns the Agent Master Architecture (AMA) for first-class FFOS agents.
 
 AMA defines shared agent mechanics: identity, mandate, lifecycle, authority context, effect ceilings, workflows, commands, capabilities, state, evidence, evaluation, deployment compatibility, version inheritance and Agent Mechanic stewardship.
 
-AMA does **not** implement the Pius runtime. It preserves the existing Pius reserved boundary while incorporating compatible governing principles for bounded artificial agency. Conductellence is an independent external governance and policy source for applicable consequential non-human execution, while FFOS owns its local enforcement points. Human mandate/Director decision, Pius/HCC constitutional doctrine, CDX policy, AMA agent contracts and execution are different authority planes, not a linear delegation chain. See [AMA authority topology](AMA-AUTHORITY-TOPOLOGY.md).
+AMA does **not** implement the Pius runtime. It preserves the existing Pius reserved boundary while incorporating compatible governing principles for bounded artificial agency. Conductellence is an independent external governance and policy source for applicable consequential non-human execution, while FFOS owns its local enforcement points. Human mandate/Director decision, Pius/HCC constitutional doctrine, CDX policy, AMA agent contracts and execution are different authority planes, not a linear delegation chain. See [AMA authority topology](FFOS-ESTATE-AUTHORITY-TOPOLOGY.md).
 
 New FFOS agents should be built against AMA. Existing agent families may be migrated only through explicit compatibility and conformance work.
 
