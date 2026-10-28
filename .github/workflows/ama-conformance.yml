@@ -3,6 +3,8 @@ on:
   pull_request:
     paths:
       - "packages/agent-model/**"
+      - "packages/agent-runtime/**"
+      - "packages/registry/migrations/**"
       - "docs/specifications/AMA-CONFORMANCE.md"
       - ".github/workflows/ama-conformance.yml"
   push:
@@ -15,6 +17,22 @@ permissions:
 jobs:
   static-conformance:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: ffos_ama
+          POSTGRES_PASSWORD: ffos_ama_ci
+          POSTGRES_DB: ffos_ama_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U ffos_ama -d ffos_ama_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      AMA_TEST_DATABASE_URL: postgres://ffos_ama:ffos_ama_ci@localhost:5432/ffos_ama_test
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
@@ -30,6 +48,10 @@ jobs:
           node-version: "22"
       - name: Typed AMA execution-context guard tests
         run: node --experimental-strip-types --test packages/agent-model/src/index.test.mjs
+      - name: Install pinned PostgreSQL client
+        run: npm install --no-save --prefix packages/agent-runtime pg@8.23.1 --ignore-scripts --no-audit --no-fund
+      - name: Agent Stable guards and real PostgreSQL integration
+        run: node --experimental-strip-types --test packages/agent-runtime/tests/*.test.mjs
       - name: Positive contract fixture
         run: |
           python packages/agent-model/conformance/ama_conformance.py \
