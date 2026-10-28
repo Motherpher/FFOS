@@ -17,7 +17,7 @@ AMA exists so agents are not independently improvised products. Every agent inhe
 
 AMA is deliberately not a universal agent that performs all work. It is the architecture from which individual agents are instantiated.
 
-**Director-defined target hierarchy:** Human Director → CDX → FFC → FFOS → Stable { AMA, Agent Mechanic }; FFOS → Pius { HCC ↔ CDX, Piusites built on AMA }. **Authority topology:** [AMA-AUTHORITY-TOPOLOGY.md](AMA-AUTHORITY-TOPOLOGY.md) is the normative FFOS AMA cross-system reconciliation.
+**Director-defined target hierarchy:** Human Director → CDX → FFC → FFOS → Agent Stable { AMA, Agent Mechanic, registered FFOS agents }; FFOS → Pius { HCC ↔ CDX, Piusites built on AMA }. **Authority topology:** [AMA-AUTHORITY-TOPOLOGY.md](AMA-AUTHORITY-TOPOLOGY.md) is the normative FFOS AMA cross-system reconciliation.
 
 The former linear `Pius → CDX → AMA → Agent` diagram is **withdrawn**. Human sovereignty, independent Pius/HCC moral oversight, versioned Pius doctrine, independent CDX governance, FFOS Director authority, AMA contracts, Agent Mechanic stewardship and agent execution are **distinct planes**, not a sequence of delegated sovereignty.
 
