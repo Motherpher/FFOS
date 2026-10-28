@@ -51,7 +51,7 @@ Only **Cashin**, the F&F revenue / Proposal & Assignment agent, is currently dev
 
 [Agent Master Architecture (AMA)](https://github.com/Motherpher/form-flode/pull/34) is FFC Agent Stable's proposed shared engineering contract. [Agent Mechanic](docs/specifications/ama-agent-mechanic-cdx-architecture-v0.1.md) will consume actual FFOS deployment, execution, policy, quality and incident evidence. This is not yet a running monitoring service.
 
-**CDX** is the mandatory external governance authority. FFOS's existing `.cdx/anchor.json` reports `CDX_CI_MONITORED`, but runtime remains pending; FFC's new anchor is staged as `ANCHOR_DECLARED / NOT_VERIFIED`. CDX is pre-release/BOOTSTRAP. No statement of complete CDX enforcement is warranted without a tested local policy adapter, estate reconciliation and actual evidence. Optional methodologies such as UDL remain independent source-owned integrations, not CDX or AI-agent identities.
+**CDX** is the mandatory external governance authority. FFOS's existing `.cdx/anchor.json` reports `CDX_CI_MONITORED`, but runtime remains pending; FFC's new anchor is staged as `ANCHOR_DECLARED / NOT_VERIFIED`. CDX is pre-release/BOOTSTRAP. CDX draft PR #16 reconciles estate-level repository status with runtime status; these are distinct, not inherently contradictory. No statement of complete CDX enforcement is warranted without a tested local policy adapter, estate reconciliation and actual evidence. Optional methodologies such as UDL remain independent source-owned integrations, not CDX or AI-agent identities.
 
 ## Status
 
