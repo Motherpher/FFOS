@@ -54,4 +54,4 @@ docs/roadmap/           Work packages and implementation sequence
 
 ## Status
 
-Repository initialized. Core control-plane contracts exist. AMA static conformance checks and CI tests are implemented on the AMA feature branch. Agent Stable registry SQL is staged but not deployed. No claim is made that durable agent runtime, CDX runtime enforcement, HCC–CDX integration or a production first-class agent is complete until executable bindings, human approvals and live-evidence gates pass.
+Repository initialized. Core control-plane contracts exist. AMA static conformance checks and CI tests are implemented on the AMA feature branch. Agent Stable registry and local effect gate are implemented on the feature branch and verified with disposable PostgreSQL integration tests, but neither is deployed or bound to production authorization/CDX policy services. No claim is made that durable agent runtime, CDX runtime enforcement, HCC–CDX integration or a production first-class agent is complete until executable bindings, human approvals and live-evidence gates pass.
