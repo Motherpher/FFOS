@@ -158,10 +158,19 @@ export function assertExecutionContext(
     throw new Error("Explicit authority_ref is required.");
   }
 
-  if (manifest.authority.mandateRefRequired && !context.mandateRef) {
+  if ((manifest.authority.mandateRefRequired ||\n      requiresExplicitAuthority(context.requestedEffect)) && !context.mandateRef) {
     throw new Error("Explicit mandate_ref is required.");
   }
 
+  if (!context.principalRef?.trim() || !context.runId?.trim()) {
+    throw new Error("Principal and run IDs are required.");
+  }
+
+  if (!manifest.workflows.includes(context.workflowId)) {
+    throw new Error("Workflow is not registered to this agent.");
+  }
+
+  // This structural check is NOT CDX policy evaluation or effect authorization.
   if (manifest.lifecycleState !== "ACTIVE") {
     throw new Error(
       `Agent is not ACTIVE (state=${manifest.lifecycleState}).`,
@@ -194,4 +203,40 @@ export interface AMAWorkflowDefinition {
   terminalStates: string[];
   rollbackPolicy?: string;
   status: "DRAFT" | "VALIDATED" | "ACTIVE" | "SUSPENDED" | "DEPRECATED";
+}
+
+/** Agent Stable bindings, distinct from agent manifest and runtime authority. */
+export interface AMACapabilityDefinition {
+  capabilityId: string;
+  agentId: string;
+  effectClass: EffectClass;
+  status: "DRAFT" | "VALIDATED" | "ACTIVE" | "SUSPENDED" | "DEPRECATED";
+  moduleId?: string;
+}
+
+export interface AMABindingRegistry {
+  schema: "ffos.ama.bindings/v1";
+  workflows: AMAWorkflowDefinition[];
+  commands: AMACommandDefinition[];
+  capabilities: AMACapabilityDefinition[];
+}
+
+export interface AMAConformanceFinding {
+  gate: "C1" | "C2" | "C3" | "C6";
+  code: string;
+  path: string;
+  message: string;
+  severity: "ERROR";
+}
+
+export interface AMAStaticConformanceReport {
+  contract: "ffos.ama.conformance-report/v1";
+  status: "FAIL" | "STATIC_PASS";
+  assurance: "STATIC_CONTRACT_ONLY";
+  agent_id: string | null;
+  agent_version: string | null;
+  ama_version: string | null;
+  checked_gates: Array<"C1" | "C2" | "C3" | "C6">;
+  not_proven: string[];
+  findings: AMAConformanceFinding[];
 }
