@@ -1,0 +1,32 @@
+# JSON is also valid YAML. Disabled OBSERVE example; installation_id is a placeholder.
+{
+  "project_id": "ff-spatial-observe",
+  "repo_full_name": "Motherpher/FF-Spatial",
+  "enabled": false,
+  "policy_ref": "DIRECTOR_CURRENT_POLICY_REQUIRED",
+  "allowed_paths": [
+    "README.md",
+    "docs/ROADMAP.md",
+    "docs/TARGET_ARCHITECTURE_V1.md",
+    "ops/workpackages/SOURCING_WP_REGISTER.json"
+  ],
+  "allowed_actions": [
+    "read"
+  ],
+  "protected_branches": [
+    "main"
+  ],
+  "max_concurrent_runs": 1,
+  "max_repair_attempts": 0,
+  "cost_ceiling": 0,
+  "allowed_ci_workflows": [],
+  "environment": "production",
+  "owner_ref": "Director-of-Pius",
+  "permission": "OBSERVE",
+  "updated_at": "2026-10-28T00:00:00Z",
+  "installation_id": 1,
+  "max_changed_files": 1,
+  "max_patch_bytes": 4096,
+  "require_ci": false,
+  "ci_cost_policy": "UNCONFIRMED"
+}

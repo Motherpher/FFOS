@@ -1,0 +1,27 @@
+# HARP source audit and lineage
+
+This build used original authenticated repository files and supplied documents before implementing policy. `source_lineage.json` records 50 pinned repository reads with exact repository/path, commit and Git blob identifiers, plus SHA-256 digests for materialized canonical Household files and supplied inputs. Current-source claims and implementation evidence remain separate.
+
+## Source hierarchy and review
+
+1. **Canonical Household/Director:** `Motherpher/form-flode` at `1a5962b42a6f033bc932ab084a8808607cdf6266`. Full Household subtree, Director manifest and applicable executive/closeout orders were read. September Household README history confirmed its original introduction and subsequent surveillance update. The manifest contains 91 WPs and explicitly exhausted Phase III/V authority; it is not a new authorization for this build (Motherpher, 2026a).
+2. **Current FFOS:** `Motherpher/FFOS` at `3a93eb3d7a5195232acc850c7d301bf901014306`. Architecture, authority, object/dispatch model, registry schema and CDX anchor were read. Pius remains reserved; domain repositories retain ownership. Existing Phase-0 login is not reused as MCP OAuth or protocol override authority (Motherpher, 2026b).
+3. **Pius governance:** supplied _Pius System Codex 5.0_, Part 5, Part 7, Appendix M and Appendix O. Repository lineage at `Hybrismannen/pius-codex-5` commit `021101b7649f104ec73a4cdbdda21c83c75c0ab8` corroborates HCC/Ex-Inerta/HARP and explicitly separates historical claims from actual runtime evidence. Individual authorship/publication date of the supplied file were not independently established; no author/date is invented (Pius, n.d.; Hybrismannen, 2026a).
+4. **Pinned CDX:** FFOS anchor pins `Hybrismannen/Conductellence-` commit `7edbc47899af23b415114628469aca2970779ea1`. `CDX-RUNTIME-001` and the distributed reference evaluator were read. Reference distribution/CI binding is distinct from verified application runtime enforcement. This module requires a real applicable external policy decision; it does not copy or redefine CDX controls (Hybrismannen, 2026b).
+5. **FF-Spatial:** read-only at `3b91cf106995c678589d134ab70bc7fb5bbab5c4`; roadmap, target architecture and 40-WP sourcing register read. All register entries are PLANNED, and its current priority vocabulary differs from the handoff's P1–P5 assertion. No mapping or authority was guessed (Motherpher, 2026c).
+6. **Handoff/PIVE:** the supplied HF handoff is proposed implementation detail. PIVE approval/source/evidence rules inform implementation honesty only; PIVE is not the execution engine.
+7. **Technical contracts:** current official OpenAI MCP/auth/plugin packaging and GitHub App/webhook documentation were opened, not merely cited from search snippets. The supported `@modelcontextprotocol/sdk` 1.x maintenance line is intentionally pinned to the registry-resolved `1.32.2`; no claim is made that it is the v2 SDK. It was compiled and exercised with the installed client/server. Dependency versions/integrities are locked; official Actions refs were resolved before pinning (OpenAI, 2026a; 2026b; GitHub, 2026).
+
+HARP checks covered publisher/provenance, full applicable content, version/date, applicability, conflicts and readable attribution. Primary repository ownership was authenticated through the connection; that is not independent attestation of every human author. Technical docs are public primary sources; private repository links require the owner's access. AMA remains unresolved because neither the full applicable source reads nor the available code search positively identified it. Unindexed search coverage is explicitly recorded.
+
+## References
+
+- Motherpher (2026a) _FFOS Household Family and Director_. Available at: https://github.com/Motherpher/form-flode/tree/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos (Accessed: 28 October 2026).
+- Motherpher (2026b) _FFOS architecture and authority_. Available at: https://github.com/Motherpher/FFOS/tree/3a93eb3d7a5195232acc850c7d301bf901014306/docs (Accessed: 28 October 2026).
+- Motherpher (2026c) _FF-Spatial sourcing WP register_. Available at: https://github.com/Motherpher/FF-Spatial/blob/3b91cf106995c678589d134ab70bc7fb5bbab5c4/ops/workpackages/SOURCING_WP_REGISTER.json (Accessed: 28 October 2026).
+- Pius (n.d.) _Pius System Codex 5.0_. User-supplied PDF, exact byte digest in `source_lineage.json` (Accessed: 28 October 2026).
+- Hybrismannen (2026a) _Pius Codex 5 source lineage_. Available at: https://github.com/Hybrismannen/pius-codex-5/tree/021101b7649f104ec73a4cdbdda21c83c75c0ab8 (Accessed: 28 October 2026).
+- Hybrismannen (2026b) _CDX Runtime Integration Contract_. Available at: https://github.com/Hybrismannen/Conductellence-/blob/7edbc47899af23b415114628469aca2970779ea1/RUNTIME-INTEGRATION/README.md (Accessed: 28 October 2026).
+- OpenAI (2026a) _Build an MCP server_. Available at: https://developers.openai.com/plugins/build/mcp-server (Accessed: 28 October 2026).
+- OpenAI (2026b) _Authentication and plugin packaging_. Available at: https://developers.openai.com/plugins/build/auth and https://developers.openai.com/plugins/build/plugins (Accessed: 28 October 2026).
+- GitHub (2026) _Authenticating as a GitHub App installation_. Available at: https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation (Accessed: 28 October 2026).

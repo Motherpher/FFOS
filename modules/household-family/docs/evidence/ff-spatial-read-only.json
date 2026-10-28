@@ -1,0 +1,15 @@
+{
+  "status": "READ_ONLY_SOURCE_INSPECTION_VERIFIED",
+  "repository": "Motherpher/FF-Spatial",
+  "commit": "3b91cf106995c678589d134ab70bc7fb5bbab5c4",
+  "source": "https://github.com/Motherpher/FF-Spatial/blob/3b91cf106995c678589d134ab70bc7fb5bbab5c4/ops/workpackages/SOURCING_WP_REGISTER.json",
+  "work_package_count": 40,
+  "ids": "SRC-WP00 through SRC-WP39",
+  "source_states": {
+    "PLANNED": 40
+  },
+  "P1_P5_mapping": "NOT_VERIFIED",
+  "execution_authority": "NONE_INFERRED",
+  "repository_mutation": false,
+  "next_gate": "Director identifies exact current safe pilot contract and accepts any necessary identity, privacy, cost and security scope"
+}

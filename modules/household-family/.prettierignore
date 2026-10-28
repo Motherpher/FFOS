@@ -1,0 +1,7 @@
+node_modules
+dist
+package-lock.json
+config/schemas
+config/project.schema.json
+docs/evidence
+docs/source_lineage.json
