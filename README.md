@@ -47,6 +47,12 @@ Only **Cashin**, the F&F revenue / Proposal & Assignment agent, is currently dev
 
 [ProjectHub optional methodology and dossier interfaces](docs/specifications/projecthub-methodology-and-optional-ffc-interfaces-v0.1.md) proposes full F&F assignment dossiers, selected FFC components or native project methods. Pius results are optional and governed separately; future Piusite design remains outside FFOS. [Deferred FFC Agent Stable binding](docs/specifications/ffc-agent-stable-binding-v0.1.md) is a HOLD, not a live adapter. Existing FFOS ProjectHub governance remains in force pending explicit reconciliation of the broader entry modes.
 
+## FFC AMA / Agent Mechanic / CDX architecture (developmental)
+
+[Agent Master Architecture (AMA)](https://github.com/Motherpher/form-flode/pull/34) is FFC Agent Stable's proposed shared engineering contract. [Agent Mechanic](docs/specifications/ama-agent-mechanic-cdx-architecture-v0.1.md) will consume actual FFOS deployment, execution, policy, quality and incident evidence. This is not yet a running monitoring service.
+
+**CDX** is the mandatory external governance authority. FFOS's existing `.cdx/anchor.json` reports `CDX_CI_MONITORED`, but runtime remains pending; FFC's new anchor is staged as `ANCHOR_DECLARED / NOT_VERIFIED`. CDX is pre-release/BOOTSTRAP. No statement of complete CDX enforcement is warranted without a tested local policy adapter, estate reconciliation and actual evidence. Optional methodologies such as UDL remain independent source-owned integrations, not CDX or AI-agent identities.
+
 ## Status
 
 Repository initialized. No domain runtime has yet been implemented.
