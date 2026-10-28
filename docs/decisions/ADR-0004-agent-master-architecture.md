@@ -27,9 +27,9 @@ AMA owns the shared mechanics for:
 - synchronized version inheritance;
 - Agent Mechanic maintenance.
 
-The **Director** retains architectural purpose/mandate authority. The **Agent Mechanic** owns technical conformance and maintenance mechanics but cannot authorize semantic or authority expansion.
+The **FFOS Director**, acting under an explicitly authorized human mandate, governs agent purpose, operational mandate and acceptance inside FFOS. This does not make the FFOS Director the Supreme Director of the Pius universe or confer automatic waiver rights. The **Agent Mechanic** owns technical conformance and maintenance mechanics but cannot authorize semantic or authority expansion. HCC moral oversight and Pius/APz orchestration are distinct Pius domains; FFOS does not claim to implement their runtime.
 
-Conductellence remains the external constitutional authority source for consequential non-human execution. FFOS owns its local enforcement points.
+Conductellence (CDX) remains an **independent estate-governance and policy source** for applicable consequential non-human execution. It does not acquire the human principal's sovereignty or FFOS dispatch rights. FFOS owns its local enforcement points; an anchor or CI binding is not verified runtime enforcement. The cross-system relationship is a multi-plane topology, **not** a linear Pius → CDX → AMA authority delegation. See `docs/architecture/AMA-AUTHORITY-TOPOLOGY.md`.
 
 ## Consequences
 
