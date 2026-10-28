@@ -2,7 +2,7 @@
 
 **State:** IMPLEMENTED ON FEATURE BRANCH; NOT DEPLOYED.
 
-Agent Stable is an FFOS subsystem, not an agent. It contains AMA, Agent Mechanic (audit) and the FFOS agent registry/fleet. Household Janitor, Handyman and Verifier remain workflows.
+Agent Stable is an FFOS subsystem, not an agent. It contains AMA, Agent Mechanic (audit) and the FFOS agent registry/fleet. Individual agents and their workflows are governed by separate implementation manifests, never by hardcoded examples in the master architecture.
 
 ## AMA-07: Registry and lifecycle
 
