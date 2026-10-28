@@ -8,7 +8,7 @@
 4. Configure current signed Director and CDX endpoints as described in `director_contract.md`. Use distinct real production signing identities. Copy the verified FFOS CDX anchor without changing its pin; reconcile any subsequent change explicitly.
 5. Provision PostgreSQL and a durable supervised host. Keep private keys/tokens in the host secret manager or protected read-only files; never paste them into a chat or Git commit.
 
-The build inspected the existing Vercel FFOS project without decrypting secrets. It currently contains the Phase-0 Director login/session variables, not the new MCP/OAuth/GitHub App/Director/CDX configuration. No existing deployment, permissions or credentials were modified.
+The build inspected the existing Vercel FFOS project without decrypting secrets. It currently contains the Phase-0 Director login/session variables, not the new MCP/OAuth/GitHub App/Director/CDX configuration. No existing deployment, permissions or credentials were modified. The candidate commit received a failing Vercel check linking to account-deployment-blocked guidance; no matching deployment record was returned. The precise account reason remains unverified.
 
 ## Deploy the supplied processes
 

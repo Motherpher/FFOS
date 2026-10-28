@@ -1,6 +1,199 @@
 {
-  "status": "PENDING_ACTUAL_REPOSITORY_COMMIT_AND_CI",
-  "deployed": false,
+  "status": "SOURCE_COMMITTED_AND_GITHUB_CI_VERIFIED",
+  "repository": "Motherpher/FFOS",
+  "branch": "hf/household-family-2.0",
+  "base_commit": "3a93eb3d7a5195232acc850c7d301bf901014306",
+  "tested_code_commit": "a327c6978d31a72a6d6cb0bc514ef755dbc83bc2",
+  "tree": "1b23d831a08f649acedafbaf4337c7482e305013",
+  "commit_url": "https://github.com/Motherpher/FFOS/commit/a327c6978d31a72a6d6cb0bc514ef755dbc83bc2",
+  "pull_request": {
+    "number": 20,
+    "url": "https://github.com/Motherpher/FFOS/pull/20",
+    "draft": true,
+    "merged": false
+  },
+  "committed_file_readback": {
+    "count": 77,
+    "mismatches": [],
+    "truncated": false
+  },
+  "workflow_runs": [
+    {
+      "id": 40786265335,
+      "name": "Household Family Security",
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "a327c6978d31a72a6d6cb0bc514ef755dbc83bc2",
+      "url": "https://github.com/Motherpher/FFOS/actions/runs/40786265335",
+      "created_at": "2026-10-28T23:17:10Z",
+      "updated_at": "2026-10-28T23:17:31Z"
+    },
+    {
+      "id": 40786265378,
+      "name": "Household Family CI",
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "a327c6978d31a72a6d6cb0bc514ef755dbc83bc2",
+      "url": "https://github.com/Motherpher/FFOS/actions/runs/40786265378",
+      "created_at": "2026-10-28T23:17:10Z",
+      "updated_at": "2026-10-28T23:18:10Z"
+    },
+    {
+      "id": 40786217430,
+      "name": "Household Family Security",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "a327c6978d31a72a6d6cb0bc514ef755dbc83bc2",
+      "url": "https://github.com/Motherpher/FFOS/actions/runs/40786217430",
+      "created_at": "2026-10-28T23:16:46Z",
+      "updated_at": "2026-10-28T23:17:02Z"
+    },
+    {
+      "id": 40786217468,
+      "name": "Household Family CI",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "a327c6978d31a72a6d6cb0bc514ef755dbc83bc2",
+      "url": "https://github.com/Motherpher/FFOS/actions/runs/40786217468",
+      "created_at": "2026-10-28T23:16:46Z",
+      "updated_at": "2026-10-28T23:17:30Z"
+    }
+  ],
+  "postgres_job": [
+    {
+      "id": 123159945334,
+      "name": "contracts-and-postgres",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Initialize containers",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm ci --ignore-scripts --no-audit --no-fund",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm run build",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm test -- --reporter=default --reporter=json --outputFile=test-results/vitest.json",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm run demo",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm run schemas",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Generated contracts are current",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Stop containers",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "test_artifact": {
+    "id": 12858538050,
+    "name": "household-family-test-evidence",
+    "sha256": "sha256:f99d52760eb6ce4ed00ac9c6aa9e0c9f2ea796b0e1bd6e8ec0830fba111b2175",
+    "downloaded_zip_digest_verified": true,
+    "retained_report": "vitest-ci.json",
+    "tests": {
+      "total": 46,
+      "passed": 46,
+      "failed": 0,
+      "skipped": 0
+    },
+    "postgres_assertion": "passed",
+    "fixture_demo": {
+      "dependent_wps": 2,
+      "repair_attempts": 1,
+      "audit_events": 78,
+      "audit_chain_valid": true
+    }
+  },
+  "security_artifact": {
+    "id": 12858709003,
+    "name": "household-family-security-evidence",
+    "sha256": "sha256:c5d02033148c1ecd6e817e2b0a25ca1d91c68dbfc02d19fb2fbdbb922317684c",
+    "downloaded_zip_digest_verified": true,
+    "retained_report": "npm-audit-ci.json",
+    "known_vulnerabilities": 0
+  },
+  "vercel_preview_check": {
+    "state": "failure",
+    "guidance_url": "https://vercel.com/knowledge/why-is-my-account-deployment-blocked",
+    "matching_deployment_records_returned": 0,
+    "exact_account_reason": "NOT_VERIFIED"
+  },
+  "actual_ffos_default_branch_protected": false,
+  "household_backend_deployed": false,
   "chatgpt_plugin_registered": false,
-  "genuine_director_acceptance": false
+  "genuine_director_acceptance": false,
+  "live_cdx_binding": false,
+  "source_writes": "New isolated candidate branch only; no merge or protected/main write; report/evidence follow-up commit contains no runtime changes.",
+  "remaining_human_gates": [
+    "Durable host/PostgreSQL and approved cost/privacy envelope",
+    "OAuth/GitHub App enrollment and default-branch protection",
+    "Current genuine Director mandate/HCC reference and CDX enforcement service",
+    "ChatGPT account/workspace connection consent and live reconnect test",
+    "Exact FF-Spatial pilot dispatch and P1-P5 mapping",
+    "License and canonical release/merge/tag decision"
+  ]
 }

@@ -32,7 +32,7 @@ All rows below are deterministic fixture/contract test results. A local or CI fi
 
 Additional tests cover canonical manifest import, CDX allow/deny/unavailable, signature tamper, missing dispatch, scope hash drift, cyclic DAG, trusted-workflow drift, recipe precondition mismatch, subject revocation, actor/idempotency conflict, lease theft prevention, wrong decision binding, decision replay, host/origin/auth/webhook boundaries, expired token/issuer/audience, incremental OAuth scope challenge, stale cancellation recovery and dead letters.
 
-PostgreSQL transaction locks, cross-connection idempotency, restart visibility and immutable audit are tested when `HF_TEST_DATABASE_URL` is set. The local run skips that one test; the real GitHub CI result is recorded separately.
+PostgreSQL transaction locks, cross-connection idempotency, restart visibility and immutable audit are tested when `HF_TEST_DATABASE_URL` is set. The local run skips that one test. Actual GitHub CI passed it: 46 total tests passed, 0 failed and 0 skipped. The downloaded artifact digest was verified; see `evidence/vitest-ci.json` and `evidence/github-integration.json`.
 
 ## References
 
