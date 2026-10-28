@@ -35,14 +35,14 @@ Define technical stewardship, compatibility, maintenance, incident and upgrade r
 Replace the oversimplified Pius → CDX → AMA chain with distinct human, HCC/Pius, CDX, FFOS Director, AMA contract, Mechanic and execution planes. Record evidence boundaries and preserve Pius RESERVED status. See `docs/architecture/AMA-AUTHORITY-TOPOLOGY.md`. No claim of exhaustive chat/repository history or verified runtime binding.
 
 ## AMA-06 — Conformance harness
-**Status:** NEXT
+**Status:** STATIC CONTRACT GATE IMPLEMENTED + GITHUB ACTIONS PASS; RUNTIME GATES PENDING
 
-Implement executable manifest/schema validation, workflow/capability resolution checks, effect-ceiling checks, authority-denial fixtures and upgrade compatibility reports.
+Implemented and CI-tested Draft 2020-12 manifest validation, workflow/capability and command-version resolution, effect-ceiling checks, authority-reference policy, inactive-module checks, immutable version policy, change review, structured `STATIC_PASS`/`FAIL` reports, positive fixture and negative test cases. GitHub Actions `AMA conformance` succeeded on PR #19 (2026-10-29). This does **not** evaluate C4 runtime effects or C5 live evidence; it cannot activate or accept an agent. See `packages/agent-model/conformance/`.
 
 ## AMA-07 — Persistent Agent Registry
-**Status:** PLANNED
+**Status:** DATABASE MIGRATION STAGED; NOT APPLIED/CONNECTED
 
-Extend FFOS registry persistence for agent definitions, versions, workflow/command/capability bindings, deployment state, health and migration history.
+A PostgreSQL append-only schema migration for agent definitions, versioned bindings, conformance reports and Director lifecycle decision events exists at `packages/registry/migrations/0002_agent_stable.sql`. It has not been applied to a live database; authentication, transactional continuity, query APIs, reconciliation and test coverage remain pending.
 
 ## AMA-08 — Runtime enforcement
 **Status:** PLANNED
@@ -60,6 +60,10 @@ Implement inventory, conformance execution, drift detection, upgrade proposals, 
 Build a minimal non-Household reference agent to prove the architecture without importing Household-specific semantics.
 
 ## AMA-11 — Household migration
-**Status:** DEFERRED UNTIL AMA FOUNDATION PASSES
+**Status:** DEFERRED UNTIL AMA RUNTIME AND AUTHORITY GATES PASS
 
 Rebuild Household on AMA. Preserve Director as external authority; model Janitor, Handyman and Verifier as workflows (not agents or roles), and preserve Household-specific J0/J1/J2 semantics as an extension.
+
+## October 2026 research baseline
+
+External standards and adoption boundaries are documented in `docs/research/AMA-2026-ENGINEERING-BASELINE.md`. MCP adapter, OpenTelemetry instrumentation, A2A interoperability, OWASP runtime controls, durable orchestration and NIST identity guidance are design inputs and future integration contracts — not deployed FFOS capabilities.
