@@ -13,7 +13,7 @@
 3. **Agent fleet:** a deliberately small population of registered first-class FFOS agents with named operational purpose, deployment versions and state.
 4. **Shared workflows/commands/capabilities:** typed versioned bindings used by the fleet. These are not promoted to agent identities merely because they are named.
 
-Pius is a sibling FFOS subsystem in the Director target hierarchy. Piusites depend on AMA's construction contract but retain Pius-specific HCC/Codex constraints. HCC is linked to CDX through an interface yet to be specified; Pius runtime remains RESERVED under the current FFOS baseline.
+System-specific integration and governance links are defined in the separate FFOS estate architecture, not in the AMA master template.
 
 ## Classification rule
 
@@ -46,7 +46,7 @@ Static validation must never mutate the agent's acceptance or operational lifecy
 - `packages/agent-runtime/src/stable-registry.ts`: candidate and lifecycle transaction port.
 - `packages/agent-runtime/src/effect-gate.ts`: local CDX-authorized effect boundary, currently fail-closed without verified adapters.
 - `packages/agent-runtime/src/cdx-anchor.ts` and `pg-evidence.ts`: anchor verification and audit records.
-- `docs/architecture/AMA-AUTHORITY-TOPOLOGY.md`: Director-defined cross-system positioning.
+- `docs/architecture/FFOS-ESTATE-AUTHORITY-TOPOLOGY.md`: Director-defined cross-system positioning.
 - `docs/specifications/AGENT-MECHANIC.md`: permitted mechanics and prohibited authority changes.
 
 ## Acceptance and implementation visibility
