@@ -30,6 +30,9 @@ An optional `FullAssignmentDossier` carries version, project/assignment purpose,
 ## Economic isolation
 A project does not inherit F&F consulting rate, F&F owner's employment salary, Barnombudet payroll parameters or Pius instructions. If the project actually commissions an F&F service, the fee may be sourced from FFC `08-business/ff-commercial-baseline-2026-2027.json` (SEK 1,200/hour ex VAT, plus applicable VAT). The owner's 2026–2027 employment salary expectation (SEK 55,000 gross/month) is separate. Third-party project costs require that project/owner's actual sources.
 
+## CDX/ProjectHub estate boundary
+All ProjectHub code and operations inside the FFOS repository fall under FFOS's repository-level `.cdx/anchor.json`. A ProjectHub project **record** does not automatically require an independent repository anchor; a separately deployed service/owned repository is separately governed. The FFOS [effect inventory](../../integrations/cdx/projecthub-effect-inventory-v0.1.json) identifies A3/A4/A5 gates. No consequential CDX runtime enforcement is verified yet. HCC is an admitted CDX interpretive source and does not bypass human authority.
+
 ## ProjectHub runtime gates
 Existing project-owner rights, project state, evidence, capability/permissions, Project Steward A3 gate and separate A4/A5 authorities remain. No generic agent auto-routing. No automatic Pius dispatch. No new agent-installed claim from this proposal.
 
