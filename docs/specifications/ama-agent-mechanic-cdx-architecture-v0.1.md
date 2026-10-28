@@ -68,3 +68,9 @@ No new F&F agent beyond Cashin by this work order. No Carpenter reactivation. No
 - Agent Mechanic status backed by observed events and proper gaps.
 - Cashin isolated to F&F commercial context; ProjectHub independent.
 - Human approval of scope, permissions, costs, deployment and release.
+
+
+## ProjectHub explicit CDX scope (2026-10-28)
+The existing FFOS `.cdx/anchor.json` covers the ProjectHub subsystem at repository level. [ProjectHub effect inventory](../../integrations/cdx/projecthub-effect-inventory-v0.1.json) records its A3/A4/A5 sensitive effects and the missing **application** enforcement adapter. The FFOS [CDX Binding Audit](../../.github/workflows/cdx-binding-audit.yml) checks the ProjectHub scope inventory. Until actual policy decisions and SPETL are implemented/tested, every ProjectHub effect is reported `NOT_BOUND` for CDX runtime enforcement.
+
+HCC was canonically admitted as CDX interpretive doctrine, preserving Pius's own HCC moral governance lineage; see `Hybrismannen/Conductellence-/appendices/APP-A-HCC/README.md`. It supplies consequence-oriented clearance/stop interpretation, not an FFOS permission or new Piusite by itself.
