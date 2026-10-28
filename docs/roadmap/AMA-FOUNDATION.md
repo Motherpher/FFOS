@@ -62,4 +62,4 @@ Build a minimal non-Household reference agent to prove the architecture without 
 ## AMA-11 — Household migration
 **Status:** DEFERRED UNTIL AMA FOUNDATION PASSES
 
-Rebuild Household on AMA. Preserve Director as external authority and preserve Household-specific J0/J1/J2 semantics as an extension.
+Rebuild Household on AMA. Preserve Director as external authority; model Janitor, Handyman and Verifier as workflows (not agents or roles), and preserve Household-specific J0/J1/J2 semantics as an extension.
