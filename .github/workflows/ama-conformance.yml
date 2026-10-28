@@ -25,6 +25,11 @@ jobs:
         run: python -m pip install -r packages/agent-model/conformance/requirements.txt
       - name: Unit tests and negative/adversarial cases
         run: python -m unittest discover -s packages/agent-model/conformance/tests -v
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Typed AMA execution-context guard tests
+        run: node --experimental-strip-types --test packages/agent-model/src/index.test.mjs
       - name: Positive contract fixture
         run: |
           python packages/agent-model/conformance/ama_conformance.py \
