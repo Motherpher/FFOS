@@ -41,9 +41,11 @@ docs/specifications/    Runtime/object specifications
 docs/roadmap/           Work packages and implementation sequence
 ```
 
-## Proposed Cashin / Carpenter agent integration
+## FFC Agent Stable (Cashin only) and autonomous ProjectHub — proposed
 
-A separate developmental specification for the company-wide **F&F Agent Stable** and two initial agents is staged at [`docs/specifications/projecthub-cashin-carpenter-integration-v0.1.md`](docs/specifications/projecthub-cashin-carpenter-integration-v0.1.md). Cashin is the FFC proposal/assignment assistant; Carpenter is the FFOS ProjectHub design/operations assistant. The Stable, not ProjectHub, owns these agents. [Cross-domain Stable binding contract](docs/specifications/ffc-agent-stable-binding-v0.1.md) defines the shared adapter; [ProjectHub integration contract](docs/specifications/projecthub-cashin-carpenter-integration-v0.1.md) defines its first consumer. No runtime binding is claimed, and inherited Barnombudet financial defaults are forbidden. FFC remains the authority for its own agent definitions and consulting grammar.
+Only **Cashin**, the F&F revenue / Proposal & Assignment agent, is currently developed in the [FFC Agent Stable](https://github.com/Motherpher/form-flode/tree/main/18-agent-stable) (draft PR; link resolves to main only after release). The earlier **Carpenter** agent proposal has been archived, not registered as an agent. ProjectHub is a separate **project system** that can operate without any F&F methods or agents.
+
+[ProjectHub optional methodology and dossier interfaces](docs/specifications/projecthub-methodology-and-optional-ffc-interfaces-v0.1.md) proposes full F&F assignment dossiers, selected FFC components or native project methods. Pius results are optional and governed separately; future Piusite design remains outside FFOS. [Deferred FFC Agent Stable binding](docs/specifications/ffc-agent-stable-binding-v0.1.md) is a HOLD, not a live adapter. Existing FFOS ProjectHub governance remains in force pending explicit reconciliation of the broader entry modes.
 
 ## Status
 
