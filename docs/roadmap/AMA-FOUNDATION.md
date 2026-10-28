@@ -24,10 +24,10 @@ Create Agent Manifest schema and shared TypeScript types.
 
 Define stable command-to-versioned-workflow resolution and invariants.
 
-## AMA-05 — Agent Mechanic
+## AMA-05 — Technical stewardship interface
 **Status:** SPECIFICATION IMPLEMENTED ON FEATURE BRANCH
 
-Define technical stewardship, compatibility, maintenance, incident and upgrade responsibilities without architectural sovereignty.
+Specify independent technical stewardship, compatibility, maintenance, incident and upgrade responsibilities without architectural sovereignty.
 
 ## AMA-05A — Authority topology reconciliation
 **Status:** HOST INTEGRATION SEPARATED FROM MASTER CONTRACT; RUNTIME PRECEDENCE UNVERIFIED
@@ -42,17 +42,17 @@ Implemented and CI-tested Draft 2020-12 manifest validation, workflow/capability
 ## AMA-07 — Persistent Agent Registry
 **Status:** POSTGRESQL INTEGRATION TESTED IN CI; NOT DEPLOYED
 
-Append-only migrations 0002/0003 and `packages/agent-runtime/src/stable-registry.ts` implement versioned registry storage, content hashing, transactional lifecycle continuity and Director/conformance/readiness verification ports. Disposable PostgreSQL 17 integration tests exercise candidate admission, registered-versus-active state, Director transitions, competing version denial, suspension and version replacement. No live FFOS database, authenticated Director adapter or operational service has been connected.
+Append-only migrations 0002/0003 and `packages/agent-runtime/src/stable-registry.ts` implement versioned registry storage, content hashing, transactional lifecycle continuity and human-authorization, conformance and readiness verification ports. Disposable PostgreSQL 17 integration tests exercise candidate admission, registered-versus-active state, Director transitions, competing version denial, suspension and version replacement. No live database, authenticated human-approval adapter or operational service has been connected.
 
 ## AMA-08 — Runtime enforcement
-**Status:** LOCAL EFFECT GATE AND NEGATIVE TESTS IMPLEMENTED; LIVE CDX INTEGRATION BLOCKED
+**Status:** LOCAL EFFECT GATE AND NEGATIVE TESTS IMPLEMENTED; HOST POLICY INTEGRATION PENDING
 
-`packages/agent-runtime/src/effect-gate.ts` rejects missing local enforcement, policy mismatch/denial, insufficient mandate, disabled capabilities, expired active version and revocation. `cdx-anchor.ts` additionally refuses the repository's current PENDING CDX runtime state. `pg-evidence.ts` records pre/post effects and restricted decisions in append-only PostgreSQL. Tests use *mock* CDX/Director/admission services; actual verified CDX policy evaluation, SPETL receipt validation, app deployment, stronger TOCTOU effect leases, and complete denial audit remain pending.
+`packages/agent-runtime/src/effect-gate.ts` rejects missing local enforcement, policy mismatch/denial, insufficient mandate, disabled capabilities, expired active version and revocation. The host-specific policy-anchor adapter correctly refuses a pending runtime binding. `pg-evidence.ts` records pre/post effects and restricted decisions in append-only PostgreSQL. Tests use *mock* external policy and approval services; real policy decisions, evidence receipt validation, deployment, stronger effect-lease controls and complete denial audit remain pending.
 
-## AMA-09 — Agent Mechanic runtime
+## AMA-09 — Technical stewardship runtime
 **Status:** NEXT — OPERATIONAL RUNTIME NOT IMPLEMENTED
 
-Implement inventory, conformance execution, drift detection, upgrade proposals, health/incident state and rollback preparation. Mechanic remains non-authorizing and non-accepting.
+Implement inventory, conformance execution, drift detection, upgrade proposals, health/incident state and rollback preparation. The technical steward remains non-authorizing and non-accepting.
 
 ## AMA-10 — Reference agent fixture
 **Status:** PLANNED
