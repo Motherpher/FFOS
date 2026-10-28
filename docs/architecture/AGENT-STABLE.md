@@ -1,7 +1,7 @@
 # Agent Stable — FFOS Agent Infrastructure Contract
 
 **ID:** FFOS-AGENT-STABLE-001  
-**Status:** PARTIALLY IMPLEMENTED (specification + static conformance + schema proposal)  
+**Status:** PARTIALLY IMPLEMENTED (static conformance + CI-tested PostgreSQL registry/effect gate; not deployed)  
 **Director-defined hierarchy:** Human Director → CDX → FFC → FFOS → Agent Stable.
 
 ## Purpose and ownership
@@ -23,7 +23,7 @@ Use a **workflow** when a procedure has bounded inputs, steps, decisions and out
 
 ## Stable lifecycle contract
 
-\`\`\`text
+```text
 Definition + Git provenance
 → AMA-06 static conformance (C1/C2/C3/C6)
 → append-only registry candidate (AMA-07)
@@ -33,18 +33,21 @@ Definition + Git provenance
 → ACTIVE with registered version pin
 → Mechanic audits, alerts, prepares safe upgrades
 → Director-controlled semantic change, suspension or retirement
-\`\`\`
+```
 
 Static validation must never mutate the agent's acceptance or operational lifecycle. A conformance test must not self-register an ACTIVE agent, approve a migration, or create an external effect.
 
 ## Architectural interfaces
 
-- \`packages/agent-model/agent-manifest.schema.json\`: versioned manifest schema.
-- \`packages/agent-model/src/index.ts\`: typed agent/workflow/command/capability definitions and structural execution-context guard.
-- \`packages/agent-model/conformance/ama_conformance.py\`: offline pre-admission contract checks.
-- \`packages/registry/migrations/0002_agent_stable.sql\`: append-only registry schema **not applied**.
-- \`docs/architecture/AMA-AUTHORITY-TOPOLOGY.md\`: Director-defined cross-system positioning.
-- \`docs/specifications/AGENT-MECHANIC.md\`: permitted mechanics and prohibited authority changes.
+- `packages/agent-model/agent-manifest.schema.json`: versioned manifest schema.
+- `packages/agent-model/src/index.ts`: typed agent/workflow/command/capability definitions and structural execution-context guard.
+- `packages/agent-model/conformance/ama_conformance.py`: offline pre-admission contract checks.
+- `packages/registry/migrations/0002_agent_stable.sql` and `0003_agent_stable_hardening.sql`: append-only schema **tested against ephemeral PostgreSQL, not deployed**.
+- `packages/agent-runtime/src/stable-registry.ts`: candidate and lifecycle transaction port.
+- `packages/agent-runtime/src/effect-gate.ts`: local CDX-authorized effect boundary, currently fail-closed without verified adapters.
+- `packages/agent-runtime/src/cdx-anchor.ts` and `pg-evidence.ts`: anchor verification and audit records.
+- `docs/architecture/AMA-AUTHORITY-TOPOLOGY.md`: Director-defined cross-system positioning.
+- `docs/specifications/AGENT-MECHANIC.md`: permitted mechanics and prohibited authority changes.
 
 ## Acceptance and implementation visibility
 
@@ -54,9 +57,9 @@ Static validation must never mutate the agent's acceptance or operational lifecy
 | AMA shared manifests and types | COMMITTED |
 | Agent Mechanic audit mandate | SPECIFIED |
 | Static manifest and binding gate | IMPLEMENTED + CI TESTED |
-| Append-only registry storage contract | MIGRATION STAGED, NOT APPLIED |
-| Authenticated Director lifecycle decisions | NOT IMPLEMENTED IN STABLE |
-| Runtime CDX enforcement | NOT VERIFIED |
+| Append-only registry and lifecycle port | CI-TESTED WITH POSTGRESQL; NOT DEPLOYED |
+| Director decision interface | IMPLEMENTED AS VERIFIER PORT; AUTHENTICATED ADAPTER NOT CONNECTED |
+| Consequential effect gate | IMPLEMENTED AND NEGATIVE-TESTED; LIVE CDX NOT VERIFIED |
 | HCC–CDX integration | NOT IMPLEMENTED |
 | Durable agent worker / MCP endpoint | NOT IMPLEMENTED |
 | Fully deployed FFOS agent fleet | NOT PRESENT |
