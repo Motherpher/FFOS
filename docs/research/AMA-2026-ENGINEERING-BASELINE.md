@@ -2,14 +2,14 @@
 
 **Status:** RESEARCH-INFORMED DESIGN INPUT; HARP FULL REFERENCE AUDIT (RefA / ITR2–ITR6) PENDING; NOT A RUNTIME CERTIFICATION  
 **Owner:** FFOS / Agent Stable  
-**Applies to:** AMA, Agent Mechanic, future FFOS agents, Piusites built on AMA  
+**Applies to:** Universal AMA contract design, evaluation and host-provided infrastructure  
 **Scope:** Engineering patterns and external open standards relevant as at 2026-10-29.
 
 ## Design premise
 
-The governing target hierarchy is **Human Director → CDX → FFC → FFOS**, where FFOS contains **Agent Stable** (AMA, Agent Mechanic and registered FFOS agents) and **Pius** (HCC linked to CDX, Piusites constructed on AMA). This is the Director's target structure. Current FFOS repository Pius runtime remains RESERVED.
+AMA is an agent-agnostic template. Host authority, policy and deployment integrations are separate, versioned contracts and never modify the meaning of its common requirements.
 
-A first-class agent must earn its independent identity, scope, activation and operational accountability. Otherwise use a workflow, command, capability or deterministic service. In Household, **Janitor, Handyman and Verifier are workflows**, not agent entities or internal agent roles.
+A first-class agent requires independent identity, scope, activation and operational accountability. Otherwise use a workflow, command, capability or deterministic service. No domain-specific identity or workflow is part of the reusable template.
 
 ## Evidence-checked external reference set
 
@@ -41,7 +41,7 @@ A first-class agent must earn its independent identity, scope, activation and op
 10. https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-agent-spans.md
 11. https://openai.github.io/openai-agents-python/running_agents/
 
-These URLs are research references, not a warranty that every vendor feature is current in every SDK or installed in FFOS. The source shortlist was checked for relevance, recency and primary-source provenance. It is **not** a completed Pius Appendix O HARP RefA: source-by-source full reading, manual citation verification and the final validation gate remain outstanding before constitutional or public-release claims.
+These URLs are research references, not a warranty that every vendor feature is current in every SDK or installed in FFOS. The source shortlist was checked for relevance, recency and primary-source provenance. It is **not** a completed formal full-source reference audit: source-by-source full reading, manual citation verification and the final validation gate remain outstanding before constitutional or public-release claims.
 
 ## Architectural controls that follow
 
@@ -57,7 +57,7 @@ These URLs are research references, not a warranty that every vendor feature is 
 
 **Lifecycle:** DRAFT → REGISTERED → VALIDATED → DEPLOYABLE → ACTIVE with explicit human gate; SUSPENDED, DEPRECATED, RETIRED as separate states. Shared AMA updates require compatibility inventory, controlled migrations, tests and rollback.
 
-**Pius requirements:** Piusites inherit AMA base contracts but also retain Pius Codex/Ex-Inerta/HCC boundaries. The HCC ↔ CDX relationship requires its own explicit versioned integration; neither policy precedence nor automated HCC routing is inferred.
+**Domain extensions:** Each implementation may impose stricter independently versioned governance, identity, validation and evidence requirements. A domain-specific policy must never be silently imported into the master AMA contract.
 
 ## Build stages
 
@@ -66,7 +66,7 @@ These URLs are research references, not a warranty that every vendor feature is 
 3. **AMA-08 runtime authorization: NOT IMPLEMENTED.** CDX local policy adapter, approval binding, effect mediation, denial tests, SPETL evidence and revocation.
 4. **AMA-09 Agent Mechanic runtime: NOT IMPLEMENTED.** Scheduled inventory/health, controlled upgrades and drift alerts.
 5. **AMA-10 reference execution: NOT IMPLEMENTED.** An executable minimal agent with C4/C5 verified.
-6. **AMA-11 Household migration: DEFERRED.** Household is one AMA agent, Janitor/Handyman/Verifier are workflows.
+6. **AMA-11 domain adoption: DEFERRED.** Each implementation is registered and evaluated separately after the generic runtime and authority gates pass.
 
 ## Verification rule
 
