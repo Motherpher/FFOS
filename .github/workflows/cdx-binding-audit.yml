@@ -81,3 +81,6 @@ jobs:
               'PASS: FFOS CDX anchor -> '
               f'{authority["repository"]} ref={pin.get("ref")} state={doc.get("binding_state")}'
           )
+
+      - name: Validate ProjectHub scope inventory against FFOS anchor
+        run: python3 integrations/cdx/verify_projecthub_scope.py

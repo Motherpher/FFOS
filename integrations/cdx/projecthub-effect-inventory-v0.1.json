@@ -1,0 +1,73 @@
+{
+  "schema": "ffos.cdx.effect-inventory/v0.1",
+  "inventory_id": "FFOS-PROJECTHUB-CDX-SCOPE-001",
+  "recorded_on": "2026-10-28",
+  "owner": "FFOS",
+  "governed_repository": "Motherpher/FFOS",
+  "governed_system": "FFOS",
+  "subsystem": "ProjectHub",
+  "repository_anchor": ".cdx/anchor.json",
+  "authority": "Hybrismannen/Conductellence-",
+  "law_id": "CDX-LAW-001",
+  "repository_anchor_observed": "CDX_CI_MONITORED",
+  "cdx_runtime_integration": "BOUND_PENDING_RUNTIME_INTEGRATION",
+  "enforcement_claim": "NOT_VERIFIED",
+  "status": "DESIGN_INVENTORY_ONLY",
+  "rule": "ProjectHub is within FFOS repository anchor scope, but real consequence mediation is not verified without CDX-RUNTIME-001 allow/deny/policy-unavailable tests and SPETL evidence.",
+  "effects": [
+    {
+      "id": "PH-CDX-R0",
+      "effect": "read/query ProjectHub state",
+      "ffos_class": "A0-A2",
+      "required_protection": "owner/client data access, authority and audit where applicable",
+      "cdx_enforcement": "NOT_BOUND"
+    },
+    {
+      "id": "PH-CDX-P1",
+      "effect": "create draft/proposal/analysis",
+      "ffos_class": "A2",
+      "required_protection": "input trust, provenance, rights, proposal-state separation",
+      "cdx_enforcement": "NOT_BOUND"
+    },
+    {
+      "id": "PH-CDX-W2",
+      "effect": "approved reversible canonical ProjectHub mutation",
+      "ffos_class": "A3",
+      "required_protection": "Project Steward permission, explicit approval, audit, idempotency, CDX policy check before effect and SPETL",
+      "cdx_enforcement": "NOT_BOUND"
+    },
+    {
+      "id": "PH-CDX-E3",
+      "effect": "send/publish/contract/financial/external effect",
+      "ffos_class": "A4",
+      "required_protection": "separate action-specific authority and CDX policy decision; fail closed",
+      "cdx_enforcement": "NOT_BOUND"
+    },
+    {
+      "id": "PH-CDX-M4",
+      "effect": "mission/canonical DNA or policy redesign",
+      "ffos_class": "A5",
+      "required_protection": "human governing authority and change-control, never generic Project Steward mutation",
+      "cdx_enforcement": "NOT_BOUND"
+    },
+    {
+      "id": "PH-CDX-L5",
+      "effect": "external linked-artifact synchronization",
+      "ffos_class": "EXTERNAL_LINK",
+      "required_protection": "local approval/sync policy and relevant external systems' own rights; not automatic canon rewrite",
+      "cdx_enforcement": "NOT_BOUND"
+    }
+  ],
+  "deployment_coverage": "NOT_ASSESSED",
+  "requires_separate_anchor_if": "A ProjectHub component is deployed/owned as an independently governed repository, service or remote runtime outside the FFOS controlled surface.",
+  "actual_local_enforcement_points": [],
+  "next_gates": [
+    "CDX production policy release",
+    "FFOS local policy decision adapter",
+    "SPETL decision evidence",
+    "positive and negative effect tests",
+    "ProjectHub application runtime deployment and source verification"
+  ],
+  "methodology_independence": "CDX governance applies to authorized effects independent of whether ProjectHub uses FULL_FF, CONFIGURED or PROJECT_NATIVE methodology.",
+  "pius_hcc_relation": "HCC is incorporated in CDX as consequence/ethical interpretation, with source provenance in Pius Codex 5.0, not a substitute for CDX or external law."
+}
