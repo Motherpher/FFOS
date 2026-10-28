@@ -1,0 +1,39 @@
+name: AMA conformance
+on:
+  pull_request:
+    paths:
+      - "packages/agent-model/**"
+      - "docs/specifications/AMA-CONFORMANCE.md"
+      - ".github/workflows/ama-conformance.yml"
+  push:
+    branches: [main]
+    paths:
+      - "packages/agent-model/**"
+      - ".github/workflows/ama-conformance.yml"
+permissions:
+  contents: read
+jobs:
+  static-conformance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pinned JSON Schema evaluator
+        run: python -m pip install -r packages/agent-model/conformance/requirements.txt
+      - name: Unit tests and negative/adversarial cases
+        run: python -m unittest discover -s packages/agent-model/conformance/tests -v
+      - name: Positive contract fixture
+        run: |
+          python packages/agent-model/conformance/ama_conformance.py \
+            --manifest packages/agent-model/conformance/fixtures/agent.json \
+            --bindings packages/agent-model/conformance/fixtures/bindings.json \
+            --report "$RUNNER_TEMP/ama-static-report.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ama-static-conformance
+          path: \${{ runner.temp }}/ama-static-report.json
+          if-no-files-found: ignore
