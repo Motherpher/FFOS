@@ -8,7 +8,7 @@ FFOS is the control plane for the wider Form & Flöde environment. It provides c
 
 ```text
 Human Director → CDX → FFC → FFOS
-                             ├─ Stable → AMA + Agent Mechanic
+                             ├─ Agent Stable → AMA + Agent Mechanic + registered FFOS agents
                              └─ Pius → HCC (linked to CDX) + Piusites (built on AMA)
 ```
 
