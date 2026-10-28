@@ -60,7 +60,7 @@ AMA is a cross-cutting execution architecture rather than another node in this b
 
 FFOS owns the Agent Master Architecture (AMA) for first-class FFOS agents.
 
-AMA defines shared agent mechanics: identity, mandate, lifecycle, authority context, effect ceilings, workflows, commands, capabilities, state, evidence, evaluation, deployment compatibility, version inheritance and Agent Mechanic stewardship.
+AMA defines generic agent contracts: identity, mandate, lifecycle, authority interfaces, effect ceilings, workflows, commands, capabilities, state, evidence, evaluation, deployment compatibility, version inheritance and independent stewardship. Agent Stable supplies host-specific operational functions outside the AMA specification.
 
 AMA does **not** implement the Pius runtime. It preserves the existing Pius reserved boundary while incorporating compatible governing principles for bounded artificial agency. Conductellence is an independent external governance and policy source for applicable consequential non-human execution, while FFOS owns its local enforcement points. Human mandate/Director decision, Pius/HCC constitutional doctrine, CDX policy, AMA agent contracts and execution are different authority planes, not a linear delegation chain. See [AMA authority topology](FFOS-ESTATE-AUTHORITY-TOPOLOGY.md).
 
