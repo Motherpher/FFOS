@@ -5,18 +5,21 @@
 **Status:** DESIGN PROPOSAL — NOT IMPLEMENTED / NOT TESTED / NOT DEPLOYED. **Date:** 2026-10-28.
 
 ## Authority
-This repository owns FFOS runtime, permissions, ProjectHub UI/API and integrations, **not the canonical FFC consulting grammar**. The authoritative developmental definitions are on the matching proposed branch in:
-`Motherpher/form-flode/17-ffos/projecthub/agents/`.
+This repository owns FFOS runtime, permissions, ProjectHub UI/API and integrations, **not the canonical FFC consulting grammar**. The authoritative developmental definitions are on the matching proposed FFC branch in **Agent Stable**:
+`Motherpher/form-flode/18-agent-stable/`. ProjectHub is an agent consumer and retains its independent project domain.
+ProjectHub consumer contract: `Motherpher/form-flode/17-ffos/projecthub/agent-selection-and-dispatch-v0.1.md`.
 
-Package references:
-- `README.md`
-- `decision-architecture-v0.1.md`
-- `cashin-v0.1.md`
-- `carpenter-v0.1.md`
-- `shared-estimation-budget-ramx-v0.1.md`
-- `migration-exclusion-register-v0.1.md`
-- `agent-registry-v0.1.json`
-- `acceptance-tests-v0.1.json`
+Source references (FFC Agent Stable):
+- `18-agent-stable/README.md`
+- `18-agent-stable/architecture/stable-and-dispatch-v0.1.md`
+- `18-agent-stable/architecture/dual-agent-operating-model-v0.1.md`
+- `18-agent-stable/agents/cashin/specification-v0.1.md`
+- `18-agent-stable/agents/carpenter/specification-v0.1.md`
+- `18-agent-stable/shared/estimation-budget-ramx-contract-v0.1.md`
+- `18-agent-stable/governance/clean-room-exclusion-v0.1.md`
+- `18-agent-stable/registry/agent-registry-v0.1.json`
+- `18-agent-stable/tests/acceptance-tests-v0.1.json`
+- `17-ffos/projecthub/agent-selection-and-dispatch-v0.1.md`
 
 No independent FFC rule fork or automatic promotion is allowed.
 
@@ -47,6 +50,10 @@ Shared: one FF Project Budget Engine / RAMx contract.
 Sources: FFC grammar, governed project and client data, explicit rate and policy sources.
 Forbidden: Barnombudet calculation inputs, policies and runtime dependency.
 ```
+
+## Agent Stable binding boundary
+
+Agent identity, core prompt/specification, lifecycle and capabilities are sourced **only** from FFC Agent Stable. FFOS provides a general adapter for any authorised consumer rather than a bespoke ProjectHub-owned agent system. ProjectHub resolves agent IDs via the Stable registry; it may add project context, gates and stricter restrictions, but not fork definitions. The FFC registry indicates DEFINITION / NOT_IMPLEMENTED until actual FFOS registration and test evidence exist. Existing Project Steward A3 permissions remain independent.
 
 ## Native runtime roles (candidate)
 | Role | Read | Draft/propose | Commit | External/financial |
