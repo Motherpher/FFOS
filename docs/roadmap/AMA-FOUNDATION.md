@@ -32,7 +32,7 @@ Define technical stewardship, compatibility, maintenance, incident and upgrade r
 ## AMA-05A — Authority topology reconciliation
 **Status:** DOCUMENTED ON FEATURE BRANCH; RUNTIME PRECEDENCE UNVERIFIED
 
-Replace the oversimplified Pius → CDX → AMA chain with distinct human, HCC/Pius, CDX, FFOS Director, AMA contract, Mechanic and execution planes. Record evidence boundaries and preserve Pius RESERVED status. See `docs/architecture/AMA-AUTHORITY-TOPOLOGY.md`. No claim of exhaustive chat/repository history or verified runtime binding.
+Director-defined target containment is Human Director → CDX → FFC → FFOS, with Agent Stable (AMA, Agent Mechanic, FFOS agents) and Pius (HCC linked to CDX; Piusites built on AMA). Maintain distinct operational authority and enforcement responsibilities. Record evidence boundaries and preserve Pius RESERVED status. See `docs/architecture/AMA-AUTHORITY-TOPOLOGY.md`. No claim of exhaustive chat/repository history or verified runtime binding.
 
 ## AMA-06 — Conformance harness
 **Status:** STATIC CONTRACT GATE IMPLEMENTED + GITHUB ACTIONS PASS; RUNTIME GATES PENDING
@@ -40,19 +40,19 @@ Replace the oversimplified Pius → CDX → AMA chain with distinct human, HCC/P
 Implemented and CI-tested Draft 2020-12 manifest validation, workflow/capability and command-version resolution, effect-ceiling checks, authority-reference policy, inactive-module checks, immutable version policy, change review, structured `STATIC_PASS`/`FAIL` reports, positive fixture and negative test cases. GitHub Actions `AMA conformance` succeeded on PR #19 (2026-10-29). This does **not** evaluate C4 runtime effects or C5 live evidence; it cannot activate or accept an agent. See `packages/agent-model/conformance/`.
 
 ## AMA-07 — Persistent Agent Registry
-**Status:** DATABASE MIGRATION STAGED; NOT APPLIED/CONNECTED
+**Status:** POSTGRESQL INTEGRATION TESTED IN CI; NOT DEPLOYED
 
-A PostgreSQL append-only schema migration for agent definitions, versioned bindings, conformance reports and Director lifecycle decision events exists at `packages/registry/migrations/0002_agent_stable.sql`. It has not been applied to a live database; authentication, transactional continuity, query APIs, reconciliation and test coverage remain pending.
+Append-only migrations 0002/0003 and `packages/agent-runtime/src/stable-registry.ts` implement versioned registry storage, content hashing, transactional lifecycle continuity and Director/conformance/readiness verification ports. Disposable PostgreSQL 17 integration tests exercise candidate admission, registered-versus-active state, Director transitions, competing version denial, suspension and version replacement. No live FFOS database, authenticated Director adapter or operational service has been connected.
 
 ## AMA-08 — Runtime enforcement
-**Status:** PLANNED
+**Status:** LOCAL EFFECT GATE AND NEGATIVE TESTS IMPLEMENTED; LIVE CDX INTEGRATION BLOCKED
 
-Bind AMA execution context to FFOS local CDX enforcement before consequential effects.
+`packages/agent-runtime/src/effect-gate.ts` rejects missing local enforcement, policy mismatch/denial, insufficient mandate, disabled capabilities, expired active version and revocation. `cdx-anchor.ts` additionally refuses the repository's current PENDING CDX runtime state. `pg-evidence.ts` records pre/post effects and restricted decisions in append-only PostgreSQL. Tests use *mock* CDX/Director/admission services; actual verified CDX policy evaluation, SPETL receipt validation, app deployment, stronger TOCTOU effect leases, and complete denial audit remain pending.
 
 ## AMA-09 — Agent Mechanic runtime
-**Status:** PLANNED
+**Status:** NEXT — OPERATIONAL RUNTIME NOT IMPLEMENTED
 
-Implement inventory, conformance execution, drift detection, upgrade proposals, health/incident state and rollback preparation.
+Implement inventory, conformance execution, drift detection, upgrade proposals, health/incident state and rollback preparation. Mechanic remains non-authorizing and non-accepting.
 
 ## AMA-10 — Reference agent fixture
 **Status:** PLANNED
