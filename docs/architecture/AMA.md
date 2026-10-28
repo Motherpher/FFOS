@@ -387,8 +387,8 @@ Household is not the source architecture for AMA.
 
 When Household is migrated to AMA:
 
-- Household becomes one first-class composite agent/family;
-- Janitor, Handyman and Verifier are modeled as internal roles unless a later first-class test requires separation;
+- Household becomes one first-class agent/family orchestrating registered workflows;
+- Janitor, Handyman and Verifier are registered as distinct workflows within the Household agent, not agents or internal agent roles;
 - Director remains external governing authority;
 - Household-specific repair classes such as J0/J1/J2 remain a domain extension;
 - Household workflows/commands register under the shared Workflow & Command Registry;
