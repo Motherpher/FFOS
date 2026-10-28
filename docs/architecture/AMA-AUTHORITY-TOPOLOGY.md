@@ -60,6 +60,6 @@ The indented tree represents **organizational / systems architecture placement**
 - **FFOS** `docs/architecture/ARCHITECTURE.md`, `docs/specifications/AUTHORITY.md`: current implementation baseline and Pius RESERVED boundary.
 - **Conductellence** `RUNTIME-INTEGRATION/README.md`, `DISTRIBUTION/policy-shards/authority.json`: policy pinning, local enforcement, mandate/authority references and verification status.
 - **Pius System Codex 5.0** Part 7, Appendix M and Appendix O: bounded registered Piusites and source validation.
-- **Legacy Household** `form-flode/17-ffos`: domain-specific agent patterns only, not the owner of AMA.
+- **Legacy Household** `form-flode/17-ffos`: legacy domain-specific execution patterns only, not the owner of AMA; in the target architecture Janitor, Handyman and Verifier are workflows.
 
 Where existing documents depict a different estate *containment* than the Director's new target hierarchy, mark the old depiction as current/legacy, not the canonical future target. Do not rewrite historical decisions or misstate deployment.
