@@ -43,3 +43,7 @@ Conductellence (CDX) remains an **independent estate-governance and policy sourc
 ## Director hierarchy clarification — 2026-10-29
 
 The Director-defined target is **Human Director → CDX → FFC → FFOS**, with **Agent Stable (AMA, Agent Mechanic audit/conformance, and registered FFOS agents)** and **Pius (HCC linked to CDX; Piusites built on AMA)** inside FFOS. This supersedes earlier target *containment* diagrams showing these components as peers, but does not assert Pius runtime readiness or abolish CDX/HCC-specific gates. Refer to `docs/architecture/AMA-AUTHORITY-TOPOLOGY.md`.
+
+## Household classification clarification — 2026-10-29
+
+The Director classifies **Janitor, Handyman and Verifier as workflows**, invoked within Household Family. They are not first-class agents or independent internal agent roles. Household remains a registered FFOS agent; workflow execution cannot create additional authority.
