@@ -12,6 +12,15 @@ FFOS is the central operating shell for Form & Flöde. It coordinates work acros
 6. **Human authority remains explicit.** Director approval, waiver, hold and rejection states must be represented in runtime state, not implied in prose.
 7. **No fake integration.** A documented protocol is not considered connected until its software binding is implemented, tested and registered.
 8. **CDX anchoring is mandatory.** FFOS maintains its local Conductellence governance hook at `.cdx/anchor.json`; CDX publishes governance outward while FFOS owns its local enforcement point.
+9. **FFOS agents share one master architecture.** First-class agents are built against Agent Master Architecture (AMA); workflows, commands, capabilities and internal roles are not promoted into agents without independent governance need.
+
+## Agent Master Architecture
+
+AMA is the shared FFOS contract for first-class agents: identity, mandate, authority context, effect ceilings, workflows/commands, capabilities, state, evidence, evaluation, deployment compatibility and lifecycle.
+
+Director governs purpose and mandate. Agent Mechanic governs technical conformance and maintenance mechanics. Neither an agent nor Agent Mechanic may self-authorize an expansion of authority.
+
+AMA does not implement Pius inside FFOS and does not replace Conductellence. See `docs/architecture/AMA.md`.
 
 ## Initial application spaces
 
@@ -43,4 +52,4 @@ docs/roadmap/           Work packages and implementation sequence
 
 ## Status
 
-Repository initialized. No domain runtime has yet been implemented.
+Repository initialized. Core control-plane contracts exist. AMA foundation is under active implementation; no claim is made that AMA agent runtime, CDX runtime enforcement or a production first-class agent is complete until the corresponding executable bindings and conformance gates pass.
