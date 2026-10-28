@@ -19,7 +19,7 @@ Pius is a sibling FFOS subsystem in the Director target hierarchy. Piusites depe
 
 Use a **workflow** when a procedure has bounded inputs, steps, decisions and outputs under an existing agent mandate. Create a **first-class agent** only for independently governed identity, lifecycle, bounded mandate and operational accountability.
 
-**Household Family** is one proposed first-class agent. **Janitor**, **Handyman** and **Verifier** are three workflows owned by Household. Neither these workflows nor their software implementations gain agent-level authority.
+**Agent implementation separation:** Agent Stable retains agent-independent definitions, registry entries and conformance services; particular agents and their named workflows are defined only in their own implementation packages. They must not be embedded in the AMA master specification.
 
 ## Stable lifecycle contract
 
