@@ -39,3 +39,7 @@ Conductellence (CDX) remains an **independent estate-governance and policy sourc
 - Commands/workflows do not become agents by naming convention.
 - AMA version upgrades require compatibility, regression and rollback handling.
 - The existing FFOS Pius boundary remains intact: AMA is FFOS agent architecture informed by Pius doctrine, not an implementation of the Pius runtime.
+
+## Director hierarchy clarification — 2026-10-29
+
+The Director-defined target is **Human Director → CDX → FFC → FFOS**, with **Stable (AMA and Agent Mechanic)** and **Pius (HCC linked to CDX; Piusites built on AMA)** inside FFOS. This supersedes earlier target *containment* diagrams showing these components as peers, but does not assert Pius runtime readiness or abolish CDX/HCC-specific gates. Refer to `docs/architecture/AMA-AUTHORITY-TOPOLOGY.md`.
