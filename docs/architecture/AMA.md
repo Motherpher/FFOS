@@ -4,10 +4,10 @@
 **Version:** 0.1.0  
 **State:** FOUNDATION  
 **Owner:** FFOS  
-**Governing authority:** Director  
+**Operational governing authority:** FFOS Director within explicitly delegated mandate; not universal constitutional authority  
 **Mechanical stewardship:** Agent Mechanic  
 **External governance dependency:** Conductellence (CDX) for consequential-action authority boundaries  
-**Source lineage:** Pius agent doctrine (bounded modular agency), FFOS authority/object model, CDX authority/runtime contracts
+**Normative lineage (not active Pius runtime):** Pius agent doctrine (bounded modular agency), FFOS authority/object model, CDX authority/runtime contracts
 
 ## 1. Purpose
 
@@ -17,19 +17,23 @@ AMA exists so agents are not independently improvised products. Every agent inhe
 
 AMA is deliberately not a universal agent that performs all work. It is the architecture from which individual agents are instantiated.
 
+**Authority topology:** [AMA-AUTHORITY-TOPOLOGY.md](AMA-AUTHORITY-TOPOLOGY.md) is the normative FFOS AMA cross-system reconciliation.
+
+The former linear `Pius → CDX → AMA → Agent` diagram is **withdrawn**. Human sovereignty, independent Pius/HCC moral oversight, versioned Pius doctrine, independent CDX governance, FFOS Director authority, AMA contracts, Agent Mechanic stewardship and agent execution are **distinct planes**, not a sequence of delegated sovereignty.
+
 ```text
-Pius agent doctrine
-        ↓
-Conductellence authority constraints
-        ↓
-FFOS Agent Master Architecture (AMA)
-        ↓
-Agent definitions / families
-        ↓
-Workflows + commands + capability modules
-        ↓
-Runs / evidence / decisions / external effects
+Human-authorized FFOS Director mandate / work decision
+      → AMA-registered agent + approved workflow and capabilities
+      → applicable FFOS local CDX enforcement (when runtime-bound)
+      → bounded execution, verification, evidence
+      → separate Director/domain acceptance where required
+
+Pius Codex / Ex-Inerta / HCC / APz: separate Pius governance and
+normative lineage; Pius FFOS runtime binding remains RESERVED.
+CDX: independent policy source; not a subordinate AMA module.
 ```
+
+**Integration status:** This is an architecture target, not a claim of verified production runtime enforcement.
 
 ## 2. Architectural law
 
