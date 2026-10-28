@@ -1,6 +1,6 @@
 # AMA — Agent Engineering Reference Baseline (October 2026)
 
-**Status:** RESEARCH-VALIDATED DESIGN INPUT; NOT A RUNTIME CERTIFICATION  
+**Status:** RESEARCH-INFORMED DESIGN INPUT; HARP FULL REFERENCE AUDIT (RefA / ITR2–ITR6) PENDING; NOT A RUNTIME CERTIFICATION  
 **Owner:** FFOS / Agent Stable  
 **Applies to:** AMA, Agent Mechanic, future FFOS agents, Piusites built on AMA  
 **Scope:** Engineering patterns and external open standards relevant as at 2026-10-29.
@@ -41,7 +41,7 @@ A first-class agent must earn its independent identity, scope, activation and op
 10. https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-agent-spans.md
 11. https://openai.github.io/openai-agents-python/running_agents/
 
-These URLs are research references, not a warranty that every vendor feature is current in every SDK or installed in FFOS.
+These URLs are research references, not a warranty that every vendor feature is current in every SDK or installed in FFOS. The source shortlist was checked for relevance, recency and primary-source provenance. It is **not** a completed Pius Appendix O HARP RefA: source-by-source full reading, manual citation verification and the final validation gate remain outstanding before constitutional or public-release claims.
 
 ## Architectural controls that follow
 
