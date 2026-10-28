@@ -17,10 +17,10 @@ manifest
 → state/evidence tests
 → regression suite
 → deployment binding
-→ Director activation decision
+→ independently authorized activation decision
 ```
 
-No later gate repairs an earlier failed gate.
+No later gate repairs an earlier failed gate. This protocol is agent-agnostic and never embeds the identity or workflow semantics of a particular agent.
 
 ## 2. Mandatory conformance classes
 
@@ -74,14 +74,14 @@ AMA candidate
 → semantic/authority diff
 → regression
 → deployment candidate
-→ Director review where triggered
+→ authorized human review where triggered
 → rollout
 → post-deploy verification
 ```
 
-## 4. Director-review triggers
+## 4. human-approval triggers
 
-Always require Director review when an upgrade changes:
+Always require authorized human review when an upgrade changes:
 
 - purpose or mandate;
 - first-class agent boundaries;
@@ -97,9 +97,9 @@ Always require Director review when an upgrade changes:
 
 ## 5. Mechanical changes
 
-Agent Mechanic may prepare or apply a mechanical candidate only when the accepted maintenance policy explicitly permits it and the change does not cross a Director-review trigger.
+An independently authorized technical maintenance function may prepare or apply a mechanical candidate only when the accepted maintenance policy explicitly permits it and the change does not cross a human-approval trigger.
 
-Examples:
+Permitted classes of mechanical change:
 
 - schema field rename with one-to-one semantics;
 - registry metadata normalization;
