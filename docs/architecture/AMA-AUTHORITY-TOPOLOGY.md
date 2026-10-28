@@ -13,9 +13,10 @@ HUMAN DIRECTOR
     └── CDX (Conductellence)
          └── FFC
               └── FFOS
-                   ├── Stable
+                   ├── Agent Stable
                    │    ├── AMA (Agent Master Architecture)
-                   │    └── Agent Mechanic
+                   │    ├── Agent Mechanic (audit and conformance)
+                   │    └── FFOS agents (registered; small, purposeful set)
                    └── Pius
                         ├── HCC ───── linked to CDX
                         └── Piusites ─ built on AMA
@@ -29,16 +30,16 @@ The indented tree represents **organizational / systems architecture placement**
 - **CDX / Conductellence**: governing constitutional, authority, policy and assurance layer for the estate; HCC has an explicit cross-link to CDX.
 - **FFC**: parent operating/business structure linking CDX governance to FFOS; placement is Director-defined, not yet proof of implemented runtime delegation.
 - **FFOS**: operational control plane for work, dispatch, decisions, state and registry.
-- **Stable**: FFOS subsystem housing the shared agent architecture and the technical maintenance function.
-- **AMA**: master agent construction/compatibility contract within Stable. Agents and Piusites use AMA; AMA does not itself make governance decisions.
-- **Agent Mechanic**: Stable's technical agent-management and conformance function; cannot enlarge mandate or self-accept.
+- **Agent Stable**: FFOS subsystem containing the shared agent architecture, the Agent Mechanic audit/conformance function, and the registry and operational homes of all FFOS agents. It is not a requirement to create many agents; use workflows, commands and internal roles unless an independently governed agent is justified.
+- **AMA**: master agent construction/compatibility contract within Agent Stable. Agents and Piusites use AMA; AMA does not itself make governance decisions.
+- **Agent Mechanic**: Agent Stable's technical agent-management and conformance function; cannot enlarge mandate or self-accept.
 - **Pius**: FFOS-contained system/domain in the target structure, with distinct Pius-specific governance and agentive operation. Its application runtime integration remains **RESERVED/PENDING** under the current FFOS baseline.
 - **HCC**: Pius-specific moral/ethical oversight with an explicit connection to CDX. HCC remains identifiable and cannot be collapsed into Agent Mechanic or an AMA module.
 - **Piusites**: Pius agents constructed with AMA's common agent contract, plus Pius-specific Codex/HCC constraints, registration and activation requirements.
 
 ## 3. Construction and control links
 
-**Containment:** Human Director → CDX → FFC → FFOS → {Stable, Pius}. Stable → {AMA, Agent Mechanic}. Pius → {HCC, Piusites}.
+**Containment:** Human Director → CDX → FFC → FFOS → {Agent Stable, Pius}. Agent Stable → {AMA, Agent Mechanic, registered FFOS agents}. Pius → {HCC, Piusites}.
 
 **Cross-links:** HCC ↔ CDX (governance alignment and applicable escalation/assurance); Piusites → AMA (agent construction/conformance dependency). Cross-links are **not** parent-child containment.
 
@@ -48,7 +49,7 @@ The indented tree represents **organizational / systems architecture placement**
 
 1. User-specified topology is a **target design decision**, not a claim that repository code already enforces it.
 2. The earlier assertion that Pius and FFOS are always parallel siblings is superseded **as target architecture**. Existing FFOS repository baseline still records Pius as RESERVED. Do not silently claim a completed migration.
-3. Stable is the architectural home for AMA and Mechanic. Their current files in FFOS `docs/` and `packages/` are implementation locations and do not contradict Stable's ownership; runtime service/registry bindings remain to be implemented.
+3. Agent Stable is the architectural home for AMA and Mechanic. Their current files in FFOS `docs/` and `packages/` are implementation locations and do not contradict Agent Stable's ownership; runtime service/registry bindings remain to be implemented.
 4. HCC–CDX link needs an explicit versioned interface contract; do not invent authority precedence, direct API coupling or automatic override.
 5. Piusites must satisfy both AMA conformance and their additional Pius/HCC-specific gates, without allowing AMA to redefine the Pius Codex.
 6. Runtime claims follow: DEFINED ≠ IMPLEMENTED ≠ CONNECTED ≠ TESTED ≠ CANONICAL.
