@@ -41,9 +41,9 @@ docs/specifications/    Runtime/object specifications
 docs/roadmap/           Work packages and implementation sequence
 ```
 
-## Proposed FORMA / FLÖDA agent integration
+## Proposed Cashin / Carpenter agent integration
 
-A separate developmental specification for two Form & Flöde agents is staged at [`docs/specifications/projecthub-forma-floda-integration-v0.1.md`](docs/specifications/projecthub-forma-floda-integration-v0.1.md). FORMA is the FFC proposal/assignment assistant; FLÖDA is the FFOS ProjectHub design/operations assistant. No runtime binding is claimed, and inherited Barnombudet financial defaults are forbidden. FFC remains the authority for its own consulting grammar.
+A separate developmental specification for two Form & Flöde agents is staged at [`docs/specifications/projecthub-cashin-carpenter-integration-v0.1.md`](docs/specifications/projecthub-cashin-carpenter-integration-v0.1.md). Cashin is the FFC proposal/assignment assistant; Carpenter is the FFOS ProjectHub design/operations assistant. No runtime binding is claimed, and inherited Barnombudet financial defaults are forbidden. FFC remains the authority for its own consulting grammar.
 
 ## Status
 
