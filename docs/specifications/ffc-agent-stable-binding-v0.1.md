@@ -1,49 +1,29 @@
-# FFOS — FFC Agent Stable General Binding Contract
+# FFOS — Deferred FFC Agent Stable Interface
 
-**Version:** 0.1 · **Status:** DESIGN ONLY; not deployed · **Date:** 2026-10-28
+**State:** DESIGN HOLD / NOT_CONNECTED · **Date:** 2026-10-28 · **FFC agent:** Cashin only.
 
-## Principle
-**FFC Agent Stable defines all F&F-owned agents.** FFOS supplies a shared permissioned invocation and observability layer that can serve multiple consumer domains. ProjectHub is one consumer, never the parent/owner of an agent. This is structurally analogous to central agent selection elsewhere in the user's tool ecosystem but does **not** import Pius governance or register any Piusites.
+## Purpose
+Reserve a minimal future interface for invoking the company-owned Cashin business agent from an authorised F&F commercial context. **Do not build generic project-agent selection merely because ProjectHub exists.** The F&F principal has not yet decided how any additional F&F agents should relate to FFOS or how future Piusites will operate within APz.
 
-## Canonical source
+## Stable source
 `Motherpher/form-flode/18-agent-stable/README.md`  
 `Motherpher/form-flode/18-agent-stable/registry/agent-registry-v0.1.json`  
-`Motherpher/form-flode/18-agent-stable/architecture/stable-and-dispatch-v0.1.md`
+Current developmental registry contains **Cashin only**.
 
-ProjectHub consumer contract: `Motherpher/form-flode/17-ffos/projecthub/agent-selection-and-dispatch-v0.1.md`.
+## Boundaries
+- **Cashin**: F&F opportunities, bid/proposal, contract-ready consulting engagement and commercial fee context; cannot commit the owner without approval.
+- **ProjectHub**: independently constituted projects, operating methodology and status. ProjectHub need not invoke Agent Stable, Cashin, FFC, DNA-Box or Pius.
+- **FFC**: F&F consulting grammar and knowledge, which may produce full or selective project dossiers.
+- **Pius/APz**: separate intelligence/agency system. Its potential future Piusites are not F&F Agent Stable entries.
+- **FFOS**: technical runtime, connector permissions and reconciliation when a specific integration is actually approved.
 
-## Shared FFOS adapter — proposed
-1. Read an exact **versioned FFC registry snapshot**, not a mutable unpinned copy, and validate source integrity.
-2. Resolve the chosen `agent_id`, `version`, `source_specification`, approved consumers, capabilities, allow/deny and required input/output types.
-3. Verify executing user, mandate, requested capability, data sensitivity, authority and tools; **deny by missing registration**.
-4. Resolve consumer-specific `WorkContext` / `ProjectHubAgentRequest`; do not mutate Stable specifications from a consumer workroom.
-5. Route low-risk draft assistance to the user's current chat where supported; call an actual FFOS agent runtime only when the adapter exists and is authorised.
-6. Record source version, approval, execution evidence, result, costs if known, errors and consumed artifacts. A file's existence is not dispatch evidence.
-7. Return typed results; let the **consumer-owned** permissioned writer decide whether and how any proposed changes become canonical.
-8. Retain release and rollback paths. New agents and changed source versions require their own acceptance gates.
+## Deferred agent adapter (not a current task)
+If the owner later requests Cashin execution, determine source version, agent capabilities, allowed tools, approval, data rights, trace and output. Do not interpret a Markdown/JSON registration as a working agent. Any later general multiagent adapter requires separate design and human approval, not this source file.
 
-## Proposed interface
-`AgentResolveRequest {consumer_id, task_id, capability_requirements, source_registry_ref, context_refs, authority_ref, requested_output_types}`
+## Commercial isolation
+For actual F&F consultancy: SEK 1,200/hour excluding VAT, applicable VAT added separately. Employment alternative: SEK 55,000/month gross in 2026–2027. Neither is a ProjectHub-wide project budget or client payroll default. No Barnombudet numerical/policy import.
 
-`AgentResolution {agent_id, agent_version, agent_spec_ref, selection_basis, decision_status, required_approvals, runtime_binding_state}`
+## Source and release
+ProjectHub optional-ingress proposal: `docs/specifications/projecthub-methodology-and-optional-ffc-interfaces-v0.1.md`.
 
-`AgentDispatch {resolution_id, approval_refs, execution_mode, invocation_ref, input_refs, event_ref}`
-
-`AgentReturn {dispatch_id, status, output_refs, evidence_refs, warnings, proposed_changes, reconciliation_required}`
-
-## Domain boundaries
-- FFC source: agent definition/ownership, shared business grammar, documentation versions.
-- ProjectHub: client projects, Project Field, stage semantics, work packages, budgets/learning and project state.
-- Proposal & Assignment: opportunity, FF commercial offer, binding contract status.
-- FFOS: technical execution, actual permissions, dispatch state, telemetry.
-- Project Steward / existing FFOS permissioned roles: retained authority and cannot be assumed by a newly documented Stable agent.
-- Barnombudet: no runtime data, economic defaults, executable files or employer policy imported.
-- Pius: no automatic activation, no shared authority.
-
-## Economic source
-`Motherpher/form-flode/08-business/ff-commercial-baseline-2026-2027.json`: FF standard SEK 1,200/hour excluding VAT, plus applicable VAT; salary expectation SEK 55,000/month gross in 2026–2027 in a separate employment scenario. No universal default tax or employer parameter.
-
-## Implementation sequence — not completion claims
-Schema validation → source registry binding → permissions/least privilege → capability matcher → consumer adapters (ProjectHub first) → budget calculation contract → trace/reconcile → negative/security tests → human acceptance → FFC release decision.
-
-**Until those steps have executed and been verified, all bindings remain DESIGN_ONLY / NOT_CONNECTED.**
+No FFOS execution, automated discovery, APz/Piusite interface, data source binding or acceptance testing is claimed. Canonical FFC release remains unchanged pending explicit release decision.
