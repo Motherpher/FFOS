@@ -29,6 +29,11 @@ Define stable command-to-versioned-workflow resolution and invariants.
 
 Define technical stewardship, compatibility, maintenance, incident and upgrade responsibilities without architectural sovereignty.
 
+## AMA-05A — Authority topology reconciliation
+**Status:** DOCUMENTED ON FEATURE BRANCH; RUNTIME PRECEDENCE UNVERIFIED
+
+Replace the oversimplified Pius → CDX → AMA chain with distinct human, HCC/Pius, CDX, FFOS Director, AMA contract, Mechanic and execution planes. Record evidence boundaries and preserve Pius RESERVED status. See `docs/architecture/AMA-AUTHORITY-TOPOLOGY.md`. No claim of exhaustive chat/repository history or verified runtime binding.
+
 ## AMA-06 — Conformance harness
 **Status:** NEXT
 
