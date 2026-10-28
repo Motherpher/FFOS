@@ -23,6 +23,7 @@ FFOS runtime spine
 ├── Dispatch
 ├── Director Decisions
 ├── Registry
+├── Agent Master Architecture (AMA)
 ├── Integration Events
 └── Audit Trail
 ```
@@ -42,6 +43,20 @@ Programme
 ```
 
 The chain may be extended, but existing object meanings must not be silently changed.
+
+AMA is a cross-cutting execution architecture rather than another node in this business-object chain. Agent definitions, workflow/command bindings and capability registrations are governed control-plane objects attached to Runs, Dispatches, Decisions and evidence.
+
+## Agent Master Architecture boundary
+
+FFOS owns the Agent Master Architecture (AMA) for first-class FFOS agents.
+
+AMA defines shared agent mechanics: identity, mandate, lifecycle, authority context, effect ceilings, workflows, commands, capabilities, state, evidence, evaluation, deployment compatibility, version inheritance and Agent Mechanic stewardship.
+
+AMA does **not** implement the Pius runtime. It preserves the existing Pius reserved boundary while incorporating compatible governing principles for bounded artificial agency. Conductellence remains the external constitutional authority source for consequential non-human execution, while FFOS owns its local enforcement points.
+
+New FFOS agents should be built against AMA. Existing agent families may be migrated only through explicit compatibility and conformance work.
+
+Canonical specification: [AMA.md](AMA.md).
 
 ## Control plane / domain plane separation
 
@@ -77,6 +92,8 @@ Required visible status:
 - Canonical source: external Pius repositories
 - FFOS binding: NOT STARTED
 
+AMA does not alter this status. AMA is the FFOS-native master architecture for FFOS agents; it is not a hidden Pius implementation.
+
 ## UDL boundary
 
 UDL is an external destination. FFOS will support controlled publication through dispatch rather than direct uncontrolled writes.
@@ -99,6 +116,8 @@ Work artifact
 Conductellence is a first-class external domain surface with its own FFOS room, but its canonical implementation remains in the Conductellence repository. FFOS must not absorb, fork or redefine Conductellence law, policy, control or evidence semantics.
 
 The FFOS room may surface Conductellence status before integration, but runtime binding remains `NOT STARTED` until Conductellence has completed release closure and exposes an explicit versioned integration contract. Once binding begins, FFOS owns the local enforcement point while Conductellence remains the canonical governance source.
+
+AMA execution contexts are designed to carry explicit authority/mandate references and effect classification so future CDX runtime enforcement can mediate consequential actions without importing mutable CDX law into AMA.
 
 ## Architectural law
 
