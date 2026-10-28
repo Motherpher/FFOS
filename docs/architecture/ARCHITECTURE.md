@@ -4,6 +4,16 @@
 
 FFOS is the control plane for the wider Form & Flöde environment. It provides common state, dispatch, decision, registry and integration surfaces while preserving domain ownership.
 
+## Director-defined target hierarchy (not deployed runtime)
+
+```text
+Human Director → CDX → FFC → FFOS
+                             ├─ Stable → AMA + Agent Mechanic
+                             └─ Pius → HCC (linked to CDX) + Piusites (built on AMA)
+```
+
+See [AMA authority topology](AMA-AUTHORITY-TOPOLOGY.md). Current repository surface layout and Pius RESERVED status below describe the implementation baseline, not an alternate target hierarchy.
+
 ## Top-level operating model
 
 ```text
