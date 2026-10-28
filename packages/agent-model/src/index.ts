@@ -158,7 +158,8 @@ export function assertExecutionContext(
     throw new Error("Explicit authority_ref is required.");
   }
 
-  if ((manifest.authority.mandateRefRequired ||\n      requiresExplicitAuthority(context.requestedEffect)) && !context.mandateRef) {
+  if ((manifest.authority.mandateRefRequired ||
+      requiresExplicitAuthority(context.requestedEffect)) && !context.mandateRef) {
     throw new Error("Explicit mandate_ref is required.");
   }
 
