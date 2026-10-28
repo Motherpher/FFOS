@@ -16,7 +16,7 @@ FFOS is the central operating shell for Form & Flöde. It coordinates work acros
 
 ## Agent Stable and Agent Master Architecture
 
-The Director-defined target containment is `Human Director → CDX → FFC → FFOS`, with **Agent Stable** (`AMA`, `Agent Mechanic` audit function, and the registered FFOS agent fleet) and **Pius** (HCC linked to CDX, Piusites built on AMA) inside FFOS. This is a target architecture; Pius integration remains reserved. See `docs/architecture/AGENT-STABLE.md` and `docs/architecture/AMA-AUTHORITY-TOPOLOGY.md`.
+The Director-defined target containment is `Human Director → CDX → FFC → FFOS`, with **Agent Stable** (`AMA`, `Agent Mechanic` audit function, and the registered FFOS agent fleet) and **Pius** (HCC linked to CDX, Piusites built on AMA) inside FFOS. This is a target architecture; Pius integration remains reserved. See `docs/architecture/AGENT-STABLE.md` and `docs/architecture/FFOS-ESTATE-AUTHORITY-TOPOLOGY.md`.
 
 AMA is the shared FFOS contract for first-class agents: identity, mandate, authority context, effect ceilings, workflows/commands, capabilities, state, evidence, evaluation, deployment compatibility and lifecycle.
 
