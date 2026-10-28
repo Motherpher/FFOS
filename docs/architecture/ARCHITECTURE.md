@@ -52,7 +52,7 @@ FFOS owns the Agent Master Architecture (AMA) for first-class FFOS agents.
 
 AMA defines shared agent mechanics: identity, mandate, lifecycle, authority context, effect ceilings, workflows, commands, capabilities, state, evidence, evaluation, deployment compatibility, version inheritance and Agent Mechanic stewardship.
 
-AMA does **not** implement the Pius runtime. It preserves the existing Pius reserved boundary while incorporating compatible governing principles for bounded artificial agency. Conductellence remains the external constitutional authority source for consequential non-human execution, while FFOS owns its local enforcement points.
+AMA does **not** implement the Pius runtime. It preserves the existing Pius reserved boundary while incorporating compatible governing principles for bounded artificial agency. Conductellence is an independent external governance and policy source for applicable consequential non-human execution, while FFOS owns its local enforcement points. Human mandate/Director decision, Pius/HCC constitutional doctrine, CDX policy, AMA agent contracts and execution are different authority planes, not a linear delegation chain. See [AMA authority topology](AMA-AUTHORITY-TOPOLOGY.md).
 
 New FFOS agents should be built against AMA. Existing agent families may be migrated only through explicit compatibility and conformance work.
 
@@ -117,7 +117,7 @@ Conductellence is a first-class external domain surface with its own FFOS room, 
 
 The FFOS room may surface Conductellence status before integration, but runtime binding remains `NOT STARTED` until Conductellence has completed release closure and exposes an explicit versioned integration contract. Once binding begins, FFOS owns the local enforcement point while Conductellence remains the canonical governance source.
 
-AMA execution contexts are designed to carry explicit authority/mandate references and effect classification so future CDX runtime enforcement can mediate consequential actions without importing mutable CDX law into AMA.
+AMA execution contexts are designed to carry explicit authority/mandate references and effect classification so future CDX runtime enforcement can mediate consequential actions without importing mutable CDX law into AMA. Neither the `.cdx/anchor.json` nor this design proves application runtime binding.
 
 ## Architectural law
 
