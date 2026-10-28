@@ -14,7 +14,9 @@ FFOS is the central operating shell for Form & Flöde. It coordinates work acros
 8. **CDX anchoring is mandatory.** FFOS maintains its local Conductellence governance hook at `.cdx/anchor.json`; CDX publishes governance outward while FFOS owns its local enforcement point.
 9. **FFOS agents share one master architecture.** First-class agents are built against Agent Master Architecture (AMA); workflows, commands, capabilities and internal roles are not promoted into agents without independent governance need.
 
-## Agent Master Architecture
+## Agent Stable and Agent Master Architecture
+
+The Director-defined target containment is `Human Director → CDX → FFC → FFOS`, with **Agent Stable** (`AMA`, `Agent Mechanic` audit function, and the registered FFOS agent fleet) and **Pius** (HCC linked to CDX, Piusites built on AMA) inside FFOS. This is a target architecture; Pius integration remains reserved. See `docs/architecture/AGENT-STABLE.md` and `docs/architecture/AMA-AUTHORITY-TOPOLOGY.md`.
 
 AMA is the shared FFOS contract for first-class agents: identity, mandate, authority context, effect ceilings, workflows/commands, capabilities, state, evidence, evaluation, deployment compatibility and lifecycle.
 
@@ -52,4 +54,4 @@ docs/roadmap/           Work packages and implementation sequence
 
 ## Status
 
-Repository initialized. Core control-plane contracts exist. AMA foundation is under active implementation; no claim is made that AMA agent runtime, CDX runtime enforcement or a production first-class agent is complete until the corresponding executable bindings and conformance gates pass.
+Repository initialized. Core control-plane contracts exist. AMA static conformance checks and CI tests are implemented on the AMA feature branch. Agent Stable registry SQL is staged but not deployed. No claim is made that durable agent runtime, CDX runtime enforcement, HCC–CDX integration or a production first-class agent is complete until executable bindings, human approvals and live-evidence gates pass.
