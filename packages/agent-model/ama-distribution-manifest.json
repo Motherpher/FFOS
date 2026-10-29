@@ -59,8 +59,9 @@
   },
   "adoption": {
     "architecture_accepted": false,
-    "independent_review_required": true,
-    "agent_deployment_authorized": false
+    "independent_review_required": false,
+    "agent_deployment_authorized": false,
+    "owner_review_and_acceptance_required": true
   },
   "excluded": [
     "HOUSEHOLD",
@@ -68,5 +69,7 @@
     "CDX_WORK_PACKAGE_EXECUTOR",
     "DOMAIN_PACKS",
     "PRODUCTION_DEPLOYMENT"
-  ]
+  ],
+  "template_coverage": "packages/agent-model/ama-template-coverage.json",
+  "template_complete": false
 }
