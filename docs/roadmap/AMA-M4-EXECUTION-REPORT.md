@@ -27,7 +27,7 @@
 
 ## Validation evidence and classification
 
-The preceding complete [GitHub Actions run 40811831132](https://github.com/Motherpher/FFOS/actions/runs/40811831132) passed **144 Python + 9 shared-model + 52 runtime/PostgreSQL tests** (205 combined). The subsequent additions strengthen checkpoint persistence integrity and must be checked in the latest GitHub Actions run before final technical status. Test counts include baseline M0–M3/v1 cases.
+The completed [GitHub Actions run 40812050101](https://github.com/Motherpher/FFOS/actions/runs/40812050101) passed **144 Python + 9 shared-model + 54 runtime/PostgreSQL tests** (207 combined). This includes checkpoint restoration and corrupted-checkpoint recovery denial, and all M0–M3/v1 regression cases. These totals are across existing and new tests, not 207 M4-exclusive cases.
 
 These CI tests are real PostgreSQL integration against disposable tables, but external policy, receipt and admission services are injected *test doubles*. The production anchor still reports unbound runtime policy mediation. The SQL migration has not been applied to production.
 
