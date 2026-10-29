@@ -9,6 +9,8 @@ sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(HERE / "tests"))
 from ama_blueprint import assemble
 from test_m1_contracts import fixture
+from test_m4_eventing import event_fixture
+from test_ama_support_profiles import secret_fixture, localization_fixture
 
 
 class BlueprintTests(unittest.TestCase):
@@ -37,6 +39,41 @@ class BlueprintTests(unittest.TestCase):
         self.assertEqual(b["selected_optional_modules"], ["memory", "retrieval"])
         self.assertIn("memory", b["implementation_obligations"])
         self.assertNotIn("knowledge", b["implementation_obligations"])
+
+    def test_event_trigger_implicitly_selects_m4_module(self):
+        b=assemble(event_fixture())
+        self.assertEqual(b["status"],"CONSTRUCTION_BLUEPRINT_CANDIDATE",b)
+        self.assertIn("eventing",b["selected_optional_modules"])
+        self.assertIn("eventing",b["implementation_obligations"])
+
+    def test_invalid_event_trigger_is_caught_by_m7(self):
+        bad=event_fixture()
+        bad["eventTriggers"][0]["maxEffectClass"]="E3_EXTERNAL_EFFECT"
+        b=assemble(bad)
+        self.assertEqual(b["status"],"INVALID_SOURCE")
+        self.assertIn("eventTriggers:TRIGGER_EFFECT_ESCALATION",b["validation_errors"])
+
+    def test_secret_binding_implicitly_selects_m2_module(self):
+        b=assemble(secret_fixture())
+        self.assertEqual(b["status"],"CONSTRUCTION_BLUEPRINT_CANDIDATE",b)
+        self.assertIn("secrets",b["selected_optional_modules"])
+
+    def test_secret_scope_problem_cannot_hide_from_blueprint(self):
+        bad=secret_fixture()
+        bad["secretBindings"][0]["resourceScope"]="synthetic/items"
+        b=assemble(bad)
+        self.assertIn("secretBindings:SECRET_SCOPE_EXCEEDS_CAPABILITY",b["validation_errors"])
+
+    def test_locale_profile_implicitly_selects_m6_module(self):
+        b=assemble(localization_fixture())
+        self.assertEqual(b["status"],"CONSTRUCTION_BLUEPRINT_CANDIDATE",b)
+        self.assertIn("localization",b["selected_optional_modules"])
+
+    def test_bad_locale_fallback_is_rejected_in_m7(self):
+        bad=localization_fixture()
+        bad["localizationProfiles"][0]["fallbackLocales"]=["fr-FR"]
+        b=assemble(bad)
+        self.assertIn("localizationProfiles:INVALID_FALLBACK_LOCALE",b["validation_errors"])
 
     def test_unknown_module_is_not_accepted(self):
         b = assemble(fixture(), optional_modules=["imaginary-module"])
