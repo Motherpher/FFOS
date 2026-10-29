@@ -92,6 +92,6 @@
     "profile": "AMA_BASELINE_HOUSEHOLD",
     "regressionRequired": true,
     "authorityDenialTestsRequired": true,
-    "suiteRef": "agents/household-family/test_contract.py"
+    "suiteRef": "agent-stable/agents/02-household-family/test_contract.py"
   }
 }
