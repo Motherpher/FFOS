@@ -34,7 +34,9 @@ def sample():
         case={"schema":"ama.evaluation-case/v0.2-candidate",
               "caseId":"SYNTHETIC.CASE."+str(i),"version":V,
               "profileRef":pin(profile,"profileId"),
-              "axis":axis,"scenarioClass":"HAPPY_PATH" if allowed else "DENIAL",
+              "axis":axis,"scenarioClass":({"ADVERSARIAL":"INJECTION",
+                "RELIABILITY":"OUTAGE","DURABILITY":"RECOVERY"}.get(axis,
+                 "HAPPY_PATH" if allowed else "DENIAL")),
               "repeatGroup":"RG."+str(i),"perturbationId":"PERT."+str(i),
               "holdout":bool(i%3==0),"expectedDecision":decision,
               "expectedFinalState":final,"expectedTargetRef":"synthetic/item",
@@ -75,7 +77,7 @@ def repin_provenance(b):
         p["observationRef"]=pin(obs[p["observationRef"]["id"]],"observationId")
     return b
 
-def test_only_attestor(provenance, observation):
+def test_only_attestor(provenance, observation, case):
     """Explicit test double; cannot certify real independent evidence."""
     return provenance["collectorRef"]=="synthetic-test-verifier"
 
@@ -125,6 +127,17 @@ class M5Evaluation(unittest.TestCase):
     def test_missing_axis_denies_even_with_good_other_results(self):
         b=sample();b["evaluationCases"][0]["axis"]="EVIDENCE"
         self.reject(b,"AXIS_COVERAGE_GAP")
+    def test_adversarial_outage_recovery_required(self):
+        b=sample()
+        for case in b["evaluationCases"]:
+            case["scenarioClass"]="HAPPY_PATH" if case["expectedDecision"]=="ALLOW" else "DENIAL"
+        self.reject(b,"ADVERSARIAL_OUTAGE_RECOVERY_COVERAGE_GAP")
+
+    def test_injection_mislabel_denied(self):
+        b=sample()
+        next(c for c in b["evaluationCases"] if c["axis"]=="ADVERSARIAL")["scenarioClass"]="BOUNDARY"
+        self.reject(b,"ADVERSARIAL_SCENARIO_MISCLASSIFIED")
+
     def test_missing_holdout_denies(self):
         b=sample()
         for case in b["evaluationCases"]:case["holdout"]=False
