@@ -118,3 +118,15 @@ Seven generic durable run/attempt/checkpoint/receipt schemas, a Python conforman
 [M4 architecture](AMA-M4-DURABLE-EXECUTION-CONTRACTS.md) · [M4 verification report](AMA-M4-EXECUTION-REPORT.md) · [CI success 40812050101](https://github.com/Motherpher/FFOS/actions/runs/40812050101) (207 combined tests).
 
 **Release boundary:** Migrated only in disposable CI; no live policy/receipt binding, deployed database, agent activation or C4/C5 certification. Next: M5 independent outcome/evidence evaluation and the separate F8 security runtime integration.
+
+## M5 — Independent evaluation and evidence assurance (2026-10-29)
+
+**Status:** EVALUATOR CONTRACT ENGINEERING VERIFIED; REAL INDEPENDENT ASSURANCE AND NORMATIVE ACCEPTANCE NOT ESTABLISHED.
+
+Six additional agent-neutral v0.2 schemas and isolated TypeScript types provide evaluation case/oracle, repeated observation, provenance, candidate report and non-self-accepting assessment contracts. `ama_evaluation.py` checks false allow/deny, target and outcome correctness, axis coverage, injection/outage/recovery, held-out test splits, evidence/source trust, repeated-run variance, cost, latency and sensitive-output redaction.
+
+The synthetic CI test harness does **not** certify live C4/C5 or promote agents; even a passing synthetic metric set never returns activation authority.
+
+[M5 assurance specification](AMA-M5-INDEPENDENT-EVALUATION-ASSURANCE.md) · [M5 report](AMA-M5-EXECUTION-REPORT.md) · [combined CI baseline success 40835331056](https://github.com/Motherpher/FFOS/actions/runs/40835331056).
+
+Separate F8 identity/policy, independent verification of real final states, original oracle provenance, authorized human review and runtime deployment remain required. PR #19 stays draft.
