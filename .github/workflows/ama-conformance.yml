@@ -63,6 +63,8 @@ jobs:
             --output "$RUNNER_TEMP/ama-architecture-compatibility.json"
       - name: Validate portable AMA architecture distribution
         run: python packages/agent-model/conformance/ama_distribution.py
+      - name: AMA architecture versus operational gate separation
+        run: python packages/agent-model/conformance/ama_release_gates.py
       - name: Unit tests and negative/adversarial cases
         run: python -m unittest discover -s packages/agent-model/conformance/tests -v
       - uses: actions/setup-node@v4
