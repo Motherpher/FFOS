@@ -5,6 +5,7 @@
 import {randomUUID} from "node:crypto";
 import {contentDigest} from "./stable-registry.ts";
 import type {SqlPool,SqlClient} from "./stable-registry.ts";
+import type {RunAdmissionPort,CreateRunRequest} from "./durable-run.ts";
 type Severity="LOW"|"MODERATE"|"HIGH"|"CRITICAL";
 export type OperationalIncidentKind="POLICY_DRIFT"|"REVOKED_TOOL"|"MODEL_SUBSTITUTION"|
  "PROTOCOL_BREAK"|"UNSETTLED_EFFECT"|"HEALTH_DEGRADATION"|"PRIVACY_BREACH"|"UNKNOWN";
@@ -42,6 +43,22 @@ function guard(ok:unknown,code:string):asserts ok{
 }
 const nonempty=(x:unknown)=>typeof x==="string"&&x.trim().length>0;
 const sha=(v:unknown)=>contentDigest(v);
+/** Optional host-wired M4 admission wrapper. No production binding implied. */
+export class M6GuardedAdmission implements RunAdmissionPort {
+ private readonly pool:SqlPool;
+ private readonly upstream:RunAdmissionPort|null;
+ constructor(pool:SqlPool,upstream:RunAdmissionPort|null){
+  this.pool=pool;this.upstream=upstream;
+ }
+ async assertAdmitted(input:CreateRunRequest):Promise<void>{
+  guard(!!this.upstream,"INDEPENDENT_ADMISSION_NOT_BOUND");
+  await this.upstream!.assertAdmitted(input);
+  const q=await this.pool.query<{agent_id:string}>(
+    "SELECT agent_id FROM ama_m6_suspensions WHERE agent_id=$1 AND agent_version=$2",
+    [input.agentId,input.agentVersion]);
+  guard(q.rows.length===0,"AGENT_EMERGENCY_SUSPENDED");
+ }
+}
 export class PgOperationalSteward {
  private readonly pool:SqlPool;
  private readonly authority:IndependentOperationsAuthority|null;
@@ -125,6 +142,8 @@ export class PgOperationalSteward {
    await db.query("INSERT INTO ama_m6_incidents(incident_id,agent_id,agent_version,kind,severity,event_type,evidence_ref,authority_ref) VALUES($1,$2,$3,$4,$5,'INDEPENDENT_EMERGENCY_SUSPENSION',$6,$7)",
     [input.incidentId,input.agentId,input.agentVersion,input.kind,input.severity,
      input.evidenceRef,input.authorityRef]);
+   await db.query("INSERT INTO ama_m6_suspensions(agent_id,agent_version,incident_id,authority_ref,proof_ref) VALUES($1,$2,$3,$4,$5) ON CONFLICT(agent_id,agent_version) DO NOTHING",
+    [input.agentId,input.agentVersion,input.incidentId,input.authorityRef,input.evidenceRef]);
    const runs=await db.query<{run_id:string;state:string;lease_epoch:string|number}>(
     "SELECT run_id,state,lease_epoch FROM ama_m4_runs WHERE agent_id=$1 AND agent_version=$2 AND state IN ('QUEUED','RUNNING','HOLD') ORDER BY run_id FOR UPDATE",
     [input.agentId,input.agentVersion]);
