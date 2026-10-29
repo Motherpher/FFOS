@@ -1,0 +1,148 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.authorization-request/v0.2-candidate"
+    },
+    "requestId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "runId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "agentRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "actorRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "workloadRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "mandateRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "capabilityRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "policyRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "effectRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "actionKind": {
+      "enum": [
+        "OBSERVE",
+        "STATE_MUTATION",
+        "REPOSITORY_MUTATION",
+        "EXTERNAL_ACTION",
+        "AUTHORITY_CHANGE"
+      ]
+    },
+    "effectClass": {
+      "$ref": "common.schema.json#/$defs/effect"
+    },
+    "resourceScope": {
+      "$ref": "common.schema.json#/$defs/scope"
+    },
+    "dataClassification": {
+      "enum": [
+        "PUBLIC",
+        "INTERNAL",
+        "CONFIDENTIAL",
+        "RESTRICTED"
+      ]
+    },
+    "recipientId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "requestedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "sourceTrust": {
+      "enum": [
+        "TRUSTED_BOUNDARY",
+        "UNTRUSTED_CONTENT"
+      ]
+    },
+    "riskContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reversibility",
+        "impact",
+        "externalExposure",
+        "aggregateRead",
+        "financialAmountMinor"
+      ],
+      "properties": {
+        "reversibility": {
+          "enum": [
+            "REVERSIBLE",
+            "COMPENSATABLE",
+            "IRREVERSIBLE",
+            "UNKNOWN"
+          ]
+        },
+        "impact": {
+          "enum": [
+            "LOW",
+            "MODERATE",
+            "HIGH",
+            "CRITICAL",
+            "UNKNOWN"
+          ]
+        },
+        "externalExposure": {
+          "type": "boolean"
+        },
+        "aggregateRead": {
+          "type": "boolean"
+        },
+        "financialAmountMinor": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "currency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        }
+      }
+    }
+  },
+  "required": [
+    "schema",
+    "requestId",
+    "version",
+    "runId",
+    "agentRef",
+    "actorRef",
+    "workloadRef",
+    "mandateRef",
+    "capabilityRef",
+    "policyRef",
+    "actionKind",
+    "effectClass",
+    "resourceScope",
+    "dataClassification",
+    "recipientId",
+    "purpose",
+    "requestedAt",
+    "sourceTrust",
+    "riskContext"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/authorization-request.schema.json",
+  "title": "AMA 0.2 candidate provider-neutral authorization-request"
+}

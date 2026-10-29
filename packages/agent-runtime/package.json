@@ -1,0 +1,13 @@
+{
+  "name": "@ffos/agent-runtime",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Agent Stable registry and governed execution port",
+  "dependencies": {
+    "pg": "8.23.1"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.15.5"
+  }
+}

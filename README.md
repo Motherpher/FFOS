@@ -12,6 +12,17 @@ FFOS is the central operating shell for Form & Flöde. It coordinates work acros
 6. **Human authority remains explicit.** Director approval, waiver, hold and rejection states must be represented in runtime state, not implied in prose.
 7. **No fake integration.** A documented protocol is not considered connected until its software binding is implemented, tested and registered.
 8. **CDX anchoring is mandatory.** FFOS maintains its local Conductellence governance hook at `.cdx/anchor.json`; CDX publishes governance outward while FFOS owns its local enforcement point.
+9. **FFOS agents share one master architecture.** First-class agents are built against Agent Master Architecture (AMA); workflows, commands, capabilities and internal roles are not promoted into agents without independent governance need.
+
+## Agent Stable and Agent Master Architecture
+
+The Director-defined target containment is `Human Director → CDX → FFC → FFOS`, with **Agent Stable** (`AMA`, `Agent Mechanic`, and the registered FFOS fleet: **#1 MESSI, #2 Household Family**) and **Pius** (HCC linked to CDX, Piusites built on AMA) inside FFOS. This is a target architecture; Pius integration remains reserved. See `docs/architecture/AGENT-STABLE.md` and `docs/architecture/FFOS-ESTATE-AUTHORITY-TOPOLOGY.md`.
+
+AMA is the shared FFOS contract for first-class agents: identity, mandate, authority context, effect ceilings, workflows/commands, capabilities, state, evidence, evaluation, deployment compatibility and lifecycle.
+
+Director is external governing authority and governs purpose, mandate, priorities and acceptance. Agent Mechanic governs technical conformance and maintenance mechanics. Neither an agent nor Agent Mechanic may self-authorize an expansion of authority.
+
+AMA does not implement Pius inside FFOS and does not replace Conductellence. See `docs/architecture/AMA.md`.
 
 ## Initial application spaces
 
@@ -43,4 +54,16 @@ docs/roadmap/           Work packages and implementation sequence
 
 ## Status
 
-Repository initialized. No domain runtime has yet been implemented.
+Repository initialized. Core control-plane contracts exist. AMA static conformance checks and CI tests are implemented on the AMA feature branch. Agent Stable registry and local effect gate are implemented on the feature branch and verified with disposable PostgreSQL integration tests, but neither is deployed or bound to production authorization/CDX policy services. No claim is made that durable agent runtime, CDX runtime enforcement, HCC–CDX integration or a production first-class agent is complete until executable bindings, human approvals and live-evidence gates pass.
+
+
+## Canonical Agent Stable fleet
+
+The current fleet identity order is:
+
+1. **MESSI** — broad Form & Flöde worker; DRAFT / not implemented.
+2. **Household Family** — bounded Director-assigned work-package/repository maintenance agent; implementation candidate, not production accepted.
+
+Fleet registry: `agents/registry.json`.
+
+Cashin, Carpenter, Evaluate and Research are not separate fleet agents; where retained they are MESSI workflows/commands/capabilities. Janitor, Handyman and Verifier are Household internal roles/workflows.

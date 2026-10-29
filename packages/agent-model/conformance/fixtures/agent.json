@@ -1,0 +1,54 @@
+{
+  "schema": "ffos.ama.agent-manifest/v1",
+  "agentId": "FFOS.TEST.OBSERVER",
+  "name": "AMA fixture observer — not deployed",
+  "agentVersion": "0.1.0",
+  "amaVersion": "0.1.0",
+  "purpose": "Exercise static conformance against synthetic read-only data",
+  "mandate": {
+    "scope": [
+      "fixtures"
+    ],
+    "nonGoals": [
+      "No mutation",
+      "No external effects"
+    ]
+  },
+  "runtimeClass": "REQUEST_RESPONSE",
+  "lifecycleState": "VALIDATED",
+  "authority": {
+    "governingAuthority": "DIRECTOR",
+    "authorityRefRequired": true,
+    "mandateRefRequired": true,
+    "selfApprovalProhibited": true
+  },
+  "effectCeiling": "E0_OBSERVE",
+  "workflows": [
+    "FIXTURE_INSPECT"
+  ],
+  "commands": [
+    "FIXTURE_STATUS"
+  ],
+  "capabilities": [
+    "FIXTURE_READ"
+  ],
+  "statePolicy": {
+    "durableState": false,
+    "memoryMode": "NONE"
+  },
+  "evidence": {
+    "runRecordRequired": true,
+    "failedRunRecordRequired": true
+  },
+  "conformance": {
+    "profile": "AMA-STATIC-001",
+    "regressionRequired": true,
+    "authorityDenialTestsRequired": true
+  },
+  "modules": {
+    "external_connector": {
+      "enabled": false,
+      "version": "0.1.0"
+    }
+  }
+}

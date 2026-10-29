@@ -1,0 +1,3121 @@
+{
+  "schema": "ffos.ama.source-coverage/v1",
+  "status": "NON_NORMATIVE_RESEARCH_INVENTORY",
+  "date": "2026-10-29",
+  "source_document": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+  "analysis_document": "docs/research/AMA-KNOWLEDGE-INSIGHT-SEVEN-STRESS-TESTS-2026-10-29.md",
+  "note": "Every entry is an original proposed requirement; mapping implies coverage/ownership, not adoption or implementation. Residuals are conditional after F1–F7, not current extra gaps. F8 added as cross-cutting candidate Conductellence assurance mapping; chapter hints are NOT validated control bindings.",
+  "counts": {
+    "requirements": 96,
+    "domains": {
+      "A": 7,
+      "B": 10,
+      "C": 8,
+      "D": 8,
+      "E": 7,
+      "F": 8,
+      "G": 10,
+      "H": 9,
+      "I": 8,
+      "J": 7,
+      "K": 7,
+      "L": 7
+    }
+  },
+  "requirements": [
+    {
+      "id": "A01",
+      "domain": "A",
+      "statement": "Formal glossary with type disjointness and permitted relations: Agent owns Workflow; Command resolves Workflow; Workflow requests Capability; Tool implements Capability; Run instantiates Workflow; Module extends Agent; Agent may delegate to another independently registered Agent.",
+      "source_line": 30,
+      "primary_question": "Q1",
+      "first_level_recommendation": "F1",
+      "potential_second_level_residuals": [
+        "S01"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "GOVERNANCE_CONTEXT",
+        "conductellence_chapters_candidate": [
+          "4",
+          "9",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "A02",
+      "domain": "A",
+      "statement": "Immutable `agentId`, version, contractVersion, schemaVersion, revision/digest, status, activation policy and declared responsible principal.",
+      "source_line": 31,
+      "primary_question": "Q1",
+      "first_level_recommendation": "F1",
+      "potential_second_level_residuals": [
+        "S01"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "4",
+          "9",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "A03",
+      "domain": "A",
+      "statement": "First-class admission test: mandate, independent lifecycle and accountable control boundary; avoid converting named procedures into agents.",
+      "source_line": 32,
+      "primary_question": "Q1",
+      "first_level_recommendation": "F1",
+      "potential_second_level_residuals": [
+        "S01"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "GOVERNANCE_CONTEXT",
+        "conductellence_chapters_candidate": [
+          "4",
+          "9",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "A04",
+      "domain": "A",
+      "statement": "Separate `agent_definition`, `runtime_deployment`, `identity_principal`, `workload_instance` and `run` identities.",
+      "source_line": 33,
+      "primary_question": "Q1",
+      "first_level_recommendation": "F1",
+      "potential_second_level_residuals": [
+        "S01"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "4",
+          "9",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "A05",
+      "domain": "A",
+      "statement": "Versioned compatibility declarations and immutable historical versions.",
+      "source_line": 34,
+      "primary_question": "Q1",
+      "first_level_recommendation": "F1",
+      "potential_second_level_residuals": [
+        "S01"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "4",
+          "9",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "A06",
+      "domain": "A",
+      "statement": "Machine-readable and human-readable discoverability/description without treating description as authority.",
+      "source_line": 35,
+      "primary_question": "Q1",
+      "first_level_recommendation": "F1",
+      "potential_second_level_residuals": [
+        "S01"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "GOVERNANCE_CONTEXT",
+        "conductellence_chapters_candidate": [
+          "4",
+          "9",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "A07",
+      "domain": "A",
+      "statement": "Documentation card for purpose, intended users, known limitations, prohibited applications, test profile and change history.",
+      "source_line": 36,
+      "primary_question": "Q1",
+      "first_level_recommendation": "F1",
+      "potential_second_level_residuals": [
+        "S01"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "4",
+          "9",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "B01",
+      "domain": "B",
+      "statement": "Explicit mandate issuer, subject, allowable action kind/resource target, issued/expiry times, revocation pointer, non-goals and signed/verifiable proof where supported.",
+      "source_line": 40,
+      "primary_question": "Q2",
+      "first_level_recommendation": "F2",
+      "potential_second_level_residuals": [
+        "S02",
+        "S03"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "4",
+          "5",
+          "6",
+          "13",
+          "14"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "B02",
+      "domain": "B",
+      "statement": "Principal–agent–tool delegation linkage; downstream rights are attenuated, never amplified.",
+      "source_line": 41,
+      "primary_question": "Q2",
+      "first_level_recommendation": "F2",
+      "potential_second_level_residuals": [
+        "S02",
+        "S03"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "4",
+          "5",
+          "6",
+          "13",
+          "14"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "B03",
+      "domain": "B",
+      "statement": "Zero/least standing privilege; just-in-time credential binding and expiration/rotation.",
+      "source_line": 42,
+      "primary_question": "Q2",
+      "first_level_recommendation": "F2",
+      "potential_second_level_residuals": [
+        "S02",
+        "S03"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "4",
+          "5",
+          "6",
+          "13",
+          "14"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "B04",
+      "domain": "B",
+      "statement": "Policy decision interface distinct from model planner, including signed/pinned policy, decision expiry, deny reasons and obligations.",
+      "source_line": 43,
+      "primary_question": "Q2",
+      "first_level_recommendation": "F2",
+      "potential_second_level_residuals": [
+        "S02",
+        "S03"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "4",
+          "5",
+          "6",
+          "13",
+          "14"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "B05",
+      "domain": "B",
+      "statement": "Target/resource-level checks for read **and** write; a read may be sensitive even if no mutation occurs.",
+      "source_line": 44,
+      "primary_question": "Q2",
+      "first_level_recommendation": "F2",
+      "potential_second_level_residuals": [
+        "S02",
+        "S03"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "4",
+          "5",
+          "6",
+          "13",
+          "14"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "B06",
+      "domain": "B",
+      "statement": "Multidimensional risk/effect classification: action class, data sensitivity, recipients, reversibility, financial impact, blast radius, network exposure, retention/jurisdiction.",
+      "source_line": 45,
+      "primary_question": "Q2",
+      "first_level_recommendation": "F2",
+      "potential_second_level_residuals": [
+        "S02",
+        "S03"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "4",
+          "5",
+          "6",
+          "13",
+          "14"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "B07",
+      "domain": "B",
+      "statement": "Deterministic independent human-review triggers, approval request package and expiration; no approval inferred from prompt text.",
+      "source_line": 46,
+      "primary_question": "Q2",
+      "first_level_recommendation": "F2",
+      "potential_second_level_residuals": [
+        "S02",
+        "S03"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "4",
+          "5",
+          "6",
+          "13",
+          "14"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "B08",
+      "domain": "B",
+      "statement": "Revocation/fail-closed behavior before consequential effects and after pause/resume.",
+      "source_line": 47,
+      "primary_question": "Q2",
+      "first_level_recommendation": "F2",
+      "potential_second_level_residuals": [
+        "S02",
+        "S03"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "4",
+          "5",
+          "6",
+          "13",
+          "14"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "B09",
+      "domain": "B",
+      "statement": "Cross-tenant isolation and user-consent boundaries with provenance.",
+      "source_line": 48,
+      "primary_question": "Q2",
+      "first_level_recommendation": "F2",
+      "potential_second_level_residuals": [
+        "S02",
+        "S03"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "4",
+          "5",
+          "6",
+          "13",
+          "14"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "B10",
+      "domain": "B",
+      "statement": "Authorization-denial evidence emitted for attempts, including service unavailable/indeterminate outcomes, with privacy safeguards.",
+      "source_line": 49,
+      "primary_question": "Q2",
+      "first_level_recommendation": "F2",
+      "potential_second_level_residuals": [
+        "S02",
+        "S03"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "4",
+          "5",
+          "6",
+          "13",
+          "14"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "C01",
+      "domain": "C",
+      "statement": "Optional typed model-adapter binding and provider-agnostic interface, version, provenance/hash, supported modalities and sampling behavior.",
+      "source_line": 53,
+      "primary_question": "Q3",
+      "first_level_recommendation": "F3",
+      "potential_second_level_residuals": [
+        "S04"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "GOVERNANCE_CONTEXT",
+        "conductellence_chapters_candidate": [
+          "8",
+          "9",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "C02",
+      "domain": "C",
+      "statement": "Versioned instructions/prompts and their precedence; separately controlled developer configuration vs untrusted source content.",
+      "source_line": 54,
+      "primary_question": "Q3",
+      "first_level_recommendation": "F3",
+      "potential_second_level_residuals": [
+        "S04"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "8",
+          "9",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "C03",
+      "domain": "C",
+      "statement": "Strategy interface: direct response, plan-and-act, ReAct-style interleaving, deterministic sequential/parallel routing, reflective loop, evaluator–optimizer; none is compulsory.",
+      "source_line": 55,
+      "primary_question": "Q3",
+      "first_level_recommendation": "F3",
+      "potential_second_level_residuals": [
+        "S04"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "GOVERNANCE_CONTEXT",
+        "conductellence_chapters_candidate": [
+          "8",
+          "9",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "C04",
+      "domain": "C",
+      "statement": "Bounded plan graph with objectives, assumptions, steps, dependencies, expected outcome and allowed tool/capability IDs.",
+      "source_line": 56,
+      "primary_question": "Q3",
+      "first_level_recommendation": "F3",
+      "potential_second_level_residuals": [
+        "S04"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "8",
+          "9",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "C05",
+      "domain": "C",
+      "statement": "Max reasoning cycles, max tool calls, recursion/delegation depth, context and token budgets; absolute timeout and cancellation triggers.",
+      "source_line": 57,
+      "primary_question": "Q3",
+      "first_level_recommendation": "F3",
+      "potential_second_level_residuals": [
+        "S04"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "8",
+          "9",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "C06",
+      "domain": "C",
+      "statement": "Grounding/fact-verification and uncertainty/abstention policy; input confidence is never authorization.",
+      "source_line": 58,
+      "primary_question": "Q3",
+      "first_level_recommendation": "F3",
+      "potential_second_level_residuals": [
+        "S04"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "8",
+          "9",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "C07",
+      "domain": "C",
+      "statement": "Separate synthesis, checking and authorized finalization. No model-generated self-assertion of acceptance.",
+      "source_line": 59,
+      "primary_question": "Q3",
+      "first_level_recommendation": "F3",
+      "potential_second_level_residuals": [
+        "S04"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "8",
+          "9",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "C08",
+      "domain": "C",
+      "statement": "Fallback/model substitution rules require regression against the approved model binding, not a silent upgrade.",
+      "source_line": 60,
+      "primary_question": "Q3",
+      "first_level_recommendation": "F3",
+      "potential_second_level_residuals": [
+        "S04"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "8",
+          "9",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "D01",
+      "domain": "D",
+      "statement": "Version-pinned Command→Workflow mapping; declared inputs and outputs as JSON Schema, with semantic validation beyond schema.",
+      "source_line": 64,
+      "primary_question": "Q5",
+      "first_level_recommendation": "F5",
+      "potential_second_level_residuals": [
+        "S07"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "9",
+          "10",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "D02",
+      "domain": "D",
+      "statement": "Workflow step graph, dependency and concurrency boundaries, finite stopping conditions and terminal-state map.",
+      "source_line": 65,
+      "primary_question": "Q5",
+      "first_level_recommendation": "F5",
+      "potential_second_level_residuals": [
+        "S07"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "9",
+          "10",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "D03",
+      "domain": "D",
+      "statement": "Typed capability registry with implementation adapter, action kind, target scope, authentication scopes, quotas, failure codes and availability state.",
+      "source_line": 66,
+      "primary_question": "Q5",
+      "first_level_recommendation": "F5",
+      "potential_second_level_residuals": [
+        "S07"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "9",
+          "10",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "D04",
+      "domain": "D",
+      "statement": "Tool schema version, deterministic validation, tool-call allowlist, output contract, error semantics, trusted/untrusted provenance and content redaction.",
+      "source_line": 67,
+      "primary_question": "Q5",
+      "first_level_recommendation": "F5",
+      "potential_second_level_residuals": [
+        "S07"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "9",
+          "10",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "D05",
+      "domain": "D",
+      "statement": "Transaction envelope: preview → authorize → execute → reconcile for impactful actions; dry-run where supported.",
+      "source_line": 68,
+      "primary_question": "Q5",
+      "first_level_recommendation": "F5",
+      "potential_second_level_residuals": [
+        "S07"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "9",
+          "10",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "D06",
+      "domain": "D",
+      "statement": "Decompose input-source instructions from operational authority; prompt injection from tool response cannot rewrite command/mandate.",
+      "source_line": 69,
+      "primary_question": "Q5",
+      "first_level_recommendation": "F5",
+      "potential_second_level_residuals": [
+        "S07"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "9",
+          "10",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "D07",
+      "domain": "D",
+      "statement": "Explicit human input/approval resumability; approval is separately authenticated, scoped and time-bounded.",
+      "source_line": 70,
+      "primary_question": "Q5",
+      "first_level_recommendation": "F5",
+      "potential_second_level_residuals": [
+        "S07"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "9",
+          "10",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "D08",
+      "domain": "D",
+      "statement": "Inter-agent invocation is optional and must define identity, delegation, context minimization, capability negotiation and task-state contracts.",
+      "source_line": 71,
+      "primary_question": "Q5",
+      "first_level_recommendation": "F5",
+      "potential_second_level_residuals": [
+        "S07"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "9",
+          "10",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "E01",
+      "domain": "E",
+      "statement": "Declare context assembly strategy, token budgets, truncation/compaction and provenance; do not treat a long model window as guaranteed retrieval.",
+      "source_line": 75,
+      "primary_question": "Q4",
+      "first_level_recommendation": "F4",
+      "potential_second_level_residuals": [
+        "S05",
+        "S06"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "7",
+          "8",
+          "15"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "E02",
+      "domain": "E",
+      "statement": "Differentiate ephemeral context, short-term run/thread state, long-term episodic/semantic memory, retrieval indexes, shared knowledge and authoritative domain data.",
+      "source_line": 76,
+      "primary_question": "Q4",
+      "first_level_recommendation": "F4",
+      "potential_second_level_residuals": [
+        "S05",
+        "S06"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "7",
+          "8",
+          "15"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "E03",
+      "domain": "E",
+      "statement": "Memory stores are typed, versioned, scoped, access-controlled, attributable and default disabled if not configured.",
+      "source_line": 77,
+      "primary_question": "Q4",
+      "first_level_recommendation": "F4",
+      "potential_second_level_residuals": [
+        "S05",
+        "S06"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "7",
+          "8",
+          "15"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "E04",
+      "domain": "E",
+      "statement": "Memory write admission, source trust rank, retention/expiry, revalidation, correction, deletion/erasure and poisoning defense.",
+      "source_line": 78,
+      "primary_question": "Q4",
+      "first_level_recommendation": "F4",
+      "potential_second_level_residuals": [
+        "S05",
+        "S06"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "7",
+          "8",
+          "15"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "E05",
+      "domain": "E",
+      "statement": "Retrieval quality checks: relevance, provenance, recency, contradictory claims, source access and no instruction injection.",
+      "source_line": 79,
+      "primary_question": "Q4",
+      "first_level_recommendation": "F4",
+      "potential_second_level_residuals": [
+        "S05",
+        "S06"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "7",
+          "8",
+          "15"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "E06",
+      "domain": "E",
+      "statement": "Explicit context handoff and summarization with fidelity tests and privacy minimization.",
+      "source_line": 80,
+      "primary_question": "Q4",
+      "first_level_recommendation": "F4",
+      "potential_second_level_residuals": [
+        "S05",
+        "S06"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "7",
+          "8",
+          "15"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "E07",
+      "domain": "E",
+      "statement": "No learned/remembered statement can bypass a rule, tool permission or human decision.",
+      "source_line": 81,
+      "primary_question": "Q4",
+      "first_level_recommendation": "F4",
+      "potential_second_level_residuals": [
+        "S05",
+        "S06"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "7",
+          "8",
+          "15"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "F01",
+      "domain": "F",
+      "statement": "Separate session/conversation, task, run, step, event, approval, receipt and deployment identities.",
+      "source_line": 85,
+      "primary_question": "Q5",
+      "first_level_recommendation": "F5",
+      "potential_second_level_residuals": [
+        "S07"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "13",
+          "14",
+          "15",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "F02",
+      "domain": "F",
+      "statement": "State machine with legal transitions, monotonic event history, optimistic concurrency/leases and cancellation.",
+      "source_line": 86,
+      "primary_question": "Q5",
+      "first_level_recommendation": "F5",
+      "potential_second_level_residuals": [
+        "S07"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "13",
+          "14",
+          "15",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "F03",
+      "domain": "F",
+      "statement": "Checkpoints, resume, retry/replay boundaries, idempotency keys for external writes and dead-letter/reconciliation states.",
+      "source_line": 87,
+      "primary_question": "Q5",
+      "first_level_recommendation": "F5",
+      "potential_second_level_residuals": [
+        "S07"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "13",
+          "14",
+          "15",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "F04",
+      "domain": "F",
+      "statement": "Effect execution and outcome uncertainty must be modeled explicitly: PREPARED/AUTHORIZED/EXECUTING/COMMITTED/UNKNOWN, as applicable.",
+      "source_line": 88,
+      "primary_question": "Q5",
+      "first_level_recommendation": "F5",
+      "potential_second_level_residuals": [
+        "S07"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "13",
+          "14",
+          "15",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "F05",
+      "domain": "F",
+      "statement": "External effects cannot be assumed exactly-once merely because the workflow runner is durable. Use idempotent downstream APIs, transaction/outbox/saga/compensation when appropriate.",
+      "source_line": 89,
+      "primary_question": "Q5",
+      "first_level_recommendation": "F5",
+      "potential_second_level_residuals": [
+        "S07"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "13",
+          "14",
+          "15",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "F06",
+      "domain": "F",
+      "statement": "Crash recovery, worker fencing, lease expiry, backpressure, queue limits, poison task quarantine and bounded retries.",
+      "source_line": 90,
+      "primary_question": "Q5",
+      "first_level_recommendation": "F5",
+      "potential_second_level_residuals": [
+        "S07"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "13",
+          "14",
+          "15",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "F07",
+      "domain": "F",
+      "statement": "Safe suspension/kill switch that prevents queued, running and resumed work from exceeding currently valid authority.",
+      "source_line": 91,
+      "primary_question": "Q5",
+      "first_level_recommendation": "F5",
+      "potential_second_level_residuals": [
+        "S07"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "13",
+          "14",
+          "15",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "F08",
+      "domain": "F",
+      "statement": "Reproducible replay of **control events**, while accepting that stochastic model output may not reproduce byte-for-byte.",
+      "source_line": 92,
+      "primary_question": "Q5",
+      "first_level_recommendation": "F5",
+      "potential_second_level_residuals": [
+        "S07"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "13",
+          "14",
+          "15",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "G01",
+      "domain": "G",
+      "statement": "Threat model covering tool misuse, prompt injection, goal hijack, credential abuse, memory/context poisoning, cross-agent communication, rogue delegation, cascading failures and untrusted code.",
+      "source_line": 96,
+      "primary_question": "Q2",
+      "first_level_recommendation": "F2",
+      "potential_second_level_residuals": [
+        "S02",
+        "S03"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "6",
+          "7",
+          "8",
+          "10",
+          "11",
+          "12"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "G02",
+      "domain": "G",
+      "statement": "Network/file/secret compartmentalization; sandbox code execution, no ambient shell/FS access without explicit capability.",
+      "source_line": 97,
+      "primary_question": "Q2",
+      "first_level_recommendation": "F2",
+      "potential_second_level_residuals": [
+        "S02",
+        "S03"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "6",
+          "7",
+          "8",
+          "10",
+          "11",
+          "12"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "G03",
+      "domain": "G",
+      "statement": "Source trust labels for every untrusted input, tool result, retrieved document, memory and external skill; deny instruction laundering.",
+      "source_line": 98,
+      "primary_question": "Q2",
+      "first_level_recommendation": "F2",
+      "potential_second_level_residuals": [
+        "S02",
+        "S03"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "6",
+          "7",
+          "8",
+          "10",
+          "11",
+          "12"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "G04",
+      "domain": "G",
+      "statement": "Tool and protocol OAuth resource/audience validation, token separation, refresh policies, least privilege and no token passthrough.",
+      "source_line": 99,
+      "primary_question": "Q2",
+      "first_level_recommendation": "F2",
+      "potential_second_level_residuals": [
+        "S02",
+        "S03"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "6",
+          "7",
+          "8",
+          "10",
+          "11",
+          "12"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "G05",
+      "domain": "G",
+      "statement": "Secure import of prompts/skills/tool packages with integrity pin, provenance, review and SBOM where appropriate.",
+      "source_line": 100,
+      "primary_question": "Q2",
+      "first_level_recommendation": "F2",
+      "potential_second_level_residuals": [
+        "S02",
+        "S03"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "6",
+          "7",
+          "8",
+          "10",
+          "11",
+          "12"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "G06",
+      "domain": "G",
+      "statement": "Restrict sensitive logs; classify/redact PII, credentials, prompts, retrieved records, chain-of-thought or private system instructions as required.",
+      "source_line": 101,
+      "primary_question": "Q2",
+      "first_level_recommendation": "F2",
+      "potential_second_level_residuals": [
+        "S02",
+        "S03"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "6",
+          "7",
+          "8",
+          "10",
+          "11",
+          "12"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "G07",
+      "domain": "G",
+      "statement": "Data residency, retention, deletion, tenant isolation and consent controls as host-linked policy profiles.",
+      "source_line": 102,
+      "primary_question": "Q2",
+      "first_level_recommendation": "F2",
+      "potential_second_level_residuals": [
+        "S02",
+        "S03"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "6",
+          "7",
+          "8",
+          "10",
+          "11",
+          "12"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "G08",
+      "domain": "G",
+      "statement": "Emergency disable, incident severity, forensics and evidence integrity.",
+      "source_line": 103,
+      "primary_question": "Q2",
+      "first_level_recommendation": "F2",
+      "potential_second_level_residuals": [
+        "S02",
+        "S03"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "6",
+          "7",
+          "8",
+          "10",
+          "11",
+          "12"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "G09",
+      "domain": "G",
+      "statement": "Supply-chain provenance for deployed runtime and tool dependencies; approved plugin/skill update mechanism.",
+      "source_line": 104,
+      "primary_question": "Q2",
+      "first_level_recommendation": "F2",
+      "potential_second_level_residuals": [
+        "S02",
+        "S03"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "6",
+          "7",
+          "8",
+          "10",
+          "11",
+          "12"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "G10",
+      "domain": "G",
+      "statement": "Do not treat model guardrails as substitutes for deterministic authorization.",
+      "source_line": 105,
+      "primary_question": "Q2",
+      "first_level_recommendation": "F2",
+      "potential_second_level_residuals": [
+        "S02",
+        "S03"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "6",
+          "7",
+          "8",
+          "10",
+          "11",
+          "12"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "H01",
+      "domain": "H",
+      "statement": "Evaluation taxonomy: contract, authorization, binding, execution correctness, evidence integrity, regression, safety/adversarial, performance, human usability and deployment.",
+      "source_line": 109,
+      "primary_question": "Q6",
+      "first_level_recommendation": "F6",
+      "potential_second_level_residuals": [
+        "S08"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "16",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "H02",
+      "domain": "H",
+      "statement": "Reference datasets with provenance/version, representative positive/negative edge cases and domain-owned gold-state checks.",
+      "source_line": 110,
+      "primary_question": "Q6",
+      "first_level_recommendation": "F6",
+      "potential_second_level_residuals": [
+        "S08"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "16",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "H03",
+      "domain": "H",
+      "statement": "Assess final environment state and side-effects, not only textual outputs. Test tool names, arguments, timing, target and rollback.",
+      "source_line": 111,
+      "primary_question": "Q6",
+      "first_level_recommendation": "F6",
+      "potential_second_level_residuals": [
+        "S08"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "16",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "H04",
+      "domain": "H",
+      "statement": "Multi-run reliability (including pass^k or equivalent), variance, random seed/config metadata, flakiness and inter-run drift.",
+      "source_line": 112,
+      "primary_question": "Q6",
+      "first_level_recommendation": "F6",
+      "potential_second_level_residuals": [
+        "S08"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "16",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "H05",
+      "domain": "H",
+      "statement": "Independent human calibration of model-based graders; graders are neither self-certifying nor sufficient for effect authorization.",
+      "source_line": 113,
+      "primary_question": "Q6",
+      "first_level_recommendation": "F6",
+      "potential_second_level_residuals": [
+        "S08"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "16",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "H06",
+      "domain": "H",
+      "statement": "Adversarial tests for untrusted tool outputs, memory poisoning, delegation amplification, confirmation fatigue, tool response tampering and replay.",
+      "source_line": 114,
+      "primary_question": "Q6",
+      "first_level_recommendation": "F6",
+      "potential_second_level_residuals": [
+        "S08"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "16",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "H07",
+      "domain": "H",
+      "statement": "Measure task success, policy violations, recovery, completion latency, token/currency cost, throughput and resource consumption.",
+      "source_line": 115,
+      "primary_question": "Q6",
+      "first_level_recommendation": "F6",
+      "potential_second_level_residuals": [
+        "S08"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "16",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "H08",
+      "domain": "H",
+      "statement": "Gate promotion via explicit thresholds and complete evidence, with severities and waiver policy; failure cannot be hidden as warning.",
+      "source_line": 116,
+      "primary_question": "Q6",
+      "first_level_recommendation": "F6",
+      "potential_second_level_residuals": [
+        "S08"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "16",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "H09",
+      "domain": "H",
+      "statement": "Record evaluation environment/model/tool versions, dataset digest, code revision, sample size and confidence limitations.",
+      "source_line": 117,
+      "primary_question": "Q6",
+      "first_level_recommendation": "F6",
+      "potential_second_level_residuals": [
+        "S08"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "16",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "I01",
+      "domain": "I",
+      "statement": "End-to-end correlation across principal, agent, workflow, task, run, step, policy decision, tool call and output artifact.",
+      "source_line": 121,
+      "primary_question": "Q6",
+      "first_level_recommendation": "F6",
+      "potential_second_level_residuals": [
+        "S09"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "15",
+          "16"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "I02",
+      "domain": "I",
+      "statement": "Typed spans/events for agent, workflow, planner, model, retrieval, memory and tools; OTel semantic conventions usable as optional export mapping.",
+      "source_line": 122,
+      "primary_question": "Q6",
+      "first_level_recommendation": "F6",
+      "potential_second_level_residuals": [
+        "S09"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "15",
+          "16"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "I03",
+      "domain": "I",
+      "statement": "Append-only decision/effect ledger with before/after receipts and ambiguous outcome classification.",
+      "source_line": 123,
+      "primary_question": "Q6",
+      "first_level_recommendation": "F6",
+      "potential_second_level_residuals": [
+        "S09"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "15",
+          "16"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "I04",
+      "domain": "I",
+      "statement": "Preserve input and output artifact digests, source, creator, version, access basis, transformation and verification links.",
+      "source_line": 124,
+      "primary_question": "Q6",
+      "first_level_recommendation": "F6",
+      "potential_second_level_residuals": [
+        "S09"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "15",
+          "16"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "I05",
+      "domain": "I",
+      "statement": "Audit trail independent of mutable session memory; retention/erasure mechanisms must balance privacy with legally required audit retention.",
+      "source_line": 125,
+      "primary_question": "Q6",
+      "first_level_recommendation": "F6",
+      "potential_second_level_residuals": [
+        "S09"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "15",
+          "16"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "I06",
+      "domain": "I",
+      "statement": "Record tool/token/cost/latency metrics with missing/unknown semantics; zero and unknown must not be confused.",
+      "source_line": 126,
+      "primary_question": "Q6",
+      "first_level_recommendation": "F6",
+      "potential_second_level_residuals": [
+        "S09"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "15",
+          "16"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "I07",
+      "domain": "I",
+      "statement": "Redaction and sampling policy is separate from proof-required evidence; sampling telemetry cannot remove mandatory audit records.",
+      "source_line": 127,
+      "primary_question": "Q6",
+      "first_level_recommendation": "F6",
+      "potential_second_level_residuals": [
+        "S09"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "15",
+          "16"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "I08",
+      "domain": "I",
+      "statement": "Reconciliation receipts and independent acceptance references.",
+      "source_line": 128,
+      "primary_question": "Q6",
+      "first_level_recommendation": "F6",
+      "potential_second_level_residuals": [
+        "S09"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "15",
+          "16"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "J01",
+      "domain": "J",
+      "statement": "Health/readiness/liveness contracts, degraded modes, dependency and model-provider outage behavior.",
+      "source_line": 132,
+      "primary_question": "Q7",
+      "first_level_recommendation": "F7",
+      "potential_second_level_residuals": [
+        "S10",
+        "S11"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "11",
+          "13",
+          "17",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "J02",
+      "domain": "J",
+      "statement": "Quotas, per-run/per-principal cost ceiling, rate limits, concurrency controls, admission control and circuit breakers.",
+      "source_line": 133,
+      "primary_question": "Q7",
+      "first_level_recommendation": "F7",
+      "potential_second_level_residuals": [
+        "S10",
+        "S11"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "11",
+          "13",
+          "17",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "J03",
+      "domain": "J",
+      "statement": "SLOs for correct task completion, latency, availability, stalled jobs, denial accuracy and evidence completeness.",
+      "source_line": 134,
+      "primary_question": "Q7",
+      "first_level_recommendation": "F7",
+      "potential_second_level_residuals": [
+        "S10",
+        "S11"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "11",
+          "13",
+          "17",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "J04",
+      "domain": "J",
+      "statement": "Inventory, health, drift, vulnerability, registry integrity and unsupported version audit interfaces.",
+      "source_line": 135,
+      "primary_question": "Q7",
+      "first_level_recommendation": "F7",
+      "potential_second_level_residuals": [
+        "S10",
+        "S11"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "11",
+          "13",
+          "17",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "J05",
+      "domain": "J",
+      "statement": "No self-upgrade into production: signed release/provenance, migration plan, rollback, canary/shadow strategy and independent promotion.",
+      "source_line": 136,
+      "primary_question": "Q7",
+      "first_level_recommendation": "F7",
+      "potential_second_level_residuals": [
+        "S10",
+        "S11"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "11",
+          "13",
+          "17",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "J06",
+      "domain": "J",
+      "statement": "Incident/forensic record, emergency suspension, recovery procedure and notification/escalation obligations.",
+      "source_line": 137,
+      "primary_question": "Q7",
+      "first_level_recommendation": "F7",
+      "potential_second_level_residuals": [
+        "S10",
+        "S11"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "11",
+          "13",
+          "17",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "J07",
+      "domain": "J",
+      "statement": "Tenancy and data segregation across persistent state, credentials, telemetry and tool results.",
+      "source_line": 138,
+      "primary_question": "Q7",
+      "first_level_recommendation": "F7",
+      "potential_second_level_residuals": [
+        "S10",
+        "S11"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "11",
+          "13",
+          "17",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "K01",
+      "domain": "K",
+      "statement": "Generic adapter interface for model provider, tool execution, policy decision, identity, memory, event bus and data store.",
+      "source_line": 142,
+      "primary_question": "Q7",
+      "first_level_recommendation": "F7",
+      "potential_second_level_residuals": [
+        "S10"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "GOVERNANCE_CONTEXT",
+        "conductellence_chapters_candidate": [
+          "10",
+          "12",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "K02",
+      "domain": "K",
+      "statement": "MCP: optional tool/resource/prompt endpoint; if implemented against 2026-07-28, support stateless core, per-request version/capabilities, explicit state handle, tool schemas and transport authorization; Tasks as separately negotiated extension.",
+      "source_line": 143,
+      "primary_question": "Q7",
+      "first_level_recommendation": "F7",
+      "potential_second_level_residuals": [
+        "S10"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "10",
+          "12",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "K03",
+      "domain": "K",
+      "statement": "A2A: optional externally discoverable agent API, Agent Card, task/multimodal negotiation, authentication, streaming and cancellation; **not** the internal registry schema.",
+      "source_line": 144,
+      "primary_question": "Q7",
+      "first_level_recommendation": "F7",
+      "potential_second_level_residuals": [
+        "S10"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "10",
+          "12",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "K04",
+      "domain": "K",
+      "statement": "OpenAPI/JSON Schema: typed I/O and reference resolution; validation does not encode all semantic constraints.",
+      "source_line": 145,
+      "primary_question": "Q7",
+      "first_level_recommendation": "F7",
+      "potential_second_level_residuals": [
+        "S10"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "GOVERNANCE_CONTEXT",
+        "conductellence_chapters_candidate": [
+          "10",
+          "12",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "K05",
+      "domain": "K",
+      "statement": "OpenTelemetry: optional exporter and stable custom application event IDs; agent/workflow/tool span conventions currently Development.",
+      "source_line": 146,
+      "primary_question": "Q7",
+      "first_level_recommendation": "F7",
+      "potential_second_level_residuals": [
+        "S10"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "GOVERNANCE_CONTEXT",
+        "conductellence_chapters_candidate": [
+          "10",
+          "12",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "K06",
+      "domain": "K",
+      "statement": "Extensible skills/packages via declared schema, integrity pins and bounded capability expansion only after approval.",
+      "source_line": 147,
+      "primary_question": "Q7",
+      "first_level_recommendation": "F7",
+      "potential_second_level_residuals": [
+        "S10"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "10",
+          "12",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "K07",
+      "domain": "K",
+      "statement": "Protocol-version negotiation, deprecation windows, compatibility tests and security regression.",
+      "source_line": 148,
+      "primary_question": "Q7",
+      "first_level_recommendation": "F7",
+      "potential_second_level_residuals": [
+        "S10"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "10",
+          "12",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "L01",
+      "domain": "L",
+      "statement": "Agent card: intended use, restrictions, capabilities, known limitations, evidence/benchmarks, deployment and incident contact.",
+      "source_line": 152,
+      "primary_question": "Q7",
+      "first_level_recommendation": "F7",
+      "potential_second_level_residuals": [
+        "S06",
+        "S10",
+        "S11"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "2",
+          "14",
+          "16",
+          "19"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "L02",
+      "domain": "L",
+      "statement": "Risk register with purpose, affected users, potential harms, model assumptions and controls.",
+      "source_line": 153,
+      "primary_question": "Q7",
+      "first_level_recommendation": "F7",
+      "potential_second_level_residuals": [
+        "S06",
+        "S10",
+        "S11"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "2",
+          "14",
+          "16",
+          "19"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "L03",
+      "domain": "L",
+      "statement": "Governance obligations are conditional by deployment role/jurisdiction and risk; do not encode a particular statute as universal law.",
+      "source_line": 154,
+      "primary_question": "Q7",
+      "first_level_recommendation": "F7",
+      "potential_second_level_residuals": [
+        "S06",
+        "S10",
+        "S11"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "2",
+          "14",
+          "16",
+          "19"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "L04",
+      "domain": "L",
+      "statement": "Separate agent acceptance, conformance and policy approvals; record approver identity and jurisdiction.",
+      "source_line": 155,
+      "primary_question": "Q7",
+      "first_level_recommendation": "F7",
+      "potential_second_level_residuals": [
+        "S06",
+        "S10",
+        "S11"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "2",
+          "14",
+          "16",
+          "19"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "L05",
+      "domain": "L",
+      "statement": "Human oversight designed for meaningful review, not habituated click-through; escalation includes context, alternatives and likely effects.",
+      "source_line": 156,
+      "primary_question": "Q7",
+      "first_level_recommendation": "F7",
+      "potential_second_level_residuals": [
+        "S06",
+        "S10",
+        "S11"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "2",
+          "14",
+          "16",
+          "19"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "L06",
+      "domain": "L",
+      "statement": "Signed audit, release and incident/change provenance where required.",
+      "source_line": 157,
+      "primary_question": "Q7",
+      "first_level_recommendation": "F7",
+      "potential_second_level_residuals": [
+        "S06",
+        "S10",
+        "S11"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "2",
+          "14",
+          "16",
+          "19"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    },
+    {
+      "id": "L07",
+      "domain": "L",
+      "statement": "Clear ownership for lifecycle, authority, policies, data and tools.",
+      "source_line": 158,
+      "primary_question": "Q7",
+      "first_level_recommendation": "F7",
+      "potential_second_level_residuals": [
+        "S06",
+        "S10",
+        "S11"
+      ],
+      "adoption_decision": "PENDING",
+      "schema_owner": "TO_ASSIGN",
+      "test_id": "TO_ASSIGN",
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "2",
+          "14",
+          "16",
+          "19"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
+    }
+  ],
+  "independent_security_assurance": {
+    "package": "F8",
+    "type": "CROSS_CUTTING_HOST_GOVERNANCE_NOT_NORMATIVE_AMA",
+    "source": "Hybrismannen/Conductellence- canonical law and system-state",
+    "report": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+    "conditional_residuals": [
+      "S12",
+      "S13",
+      "S14",
+      "S15"
+    ],
+    "first_level_package_proposed": true,
+    "adopted": false,
+    "notes": "F8 augments but does not replace Q1–Q7 primary mapping and is not itself a new item among the 96 source-derived universal candidates."
+  }
+}

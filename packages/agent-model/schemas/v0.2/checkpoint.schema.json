@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.checkpoint/v0.2-candidate"
+    },
+    "checkpointId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "runId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "leaseEpoch": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "generation": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "stateDigest": {
+      "$ref": "common.schema.json#/$defs/digest"
+    },
+    "stateRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "recordedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "schema",
+    "checkpointId",
+    "version",
+    "runId",
+    "leaseEpoch",
+    "generation",
+    "stateDigest",
+    "stateRef",
+    "recordedAt"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/checkpoint.schema.json",
+  "title": "AMA v0.2 candidate checkpoint contract"
+}

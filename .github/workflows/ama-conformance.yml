@@ -1,0 +1,110 @@
+name: AMA conformance
+on:
+  pull_request:
+    paths:
+      - "packages/agent-model/**"
+      - "packages/agent-runtime/**"
+      - "integrations/cdx/f8/**"
+      - ".cdx/**"
+      - "packages/registry/migrations/**"
+      - "docs/specifications/AMA-CONFORMANCE.md"
+      - "docs/roadmap/AMA-*"
+      - "docs/research/AMA-*"
+      - "docs/architecture/AMA.md"
+      - ".github/workflows/ama-conformance.yml"
+  push:
+    branches: [main]
+    paths:
+      - "packages/agent-model/**"
+      - "docs/roadmap/AMA-*"
+      - "docs/research/AMA-*"
+      - "docs/architecture/AMA.md"
+      - ".github/workflows/ama-conformance.yml"
+permissions:
+  contents: read
+jobs:
+  static-conformance:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: ffos_ama
+          POSTGRES_PASSWORD: ffos_ama_ci
+          POSTGRES_DB: ffos_ama_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U ffos_ama -d ffos_ama_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      AMA_TEST_DATABASE_URL: postgres://ffos_ama:ffos_ama_ci@localhost:5432/ffos_ama_test
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pinned JSON Schema evaluator
+        run: python -m pip install -r packages/agent-model/conformance/requirements.txt
+      - name: F8 catalogue mapping audit
+        run: python integrations/cdx/f8/audit_coverage.py
+      - name: F8 external release preflight (expected blocked)
+        run: |
+          python integrations/cdx/f8/preflight.py \
+            --output "$RUNNER_TEMP/ama-f8-preflight.json"
+      - name: Unit tests and negative/adversarial cases
+        run: python -m unittest discover -s packages/agent-model/conformance/tests -v
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Typed AMA execution-context guard tests
+        run: node --experimental-strip-types --test packages/agent-model/src/index.test.mjs
+      - name: Parse candidate vNext TypeScript definitions
+        run: node --experimental-strip-types --input-type=module -e "await import('./packages/agent-model/src/vnext.ts')"
+      - name: Parse candidate M2 authorization interfaces
+        run: node --experimental-strip-types --input-type=module -e "await import('./packages/agent-model/src/authorization-vnext.ts')"
+      - name: Parse candidate M3 cognitive types
+        run: node --experimental-strip-types --input-type=module -e "await import('./packages/agent-model/src/cognitive-vnext.ts')"
+      - name: Parse candidate M4 durable contract types
+        run: node --experimental-strip-types --input-type=module -e "await import('./packages/agent-model/src/durable-vnext.ts')"
+      - name: Parse candidate M5 evaluation contract types
+        run: node --experimental-strip-types --input-type=module -e "await import('./packages/agent-model/src/evaluation-vnext.ts')"
+      - name: Parse candidate M6 operational contract types
+        run: node --experimental-strip-types --input-type=module -e "await import('./packages/agent-model/src/operations-vnext.ts')"
+      - name: Install pinned PostgreSQL client
+        run: npm install --no-save --prefix packages/agent-runtime pg@8.23.1 --ignore-scripts --no-audit --no-fund
+      - name: Agent Stable guards and real PostgreSQL integration
+        run: node --experimental-strip-types --test packages/agent-runtime/tests/*.test.mjs
+      - name: Emit M5 synthetic assurance artifact (not independent certification)
+        run: |
+          python packages/agent-model/conformance/m5_emit_ci_candidate.py \
+            --output "$RUNNER_TEMP/ama-m5-candidate-report.json"
+      - name: Emit M6 synthetic operational readiness artifact (not activation)
+        run: |
+          python packages/agent-model/conformance/m6_emit_ci_candidate.py \
+            --output "$RUNNER_TEMP/ama-m6-candidate-report.json"
+      - name: M7-E six-profile end-to-end synthetic reference engineering gate
+        run: |
+          python packages/agent-model/conformance/ama_m7_integration.py \
+            --preflight "$RUNNER_TEMP/ama-f8-preflight.json" \
+            --output-dir "$RUNNER_TEMP/ama-m7e"
+      - name: Positive contract fixture
+        run: |
+          python packages/agent-model/conformance/ama_conformance.py \
+            --manifest packages/agent-model/conformance/fixtures/agent.json \
+            --bindings packages/agent-model/conformance/fixtures/bindings.json \
+            --report "$RUNNER_TEMP/ama-static-report.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ama-static-conformance
+          path: |
+            ${{ runner.temp }}/ama-static-report.json
+            ${{ runner.temp }}/ama-m5-candidate-report.json
+            ${{ runner.temp }}/ama-f8-preflight.json
+            ${{ runner.temp }}/ama-m6-candidate-report.json
+            ${{ runner.temp }}/ama-m7e/
+          if-no-files-found: ignore

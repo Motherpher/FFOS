@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.acceptance-assessment/v0.2-candidate"
+    },
+    "assessmentId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "reportRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "requestedScope": {
+      "enum": [
+        "STATIC_CANDIDATE",
+        "DISPOSABLE_INTEGRATION",
+        "LIVE_INDEPENDENT"
+      ]
+    },
+    "independentReviewerRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "authorizationRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "attestationRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "decision": {
+      "enum": [
+        "REJECT",
+        "HOLD",
+        "REFER_TO_AUTHORIZED_AUTHORITY"
+      ]
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "observedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "activationAuthorized": {
+      "const": false
+    }
+  },
+  "required": [
+    "schema",
+    "assessmentId",
+    "version",
+    "reportRef",
+    "requestedScope",
+    "independentReviewerRef",
+    "authorizationRef",
+    "decision",
+    "reason",
+    "observedAt",
+    "activationAuthorized"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/acceptance-assessment.schema.json",
+  "title": "AMA 0.2 candidate acceptance-assessment"
+}

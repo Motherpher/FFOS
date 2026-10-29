@@ -1,0 +1,291 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ffos.local/schemas/ama-agent-manifest-v1.json",
+  "title": "FFOS AMA Agent Manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "agentId",
+    "name",
+    "agentVersion",
+    "amaVersion",
+    "purpose",
+    "mandate",
+    "runtimeClass",
+    "lifecycleState",
+    "authority",
+    "effectCeiling",
+    "workflows",
+    "commands",
+    "capabilities",
+    "statePolicy",
+    "evidence",
+    "conformance"
+  ],
+  "properties": {
+    "schema": {
+      "const": "ffos.ama.agent-manifest/v1"
+    },
+    "agentId": {
+      "type": "string",
+      "pattern": "^[A-Z0-9][A-Z0-9._-]{2,127}$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "agentVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "amaVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mandate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scope",
+        "nonGoals"
+      ],
+      "properties": {
+        "scope": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "nonGoals": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "runtimeClass": {
+      "enum": [
+        "REQUEST_RESPONSE",
+        "DURABLE_WORKER",
+        "SCHEDULED",
+        "EVENT_DRIVEN",
+        "COMPOSITE",
+        "HYBRID"
+      ]
+    },
+    "lifecycleState": {
+      "enum": [
+        "DRAFT",
+        "REGISTERED",
+        "VALIDATED",
+        "DEPLOYABLE",
+        "ACTIVE",
+        "SUSPENDED",
+        "DEPRECATED",
+        "RETIRED"
+      ]
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "governingAuthority",
+        "authorityRefRequired",
+        "mandateRefRequired",
+        "selfApprovalProhibited"
+      ],
+      "properties": {
+        "governingAuthority": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authorityRefRequired": {
+          "type": "boolean"
+        },
+        "mandateRefRequired": {
+          "type": "boolean"
+        },
+        "selfApprovalProhibited": {
+          "const": true
+        }
+      }
+    },
+    "effectCeiling": {
+      "enum": [
+        "E0_OBSERVE",
+        "E1_INTERNAL_STATE",
+        "E2_REPOSITORY_CHANGE",
+        "E3_EXTERNAL_EFFECT",
+        "E4_AUTHORITY_CHANGE"
+      ]
+    },
+    "workflows": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "commands": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "internalRoles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "roleId",
+          "purpose",
+          "workflowIds",
+          "capabilityIds",
+          "effectCeiling"
+        ],
+        "properties": {
+          "roleId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          },
+          "workflowIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "capabilityIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "effectCeiling": {
+            "enum": [
+              "E0_OBSERVE",
+              "E1_INTERNAL_STATE",
+              "E2_REPOSITORY_CHANGE",
+              "E3_EXTERNAL_EFFECT",
+              "E4_AUTHORITY_CHANGE"
+            ]
+          },
+          "mayVerifyOtherRoleWork": {
+            "type": "boolean"
+          },
+          "mayCreateExternalEffects": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "statePolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "durableState",
+        "memoryMode"
+      ],
+      "properties": {
+        "durableState": {
+          "type": "boolean"
+        },
+        "memoryMode": {
+          "enum": [
+            "NONE",
+            "RUN",
+            "SESSION",
+            "PERSISTENT_BOUNDED"
+          ]
+        },
+        "stateStoreRef": {
+          "type": "string"
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "runRecordRequired",
+        "failedRunRecordRequired"
+      ],
+      "properties": {
+        "runRecordRequired": {
+          "const": true
+        },
+        "failedRunRecordRequired": {
+          "const": true
+        },
+        "requiredArtifacts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "conformance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile",
+        "regressionRequired",
+        "authorityDenialTestsRequired"
+      ],
+      "properties": {
+        "profile": {
+          "type": "string",
+          "minLength": 1
+        },
+        "regressionRequired": {
+          "const": true
+        },
+        "authorityDenialTestsRequired": {
+          "const": true
+        },
+        "suiteRef": {
+          "type": "string"
+        }
+      }
+    },
+    "modules": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "enabled",
+          "version"
+        ],
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          },
+          "version": {
+            "type": "string"
+          },
+          "configRef": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

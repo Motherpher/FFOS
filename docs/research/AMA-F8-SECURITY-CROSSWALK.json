@@ -1,0 +1,3627 @@
+{
+  "schema": "ffos.ama.m0.f8-security-crosswalk/v1",
+  "date": "2026-10-29",
+  "state": "CANDIDATE_CONTROL_MAPPING_NOT_ATTESTED",
+  "cdx": {
+    "source_repo": "Hybrismannen/Conductellence-",
+    "control_registry_sha": "55dbcdac2f822b59a5a5f0f19eeadfa61d2c7ed0",
+    "law_bindings_sha": "76714735698c3904d5d4cff0edd2b57ec6836102",
+    "law": "CDX-LAW-001",
+    "law_state": "ADOPTED",
+    "reference_controls": 69,
+    "review_sections": 62,
+    "release": "PRE_RELEASE",
+    "enforcement": "BOOTSTRAP",
+    "estate_integration": "PENDING_RUNTIME_BINDINGS"
+  },
+  "policy": "Only exact existing control IDs/law-section/audit references are permitted; semantic applicability and runtime enforcement remain NOT_VERIFIED.",
+  "requirements": [
+    {
+      "id": "A01",
+      "domain": "A",
+      "original_disposition": "ADOPT_CORE",
+      "status": "UNMAPPED",
+      "control_candidates": [],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "A02",
+      "domain": "A",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-09-03",
+          "law_section_id": "CDX-LAW-001-09-03",
+          "law_section_title": "Agent Manifest",
+          "control_title": "Agent Manifest",
+          "enforcement_surface": "MODEL_AGENT",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-09-03-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        },
+        {
+          "control_id": "CDX-CTL-VERSION-001",
+          "law_section_id": "CDX-LAW-001-19-02",
+          "law_section_title": "Versioning",
+          "control_title": "Versioning",
+          "enforcement_surface": "CONSTITUTIONAL_CHANGE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-19-02-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "A03",
+      "domain": "A",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-09-03",
+          "law_section_id": "CDX-LAW-001-09-03",
+          "law_section_title": "Agent Manifest",
+          "control_title": "Agent Manifest",
+          "enforcement_surface": "MODEL_AGENT",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-09-03-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "A04",
+      "domain": "A",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-04-01",
+          "law_section_id": "CDX-LAW-001-04-01",
+          "law_section_title": "Principal classes",
+          "control_title": "Principal classes",
+          "enforcement_surface": "IDENTITY_AUTHORITY",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-04-01-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "A05",
+      "domain": "A",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-VERSION-001",
+          "law_section_id": "CDX-LAW-001-19-02",
+          "law_section_title": "Versioning",
+          "control_title": "Versioning",
+          "enforcement_surface": "CONSTITUTIONAL_CHANGE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-19-02-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "A06",
+      "domain": "A",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-REG-001",
+          "law_section_id": "CDX-LAW-001-03-01",
+          "law_section_title": "Registration duty",
+          "control_title": "Registration duty",
+          "enforcement_surface": "SYSTEM_ADMISSION",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-03-01-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "A07",
+      "domain": "A",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-09-03",
+          "law_section_id": "CDX-LAW-001-09-03",
+          "law_section_title": "Agent Manifest",
+          "control_title": "Agent Manifest",
+          "enforcement_surface": "MODEL_AGENT",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-09-03-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "B01",
+      "domain": "B",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-01-04",
+          "law_section_id": "CDX-LAW-001-01-04",
+          "law_section_title": "Presumption against implicit authority",
+          "control_title": "Presumption against implicit authority",
+          "enforcement_surface": "AUTHORITY",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-01-04-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        },
+        {
+          "control_id": "CDX-CTL-05-06",
+          "law_section_id": "CDX-LAW-001-05-06",
+          "law_section_title": "Delegation provenance",
+          "control_title": "Delegation provenance",
+          "enforcement_surface": "CAPABILITY_DELEGATION",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-05-06-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "B02",
+      "domain": "B",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-DELEG-001",
+          "law_section_id": "CDX-LAW-001-05-05",
+          "law_section_title": "Delegation subset rule",
+          "control_title": "Delegation subset rule",
+          "enforcement_surface": "CAPABILITY_DELEGATION",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-05-05-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        },
+        {
+          "control_id": "CDX-CTL-05-08",
+          "law_section_id": "CDX-LAW-001-05-08",
+          "law_section_title": "Non-transitive trust",
+          "control_title": "Non-transitive trust",
+          "enforcement_surface": "CAPABILITY_DELEGATION",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-05-08-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "B03",
+      "domain": "B",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-CRED-001",
+          "law_section_id": "CDX-LAW-001-12-01",
+          "law_section_title": "Credential isolation",
+          "control_title": "Credential isolation",
+          "enforcement_surface": "CREDENTIAL_CRYPTO",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-12-01-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "B04",
+      "domain": "B",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-13-04",
+          "law_section_id": "CDX-LAW-001-13-04",
+          "law_section_title": "Runtime policy mediation",
+          "control_title": "Runtime policy mediation",
+          "enforcement_surface": "RUNTIME_AUTH",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-13-04-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        },
+        {
+          "control_id": "CDX-CTL-POLICY-001",
+          "law_section_id": "CDX-LAW-001-13-06",
+          "law_section_title": "Policy pinning",
+          "control_title": "Policy pinning",
+          "enforcement_surface": "RUNTIME_AUTH",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-13-06-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "B05",
+      "domain": "B",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-05-02",
+          "law_section_id": "CDX-LAW-001-05-02",
+          "law_section_title": "Capability form",
+          "control_title": "Capability form",
+          "enforcement_surface": "CAPABILITY_DELEGATION",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-05-02-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        },
+        {
+          "control_id": "CDX-CTL-10-04",
+          "law_section_id": "CDX-LAW-001-10-04",
+          "law_section_title": "Egress control",
+          "control_title": "Egress control",
+          "enforcement_surface": "TOOL_CONNECTOR",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-10-04-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "B06",
+      "domain": "B",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-14-05",
+          "law_section_id": "CDX-LAW-001-14-05",
+          "law_section_title": "Reversibility classification",
+          "control_title": "Reversibility classification",
+          "enforcement_surface": "EXTERNAL_EFFECT",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-14-05-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "B07",
+      "domain": "B",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-13-03",
+          "law_section_id": "CDX-LAW-001-13-03",
+          "law_section_title": "Finite decision grammar",
+          "control_title": "Finite decision grammar",
+          "enforcement_surface": "RUNTIME_AUTH",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-13-03-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "B08",
+      "domain": "B",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-13-01",
+          "law_section_id": "CDX-LAW-001-13-01",
+          "law_section_title": "Continuous authorization",
+          "control_title": "Continuous authorization",
+          "enforcement_surface": "RUNTIME_AUTH",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-13-01-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        },
+        {
+          "control_id": "CDX-CTL-14-06",
+          "law_section_id": "CDX-LAW-001-14-06",
+          "law_section_title": "Revocation during execution",
+          "control_title": "Revocation during execution",
+          "enforcement_surface": "EXTERNAL_EFFECT",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-14-06-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "B09",
+      "domain": "B",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-Z0-001",
+          "law_section_id": "CDX-LAW-001-06-02",
+          "law_section_title": "Human Personal Domain",
+          "control_title": "Human Personal Domain",
+          "enforcement_surface": "BOUNDARY",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-06-02-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        },
+        {
+          "control_id": "CDX-CTL-07-01",
+          "law_section_id": "CDX-LAW-001-07-01",
+          "law_section_title": "Dataset Passport",
+          "control_title": "Dataset Passport",
+          "enforcement_surface": "DATA",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-07-01-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "B10",
+      "domain": "B",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-SPETL-001",
+          "law_section_id": "CDX-LAW-001-15-01",
+          "law_section_title": "SPETL requirement",
+          "control_title": "SPETL requirement",
+          "enforcement_surface": "EVIDENCE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-15-01-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "C01",
+      "domain": "C",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-09-01",
+          "law_section_id": "CDX-LAW-001-09-01",
+          "law_section_title": "Model registration",
+          "control_title": "Model registration",
+          "enforcement_surface": "MODEL_AGENT",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-09-01-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "C02",
+      "domain": "C",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-CONTENT-001",
+          "law_section_id": "CDX-LAW-001-08-01",
+          "law_section_title": "Content-Authority Firewall",
+          "control_title": "Content-Authority Firewall",
+          "enforcement_surface": "CONTENT_MEMORY",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-08-01-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "C03",
+      "domain": "C",
+      "original_disposition": "ADOPT_OPTIONAL",
+      "status": "UNMAPPED",
+      "control_candidates": [],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "C04",
+      "domain": "C",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-13-09",
+          "law_section_id": "CDX-LAW-001-13-09",
+          "law_section_title": "Scenario isolation",
+          "control_title": "Scenario isolation",
+          "enforcement_surface": "RUNTIME_AUTH",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-13-09-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "C05",
+      "domain": "C",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-05-07",
+          "law_section_id": "CDX-LAW-001-05-07",
+          "law_section_title": "Bounded recursion",
+          "control_title": "Bounded recursion",
+          "enforcement_surface": "CAPABILITY_DELEGATION",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-05-07-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "C06",
+      "domain": "C",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-CONTENT-001",
+          "law_section_id": "CDX-LAW-001-08-01",
+          "law_section_title": "Content-Authority Firewall",
+          "control_title": "Content-Authority Firewall",
+          "enforcement_surface": "CONTENT_MEMORY",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-08-01-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "C07",
+      "domain": "C",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-13-03",
+          "law_section_id": "CDX-LAW-001-13-03",
+          "law_section_title": "Finite decision grammar",
+          "control_title": "Finite decision grammar",
+          "enforcement_surface": "RUNTIME_AUTH",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-13-03-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "C08",
+      "domain": "C",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-09-01",
+          "law_section_id": "CDX-LAW-001-09-01",
+          "law_section_title": "Model registration",
+          "control_title": "Model registration",
+          "enforcement_surface": "MODEL_AGENT",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-09-01-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "D01",
+      "domain": "D",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-09-03",
+          "law_section_id": "CDX-LAW-001-09-03",
+          "law_section_title": "Agent Manifest",
+          "control_title": "Agent Manifest",
+          "enforcement_surface": "MODEL_AGENT",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-09-03-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "D02",
+      "domain": "D",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-13-02",
+          "law_section_id": "CDX-LAW-001-13-02",
+          "law_section_title": "Mandatory gate sequence",
+          "control_title": "Mandatory gate sequence",
+          "enforcement_surface": "RUNTIME_AUTH",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-13-02-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "D03",
+      "domain": "D",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-05-02",
+          "law_section_id": "CDX-LAW-001-05-02",
+          "law_section_title": "Capability form",
+          "control_title": "Capability form",
+          "enforcement_surface": "CAPABILITY_DELEGATION",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-05-02-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        },
+        {
+          "control_id": "CDX-CTL-TOOL-001",
+          "law_section_id": "CDX-LAW-001-10-01",
+          "law_section_title": "Tool admission",
+          "control_title": "Tool admission",
+          "enforcement_surface": "TOOL_CONNECTOR",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-10-01-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "D04",
+      "domain": "D",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-TOOL-001",
+          "law_section_id": "CDX-LAW-001-10-01",
+          "law_section_title": "Tool admission",
+          "control_title": "Tool admission",
+          "enforcement_surface": "TOOL_CONNECTOR",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-10-01-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        },
+        {
+          "control_id": "CDX-CTL-CONTENT-001",
+          "law_section_id": "CDX-LAW-001-08-01",
+          "law_section_title": "Content-Authority Firewall",
+          "control_title": "Content-Authority Firewall",
+          "enforcement_surface": "CONTENT_MEMORY",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-08-01-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "D05",
+      "domain": "D",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-EFFECT-001",
+          "law_section_id": "CDX-LAW-001-14-04",
+          "law_section_title": "External-effect gate",
+          "control_title": "External-effect gate",
+          "enforcement_surface": "EXTERNAL_EFFECT",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-14-04-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        },
+        {
+          "control_id": "CDX-CTL-13-08",
+          "law_section_id": "CDX-LAW-001-13-08",
+          "law_section_title": "Reconciliation",
+          "control_title": "Reconciliation",
+          "enforcement_surface": "RUNTIME_AUTH",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-13-08-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "D06",
+      "domain": "D",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-CONTENT-001",
+          "law_section_id": "CDX-LAW-001-08-01",
+          "law_section_title": "Content-Authority Firewall",
+          "control_title": "Content-Authority Firewall",
+          "enforcement_surface": "CONTENT_MEMORY",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-08-01-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "D07",
+      "domain": "D",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-13-03",
+          "law_section_id": "CDX-LAW-001-13-03",
+          "law_section_title": "Finite decision grammar",
+          "control_title": "Finite decision grammar",
+          "enforcement_surface": "RUNTIME_AUTH",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-13-03-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "D08",
+      "domain": "D",
+      "original_disposition": "ADOPT_OPTIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-09-06",
+          "law_section_id": "CDX-LAW-001-09-06",
+          "law_section_title": "Inter-agent authentication",
+          "control_title": "Inter-agent authentication",
+          "enforcement_surface": "MODEL_AGENT",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-09-06-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        },
+        {
+          "control_id": "CDX-CTL-DELEG-001",
+          "law_section_id": "CDX-LAW-001-05-05",
+          "law_section_title": "Delegation subset rule",
+          "control_title": "Delegation subset rule",
+          "enforcement_surface": "CAPABILITY_DELEGATION",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-05-05-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "E01",
+      "domain": "E",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-MEM-001",
+          "law_section_id": "CDX-LAW-001-08-04",
+          "law_section_title": "Memory is privileged persistence",
+          "control_title": "Memory is privileged persistence",
+          "enforcement_surface": "CONTENT_MEMORY",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-08-04-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "E02",
+      "domain": "E",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-MEM-001",
+          "law_section_id": "CDX-LAW-001-08-04",
+          "law_section_title": "Memory is privileged persistence",
+          "control_title": "Memory is privileged persistence",
+          "enforcement_surface": "CONTENT_MEMORY",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-08-04-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "E03",
+      "domain": "E",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-MEM-001",
+          "law_section_id": "CDX-LAW-001-08-04",
+          "law_section_title": "Memory is privileged persistence",
+          "control_title": "Memory is privileged persistence",
+          "enforcement_surface": "CONTENT_MEMORY",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-08-04-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "E04",
+      "domain": "E",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-MEM-001",
+          "law_section_id": "CDX-LAW-001-08-04",
+          "law_section_title": "Memory is privileged persistence",
+          "control_title": "Memory is privileged persistence",
+          "enforcement_surface": "CONTENT_MEMORY",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-08-04-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        },
+        {
+          "control_id": "CDX-CTL-07-08",
+          "law_section_id": "CDX-LAW-001-07-08",
+          "law_section_title": "Retention and deletion authority",
+          "control_title": "Retention and deletion authority",
+          "enforcement_surface": "DATA",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-07-08-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "E05",
+      "domain": "E",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-CONTENT-001",
+          "law_section_id": "CDX-LAW-001-08-01",
+          "law_section_title": "Content-Authority Firewall",
+          "control_title": "Content-Authority Firewall",
+          "enforcement_surface": "CONTENT_MEMORY",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-08-01-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "E06",
+      "domain": "E",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-08-06",
+          "law_section_id": "CDX-LAW-001-08-06",
+          "law_section_title": "Cross-project memory",
+          "control_title": "Cross-project memory",
+          "enforcement_surface": "CONTENT_MEMORY",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-08-06-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "E07",
+      "domain": "E",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-CONTENT-001",
+          "law_section_id": "CDX-LAW-001-08-01",
+          "law_section_title": "Content-Authority Firewall",
+          "control_title": "Content-Authority Firewall",
+          "enforcement_surface": "CONTENT_MEMORY",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-08-01-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "F01",
+      "domain": "F",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-15-02",
+          "law_section_id": "CDX-LAW-001-15-02",
+          "law_section_title": "Correlation and causation",
+          "control_title": "Correlation and causation",
+          "enforcement_surface": "EVIDENCE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-15-02-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "F02",
+      "domain": "F",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-EVID-001",
+          "law_section_id": "CDX-LAW-001-15-03",
+          "law_section_title": "Append-oriented history",
+          "control_title": "Append-oriented history",
+          "enforcement_surface": "EVIDENCE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-15-03-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "F03",
+      "domain": "F",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-13-08",
+          "law_section_id": "CDX-LAW-001-13-08",
+          "law_section_title": "Reconciliation",
+          "control_title": "Reconciliation",
+          "enforcement_surface": "RUNTIME_AUTH",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-13-08-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "F04",
+      "domain": "F",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-13-08",
+          "law_section_id": "CDX-LAW-001-13-08",
+          "law_section_title": "Reconciliation",
+          "control_title": "Reconciliation",
+          "enforcement_surface": "RUNTIME_AUTH",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-13-08-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "F05",
+      "domain": "F",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-13-08",
+          "law_section_id": "CDX-LAW-001-13-08",
+          "law_section_title": "Reconciliation",
+          "control_title": "Reconciliation",
+          "enforcement_surface": "RUNTIME_AUTH",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-13-08-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "F06",
+      "domain": "F",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-17-02",
+          "law_section_id": "CDX-LAW-001-17-02",
+          "law_section_title": "Security Stop",
+          "control_title": "Security Stop",
+          "enforcement_surface": "INCIDENT_EXCEPTION",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-17-02-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "F07",
+      "domain": "F",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-14-06",
+          "law_section_id": "CDX-LAW-001-14-06",
+          "law_section_title": "Revocation during execution",
+          "control_title": "Revocation during execution",
+          "enforcement_surface": "EXTERNAL_EFFECT",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-14-06-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        },
+        {
+          "control_id": "CDX-CTL-18-03",
+          "law_section_id": "CDX-LAW-001-18-03",
+          "law_section_title": "Suspension",
+          "control_title": "Suspension",
+          "enforcement_surface": "LIFECYCLE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-18-03-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "F08",
+      "domain": "F",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-EVID-001",
+          "law_section_id": "CDX-LAW-001-15-03",
+          "law_section_title": "Append-oriented history",
+          "control_title": "Append-oriented history",
+          "enforcement_surface": "EVIDENCE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-15-03-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "G01",
+      "domain": "G",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-16-06",
+          "law_section_id": "CDX-LAW-001-16-06",
+          "law_section_title": "Regression of discovered failures",
+          "control_title": "Regression of discovered failures",
+          "enforcement_surface": "ASSURANCE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-16-06-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "G02",
+      "domain": "G",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-Z0-001",
+          "law_section_id": "CDX-LAW-001-06-02",
+          "law_section_title": "Human Personal Domain",
+          "control_title": "Human Personal Domain",
+          "enforcement_surface": "BOUNDARY",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-06-02-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "G03",
+      "domain": "G",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-CONTENT-001",
+          "law_section_id": "CDX-LAW-001-08-01",
+          "law_section_title": "Content-Authority Firewall",
+          "control_title": "Content-Authority Firewall",
+          "enforcement_surface": "CONTENT_MEMORY",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-08-01-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "G04",
+      "domain": "G",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-CRED-001",
+          "law_section_id": "CDX-LAW-001-12-01",
+          "law_section_title": "Credential isolation",
+          "control_title": "Credential isolation",
+          "enforcement_surface": "CREDENTIAL_CRYPTO",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-12-01-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "G05",
+      "domain": "G",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-11-03",
+          "law_section_id": "CDX-LAW-001-11-03",
+          "law_section_title": "Build provenance",
+          "control_title": "Build provenance",
+          "enforcement_surface": "SUPPLY_CHAIN",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-11-03-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        },
+        {
+          "control_id": "CDX-CTL-11-05",
+          "law_section_id": "CDX-LAW-001-11-05",
+          "law_section_title": "Dependency substitution",
+          "control_title": "Dependency substitution",
+          "enforcement_surface": "SUPPLY_CHAIN",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-11-05-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "G06",
+      "domain": "G",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-15-07",
+          "law_section_id": "CDX-LAW-001-15-07",
+          "law_section_title": "No chain-of-thought requirement",
+          "control_title": "No chain-of-thought requirement",
+          "enforcement_surface": "EVIDENCE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-15-07-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "G07",
+      "domain": "G",
+      "original_disposition": "HOST_BOUND",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-07-08",
+          "law_section_id": "CDX-LAW-001-07-08",
+          "law_section_title": "Retention and deletion authority",
+          "control_title": "Retention and deletion authority",
+          "enforcement_surface": "DATA",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-07-08-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "G08",
+      "domain": "G",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-17-02",
+          "law_section_id": "CDX-LAW-001-17-02",
+          "law_section_title": "Security Stop",
+          "control_title": "Security Stop",
+          "enforcement_surface": "INCIDENT_EXCEPTION",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-17-02-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        },
+        {
+          "control_id": "CDX-CTL-18-03",
+          "law_section_id": "CDX-LAW-001-18-03",
+          "law_section_title": "Suspension",
+          "control_title": "Suspension",
+          "enforcement_surface": "LIFECYCLE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-18-03-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "G09",
+      "domain": "G",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-11-02",
+          "law_section_id": "CDX-LAW-001-11-02",
+          "law_section_title": "Source and dependency inventory",
+          "control_title": "Source and dependency inventory",
+          "enforcement_surface": "SUPPLY_CHAIN",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-11-02-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        },
+        {
+          "control_id": "CDX-CTL-11-03",
+          "law_section_id": "CDX-LAW-001-11-03",
+          "law_section_title": "Build provenance",
+          "control_title": "Build provenance",
+          "enforcement_surface": "SUPPLY_CHAIN",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-11-03-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "G10",
+      "domain": "G",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-13-04",
+          "law_section_id": "CDX-LAW-001-13-04",
+          "law_section_title": "Runtime policy mediation",
+          "control_title": "Runtime policy mediation",
+          "enforcement_surface": "RUNTIME_AUTH",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-13-04-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "H01",
+      "domain": "H",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-META-003",
+          "law_section_id": "CDX-LAW-001-16-03",
+          "law_section_title": "Auditability state",
+          "control_title": "Auditability state",
+          "enforcement_surface": "ASSURANCE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-16-03-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "H02",
+      "domain": "H",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-16-06",
+          "law_section_id": "CDX-LAW-001-16-06",
+          "law_section_title": "Regression of discovered failures",
+          "control_title": "Regression of discovered failures",
+          "enforcement_surface": "ASSURANCE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-16-06-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "H03",
+      "domain": "H",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-13-08",
+          "law_section_id": "CDX-LAW-001-13-08",
+          "law_section_title": "Reconciliation",
+          "control_title": "Reconciliation",
+          "enforcement_surface": "RUNTIME_AUTH",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-13-08-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "H04",
+      "domain": "H",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-16-06",
+          "law_section_id": "CDX-LAW-001-16-06",
+          "law_section_title": "Regression of discovered failures",
+          "control_title": "Regression of discovered failures",
+          "enforcement_surface": "ASSURANCE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-16-06-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "H05",
+      "domain": "H",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-META-002",
+          "law_section_id": "CDX-LAW-001-16-02",
+          "law_section_title": "Audit binding",
+          "control_title": "Audit binding",
+          "enforcement_surface": "ASSURANCE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-16-02-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "H06",
+      "domain": "H",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-16-06",
+          "law_section_id": "CDX-LAW-001-16-06",
+          "law_section_title": "Regression of discovered failures",
+          "control_title": "Regression of discovered failures",
+          "enforcement_surface": "ASSURANCE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-16-06-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "H07",
+      "domain": "H",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-META-003",
+          "law_section_id": "CDX-LAW-001-16-03",
+          "law_section_title": "Auditability state",
+          "control_title": "Auditability state",
+          "enforcement_surface": "ASSURANCE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-16-03-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "H08",
+      "domain": "H",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-META-001",
+          "law_section_id": "CDX-LAW-001-16-01",
+          "law_section_title": "Control binding",
+          "control_title": "Control binding",
+          "enforcement_surface": "ASSURANCE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-16-01-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "H09",
+      "domain": "H",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-EVID-001",
+          "law_section_id": "CDX-LAW-001-15-03",
+          "law_section_title": "Append-oriented history",
+          "control_title": "Append-oriented history",
+          "enforcement_surface": "EVIDENCE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-15-03-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "I01",
+      "domain": "I",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-15-02",
+          "law_section_id": "CDX-LAW-001-15-02",
+          "law_section_title": "Correlation and causation",
+          "control_title": "Correlation and causation",
+          "enforcement_surface": "EVIDENCE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-15-02-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "I02",
+      "domain": "I",
+      "original_disposition": "ADOPT_OPTIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-15-05",
+          "law_section_id": "CDX-LAW-001-15-05",
+          "law_section_title": "Trace directions",
+          "control_title": "Trace directions",
+          "enforcement_surface": "EVIDENCE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-15-05-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "I03",
+      "domain": "I",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-EVID-001",
+          "law_section_id": "CDX-LAW-001-15-03",
+          "law_section_title": "Append-oriented history",
+          "control_title": "Append-oriented history",
+          "enforcement_surface": "EVIDENCE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-15-03-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        },
+        {
+          "control_id": "CDX-CTL-SPETL-001",
+          "law_section_id": "CDX-LAW-001-15-01",
+          "law_section_title": "SPETL requirement",
+          "control_title": "SPETL requirement",
+          "enforcement_surface": "EVIDENCE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-15-01-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "I04",
+      "domain": "I",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-15-05",
+          "law_section_id": "CDX-LAW-001-15-05",
+          "law_section_title": "Trace directions",
+          "control_title": "Trace directions",
+          "enforcement_surface": "EVIDENCE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-15-05-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "I05",
+      "domain": "I",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-EVID-001",
+          "law_section_id": "CDX-LAW-001-15-03",
+          "law_section_title": "Append-oriented history",
+          "control_title": "Append-oriented history",
+          "enforcement_surface": "EVIDENCE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-15-03-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        },
+        {
+          "control_id": "CDX-CTL-07-08",
+          "law_section_id": "CDX-LAW-001-07-08",
+          "law_section_title": "Retention and deletion authority",
+          "control_title": "Retention and deletion authority",
+          "enforcement_surface": "DATA",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-07-08-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "I06",
+      "domain": "I",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-15-02",
+          "law_section_id": "CDX-LAW-001-15-02",
+          "law_section_title": "Correlation and causation",
+          "control_title": "Correlation and causation",
+          "enforcement_surface": "EVIDENCE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-15-02-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "I07",
+      "domain": "I",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-SPETL-001",
+          "law_section_id": "CDX-LAW-001-15-01",
+          "law_section_title": "SPETL requirement",
+          "control_title": "SPETL requirement",
+          "enforcement_surface": "EVIDENCE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-15-01-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "I08",
+      "domain": "I",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-13-08",
+          "law_section_id": "CDX-LAW-001-13-08",
+          "law_section_title": "Reconciliation",
+          "control_title": "Reconciliation",
+          "enforcement_surface": "RUNTIME_AUTH",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-13-08-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "J01",
+      "domain": "J",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-17-02",
+          "law_section_id": "CDX-LAW-001-17-02",
+          "law_section_title": "Security Stop",
+          "control_title": "Security Stop",
+          "enforcement_surface": "INCIDENT_EXCEPTION",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-17-02-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "J02",
+      "domain": "J",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-05-07",
+          "law_section_id": "CDX-LAW-001-05-07",
+          "law_section_title": "Bounded recursion",
+          "control_title": "Bounded recursion",
+          "enforcement_surface": "CAPABILITY_DELEGATION",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-05-07-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "J03",
+      "domain": "J",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-META-003",
+          "law_section_id": "CDX-LAW-001-16-03",
+          "law_section_title": "Auditability state",
+          "control_title": "Auditability state",
+          "enforcement_surface": "ASSURANCE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-16-03-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "J04",
+      "domain": "J",
+      "original_disposition": "HOST_BOUND",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-18-06",
+          "law_section_id": "CDX-LAW-001-18-06",
+          "law_section_title": "Orphan detection",
+          "control_title": "Orphan detection",
+          "enforcement_surface": "LIFECYCLE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-18-06-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "J05",
+      "domain": "J",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-VERSION-001",
+          "law_section_id": "CDX-LAW-001-19-02",
+          "law_section_title": "Versioning",
+          "control_title": "Versioning",
+          "enforcement_surface": "CONSTITUTIONAL_CHANGE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-19-02-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "J06",
+      "domain": "J",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-17-02",
+          "law_section_id": "CDX-LAW-001-17-02",
+          "law_section_title": "Security Stop",
+          "control_title": "Security Stop",
+          "enforcement_surface": "INCIDENT_EXCEPTION",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-17-02-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        },
+        {
+          "control_id": "CDX-CTL-18-03",
+          "law_section_id": "CDX-LAW-001-18-03",
+          "law_section_title": "Suspension",
+          "control_title": "Suspension",
+          "enforcement_surface": "LIFECYCLE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-18-03-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "J07",
+      "domain": "J",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-Z0-001",
+          "law_section_id": "CDX-LAW-001-06-02",
+          "law_section_title": "Human Personal Domain",
+          "control_title": "Human Personal Domain",
+          "enforcement_surface": "BOUNDARY",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-06-02-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "K01",
+      "domain": "K",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-13-04",
+          "law_section_id": "CDX-LAW-001-13-04",
+          "law_section_title": "Runtime policy mediation",
+          "control_title": "Runtime policy mediation",
+          "enforcement_surface": "RUNTIME_AUTH",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-13-04-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "K02",
+      "domain": "K",
+      "original_disposition": "SOURCE_REVIEW_REQUIRED",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-TOOL-001",
+          "law_section_id": "CDX-LAW-001-10-01",
+          "law_section_title": "Tool admission",
+          "control_title": "Tool admission",
+          "enforcement_surface": "TOOL_CONNECTOR",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-10-01-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "K03",
+      "domain": "K",
+      "original_disposition": "SOURCE_REVIEW_REQUIRED",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-09-06",
+          "law_section_id": "CDX-LAW-001-09-06",
+          "law_section_title": "Inter-agent authentication",
+          "control_title": "Inter-agent authentication",
+          "enforcement_surface": "MODEL_AGENT",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-09-06-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "K04",
+      "domain": "K",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-TOOL-001",
+          "law_section_id": "CDX-LAW-001-10-01",
+          "law_section_title": "Tool admission",
+          "control_title": "Tool admission",
+          "enforcement_surface": "TOOL_CONNECTOR",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-10-01-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "K05",
+      "domain": "K",
+      "original_disposition": "ADOPT_OPTIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-15-05",
+          "law_section_id": "CDX-LAW-001-15-05",
+          "law_section_title": "Trace directions",
+          "control_title": "Trace directions",
+          "enforcement_surface": "EVIDENCE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-15-05-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "K06",
+      "domain": "K",
+      "original_disposition": "ADOPT_OPTIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-11-05",
+          "law_section_id": "CDX-LAW-001-11-05",
+          "law_section_title": "Dependency substitution",
+          "control_title": "Dependency substitution",
+          "enforcement_surface": "SUPPLY_CHAIN",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-11-05-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "K07",
+      "domain": "K",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-VERSION-001",
+          "law_section_id": "CDX-LAW-001-19-02",
+          "law_section_title": "Versioning",
+          "control_title": "Versioning",
+          "enforcement_surface": "CONSTITUTIONAL_CHANGE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-19-02-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "L01",
+      "domain": "L",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-09-03",
+          "law_section_id": "CDX-LAW-001-09-03",
+          "law_section_title": "Agent Manifest",
+          "control_title": "Agent Manifest",
+          "enforcement_surface": "MODEL_AGENT",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-09-03-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "L02",
+      "domain": "L",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-META-001",
+          "law_section_id": "CDX-LAW-001-16-01",
+          "law_section_title": "Control binding",
+          "control_title": "Control binding",
+          "enforcement_surface": "ASSURANCE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-16-01-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "L03",
+      "domain": "L",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-19-04",
+          "law_section_id": "CDX-LAW-001-19-04",
+          "law_section_title": "Regulatory and standards drift",
+          "control_title": "Regulatory and standards drift",
+          "enforcement_surface": "CONSTITUTIONAL_CHANGE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-19-04-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "L04",
+      "domain": "L",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-META-003",
+          "law_section_id": "CDX-LAW-001-16-03",
+          "law_section_title": "Auditability state",
+          "control_title": "Auditability state",
+          "enforcement_surface": "ASSURANCE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-16-03-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "L05",
+      "domain": "L",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-13-03",
+          "law_section_id": "CDX-LAW-001-13-03",
+          "law_section_title": "Finite decision grammar",
+          "control_title": "Finite decision grammar",
+          "enforcement_surface": "RUNTIME_AUTH",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-13-03-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "L06",
+      "domain": "L",
+      "original_disposition": "ADOPT_CONDITIONAL",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-EVID-001",
+          "law_section_id": "CDX-LAW-001-15-03",
+          "law_section_title": "Append-oriented history",
+          "control_title": "Append-oriented history",
+          "enforcement_surface": "EVIDENCE",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-15-03-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    },
+    {
+      "id": "L07",
+      "domain": "L",
+      "original_disposition": "ADOPT_CORE",
+      "status": "EXACT_ID_CANDIDATE_MAPPING_SEMANTICS_NOT_VERIFIED",
+      "control_candidates": [
+        {
+          "control_id": "CDX-CTL-04-01",
+          "law_section_id": "CDX-LAW-001-04-01",
+          "law_section_title": "Principal classes",
+          "control_title": "Principal classes",
+          "enforcement_surface": "IDENTITY_AUTHORITY",
+          "binding_state": "IMPLEMENTED",
+          "control_state": "IMPLEMENTED_REFERENCE_RUNTIME",
+          "audit_ids": [
+            "AUD-CDX-LAW-001-04-01-001"
+          ],
+          "review_ids": [],
+          "evidence_spec": [
+            "policy_decision",
+            "SPETL decision event"
+          ],
+          "mapping_quality": "SEMANTIC_CANDIDATE_NOT_APPROVED",
+          "independent_fact_verification": "NOT_VERIFIED",
+          "runtime_enforced": false
+        }
+      ],
+      "host_binding": "NOT_CONNECTED",
+      "mandatory_policy_fact_provenance": "NOT_VERIFIED",
+      "policy_decision_semantics": "NOT_VERIFIED",
+      "spetl_receipt": "NOT_VERIFIED",
+      "run_time_effect": "NOT_VERIFIED",
+      "f8_package": "F8.1_RISK_CONTROL_ADJUDICATION"
+    }
+  ],
+  "summary": {
+    "control_candidate_rows": 94,
+    "unmapped": 2,
+    "distinct_controls": 47
+  }
+}

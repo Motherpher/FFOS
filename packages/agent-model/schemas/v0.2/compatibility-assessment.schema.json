@@ -1,0 +1,85 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.compatibility-assessment/v0.2-candidate"
+    },
+    "assessmentId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "agentRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "fromVersion": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "toVersion": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "changeClass": {
+      "enum": [
+        "PATCH",
+        "MINOR",
+        "MAJOR",
+        "PROTOCOL",
+        "MODEL",
+        "TOOL",
+        "POLICY"
+      ]
+    },
+    "affectedCapabilities": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/id"
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "breakingChange": {
+      "type": "boolean"
+    },
+    "contractTestsPassed": {
+      "type": "boolean"
+    },
+    "migrationReversible": {
+      "type": "boolean"
+    },
+    "baselineEvidenceRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sourceDigest": {
+      "$ref": "common.schema.json#/$defs/digest"
+    },
+    "result": {
+      "enum": [
+        "COMPATIBLE_CANDIDATE",
+        "REQUIRES_REVIEW",
+        "INCOMPATIBLE"
+      ]
+    }
+  },
+  "required": [
+    "schema",
+    "assessmentId",
+    "version",
+    "agentRef",
+    "fromVersion",
+    "toVersion",
+    "changeClass",
+    "affectedCapabilities",
+    "breakingChange",
+    "contractTestsPassed",
+    "migrationReversible",
+    "baselineEvidenceRef",
+    "sourceDigest",
+    "result"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/compatibility-assessment.schema.json",
+  "title": "AMA v0.2 candidate compatibility-assessment"
+}

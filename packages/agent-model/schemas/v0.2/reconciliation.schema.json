@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "reconciliationId",
+    "runId",
+    "effectRef",
+    "outcome",
+    "verificationEvidenceRef",
+    "reviewerRef",
+    "reviewedAt"
+  ],
+  "properties": {
+    "schema": {
+      "const": "ama.reconciliation/v0.2-candidate"
+    },
+    "reconciliationId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "runId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "effectRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "receiptRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "outcome": {
+      "enum": [
+        "CONFIRMED_COMMITTED",
+        "CONFIRMED_NOT_APPLIED",
+        "STILL_UNKNOWN"
+      ]
+    },
+    "verificationEvidenceRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reviewerRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reviewedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/reconciliation.schema.json",
+  "title": "AMA v0.2 candidate reconciliation contract"
+}

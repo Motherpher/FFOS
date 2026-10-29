@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "agentId",
+    "commandId",
+    "version",
+    "token",
+    "workflowRef",
+    "inputSchema"
+  ],
+  "properties": {
+    "schema": {
+      "const": "ama.command/v0.2-candidate"
+    },
+    "agentId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "commandId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "token": {
+      "$ref": "common.schema.json#/$defs/token"
+    },
+    "workflowRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "inputSchema": {
+      "type": "object",
+      "minProperties": 1
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/command.schema.json",
+  "title": "AMA v0.2 candidate command contract"
+}

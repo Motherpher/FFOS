@@ -1,0 +1,73 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "effectId",
+    "version",
+    "taskRef",
+    "runId",
+    "capabilityRef",
+    "effectClass",
+    "actionKind",
+    "resourceScope",
+    "state",
+    "evidenceRefs"
+  ],
+  "properties": {
+    "schema": {
+      "const": "ama.effect/v0.2-candidate"
+    },
+    "effectId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "taskRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "runId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "capabilityRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "effectClass": {
+      "$ref": "common.schema.json#/$defs/effect"
+    },
+    "actionKind": {
+      "enum": [
+        "OBSERVE",
+        "STATE_MUTATION",
+        "REPOSITORY_MUTATION",
+        "EXTERNAL_ACTION",
+        "AUTHORITY_CHANGE"
+      ]
+    },
+    "resourceScope": {
+      "$ref": "common.schema.json#/$defs/scope"
+    },
+    "state": {
+      "enum": [
+        "PREPARED",
+        "AUTHORIZED",
+        "EXECUTING",
+        "COMMITTED",
+        "UNKNOWN",
+        "BLOCKED"
+      ]
+    },
+    "evidenceRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/effect.schema.json",
+  "title": "AMA v0.2 candidate effect contract"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "@ffos/agent-model",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Shared Agent Master Architecture contracts for FFOS."
+}

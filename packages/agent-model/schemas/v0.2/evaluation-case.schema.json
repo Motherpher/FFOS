@@ -1,0 +1,111 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.evaluation-case/v0.2-candidate"
+    },
+    "caseId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "profileRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "axis": {
+      "enum": [
+        "STRUCTURAL",
+        "AUTHORITY",
+        "TOOL_TARGET",
+        "FINAL_STATE",
+        "RELIABILITY",
+        "ADVERSARIAL",
+        "PRIVACY",
+        "DURABILITY",
+        "COST",
+        "EVIDENCE"
+      ]
+    },
+    "scenarioClass": {
+      "enum": [
+        "HAPPY_PATH",
+        "DENIAL",
+        "INJECTION",
+        "OUTAGE",
+        "RECOVERY",
+        "BOUNDARY",
+        "CONTROL"
+      ]
+    },
+    "repeatGroup": {
+      "type": "string",
+      "minLength": 1
+    },
+    "perturbationId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "holdout": {
+      "type": "boolean"
+    },
+    "expectedDecision": {
+      "enum": [
+        "ALLOW",
+        "DENY",
+        "HOLD",
+        "STOP",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "expectedFinalState": {
+      "enum": [
+        "SUCCESS",
+        "FAIL",
+        "HOLD",
+        "UNKNOWN",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "expectedTargetRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "dataClassification": {
+      "enum": [
+        "PUBLIC",
+        "INTERNAL",
+        "CONFIDENTIAL",
+        "RESTRICTED"
+      ]
+    },
+    "inputDigest": {
+      "$ref": "common.schema.json#/$defs/digest"
+    },
+    "oracleRef": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "schema",
+    "caseId",
+    "version",
+    "profileRef",
+    "axis",
+    "scenarioClass",
+    "repeatGroup",
+    "perturbationId",
+    "holdout",
+    "expectedDecision",
+    "expectedFinalState",
+    "expectedTargetRef",
+    "dataClassification",
+    "inputDigest",
+    "oracleRef"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/evaluation-case.schema.json",
+  "title": "AMA 0.2 candidate evaluation-case contract"
+}

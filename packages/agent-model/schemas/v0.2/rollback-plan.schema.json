@@ -1,0 +1,81 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.rollback-plan/v0.2-candidate"
+    },
+    "rollbackId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "agentRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "fromVersion": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "targetVersion": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "targetDigest": {
+      "$ref": "common.schema.json#/$defs/digest"
+    },
+    "triggerKinds": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "POLICY_DRIFT",
+          "REVOKED_TOOL",
+          "MODEL_SUBSTITUTION",
+          "PROTOCOL_BREAK",
+          "UNSETTLED_EFFECT",
+          "HEALTH_DEGRADATION",
+          "PRIVACY_BREACH",
+          "UNKNOWN"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "requiresIndependentApproval": {
+      "const": true
+    },
+    "uncertainEffectsDisposition": {
+      "const": "HOLD_FOR_INDEPENDENT_RECONCILIATION"
+    },
+    "evidenceRetention": {
+      "const": "APPEND_ONLY"
+    },
+    "state": {
+      "enum": [
+        "PROPOSED",
+        "APPROVAL_PENDING",
+        "BLOCKED"
+      ]
+    },
+    "activationAuthorized": {
+      "const": false
+    }
+  },
+  "required": [
+    "schema",
+    "rollbackId",
+    "version",
+    "agentRef",
+    "fromVersion",
+    "targetVersion",
+    "targetDigest",
+    "triggerKinds",
+    "requiresIndependentApproval",
+    "uncertainEffectsDisposition",
+    "evidenceRetention",
+    "state",
+    "activationAuthorized"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/rollback-plan.schema.json",
+  "title": "AMA v0.2 candidate rollback-plan"
+}

@@ -1,0 +1,104 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Household Family MCP transport and control callbacks",
+    "version": "2.0.0-candidate.1",
+    "description": "Tool input/output schemas are advertised by authenticated MCP tools/list. This document describes HTTP boundaries only; it does not expose arbitrary state transitions."
+  },
+  "paths": {
+    "/healthz": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Process liveness only; not proof of upstream connection"
+          }
+        }
+      }
+    },
+    "/.well-known/oauth-protected-resource": {
+      "get": {
+        "responses": { "200": { "description": "RFC 9728 resource metadata" } }
+      }
+    },
+    "/mcp": {
+      "post": {
+        "security": [{ "oauth": ["household:read"] }],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "type": "object" } } }
+        },
+        "responses": {
+          "200": {
+            "description": "MCP JSON-RPC result; tools enforce their own scopes and policy"
+          },
+          "401": {
+            "description": "Token invalid, expired or revoked; Bearer challenge includes resource metadata"
+          }
+        }
+      }
+    },
+    "/director/decisions": {
+      "post": {
+        "requestBody": {
+          "required": true,
+          "content": {
+            "text/plain": {
+              "schema": {
+                "type": "string",
+                "description": "Externally signed compact EdDSA Director decision JWT"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Verified Director decision recorded" },
+          "409": {
+            "description": "Signature/authority/evidence/acceptance gate failed"
+          }
+        }
+      }
+    },
+    "/webhooks/github": {
+      "post": {
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Hub-Signature-256",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "header",
+            "name": "X-GitHub-Delivery",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Validated wake-up hint; cannot grant authority or acceptance"
+          },
+          "401": { "description": "Invalid HMAC signature" }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "oauth": {
+        "type": "oauth2",
+        "flows": {
+          "authorizationCode": {
+            "authorizationUrl": "https://identity.invalid/authorize",
+            "tokenUrl": "https://identity.invalid/token",
+            "scopes": {
+              "household:read": "Read allowed projects",
+              "household:execute": "Queue/resume current Director-authorized work",
+              "household:control": "Request cancellation"
+            }
+          }
+        }
+      }
+    }
+  }
+}

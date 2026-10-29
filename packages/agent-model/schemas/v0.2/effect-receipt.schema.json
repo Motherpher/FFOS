@@ -1,0 +1,61 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "receiptId",
+    "effectRef",
+    "runId",
+    "outcome",
+    "observedAt",
+    "evidenceDigest",
+    "verifiedByRef",
+    "independentVerification",
+    "version"
+  ],
+  "properties": {
+    "schema": {
+      "const": "ama.effect-receipt/v0.2-candidate"
+    },
+    "receiptId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "effectRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "runId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "outcome": {
+      "enum": [
+        "COMMITTED",
+        "NOT_APPLIED",
+        "INDETERMINATE"
+      ]
+    },
+    "externalRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "observedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "evidenceDigest": {
+      "$ref": "common.schema.json#/$defs/digest"
+    },
+    "verifiedByRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "independentVerification": {
+      "type": "boolean"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/effect-receipt.schema.json",
+  "title": "AMA v0.2 candidate effect-receipt contract"
+}

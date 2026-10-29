@@ -1,0 +1,70 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.evaluation-provenance/v0.2-candidate"
+    },
+    "provenanceId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "observationRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "sourceRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "contentDigest": {
+      "$ref": "common.schema.json#/$defs/digest"
+    },
+    "collectorRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "collectorKind": {
+      "enum": [
+        "TEST_HARNESS",
+        "INDEPENDENT_SERVICE",
+        "HUMAN_REVIEWER"
+      ]
+    },
+    "trustStatus": {
+      "enum": [
+        "DECLARED",
+        "ATTESTED_BY_EXTERNAL_VERIFIER",
+        "REVOKED"
+      ]
+    },
+    "attestationRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "recordedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "redacted": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "schema",
+    "provenanceId",
+    "version",
+    "observationRef",
+    "sourceRef",
+    "contentDigest",
+    "collectorRef",
+    "collectorKind",
+    "trustStatus",
+    "recordedAt",
+    "redacted"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/evaluation-provenance.schema.json",
+  "title": "AMA 0.2 candidate evaluation-provenance contract"
+}

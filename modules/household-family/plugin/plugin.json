@@ -1,0 +1,17 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "household-family",
+  "version": "2.0.0-candidate.1",
+  "description": "Bounded FFOS repository work with external Director authority and independent verification.",
+  "repository": "https://github.com/Motherpher/FFOS",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Household Family",
+        "shortDescription": "Observe and execute Director-authorized repository work.",
+        "developerName": "Director of Pius",
+        "capabilities": ["Read", "Write"]
+      }
+    }
+  }
+}

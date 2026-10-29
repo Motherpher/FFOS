@@ -1,0 +1,102 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "agentId",
+    "workflowId",
+    "version",
+    "status",
+    "effectCeiling",
+    "requiredCapabilities",
+    "entryStep",
+    "steps",
+    "terminalStepIds",
+    "inputSchema",
+    "outputSchema"
+  ],
+  "properties": {
+    "schema": {
+      "const": "ama.workflow/v0.2-candidate"
+    },
+    "agentId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "workflowId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "status": {
+      "$ref": "common.schema.json#/$defs/bindingStatus"
+    },
+    "effectCeiling": {
+      "$ref": "common.schema.json#/$defs/effect"
+    },
+    "requiredCapabilities": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/ref"
+      }
+    },
+    "entryStep": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "stepId",
+          "kind",
+          "dependsOn"
+        ],
+        "properties": {
+          "stepId": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "kind": {
+            "enum": [
+              "ACTION",
+              "CHECK",
+              "REVIEW",
+              "END"
+            ]
+          },
+          "dependsOn": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/id"
+            },
+            "uniqueItems": true
+          },
+          "capabilityRef": {
+            "$ref": "common.schema.json#/$defs/ref"
+          }
+        }
+      }
+    },
+    "terminalStepIds": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/id"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "inputSchema": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "outputSchema": {
+      "type": "object",
+      "minProperties": 1
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/workflow.schema.json",
+  "title": "AMA v0.2 candidate workflow contract"
+}

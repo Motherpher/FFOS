@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.step/v0.2-candidate"
+    },
+    "stepId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "runId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "workflowStepId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "state": {
+      "enum": [
+        "QUEUED",
+        "RUNNING",
+        "HOLD",
+        "PASS",
+        "FAIL",
+        "CANCELLED"
+      ]
+    },
+    "attemptRefs": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/ref"
+      }
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    }
+  },
+  "required": [
+    "schema",
+    "stepId",
+    "runId",
+    "workflowStepId",
+    "state",
+    "attemptRefs",
+    "version"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/step.schema.json",
+  "title": "AMA v0.2 candidate step contract"
+}

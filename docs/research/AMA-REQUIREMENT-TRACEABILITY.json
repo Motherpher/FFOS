@@ -1,0 +1,3570 @@
+{
+  "schema": "ffos.ama.m0.traceability/v1",
+  "state": "TRIAGED_RESEARCH_LINKS_NOT_FORMAL_HARP_VERIFIED",
+  "source_dossier_sha": "75b629cbf06b140979641a8fe752a3c6b0578523",
+  "requirements": [
+    {
+      "id": "A01",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 30,
+        "text": "- A01 Formal glossary with type disjointness and permitted relations: Agent owns Workflow; Command resolves Workflow; Workflow requests Capability; Tool implements Capability; Run instantiates Workflow; Module extends Agent; Agent may delegate to another independently registered Agent.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 25,
+          "original_bibliography_entry": "OpenAI, **Practical Guide to Building Agents** (2026-01-15), https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/ — practical design patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 26,
+          "original_bibliography_entry": "Anthropic, **Building Effective Agents**, https://www.anthropic.com/research/building-effective-agents — workflows vs agents, tool and orchestration patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 34,
+          "original_bibliography_entry": "Wang et al., **A Survey on LLM-Based Autonomous Agents** (2024), https://doi.org/10.1007/s11704-024-40231-1 — broad architecture taxonomy (published open-access article).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-A01",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "A02",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 31,
+        "text": "- A02 Immutable `agentId`, version, contractVersion, schemaVersion, revision/digest, status, activation policy and declared responsible principal.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 25,
+          "original_bibliography_entry": "OpenAI, **Practical Guide to Building Agents** (2026-01-15), https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/ — practical design patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 26,
+          "original_bibliography_entry": "Anthropic, **Building Effective Agents**, https://www.anthropic.com/research/building-effective-agents — workflows vs agents, tool and orchestration patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 34,
+          "original_bibliography_entry": "Wang et al., **A Survey on LLM-Based Autonomous Agents** (2024), https://doi.org/10.1007/s11704-024-40231-1 — broad architecture taxonomy (published open-access article).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-A02",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "A03",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 32,
+        "text": "- A03 First-class admission test: mandate, independent lifecycle and accountable control boundary; avoid converting named procedures into agents.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 25,
+          "original_bibliography_entry": "OpenAI, **Practical Guide to Building Agents** (2026-01-15), https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/ — practical design patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 26,
+          "original_bibliography_entry": "Anthropic, **Building Effective Agents**, https://www.anthropic.com/research/building-effective-agents — workflows vs agents, tool and orchestration patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 34,
+          "original_bibliography_entry": "Wang et al., **A Survey on LLM-Based Autonomous Agents** (2024), https://doi.org/10.1007/s11704-024-40231-1 — broad architecture taxonomy (published open-access article).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-A03",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "A04",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 33,
+        "text": "- A04 Separate `agent_definition`, `runtime_deployment`, `identity_principal`, `workload_instance` and `run` identities.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 25,
+          "original_bibliography_entry": "OpenAI, **Practical Guide to Building Agents** (2026-01-15), https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/ — practical design patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 26,
+          "original_bibliography_entry": "Anthropic, **Building Effective Agents**, https://www.anthropic.com/research/building-effective-agents — workflows vs agents, tool and orchestration patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 34,
+          "original_bibliography_entry": "Wang et al., **A Survey on LLM-Based Autonomous Agents** (2024), https://doi.org/10.1007/s11704-024-40231-1 — broad architecture taxonomy (published open-access article).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-A04",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "A05",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 34,
+        "text": "- A05 Versioned compatibility declarations and immutable historical versions.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 25,
+          "original_bibliography_entry": "OpenAI, **Practical Guide to Building Agents** (2026-01-15), https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/ — practical design patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 26,
+          "original_bibliography_entry": "Anthropic, **Building Effective Agents**, https://www.anthropic.com/research/building-effective-agents — workflows vs agents, tool and orchestration patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 34,
+          "original_bibliography_entry": "Wang et al., **A Survey on LLM-Based Autonomous Agents** (2024), https://doi.org/10.1007/s11704-024-40231-1 — broad architecture taxonomy (published open-access article).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-A05",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "A06",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 35,
+        "text": "- A06 Machine-readable and human-readable discoverability/description without treating description as authority.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 25,
+          "original_bibliography_entry": "OpenAI, **Practical Guide to Building Agents** (2026-01-15), https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/ — practical design patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 26,
+          "original_bibliography_entry": "Anthropic, **Building Effective Agents**, https://www.anthropic.com/research/building-effective-agents — workflows vs agents, tool and orchestration patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 34,
+          "original_bibliography_entry": "Wang et al., **A Survey on LLM-Based Autonomous Agents** (2024), https://doi.org/10.1007/s11704-024-40231-1 — broad architecture taxonomy (published open-access article).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-A06",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "A07",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 36,
+        "text": "- A07 Documentation card for purpose, intended users, known limitations, prohibited applications, test profile and change history.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 25,
+          "original_bibliography_entry": "OpenAI, **Practical Guide to Building Agents** (2026-01-15), https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/ — practical design patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 26,
+          "original_bibliography_entry": "Anthropic, **Building Effective Agents**, https://www.anthropic.com/research/building-effective-agents — workflows vs agents, tool and orchestration patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 34,
+          "original_bibliography_entry": "Wang et al., **A Survey on LLM-Based Autonomous Agents** (2024), https://doi.org/10.1007/s11704-024-40231-1 — broad architecture taxonomy (published open-access article).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-A07",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "B01",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 40,
+        "text": "- B01 Explicit mandate issuer, subject, allowable action kind/resource target, issued/expiry times, revocation pointer, non-goals and signed/verifiable proof where supported.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 1,
+          "original_bibliography_entry": "NIST, **Design Tenets for Agent Identity Management Systems** (2026-10-27), https://www.nist.gov/blogs/cybersecurity-insights/design-tenets-agent-identity-management-systems — proposed design tenets.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 9,
+          "original_bibliography_entry": "OWASP, **Top 10 for Agentic Applications 2026** (published 2025-12-09), https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ — agent-specific threat classes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 11,
+          "original_bibliography_entry": "OWASP, **Secure MCP Server Development** (2026-02-16), https://genai.owasp.org/resource/a-practical-guide-for-secure-mcp-server-development/ — delegated tools/validation/security.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-B01",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "B02",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 41,
+        "text": "- B02 Principal–agent–tool delegation linkage; downstream rights are attenuated, never amplified.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 1,
+          "original_bibliography_entry": "NIST, **Design Tenets for Agent Identity Management Systems** (2026-10-27), https://www.nist.gov/blogs/cybersecurity-insights/design-tenets-agent-identity-management-systems — proposed design tenets.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 9,
+          "original_bibliography_entry": "OWASP, **Top 10 for Agentic Applications 2026** (published 2025-12-09), https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ — agent-specific threat classes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 11,
+          "original_bibliography_entry": "OWASP, **Secure MCP Server Development** (2026-02-16), https://genai.owasp.org/resource/a-practical-guide-for-secure-mcp-server-development/ — delegated tools/validation/security.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-B02",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "B03",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 42,
+        "text": "- B03 Zero/least standing privilege; just-in-time credential binding and expiration/rotation.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 1,
+          "original_bibliography_entry": "NIST, **Design Tenets for Agent Identity Management Systems** (2026-10-27), https://www.nist.gov/blogs/cybersecurity-insights/design-tenets-agent-identity-management-systems — proposed design tenets.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 9,
+          "original_bibliography_entry": "OWASP, **Top 10 for Agentic Applications 2026** (published 2025-12-09), https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ — agent-specific threat classes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 11,
+          "original_bibliography_entry": "OWASP, **Secure MCP Server Development** (2026-02-16), https://genai.owasp.org/resource/a-practical-guide-for-secure-mcp-server-development/ — delegated tools/validation/security.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-B03",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "B04",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 43,
+        "text": "- B04 Policy decision interface distinct from model planner, including signed/pinned policy, decision expiry, deny reasons and obligations.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 1,
+          "original_bibliography_entry": "NIST, **Design Tenets for Agent Identity Management Systems** (2026-10-27), https://www.nist.gov/blogs/cybersecurity-insights/design-tenets-agent-identity-management-systems — proposed design tenets.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 9,
+          "original_bibliography_entry": "OWASP, **Top 10 for Agentic Applications 2026** (published 2025-12-09), https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ — agent-specific threat classes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 11,
+          "original_bibliography_entry": "OWASP, **Secure MCP Server Development** (2026-02-16), https://genai.owasp.org/resource/a-practical-guide-for-secure-mcp-server-development/ — delegated tools/validation/security.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-B04",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "B05",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 44,
+        "text": "- B05 Target/resource-level checks for read **and** write; a read may be sensitive even if no mutation occurs.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 1,
+          "original_bibliography_entry": "NIST, **Design Tenets for Agent Identity Management Systems** (2026-10-27), https://www.nist.gov/blogs/cybersecurity-insights/design-tenets-agent-identity-management-systems — proposed design tenets.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 9,
+          "original_bibliography_entry": "OWASP, **Top 10 for Agentic Applications 2026** (published 2025-12-09), https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ — agent-specific threat classes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 11,
+          "original_bibliography_entry": "OWASP, **Secure MCP Server Development** (2026-02-16), https://genai.owasp.org/resource/a-practical-guide-for-secure-mcp-server-development/ — delegated tools/validation/security.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-B05",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "B06",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 45,
+        "text": "- B06 Multidimensional risk/effect classification: action class, data sensitivity, recipients, reversibility, financial impact, blast radius, network exposure, retention/jurisdiction.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 1,
+          "original_bibliography_entry": "NIST, **Design Tenets for Agent Identity Management Systems** (2026-10-27), https://www.nist.gov/blogs/cybersecurity-insights/design-tenets-agent-identity-management-systems — proposed design tenets.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 9,
+          "original_bibliography_entry": "OWASP, **Top 10 for Agentic Applications 2026** (published 2025-12-09), https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ — agent-specific threat classes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 11,
+          "original_bibliography_entry": "OWASP, **Secure MCP Server Development** (2026-02-16), https://genai.owasp.org/resource/a-practical-guide-for-secure-mcp-server-development/ — delegated tools/validation/security.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-B06",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "B07",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 46,
+        "text": "- B07 Deterministic independent human-review triggers, approval request package and expiration; no approval inferred from prompt text.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 1,
+          "original_bibliography_entry": "NIST, **Design Tenets for Agent Identity Management Systems** (2026-10-27), https://www.nist.gov/blogs/cybersecurity-insights/design-tenets-agent-identity-management-systems — proposed design tenets.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 9,
+          "original_bibliography_entry": "OWASP, **Top 10 for Agentic Applications 2026** (published 2025-12-09), https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ — agent-specific threat classes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 11,
+          "original_bibliography_entry": "OWASP, **Secure MCP Server Development** (2026-02-16), https://genai.owasp.org/resource/a-practical-guide-for-secure-mcp-server-development/ — delegated tools/validation/security.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-B07",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "B08",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 47,
+        "text": "- B08 Revocation/fail-closed behavior before consequential effects and after pause/resume.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 1,
+          "original_bibliography_entry": "NIST, **Design Tenets for Agent Identity Management Systems** (2026-10-27), https://www.nist.gov/blogs/cybersecurity-insights/design-tenets-agent-identity-management-systems — proposed design tenets.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 9,
+          "original_bibliography_entry": "OWASP, **Top 10 for Agentic Applications 2026** (published 2025-12-09), https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ — agent-specific threat classes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 11,
+          "original_bibliography_entry": "OWASP, **Secure MCP Server Development** (2026-02-16), https://genai.owasp.org/resource/a-practical-guide-for-secure-mcp-server-development/ — delegated tools/validation/security.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-B08",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "B09",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 48,
+        "text": "- B09 Cross-tenant isolation and user-consent boundaries with provenance.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 1,
+          "original_bibliography_entry": "NIST, **Design Tenets for Agent Identity Management Systems** (2026-10-27), https://www.nist.gov/blogs/cybersecurity-insights/design-tenets-agent-identity-management-systems — proposed design tenets.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 9,
+          "original_bibliography_entry": "OWASP, **Top 10 for Agentic Applications 2026** (published 2025-12-09), https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ — agent-specific threat classes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 11,
+          "original_bibliography_entry": "OWASP, **Secure MCP Server Development** (2026-02-16), https://genai.owasp.org/resource/a-practical-guide-for-secure-mcp-server-development/ — delegated tools/validation/security.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-B09",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "B10",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 49,
+        "text": "- B10 Authorization-denial evidence emitted for attempts, including service unavailable/indeterminate outcomes, with privacy safeguards.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 1,
+          "original_bibliography_entry": "NIST, **Design Tenets for Agent Identity Management Systems** (2026-10-27), https://www.nist.gov/blogs/cybersecurity-insights/design-tenets-agent-identity-management-systems — proposed design tenets.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 9,
+          "original_bibliography_entry": "OWASP, **Top 10 for Agentic Applications 2026** (published 2025-12-09), https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ — agent-specific threat classes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 11,
+          "original_bibliography_entry": "OWASP, **Secure MCP Server Development** (2026-02-16), https://genai.owasp.org/resource/a-practical-guide-for-secure-mcp-server-development/ — delegated tools/validation/security.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-B10",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "C01",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 53,
+        "text": "- C01 Optional typed model-adapter binding and provider-agnostic interface, version, provenance/hash, supported modalities and sampling behavior.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 25,
+          "original_bibliography_entry": "OpenAI, **Practical Guide to Building Agents** (2026-01-15), https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/ — practical design patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 26,
+          "original_bibliography_entry": "Anthropic, **Building Effective Agents**, https://www.anthropic.com/research/building-effective-agents — workflows vs agents, tool and orchestration patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 37,
+          "original_bibliography_entry": "Yao et al., **ReAct** (2022/2023), https://arxiv.org/abs/2210.03629 — interleaved reasoning/tool action (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 38,
+          "original_bibliography_entry": "Shinn et al., **Reflexion** (2023), https://arxiv.org/abs/2303.11366 — feedback and reflective memory (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-C01",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "C02",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 54,
+        "text": "- C02 Versioned instructions/prompts and their precedence; separately controlled developer configuration vs untrusted source content.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 25,
+          "original_bibliography_entry": "OpenAI, **Practical Guide to Building Agents** (2026-01-15), https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/ — practical design patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 26,
+          "original_bibliography_entry": "Anthropic, **Building Effective Agents**, https://www.anthropic.com/research/building-effective-agents — workflows vs agents, tool and orchestration patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 37,
+          "original_bibliography_entry": "Yao et al., **ReAct** (2022/2023), https://arxiv.org/abs/2210.03629 — interleaved reasoning/tool action (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 38,
+          "original_bibliography_entry": "Shinn et al., **Reflexion** (2023), https://arxiv.org/abs/2303.11366 — feedback and reflective memory (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-C02",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "C03",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 55,
+        "text": "- C03 Strategy interface: direct response, plan-and-act, ReAct-style interleaving, deterministic sequential/parallel routing, reflective loop, evaluator–optimizer; none is compulsory.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 25,
+          "original_bibliography_entry": "OpenAI, **Practical Guide to Building Agents** (2026-01-15), https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/ — practical design patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 26,
+          "original_bibliography_entry": "Anthropic, **Building Effective Agents**, https://www.anthropic.com/research/building-effective-agents — workflows vs agents, tool and orchestration patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 37,
+          "original_bibliography_entry": "Yao et al., **ReAct** (2022/2023), https://arxiv.org/abs/2210.03629 — interleaved reasoning/tool action (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 38,
+          "original_bibliography_entry": "Shinn et al., **Reflexion** (2023), https://arxiv.org/abs/2303.11366 — feedback and reflective memory (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_OPTIONAL",
+      "test_id": "AMA-M0-C03",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "C04",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 56,
+        "text": "- C04 Bounded plan graph with objectives, assumptions, steps, dependencies, expected outcome and allowed tool/capability IDs.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 25,
+          "original_bibliography_entry": "OpenAI, **Practical Guide to Building Agents** (2026-01-15), https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/ — practical design patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 26,
+          "original_bibliography_entry": "Anthropic, **Building Effective Agents**, https://www.anthropic.com/research/building-effective-agents — workflows vs agents, tool and orchestration patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 37,
+          "original_bibliography_entry": "Yao et al., **ReAct** (2022/2023), https://arxiv.org/abs/2210.03629 — interleaved reasoning/tool action (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 38,
+          "original_bibliography_entry": "Shinn et al., **Reflexion** (2023), https://arxiv.org/abs/2303.11366 — feedback and reflective memory (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-C04",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "C05",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 57,
+        "text": "- C05 Max reasoning cycles, max tool calls, recursion/delegation depth, context and token budgets; absolute timeout and cancellation triggers.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 25,
+          "original_bibliography_entry": "OpenAI, **Practical Guide to Building Agents** (2026-01-15), https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/ — practical design patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 26,
+          "original_bibliography_entry": "Anthropic, **Building Effective Agents**, https://www.anthropic.com/research/building-effective-agents — workflows vs agents, tool and orchestration patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 37,
+          "original_bibliography_entry": "Yao et al., **ReAct** (2022/2023), https://arxiv.org/abs/2210.03629 — interleaved reasoning/tool action (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 38,
+          "original_bibliography_entry": "Shinn et al., **Reflexion** (2023), https://arxiv.org/abs/2303.11366 — feedback and reflective memory (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-C05",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "C06",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 58,
+        "text": "- C06 Grounding/fact-verification and uncertainty/abstention policy; input confidence is never authorization.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 25,
+          "original_bibliography_entry": "OpenAI, **Practical Guide to Building Agents** (2026-01-15), https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/ — practical design patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 26,
+          "original_bibliography_entry": "Anthropic, **Building Effective Agents**, https://www.anthropic.com/research/building-effective-agents — workflows vs agents, tool and orchestration patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 37,
+          "original_bibliography_entry": "Yao et al., **ReAct** (2022/2023), https://arxiv.org/abs/2210.03629 — interleaved reasoning/tool action (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 38,
+          "original_bibliography_entry": "Shinn et al., **Reflexion** (2023), https://arxiv.org/abs/2303.11366 — feedback and reflective memory (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-C06",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "C07",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 59,
+        "text": "- C07 Separate synthesis, checking and authorized finalization. No model-generated self-assertion of acceptance.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 25,
+          "original_bibliography_entry": "OpenAI, **Practical Guide to Building Agents** (2026-01-15), https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/ — practical design patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 26,
+          "original_bibliography_entry": "Anthropic, **Building Effective Agents**, https://www.anthropic.com/research/building-effective-agents — workflows vs agents, tool and orchestration patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 37,
+          "original_bibliography_entry": "Yao et al., **ReAct** (2022/2023), https://arxiv.org/abs/2210.03629 — interleaved reasoning/tool action (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 38,
+          "original_bibliography_entry": "Shinn et al., **Reflexion** (2023), https://arxiv.org/abs/2303.11366 — feedback and reflective memory (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-C07",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "C08",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 60,
+        "text": "- C08 Fallback/model substitution rules require regression against the approved model binding, not a silent upgrade.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 25,
+          "original_bibliography_entry": "OpenAI, **Practical Guide to Building Agents** (2026-01-15), https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/ — practical design patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 26,
+          "original_bibliography_entry": "Anthropic, **Building Effective Agents**, https://www.anthropic.com/research/building-effective-agents — workflows vs agents, tool and orchestration patterns.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 37,
+          "original_bibliography_entry": "Yao et al., **ReAct** (2022/2023), https://arxiv.org/abs/2210.03629 — interleaved reasoning/tool action (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 38,
+          "original_bibliography_entry": "Shinn et al., **Reflexion** (2023), https://arxiv.org/abs/2303.11366 — feedback and reflective memory (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-C08",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "D01",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 64,
+        "text": "- D01 Version-pinned Command→Workflow mapping; declared inputs and outputs as JSON Schema, with semantic validation beyond schema.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 18,
+          "original_bibliography_entry": "MCP, **2026-07-28 release**, https://blog.modelcontextprotocol.io/posts/2026-07-28/ — stateless protocol core, tasks extension and auth changes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 21,
+          "original_bibliography_entry": "MCP, **tool semantics**, https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/docs/specification/2026-07-28/server/tools.mdx — tool schemas and execution errors.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 23,
+          "original_bibliography_entry": "A2A, **v1.0.0 Protocol Specification**, https://a2a-protocol.org/dev/specification/ — discovery, Agent Card, task state, security and remote interoperability.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-D01",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "D02",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 65,
+        "text": "- D02 Workflow step graph, dependency and concurrency boundaries, finite stopping conditions and terminal-state map.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 18,
+          "original_bibliography_entry": "MCP, **2026-07-28 release**, https://blog.modelcontextprotocol.io/posts/2026-07-28/ — stateless protocol core, tasks extension and auth changes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 21,
+          "original_bibliography_entry": "MCP, **tool semantics**, https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/docs/specification/2026-07-28/server/tools.mdx — tool schemas and execution errors.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 23,
+          "original_bibliography_entry": "A2A, **v1.0.0 Protocol Specification**, https://a2a-protocol.org/dev/specification/ — discovery, Agent Card, task state, security and remote interoperability.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-D02",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "D03",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 66,
+        "text": "- D03 Typed capability registry with implementation adapter, action kind, target scope, authentication scopes, quotas, failure codes and availability state.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 18,
+          "original_bibliography_entry": "MCP, **2026-07-28 release**, https://blog.modelcontextprotocol.io/posts/2026-07-28/ — stateless protocol core, tasks extension and auth changes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 21,
+          "original_bibliography_entry": "MCP, **tool semantics**, https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/docs/specification/2026-07-28/server/tools.mdx — tool schemas and execution errors.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 23,
+          "original_bibliography_entry": "A2A, **v1.0.0 Protocol Specification**, https://a2a-protocol.org/dev/specification/ — discovery, Agent Card, task state, security and remote interoperability.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-D03",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "D04",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 67,
+        "text": "- D04 Tool schema version, deterministic validation, tool-call allowlist, output contract, error semantics, trusted/untrusted provenance and content redaction.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 18,
+          "original_bibliography_entry": "MCP, **2026-07-28 release**, https://blog.modelcontextprotocol.io/posts/2026-07-28/ — stateless protocol core, tasks extension and auth changes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 21,
+          "original_bibliography_entry": "MCP, **tool semantics**, https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/docs/specification/2026-07-28/server/tools.mdx — tool schemas and execution errors.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 23,
+          "original_bibliography_entry": "A2A, **v1.0.0 Protocol Specification**, https://a2a-protocol.org/dev/specification/ — discovery, Agent Card, task state, security and remote interoperability.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-D04",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "D05",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 68,
+        "text": "- D05 Transaction envelope: preview → authorize → execute → reconcile for impactful actions; dry-run where supported.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 18,
+          "original_bibliography_entry": "MCP, **2026-07-28 release**, https://blog.modelcontextprotocol.io/posts/2026-07-28/ — stateless protocol core, tasks extension and auth changes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 21,
+          "original_bibliography_entry": "MCP, **tool semantics**, https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/docs/specification/2026-07-28/server/tools.mdx — tool schemas and execution errors.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 23,
+          "original_bibliography_entry": "A2A, **v1.0.0 Protocol Specification**, https://a2a-protocol.org/dev/specification/ — discovery, Agent Card, task state, security and remote interoperability.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-D05",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "D06",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 69,
+        "text": "- D06 Decompose input-source instructions from operational authority; prompt injection from tool response cannot rewrite command/mandate.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 18,
+          "original_bibliography_entry": "MCP, **2026-07-28 release**, https://blog.modelcontextprotocol.io/posts/2026-07-28/ — stateless protocol core, tasks extension and auth changes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 21,
+          "original_bibliography_entry": "MCP, **tool semantics**, https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/docs/specification/2026-07-28/server/tools.mdx — tool schemas and execution errors.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 23,
+          "original_bibliography_entry": "A2A, **v1.0.0 Protocol Specification**, https://a2a-protocol.org/dev/specification/ — discovery, Agent Card, task state, security and remote interoperability.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-D06",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "D07",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 70,
+        "text": "- D07 Explicit human input/approval resumability; approval is separately authenticated, scoped and time-bounded.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 18,
+          "original_bibliography_entry": "MCP, **2026-07-28 release**, https://blog.modelcontextprotocol.io/posts/2026-07-28/ — stateless protocol core, tasks extension and auth changes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 21,
+          "original_bibliography_entry": "MCP, **tool semantics**, https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/docs/specification/2026-07-28/server/tools.mdx — tool schemas and execution errors.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 23,
+          "original_bibliography_entry": "A2A, **v1.0.0 Protocol Specification**, https://a2a-protocol.org/dev/specification/ — discovery, Agent Card, task state, security and remote interoperability.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-D07",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "D08",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 71,
+        "text": "- D08 Inter-agent invocation is optional and must define identity, delegation, context minimization, capability negotiation and task-state contracts.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 18,
+          "original_bibliography_entry": "MCP, **2026-07-28 release**, https://blog.modelcontextprotocol.io/posts/2026-07-28/ — stateless protocol core, tasks extension and auth changes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 21,
+          "original_bibliography_entry": "MCP, **tool semantics**, https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/docs/specification/2026-07-28/server/tools.mdx — tool schemas and execution errors.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 23,
+          "original_bibliography_entry": "A2A, **v1.0.0 Protocol Specification**, https://a2a-protocol.org/dev/specification/ — discovery, Agent Card, task state, security and remote interoperability.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_OPTIONAL",
+      "test_id": "AMA-M0-D08",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "E01",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 75,
+        "text": "- E01 Declare context assembly strategy, token budgets, truncation/compaction and provenance; do not treat a long model window as guaranteed retrieval.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 40,
+          "original_bibliography_entry": "Park et al., **Generative Agents**, UIST 2023, https://doi.org/10.1145/3586183.3606763 — memory/plan/reflect (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 41,
+          "original_bibliography_entry": "Packer et al., **MemGPT** (2023), https://arxiv.org/abs/2310.08560 — hierarchical context/memory (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 42,
+          "original_bibliography_entry": "Zhang et al., **Survey of LLM Agent Memory**, ACM TOIS 2025, https://doi.org/10.1145/3748302 — long-term memory architecture (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 43,
+          "original_bibliography_entry": "Liu et al., **Lost in the Middle**, TACL 2024, https://aclanthology.org/2024.tacl-1.9/ — long-context positional degradation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-E01",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "E02",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 76,
+        "text": "- E02 Differentiate ephemeral context, short-term run/thread state, long-term episodic/semantic memory, retrieval indexes, shared knowledge and authoritative domain data.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 40,
+          "original_bibliography_entry": "Park et al., **Generative Agents**, UIST 2023, https://doi.org/10.1145/3586183.3606763 — memory/plan/reflect (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 41,
+          "original_bibliography_entry": "Packer et al., **MemGPT** (2023), https://arxiv.org/abs/2310.08560 — hierarchical context/memory (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 42,
+          "original_bibliography_entry": "Zhang et al., **Survey of LLM Agent Memory**, ACM TOIS 2025, https://doi.org/10.1145/3748302 — long-term memory architecture (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 43,
+          "original_bibliography_entry": "Liu et al., **Lost in the Middle**, TACL 2024, https://aclanthology.org/2024.tacl-1.9/ — long-context positional degradation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-E02",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "E03",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 77,
+        "text": "- E03 Memory stores are typed, versioned, scoped, access-controlled, attributable and default disabled if not configured.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 40,
+          "original_bibliography_entry": "Park et al., **Generative Agents**, UIST 2023, https://doi.org/10.1145/3586183.3606763 — memory/plan/reflect (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 41,
+          "original_bibliography_entry": "Packer et al., **MemGPT** (2023), https://arxiv.org/abs/2310.08560 — hierarchical context/memory (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 42,
+          "original_bibliography_entry": "Zhang et al., **Survey of LLM Agent Memory**, ACM TOIS 2025, https://doi.org/10.1145/3748302 — long-term memory architecture (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 43,
+          "original_bibliography_entry": "Liu et al., **Lost in the Middle**, TACL 2024, https://aclanthology.org/2024.tacl-1.9/ — long-context positional degradation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-E03",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "E04",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 78,
+        "text": "- E04 Memory write admission, source trust rank, retention/expiry, revalidation, correction, deletion/erasure and poisoning defense.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 40,
+          "original_bibliography_entry": "Park et al., **Generative Agents**, UIST 2023, https://doi.org/10.1145/3586183.3606763 — memory/plan/reflect (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 41,
+          "original_bibliography_entry": "Packer et al., **MemGPT** (2023), https://arxiv.org/abs/2310.08560 — hierarchical context/memory (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 42,
+          "original_bibliography_entry": "Zhang et al., **Survey of LLM Agent Memory**, ACM TOIS 2025, https://doi.org/10.1145/3748302 — long-term memory architecture (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 43,
+          "original_bibliography_entry": "Liu et al., **Lost in the Middle**, TACL 2024, https://aclanthology.org/2024.tacl-1.9/ — long-context positional degradation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-E04",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "E05",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 79,
+        "text": "- E05 Retrieval quality checks: relevance, provenance, recency, contradictory claims, source access and no instruction injection.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 40,
+          "original_bibliography_entry": "Park et al., **Generative Agents**, UIST 2023, https://doi.org/10.1145/3586183.3606763 — memory/plan/reflect (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 41,
+          "original_bibliography_entry": "Packer et al., **MemGPT** (2023), https://arxiv.org/abs/2310.08560 — hierarchical context/memory (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 42,
+          "original_bibliography_entry": "Zhang et al., **Survey of LLM Agent Memory**, ACM TOIS 2025, https://doi.org/10.1145/3748302 — long-term memory architecture (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 43,
+          "original_bibliography_entry": "Liu et al., **Lost in the Middle**, TACL 2024, https://aclanthology.org/2024.tacl-1.9/ — long-context positional degradation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-E05",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "E06",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 80,
+        "text": "- E06 Explicit context handoff and summarization with fidelity tests and privacy minimization.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 40,
+          "original_bibliography_entry": "Park et al., **Generative Agents**, UIST 2023, https://doi.org/10.1145/3586183.3606763 — memory/plan/reflect (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 41,
+          "original_bibliography_entry": "Packer et al., **MemGPT** (2023), https://arxiv.org/abs/2310.08560 — hierarchical context/memory (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 42,
+          "original_bibliography_entry": "Zhang et al., **Survey of LLM Agent Memory**, ACM TOIS 2025, https://doi.org/10.1145/3748302 — long-term memory architecture (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 43,
+          "original_bibliography_entry": "Liu et al., **Lost in the Middle**, TACL 2024, https://aclanthology.org/2024.tacl-1.9/ — long-context positional degradation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-E06",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "E07",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 81,
+        "text": "- E07 No learned/remembered statement can bypass a rule, tool permission or human decision.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 40,
+          "original_bibliography_entry": "Park et al., **Generative Agents**, UIST 2023, https://doi.org/10.1145/3586183.3606763 — memory/plan/reflect (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 41,
+          "original_bibliography_entry": "Packer et al., **MemGPT** (2023), https://arxiv.org/abs/2310.08560 — hierarchical context/memory (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 42,
+          "original_bibliography_entry": "Zhang et al., **Survey of LLM Agent Memory**, ACM TOIS 2025, https://doi.org/10.1145/3748302 — long-term memory architecture (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 43,
+          "original_bibliography_entry": "Liu et al., **Lost in the Middle**, TACL 2024, https://aclanthology.org/2024.tacl-1.9/ — long-context positional degradation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-E07",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "F01",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 85,
+        "text": "- F01 Separate session/conversation, task, run, step, event, approval, receipt and deployment identities.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 31,
+          "original_bibliography_entry": "LangGraph, **Persistence**, https://github.com/langchain-ai/docs/blob/main/src/oss/langgraph/persistence.mdx — checkpointer and store separation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 32,
+          "original_bibliography_entry": "LangGraph, **Interrupts**, https://github.com/langchain-ai/docs/blob/main/src/oss/langgraph/interrupts.mdx — pause/resume semantics and replay hazards.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 33,
+          "original_bibliography_entry": "Temporal, **Workflow execution/replay**, https://docs.temporal.io/workflows — durable event history and deterministic replay.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-F01",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "F02",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 86,
+        "text": "- F02 State machine with legal transitions, monotonic event history, optimistic concurrency/leases and cancellation.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 31,
+          "original_bibliography_entry": "LangGraph, **Persistence**, https://github.com/langchain-ai/docs/blob/main/src/oss/langgraph/persistence.mdx — checkpointer and store separation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 32,
+          "original_bibliography_entry": "LangGraph, **Interrupts**, https://github.com/langchain-ai/docs/blob/main/src/oss/langgraph/interrupts.mdx — pause/resume semantics and replay hazards.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 33,
+          "original_bibliography_entry": "Temporal, **Workflow execution/replay**, https://docs.temporal.io/workflows — durable event history and deterministic replay.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-F02",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "F03",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 87,
+        "text": "- F03 Checkpoints, resume, retry/replay boundaries, idempotency keys for external writes and dead-letter/reconciliation states.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 31,
+          "original_bibliography_entry": "LangGraph, **Persistence**, https://github.com/langchain-ai/docs/blob/main/src/oss/langgraph/persistence.mdx — checkpointer and store separation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 32,
+          "original_bibliography_entry": "LangGraph, **Interrupts**, https://github.com/langchain-ai/docs/blob/main/src/oss/langgraph/interrupts.mdx — pause/resume semantics and replay hazards.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 33,
+          "original_bibliography_entry": "Temporal, **Workflow execution/replay**, https://docs.temporal.io/workflows — durable event history and deterministic replay.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-F03",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "F04",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 88,
+        "text": "- F04 Effect execution and outcome uncertainty must be modeled explicitly: PREPARED/AUTHORIZED/EXECUTING/COMMITTED/UNKNOWN, as applicable.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 31,
+          "original_bibliography_entry": "LangGraph, **Persistence**, https://github.com/langchain-ai/docs/blob/main/src/oss/langgraph/persistence.mdx — checkpointer and store separation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 32,
+          "original_bibliography_entry": "LangGraph, **Interrupts**, https://github.com/langchain-ai/docs/blob/main/src/oss/langgraph/interrupts.mdx — pause/resume semantics and replay hazards.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 33,
+          "original_bibliography_entry": "Temporal, **Workflow execution/replay**, https://docs.temporal.io/workflows — durable event history and deterministic replay.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-F04",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "F05",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 89,
+        "text": "- F05 External effects cannot be assumed exactly-once merely because the workflow runner is durable. Use idempotent downstream APIs, transaction/outbox/saga/compensation when appropriate.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 31,
+          "original_bibliography_entry": "LangGraph, **Persistence**, https://github.com/langchain-ai/docs/blob/main/src/oss/langgraph/persistence.mdx — checkpointer and store separation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 32,
+          "original_bibliography_entry": "LangGraph, **Interrupts**, https://github.com/langchain-ai/docs/blob/main/src/oss/langgraph/interrupts.mdx — pause/resume semantics and replay hazards.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 33,
+          "original_bibliography_entry": "Temporal, **Workflow execution/replay**, https://docs.temporal.io/workflows — durable event history and deterministic replay.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-F05",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "F06",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 90,
+        "text": "- F06 Crash recovery, worker fencing, lease expiry, backpressure, queue limits, poison task quarantine and bounded retries.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 31,
+          "original_bibliography_entry": "LangGraph, **Persistence**, https://github.com/langchain-ai/docs/blob/main/src/oss/langgraph/persistence.mdx — checkpointer and store separation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 32,
+          "original_bibliography_entry": "LangGraph, **Interrupts**, https://github.com/langchain-ai/docs/blob/main/src/oss/langgraph/interrupts.mdx — pause/resume semantics and replay hazards.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 33,
+          "original_bibliography_entry": "Temporal, **Workflow execution/replay**, https://docs.temporal.io/workflows — durable event history and deterministic replay.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-F06",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "F07",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 91,
+        "text": "- F07 Safe suspension/kill switch that prevents queued, running and resumed work from exceeding currently valid authority.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 31,
+          "original_bibliography_entry": "LangGraph, **Persistence**, https://github.com/langchain-ai/docs/blob/main/src/oss/langgraph/persistence.mdx — checkpointer and store separation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 32,
+          "original_bibliography_entry": "LangGraph, **Interrupts**, https://github.com/langchain-ai/docs/blob/main/src/oss/langgraph/interrupts.mdx — pause/resume semantics and replay hazards.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 33,
+          "original_bibliography_entry": "Temporal, **Workflow execution/replay**, https://docs.temporal.io/workflows — durable event history and deterministic replay.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-F07",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "F08",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 92,
+        "text": "- F08 Reproducible replay of **control events**, while accepting that stochastic model output may not reproduce byte-for-byte.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 31,
+          "original_bibliography_entry": "LangGraph, **Persistence**, https://github.com/langchain-ai/docs/blob/main/src/oss/langgraph/persistence.mdx — checkpointer and store separation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 32,
+          "original_bibliography_entry": "LangGraph, **Interrupts**, https://github.com/langchain-ai/docs/blob/main/src/oss/langgraph/interrupts.mdx — pause/resume semantics and replay hazards.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 33,
+          "original_bibliography_entry": "Temporal, **Workflow execution/replay**, https://docs.temporal.io/workflows — durable event history and deterministic replay.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-F08",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "G01",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 96,
+        "text": "- G01 Threat model covering tool misuse, prompt injection, goal hijack, credential abuse, memory/context poisoning, cross-agent communication, rogue delegation, cascading failures and untrusted code.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 9,
+          "original_bibliography_entry": "OWASP, **Top 10 for Agentic Applications 2026** (published 2025-12-09), https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ — agent-specific threat classes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 10,
+          "original_bibliography_entry": "OWASP, **Agent Control Standard** (2026-09-01), https://genai.owasp.org/resource/agent-control-standard-acs/ — runtime hooks/control design, not proof of certification.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 11,
+          "original_bibliography_entry": "OWASP, **Secure MCP Server Development** (2026-02-16), https://genai.owasp.org/resource/a-practical-guide-for-secure-mcp-server-development/ — delegated tools/validation/security.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 45,
+          "original_bibliography_entry": "Debenedetti et al., **AgentDojo**, NeurIPS 2024, https://arxiv.org/abs/2406.13352 — tool-output injection benchmark (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-G01",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "G02",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 97,
+        "text": "- G02 Network/file/secret compartmentalization; sandbox code execution, no ambient shell/FS access without explicit capability.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 9,
+          "original_bibliography_entry": "OWASP, **Top 10 for Agentic Applications 2026** (published 2025-12-09), https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ — agent-specific threat classes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 10,
+          "original_bibliography_entry": "OWASP, **Agent Control Standard** (2026-09-01), https://genai.owasp.org/resource/agent-control-standard-acs/ — runtime hooks/control design, not proof of certification.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 11,
+          "original_bibliography_entry": "OWASP, **Secure MCP Server Development** (2026-02-16), https://genai.owasp.org/resource/a-practical-guide-for-secure-mcp-server-development/ — delegated tools/validation/security.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 45,
+          "original_bibliography_entry": "Debenedetti et al., **AgentDojo**, NeurIPS 2024, https://arxiv.org/abs/2406.13352 — tool-output injection benchmark (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-G02",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "G03",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 98,
+        "text": "- G03 Source trust labels for every untrusted input, tool result, retrieved document, memory and external skill; deny instruction laundering.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 9,
+          "original_bibliography_entry": "OWASP, **Top 10 for Agentic Applications 2026** (published 2025-12-09), https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ — agent-specific threat classes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 10,
+          "original_bibliography_entry": "OWASP, **Agent Control Standard** (2026-09-01), https://genai.owasp.org/resource/agent-control-standard-acs/ — runtime hooks/control design, not proof of certification.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 11,
+          "original_bibliography_entry": "OWASP, **Secure MCP Server Development** (2026-02-16), https://genai.owasp.org/resource/a-practical-guide-for-secure-mcp-server-development/ — delegated tools/validation/security.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 45,
+          "original_bibliography_entry": "Debenedetti et al., **AgentDojo**, NeurIPS 2024, https://arxiv.org/abs/2406.13352 — tool-output injection benchmark (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-G03",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "G04",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 99,
+        "text": "- G04 Tool and protocol OAuth resource/audience validation, token separation, refresh policies, least privilege and no token passthrough.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 9,
+          "original_bibliography_entry": "OWASP, **Top 10 for Agentic Applications 2026** (published 2025-12-09), https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ — agent-specific threat classes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 10,
+          "original_bibliography_entry": "OWASP, **Agent Control Standard** (2026-09-01), https://genai.owasp.org/resource/agent-control-standard-acs/ — runtime hooks/control design, not proof of certification.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 11,
+          "original_bibliography_entry": "OWASP, **Secure MCP Server Development** (2026-02-16), https://genai.owasp.org/resource/a-practical-guide-for-secure-mcp-server-development/ — delegated tools/validation/security.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 45,
+          "original_bibliography_entry": "Debenedetti et al., **AgentDojo**, NeurIPS 2024, https://arxiv.org/abs/2406.13352 — tool-output injection benchmark (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-G04",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "G05",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 100,
+        "text": "- G05 Secure import of prompts/skills/tool packages with integrity pin, provenance, review and SBOM where appropriate.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 9,
+          "original_bibliography_entry": "OWASP, **Top 10 for Agentic Applications 2026** (published 2025-12-09), https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ — agent-specific threat classes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 10,
+          "original_bibliography_entry": "OWASP, **Agent Control Standard** (2026-09-01), https://genai.owasp.org/resource/agent-control-standard-acs/ — runtime hooks/control design, not proof of certification.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 11,
+          "original_bibliography_entry": "OWASP, **Secure MCP Server Development** (2026-02-16), https://genai.owasp.org/resource/a-practical-guide-for-secure-mcp-server-development/ — delegated tools/validation/security.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 45,
+          "original_bibliography_entry": "Debenedetti et al., **AgentDojo**, NeurIPS 2024, https://arxiv.org/abs/2406.13352 — tool-output injection benchmark (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-G05",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "G06",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 101,
+        "text": "- G06 Restrict sensitive logs; classify/redact PII, credentials, prompts, retrieved records, chain-of-thought or private system instructions as required.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 9,
+          "original_bibliography_entry": "OWASP, **Top 10 for Agentic Applications 2026** (published 2025-12-09), https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ — agent-specific threat classes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 10,
+          "original_bibliography_entry": "OWASP, **Agent Control Standard** (2026-09-01), https://genai.owasp.org/resource/agent-control-standard-acs/ — runtime hooks/control design, not proof of certification.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 11,
+          "original_bibliography_entry": "OWASP, **Secure MCP Server Development** (2026-02-16), https://genai.owasp.org/resource/a-practical-guide-for-secure-mcp-server-development/ — delegated tools/validation/security.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 45,
+          "original_bibliography_entry": "Debenedetti et al., **AgentDojo**, NeurIPS 2024, https://arxiv.org/abs/2406.13352 — tool-output injection benchmark (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-G06",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "G07",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 102,
+        "text": "- G07 Data residency, retention, deletion, tenant isolation and consent controls as host-linked policy profiles.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 9,
+          "original_bibliography_entry": "OWASP, **Top 10 for Agentic Applications 2026** (published 2025-12-09), https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ — agent-specific threat classes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 10,
+          "original_bibliography_entry": "OWASP, **Agent Control Standard** (2026-09-01), https://genai.owasp.org/resource/agent-control-standard-acs/ — runtime hooks/control design, not proof of certification.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 11,
+          "original_bibliography_entry": "OWASP, **Secure MCP Server Development** (2026-02-16), https://genai.owasp.org/resource/a-practical-guide-for-secure-mcp-server-development/ — delegated tools/validation/security.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 45,
+          "original_bibliography_entry": "Debenedetti et al., **AgentDojo**, NeurIPS 2024, https://arxiv.org/abs/2406.13352 — tool-output injection benchmark (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "HOST_BOUND",
+      "test_id": "AMA-M0-G07",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "G08",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 103,
+        "text": "- G08 Emergency disable, incident severity, forensics and evidence integrity.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 9,
+          "original_bibliography_entry": "OWASP, **Top 10 for Agentic Applications 2026** (published 2025-12-09), https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ — agent-specific threat classes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 10,
+          "original_bibliography_entry": "OWASP, **Agent Control Standard** (2026-09-01), https://genai.owasp.org/resource/agent-control-standard-acs/ — runtime hooks/control design, not proof of certification.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 11,
+          "original_bibliography_entry": "OWASP, **Secure MCP Server Development** (2026-02-16), https://genai.owasp.org/resource/a-practical-guide-for-secure-mcp-server-development/ — delegated tools/validation/security.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 45,
+          "original_bibliography_entry": "Debenedetti et al., **AgentDojo**, NeurIPS 2024, https://arxiv.org/abs/2406.13352 — tool-output injection benchmark (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-G08",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "G09",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 104,
+        "text": "- G09 Supply-chain provenance for deployed runtime and tool dependencies; approved plugin/skill update mechanism.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 9,
+          "original_bibliography_entry": "OWASP, **Top 10 for Agentic Applications 2026** (published 2025-12-09), https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ — agent-specific threat classes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 10,
+          "original_bibliography_entry": "OWASP, **Agent Control Standard** (2026-09-01), https://genai.owasp.org/resource/agent-control-standard-acs/ — runtime hooks/control design, not proof of certification.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 11,
+          "original_bibliography_entry": "OWASP, **Secure MCP Server Development** (2026-02-16), https://genai.owasp.org/resource/a-practical-guide-for-secure-mcp-server-development/ — delegated tools/validation/security.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 45,
+          "original_bibliography_entry": "Debenedetti et al., **AgentDojo**, NeurIPS 2024, https://arxiv.org/abs/2406.13352 — tool-output injection benchmark (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-G09",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "G10",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 105,
+        "text": "- G10 Do not treat model guardrails as substitutes for deterministic authorization.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 9,
+          "original_bibliography_entry": "OWASP, **Top 10 for Agentic Applications 2026** (published 2025-12-09), https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ — agent-specific threat classes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 10,
+          "original_bibliography_entry": "OWASP, **Agent Control Standard** (2026-09-01), https://genai.owasp.org/resource/agent-control-standard-acs/ — runtime hooks/control design, not proof of certification.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 11,
+          "original_bibliography_entry": "OWASP, **Secure MCP Server Development** (2026-02-16), https://genai.owasp.org/resource/a-practical-guide-for-secure-mcp-server-development/ — delegated tools/validation/security.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 45,
+          "original_bibliography_entry": "Debenedetti et al., **AgentDojo**, NeurIPS 2024, https://arxiv.org/abs/2406.13352 — tool-output injection benchmark (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-G10",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "H01",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 109,
+        "text": "- H01 Evaluation taxonomy: contract, authorization, binding, execution correctness, evidence integrity, regression, safety/adversarial, performance, human usability and deployment.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 28,
+          "original_bibliography_entry": "OpenAI, **Evaluate Agent Workflows**, https://developers.openai.com/api/docs/guides/agent-evals — trace/dataset evaluation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 36,
+          "original_bibliography_entry": "Yehudai et al., **A Survey on Evaluation of LLM-Based Agents**, ACL Findings 2026, https://aclanthology.org/2026.findings-acl.1330/ — evaluation dimensions and cost/safety gaps.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 44,
+          "original_bibliography_entry": "Yao et al., **τ-bench** (2024), https://arxiv.org/abs/2406.12045 — final state and repeated-run reliability (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 45,
+          "original_bibliography_entry": "Debenedetti et al., **AgentDojo**, NeurIPS 2024, https://arxiv.org/abs/2406.13352 — tool-output injection benchmark (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 48,
+          "original_bibliography_entry": "Jimenez et al., **SWE-bench** (2024), https://arxiv.org/abs/2310.06770 — environment-based software engineering evaluation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-H01",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "H02",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 110,
+        "text": "- H02 Reference datasets with provenance/version, representative positive/negative edge cases and domain-owned gold-state checks.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 28,
+          "original_bibliography_entry": "OpenAI, **Evaluate Agent Workflows**, https://developers.openai.com/api/docs/guides/agent-evals — trace/dataset evaluation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 36,
+          "original_bibliography_entry": "Yehudai et al., **A Survey on Evaluation of LLM-Based Agents**, ACL Findings 2026, https://aclanthology.org/2026.findings-acl.1330/ — evaluation dimensions and cost/safety gaps.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 44,
+          "original_bibliography_entry": "Yao et al., **τ-bench** (2024), https://arxiv.org/abs/2406.12045 — final state and repeated-run reliability (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 45,
+          "original_bibliography_entry": "Debenedetti et al., **AgentDojo**, NeurIPS 2024, https://arxiv.org/abs/2406.13352 — tool-output injection benchmark (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 48,
+          "original_bibliography_entry": "Jimenez et al., **SWE-bench** (2024), https://arxiv.org/abs/2310.06770 — environment-based software engineering evaluation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-H02",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "H03",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 111,
+        "text": "- H03 Assess final environment state and side-effects, not only textual outputs. Test tool names, arguments, timing, target and rollback.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 28,
+          "original_bibliography_entry": "OpenAI, **Evaluate Agent Workflows**, https://developers.openai.com/api/docs/guides/agent-evals — trace/dataset evaluation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 36,
+          "original_bibliography_entry": "Yehudai et al., **A Survey on Evaluation of LLM-Based Agents**, ACL Findings 2026, https://aclanthology.org/2026.findings-acl.1330/ — evaluation dimensions and cost/safety gaps.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 44,
+          "original_bibliography_entry": "Yao et al., **τ-bench** (2024), https://arxiv.org/abs/2406.12045 — final state and repeated-run reliability (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 45,
+          "original_bibliography_entry": "Debenedetti et al., **AgentDojo**, NeurIPS 2024, https://arxiv.org/abs/2406.13352 — tool-output injection benchmark (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 48,
+          "original_bibliography_entry": "Jimenez et al., **SWE-bench** (2024), https://arxiv.org/abs/2310.06770 — environment-based software engineering evaluation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-H03",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "H04",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 112,
+        "text": "- H04 Multi-run reliability (including pass^k or equivalent), variance, random seed/config metadata, flakiness and inter-run drift.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 28,
+          "original_bibliography_entry": "OpenAI, **Evaluate Agent Workflows**, https://developers.openai.com/api/docs/guides/agent-evals — trace/dataset evaluation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 36,
+          "original_bibliography_entry": "Yehudai et al., **A Survey on Evaluation of LLM-Based Agents**, ACL Findings 2026, https://aclanthology.org/2026.findings-acl.1330/ — evaluation dimensions and cost/safety gaps.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 44,
+          "original_bibliography_entry": "Yao et al., **τ-bench** (2024), https://arxiv.org/abs/2406.12045 — final state and repeated-run reliability (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 45,
+          "original_bibliography_entry": "Debenedetti et al., **AgentDojo**, NeurIPS 2024, https://arxiv.org/abs/2406.13352 — tool-output injection benchmark (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 48,
+          "original_bibliography_entry": "Jimenez et al., **SWE-bench** (2024), https://arxiv.org/abs/2310.06770 — environment-based software engineering evaluation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-H04",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "H05",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 113,
+        "text": "- H05 Independent human calibration of model-based graders; graders are neither self-certifying nor sufficient for effect authorization.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 28,
+          "original_bibliography_entry": "OpenAI, **Evaluate Agent Workflows**, https://developers.openai.com/api/docs/guides/agent-evals — trace/dataset evaluation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 36,
+          "original_bibliography_entry": "Yehudai et al., **A Survey on Evaluation of LLM-Based Agents**, ACL Findings 2026, https://aclanthology.org/2026.findings-acl.1330/ — evaluation dimensions and cost/safety gaps.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 44,
+          "original_bibliography_entry": "Yao et al., **τ-bench** (2024), https://arxiv.org/abs/2406.12045 — final state and repeated-run reliability (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 45,
+          "original_bibliography_entry": "Debenedetti et al., **AgentDojo**, NeurIPS 2024, https://arxiv.org/abs/2406.13352 — tool-output injection benchmark (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 48,
+          "original_bibliography_entry": "Jimenez et al., **SWE-bench** (2024), https://arxiv.org/abs/2310.06770 — environment-based software engineering evaluation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-H05",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "H06",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 114,
+        "text": "- H06 Adversarial tests for untrusted tool outputs, memory poisoning, delegation amplification, confirmation fatigue, tool response tampering and replay.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 28,
+          "original_bibliography_entry": "OpenAI, **Evaluate Agent Workflows**, https://developers.openai.com/api/docs/guides/agent-evals — trace/dataset evaluation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 36,
+          "original_bibliography_entry": "Yehudai et al., **A Survey on Evaluation of LLM-Based Agents**, ACL Findings 2026, https://aclanthology.org/2026.findings-acl.1330/ — evaluation dimensions and cost/safety gaps.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 44,
+          "original_bibliography_entry": "Yao et al., **τ-bench** (2024), https://arxiv.org/abs/2406.12045 — final state and repeated-run reliability (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 45,
+          "original_bibliography_entry": "Debenedetti et al., **AgentDojo**, NeurIPS 2024, https://arxiv.org/abs/2406.13352 — tool-output injection benchmark (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 48,
+          "original_bibliography_entry": "Jimenez et al., **SWE-bench** (2024), https://arxiv.org/abs/2310.06770 — environment-based software engineering evaluation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-H06",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "H07",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 115,
+        "text": "- H07 Measure task success, policy violations, recovery, completion latency, token/currency cost, throughput and resource consumption.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 28,
+          "original_bibliography_entry": "OpenAI, **Evaluate Agent Workflows**, https://developers.openai.com/api/docs/guides/agent-evals — trace/dataset evaluation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 36,
+          "original_bibliography_entry": "Yehudai et al., **A Survey on Evaluation of LLM-Based Agents**, ACL Findings 2026, https://aclanthology.org/2026.findings-acl.1330/ — evaluation dimensions and cost/safety gaps.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 44,
+          "original_bibliography_entry": "Yao et al., **τ-bench** (2024), https://arxiv.org/abs/2406.12045 — final state and repeated-run reliability (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 45,
+          "original_bibliography_entry": "Debenedetti et al., **AgentDojo**, NeurIPS 2024, https://arxiv.org/abs/2406.13352 — tool-output injection benchmark (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 48,
+          "original_bibliography_entry": "Jimenez et al., **SWE-bench** (2024), https://arxiv.org/abs/2310.06770 — environment-based software engineering evaluation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-H07",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "H08",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 116,
+        "text": "- H08 Gate promotion via explicit thresholds and complete evidence, with severities and waiver policy; failure cannot be hidden as warning.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 28,
+          "original_bibliography_entry": "OpenAI, **Evaluate Agent Workflows**, https://developers.openai.com/api/docs/guides/agent-evals — trace/dataset evaluation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 36,
+          "original_bibliography_entry": "Yehudai et al., **A Survey on Evaluation of LLM-Based Agents**, ACL Findings 2026, https://aclanthology.org/2026.findings-acl.1330/ — evaluation dimensions and cost/safety gaps.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 44,
+          "original_bibliography_entry": "Yao et al., **τ-bench** (2024), https://arxiv.org/abs/2406.12045 — final state and repeated-run reliability (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 45,
+          "original_bibliography_entry": "Debenedetti et al., **AgentDojo**, NeurIPS 2024, https://arxiv.org/abs/2406.13352 — tool-output injection benchmark (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 48,
+          "original_bibliography_entry": "Jimenez et al., **SWE-bench** (2024), https://arxiv.org/abs/2310.06770 — environment-based software engineering evaluation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-H08",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "H09",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 117,
+        "text": "- H09 Record evaluation environment/model/tool versions, dataset digest, code revision, sample size and confidence limitations.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 28,
+          "original_bibliography_entry": "OpenAI, **Evaluate Agent Workflows**, https://developers.openai.com/api/docs/guides/agent-evals — trace/dataset evaluation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 36,
+          "original_bibliography_entry": "Yehudai et al., **A Survey on Evaluation of LLM-Based Agents**, ACL Findings 2026, https://aclanthology.org/2026.findings-acl.1330/ — evaluation dimensions and cost/safety gaps.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 44,
+          "original_bibliography_entry": "Yao et al., **τ-bench** (2024), https://arxiv.org/abs/2406.12045 — final state and repeated-run reliability (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 45,
+          "original_bibliography_entry": "Debenedetti et al., **AgentDojo**, NeurIPS 2024, https://arxiv.org/abs/2406.13352 — tool-output injection benchmark (abstract screened).",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 48,
+          "original_bibliography_entry": "Jimenez et al., **SWE-bench** (2024), https://arxiv.org/abs/2310.06770 — environment-based software engineering evaluation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-H09",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "I01",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 121,
+        "text": "- I01 End-to-end correlation across principal, agent, workflow, task, run, step, policy decision, tool call and output artifact.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 13,
+          "original_bibliography_entry": "W3C, **PROV-O** (2013), https://www.w3.org/TR/prov-o/ — stable provenance vocabulary.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 14,
+          "original_bibliography_entry": "SLSA, **Specification v1.2**, https://slsa.dev/spec/v1.2/ — source/build artifact provenance.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 15,
+          "original_bibliography_entry": "SPDX, **Specification 3.0**, https://spdx.dev/use/specifications/ — supply-chain metadata option.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 24,
+          "original_bibliography_entry": "OpenTelemetry, **GenAI agent spans** (Development), https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-agent-spans.md — optional observability mapping.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-I01",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "I02",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 122,
+        "text": "- I02 Typed spans/events for agent, workflow, planner, model, retrieval, memory and tools; OTel semantic conventions usable as optional export mapping.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 13,
+          "original_bibliography_entry": "W3C, **PROV-O** (2013), https://www.w3.org/TR/prov-o/ — stable provenance vocabulary.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 14,
+          "original_bibliography_entry": "SLSA, **Specification v1.2**, https://slsa.dev/spec/v1.2/ — source/build artifact provenance.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 15,
+          "original_bibliography_entry": "SPDX, **Specification 3.0**, https://spdx.dev/use/specifications/ — supply-chain metadata option.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 24,
+          "original_bibliography_entry": "OpenTelemetry, **GenAI agent spans** (Development), https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-agent-spans.md — optional observability mapping.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_OPTIONAL",
+      "test_id": "AMA-M0-I02",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "I03",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 123,
+        "text": "- I03 Append-only decision/effect ledger with before/after receipts and ambiguous outcome classification.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 13,
+          "original_bibliography_entry": "W3C, **PROV-O** (2013), https://www.w3.org/TR/prov-o/ — stable provenance vocabulary.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 14,
+          "original_bibliography_entry": "SLSA, **Specification v1.2**, https://slsa.dev/spec/v1.2/ — source/build artifact provenance.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 15,
+          "original_bibliography_entry": "SPDX, **Specification 3.0**, https://spdx.dev/use/specifications/ — supply-chain metadata option.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 24,
+          "original_bibliography_entry": "OpenTelemetry, **GenAI agent spans** (Development), https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-agent-spans.md — optional observability mapping.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-I03",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "I04",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 124,
+        "text": "- I04 Preserve input and output artifact digests, source, creator, version, access basis, transformation and verification links.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 13,
+          "original_bibliography_entry": "W3C, **PROV-O** (2013), https://www.w3.org/TR/prov-o/ — stable provenance vocabulary.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 14,
+          "original_bibliography_entry": "SLSA, **Specification v1.2**, https://slsa.dev/spec/v1.2/ — source/build artifact provenance.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 15,
+          "original_bibliography_entry": "SPDX, **Specification 3.0**, https://spdx.dev/use/specifications/ — supply-chain metadata option.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 24,
+          "original_bibliography_entry": "OpenTelemetry, **GenAI agent spans** (Development), https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-agent-spans.md — optional observability mapping.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-I04",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "I05",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 125,
+        "text": "- I05 Audit trail independent of mutable session memory; retention/erasure mechanisms must balance privacy with legally required audit retention.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 13,
+          "original_bibliography_entry": "W3C, **PROV-O** (2013), https://www.w3.org/TR/prov-o/ — stable provenance vocabulary.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 14,
+          "original_bibliography_entry": "SLSA, **Specification v1.2**, https://slsa.dev/spec/v1.2/ — source/build artifact provenance.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 15,
+          "original_bibliography_entry": "SPDX, **Specification 3.0**, https://spdx.dev/use/specifications/ — supply-chain metadata option.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 24,
+          "original_bibliography_entry": "OpenTelemetry, **GenAI agent spans** (Development), https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-agent-spans.md — optional observability mapping.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-I05",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "I06",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 126,
+        "text": "- I06 Record tool/token/cost/latency metrics with missing/unknown semantics; zero and unknown must not be confused.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 13,
+          "original_bibliography_entry": "W3C, **PROV-O** (2013), https://www.w3.org/TR/prov-o/ — stable provenance vocabulary.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 14,
+          "original_bibliography_entry": "SLSA, **Specification v1.2**, https://slsa.dev/spec/v1.2/ — source/build artifact provenance.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 15,
+          "original_bibliography_entry": "SPDX, **Specification 3.0**, https://spdx.dev/use/specifications/ — supply-chain metadata option.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 24,
+          "original_bibliography_entry": "OpenTelemetry, **GenAI agent spans** (Development), https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-agent-spans.md — optional observability mapping.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-I06",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "I07",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 127,
+        "text": "- I07 Redaction and sampling policy is separate from proof-required evidence; sampling telemetry cannot remove mandatory audit records.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 13,
+          "original_bibliography_entry": "W3C, **PROV-O** (2013), https://www.w3.org/TR/prov-o/ — stable provenance vocabulary.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 14,
+          "original_bibliography_entry": "SLSA, **Specification v1.2**, https://slsa.dev/spec/v1.2/ — source/build artifact provenance.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 15,
+          "original_bibliography_entry": "SPDX, **Specification 3.0**, https://spdx.dev/use/specifications/ — supply-chain metadata option.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 24,
+          "original_bibliography_entry": "OpenTelemetry, **GenAI agent spans** (Development), https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-agent-spans.md — optional observability mapping.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-I07",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "I08",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 128,
+        "text": "- I08 Reconciliation receipts and independent acceptance references.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 13,
+          "original_bibliography_entry": "W3C, **PROV-O** (2013), https://www.w3.org/TR/prov-o/ — stable provenance vocabulary.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 14,
+          "original_bibliography_entry": "SLSA, **Specification v1.2**, https://slsa.dev/spec/v1.2/ — source/build artifact provenance.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 15,
+          "original_bibliography_entry": "SPDX, **Specification 3.0**, https://spdx.dev/use/specifications/ — supply-chain metadata option.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 24,
+          "original_bibliography_entry": "OpenTelemetry, **GenAI agent spans** (Development), https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-agent-spans.md — optional observability mapping.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-I08",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "J01",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 132,
+        "text": "- J01 Health/readiness/liveness contracts, degraded modes, dependency and model-provider outage behavior.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 2,
+          "original_bibliography_entry": "NIST, **AI RMF 1.0** (2023), https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10 — voluntary AI risk lifecycle.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 3,
+          "original_bibliography_entry": "NIST, **Generative AI Profile** (2024), https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence — voluntary companion.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 30,
+          "original_bibliography_entry": "OpenAI, **Agents SDK durable integrations**, https://openai.github.io/openai-agents-python/running_agents/ — Temporal, Dapr, Restate as choices.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 33,
+          "original_bibliography_entry": "Temporal, **Workflow execution/replay**, https://docs.temporal.io/workflows — durable event history and deterministic replay.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-J01",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "J02",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 133,
+        "text": "- J02 Quotas, per-run/per-principal cost ceiling, rate limits, concurrency controls, admission control and circuit breakers.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 2,
+          "original_bibliography_entry": "NIST, **AI RMF 1.0** (2023), https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10 — voluntary AI risk lifecycle.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 3,
+          "original_bibliography_entry": "NIST, **Generative AI Profile** (2024), https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence — voluntary companion.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 30,
+          "original_bibliography_entry": "OpenAI, **Agents SDK durable integrations**, https://openai.github.io/openai-agents-python/running_agents/ — Temporal, Dapr, Restate as choices.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 33,
+          "original_bibliography_entry": "Temporal, **Workflow execution/replay**, https://docs.temporal.io/workflows — durable event history and deterministic replay.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-J02",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "J03",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 134,
+        "text": "- J03 SLOs for correct task completion, latency, availability, stalled jobs, denial accuracy and evidence completeness.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 2,
+          "original_bibliography_entry": "NIST, **AI RMF 1.0** (2023), https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10 — voluntary AI risk lifecycle.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 3,
+          "original_bibliography_entry": "NIST, **Generative AI Profile** (2024), https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence — voluntary companion.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 30,
+          "original_bibliography_entry": "OpenAI, **Agents SDK durable integrations**, https://openai.github.io/openai-agents-python/running_agents/ — Temporal, Dapr, Restate as choices.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 33,
+          "original_bibliography_entry": "Temporal, **Workflow execution/replay**, https://docs.temporal.io/workflows — durable event history and deterministic replay.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-J03",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "J04",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 135,
+        "text": "- J04 Inventory, health, drift, vulnerability, registry integrity and unsupported version audit interfaces.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 2,
+          "original_bibliography_entry": "NIST, **AI RMF 1.0** (2023), https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10 — voluntary AI risk lifecycle.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 3,
+          "original_bibliography_entry": "NIST, **Generative AI Profile** (2024), https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence — voluntary companion.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 30,
+          "original_bibliography_entry": "OpenAI, **Agents SDK durable integrations**, https://openai.github.io/openai-agents-python/running_agents/ — Temporal, Dapr, Restate as choices.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 33,
+          "original_bibliography_entry": "Temporal, **Workflow execution/replay**, https://docs.temporal.io/workflows — durable event history and deterministic replay.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "HOST_BOUND",
+      "test_id": "AMA-M0-J04",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "J05",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 136,
+        "text": "- J05 No self-upgrade into production: signed release/provenance, migration plan, rollback, canary/shadow strategy and independent promotion.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 2,
+          "original_bibliography_entry": "NIST, **AI RMF 1.0** (2023), https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10 — voluntary AI risk lifecycle.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 3,
+          "original_bibliography_entry": "NIST, **Generative AI Profile** (2024), https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence — voluntary companion.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 30,
+          "original_bibliography_entry": "OpenAI, **Agents SDK durable integrations**, https://openai.github.io/openai-agents-python/running_agents/ — Temporal, Dapr, Restate as choices.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 33,
+          "original_bibliography_entry": "Temporal, **Workflow execution/replay**, https://docs.temporal.io/workflows — durable event history and deterministic replay.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-J05",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "J06",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 137,
+        "text": "- J06 Incident/forensic record, emergency suspension, recovery procedure and notification/escalation obligations.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 2,
+          "original_bibliography_entry": "NIST, **AI RMF 1.0** (2023), https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10 — voluntary AI risk lifecycle.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 3,
+          "original_bibliography_entry": "NIST, **Generative AI Profile** (2024), https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence — voluntary companion.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 30,
+          "original_bibliography_entry": "OpenAI, **Agents SDK durable integrations**, https://openai.github.io/openai-agents-python/running_agents/ — Temporal, Dapr, Restate as choices.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 33,
+          "original_bibliography_entry": "Temporal, **Workflow execution/replay**, https://docs.temporal.io/workflows — durable event history and deterministic replay.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-J06",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "J07",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 138,
+        "text": "- J07 Tenancy and data segregation across persistent state, credentials, telemetry and tool results.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 2,
+          "original_bibliography_entry": "NIST, **AI RMF 1.0** (2023), https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10 — voluntary AI risk lifecycle.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 3,
+          "original_bibliography_entry": "NIST, **Generative AI Profile** (2024), https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence — voluntary companion.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 30,
+          "original_bibliography_entry": "OpenAI, **Agents SDK durable integrations**, https://openai.github.io/openai-agents-python/running_agents/ — Temporal, Dapr, Restate as choices.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 33,
+          "original_bibliography_entry": "Temporal, **Workflow execution/replay**, https://docs.temporal.io/workflows — durable event history and deterministic replay.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-J07",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "K01",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 142,
+        "text": "- K01 Generic adapter interface for model provider, tool execution, policy decision, identity, memory, event bus and data store.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 17,
+          "original_bibliography_entry": "JSON Schema, **Draft 2020-12**, https://json-schema.org/draft/2020-12 — normative format for schema validation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 18,
+          "original_bibliography_entry": "MCP, **2026-07-28 release**, https://blog.modelcontextprotocol.io/posts/2026-07-28/ — stateless protocol core, tasks extension and auth changes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 21,
+          "original_bibliography_entry": "MCP, **tool semantics**, https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/docs/specification/2026-07-28/server/tools.mdx — tool schemas and execution errors.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 23,
+          "original_bibliography_entry": "A2A, **v1.0.0 Protocol Specification**, https://a2a-protocol.org/dev/specification/ — discovery, Agent Card, task state, security and remote interoperability.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 24,
+          "original_bibliography_entry": "OpenTelemetry, **GenAI agent spans** (Development), https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-agent-spans.md — optional observability mapping.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-K01",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "K02",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 143,
+        "text": "- K02 MCP: optional tool/resource/prompt endpoint; if implemented against 2026-07-28, support stateless core, per-request version/capabilities, explicit state handle, tool schemas and transport authorization; Tasks as separately negotiated extension.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 17,
+          "original_bibliography_entry": "JSON Schema, **Draft 2020-12**, https://json-schema.org/draft/2020-12 — normative format for schema validation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 18,
+          "original_bibliography_entry": "MCP, **2026-07-28 release**, https://blog.modelcontextprotocol.io/posts/2026-07-28/ — stateless protocol core, tasks extension and auth changes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 21,
+          "original_bibliography_entry": "MCP, **tool semantics**, https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/docs/specification/2026-07-28/server/tools.mdx — tool schemas and execution errors.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 23,
+          "original_bibliography_entry": "A2A, **v1.0.0 Protocol Specification**, https://a2a-protocol.org/dev/specification/ — discovery, Agent Card, task state, security and remote interoperability.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 24,
+          "original_bibliography_entry": "OpenTelemetry, **GenAI agent spans** (Development), https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-agent-spans.md — optional observability mapping.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "SOURCE_REVIEW_REQUIRED",
+      "test_id": "AMA-M0-K02",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": true,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "K03",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 144,
+        "text": "- K03 A2A: optional externally discoverable agent API, Agent Card, task/multimodal negotiation, authentication, streaming and cancellation; **not** the internal registry schema.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 17,
+          "original_bibliography_entry": "JSON Schema, **Draft 2020-12**, https://json-schema.org/draft/2020-12 — normative format for schema validation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 18,
+          "original_bibliography_entry": "MCP, **2026-07-28 release**, https://blog.modelcontextprotocol.io/posts/2026-07-28/ — stateless protocol core, tasks extension and auth changes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 21,
+          "original_bibliography_entry": "MCP, **tool semantics**, https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/docs/specification/2026-07-28/server/tools.mdx — tool schemas and execution errors.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 23,
+          "original_bibliography_entry": "A2A, **v1.0.0 Protocol Specification**, https://a2a-protocol.org/dev/specification/ — discovery, Agent Card, task state, security and remote interoperability.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 24,
+          "original_bibliography_entry": "OpenTelemetry, **GenAI agent spans** (Development), https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-agent-spans.md — optional observability mapping.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "SOURCE_REVIEW_REQUIRED",
+      "test_id": "AMA-M0-K03",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": true,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "K04",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 145,
+        "text": "- K04 OpenAPI/JSON Schema: typed I/O and reference resolution; validation does not encode all semantic constraints.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 17,
+          "original_bibliography_entry": "JSON Schema, **Draft 2020-12**, https://json-schema.org/draft/2020-12 — normative format for schema validation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 18,
+          "original_bibliography_entry": "MCP, **2026-07-28 release**, https://blog.modelcontextprotocol.io/posts/2026-07-28/ — stateless protocol core, tasks extension and auth changes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 21,
+          "original_bibliography_entry": "MCP, **tool semantics**, https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/docs/specification/2026-07-28/server/tools.mdx — tool schemas and execution errors.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 23,
+          "original_bibliography_entry": "A2A, **v1.0.0 Protocol Specification**, https://a2a-protocol.org/dev/specification/ — discovery, Agent Card, task state, security and remote interoperability.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 24,
+          "original_bibliography_entry": "OpenTelemetry, **GenAI agent spans** (Development), https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-agent-spans.md — optional observability mapping.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-K04",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "K05",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 146,
+        "text": "- K05 OpenTelemetry: optional exporter and stable custom application event IDs; agent/workflow/tool span conventions currently Development.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 17,
+          "original_bibliography_entry": "JSON Schema, **Draft 2020-12**, https://json-schema.org/draft/2020-12 — normative format for schema validation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 18,
+          "original_bibliography_entry": "MCP, **2026-07-28 release**, https://blog.modelcontextprotocol.io/posts/2026-07-28/ — stateless protocol core, tasks extension and auth changes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 21,
+          "original_bibliography_entry": "MCP, **tool semantics**, https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/docs/specification/2026-07-28/server/tools.mdx — tool schemas and execution errors.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 23,
+          "original_bibliography_entry": "A2A, **v1.0.0 Protocol Specification**, https://a2a-protocol.org/dev/specification/ — discovery, Agent Card, task state, security and remote interoperability.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 24,
+          "original_bibliography_entry": "OpenTelemetry, **GenAI agent spans** (Development), https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-agent-spans.md — optional observability mapping.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_OPTIONAL",
+      "test_id": "AMA-M0-K05",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "K06",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 147,
+        "text": "- K06 Extensible skills/packages via declared schema, integrity pins and bounded capability expansion only after approval.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 17,
+          "original_bibliography_entry": "JSON Schema, **Draft 2020-12**, https://json-schema.org/draft/2020-12 — normative format for schema validation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 18,
+          "original_bibliography_entry": "MCP, **2026-07-28 release**, https://blog.modelcontextprotocol.io/posts/2026-07-28/ — stateless protocol core, tasks extension and auth changes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 21,
+          "original_bibliography_entry": "MCP, **tool semantics**, https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/docs/specification/2026-07-28/server/tools.mdx — tool schemas and execution errors.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 23,
+          "original_bibliography_entry": "A2A, **v1.0.0 Protocol Specification**, https://a2a-protocol.org/dev/specification/ — discovery, Agent Card, task state, security and remote interoperability.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 24,
+          "original_bibliography_entry": "OpenTelemetry, **GenAI agent spans** (Development), https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-agent-spans.md — optional observability mapping.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_OPTIONAL",
+      "test_id": "AMA-M0-K06",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "K07",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 148,
+        "text": "- K07 Protocol-version negotiation, deprecation windows, compatibility tests and security regression.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 17,
+          "original_bibliography_entry": "JSON Schema, **Draft 2020-12**, https://json-schema.org/draft/2020-12 — normative format for schema validation.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 18,
+          "original_bibliography_entry": "MCP, **2026-07-28 release**, https://blog.modelcontextprotocol.io/posts/2026-07-28/ — stateless protocol core, tasks extension and auth changes.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 21,
+          "original_bibliography_entry": "MCP, **tool semantics**, https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/docs/specification/2026-07-28/server/tools.mdx — tool schemas and execution errors.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 23,
+          "original_bibliography_entry": "A2A, **v1.0.0 Protocol Specification**, https://a2a-protocol.org/dev/specification/ — discovery, Agent Card, task state, security and remote interoperability.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 24,
+          "original_bibliography_entry": "OpenTelemetry, **GenAI agent spans** (Development), https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-agent-spans.md — optional observability mapping.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-K07",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "L01",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 152,
+        "text": "- L01 Agent card: intended use, restrictions, capabilities, known limitations, evidence/benchmarks, deployment and incident contact.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 2,
+          "original_bibliography_entry": "NIST, **AI RMF 1.0** (2023), https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10 — voluntary AI risk lifecycle.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 6,
+          "original_bibliography_entry": "ISO, **ISO/IEC 42001:2023**, https://www.iso.org/standard/42001 — public landing summary only, management system standard.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 8,
+          "original_bibliography_entry": "EU, **Regulation (EU) 2024/1689, consolidated 2026 text**, https://eur-lex.europa.eu/eli/reg/2024/1689 — applicability conditional; logging and human oversight for relevant high-risk systems.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 50,
+          "original_bibliography_entry": "Mitchell et al., **Model Cards for Model Reporting** (2019), https://doi.org/10.1145/3287560.3287596 — reporting intended use and limitations.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-L01",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "L02",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 153,
+        "text": "- L02 Risk register with purpose, affected users, potential harms, model assumptions and controls.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 2,
+          "original_bibliography_entry": "NIST, **AI RMF 1.0** (2023), https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10 — voluntary AI risk lifecycle.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 6,
+          "original_bibliography_entry": "ISO, **ISO/IEC 42001:2023**, https://www.iso.org/standard/42001 — public landing summary only, management system standard.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 8,
+          "original_bibliography_entry": "EU, **Regulation (EU) 2024/1689, consolidated 2026 text**, https://eur-lex.europa.eu/eli/reg/2024/1689 — applicability conditional; logging and human oversight for relevant high-risk systems.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 50,
+          "original_bibliography_entry": "Mitchell et al., **Model Cards for Model Reporting** (2019), https://doi.org/10.1145/3287560.3287596 — reporting intended use and limitations.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-L02",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "L03",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 154,
+        "text": "- L03 Governance obligations are conditional by deployment role/jurisdiction and risk; do not encode a particular statute as universal law.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 2,
+          "original_bibliography_entry": "NIST, **AI RMF 1.0** (2023), https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10 — voluntary AI risk lifecycle.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 6,
+          "original_bibliography_entry": "ISO, **ISO/IEC 42001:2023**, https://www.iso.org/standard/42001 — public landing summary only, management system standard.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 8,
+          "original_bibliography_entry": "EU, **Regulation (EU) 2024/1689, consolidated 2026 text**, https://eur-lex.europa.eu/eli/reg/2024/1689 — applicability conditional; logging and human oversight for relevant high-risk systems.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 50,
+          "original_bibliography_entry": "Mitchell et al., **Model Cards for Model Reporting** (2019), https://doi.org/10.1145/3287560.3287596 — reporting intended use and limitations.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-L03",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "L04",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 155,
+        "text": "- L04 Separate agent acceptance, conformance and policy approvals; record approver identity and jurisdiction.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 2,
+          "original_bibliography_entry": "NIST, **AI RMF 1.0** (2023), https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10 — voluntary AI risk lifecycle.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 6,
+          "original_bibliography_entry": "ISO, **ISO/IEC 42001:2023**, https://www.iso.org/standard/42001 — public landing summary only, management system standard.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 8,
+          "original_bibliography_entry": "EU, **Regulation (EU) 2024/1689, consolidated 2026 text**, https://eur-lex.europa.eu/eli/reg/2024/1689 — applicability conditional; logging and human oversight for relevant high-risk systems.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 50,
+          "original_bibliography_entry": "Mitchell et al., **Model Cards for Model Reporting** (2019), https://doi.org/10.1145/3287560.3287596 — reporting intended use and limitations.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-L04",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "L05",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 156,
+        "text": "- L05 Human oversight designed for meaningful review, not habituated click-through; escalation includes context, alternatives and likely effects.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 2,
+          "original_bibliography_entry": "NIST, **AI RMF 1.0** (2023), https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10 — voluntary AI risk lifecycle.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 6,
+          "original_bibliography_entry": "ISO, **ISO/IEC 42001:2023**, https://www.iso.org/standard/42001 — public landing summary only, management system standard.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 8,
+          "original_bibliography_entry": "EU, **Regulation (EU) 2024/1689, consolidated 2026 text**, https://eur-lex.europa.eu/eli/reg/2024/1689 — applicability conditional; logging and human oversight for relevant high-risk systems.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 50,
+          "original_bibliography_entry": "Mitchell et al., **Model Cards for Model Reporting** (2019), https://doi.org/10.1145/3287560.3287596 — reporting intended use and limitations.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-L05",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "L06",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 157,
+        "text": "- L06 Signed audit, release and incident/change provenance where required.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 2,
+          "original_bibliography_entry": "NIST, **AI RMF 1.0** (2023), https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10 — voluntary AI risk lifecycle.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 6,
+          "original_bibliography_entry": "ISO, **ISO/IEC 42001:2023**, https://www.iso.org/standard/42001 — public landing summary only, management system standard.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 8,
+          "original_bibliography_entry": "EU, **Regulation (EU) 2024/1689, consolidated 2026 text**, https://eur-lex.europa.eu/eli/reg/2024/1689 — applicability conditional; logging and human oversight for relevant high-risk systems.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 50,
+          "original_bibliography_entry": "Mitchell et al., **Model Cards for Model Reporting** (2019), https://doi.org/10.1145/3287560.3287596 — reporting intended use and limitations.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CONDITIONAL",
+      "test_id": "AMA-M0-L06",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    },
+    {
+      "id": "L07",
+      "claim": {
+        "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
+        "line": 158,
+        "text": "- L07 Clear ownership for lifecycle, authority, policies, data and tools.",
+        "claim_type": "ANALYST_SYNTHESIS_NOT_VERBATIM_STUDY_FINDING"
+      },
+      "candidate_bibliography": [
+        {
+          "number": 2,
+          "original_bibliography_entry": "NIST, **AI RMF 1.0** (2023), https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10 — voluntary AI risk lifecycle.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 6,
+          "original_bibliography_entry": "ISO, **ISO/IEC 42001:2023**, https://www.iso.org/standard/42001 — public landing summary only, management system standard.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 8,
+          "original_bibliography_entry": "EU, **Regulation (EU) 2024/1689, consolidated 2026 text**, https://eur-lex.europa.eu/eli/reg/2024/1689 — applicability conditional; logging and human oversight for relevant high-risk systems.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        },
+        {
+          "number": 50,
+          "original_bibliography_entry": "Mitchell et al., **Model Cards for Model Reporting** (2019), https://doi.org/10.1145/3287560.3287596 — reporting intended use and limitations.",
+          "claim_support": "NOT_INDIVIDUALLY_VERIFIED"
+        }
+      ],
+      "research_expansion": "E52-E58 and TinyFish report are supplementary, overlap unquantified",
+      "disposition": "ADOPT_CORE",
+      "test_id": "AMA-M0-L07",
+      "decision_state": "PROPOSED_PENDING_INDEPENDENT_HUMAN_ACCEPTANCE",
+      "source_review_required": false,
+      "evidence_status": "PROVISIONAL_SOURCE_TRIAGE",
+      "evidence_note": "Bibliography pointers are not proof each source individually supports the requirement."
+    }
+  ]
+}

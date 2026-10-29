@@ -1,0 +1,48 @@
+{
+  "schema": "ffos.ama.bindings/v1",
+  "capabilities": [
+    {
+      "capabilityId": "FIXTURE_READ",
+      "agentId": "FFOS.TEST.OBSERVER",
+      "effectClass": "E0_OBSERVE",
+      "status": "VALIDATED"
+    }
+  ],
+  "workflows": [
+    {
+      "workflowId": "FIXTURE_INSPECT",
+      "version": "0.1.0",
+      "agentId": "FFOS.TEST.OBSERVER",
+      "purpose": "Inspect synthetic data",
+      "requiredCapabilities": [
+        "FIXTURE_READ"
+      ],
+      "effectCeiling": "E0_OBSERVE",
+      "authorityRequirements": [
+        "DIRECTOR"
+      ],
+      "verification": [
+        "STATIC_CHECK"
+      ],
+      "evidenceRequirements": [
+        "REPORT"
+      ],
+      "terminalStates": [
+        "PASS",
+        "FAIL",
+        "HOLD"
+      ],
+      "status": "VALIDATED"
+    }
+  ],
+  "commands": [
+    {
+      "commandId": "FIXTURE_STATUS",
+      "token": "fixture-status",
+      "agentId": "FFOS.TEST.OBSERVER",
+      "workflowId": "FIXTURE_INSPECT",
+      "workflowVersion": "0.1.0",
+      "status": "ACTIVE"
+    }
+  ]
+}

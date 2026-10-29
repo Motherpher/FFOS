@@ -1,0 +1,132 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.mandate/v0.2-candidate"
+    },
+    "mandateId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "issuerRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "subjectRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "agentRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "issuedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "enum": [
+        "ISSUED",
+        "REVOKED",
+        "EXPIRED"
+      ]
+    },
+    "delegationDepth": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 16
+    },
+    "grants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "actionKind": {
+            "enum": [
+              "OBSERVE",
+              "STATE_MUTATION",
+              "REPOSITORY_MUTATION",
+              "EXTERNAL_ACTION",
+              "AUTHORITY_CHANGE"
+            ]
+          },
+          "effectClass": {
+            "$ref": "common.schema.json#/$defs/effect"
+          },
+          "resourceScope": {
+            "$ref": "common.schema.json#/$defs/scope"
+          },
+          "maxDataClassification": {
+            "enum": [
+              "PUBLIC",
+              "INTERNAL",
+              "CONFIDENTIAL",
+              "RESTRICTED"
+            ]
+          },
+          "allowedRecipients": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 0,
+            "uniqueItems": true
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          },
+          "requiresHumanReview": {
+            "type": "boolean"
+          },
+          "allowAggregation": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "actionKind",
+          "effectClass",
+          "resourceScope",
+          "maxDataClassification",
+          "allowedRecipients",
+          "purpose",
+          "requiresHumanReview",
+          "allowAggregation"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "revocationRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "issuanceEvidenceDigest": {
+      "$ref": "common.schema.json#/$defs/digest"
+    }
+  },
+  "required": [
+    "schema",
+    "mandateId",
+    "version",
+    "issuerRef",
+    "subjectRef",
+    "agentRef",
+    "issuedAt",
+    "expiresAt",
+    "status",
+    "delegationDepth",
+    "grants",
+    "revocationRef",
+    "issuanceEvidenceDigest"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/mandate.schema.json",
+  "title": "AMA 0.2 candidate provider-neutral mandate"
+}

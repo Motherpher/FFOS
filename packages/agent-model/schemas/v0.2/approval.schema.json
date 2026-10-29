@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.approval/v0.2-candidate"
+    },
+    "approvalId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "requestRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "approvedByRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "outcome": {
+      "enum": [
+        "APPROVE",
+        "REJECT"
+      ]
+    },
+    "issuedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "approvalEvidenceDigest": {
+      "$ref": "common.schema.json#/$defs/digest"
+    }
+  },
+  "required": [
+    "schema",
+    "approvalId",
+    "version",
+    "requestRef",
+    "approvedByRef",
+    "outcome",
+    "issuedAt",
+    "expiresAt",
+    "approvalEvidenceDigest"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/approval.schema.json",
+  "title": "AMA 0.2 candidate provider-neutral approval"
+}

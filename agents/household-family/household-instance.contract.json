@@ -1,0 +1,109 @@
+{
+  "schema": "ffos.household.ama-instance-contract/v0.1-candidate",
+  "id": "HOUSEHOLD-FAMILY-2.0",
+  "kind": "AGENT_INSTANCE",
+  "architecture": {
+    "name": "AMA",
+    "kind": "ARCHITECTURE_NOT_AGENT",
+    "source_repository": "Motherpher/FFOS",
+    "baseline_ref": "feat/agent-stable-suite-messi-household-20261029"
+  },
+  "governance": {
+    "governing_authority": "FFOS_DIRECTOR",
+    "security_authority": "CDX_EXTERNAL",
+    "self_acceptance": false,
+    "may_reprioritize": false,
+    "may_modify_authority": false,
+    "may_merge": false,
+    "may_publish": false,
+    "may_deploy": false
+  },
+  "interface": {
+    "target": "CHATGPT_COMPATIBLE_MCP",
+    "status": "SPECIFIED_NOT_DEPLOYED"
+  },
+  "orchestrator": {
+    "durability": "REQUIRED",
+    "idempotent_work_packages": true,
+    "unknown_remote_effect": "HOLD_RECONCILE",
+    "status": "NOT_LIVE_VERIFIED"
+  },
+  "roles": [
+    {
+      "name": "JANITOR",
+      "function": "inspect inventory and hygiene",
+      "may_create_changes": false
+    },
+    {
+      "name": "HANDYMAN",
+      "function": "prepare bounded repairs on governed feature branches",
+      "may_create_changes": true
+    },
+    {
+      "name": "VERIFIER",
+      "function": "independently test and report proposed changes",
+      "independent_from_executor": true,
+      "may_accept_work": false
+    }
+  ],
+  "commands": [
+    {
+      "name": "household.inspect_wp",
+      "effect_class": "E0",
+      "mode": "READ_ONLY",
+      "requires_director_assignment": true
+    },
+    {
+      "name": "household.propose_repair",
+      "effect_class": "E2",
+      "mode": "DRAFT_PR_ONLY",
+      "requires_director_assignment": true
+    },
+    {
+      "name": "household.verify_patch",
+      "effect_class": "E0",
+      "mode": "INDEPENDENT_EVIDENCE",
+      "requires_director_assignment": true
+    }
+  ],
+  "work_package_required_fields": [
+    "wp_id",
+    "director_order_ref",
+    "source_pin",
+    "scope_paths",
+    "dependency_refs",
+    "effect_ceiling",
+    "acceptance_criteria",
+    "evidence_target",
+    "deadline_or_budget"
+  ],
+  "evidence": {
+    "spetl": "REQUIRED_FOR_GOVERNED_EFFECTS",
+    "independent_custody": "REQUIRED_FOR_PRODUCTION",
+    "no_self_attestation": true
+  },
+  "lifecycle": {
+    "construction": "ENGINEERING_CANDIDATE",
+    "production_authorized": false,
+    "release_binding": "HOLD_EXTERNAL_GOVERNANCE",
+    "messenger_agent": "MESSI_IS_SEPARATE_AGENT_1_NOT_HOUSEHOLD_COMPONENT",
+    "messi_ref": "agents/messi/README.md"
+  },
+  "use_case": {
+    "primary": "BOUNDED_DIRECTOR_ASSIGNED_CDX_WORK_PACKAGES",
+    "target_wp": "WP08-WP14_DEPENDENCY_ORDER_TO_BE_VERIFIED",
+    "initial_pilot": "READ_ONLY_INVENTORY"
+  },
+  "agent_stable": {
+    "registry_ref": "agents/registry.json",
+    "fleet_ordinal": 2,
+    "agent_id": "FFOS-AGENT-HOUSEHOLD-002",
+    "manifest_ref": "agents/household-family/manifest-candidate-v0.1.json"
+  },
+  "implementation": {
+    "path": "modules/household-family",
+    "source_branch": "hf/household-family-2.0",
+    "integrated": true,
+    "production_accepted": false
+  }
+}

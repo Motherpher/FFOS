@@ -1,0 +1,70 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "agentId",
+    "capabilityId",
+    "version",
+    "status",
+    "effectClass",
+    "resourceScopes",
+    "adapterRef",
+    "permissionRefs",
+    "inputSchema",
+    "outputSchema"
+  ],
+  "properties": {
+    "schema": {
+      "const": "ama.capability/v0.2-candidate"
+    },
+    "agentId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "capabilityId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "status": {
+      "$ref": "common.schema.json#/$defs/bindingStatus"
+    },
+    "effectClass": {
+      "$ref": "common.schema.json#/$defs/effect"
+    },
+    "resourceScopes": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/scope"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "adapterRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "moduleId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "permissionRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "inputSchema": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "outputSchema": {
+      "type": "object",
+      "minProperties": 1
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/capability.schema.json",
+  "title": "AMA v0.2 candidate capability contract"
+}

@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.principal/v0.2-candidate"
+    },
+    "principalId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "principalKind": {
+      "enum": [
+        "HUMAN",
+        "WORKLOAD",
+        "SERVICE"
+      ]
+    },
+    "tenantId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trustDomain": {
+      "type": "string",
+      "minLength": 1
+    },
+    "identityIssuerRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "identityEvidenceDigest": {
+      "$ref": "common.schema.json#/$defs/digest"
+    }
+  },
+  "required": [
+    "schema",
+    "principalId",
+    "version",
+    "principalKind",
+    "tenantId",
+    "trustDomain",
+    "identityIssuerRef",
+    "identityEvidenceDigest"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/principal.schema.json",
+  "title": "AMA 0.2 candidate provider-neutral principal"
+}

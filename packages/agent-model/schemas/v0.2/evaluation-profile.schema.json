@@ -1,0 +1,129 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.evaluation-profile/v0.2-candidate"
+    },
+    "profileId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "agentRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "suiteVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "enum": [
+        "STATIC_CANDIDATE",
+        "DISPOSABLE_INTEGRATION",
+        "LIVE_INDEPENDENT"
+      ]
+    },
+    "requiredAxes": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "STRUCTURAL",
+          "AUTHORITY",
+          "TOOL_TARGET",
+          "FINAL_STATE",
+          "RELIABILITY",
+          "ADVERSARIAL",
+          "PRIVACY",
+          "DURABILITY",
+          "COST",
+          "EVIDENCE"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "minCases": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "minRepetitions": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "thresholds": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "maxFalseAllowRate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "maxFalseDenyRate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "minVerifiedFinalStateRate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "minEvidenceCoverage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "maxLatencyP95Ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "maxCostMinor": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "currency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        }
+      },
+      "required": [
+        "maxFalseAllowRate",
+        "maxFalseDenyRate",
+        "minVerifiedFinalStateRate",
+        "minEvidenceCoverage",
+        "maxLatencyP95Ms",
+        "maxCostMinor",
+        "currency"
+      ]
+    },
+    "baselineRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "holdoutRequired": {
+      "const": true
+    },
+    "independentApprovalRequired": {
+      "const": true
+    }
+  },
+  "required": [
+    "schema",
+    "profileId",
+    "version",
+    "agentRef",
+    "suiteVersion",
+    "scope",
+    "requiredAxes",
+    "minCases",
+    "minRepetitions",
+    "thresholds",
+    "holdoutRequired",
+    "independentApprovalRequired"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/evaluation-profile.schema.json",
+  "title": "AMA 0.2 candidate evaluation-profile contract"
+}

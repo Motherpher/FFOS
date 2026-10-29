@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "adapterId",
+    "version",
+    "status",
+    "invocationKind",
+    "supportedEffects",
+    "inputSchema",
+    "outputSchema",
+    "credentialBindingRequired"
+  ],
+  "properties": {
+    "schema": {
+      "const": "ama.tool-adapter/v0.2-candidate"
+    },
+    "adapterId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "status": {
+      "$ref": "common.schema.json#/$defs/bindingStatus"
+    },
+    "invocationKind": {
+      "enum": [
+        "IN_PROCESS",
+        "HTTP",
+        "MCP",
+        "OTHER"
+      ]
+    },
+    "supportedEffects": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/effect"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "inputSchema": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "outputSchema": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "credentialBindingRequired": {
+      "type": "boolean"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/tool-adapter.schema.json",
+  "title": "AMA v0.2 candidate tool-adapter contract"
+}

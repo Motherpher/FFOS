@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.cognitive-binding/v0.2-candidate"
+    },
+    "bindingId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "agentRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "reasoningModuleId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "modelRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "instructionRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "planningRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "contextRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "memoryRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "retrievalRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    }
+  },
+  "required": [
+    "schema",
+    "bindingId",
+    "version",
+    "agentRef",
+    "reasoningModuleId",
+    "modelRef",
+    "instructionRef",
+    "planningRef",
+    "contextRef"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/cognitive-binding.schema.json",
+  "title": "AMA v0.2 candidate cognitive-binding contract"
+}
