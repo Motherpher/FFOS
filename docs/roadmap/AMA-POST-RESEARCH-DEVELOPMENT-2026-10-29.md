@@ -188,6 +188,14 @@ The M4 execution contract can be developed as a candidate, while F8 and M5 suppl
 
 **Gate:** M6-OPERATIONAL-CONTRACT-PASS.
 
+## M6 execution result — 2026-10-29
+
+**M6-OPERATIONAL-CONTRACT-PASS achieved as a verified engineering candidate.** Six optional operational schemas (45 candidate schemas cumulative), separate TypeScript interfaces and static conformance, durable PostgreSQL health/incident/release proposal records, independent emergency suspension with M4 lease fencing, persistent suspension/admission barrier and synthetic canary/rollback guards are implemented.
+
+[Detailed M6 architecture](AMA-M6-OPERATIONAL-LIFECYCLE-CONTRACTS.md) · [M6 execution and verification report](AMA-M6-EXECUTION-REPORT.md) · [GitHub Actions 40846425828](https://github.com/Motherpher/FFOS/actions/runs/40846425828) **SUCCESS: 190 Python + 9 shared-model + 99 runtime/PostgreSQL tests = 298 combined**.
+
+The security policy, operator and observation verifiers remain CI doubles; the machine-readable report is labeled as such. The steward may prepare proposals and independently authorized containment but **cannot** independently deploy, accept, rollback, alter constitutional law or authorize live work. F8.7 remains blocked; M7-E engineering integration can proceed before F8.7, while M7-O operational acceptance cannot.
+
 ## M7 — Synthetic first-class reference and readiness decision
 
 **Build:** one **generic** read-only synthetic reference (or synthetic suite covering only required feature profiles), no particular domain semantics and no host-specific governance names in AMA's normative files. Register the instance outside the master contract. Exercise a controlled E0 classified-read policy and one non-production simulated consequential effect.
@@ -207,7 +215,7 @@ The M4 execution contract can be developed as a candidate, while F8 and M5 suppl
 | 3 | M3: conditional model/memory profiles | profile conformance and poisoning evals | ENGINEERING CANDIDATE VERIFIED; HUMAN ADOPTION PENDING |
 | 4 | M4: durable runtime protocol | restart/replay/duplicate-effect tests | TECHNICAL CANDIDATE CI VERIFIED; LIVE F8 BINDING BLOCKED |
 | 5 | M5: assurance evaluation | independent outcomes + source-backed regression | PLANNED |
-| 6 | M6: operations/extension contracts | change/incident/rollback suite | PLANNED |
+| 6 | M6: operations/extension contracts | change/incident/rollback suite | ENGINEERING CI VERIFIED; LIVE RELEASE/ACCEPTANCE BLOCKED |
 | 7 | M7: synthetic reference admission | independent acceptance evidence | DEFERRED |
 
 ## Operational boundaries / implementation hygiene
