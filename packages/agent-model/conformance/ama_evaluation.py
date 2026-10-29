@@ -196,6 +196,9 @@ def evaluate(bundle, *, profile_id, at, attestor=None):
             if o["redacted"] is False and case["dataClassification"] in (
                     "CONFIDENTIAL", "RESTRICTED"):
                 findings.add("SENSITIVE_EVIDENCE_NOT_REDACTED")
+            if case["dataClassification"] in ("CONFIDENTIAL", "RESTRICTED") and any(
+                    not p["redacted"] for p in obs_proof.get(o["observationId"], [])):
+                findings.add("SENSITIVE_PROVENANCE_NOT_REDACTED")
             verified = False
             for p in obs_proof.get(o["observationId"], []):
                 if (p["trustStatus"] == "ATTESTED_BY_EXTERNAL_VERIFIER"
