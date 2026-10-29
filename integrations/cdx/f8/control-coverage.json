@@ -1,0 +1,1437 @@
+{
+  "schema": "ffos.f8.cdx-control-coverage/v1",
+  "generated_from": {
+    "repository": "Hybrismannen/Conductellence-",
+    "control_registry": "POLICY/control-registry.json",
+    "control_registry_blob_sha": "55dbcdac2f822b59a5a5f0f19eeadfa61d2c7ed0",
+    "law_topology": "GOVERNANCE/release-boundary-v1.json",
+    "law_topology_blob_sha": "2550b2045ff0e0b6b3d12312b2e3ef7441d9a95b",
+    "contract": "CDX-RUNTIME-001",
+    "law_id": "CDX-LAW-001",
+    "release_boundary_id": "CDX-RC01-BOUNDARY-001"
+  },
+  "summary": {
+    "law_sections": 131,
+    "reference_controls": 69,
+    "sections_with_reference_controls": 69,
+    "review_governed_sections": 62
+  },
+  "sections": [
+    {
+      "section_id": "CDX-LAW-001-01-01",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-01-02",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-01-03",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-01-04",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-01-04",
+          "enforcement_surface": "AUTHORITY",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-01-05",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-01-06",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-02-01",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-02-02",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-02-03",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-02-04",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-02-05",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-02-06",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-03-01",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-REG-001",
+          "enforcement_surface": "SYSTEM_ADMISSION",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-03-02",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-REPO-001",
+          "enforcement_surface": "SYSTEM_ADMISSION",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-03-03",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-03-03",
+          "enforcement_surface": "SYSTEM_ADMISSION",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-03-04",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-03-05",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-03-05",
+          "enforcement_surface": "SYSTEM_ADMISSION",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-04-01",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-04-01",
+          "enforcement_surface": "IDENTITY_AUTHORITY",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-04-02",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-AUTH-001",
+          "enforcement_surface": "IDENTITY_AUTHORITY",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-04-03",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-04-04",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-04-04",
+          "enforcement_surface": "IDENTITY_AUTHORITY",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-04-05",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-04-05",
+          "enforcement_surface": "IDENTITY_AUTHORITY",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-04-06",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-05-01",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-05-02",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-05-02",
+          "enforcement_surface": "CAPABILITY_DELEGATION",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-05-03",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-05-03",
+          "enforcement_surface": "CAPABILITY_DELEGATION",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-05-04",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-AUTH-004",
+          "enforcement_surface": "CAPABILITY_DELEGATION",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-05-05",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-DELEG-001",
+          "enforcement_surface": "CAPABILITY_DELEGATION",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-05-06",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-05-06",
+          "enforcement_surface": "CAPABILITY_DELEGATION",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-05-07",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-05-07",
+          "enforcement_surface": "CAPABILITY_DELEGATION",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-05-08",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-05-08",
+          "enforcement_surface": "CAPABILITY_DELEGATION",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-06-01",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-06-02",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-Z0-001",
+          "enforcement_surface": "BOUNDARY",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-06-03",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-06-04",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-06-04",
+          "enforcement_surface": "BOUNDARY",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-06-05",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-06-05",
+          "enforcement_surface": "BOUNDARY",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-06-06",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-07-01",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-07-01",
+          "enforcement_surface": "DATA",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-07-02",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-07-03",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-07-04",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-07-05",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-07-06",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-07-07",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-07-08",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-07-08",
+          "enforcement_surface": "DATA",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-08-01",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-CONTENT-001",
+          "enforcement_surface": "CONTENT_MEMORY",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-08-02",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-08-03",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-08-04",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-MEM-001",
+          "enforcement_surface": "CONTENT_MEMORY",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-08-05",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-08-06",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-08-06",
+          "enforcement_surface": "CONTENT_MEMORY",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-08-07",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-09-01",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-09-01",
+          "enforcement_surface": "MODEL_AGENT",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-09-02",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-09-03",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-09-03",
+          "enforcement_surface": "MODEL_AGENT",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-09-04",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-DENY-001",
+          "enforcement_surface": "MODEL_AGENT",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-09-05",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-09-06",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-09-06",
+          "enforcement_surface": "MODEL_AGENT",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-09-07",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-09-08",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-09-08",
+          "enforcement_surface": "MODEL_AGENT",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-10-01",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-TOOL-001",
+          "enforcement_surface": "TOOL_CONNECTOR",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-10-02",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-TOOL-002",
+          "enforcement_surface": "TOOL_CONNECTOR",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-10-03",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-10-04",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-10-04",
+          "enforcement_surface": "TOOL_CONNECTOR",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-10-05",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-10-06",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-10-06",
+          "enforcement_surface": "TOOL_CONNECTOR",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-11-01",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-11-02",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-11-02",
+          "enforcement_surface": "SUPPLY_CHAIN",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-11-03",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-11-03",
+          "enforcement_surface": "SUPPLY_CHAIN",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-11-04",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-11-05",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-11-05",
+          "enforcement_surface": "SUPPLY_CHAIN",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-11-06",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-11-07",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-12-01",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-CRED-001",
+          "enforcement_surface": "CREDENTIAL_CRYPTO",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-12-02",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-12-03",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-12-03",
+          "enforcement_surface": "CREDENTIAL_CRYPTO",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-12-04",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-SECRET-001",
+          "enforcement_surface": "CREDENTIAL_CRYPTO",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-12-05",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-12-06",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-13-01",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-13-01",
+          "enforcement_surface": "RUNTIME_AUTH",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-13-02",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-13-02",
+          "enforcement_surface": "RUNTIME_AUTH",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-13-03",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-13-03",
+          "enforcement_surface": "RUNTIME_AUTH",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-13-04",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-13-04",
+          "enforcement_surface": "RUNTIME_AUTH",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-13-05",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-FAILCLOSED-001",
+          "enforcement_surface": "RUNTIME_AUTH",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-13-06",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-POLICY-001",
+          "enforcement_surface": "RUNTIME_AUTH",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-13-07",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-13-07",
+          "enforcement_surface": "RUNTIME_AUTH",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-13-08",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-13-08",
+          "enforcement_surface": "RUNTIME_AUTH",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-13-09",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-13-09",
+          "enforcement_surface": "RUNTIME_AUTH",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-14-01",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-14-02",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-14-03",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-14-04",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-EFFECT-001",
+          "enforcement_surface": "EXTERNAL_EFFECT",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-14-05",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-14-05",
+          "enforcement_surface": "EXTERNAL_EFFECT",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-14-06",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-14-06",
+          "enforcement_surface": "EXTERNAL_EFFECT",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-15-01",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-SPETL-001",
+          "enforcement_surface": "EVIDENCE",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-15-02",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-15-02",
+          "enforcement_surface": "EVIDENCE",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-15-03",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-EVID-001",
+          "enforcement_surface": "EVIDENCE",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-15-04",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-15-05",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-15-05",
+          "enforcement_surface": "EVIDENCE",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-15-06",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-15-07",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-15-07",
+          "enforcement_surface": "EVIDENCE",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-16-01",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-META-001",
+          "enforcement_surface": "ASSURANCE",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-16-02",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-META-002",
+          "enforcement_surface": "ASSURANCE",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-16-03",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-META-003",
+          "enforcement_surface": "ASSURANCE",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-16-04",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-16-05",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-16-06",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-16-06",
+          "enforcement_surface": "ASSURANCE",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-16-07",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-16-08",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-17-01",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-17-01",
+          "enforcement_surface": "INCIDENT_EXCEPTION",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-17-02",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-17-02",
+          "enforcement_surface": "INCIDENT_EXCEPTION",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-17-03",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-17-04",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-17-05",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-17-06",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-EXC-001",
+          "enforcement_surface": "INCIDENT_EXCEPTION",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-17-07",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-17-07",
+          "enforcement_surface": "INCIDENT_EXCEPTION",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-17-08",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-18-01",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-18-02",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-18-03",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-18-03",
+          "enforcement_surface": "LIFECYCLE",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-18-04",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-18-05",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-18-06",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-18-06",
+          "enforcement_surface": "LIFECYCLE",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-19-01",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-19-02",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-VERSION-001",
+          "enforcement_surface": "CONSTITUTIONAL_CHANGE",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-19-03",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-19-04",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-19-04",
+          "enforcement_surface": "CONSTITUTIONAL_CHANGE",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-19-05",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-19-06",
+      "classification": "IMPLEMENTED_REFERENCE_CONTROL",
+      "controls": [
+        {
+          "control_id": "CDX-CTL-DRAFTING-001",
+          "enforcement_surface": "CONSTITUTIONAL_CHANGE",
+          "decision_on_fail": "DENY",
+          "audit_vector_count": 2,
+          "evidence_requirements": [
+            "policy_decision",
+            "SPETL decision event"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "CDX-LAW-001-19-07",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    },
+    {
+      "section_id": "CDX-LAW-001-19-08",
+      "classification": "REVIEW_GOVERNED",
+      "controls": []
+    }
+  ],
+  "approval_state": "CANDIDATE_SOURCE_MAPPING_NOT_INDEPENDENTLY_APPROVED",
+  "release_effect": "NONE"
+}
