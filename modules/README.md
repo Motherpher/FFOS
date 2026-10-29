@@ -1,15 +1,19 @@
 # FFOS Modules
 
-Initial rooms:
+`modules/` contains **concrete implementations**, not architecture definitions and not domain rooms that do not yet exist.
 
-- `counter/` — operational traffic view
-- `director/` — human decision surface
-- `work/` — projects, missions, work packages and runs
-- `ffc/` — Form & Flöde business/practice room
-- `conductellence/` — first-class external domain room
-- `udl/` — UDL dispatch/status room
-- `pius/` — reserved integration room only
-- `knowledge/` — linked knowledge and artifacts
-- `system/` — registry, integrations, health and permissions
+## Current modules
 
-Rooms may expose views over shared objects without claiming ownership of canonical domain source.
+- `household-family/` — implementation candidate for Agent Stable Agent #2. Janitor, Handyman and Verifier remain internal workflows/roles.
+
+## Placement rule
+
+A new directory is added here only when there is executable implementation owned by FFOS.
+
+- Agent identity/manifest/lifecycle → `agent-stable/`
+- Shared architecture/runtime machinery → `packages/`
+- External provider/domain binding → `integrations/`
+- UI shell → `apps/`
+- Architecture/specification/evidence → `docs/`
+
+Planned domains are documented in architecture/roadmap records but do not receive empty module directories.
