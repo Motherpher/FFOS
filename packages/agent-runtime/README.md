@@ -43,3 +43,9 @@ Keep PR #19 DRAFT until production database release, real CDX and Director adapt
 Workers use epoch-fenced leases. Checkpoint/resume, cancellation, uncertain effects and independent reconciliation are covered by disposable PostgreSQL tests at `tests/m4-durable-pg.test.mjs`. A prepared/dispatched or callback-returned effect **cannot be automatically replayed or called committed without a verifier-issued receipt**. An independent resume approval is required after HOLD; callback return is not run acceptance.
 
 **Release boundary:** all adapters in CI are test doubles. Real CDX runtime binding, external receipt attestation, safe database roles and release acceptance are still absent. The SQL migration has NOT been applied to production. [M4 technical specification](../../docs/roadmap/AMA-M4-DURABLE-EXECUTION-CONTRACTS.md).
+
+## M6 operational stewardship (candidate, not deployed)
+
+`src/operational-steward.ts` and disposable PostgreSQL migration `0005_ama_m6_operations.sql` provide immutable health evidence, independent emergency suspension with M4 lease fencing and UNCERTAIN/HOLD effect preservation, a persistent version-level run-admission barrier, and non-activating canary/release proposals. `M6GuardedAdmission` must be host-wired to the existing M4 admission authority; a PostgreSQL insert guard also prevents unguarded fresh runs after suspension.
+
+The technical steward cannot independently deploy, approve, roll back, reinstate or accept its own work. CI providers are test doubles; real human, security and custody adapters remain pending. [M6 architecture](../../docs/roadmap/AMA-M6-OPERATIONAL-LIFECYCLE-CONTRACTS.md).
