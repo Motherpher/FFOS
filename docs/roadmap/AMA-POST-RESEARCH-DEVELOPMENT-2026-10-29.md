@@ -134,6 +134,17 @@ F8 is an **independent host-security assurance track**, not a new agent-specific
 
 **Gate:** M3-CONDITIONAL-PROFILES-PASS.
 
+## M3 verified candidate result — 2026-10-29
+
+**Engineering delivered and static CI validated; not normatively adopted or deployed.**
+
+- Eight agent-neutral schemas, isolated TypeScript cognitive types, `ama_cognitive.py` conformance and negative tests.
+- Explicit model/instruction pins, planned task horizon and execution budgets; context window and source-marker compaction checks; optional memory writes, retention, poisoning quarantine, retrieval trust and scope restrictions.
+- [M3 execution report](AMA-M3-EXECUTION-REPORT.md), [M3 specification](AMA-M3-COGNITIVE-MEMORY-CONTRACTS.md), [GitHub Actions run 40809807317](https://github.com/Motherpher/FFOS/actions/runs/40809807317) **SUCCESS** (134 Python, 9 shared-model, 38 runtime/PostgreSQL; existing and new tests combined).
+- **Not proven:** live LLM behavior, multi-session poisoning rates, actual semantic compaction, persistent memory storage/erasure, runtime cost metering, independent policy/authorization and human acceptance.
+
+The M4 execution contract can be developed as a candidate, while F8 and M5 supply operational governance and independent empirical proof.
+
 ## M4 — F5: Durable execution and effect uncertainty
 
 **Build:** Task/Run/Step/Attempt/Approval/Effect/Receipt/Reconciliation schemas; retry/idempotency, checkpoint/resume, cancellation, worker fencing, journal and safe uncertain states; adapt the existing CI-tested registry/effect-gate instead of rebuilding it.
@@ -174,7 +185,7 @@ F8 is an **independent host-security assurance track**, not a new agent-specific
 | 1 | M1: universal type/schema suite | compositional conformance & compatibility | TECHNICALLY VERIFIED CANDIDATE; HUMAN ACCEPTANCE PENDING |
 | 2 | M2: generic scoped authority | authorization contract negative suite | PLANNED |
 | 2 (parallel) | M2-CDX: F8 trust/decision/evidence adapter | independently tested CDX policy binding | BLOCKED FOR LIVE BINDING BY CDX RELEASE STATE |
-| 3 | M3: conditional model/memory profiles | profile conformance and poisoning evals | PLANNED |
+| 3 | M3: conditional model/memory profiles | profile conformance and poisoning evals | ENGINEERING CANDIDATE VERIFIED; HUMAN ADOPTION PENDING |
 | 4 | M4: durable runtime protocol | restart/replay/duplicate-effect tests | PLANNED |
 | 5 | M5: assurance evaluation | independent outcomes + source-backed regression | PLANNED |
 | 6 | M6: operations/extension contracts | change/incident/rollback suite | PLANNED |
