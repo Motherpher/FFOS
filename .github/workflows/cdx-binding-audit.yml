@@ -21,5 +21,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Validate canonical CDX anchor
-        run: python3 .cdx/validate_anchor.py
+      - name: Validate canonical CDX 1.0.0 anchor
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f .cdx/anchor.json
+          jq -e --arg repo "$GITHUB_REPOSITORY" '
+            .schema == "cdx.anchor/v1" and
+            .system_short_name == "CDX" and
+            .law_id == "CDX-LAW-001" and
+            .cdx_authority.repository == "Hybrismannen/Conductellence-" and
+            .cdx_authority.canonical_name == "Conductellence" and
+            .cdx_authority.short_name == "CDX" and
+            (.governed_surface.repository | ascii_downcase) == ($repo | ascii_downcase) and
+            .binding_mode == "PINNED_RELEASE" and
+            .policy_pin.ref_type == "RELEASE" and
+            .policy_pin.ref == "1.0.0" and
+            .policy_pin.digest == "git-blob-sha1:55dbcdac2f822b59a5a5f0f19eeadfa61d2c7ed0" and
+            .binding_state == "ANCHOR_DECLARED" and
+            .local_enforcement.fail_closed_for_consequential_effects == true and
+            .verification.verification_state == "NOT_VERIFIED" and
+            .verification.last_verified_at == null
+          ' .cdx/anchor.json
+          echo "PASS: FFOS anchor is pinned to released CDX 1.0.0 and remains unverified pending WP10."
