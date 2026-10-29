@@ -65,6 +65,15 @@ jobs:
                   raise SystemExit('FAIL: PINNED_COMMIT requires COMMIT ref_type')
               if not re.fullmatch(r'[0-9a-fA-F]{40}', str(pin.get('ref', ''))):
                   raise SystemExit('FAIL: pinned CDX commit must be a full 40-character SHA')
+          elif mode == 'PINNED_RELEASE':
+              if pin.get('ref_type') != 'RELEASE':
+                  raise SystemExit('FAIL: PINNED_RELEASE requires RELEASE ref_type')
+              if pin.get('ref') != '1.0.0':
+                  raise SystemExit('FAIL: WP09 expects released CDX 1.0.0')
+              if pin.get('digest') != 'git-blob-sha1:55dbcdac2f822b59a5a5f0f19eeadfa61d2c7ed0':
+                  raise SystemExit('FAIL: CDX 1.0.0 policy bundle digest mismatch')
+          else:
+              raise SystemExit(f'FAIL: unsupported binding mode {mode!r}')
 
           if doc.get('binding_state') not in {
               'ANCHOR_DECLARED', 'CDX_BOUND', 'CDX_CI_MONITORED',
