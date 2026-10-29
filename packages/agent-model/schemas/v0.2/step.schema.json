@@ -29,6 +29,9 @@
       "items": {
         "$ref": "common.schema.json#/$defs/ref"
       }
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
     }
   },
   "required": [
@@ -37,7 +40,8 @@
     "runId",
     "workflowStepId",
     "state",
-    "attemptRefs"
+    "attemptRefs",
+    "version"
   ],
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://ama.example/contracts/v0.2/step.schema.json",
