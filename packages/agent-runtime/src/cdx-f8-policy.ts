@@ -134,7 +134,15 @@ export class CDXF8VerifiedAdapter implements CDXPolicyPort {
   service:F8PolicyService|null,
   obligations:F8ObligationVerifier|null,
   custody:F8CustodyVerifier|null,
- ){}
+ ){
+  this.catalogue=catalogue;
+  this.facts=facts;
+  this.trust=trust;
+  this.release=release;
+  this.service=service;
+  this.obligations=obligations;
+  this.custody=custody;
+ }
  async evaluate(req:CDXDecisionRequest):Promise<CDXPolicyDecision>{
   must(!!this.catalogue&&!!this.facts&&!!this.trust&&!!this.release&&
        !!this.service&&!!this.obligations&&!!this.custody,
