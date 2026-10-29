@@ -1,0 +1,97 @@
+{
+  "schema": "ffos.ama.agent-manifest/v1",
+  "agentId": "FFOS-AGENT-HOUSEHOLD-002",
+  "name": "Household Family",
+  "agentVersion": "2.0.0",
+  "amaVersion": "0.1.0",
+  "purpose": "Execute bounded Director-assigned repository and work-package maintenance with separated inspection, repair and verification roles.",
+  "mandate": {
+    "scope": [
+      "Inspect governed repository/work-package state assigned by Director.",
+      "Prepare bounded repository repairs within the assigned scope and effect ceiling.",
+      "Independently verify proposed changes and emit evidence without accepting the work."
+    ],
+    "nonGoals": [
+      "Set or reprioritize Director work.",
+      "Change constitutional authority or policy.",
+      "Self-accept, merge, publish or deploy without separate authorization.",
+      "Treat Janitor, Handyman or Verifier as independent agents."
+    ]
+  },
+  "runtimeClass": "HYBRID",
+  "lifecycleState": "DRAFT",
+  "authority": {
+    "governingAuthority": "FFOS_DIRECTOR",
+    "authorityRefRequired": true,
+    "mandateRefRequired": true,
+    "selfApprovalProhibited": true
+  },
+  "effectCeiling": "E2_REPOSITORY_CHANGE",
+  "workflows": [
+    "household.inspect_wp",
+    "household.propose_repair",
+    "household.verify_patch"
+  ],
+  "commands": [
+    "household.inspect_wp",
+    "household.propose_repair",
+    "household.verify_patch"
+  ],
+  "capabilities": [],
+  "internalRoles": [
+    {
+      "roleId": "JANITOR",
+      "purpose": "Inspect inventory, hygiene and drift.",
+      "workflowIds": [
+        "household.inspect_wp"
+      ],
+      "capabilityIds": [],
+      "effectCeiling": "E0_OBSERVE",
+      "mayVerifyOtherRoleWork": false,
+      "mayCreateExternalEffects": false
+    },
+    {
+      "roleId": "HANDYMAN",
+      "purpose": "Prepare bounded repairs on governed feature branches.",
+      "workflowIds": [
+        "household.propose_repair"
+      ],
+      "capabilityIds": [],
+      "effectCeiling": "E2_REPOSITORY_CHANGE",
+      "mayVerifyOtherRoleWork": false,
+      "mayCreateExternalEffects": false
+    },
+    {
+      "roleId": "VERIFIER",
+      "purpose": "Independently test proposed changes and emit evidence.",
+      "workflowIds": [
+        "household.verify_patch"
+      ],
+      "capabilityIds": [],
+      "effectCeiling": "E0_OBSERVE",
+      "mayVerifyOtherRoleWork": true,
+      "mayCreateExternalEffects": false
+    }
+  ],
+  "statePolicy": {
+    "durableState": true,
+    "memoryMode": "RUN",
+    "stateStoreRef": "modules/household-family/db"
+  },
+  "evidence": {
+    "runRecordRequired": true,
+    "failedRunRecordRequired": true,
+    "requiredArtifacts": [
+      "director-order",
+      "source-pin",
+      "verification-record",
+      "audit-record"
+    ]
+  },
+  "conformance": {
+    "profile": "AMA_BASELINE_HOUSEHOLD",
+    "regressionRequired": true,
+    "authorityDenialTestsRequired": true,
+    "suiteRef": "agents/household-family/test_contract.py"
+  }
+}
