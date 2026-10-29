@@ -23,7 +23,7 @@ if authority.get("canonical_name")!="Conductellence" or authority.get("short_nam
 
 governed=doc.get("governed_surface",{})
 repo=os.getenv("GITHUB_REPOSITORY","Motherpher/FFOS")
-if governed.get("repository")!=repo:
+if str(governed.get("repository","")).lower()!=str(repo).lower():
     raise SystemExit(f"FAIL: anchor repository {governed.get('repository')!r} != {repo!r}")
 
 mode=doc.get("binding_mode")
