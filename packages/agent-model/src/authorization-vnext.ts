@@ -13,7 +13,7 @@ export interface AMAPrincipalContract {
 export interface AMAScopedGrant {
  readonly actionKind:AMAActionKind;readonly effectClass:AMAEffectClass;readonly resourceScope:string;
  readonly maxDataClassification:AMADataClassification;readonly allowedRecipients:readonly string[];
- readonly purpose:string;readonly requiresHumanReview:boolean;
+ readonly purpose:string;readonly requiresHumanReview:boolean;readonly allowAggregation:boolean;
 }
 export interface AMAMandateContract {
  readonly schema:"ama.mandate/v0.2-candidate";readonly mandateId:string;readonly version:AMASemver;
@@ -35,6 +35,9 @@ export interface AMAAuthorizationRequestContract {
  readonly actionKind:AMAActionKind;readonly effectClass:AMAEffectClass;
  readonly resourceScope:string;readonly dataClassification:AMADataClassification;
  readonly recipientId:string;readonly purpose:string;readonly requestedAt:string;
+ readonly riskContext:Readonly<{reversibility:"REVERSIBLE"|"COMPENSATABLE"|"IRREVERSIBLE"|"UNKNOWN";
+  impact:"LOW"|"MODERATE"|"HIGH"|"CRITICAL"|"UNKNOWN";externalExposure:boolean;
+  aggregateRead:boolean;financialAmountMinor:number;currency?:string}>;
  readonly sourceTrust:"TRUSTED_BOUNDARY"|"UNTRUSTED_CONTENT";
 }
 export interface AMAPolicyObligation {
