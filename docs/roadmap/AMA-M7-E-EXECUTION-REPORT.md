@@ -4,7 +4,7 @@
 **Repository:** `Motherpher/FFOS`  
 **Branch:** `feat/ama-foundation-20261028` / draft PR #19  
 **Milestone:** M7-E (engineering integration only)  
-**Disposition:** **IMPLEMENTED ENGINEERING CANDIDATE — CI RESULT MUST BE VERIFIED AGAINST EXACT HEAD BEFORE PASS**  
+**Disposition:** **M7-E-ENGINEERING-PASS — full CI verified; synthetic engineering candidate only**  
 **Production disposition:** **BLOCKED** — F8.7 and M7-O are separate mandatory gates.
 
 ## Engineering scope and review
@@ -23,7 +23,7 @@
 
 ## Test evidence / independent review gate
 
-**Repository inspection completed. Exact-head CI success not attested in this report.** A workflow configuration and committed tests demonstrate implemented coverage, **not** evidence of a successful workflow run. Obtain the exact commit SHA, successful workflow run URL, full test counts and uploaded `ama-m7e/m7e-assessment.json` before elevating the engineering disposition to `M7-E-ENGINEERING-PASS`.
+**[GitHub Actions 40848470365](https://github.com/Motherpher/FFOS/actions/runs/40848470365) completed SUCCESS** for code baseline `f917e551813c9367f0433605c1e451c3708c91d2`: **202 Python + 9 shared-model + 105 runtime/PostgreSQL tests = 316 combined** (prior M0–M6 tests included). The M7-E six-profile gate emitted `SYNTHETIC_REFERENCE_PASS`, with F8.7 explicitly `BLOCKED` and deployment authorization false. All M5/M6 and M7-E synthetic JSON artifacts were uploaded in [CI artifact 12885529212](https://github.com/Motherpher/FFOS/actions/runs/40848470365/artifacts/12885529212). The artifact establishes CI integration evidence, not independently signed live source attestation.
 
 Required acceptance checklist:
 - [x] Generic synthetic reference instances separated from AMA master.
@@ -32,8 +32,8 @@ Required acceptance checklist:
 - [x] Memory OFF/ON independently assessed.
 - [x] Fail-closed F8 preflight enforced; no implicit release or self-acceptance.
 - [x] CI workflow wired to M7-E reference, PostgreSQL suite and inspectable artifact.
-- [ ] Exact-head GitHub Actions success, test totals and artifact inspected.
-- [ ] Independent engineering audit approval documented.
+- [x] Exact-head GitHub Actions SUCCESS, test totals and CI artifact generation verified against the completed run.
+- [ ] Independent human engineering audit acceptance documented (remains outside CI).
 
 ## Remaining non-negotiable blockers
 
