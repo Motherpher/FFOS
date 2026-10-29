@@ -31,7 +31,7 @@ class M7AReadinessTests(unittest.TestCase):
         self.assertFalse(report["independent_technical_audit_accepted"])
 
     def test_requirement_links_are_partial_evidence_not_passes(self):
-        root = Path(__file__).resolve().parents[3]
+        root = Path(__file__).resolve().parents[4]
         import json
         def read(path):
             return json.loads((root / path).read_text(encoding="utf-8"))
