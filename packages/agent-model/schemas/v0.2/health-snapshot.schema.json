@@ -1,0 +1,113 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.health-snapshot/v0.2-candidate"
+    },
+    "snapshotId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "profileRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "agentRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "observedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "sourceRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sourceTrust": {
+      "enum": [
+        "DECLARED",
+        "INDEPENDENTLY_ATTESTED"
+      ]
+    },
+    "heartbeatAgeSeconds": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "failureRate": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "p95LatencyMs": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "costMinor": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "policyDrift": {
+      "type": "boolean"
+    },
+    "revocationDetected": {
+      "type": "boolean"
+    },
+    "unsettledEffects": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "signalsPresent": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "HEALTH",
+          "ERROR_RATE",
+          "LATENCY",
+          "COST",
+          "POLICY_DRIFT",
+          "EFFECT_UNCERTAINTY",
+          "REVOCATION"
+        ]
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "evidenceRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "redacted": {
+      "const": true
+    }
+  },
+  "required": [
+    "schema",
+    "snapshotId",
+    "version",
+    "profileRef",
+    "agentRef",
+    "observedAt",
+    "sourceRef",
+    "sourceTrust",
+    "heartbeatAgeSeconds",
+    "failureRate",
+    "p95LatencyMs",
+    "costMinor",
+    "policyDrift",
+    "revocationDetected",
+    "unsettledEffects",
+    "signalsPresent",
+    "evidenceRefs",
+    "redacted"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/health-snapshot.schema.json",
+  "title": "AMA v0.2 candidate health-snapshot"
+}
