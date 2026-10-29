@@ -79,6 +79,10 @@ jobs:
         run: |
           python packages/agent-model/conformance/ama_realm.py \
             --output "$RUNNER_TEMP/ama-realm-stewardship.json"
+      - name: M7-A source-backed readiness and coverage report (non-authorizing)
+        run: |
+          python packages/agent-model/conformance/ama_m7a_release_audit.py \
+            --output "$RUNNER_TEMP/ama-m7a-readiness.json"
       - name: Unit tests and negative/adversarial cases
         run: python -m unittest discover -s packages/agent-model/conformance/tests -v
       - name: Emit M7 minimal and complex synthetic blueprint references
@@ -130,6 +134,7 @@ jobs:
           name: ama-static-conformance
           path: |
             ${{ runner.temp }}/ama-realm-stewardship.json
+            ${{ runner.temp }}/ama-m7a-readiness.json
             ${{ runner.temp }}/ama-m0-requirement-evidence.json
             ${{ runner.temp }}/ama-milestone-integrity.json
             ${{ runner.temp }}/ama-architecture-compatibility.json
