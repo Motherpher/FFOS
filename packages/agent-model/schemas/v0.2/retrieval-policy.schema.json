@@ -1,0 +1,77 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.retrieval-policy/v0.2-candidate"
+    },
+    "policyId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "status": {
+      "$ref": "common.schema.json#/$defs/bindingStatus"
+    },
+    "moduleId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "allowedScopes": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/scope"
+      },
+      "minItems": 1
+    },
+    "allowedTrustLabels": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "VERIFIED",
+          "UNVERIFIED"
+        ]
+      },
+      "minItems": 1
+    },
+    "crossTrustDomain": {
+      "enum": [
+        "DENY",
+        "INDEPENDENT_APPROVAL_REQUIRED"
+      ]
+    },
+    "maxRetrievedItems": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "allowInstructionPromotion": {
+      "const": false
+    },
+    "requireSourceProvenance": {
+      "const": true
+    },
+    "poisonedEntryAction": {
+      "enum": [
+        "QUARANTINE",
+        "REJECT"
+      ]
+    }
+  },
+  "required": [
+    "schema",
+    "policyId",
+    "version",
+    "status",
+    "moduleId",
+    "allowedScopes",
+    "allowedTrustLabels",
+    "crossTrustDomain",
+    "maxRetrievedItems",
+    "allowInstructionPromotion",
+    "requireSourceProvenance",
+    "poisonedEntryAction"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/retrieval-policy.schema.json",
+  "title": "AMA v0.2 candidate retrieval-policy contract"
+}
