@@ -10,7 +10,7 @@
 1. Six agent-neutral JSON Schema Draft 2020-12 contracts: `evaluation-profile`, `evaluation-case`, `evaluation-observation`, `evaluation-provenance`, `evaluation-report`, and `acceptance-assessment`. The optional v0.2 bundle composes them; schema count increases from 33 to 39. Historical v1 files remain unchanged.
 2. `packages/agent-model/src/evaluation-vnext.ts`: portable, provider-neutral TypeScript contracts explicitly prohibiting self-issued release acceptance.
 3. `packages/agent-model/conformance/ama_evaluation.py`: deterministic evaluation preflight for complete bundles with exact pinned test and evidence provenance; a trusted oracle-aware external attestor is an injected input, not a field agents may set.
-4. `packages/agent-model/conformance/tests/test_m5_evaluation.py`: 24 new synthetic positive and negative test cases for all ten axes, repeated outcomes, false ALLOW/DENY, unexpected targets, missing external evidence, trust spoofing, privacy, latency/cost, invalid holdout, wrong oracle pins, model-run scope, injection/outage/recovery scenario coverage and no-self-acceptance.
+4. `packages/agent-model/conformance/tests/test_m5_evaluation.py`: 25 new synthetic positive and negative test cases for all ten axes, repeated outcomes, false ALLOW/DENY, unexpected targets, missing external evidence, trust spoofing, privacy, latency/cost, invalid holdout, wrong oracle pins, model-run scope, injection/outage/recovery scenario coverage and no-self-acceptance.
 5. `packages/agent-model/conformance/m5_emit_ci_candidate.py`: produces machine-readable development-only assurance evidence, with `STATIC_CANDIDATE`, `SYNTHETIC_TEST_DOUBLE`, and a concrete unverified-release-blocker inventory.
 6. GitHub Actions integration: parses M5 TypeScript, runs the M5 evaluator and earlier regression suites, publishes M5 JSON alongside the historical static report. No external credentials or live services used.
 7. Normative/host separation and implementation limitations are documented in [M5 assurance specification](AMA-M5-INDEPENDENT-EVALUATION-ASSURANCE.md).
@@ -33,7 +33,7 @@
 
 [GitHub Actions run 40835331056](https://github.com/Motherpher/FFOS/actions/runs/40835331056) completed successfully for the updated evaluation/negative-test implementation: **168 Python + 9 shared-model + 54 runtime/PostgreSQL tests** (231 combined, M0–M5 inclusive).
 
-The separate CI JSON artifact generation and final documentation updates have been added after this run; verify the latest complete GitHub workflow before declaring final M5 technical CI status. The combined 231 count is not 231 exclusively M5 tests.
+The CI JSON artifact generation and a further provenance-redaction regression were added after this successful run. Their execution in a later full workflow has not yet been confirmed; do not declare that final CI checkpoint green without a matching completed run. The combined 231 count is not 231 exclusively M5 tests.
 
 The PostgreSQL suite continues to validate actual disposable database transactions, worker fencing, evidence and recovery. External policy decisions, independent proof sources and model behavior are represented only by test doubles.
 
