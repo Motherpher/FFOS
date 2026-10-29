@@ -78,7 +78,24 @@ export interface AMACognitiveBindingVNext {
  readonly planningRef:AMAPinnedRef;readonly contextRef:AMAPinnedRef;
  readonly memoryRef?:AMAPinnedRef;readonly retrievalRef?:AMAPinnedRef;
 }
+/** M3: external knowledge source metadata, never instructions or delegated authority. */
+export interface AMAKnowledgeSourceVNext {
+ readonly sourceId:string; readonly sourceRef:string;readonly sourceRevision:string;
+ readonly contentDigest:AMASha256Digest;readonly sourceScope:string;
+ readonly trustDomain:string;readonly trustLabel:"VERIFIED"|"UNVERIFIED"|"SUSPECT"|"REVOKED";
+ readonly issuerRef:string;readonly observedAt:string;readonly maxAgeSeconds:number;
+ readonly sensitivity:"PUBLIC"|"INTERNAL"|"CONFIDENTIAL"|"RESTRICTED";
+ readonly sourceInstructionsAdmitted:false;
+}
+export interface AMAKnowledgeCatalogVNext {
+ readonly schema:"ama.knowledge-catalog/v0.2-candidate";readonly catalogId:string;
+ readonly version:AMASemver;readonly status:AMABindingState;
+ readonly moduleId:string;readonly retrievalPolicyRef:AMAPinnedRef;
+ readonly sources:readonly AMAKnowledgeSourceVNext[];
+ readonly contentGrantsAuthority:false;readonly sourceInstructionsAdmitted:false;
+}
 export interface AMACognitiveBundleVNext {
+ readonly knowledgeCatalogs?:readonly AMAKnowledgeCatalogVNext[];
  readonly modelProfiles?:readonly AMAModelProfileVNext[];
  readonly instructionPackages?:readonly AMAInstructionPackageVNext[];
  readonly planningProfiles?:readonly AMAPlanningProfileVNext[];
