@@ -252,3 +252,9 @@ Contract checks include immutable version/content-digest references, cross-objec
 F3/F4 conditional model, planning, context and memory contract engineering is implemented in eight v0.2 schemas, one isolated TypeScript module, an offline semantic validator and adversarial regression tests. See [M3 candidate contract specification](AMA-M3-COGNITIVE-MEMORY-CONTRACTS.md).
 
 The tests require default-off memory/reasoning, version-digest pins, explicit budget stops, quarantined untrusted memory, bounded retention and retrieval, and critical-source-marker preservation. **No real model, live memory store, semantic summary evaluation or independent outcome assurance is claimed.** Technical status is contingent on current CI; normative and operational acceptance are separate.
+
+## F8 executed consumer-engineering candidate — 2026-10-29
+
+F8.1–F8.6 are implemented in the **host-specific FFOS CDX consumer integration**, not the normative AMA master. See [execution and CI evidence](AMA-F8-EXECUTION-REPORT.md) and [source-grounded architecture](AMA-F8-CDX-SECURITY-BINDING.md). [CI 40839505822](https://github.com/Motherpher/FFOS/actions/runs/40839505822) passed 264 combined tests and uploaded the M5/F8 assurance artifacts.
+
+**F8.7 remains blocked:** CDX WP07 release is `PRE_RELEASE`; FFOS's historic commit-pinned anchor remains `BOUND_PENDING_RUNTIME_INTEGRATION`. The independent `M2-CDX-VERIFIED-RUNTIME-BOUND` gate is therefore **not achieved**. No CDX upstream constitutional core changes, production activation or PR merge occurred.
