@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "eventId",
+    "runId",
+    "requestRef",
+    "state",
+    "evidenceRef",
+    "occurredAt"
+  ],
+  "properties": {
+    "schema": {
+      "const": "ama.approval-event/v0.2-candidate"
+    },
+    "eventId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "runId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "requestRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "approvalRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "state": {
+      "enum": [
+        "REQUESTED",
+        "APPROVED",
+        "REJECTED",
+        "EXPIRED"
+      ]
+    },
+    "evidenceRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "occurredAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/approval-event.schema.json",
+  "title": "AMA v0.2 candidate approval-event contract"
+}
