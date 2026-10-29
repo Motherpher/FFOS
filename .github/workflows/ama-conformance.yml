@@ -72,6 +72,8 @@ jobs:
         run: node --experimental-strip-types --input-type=module -e "await import('./packages/agent-model/src/durable-vnext.ts')"
       - name: Parse candidate M5 evaluation contract types
         run: node --experimental-strip-types --input-type=module -e "await import('./packages/agent-model/src/evaluation-vnext.ts')"
+      - name: Parse candidate M6 operational contract types
+        run: node --experimental-strip-types --input-type=module -e "await import('./packages/agent-model/src/operations-vnext.ts')"
       - name: Install pinned PostgreSQL client
         run: npm install --no-save --prefix packages/agent-runtime pg@8.23.1 --ignore-scripts --no-audit --no-fund
       - name: Agent Stable guards and real PostgreSQL integration
