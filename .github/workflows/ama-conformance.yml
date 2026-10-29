@@ -6,11 +6,17 @@ on:
       - "packages/agent-runtime/**"
       - "packages/registry/migrations/**"
       - "docs/specifications/AMA-CONFORMANCE.md"
+      - "docs/roadmap/AMA-*"
+      - "docs/research/AMA-*"
+      - "docs/architecture/AMA.md"
       - ".github/workflows/ama-conformance.yml"
   push:
     branches: [main]
     paths:
       - "packages/agent-model/**"
+      - "docs/roadmap/AMA-*"
+      - "docs/research/AMA-*"
+      - "docs/architecture/AMA.md"
       - ".github/workflows/ama-conformance.yml"
 permissions:
   contents: read
