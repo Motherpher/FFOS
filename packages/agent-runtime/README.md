@@ -35,3 +35,11 @@ A callback may race with external revocation after its final check, and post-eff
 Node tests and disposable PostgreSQL 17 integration validate registry transactions, upgrade isolation, append-only evidence and denial rules. This does not constitute live production runtime assurance or Director acceptance.
 
 Keep PR #19 DRAFT until production database release, real CDX and Director adapters, C4/C5 validation, and independent approval.
+
+## AMA M4 — Durable run coordination (candidate; not deployed)
+
+`src/durable-run.ts` adds a PostgreSQL-backed run/worker coordinator that **composes the existing `AgentEffectGate`**; it does not relax the CDX or Director requirements. Migration `packages/registry/migrations/0004_ama_m4_durable_runs.sql` introduces durable run state, append-only events/attempts/checkpoints/receipts and effect operation-key deduplication.
+
+Workers use epoch-fenced leases. Checkpoint/resume, cancellation, uncertain effects and independent reconciliation are covered by disposable PostgreSQL tests at `tests/m4-durable-pg.test.mjs`. A prepared/dispatched or callback-returned effect **cannot be automatically replayed or called committed without a verifier-issued receipt**. An independent resume approval is required after HOLD; callback return is not run acceptance.
+
+**Release boundary:** all adapters in CI are test doubles. Real CDX runtime binding, external receipt attestation, safe database roles and release acceptance are still absent. The SQL migration has NOT been applied to production. [M4 technical specification](../../docs/roadmap/AMA-M4-DURABLE-EXECUTION-CONTRACTS.md).
