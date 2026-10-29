@@ -22,7 +22,7 @@ Identity, mandate, policy and approval evidence digests are versioned identifier
 
 ## Verification scope
 
-GitHub Actions runs the M2 negative tests with all previous M0/M1 and runtime/PostgreSQL regressions. **Use the latest completed success run for the final milestone status.** Passing suite tests verify declared contract correctness, not live C4/C5 or independent activation.
+GitHub Actions [run 40808540498](https://github.com/Motherpher/FFOS/actions/runs/40808540498) **completed SUCCESS**, exercising 99 Python, nine shared-model and 38 runtime/PostgreSQL tests (146 combined tests, including prior milestone regressions). The M2 case suite also covers malformed canonical resource scopes, grant-scope escalation and policy-denial paths. Passing CI proves only development/static and disposable-integration behavior, not live C4/C5 or independent activation.
 
 ## Remaining and next
 
