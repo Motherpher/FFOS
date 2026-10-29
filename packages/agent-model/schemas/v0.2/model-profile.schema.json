@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.model-profile/v0.2-candidate"
+    },
+    "profileId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "status": {
+      "$ref": "common.schema.json#/$defs/bindingStatus"
+    },
+    "moduleId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "providerRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "modelId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "modelRevision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "maxContextTokens": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "supportsToolCalling": {
+      "type": "boolean"
+    },
+    "allowedFallbackRefs": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/ref"
+      },
+      "minItems": 0
+    },
+    "maxOutputTokens": {
+      "type": "integer",
+      "minimum": 1
+    }
+  },
+  "required": [
+    "schema",
+    "profileId",
+    "version",
+    "status",
+    "moduleId",
+    "providerRef",
+    "modelId",
+    "modelRevision",
+    "maxContextTokens",
+    "maxOutputTokens",
+    "supportsToolCalling",
+    "allowedFallbackRefs"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/model-profile.schema.json",
+  "title": "AMA v0.2 candidate model-profile contract"
+}
