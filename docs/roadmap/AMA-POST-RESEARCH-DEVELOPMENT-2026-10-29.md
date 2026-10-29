@@ -39,7 +39,7 @@ flowchart TD
   M2 --> M4
   M3 --> M4
   M4 --> M5
-  M8 --> M5
+  M8 --> M7
   M5 --> M6
   M6 --> M7
 \`\`\`
