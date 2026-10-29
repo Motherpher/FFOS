@@ -47,6 +47,11 @@ class M0AdmissionTests(unittest.TestCase):
         self.assertEqual(self.decision["counts"], count)
         self.assertIn("F08", self.decision["rule"])
 
+        self.assertEqual(96, len({r["test_plan"] for r in self.decision["items"]}))
+        for row in self.decision["items"]:
+            self.assertEqual(row.get("test_state"), "PLAN_ONLY_NOT_EXECUTED")
+            self.assertTrue(row.get("expected_outcome"))
+
     def test_source_claims_are_grounded_and_provisional(self):
         for row in self.trace["requirements"]:
             with self.subTest(id=row["id"]):
