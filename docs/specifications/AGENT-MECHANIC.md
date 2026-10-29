@@ -6,7 +6,7 @@
 
 ## Purpose
 
-Agent Mechanic keeps AMA-based agents mechanically coherent across their lifecycle.
+Agent Mechanic keeps AMA-based agents mechanically coherent across their lifecycle. It is Agent Stable infrastructure, **not a registered fleet agent**.
 
 Director defines/approves agent purpose, mandate and material authority. Agent Mechanic owns the technical machinery required to keep those approved definitions valid, testable, deployable, observable and maintainable.
 
@@ -89,3 +89,14 @@ No automated upgrade path may change any of:
 - domain-specific acceptance semantics.
 
 Those fields require governed review even when a migration can be mechanically generated.
+
+
+## Current fleet relationship
+
+Mechanic observes and maintains conformance for the Agent Stable fleet without joining it.
+
+Current identity registry:
+- Agent #1 — MESSI;
+- Agent #2 — Household Family.
+
+Mechanic may inventory, test and prepare migrations for either agent but cannot change their purpose, mandate, priority or acceptance state without the required external Director decision.
