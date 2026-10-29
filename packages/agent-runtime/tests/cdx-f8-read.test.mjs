@@ -17,7 +17,9 @@ const fixture=()=>{
   async assertReadAdmitted(ctx,a){if(state.revoked)throw Error("read revoked");},
   async assertStillAdmitted(ctx,a){if(state.revoked)throw Error("read revoked");}
  };
- const policy={async evaluate(req){
+ const policy={async assertStillCurrent(req,decision){
+   if(state.revoked)throw Error("read policy revoked after decision");
+ },async evaluate(req){
   if(state.policyDown)throw Error("no policy");
   assert.equal(req.readRecipientRef,access.recipientRef);
   assert.equal(req.readPurposeRef,access.purposeRef);
@@ -79,4 +81,20 @@ test("F8 read: E2 cannot use E0-only read guard",async()=>{
  const f=fixture();
  await denied(()=>f.guard().read({...context,requestedEffect:"E2_REPOSITORY_CHANGE"},
    "READ",access,f.read),"INVALID_CLASSIFIED_READ_CONTEXT");
+});
+
+test("F8 read: policy without independent freshness verification never loads data",async()=>{
+ const f=fixture();
+ const g=new CDXF8ReadGuard({evaluate:f.policy.evaluate},f.auth,f.evidence);
+ await denied(()=>g.read(context,"READ",access,f.read),"READ_POLICY_FRESHNESS_NOT_BOUND");
+ assert.equal(f.state.actions,0);
+});
+test("F8 read: late policy revocation blocks access",async()=>{
+ const f=fixture();
+ let stage=0;
+ const auth={async assertReadAdmitted(){},async assertStillAdmitted(){stage=1;}};
+ const policy={...f.policy,async assertStillCurrent(){if(stage===1)throw Error("policy changed");}};
+ const g=new CDXF8ReadGuard(policy,auth,f.evidence);
+ await assert.rejects(()=>g.read(context,"READ",access,f.read),/policy changed/);
+ assert.equal(f.state.actions,0);
 });
