@@ -257,6 +257,17 @@ def validate_authorization_contract(bundle, *, at):
     for e in effect_map.values():
         if e["effectId"] not in used_effects:
             fail("EFFECT_MISSING_AUTHORIZATION_CONTEXT")
+    # A request without a declared decision is not a completed policy path.
+    # Declarations remain untrusted until externally attested at the host.
+    decision_counts = {}
+    for decision in decision_list.values():
+        rid = decision["requestRef"]["id"]
+        decision_counts[rid] = decision_counts.get(rid, 0) + 1
+    for rid in requests:
+        if decision_counts.get(rid, 0) == 0:
+            fail("MISSING_POLICY_DECISION")
+        if decision_counts.get(rid, 0) > 1:
+            fail("AMBIGUOUS_POLICY_DECISIONS")
     for decision in decision_list.values():
         req = resolve(decision["requestRef"], "authorizationRequests")
         issuer = resolve(decision["decisionIssuerRef"], "principals")
