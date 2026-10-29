@@ -1,0 +1,110 @@
+{
+  "schema": "ffos.ama.bindings/v1",
+  "capabilities": [],
+  "workflows": [
+    {
+      "workflowId": "household.inspect_wp",
+      "version": "0.1.0",
+      "agentId": "FFOS-AGENT-HOUSEHOLD-002",
+      "purpose": "Inspect a Director-assigned governed work package and repository scope.",
+      "requiredCapabilities": [],
+      "effectCeiling": "E0_OBSERVE",
+      "authorityRequirements": [
+        "DIRECTOR_ASSIGNMENT",
+        "AUTHORITY_REF",
+        "MANDATE_REF"
+      ],
+      "verification": [
+        "VERIFIER_EVIDENCE"
+      ],
+      "evidenceRequirements": [
+        "SOURCE_PIN",
+        "INSPECTION_RECORD"
+      ],
+      "terminalStates": [
+        "PASS",
+        "FAIL",
+        "HOLD"
+      ],
+      "status": "DRAFT"
+    },
+    {
+      "workflowId": "household.propose_repair",
+      "version": "0.1.0",
+      "agentId": "FFOS-AGENT-HOUSEHOLD-002",
+      "purpose": "Prepare a bounded repair on a governed feature branch.",
+      "requiredCapabilities": [],
+      "effectCeiling": "E2_REPOSITORY_CHANGE",
+      "authorityRequirements": [
+        "DIRECTOR_ASSIGNMENT",
+        "AUTHORITY_REF",
+        "MANDATE_REF",
+        "EFFECT_CEILING"
+      ],
+      "verification": [
+        "INDEPENDENT_VERIFIER"
+      ],
+      "evidenceRequirements": [
+        "SOURCE_PIN",
+        "CHANGE_RECORD",
+        "DIFF_EVIDENCE"
+      ],
+      "terminalStates": [
+        "PASS",
+        "FAIL",
+        "HOLD"
+      ],
+      "status": "DRAFT"
+    },
+    {
+      "workflowId": "household.verify_patch",
+      "version": "0.1.0",
+      "agentId": "FFOS-AGENT-HOUSEHOLD-002",
+      "purpose": "Independently verify a proposed Household change and produce evidence.",
+      "requiredCapabilities": [],
+      "effectCeiling": "E0_OBSERVE",
+      "authorityRequirements": [
+        "DIRECTOR_ASSIGNMENT"
+      ],
+      "verification": [
+        "FRESH_OBSERVATION"
+      ],
+      "evidenceRequirements": [
+        "TEST_RESULTS",
+        "EVIDENCE_BUNDLE"
+      ],
+      "terminalStates": [
+        "PASS",
+        "FAIL",
+        "HOLD"
+      ],
+      "status": "DRAFT"
+    }
+  ],
+  "commands": [
+    {
+      "commandId": "household.inspect_wp",
+      "token": "household.inspect_wp",
+      "agentId": "FFOS-AGENT-HOUSEHOLD-002",
+      "workflowId": "household.inspect_wp",
+      "workflowVersion": "0.1.0",
+      "status": "DRAFT"
+    },
+    {
+      "commandId": "household.propose_repair",
+      "token": "household.propose_repair",
+      "agentId": "FFOS-AGENT-HOUSEHOLD-002",
+      "workflowId": "household.propose_repair",
+      "workflowVersion": "0.1.0",
+      "status": "DRAFT"
+    },
+    {
+      "commandId": "household.verify_patch",
+      "token": "household.verify_patch",
+      "agentId": "FFOS-AGENT-HOUSEHOLD-002",
+      "workflowId": "household.verify_patch",
+      "workflowVersion": "0.1.0",
+      "status": "DRAFT"
+    }
+  ]
+}
