@@ -109,7 +109,9 @@ export interface F8CustodyVerifier {
   * external custody, redaction and independent signer before returning receipt. */
  assertPreserved(
    facts:F8TrustedFacts,decisions:readonly F8SurfaceResponse[]
- ):Promise<{receiptRef:string;runId:string;policyDigest:string;custodyRef:string}>;
+ ):Promise<{receiptRef:string;runId:string;policyDigest:string;custodyRef:string;
+   spetlVersion:"1.1";eventChainDigest:string;custodyAttestationRef:string;
+   verifiedDecisionRefs:readonly string[]}>;
 }
 const surfaces=(effect:string):readonly CDXSurface[]=>{
  if(effect==="E0_OBSERVE")return [
@@ -251,7 +253,14 @@ export class CDXF8VerifiedAdapter implements CDXPolicyPort {
   // Every CDX decision, including restrictive ones, requires custody evidence.
   const receipt=await this.custody!.assertPreserved(facts,responses);
   must(!!receipt&&required(receipt.receiptRef)&&required(receipt.custodyRef)&&
-    receipt.runId===facts.runId&&receipt.policyDigest===req.expectedPolicyPin,
+    receipt.runId===facts.runId&&receipt.policyDigest===req.expectedPolicyPin&&
+    receipt.spetlVersion==="1.1"&&
+    /^sha256:[0-9a-f]{64}$/.test(receipt.eventChainDigest)&&
+    required(receipt.custodyAttestationRef)&&
+    Array.isArray(receipt.verifiedDecisionRefs)&&
+    receipt.verifiedDecisionRefs.length===responses.length&&
+    new Set(receipt.verifiedDecisionRefs).size===responses.length&&
+    receipt.verifiedDecisionRefs.every(ref=>responses.some(r=>r.decisionRef===ref)),
     "SPETL_CUSTODY_UNVERIFIED");
   return {
    outcome:final,decisionRef:responses.map(x=>x.decisionRef).join(";"),
