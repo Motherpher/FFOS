@@ -5,13 +5,13 @@ export class RepositoryCDXAnchorGuard implements CDXAnchorPort {
   private readonly filename:string;
   constructor(filename:string){this.filename=filename;}
   async assertPinned(pin:string):Promise<void>{
-    if(!/^[0-9a-f]{40}$/.test(pin))throw Error("Invalid CDX pin");
+    if(!/^sha256:[0-9a-f]{64}$/.test(pin))throw Error("Invalid CDX production digest");
     const a=JSON.parse(await readFile(this.filename,"utf8"));
     if(a.schema!=="cdx.anchor/v1"||a.system_short_name!=="CDX"||
        a.governed_surface?.repository!=="Motherpher/FFOS"||
        a.governed_surface?.system_id!=="FFOS"||
        a.binding_mode!=="PINNED_RELEASE"||
-       !["RELEASE","POLICY_DIGEST"].includes(a.policy_pin?.ref_type)||
+       a.policy_pin?.ref_type!=="POLICY_DIGEST"||
        a.binding_state!=="CDX_RUNTIME_VERIFIED"||
        a.policy_pin?.ref!==pin||
        a.policy_pin?.digest!==a.policy_pin?.ref||
