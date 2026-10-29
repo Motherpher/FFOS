@@ -139,6 +139,7 @@ class M5Evaluation(unittest.TestCase):
         self.reject(b,"SENSITIVE_EVIDENCE_NOT_REDACTED")
     def test_latency_and_cost_limits(self):
         b=sample();b["evaluationObservations"][0]["latencyMs"]=10000
+        b["evaluationObservations"][1]["latencyMs"]=10000
         b["evaluationObservations"][1]["costMinor"]=20000
         self.reject(b,"LATENCY_P95_EXCEEDED")
         self.reject(b,"COST_BUDGET_EXCEEDED")
@@ -149,6 +150,12 @@ class M5Evaluation(unittest.TestCase):
         b=sample();b["evaluationProfiles"][0]["scope"]="DISPOSABLE_INTEGRATION"
         for case in b["evaluationCases"]:
             case["profileRef"]=pin(b["evaluationProfiles"][0],"profileId")
+        cases={c["caseId"]:c for c in b["evaluationCases"]}
+        for obs in b["evaluationObservations"]:
+            obs["caseRef"]=pin(cases[obs["caseRef"]["id"]],"caseId")
+        observations={o["observationId"]:o for o in b["evaluationObservations"]}
+        for prov in b["evaluationProvenance"]:
+            prov["observationRef"]=pin(observations[prov["observationRef"]["id"]],"observationId")
         self.reject(b,"MOCK_DATA_IN_NONSTATIC_ASSURANCE")
     def test_static_profile_cannot_self_claim_live_acceptance(self):
         b=sample()
