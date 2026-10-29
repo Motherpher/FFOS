@@ -1,0 +1,151 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.evaluation-report/v0.2-candidate"
+    },
+    "reportId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "profileRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "candidateDigest": {
+      "$ref": "common.schema.json#/$defs/digest"
+    },
+    "result": {
+      "enum": [
+        "CANDIDATE_METRICS_PASS",
+        "FAIL",
+        "INSUFFICIENT_EVIDENCE"
+      ]
+    },
+    "assurance": {
+      "enum": [
+        "STATIC_SYNTHETIC",
+        "DISPOSABLE_INTEGRATION",
+        "LIVE_UNVERIFIED"
+      ]
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cases": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "repetitions": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "falseAllows": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "falseDenies": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "policyDenyCases": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "policyAllowCases": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "verifiedFinalStates": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "finalStateCases": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "evidenceCovered": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "totalObservations": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "latencyP95Ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "totalCostMinor": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "cases",
+        "repetitions",
+        "falseAllows",
+        "falseDenies",
+        "policyDenyCases",
+        "policyAllowCases",
+        "verifiedFinalStates",
+        "finalStateCases",
+        "evidenceCovered",
+        "totalObservations",
+        "latencyP95Ms",
+        "totalCostMinor"
+      ]
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    },
+    "provenanceRefs": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/ref"
+      },
+      "minItems": 0
+    },
+    "baselineComparison": {
+      "enum": [
+        "NO_BASELINE",
+        "NO_REGRESSION",
+        "REGRESSION",
+        "NOT_VERIFIED"
+      ]
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "independentAccepted": {
+      "const": false
+    }
+  },
+  "required": [
+    "schema",
+    "reportId",
+    "version",
+    "profileRef",
+    "candidateDigest",
+    "result",
+    "assurance",
+    "metrics",
+    "findings",
+    "provenanceRefs",
+    "baselineComparison",
+    "generatedAt",
+    "independentAccepted"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/evaluation-report.schema.json",
+  "title": "AMA 0.2 candidate evaluation-report"
+}
