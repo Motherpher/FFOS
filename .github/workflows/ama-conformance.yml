@@ -82,6 +82,10 @@ jobs:
         run: |
           python packages/agent-model/conformance/m5_emit_ci_candidate.py \
             --output "$RUNNER_TEMP/ama-m5-candidate-report.json"
+      - name: Emit M6 synthetic operational readiness artifact (not activation)
+        run: |
+          python packages/agent-model/conformance/m6_emit_ci_candidate.py \
+            --output "$RUNNER_TEMP/ama-m6-candidate-report.json"
       - name: Positive contract fixture
         run: |
           python packages/agent-model/conformance/ama_conformance.py \
@@ -96,4 +100,5 @@ jobs:
             ${{ runner.temp }}/ama-static-report.json
             ${{ runner.temp }}/ama-m5-candidate-report.json
             ${{ runner.temp }}/ama-f8-preflight.json
+            ${{ runner.temp }}/ama-m6-candidate-report.json
           if-no-files-found: ignore
