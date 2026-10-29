@@ -18,7 +18,9 @@ HUMAN DIRECTOR
                    ├── Agent Stable
                    │    ├── AMA (Agent Master Architecture)
                    │    ├── Agent Mechanic (audit and conformance)
-                   │    └── FFOS agents (registered; small, purposeful set)
+                   │    └── FFOS agent fleet
+                   │         ├── #1 MESSI
+                   │         └── #2 Household Family
                    └── Pius
                         ├── HCC ───── linked to CDX
                         └── Piusites ─ built on AMA
@@ -32,7 +34,7 @@ The indented tree represents **organizational / systems architecture placement**
 - **CDX / Conductellence**: governing constitutional, authority, policy and assurance layer for the estate; HCC has an explicit cross-link to CDX.
 - **FFC**: parent operating/business structure linking CDX governance to FFOS; placement is Director-defined, not yet proof of implemented runtime delegation.
 - **FFOS**: operational control plane for work, dispatch, decisions, state and registry.
-- **Agent Stable**: FFOS subsystem containing the shared agent architecture, the Agent Mechanic audit/conformance function, and the registry and operational homes of all FFOS agents. It is not a requirement to create many agents; use workflows, commands and internal roles unless an independently governed agent is justified.
+- **Agent Stable**: FFOS subsystem containing AMA, Agent Mechanic and the deliberately small registered FFOS agent fleet. Current fleet identity order: #1 MESSI, #2 Household Family. It is not a requirement to create many agents; use workflows, commands and internal roles unless an independently governed agent is justified.
 - **AMA**: master agent construction/compatibility contract within Agent Stable. Agents and Piusites use AMA; AMA does not itself make governance decisions.
 - **Agent Mechanic**: Agent Stable's technical agent-management and conformance function; cannot enlarge mandate or self-accept.
 - **Pius**: FFOS-contained system/domain in the target structure, with distinct Pius-specific governance and agentive operation. Its application runtime integration remains **RESERVED/PENDING** under the current FFOS baseline.
@@ -64,3 +66,12 @@ The indented tree represents **organizational / systems architecture placement**
 - **Pius System Codex 5.0** Part 7, Appendix M and Appendix O: bounded registered Piusites and source validation.
 
 Where existing documents depict a different estate *containment* than the Director's new target hierarchy, mark the old depiction as current/legacy, not the canonical future target. Do not rewrite historical decisions or misstate deployment.
+
+
+## 6. Fleet identity clarification — 2026-10-29
+
+The Agent Stable fleet is canonically numbered:
+1. **MESSI** — broad F&F worker;
+2. **Household Family** — bounded maintenance/work-package agent.
+
+This numbering does not claim MESSI is more implemented than Household. It is stable identity order. Director is external to both. Janitor, Handyman and Verifier are Household internal roles/workflows.
