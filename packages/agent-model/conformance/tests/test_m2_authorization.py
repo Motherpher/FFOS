@@ -249,6 +249,16 @@ class AuthorizationContracts(unittest.TestCase):
         b=baseline();b["authorizationDecisions"][0]["outcome"]="REQUIRE_HUMAN"
         self.assert_bad(b,"RESTRICTIVE_POLICY_OUTCOME")
 
+    def test_missing_policy_decision_is_fail_closed(self):
+        b=baseline();b["authorizationDecisions"]=[]
+        self.assert_bad(b,"MISSING_POLICY_DECISION")
+
+    def test_ambiguous_policy_decisions_are_fail_closed(self):
+        b=baseline();second=copy.deepcopy(b["authorizationDecisions"][0])
+        second["decisionId"]="SYNTHETIC.OTHER.DECISION"
+        b["authorizationDecisions"].append(second)
+        self.assert_bad(b,"AMBIGUOUS_POLICY_DECISIONS")
+
     def test_future_request_denied(self):
         b=baseline();b["authorizationRequests"][0]["requestedAt"]="2026-10-30T11:00:00+00:00"
         self.assert_bad(repin(b),"REQUEST_FROM_FUTURE")
