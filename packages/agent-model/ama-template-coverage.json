@@ -137,9 +137,17 @@
       "id": "knowledge",
       "requirement": "OPTIONAL",
       "purpose": "knowledge bases, citation rules and trust tiers",
-      "implementation_status": "REQUIRES_TEMPLATE_CONTRACT",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
       "host_binding": "INJECTED_NOT_PRESELECTED",
-      "milestone": "M3"
+      "milestone": "M3",
+      "evidence_contract": "packages/agent-model/schemas/v0.2/knowledge-catalog.schema.json",
+      "evidence_validator": "packages/agent-model/conformance/ama_knowledge.py",
+      "evidence_tests": "packages/agent-model/conformance/tests/test_m3_knowledge.py",
+      "remaining_host_obligations": [
+        "SOURCE_PROVENANCE_AUTHENTICATION",
+        "ACCESS_POLICY_ENFORCEMENT",
+        "CONTENT_VERIFICATION"
+      ]
     },
     {
       "id": "multi-agent",
