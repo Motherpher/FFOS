@@ -16,13 +16,13 @@ FFOS is the central operating shell for Form & Flöde. It coordinates work acros
 
 ## Agent Stable and Agent Master Architecture
 
-The Director-defined target containment is `Human Director → CDX → FFC → FFOS`, with **Agent Stable** (`AMA`, `Agent Mechanic`, and the registered FFOS fleet: **#1 MESSI, #2 Household Family**) and **Pius** (HCC linked to CDX, Piusites built on AMA) inside FFOS. This is a target architecture; Pius integration remains reserved. See `docs/architecture/AGENT-STABLE.md` and `docs/architecture/FFOS-ESTATE-AUTHORITY-TOPOLOGY.md`.
+The Director-defined target containment is `Human Director → CDX → FFC → FFOS`, with **Agent Stable** (`AMA`, `Agent Mechanic`, and the registered FFOS fleet: **#1 MESSI, #2 Household Family**) and **Pius** (HCC linked to CDX, Piusites built on AMA) inside FFOS. This is a target architecture; Pius integration remains reserved. See `agent-stable/ARCHITECTURE.md` and `docs/architecture/FFOS-ESTATE-AUTHORITY-TOPOLOGY.md`.
 
 AMA is the shared FFOS contract for first-class agents: identity, mandate, authority context, effect ceilings, workflows/commands, capabilities, state, evidence, evaluation, deployment compatibility and lifecycle.
 
 Director is external governing authority and governs purpose, mandate, priorities and acceptance. Agent Mechanic governs technical conformance and maintenance mechanics. Neither an agent nor Agent Mechanic may self-authorize an expansion of authority.
 
-AMA does not implement Pius inside FFOS and does not replace Conductellence. See `docs/architecture/AMA.md`.
+AMA does not implement Pius inside FFOS and does not replace Conductellence. See `agent-stable/ama/README.md`.
 
 ## Initial application spaces
 
@@ -42,15 +42,22 @@ AMA does not implement Pius inside FFOS and does not replace Conductellence. See
 ## Repository structure
 
 ```text
-apps/web/              Vercel/Next.js application shell
-modules/               Product/domain rooms
-packages/               Shared runtime capabilities
-integrations/           External system bindings
-docs/architecture/      Architecture specifications
-docs/decisions/         Architecture decision records
-docs/specifications/    Runtime/object specifications
-docs/roadmap/           Work packages and implementation sequence
+agent-stable/          Canonical agent estate: AMA, Mechanic, fleet definitions and suite tests
+modules/               Concrete product/agent implementations; currently Household Family
+packages/              Shared domain-neutral runtime/model/registry capabilities
+apps/                  Human-facing application shells
+integrations/          External provider/domain bindings
+docs/architecture/     Cross-system FFOS architecture and compatibility pointers
+docs/specifications/   General FFOS specifications and compatibility pointers
+docs/decisions/        Architecture decision records
+docs/governance/       FFOS-local governance bindings
+docs/research/         Research and assurance evidence
+docs/roadmap/          Historical/current implementation records; not canonical runtime location
 ```
+
+Development-placement law: **agent identity and lifecycle live in `agent-stable/`; implementations live in `modules/`; reusable runtime contracts live in `packages/`; provider bindings live in `integrations/`.**
+
+See `docs/architecture/REPOSITORY-STRUCTURE.md`.
 
 ## Status
 
@@ -66,6 +73,6 @@ The current fleet identity order is:
 1. **MESSI** — broad Form & Flöde worker; DRAFT / not implemented.
 2. **Household Family** — bounded Director-assigned work-package/repository maintenance agent; implementation candidate, not production accepted.
 
-Fleet registry: `agents/registry.json`.
+Fleet registry: `agent-stable/registry.json`.
 
 Cashin, Carpenter, Evaluate and Research are not separate fleet agents; where retained they are MESSI workflows/commands/capabilities. Janitor, Handyman and Verifier are Household internal roles/workflows.
