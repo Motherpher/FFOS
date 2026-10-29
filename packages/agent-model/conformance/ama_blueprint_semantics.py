@@ -34,7 +34,7 @@ FIELDS = {
 }
 
 
-def audit(bundle, *, at=None, host_trust_domain=None):
+def audit(bundle, *, at=None, host_trust_domain=None, attestor=None):
     """Return static pass/fail and required inputs without inferring deployment.
 
     Partial source evidence, absent external attestation, and missing host
@@ -82,18 +82,24 @@ def audit(bundle, *, at=None, host_trust_domain=None):
     if active("M5.evaluation"):
         if at is None:
             pending.append("M5.evaluation:HOST_TIME_REQUIRED")
-        else:
+        if attestor is None:
+            pending.append("M5.evaluation:INDEPENDENT_EVIDENCE_ATTESTOR_REQUIRED")
+        if at is not None and attestor is not None:
             profiles = bundle.get("evaluationProfiles", [])
             if not profiles:
                 errors.append("M5.evaluation:PROFILE_REQUIRED")
             for profile in profiles:
                 invoke("M5.evaluation:" + profile.get("profileId", "UNKNOWN"),
-                       evaluate, bundle, profile_id=profile["profileId"], at=at)
+                       evaluate, bundle, profile_id=profile["profileId"], at=at,
+                       attestor=attestor)
     if active("M6.operations"):
         if at is None:
             pending.append("M6.operations:HOST_TIME_REQUIRED")
-        else:
-            invoke("M6.operations", validate_operational_contract, bundle, at=at)
+        if attestor is None:
+            pending.append("M6.operations:INDEPENDENT_EVIDENCE_ATTESTOR_REQUIRED")
+        if at is not None and attestor is not None:
+            invoke("M6.operations", validate_operational_contract, bundle,
+                   at=at, attestor=attestor)
     if active("M6.localization"):
         invoke("M6.localization", check_localization_profiles, bundle)
     return {
