@@ -62,3 +62,11 @@ python conformance/ama_blueprint.py /tmp/agent-draft.json \
 ```
 
 The first command uses the existing M1 schema and produces a `DRAFT` bundle; the second uses M0–M7 source mappings to generate implementation obligations. A passing draft or blueprint **does not** supply a working tool, authority, host runtime, acceptance, activation or production effect permission. Optional host-security profiles are specified separately from universal contracts.
+
+## M7 semantic assessment and reference outputs
+
+The M7 blueprint constructor now composes the existing M2–M6 **static** contract validators for any configured sections. Run `python conformance/ama_blueprint.py <bundle.json> --at 2026-10-29T12:00:00+00:00 --host-trust-domain synthetic` to supply an explicit test-only assessment context for cognitive/knowledge contracts. Without required context, `ASSESSMENT_INPUT_REQUIRED` is returned instead of a misleading conformance pass. These options are not trusted policy decisions or live source authentication.
+
+CI also exports two **synthetic, non-deploying reference packages**, with minimal and cross-module complex bundles, their M0–M7 construction blueprints and a source digest index. The generator is `conformance/ama_blueprint_reference.py`; its output is uploaded as `ama-m7-blueprints` inside the existing AMA conformance artifact.
+
+The original M0 requirement register stays unchanged. `ama-m0-test-evidence-bridge.json` supplies separate partial links to **65 of 96** candidate requirements, each checked against a concrete test function. This is not a declaration that any of those requirements has reached full runtime acceptance.
