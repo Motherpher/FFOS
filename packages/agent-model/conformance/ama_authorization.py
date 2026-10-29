@@ -8,6 +8,7 @@ an authenticated host policy decision and an independent effect/read gate.
 from __future__ import annotations
 
 from datetime import datetime, timezone
+import re
 from jsonschema import Draft202012Validator, FormatChecker
 from ama_vnext import digest, registry, validate_bundle, RANK
 
@@ -24,6 +25,20 @@ def _instant(value):
     if parsed.tzinfo is None:
         raise ValueError("TIMEZONE_REQUIRED")
     return parsed.astimezone(timezone.utc)
+
+
+def _canonical_scope(value):
+    """Only normalized abstract slash-separated resource IDs; no URI decoding.
+
+    The host must bind these abstract IDs to actual resources without widening
+    their meaning. A different resource/URI grammar needs its own trusted adapter.
+    """
+    if not isinstance(value, str) or not value:
+        return False
+    pieces = value.split("/")
+    return all(piece not in (".", "..", "")
+               and re.fullmatch(r"[A-Za-z0-9._-]+", piece)
+               for piece in pieces)
 
 
 def _within(child, parent):
@@ -121,6 +136,13 @@ def validate_authorization_contract(bundle, *, at):
             return False
 
     agent = bundle["agent"]
+    for value in agent["mandate"]["scope"]:
+        if not _canonical_scope(value):
+            fail("NONCANONICAL_RESOURCE_SCOPE")
+    for capability in bundle["capabilities"]:
+        for value in capability["resourceScopes"]:
+            if not _canonical_scope(value):
+                fail("NONCANONICAL_RESOURCE_SCOPE")
     principal = idx["principals"]
     requests = idx["authorizationRequests"]
     mandates = idx["mandates"]
@@ -172,6 +194,8 @@ def validate_authorization_contract(bundle, *, at):
         if not is_valid(mandate["issuedAt"], mandate["expiresAt"], now):
             fail("MANDATE_NOT_CURRENT")
         for grant in mandate["grants"]:
+            if not _canonical_scope(grant["resourceScope"]):
+                fail("NONCANONICAL_RESOURCE_SCOPE")
             if not any(_within(grant["resourceScope"], s)
                        for s in agent["mandate"]["scope"]):
                 fail("MANDATE_GRANT_OUTSIDE_AGENT_SCOPE")
@@ -240,6 +264,8 @@ def validate_authorization_contract(bundle, *, at):
             fail("REQUEST_FROM_FUTURE")
         if not is_valid(mandate["issuedAt"], mandate["expiresAt"], requested_at):
             fail("REQUEST_MANDATE_TIME_INVALID")
+        if not _canonical_scope(req["resourceScope"]):
+            fail("NONCANONICAL_RESOURCE_SCOPE")
         risk = req["riskContext"]
         if risk["aggregateRead"] and req["actionKind"] != "OBSERVE":
             fail("INVALID_AGGREGATION_CONTEXT")
