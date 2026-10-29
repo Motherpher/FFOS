@@ -83,6 +83,14 @@ F8 is an **independent host-security assurance track**, not a new agent-specific
 
 **Gate:** M1-COMPATIBILITY-PASS.
 
+## M1 execution result — 2026-10-29
+
+**TECHNICALLY VERIFIED CANDIDATE / NORMATIVE ACCEPTANCE PENDING.** The universal schema suite now has 12 Draft 2020-12 contract documents, standalone TypeScript types, a compositional static validator and synthetic negative tests. Existing AMA v1 manifest, runtime interfaces and CI regression cases remain unchanged.
+
+[Full M1 execution report](AMA-M1-EXECUTION-REPORT.md) records [GitHub Actions run 40806829631](https://github.com/Motherpher/FFOS/actions/runs/40806829631) **SUCCESS**: 61 Python, nine shared-model and 38 runtime/PostgreSQL tests plus candidate TS parsing and positive v1 fixture validation. These are combined-suite totals, not exclusively new M1 tests.
+
+**Blocked:** normative release adoption, full resource-level authorization (M2), independently attested CDX runtime (F8), durable effect proof (M4) and live C4/C5 verification (M5). M1 engineering completion cannot activate any agent.
+
 ## M2 — F2: Agent-independent scoped authorization contract
 
 **Build:** principal/workload identity, mandate and delegation proof, target/resource authorization, read-data classification, action/effect dimensions, obligation/approval references, revocation and policy freshness, complete trusted-context requirements.
@@ -153,7 +161,7 @@ F8 is an **independent host-security assurance track**, not a new agent-specific
 | Sequence | Work package | Main acceptance artifact | State |
 |---|---|---|---|
 | 0 | M0: evidence/requirement decision register | 96 controlled disposition records | NEXT |
-| 1 | M1: universal type/schema suite | compositional conformance & compatibility | PLANNED |
+| 1 | M1: universal type/schema suite | compositional conformance & compatibility | TECHNICALLY VERIFIED CANDIDATE; HUMAN ACCEPTANCE PENDING |
 | 2 | M2: generic scoped authority | authorization contract negative suite | PLANNED |
 | 2 (parallel) | M2-CDX: F8 trust/decision/evidence adapter | independently tested CDX policy binding | BLOCKED FOR LIVE BINDING BY CDX RELEASE STATE |
 | 3 | M3: conditional model/memory profiles | profile conformance and poisoning evals | PLANNED |
