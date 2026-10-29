@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/operating-realm.schema.json",
+  "title": "AMA operating realm and host governance binding (no provider implied)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "agentRef",
+    "realmId",
+    "realmCategory",
+    "realmOwnerRef",
+    "governingPrincipalRef",
+    "policyAuthorityRef",
+    "securityAnchorRef",
+    "securityBindingMode",
+    "bindingStatus",
+    "externalExportAllowed"
+  ],
+  "properties": {
+    "schema": {
+      "const": "ama.operating-realm/v0.2-candidate"
+    },
+    "agentRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "realmId": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 160,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._/-]*$"
+    },
+    "realmCategory": {
+      "enum": [
+        "OWNER_ESTATE",
+        "EXTERNAL_CONSUMER"
+      ]
+    },
+    "realmOwnerRef": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "governingPrincipalRef": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "policyAuthorityRef": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "securityAnchorRef": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "securityBindingMode": {
+      "enum": [
+        "MANDATORY",
+        "DETACHED_EXTERNAL"
+      ]
+    },
+    "bindingStatus": {
+      "const": "DECLARED_NOT_RUNTIME_VERIFIED"
+    },
+    "externalExportAllowed": {
+      "type": "boolean"
+    }
+  }
+}
