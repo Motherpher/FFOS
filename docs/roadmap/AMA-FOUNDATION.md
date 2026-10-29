@@ -82,3 +82,11 @@ The source-round synthesis and independent Conductellence F8 analysis have been 
 **Research decision:** No further broad source round before M0/M1. Targeted source validation is required only where normative priority, standards semantics, legal applicability or contradictory findings affect a specific requirements decision.
 
 **Release boundary:** PR #19 stays draft; CDX production runtime binding and independent C4/C5 evidence remain blocked/unverified.
+
+## M1 — Universal Contract Engineering (2026-10-29)
+
+**Status:** CANDIDATE ENGINEERING COMPLETE, CI VERIFIED; NORMATIVE HUMAN ACCEPTANCE PENDING.
+
+The new [M1 execution report](AMA-M1-EXECUTION-REPORT.md) covers twelve versioned, agent-neutral schemas, isolated TypeScript candidate definitions, cross-object static conformance, compatibility and negative tests. [CI run 40806829631](https://github.com/Motherpher/FFOS/actions/runs/40806829631) succeeded, including existing v1 and PostgreSQL integration regressions.
+
+The normative AMA 0.1 master and historical v1 manifest remain unchanged. Production authorization, CDX runtime integration, C4/C5 and independent acceptance have **not** been established. Next is M2 scoped authorization, with F8 host risk governance in a separate track.
