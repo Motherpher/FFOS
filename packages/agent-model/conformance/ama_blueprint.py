@@ -11,6 +11,7 @@ from ama_vnext import digest, validate_bundle
 from ama_milestone_integrity import load as milestone_integrity
 from ama_requirement_evidence import load as requirement_evidence
 from ama_blueprint_semantics import audit as audit_semantics
+from ama_realm import check_realm
 
 ROOT = Path(__file__).resolve().parents[3]
 MODEL = ROOT / "packages" / "agent-model"
@@ -23,6 +24,13 @@ def assemble(bundle, optional_modules=(), use_f8=False, *, at=None, host_trust_d
     A passing blueprint is not a runtime-implementation readiness finding.
     """
     problems = validate_bundle(bundle)
+    realm_result = check_realm(bundle) if not problems else {
+        "errors": [], "realm_id": None, "realm_category": None,
+        "governance_anchor": None, "f8_required_for_realm": False,
+        "f8_detachment_allowed": False, "runtime_cdx_verified": False,
+        "effect_authorized": False
+    }
+    problems.extend("REALM:" + x for x in realm_result["errors"])
     stage_report = milestone_integrity()
     trace_report = requirement_evidence()
     if trace_report["findings"]:
@@ -93,11 +101,13 @@ def assemble(bundle, optional_modules=(), use_f8=False, *, at=None, host_trust_d
                         row["implementation_status"] == "REQUIRES_TEMPLATE_CONTRACT"
                         else "ASSESS_AND_COMPLETE_EXISTING_CONTRACT",
                 }
-    if use_f8:
+    if realm_result["f8_required_for_realm"] or use_f8:
         obligations["F8_HOST_BINDING"] = {
             "milestone": "F8",
-            "state": "OPTIONAL_EXTERNAL_HOST_INTEGRATION",
-            "required_work": "VERIFY_INSTANCE_SPECIFIC_CDX_BINDING_WHEN_DEPLOYED",
+            "state": ("MANDATORY_INTERNAL_CDX_BINDING"
+                      if realm_result["f8_required_for_realm"]
+                      else "EXTERNAL_F8_OPT_IN"),
+            "required_work": "VERIFY_REALM_SPECIFIC_CDX_BINDING_BEFORE_AGENT_ACTIVATION",
         }
 
     return {
@@ -107,7 +117,9 @@ def assemble(bundle, optional_modules=(), use_f8=False, *, at=None, host_trust_d
         "bundle_digest": digest(bundle),
         "bundle_agent_id": bundle.get("agent", {}).get("agentId"),
         "architecture_stages": canonical["milestone_order"],
-        "optional_host_integrations": ["F8_CDX"] if use_f8 else [],
+        "optional_host_integrations": (["F8_CDX"] if use_f8 and not realm_result["f8_required_for_realm"] else []),
+        "required_governance_integrations": (["F8_CDX"] if realm_result["f8_required_for_realm"] else []),
+        "operating_realm": realm_result,
         "selected_optional_modules": sorted((set(x for x in requested if x in allowed)) | implicitly_selected),
         "stages": stage_summary,
         "source_requirement_evidence": {
