@@ -121,7 +121,7 @@ class M1Contracts(unittest.TestCase):
 
     def test_schemas_are_valid_and_registered(self):
         reg, sources = registry()
-        self.assertEqual(39, len(sources))
+        self.assertEqual(45, len(sources))
         for schema in sources.values():
             Draft202012Validator.check_schema(schema)
             self.assertIn("v0.2", schema["$id"])
