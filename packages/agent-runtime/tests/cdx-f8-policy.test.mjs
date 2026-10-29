@@ -194,6 +194,7 @@ test("F8 E0: separately typed read adapter includes DATA and CONTENT_MEMORY",asy
 });
 test("F8 E0: no silent authority for missing recipient/grant",async()=>{
  const f=await fixture(),r=request("E0_OBSERVE");
+ r.readClassification="INTERNAL";
  await deny(()=>f.makeRead().evaluate(r),"CLASSIFIED_READ_GRANT_MISSING");
 });
 
