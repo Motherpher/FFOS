@@ -101,7 +101,7 @@
   },
   "f8": {
     "id": "F8",
-    "role": "OPTIONAL_EXTERNAL_CDX_INTEGRATION_TRACK",
+    "role": "REALM_CONDITIONAL_CDX_GOVERNANCE_ANCHOR",
     "core_milestone": false,
     "provider": "CDX",
     "portable_interface": "M2 provider-neutral authority and effect contract",
@@ -109,7 +109,10 @@
       "docs/roadmap/AMA-F8-CDX-SECURITY-BINDING.md",
       "integrations/cdx/f8/README.md"
     ],
-    "production_binding_required_for_template": false
+    "production_binding_required_for_template": false,
+    "internal_implementation_required": true,
+    "external_distribution_detachable": true,
+    "realm_policy": "integrations/cdx/f8/realm-binding-policy.json"
   },
   "coverage_register": "docs/roadmap/AMA-REQUIREMENTS-DECISION-REGISTER.json",
   "supplementary_module_inventory": "packages/agent-model/ama-template-coverage.json",
@@ -118,5 +121,5 @@
     "ci_evidence_required": true,
     "external_reviewer_mandated": false
   },
-  "caveat": "M0-M7 are architectural work stages, not agent instances. F8 is an optional host integration. This map does not confer release, deployment or operational acceptance."
+  "caveat": "M0–M7 are architecture stages. F8 is mandatory for agents inside FF_ESTATE, detachable for external consumers, while the universal template itself does not require live CDX runtime for static acceptance."
 }
