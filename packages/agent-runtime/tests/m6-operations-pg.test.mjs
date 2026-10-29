@@ -128,15 +128,17 @@ test("M6: high-severity incident blocks even preparation of upgrades",{skip:!dsn
  await denied(()=>steward().prepareRelease(proposal()),"HIGH_SEVERITY_INCIDENT_PREVENTS_PROPOSAL");
 });
 test("M6: suspended agent cannot admit new runs or reclaim M4 leases",{skip:!dsn},async()=>{
- const i=run(),independent={async assertAdmitted(){}};
+ await pool.query("INSERT INTO ama_agent_versions(agent_id,agent_version,ama_version,definition,definition_sha256,source_commit,registered_by) VALUES ($1,$2,$3,$4::jsonb,$5,$6,$7)",
+  ["CI.M6.AGENT","3.0.0","0.1.0","{}","f".repeat(64),"CI","CI"]);
+ const i={...run(),agentVersion:"3.0.0"},independent={async assertAdmitted(){}};
  const guarded=new M6GuardedAdmission(pool,independent);
  const coord=new DurablePgCoordinator(pool,guarded,null,null,null);
  await coord.create(i);
- await steward().emergencySuspend(incident());
- await denied(()=>coord.create(run()),"AGENT_EMERGENCY_SUSPENDED");
+ await steward().emergencySuspend({...incident(),agentVersion:"3.0.0"});
+ await denied(()=>coord.create({...run(),agentVersion:"3.0.0"}),"AGENT_EMERGENCY_SUSPENDED");
  await denied(()=>coord.claim(i.runId,"worker",120),"AGENT_EMERGENCY_SUSPENDED");
- await denied(()=>new M6GuardedAdmission(pool,null).assertAdmitted(run()),"INDEPENDENT_ADMISSION_NOT_BOUND");
- const n=(await pool.query("SELECT count(*)::int AS n FROM ama_m6_suspensions WHERE agent_id='CI.M6.AGENT' AND agent_version='1.0.0'")).rows[0].n;
+ await denied(()=>new M6GuardedAdmission(pool,null).assertAdmitted(i),"INDEPENDENT_ADMISSION_NOT_BOUND");
+ const n=(await pool.query("SELECT count(*)::int AS n FROM ama_m6_suspensions WHERE agent_id='CI.M6.AGENT' AND agent_version='3.0.0'")).rows[0].n;
  assert.equal(n,1);
  await assert.rejects(()=>pool.query("DELETE FROM ama_m6_suspensions WHERE agent_id='CI.M6.AGENT'"));
 });
