@@ -175,3 +175,16 @@ F8 is an **independent host-security assurance track**, not a new agent-specific
 ## Recommendation
 
 Start **M0 now**, then implement **M1**. In parallel, F8.1 mapping and trusted-fact control-interface design may proceed without the live CDX service. F8 runtime acceptance is a release blocker, not a prerequisite for designing modular AMA schemas. Reserve additional research for specific normatively consequential or contradictory source claims revealed during M0/M1.
+
+## M0 execution status — 2026-10-29
+
+**TECHNICALLY VALIDATED / REQUIREMENTS ADOPTION PENDING.** All 96 research-derived requirement candidates have individually proposed dispositions, source links, planned acceptance cases, schema owners and compatibility impacts.
+
+- [Requirements Decision Register](AMA-REQUIREMENTS-DECISION-REGISTER.json) — 47 core, 40 conditional, five optional, two host-bound, two source-review proposals.
+- [Source traceability](../research/AMA-REQUIREMENT-TRACEABILITY.json) — exact dossier-line basis and provisional bibliographic candidate references.
+- [F8 security crosswalk](../research/AMA-F8-SECURITY-CROSSWALK.json) — 94 preliminary mapped rows and two UNMAPPED; all semantics/effects marked unverified.
+- [CDX reference control snapshot](../research/AMA-F8-CDX-SOURCE-SNAPSHOT-2026-10-29.json) — 69 controls and 131 law sections, source-digest pinned for offline testing.
+- [Compatibility baseline](AMA-CONTRACT-COMPATIBILITY.md) and [release gates](AMA-RELEASE-GATES.md).
+- [M0 CI validation](https://github.com/Motherpher/FFOS/actions/runs/40803697223) — SUCCESS; test IDs and cases planned, not yet the corresponding runtime conformance implementations.
+
+**M0 remaining human decision:** independently accept or modify dispositions and the candidate compatibility strategy before they become normative AMA vNext requirements. The two protocol candidates require exact normative source review. Do not promote M0 success to RUNTIME_BOUND, CDX ENFORCING, C4/C5 or agent ACTIVE.
