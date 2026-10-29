@@ -214,6 +214,27 @@ test("M7-E: pre-release or unavailable F8 policy cannot produce a synthetic effe
   async()=>{called++;}),e=>e instanceof EffectDenied&&e.code==="CDX_UNAVAILABLE");
  state.policyDown=false;assert.equal(called,0);
 });
+test("M7-E: pre-release anchor blocks E2 even when mock policy claims ALLOW",{skip:!dsn},async()=>{
+ const i=runInput(),ctx=context(i.runId);let count=0;
+ const unreleased={async assertPinned(){throw Error("CDX PRE_RELEASE");}};
+ const protectedGate=new AgentEffectGate(hostRegistry,policy,revoked,audit,PIN,unreleased);
+ await assert.rejects(()=>protectedGate.execute(ctx,"CI.M7E.WRITE","synthetic/item",
+  async()=>{count++;}),e=>e instanceof EffectDenied&&e.code==="CDX_ANCHOR_NOT_VERIFIED");
+ assert.equal(count,0);
+});
+test("M7-E: classified read with revoked mandate does not invoke loader",{skip:!dsn},async()=>{
+ const ctx=context("CI.M7E.REVOKED.READ","E0_OBSERVE");
+ const grant={recipientRef:"RECIPIENT",purposeRef:"RESEARCH",grantRef:"SYNTHETIC.GRANT",
+  resource:"synthetic/item",classification:"RESTRICTED"};
+ let called=0;
+ const guard=new CDXF8ReadGuard(policy,{
+  async assertReadAdmitted(){throw Error("independent read grant revoked");},
+  async assertStillAdmitted(){}
+ },{async append(){throw Error("should never log permit");}});
+ await assert.rejects(()=>guard.read(ctx,"CI.M7E.READ",grant,async()=>{called++;}),
+  /independent read grant revoked/);
+ assert.equal(called,0);
+});
 test("M7-E: emergency suspension stops fresh work and preserves prior evidence",{skip:!dsn},async()=>{
  const i=runInput(),coord=coordinator();
  await coord.create(i);
