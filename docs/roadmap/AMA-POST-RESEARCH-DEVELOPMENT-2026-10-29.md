@@ -153,6 +153,15 @@ The M4 execution contract can be developed as a candidate, while F8 and M5 suppl
 
 **Gate:** M4-DURABILITY-PASS for declared runtime classes; live effects still gated by F8.
 
+## M4 candidate execution result — 2026-10-29
+
+**Engineering completed and verified in disposable PostgreSQL.** Seven new schemas and isolated TypeScript types, a static durability graph checker, and `DurablePgCoordinator` with persisted checkpoints, fenced worker leases, append-only run/effect evidence, operation-key deduplication and independent reconciliation receipts.
+
+- [M4 implementation specification](AMA-M4-DURABLE-EXECUTION-CONTRACTS.md) and [M4 execution report](AMA-M4-EXECUTION-REPORT.md).
+- [GitHub Actions run 40812050101](https://github.com/Motherpher/FFOS/actions/runs/40812050101): **SUCCESS**, 144 Python + 9 shared-model + 54 runtime/PostgreSQL tests (207 combined).
+- Callback outcome is never presumed committed; prepared/dispatched effects left behind by crash enter HOLD/UNKNOWN and cannot auto-replay.
+- **Not proven:** live authorization, authenticated CDX and SPETL receipts, production DB migration/permissions, final independent acceptance or real remote effect recovery. M4 is a candidate host implementation of the universal contract, not a production deployment.
+
 ## M5 — F6: Independent evaluation and assurance
 
 **Build:** multi-axis suite—structural, policy, tool/target correctness, final state, resource/cost/reliability, red-team, false allow/deny, durability, privacy and independent acceptance. Record evidence provenance and evaluation limitations.
@@ -186,7 +195,7 @@ The M4 execution contract can be developed as a candidate, while F8 and M5 suppl
 | 2 | M2: generic scoped authority | authorization contract negative suite | PLANNED |
 | 2 (parallel) | M2-CDX: F8 trust/decision/evidence adapter | independently tested CDX policy binding | BLOCKED FOR LIVE BINDING BY CDX RELEASE STATE |
 | 3 | M3: conditional model/memory profiles | profile conformance and poisoning evals | ENGINEERING CANDIDATE VERIFIED; HUMAN ADOPTION PENDING |
-| 4 | M4: durable runtime protocol | restart/replay/duplicate-effect tests | PLANNED |
+| 4 | M4: durable runtime protocol | restart/replay/duplicate-effect tests | TECHNICAL CANDIDATE CI VERIFIED; LIVE F8 BINDING BLOCKED |
 | 5 | M5: assurance evaluation | independent outcomes + source-backed regression | PLANNED |
 | 6 | M6: operations/extension contracts | change/incident/rollback suite | PLANNED |
 | 7 | M7: synthetic reference admission | independent acceptance evidence | DEFERRED |
