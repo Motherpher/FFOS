@@ -135,8 +135,12 @@ def validate_cognitive_contract(bundle, *, at):
                 bound[coll] = resolve(binding[ref_name], coll)
         for coll in ("modelProfiles", "instructionPackages", "planningProfiles",
                      "contextPolicies"):
-            if set(indices[coll]) != ({bound[coll][GROUPS[coll][1]]}
-                                     if bound.get(coll) else set()):
+            expected = ({bound[coll][GROUPS[coll][1]]}
+                        if bound.get(coll) else set())
+            if coll == "modelProfiles" and bound.get(coll):
+                expected.update(ref["id"] for ref in
+                                bound[coll]["allowedFallbackRefs"])
+            if set(indices[coll]) != expected:
                 fail("UNBOUND_PROFILE:" + coll)
         if bool(binding.get("memoryRef")) != bool(memory):
             fail("MEMORY_BINDING_MISMATCH")
@@ -170,10 +174,15 @@ def validate_cognitive_contract(bundle, *, at):
                 if layer["priority"] != expected[layer["role"]]:
                     fail("INSTRUCTION_PRIORITY_MISMATCH")
         if model:
+            fallback_ids = [r["id"] for r in model["allowedFallbackRefs"]]
+            if len(set(fallback_ids)) != len(fallback_ids):
+                fail("DUPLICATE_MODEL_FALLBACK")
             for fallback in model["allowedFallbackRefs"]:
                 if fallback["id"] == model["profileId"]:
                     fail("MODEL_FALLBACK_SELF_LOOP")
-                resolve(fallback, "modelProfiles")
+                alternative = resolve(fallback, "modelProfiles")
+                if alternative and alternative["moduleId"] != model["moduleId"]:
+                    fail("FALLBACK_MODULE_MISMATCH")
                 # Multiple fallback profiles must still be registered explicitly;
                 # they are alternatives and not permitted to execute automatically.
         if plan:
@@ -185,7 +194,7 @@ def validate_cognitive_contract(bundle, *, at):
                 fail("PLAN_EXCEEDS_HORIZON")
             if plan["budgets"]["maxIterations"] > plan["maxTaskHorizonSteps"]:
                 fail("ITERATION_BUDGET_EXCEEDS_HORIZON")
-            if plan["budgets"]["maxModelTokens"] < model["maxOutputTokens"] if model else False:
+            if model and plan["budgets"]["maxModelTokens"] < model["maxOutputTokens"]:
                 fail("PLAN_MODEL_BUDGET_INSUFFICIENT")
             valid = set(names)
             nodes_by_id = {n["nodeId"]: n for n in nodes}
@@ -246,9 +255,14 @@ def validate_cognitive_contract(bundle, *, at):
         if entry["originKind"] in ("TOOL", "DOCUMENT", "AGENT_SYNTHESIS") and (
                 entry["trustLabel"] != "VERIFIED" and not entry["quarantined"]):
             fail("EXTERNAL_MEMORY_POISONING_RISK")
-        if entry["correctionOfEntryRef"] if "correctionOfEntryRef" in entry else False:
-            if entry["correctionOfEntryRef"] == entry["entryId"]:
+        correction = entry.get("correctionOfEntryRef")
+        if correction:
+            if correction == entry["entryId"]:
                 fail("SELF_MEMORY_CORRECTION")
+            elif correction not in indices["memoryEntries"]:
+                fail("UNKNOWN_MEMORY_CORRECTION_TARGET")
+            elif indices["memoryEntries"][correction]["scope"] != entry["scope"]:
+                fail("CROSS_SCOPE_MEMORY_CORRECTION")
     return _finish(errors)
 
 
@@ -283,7 +297,8 @@ def evaluate_declared_budget(profile, *, iterations, model_tokens,
                              tool_calls, elapsed_seconds, cost_minor):
     """Advisory stop evaluation; the runtime must enforce, not the model."""
     b = profile["budgets"]
-    over = (iterations > b["maxIterations"] or model_tokens > b["maxModelTokens"]
+    over = (min(iterations, model_tokens, tool_calls, elapsed_seconds, cost_minor) < 0
+            or iterations > b["maxIterations"] or model_tokens > b["maxModelTokens"]
             or tool_calls > b["maxToolCalls"]
             or elapsed_seconds > profile["maxExecutionSeconds"]
             or cost_minor > b["maxCostMinor"])
@@ -293,6 +308,9 @@ def evaluate_declared_budget(profile, *, iterations, model_tokens,
 
 def assess_compaction(context_policy, before, after):
     """Only validates critical-marker and provenance preservation, not semantic truth."""
+    if not context_policy["compaction"]["enabled"]:
+        return {"status": "REJECTED", "missing_critical_claims": [],
+                "semantic_fidelity_verified": False, "execution_authorized": False}
     retained = {(c["claimId"], c["sourceRef"], c["sourceDigest"])
                 for c in after}
     failures = [c["claimId"] for c in before if c["critical"]
