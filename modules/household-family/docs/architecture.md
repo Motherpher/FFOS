@@ -1,6 +1,6 @@
 # Architecture and implemented boundaries
 
-This is an FFOS module, not a new sovereign agent platform. The existing FFOS object chain and domain ownership remain canonical. Household detail states map to generic FFOS run states without rewriting the shared model (Motherpher, 2026a).
+Household Family is Agent Stable **Agent #2** implemented as an FFOS module; it is not a sovereign agent platform. The existing FFOS object chain and domain ownership remain canonical. Household detail states map to generic FFOS run states without rewriting the shared model (Motherpher, 2026a).
 
 ```mermaid
 flowchart TD
@@ -33,7 +33,7 @@ The operation ledger records intent before an external write and a receipt only 
 
 Every transition and audit record is committed with the corresponding database change. Evidence and decision rows have update/delete rejection triggers. Audit events form a per-project SHA-256 chain. A database owner can still disable triggers; production requires a restricted application role and protected backups. This is application/database append-only evidence, not an independent notarization system.
 
-Signed Director decisions bind WP identity/version, eligibility revision, scope, exact commit and evidence bundle. Only the external Director key can produce them. Acceptance writes a progression outbox record in the same transaction. After the accepted run is recorded, the worker asks the current Director feed for the next eligible WP and uses an explicitly delegated automation identity. It never invents priorities, bypasses dependencies, dispatches a `PLANNED` WP, or accepts its own evidence.
+The external Director remains outside Household Family. Signed Director decisions bind WP identity/version, eligibility revision, scope, exact commit and evidence bundle. Only the external Director key can produce them. Acceptance writes a progression outbox record in the same transaction. After the accepted run is recorded, the worker asks the current Director feed for the next eligible WP and uses an explicitly delegated automation identity. It never invents priorities, bypasses dependencies, dispatches a `PLANNED` WP, or accepts its own evidence.
 
 Read-only diagnostics have no arbitrary command execution. Handyman only accepts declarative registered file replacements with content-digest preconditions, path guards, file/byte limits and protected-branch denial. Repository tests execute on trusted, digest-pinned GitHub Actions workflows. Verifier executes a fixed trusted evaluator in a separate Node process; it never executes repository-provided code and receives no credentials.
 
@@ -45,3 +45,20 @@ The code is implemented and locally exercised; live OAuth enrollment, CDX/Direct
 
 - Motherpher (2026a) _FFOS Core Object Model v0.1_. Available at: https://github.com/Motherpher/FFOS/blob/3a93eb3d7a5195232acc850c7d301bf901014306/docs/specifications/OBJECT-MODEL.md (Accessed: 28 October 2026).
 - Motherpher (2026b) _FFOS Director_. Available at: https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/director/README.md (Accessed: 28 October 2026).
+
+
+## Agent Stable relationship
+
+```text
+FFOS
+└── Agent Stable
+    ├── AMA
+    ├── Agent Mechanic
+    ├── #1 MESSI
+    └── #2 Household Family
+         ├── Janitor
+         ├── Handyman
+         └── Verifier
+```
+
+Only Household Family is the first-class agent in the lower branch. Its internal roles do not have independent agent identity or lifecycle. Director remains outside Agent Stable execution and provides mandate/acceptance.
