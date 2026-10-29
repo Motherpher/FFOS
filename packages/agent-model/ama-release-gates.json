@@ -10,12 +10,13 @@
         "EXACT_HEAD_CI",
         "PORTABILITY_REVIEW",
         "V1_VNEXT_COMPATIBILITY",
-        "INDEPENDENT_TECHNICAL_REVIEW",
+        "DOCUMENTED_TECHNICAL_AUDIT",
         "HUMAN_ARCHITECTURE_ADOPTION"
       ],
-      "state": "PENDING_INDEPENDENT_REVIEW",
+      "state": "OWNER_APPROVED_TECHNICAL_AUDIT_PENDING",
       "host_runtime_required": false,
-      "activation_authorized": false
+      "activation_authorized": false,
+      "external_reviewer_required": false
     },
     "F8_7": {
       "scope": "OPTIONAL_HOST_RUNTIME_BINDING",
