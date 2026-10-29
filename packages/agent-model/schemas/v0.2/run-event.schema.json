@@ -1,0 +1,66 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "eventId",
+    "runId",
+    "agentRef",
+    "workflowRef",
+    "state",
+    "eventType",
+    "correlationId",
+    "evidenceRefs"
+  ],
+  "properties": {
+    "schema": {
+      "const": "ama.run-event/v0.2-candidate"
+    },
+    "eventId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "runId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "agentRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "workflowRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "state": {
+      "enum": [
+        "QUEUED",
+        "RUNNING",
+        "PASS",
+        "FAIL",
+        "HOLD",
+        "CANCELLED",
+        "SKIPPED",
+        "WAIVED"
+      ]
+    },
+    "eventType": {
+      "enum": [
+        "START",
+        "TRANSITION",
+        "AUTHORIZATION",
+        "EFFECT",
+        "END"
+      ]
+    },
+    "correlationId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidenceRefs": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/ref"
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/run-event.schema.json",
+  "title": "AMA v0.2 candidate run-event contract"
+}
