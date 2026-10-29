@@ -22,3 +22,9 @@ A separate, non-production candidate suite is in `schemas/v0.2/` (12 Draft 2020-
 Eight additional `schemas/v0.2/` contracts define versioned model, instruction, planner, context, memory, memory-entry, retrieval and cognitive bindings. A standalone `conformance/ama_cognitive.py` validator and `tests/test_m3_cognitive.py` exercise limits, default-off modules, memory poisoning and provenance/retention failures. TypeScript interfaces are isolated in `src/cognitive-vnext.ts`.
 
 **No live model invocation or memory service:** `STATIC_COGNITIVE_ELIGIBLE` never authorizes execution. See [M3 candidate specification](../../docs/roadmap/AMA-M3-COGNITIVE-MEMORY-CONTRACTS.md).
+
+## AMA M4 candidate — durable execution contracts
+
+Seven additional `schemas/v0.2/` schemas (run, step, attempt, checkpoint, effect-receipt, reconciliation and approval-event) make version-pinned execution and recovery records composable without changing v1 manifests. The independent `conformance/ama_durability.py` validator and `tests/test_m4_durability.py` check synthetic graph consistency. Portable TypeScript declarations are in `src/durable-vnext.ts`.
+
+Static eligibility never proves a remote effect or receipt authenticity. M4's PostgreSQL host coordinator is implemented separately in `agent-runtime`; production execution remains blocked pending external enforcement. [M4 specification](../../docs/roadmap/AMA-M4-DURABLE-EXECUTION-CONTRACTS.md).
