@@ -23,7 +23,9 @@ def validate(data):
     adoption=data.get("adoption",{})
     for k in ("architecture_accepted","agent_deployment_authorized"):
         check(adoption.get(k) is False,"PREMATURE_ACCEPTANCE:"+k)
-    check(adoption.get("independent_review_required") is True,"INDEPENDENT_REVIEW_REQUIRED")
+    check(adoption.get("owner_review_and_acceptance_required") is True,"OWNER_ACCEPTANCE_REQUIRED")
+    check(data.get("template_complete") is False,"FALSE_TEMPLATE_COMPLETION")
+    check(data.get("template_coverage")=="packages/agent-model/ama-template-coverage.json","COVERAGE_BINDING")
     check({"HOUSEHOLD","MESSI","CDX_WORK_PACKAGE_EXECUTOR"}<=set(data.get("excluded",[])),"INSTANCE_SCOPE_LEAK")
     return errors
 
