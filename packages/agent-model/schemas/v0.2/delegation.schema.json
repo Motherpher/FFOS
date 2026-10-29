@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.delegation/v0.2-candidate"
+    },
+    "delegationId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "parentMandateRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "childMandateRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "issuedByRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "evidenceDigest": {
+      "$ref": "common.schema.json#/$defs/digest"
+    }
+  },
+  "required": [
+    "schema",
+    "delegationId",
+    "version",
+    "parentMandateRef",
+    "childMandateRef",
+    "issuedByRef",
+    "evidenceDigest"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/delegation.schema.json",
+  "title": "AMA 0.2 candidate provider-neutral delegation"
+}
