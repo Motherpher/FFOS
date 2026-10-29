@@ -1,0 +1,99 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.authorization-decision/v0.2-candidate"
+    },
+    "decisionId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "requestRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "policyRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "decisionIssuerRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "outcome": {
+      "enum": [
+        "PERMIT",
+        "PERMIT_WITH_OBLIGATIONS",
+        "REQUIRE_HUMAN",
+        "DENY",
+        "HOLD",
+        "STOP"
+      ]
+    },
+    "obligations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "obligationId": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "kind": {
+            "enum": [
+              "INDEPENDENT_APPROVAL",
+              "REDACTION",
+              "AUDIT",
+              "LIMIT_RESOURCE",
+              "QUARANTINE",
+              "OTHER"
+            ]
+          },
+          "requiredEvidenceRef": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "obligationId",
+          "kind",
+          "requiredEvidenceRef"
+        ]
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "validFrom": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "validUntil": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "revocationEpoch": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "decisionEvidenceDigest": {
+      "$ref": "common.schema.json#/$defs/digest"
+    }
+  },
+  "required": [
+    "schema",
+    "decisionId",
+    "version",
+    "requestRef",
+    "policyRef",
+    "decisionIssuerRef",
+    "outcome",
+    "obligations",
+    "validFrom",
+    "validUntil",
+    "revocationEpoch",
+    "decisionEvidenceDigest"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/authorization-decision.schema.json",
+  "title": "AMA 0.2 candidate provider-neutral authorization-decision"
+}
