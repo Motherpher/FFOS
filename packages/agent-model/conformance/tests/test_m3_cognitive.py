@@ -299,6 +299,59 @@ class M3Cognitive(unittest.TestCase):
         b["memoryEntries"][0]["instructionAuthority"]=True
         self.assert_bad(b,"INVALID_COMPOSITE_BUNDLE")
 
+    def test_declared_model_fallback_is_pinned_but_not_executed(self):
+        b=cognitive_fixture()
+        fallback=copy.deepcopy(b["modelProfiles"][0])
+        fallback["profileId"]=ID+".BACKUP.MODEL"
+        fallback["modelRevision"]="separate-pinned-revision"
+        b["modelProfiles"].append(fallback)
+        b["modelProfiles"][0]["allowedFallbackRefs"]=[pin(fallback,"profileId")]
+        self.assertEqual("STATIC_COGNITIVE_ELIGIBLE",self.check(rebind(b))["status"])
+        self.assertFalse(self.check(b)["runtime_authorized"])
+
+    def test_unpinned_model_fallback_substitution_denied(self):
+        b=cognitive_fixture()
+        fallback=copy.deepcopy(b["modelProfiles"][0])
+        fallback["profileId"]=ID+".BACKUP.MODEL"
+        b["modelProfiles"].append(fallback)
+        b["modelProfiles"][0]["allowedFallbackRefs"]=[pin(fallback,"profileId")]
+        rebind(b)
+        fallback["modelRevision"]="unauthorized-substitute"
+        self.assert_bad(b,"DIGEST_MISMATCH_MODELPROFILES")
+
+    def test_memory_store_does_not_require_model_reasoning(self):
+        b=cognitive_fixture(memory=True)
+        b["agent"]["modules"]=[m for m in b["agent"]["modules"] if m["kind"]=="MEMORY"]
+        for key in ("modelProfiles","instructionPackages","planningProfiles","contextPolicies",
+                    "cognitiveBindings"):
+            b[key]=[]
+        self.assertEqual("STATIC_COGNITIVE_ELIGIBLE",self.check(b)["status"])
+
+    def test_memory_correction_cannot_reference_self(self):
+        b=cognitive_fixture(memory=True)
+        b["memoryEntries"][0]["correctionOfEntryRef"]=ID+".ENTRY"
+        self.assert_bad(b,"SELF_MEMORY_CORRECTION")
+
+    def test_memory_unauthorized_scope_at_retrieval(self):
+        b=cognitive_fixture(memory=True,retrieval=True)
+        result=assess_retrieval(b,entry_id=ID+".ENTRY",
+            policy_id=ID+".RETRIEVAL.POLICY",destination_scope="synthetic/other",
+            destination_trust_domain="synthetic",at=NOW)
+        self.assertEqual("BLOCKED",result["status"])
+        self.assertIn("RETRIEVAL_SCOPE_MISMATCH",result["reasons"])
+
+    def test_disabled_compaction_is_not_silent_truncation(self):
+        p=cognitive_fixture()["contextPolicies"][0]
+        p["compaction"]["enabled"]=False
+        before=[{"claimId":"1","critical":True,"sourceRef":"doc","sourceDigest":"sha256:x"}]
+        self.assertEqual("REJECTED",assess_compaction(p,before,[])["status"])
+
+    def test_negative_budget_counter_is_invalid(self):
+        p=cognitive_fixture()["planningProfiles"][0]
+        r=evaluate_declared_budget(p,iterations=-1,model_tokens=10,tool_calls=0,
+                                   elapsed_seconds=0,cost_minor=0)
+        self.assertEqual("STOP_REQUIRED",r["status"])
+
     def test_static_checks_cannot_prove_source_truth(self):
         r=self.check(cognitive_fixture(memory=True,retrieval=True))
         self.assertTrue(r["external_verification_required"])
