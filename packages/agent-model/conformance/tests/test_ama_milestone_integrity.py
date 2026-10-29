@@ -31,6 +31,14 @@ class CanonicalMilestoneTests(unittest.TestCase):
         self.assertEqual(report["f8"], "OPTIONAL_CDX_HOST_INTEGRATION")
         self.assertFalse(report["template_complete"])
 
+    def test_source_plan_records_cannot_count_as_complete(self):
+        items = fixtures()
+        for module in items[1]["modules"]:
+            module["implementation_status"] = "COMPLETE"
+        report = inspect(*items)
+        self.assertFalse(report["template_complete"])
+        self.assertEqual(report["requirement_test_records_unresolved"], 96)
+
     def test_f8_cannot_become_m8(self):
         items = fixtures()
         items[0]["milestone_order"].append("M8")
