@@ -8,6 +8,7 @@ on:
       - 'integrations/cdx/**'
       - 'apps/web/lib/cdx/**'
       - 'apps/web/app/api/session/route.ts'
+      - 'apps/web/package.json'
   pull_request:
     paths:
       - '.cdx/**'
@@ -15,6 +16,7 @@ on:
       - 'integrations/cdx/**'
       - 'apps/web/lib/cdx/**'
       - 'apps/web/app/api/session/route.ts'
+      - 'apps/web/package.json'
   workflow_dispatch:
 
 permissions:
@@ -25,28 +27,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Validate canonical CDX anchor
-        shell: bash
+      - name: Validate canonical CDX runtime anchor
         run: |
-          set -euo pipefail
-          test -f .cdx/anchor.json
-          jq -e --arg repo "$GITHUB_REPOSITORY" '
-            .schema == "cdx.anchor/v1" and
-            .system_short_name == "CDX" and
-            .law_id == "CDX-LAW-001" and
-            .cdx_authority.repository == "Hybrismannen/Conductellence-" and
-            .cdx_authority.canonical_name == "Conductellence" and
-            .cdx_authority.short_name == "CDX" and
-            (.governed_surface.repository | ascii_downcase) == ($repo | ascii_downcase) and
-            .binding_mode == "PINNED_RELEASE" and
-            .policy_pin.ref_type == "RELEASE" and
-            .policy_pin.ref == "1.0.0" and
-            .policy_pin.digest == "git-blob-sha1:55dbcdac2f822b59a5a5f0f19eeadfa61d2c7ed0" and
-            .local_enforcement.fail_closed_for_consequential_effects == true and
-            (.local_enforcement.points | length) > 0 and
-            .conformance.adapter_contract == "CDX-RUNTIME-001"
-          ' .cdx/anchor.json
-          echo "PASS: FFOS canonical CDX runtime anchor structure is valid."
+          python3 - <<'PY'
+          import json
+          a=json.load(open(".cdx/anchor.json"))
+          assert a["schema"]=="cdx.anchor/v1"
+          assert a["system_short_name"]=="CDX"
+          assert a["law_id"]=="CDX-LAW-001"
+          assert a["cdx_authority"]["repository"]=="Hybrismannen/Conductellence-"
+          assert a["governed_surface"]["repository"].lower()=="motherpher/ffos"
+          assert a["binding_mode"]=="PINNED_RELEASE"
+          assert a["policy_pin"]=={
+            "ref_type":"RELEASE",
+            "ref":"1.0.0",
+            "digest":"git-blob-sha1:55dbcdac2f822b59a5a5f0f19eeadfa61d2c7ed0",
+          }
+          assert a["binding_state"]=="CDX_RUNTIME_GUARDED"
+          assert a["local_enforcement"]["fail_closed_for_consequential_effects"] is True
+          assert len(a["local_enforcement"]["points"])>=1
+          assert a["conformance"]["adapter_contract"]=="CDX-RUNTIME-001"
+          assert a["conformance"]["runtime_state"]=="RUNTIME_GUARDED_UNVERIFIED"
+          print("PASS: canonical FFOS CDX runtime anchor is guarded and unverified.")
+          PY
 
   runtime-acceptance:
     runs-on: ubuntu-latest
@@ -57,7 +60,46 @@ jobs:
           node-version: '24'
       - name: Install FFOS workspace dependencies
         run: npm install --no-audit --no-fund
-      - name: Execute CDX-RUNTIME-001 WP11 acceptance
-        run: node --experimental-strip-types integrations/cdx/wp11-acceptance.mts
+      - name: Verify CDX policy, fail-closed behavior and route ordering
+        run: npx --no-install tsx integrations/cdx/wp11-acceptance.mts
       - name: Build production Next.js application
         run: npm run build
+      - name: Exercise real Director session effect gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          export FFOS_DIRECTOR_USER="wp11-director"
+          export FFOS_DIRECTOR_PASSWORD="wp11-password"
+          export FFOS_SESSION_SECRET="wp11-test-session-secret-with-sufficient-entropy"
+          npm --workspace apps/web run start -- --hostname 127.0.0.1 --port 3000 > /tmp/ffos-wp11-runtime.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:3000/login >/dev/null; then break; fi
+            sleep 1
+          done
+
+          allow_status=$(curl -sS -o /dev/null -D /tmp/allow.headers -w '%{http_code}'             -X POST -H 'content-type: application/x-www-form-urlencoded'             --data 'user=wp11-director&password=wp11-password&next=%2Fwork'             http://127.0.0.1:3000/api/session)
+          test "$allow_status" = "303"
+          grep -qi '^set-cookie: ffos_session=' /tmp/allow.headers
+
+          deny_status=$(curl -sS -o /dev/null -D /tmp/deny.headers -w '%{http_code}'             -X POST -H 'content-type: application/x-www-form-urlencoded'             --data 'user=wp11-director&password=wrong&next=%2Fwork'             http://127.0.0.1:3000/api/session)
+          test "$deny_status" = "303"
+          if grep -qi '^set-cookie: ffos_session=' /tmp/deny.headers; then
+            echo "FAIL: restrictive CDX decision issued a Director session cookie"
+            exit 1
+          fi
+
+          grep -q 'FFOS_CDX_SPETL' /tmp/ffos-wp11-runtime.log
+          grep -q '"effect_status":"PERMITTED"' /tmp/ffos-wp11-runtime.log
+          grep -q '"effect_status":"BLOCKED"' /tmp/ffos-wp11-runtime.log
+          echo "PASS: actual FFOS HTTP handler mediates Director session issuance and emits SPETL evidence."
+
+      - name: Preserve WP11 runtime evidence
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ffos-wp11-cdx-runtime-evidence
+          path: /tmp/ffos-wp11-runtime.log
+          retention-days: 90
