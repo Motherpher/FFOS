@@ -25,12 +25,14 @@
     },
     "kind": {
       "enum": [
-        "REASONING",
         "MEMORY",
         "RETRIEVAL",
-        "SCHEDULE",
+        "SCHEDULING",
         "EVENTS",
         "REVIEW",
+        "MULTI_AGENT",
+        "CONNECTOR",
+        "REASONING",
         "OTHER"
       ]
     },
