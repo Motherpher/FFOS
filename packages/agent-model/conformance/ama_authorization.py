@@ -171,6 +171,14 @@ def validate_authorization_contract(bundle, *, at):
             fail("REVOKED_OR_EXPIRED_MANDATE")
         if not is_valid(mandate["issuedAt"], mandate["expiresAt"], now):
             fail("MANDATE_NOT_CURRENT")
+        for grant in mandate["grants"]:
+            if not any(_within(grant["resourceScope"], s)
+                       for s in agent["mandate"]["scope"]):
+                fail("MANDATE_GRANT_OUTSIDE_AGENT_SCOPE")
+            if RANK[grant["effectClass"]] > RANK[agent["effectCeiling"]]:
+                fail("MANDATE_GRANT_EXCEEDS_AGENT_EFFECT")
+            if grant["actionKind"] != EFFECT_KIND[grant["effectClass"]]:
+                fail("MANDATE_GRANT_ACTION_MISMATCH")
         parents = links.get(mandate["mandateId"], [])
         if len(parents) > 1:
             fail("AMBIGUOUS_DELEGATION_CHAIN")
