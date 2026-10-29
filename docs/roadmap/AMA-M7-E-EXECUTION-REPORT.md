@@ -47,3 +47,12 @@ Required acceptance checklist:
 ## Decision and sequence
 
 M6 -> M7-E engineering CI verification -> F8.7 governed external CDX binding -> M7-O independent operational readiness -> separately approved production decision.
+
+## Verified CI artifact audit — 2026-10-29
+
+- **Evidence basis:** user-supplied ZIP exported from the GitHub Actions `ama-static-conformance` artifact associated in the GitHub UI with AMA Conformance run #278 (SUCCESS, 1m52s); run URL: https://github.com/Motherpher/FFOS/actions/workflows/ama-conformance.yml. The ZIP is not an independently authenticated GitHub artifact download in this audit.
+- **ZIP SHA256:** `039d08a79c8f4731a6fd11989b15a57ba611d9fd1c6499227db6a246d3f54df8`; 11 archived files, successful ZIP integrity test.
+- **Assessment:** `ama-m7e/m7e-assessment.json`: `engineering_status=SYNTHETIC_REFERENCE_PASS`, `findings=[]`; all six profile results `static_pass=true`, no reported errors/findings. Profiles: `MINIMAL_MEMORY_OFF`, `E0_CLASSIFIED_READ_PRECHECK`, `MEMORY_ON_PROFILE`, `DURABLE_UNKNOWN_AND_RECONCILIATION`, `EVALUATION_TEN_AXIS`, `OPERATIONAL_CANARY_REVIEW`.
+- **Additional reports:** `ama-static-report.json`: `STATIC_PASS` (C1/C2/C3/C6, with C4/C5 not proven); `ama-m5-candidate-report.json`: synthetic 20 observations / 10 cases, zero false allows/denies, no independent acceptance; `ama-m6-candidate-report.json`: `STATIC_OPERATIONAL_ELIGIBLE` only; `ama-f8-preflight.json`: `BLOCKED_EXTERNAL_GATES` with seven blockers.
+- **Hard boundaries preserved:** `deployment_authorized=false`, `registration_authorized=false`, `runtime_authorized=false`, `independent_accepted=false`, `cdx_f8_7_verified=false`, `m7_o_verified=false`, `production_effects_permitted=false`.
+- **Audit disposition:** **M7-E SYNTHETIC ENGINEERING EVIDENCE VERIFIED** (uploaded artifact + observed green workflow screenshot); this is not live independent assurance or production readiness. Exact GitHub-generated artifact provenance/commit identity should be rechecked before independent engineering sign-off. Separate Vercel account-blocked check is not an M7-E test failure but remains an unresolved PR check.
