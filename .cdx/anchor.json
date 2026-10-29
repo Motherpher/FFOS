@@ -46,12 +46,5 @@
     "last_verified_at": "2026-10-29T15:19:00Z",
     "verification_state": "PASS",
     "verified_against": "Hybrismannen/Conductellence-@ad26ea289ab71c86bea2461e0509c5b4bec9a32e:ESTATE-REGISTRY/wp10-anchor-verification-evidence.json"
-  },
-  "wp11": {
-    "state": "IMPLEMENTED_PENDING_VERIFICATION",
-    "runtime_contract": "CDX-RUNTIME-001@1.0.0",
-    "enforcement_point": "apps/web/app/api/session/route.ts#POST",
-    "consequential_effect": "ISSUE_DIRECTOR_SESSION",
-    "evidence_schema": "cdx.spetl.event/1.1"
   }
 }
