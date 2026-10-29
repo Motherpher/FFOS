@@ -1,5 +1,9 @@
 # Agent Master Architecture (AMA)
 
+**Canonical engineering stages:** M0–M7. **F8:** additional CDX integration specification (external host adapter, never an AMA agent or an M8 stage). See `packages/agent-model/ama-milestones.json` for the current stage/source index and `packages/agent-model/AMA-COMPREHENSIVE-TEMPLATE.md` for practical construction guidance. The supplementary 32-module coverage inventory must not replace M0–M7 or the 96 source-derived candidate requirements.
+
+**Version interpretation:** The historical 0.1.0 foundation and its wire schema remain preserved. Separate v0.2 candidate contracts extend this template without silently modifying legacy compatibility or claiming adoption of a released baseline. Construction work is reviewed and accepted by the owner based on documented technical evidence; no external reviewer is required by the AMA template itself.
+
 **Architecture ID:** FFOS-AMA-001  
 **Version:** 0.1.0  
 **State:** FOUNDATION  
