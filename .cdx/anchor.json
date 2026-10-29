@@ -19,29 +19,39 @@
     "ref": "1.0.0",
     "digest": "git-blob-sha1:55dbcdac2f822b59a5a5f0f19eeadfa61d2c7ed0"
   },
-  "binding_state": "CDX_BOUND",
+  "binding_state": "CDX_RUNTIME_GUARDED",
   "authority_context": {
     "authority_ref_required": true,
     "mandate_ref_required": true
   },
   "local_enforcement": {
     "owner": "FFOS",
-    "points": [],
+    "points": [
+      "apps/web/app/api/session/route.ts#POST:ISSUE_DIRECTOR_SESSION",
+      "apps/web/lib/cdx/runtime.ts#evaluateCdxDecision"
+    ],
     "fail_closed_for_consequential_effects": true
   },
   "conformance": {
     "ci_workflow": ".github/workflows/cdx-binding-audit.yml",
     "adapter_contract": "CDX-RUNTIME-001",
-    "runtime_state": "BOUND_PENDING_RUNTIME_INTEGRATION"
+    "runtime_state": "RUNTIME_GUARDED_UNVERIFIED"
   },
   "evidence": {
     "spetl_required": true,
-    "preservation_target": "WP10_VERIFICATION_PENDING",
-    "reconciliation_surface": "CDX_ESTATE_REGISTRY_V2_WP10"
+    "preservation_target": "VERCEL_RUNTIME_LOGS_WP11",
+    "reconciliation_surface": "CDX_WP11_FFOS_RUNTIME_BINDING"
   },
   "verification": {
     "last_verified_at": "2026-10-29T15:19:00Z",
     "verification_state": "PASS",
     "verified_against": "Hybrismannen/Conductellence-@ad26ea289ab71c86bea2461e0509c5b4bec9a32e:ESTATE-REGISTRY/wp10-anchor-verification-evidence.json"
+  },
+  "wp11": {
+    "state": "IMPLEMENTED_PENDING_VERIFICATION",
+    "runtime_contract": "CDX-RUNTIME-001@1.0.0",
+    "enforcement_point": "apps/web/app/api/session/route.ts#POST",
+    "consequential_effect": "ISSUE_DIRECTOR_SESSION",
+    "evidence_schema": "cdx.spetl.event/1.1"
   }
 }
