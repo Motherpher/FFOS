@@ -2,7 +2,7 @@
 
 **CDX:** Conductellence  
 **FFOS role:** local orchestration/control-plane system  
-**Current state:** `BOUND_PENDING_RUNTIME_INTEGRATION`
+**WP11 state:** `RUNTIME_GUARDED_UNVERIFIED`
 
 ## Governance relationship
 
@@ -15,31 +15,39 @@ CDX  <──.cdx/anchor.json──────  FFOS
 
 CDX owns the governing contract. FFOS owns its local enforcement points.
 
-The canonical repository anchor is [`../../.cdx/anchor.json`](../../.cdx/anchor.json).
+## CDX 1.0 production binding
 
-## Current implementation boundary
-
-At this stage the FFOS repository has:
-
-- a canonical CDX anchor;
-- CI validation of that anchor;
-- an explicit pinned CDX commit;
-- declared fail-closed intent for consequential effects.
-
-It does **not** yet claim `VERIFIED_RUNTIME_BOUND` or `CDX_RUNTIME_VERIFIED`. Those states require implemented FFOS enforcement points, CDX policy evaluation before consequential effects, SPETL evidence and tested allow/deny/policy-unavailable cases under `CDX-RUNTIME-001`.
-
-## Planned runtime chain
+WP11 binds the first real FFOS production effect to `CDX-RUNTIME-001@1.0.0`:
 
 ```text
-FFOS intent
-→ identity / authority_ref / mandate_ref
-→ pinned CDX governance context
-→ CDX policy evaluation
-→ ALLOW / restrictive decision
-→ evidence
-→ FFOS local effect gate
-→ external effect only if permitted
-→ FFOS registry reconciliation
+Director login attempt
+→ credential authentication
+→ CDX IDENTITY_AUTHORITY policy evaluation
+→ SPETL 1.1 pre-effect evidence
+→ restrictive decision blocks effect
+→ ALLOW permits FFOS session issuance
+→ SPETL effect-result evidence
 ```
 
-The local runtime implementation must remain versioned against the CDX contract rather than importing mutable constitutional logic into FFOS as an independent fork.
+The consequential local effect is issuance of the authenticated `DIRECTOR` session cookie. CDX does not authenticate the password and cannot substitute for FFOS authentication. It mediates whether the authenticated identity assertion may cross into the Director session effect.
+
+### Immutable release pins
+
+- policy: `git-blob-sha1:55dbcdac2f822b59a5a5f0f19eeadfa61d2c7ed0`
+- runtime contract: `git-blob-sha1:ad0c01d997c1db8ac73681566b4934f1b76f7141`
+- SPETL event schema: `git-blob-sha1:2809554a2a1e672d2859a1ff28819ec64d8affeb`
+- release: `1.0.0`
+
+Exact source snapshots and pins are under `integrations/cdx/vendor/1.0.0/` and `integrations/cdx/release-pins.json`.
+
+## Fail-closed behavior
+
+- missing or integrity-mismatched policy → `SECURITY_STOP`;
+- no applicable control → `DENY`;
+- failed identity/authority control → `DENY`;
+- no session cookie is created for restrictive decisions;
+- credentials, password and session token are excluded from SPETL logs.
+
+WP11 acceptance explicitly tests **ALLOW**, **DENY**, **POLICY_UNAVAILABLE**, SPETL 1.1 emission and the real session-cookie effect gate.
+
+Runtime state remains `RUNTIME_GUARDED_UNVERIFIED` until CI, deployment and production evidence are independently read back. Only then may FFOS advance to `VERIFIED_RUNTIME_BOUND`.
