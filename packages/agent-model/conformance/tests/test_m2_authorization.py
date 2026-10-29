@@ -184,6 +184,18 @@ class AuthorizationContracts(unittest.TestCase):
         b=baseline();b["authorizationRequests"][0]["resourceScope"]="synthetic-other"
         self.assert_bad(b,"REQUEST_OUTSIDE_MANDATE")
 
+    def test_parent_path_traversal_scope_is_rejected(self):
+        b=baseline();b["authorizationRequests"][0]["resourceScope"]="synthetic/item/../private"
+        self.assert_bad(repin(b),"NONCANONICAL_RESOURCE_SCOPE")
+
+    def test_percent_encoded_resource_scope_is_rejected(self):
+        b=baseline();b["authorizationRequests"][0]["resourceScope"]="synthetic/item%2Fprivate"
+        self.assert_bad(repin(b),"NONCANONICAL_RESOURCE_SCOPE")
+
+    def test_duplicate_slashes_are_rejected(self):
+        b=baseline();b["authorizationRequests"][0]["resourceScope"]="synthetic//item"
+        self.assert_bad(repin(b),"NONCANONICAL_RESOURCE_SCOPE")
+
     def test_untrusted_content_cannot_claim_authority(self):
         b=baseline();b["authorizationRequests"][0]["sourceTrust"]="UNTRUSTED_CONTENT"
         self.assert_bad(b,"UNTRUSTED_CONTENT_CANNOT_AUTHORIZE")
