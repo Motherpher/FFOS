@@ -84,6 +84,9 @@
           },
           "requiresHumanReview": {
             "type": "boolean"
+          },
+          "allowAggregation": {
+            "type": "boolean"
           }
         },
         "required": [
@@ -93,7 +96,8 @@
           "maxDataClassification",
           "allowedRecipients",
           "purpose",
-          "requiresHumanReview"
+          "requiresHumanReview",
+          "allowAggregation"
         ]
       },
       "minItems": 1,
