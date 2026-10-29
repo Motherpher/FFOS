@@ -17,8 +17,10 @@
       "normative_target": "packages/agent-model/schemas/ama_core.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-A01",
-      "test_plan": "Deny invalid entity relation or unpinned version; check: Formal glossary with type disjointness and permitted relations: Agent owns Workflow; Command resolves Workflow; Workflow requests Capability; Tool implements Capability; Run instantiates Workflow; Module extends Agent; Agent may delegate to another independently registered Agent.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Attempt to register a Command as an Agent without independent mandate; reject the type promotion.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "A02",
@@ -35,8 +37,10 @@
       "normative_target": "packages/agent-model/schemas/ama_core.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-A02",
-      "test_plan": "Deny invalid entity relation or unpinned version; check: Immutable `agentId`, version, contractVersion, schemaVersion, revision/digest, status, activation policy and declared responsible principal.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Mutate an already registered manifest at the same version; reject digest/identity mismatch.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "A03",
@@ -53,8 +57,10 @@
       "normative_target": "packages/agent-model/schemas/ama_core.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-A03",
-      "test_plan": "Deny invalid entity relation or unpinned version; check: First-class admission test: mandate, independent lifecycle and accountable control boundary; avoid converting named procedures into agents.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Submit a first-class identity without its own lifecycle or mandate; reject admission.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "A04",
@@ -71,8 +77,10 @@
       "normative_target": "packages/agent-model/schemas/ama_core.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-A04",
-      "test_plan": "Deny invalid entity relation or unpinned version; check: Separate `agent_definition`, `runtime_deployment`, `identity_principal`, `workload_instance` and `run` identities.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Swap principal and workload IDs across two runs; reject attribution and cross-boundary execution.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "A05",
@@ -89,8 +97,10 @@
       "normative_target": "packages/agent-model/schemas/ama_core.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-A05",
-      "test_plan": "Deny invalid entity relation or unpinned version; check: Versioned compatibility declarations and immutable historical versions.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Load a historical manifest after a newer version exists; preserve historical digest and explicit compatibility.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "A06",
@@ -107,8 +117,10 @@
       "normative_target": "packages/agent-model/schemas/ama_core.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-A06",
-      "test_plan": "Deny invalid entity relation or unpinned version; check: Machine-readable and human-readable discoverability/description without treating description as authority.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Make a discoverable description claim an E3 capability; verify no permission is granted.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "A07",
@@ -125,8 +137,10 @@
       "normative_target": "packages/agent-model/schemas/ama_core.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-A07",
-      "test_plan": "Deny invalid entity relation or unpinned version; check: Documentation card for purpose, intended users, known limitations, prohibited applications, test profile and change history.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Submit an agent without stated limitations or test profile; reject its documentation admission gate.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "B01",
@@ -143,8 +157,10 @@
       "normative_target": "packages/agent-model/schemas/ama_authority.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-B01",
-      "test_plan": "Deny revoked or mismatched authority and scope; check: Explicit mandate issuer, subject, allowable action kind/resource target, issued/expiry times, revocation pointer, non-goals and signed/verifiable proof where supported.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Use a mandate with expired or mismatched issuer/target; reject and record issuer/scope reason.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "B02",
@@ -161,8 +177,10 @@
       "normative_target": "packages/agent-model/schemas/ama_authority.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-B02",
-      "test_plan": "Deny revoked or mismatched authority and scope; check: Principal–agent–tool delegation linkage; downstream rights are attenuated, never amplified.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Delegate a capability outside the parent mandate; verify no downstream amplification.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "B03",
@@ -179,8 +197,10 @@
       "normative_target": "packages/agent-model/schemas/ama_authority.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-B03",
-      "test_plan": "Deny revoked or mismatched authority and scope; check: Zero/least standing privilege; just-in-time credential binding and expiration/rotation.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Use stale or over-scoped machine credentials; deny if credential profile is enabled.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "B04",
@@ -197,8 +217,10 @@
       "normative_target": "packages/agent-model/schemas/ama_authority.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-B04",
-      "test_plan": "Deny revoked or mismatched authority and scope; check: Policy decision interface distinct from model planner, including signed/pinned policy, decision expiry, deny reasons and obligations.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Supply a model-authored ALLOW without independent policy pin/decision; deny.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "B05",
@@ -215,8 +237,10 @@
       "normative_target": "packages/agent-model/schemas/ama_authority.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-B05",
-      "test_plan": "Deny revoked or mismatched authority and scope; check: Target/resource-level checks for read **and** write; a read may be sensitive even if no mutation occurs.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Attempt a sensitive E0 read without a read grant; deny despite effect ceiling.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "B06",
@@ -233,8 +257,10 @@
       "normative_target": "packages/agent-model/schemas/ama_authority.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-B06",
-      "test_plan": "Deny revoked or mismatched authority and scope; check: Multidimensional risk/effect classification: action class, data sensitivity, recipients, reversibility, financial impact, blast radius, network exposure, retention/jurisdiction.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Compare equal effect ranks with different recipients/data classifications; require distinct policy outcomes.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "B07",
@@ -251,8 +277,10 @@
       "normative_target": "packages/agent-model/schemas/ama_authority.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-B07",
-      "test_plan": "Deny revoked or mismatched authority and scope; check: Deterministic independent human-review triggers, approval request package and expiration; no approval inferred from prompt text.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Create an agent-signed human approval token or expired approval; reject.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "B08",
@@ -269,8 +297,10 @@
       "normative_target": "packages/agent-model/schemas/ama_authority.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-B08",
-      "test_plan": "Deny revoked or mismatched authority and scope; check: Revocation/fail-closed behavior before consequential effects and after pause/resume.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Revoke a mandate during a paused run; require reauthorization before resume/effect.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "B09",
@@ -287,8 +317,10 @@
       "normative_target": "packages/agent-model/schemas/ama_authority.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-B09",
-      "test_plan": "Deny revoked or mismatched authority and scope; check: Cross-tenant isolation and user-consent boundaries with provenance.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Request resource from tenant B under tenant A consent; deny cross-tenant read.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "B10",
@@ -305,8 +337,10 @@
       "normative_target": "packages/agent-model/schemas/ama_authority.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-B10",
-      "test_plan": "Deny revoked or mismatched authority and scope; check: Authorization-denial evidence emitted for attempts, including service unavailable/indeterminate outcomes, with privacy safeguards.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Make policy provider unavailable; deny/hold and record minimal auditable reason.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "C01",
@@ -323,8 +357,10 @@
       "normative_target": "packages/agent-model/schemas/ama_reasoning.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-C01",
-      "test_plan": "Reject invalid or over-budget reasoning profile; check: Optional typed model-adapter binding and provider-agnostic interface, version, provenance/hash, supported modalities and sampling behavior.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Substitute an unpinned model provider/model version; reject if model profile enabled.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "C02",
@@ -341,8 +377,10 @@
       "normative_target": "packages/agent-model/schemas/ama_reasoning.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-C02",
-      "test_plan": "Reject invalid or over-budget reasoning profile; check: Versioned instructions/prompts and their precedence; separately controlled developer configuration vs untrusted source content.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Inject tool text claiming system priority; ensure registered instruction precedence is unchanged.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "C03",
@@ -359,8 +397,10 @@
       "normative_target": "packages/agent-model/schemas/ama_reasoning.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-C03",
-      "test_plan": "Reject invalid or over-budget reasoning profile; check: Strategy interface: direct response, plan-and-act, ReAct-style interleaving, deterministic sequential/parallel routing, reflective loop, evaluator–optimizer; none is compulsory.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Declare no planner profile; validate that direct execution remains conformant.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "C04",
@@ -377,8 +417,10 @@
       "normative_target": "packages/agent-model/schemas/ama_reasoning.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-C04",
-      "test_plan": "Reject invalid or over-budget reasoning profile; check: Bounded plan graph with objectives, assumptions, steps, dependencies, expected outcome and allowed tool/capability IDs.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Generate a plan step outside the permitted capability graph; reject that plan.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "C05",
@@ -395,8 +437,10 @@
       "normative_target": "packages/agent-model/schemas/ama_reasoning.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-C05",
-      "test_plan": "Reject invalid or over-budget reasoning profile; check: Max reasoning cycles, max tool calls, recursion/delegation depth, context and token budgets; absolute timeout and cancellation triggers.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Exceed configured token, tool-call or iteration limit; stop and report exhaustion.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "C06",
@@ -413,8 +457,10 @@
       "normative_target": "packages/agent-model/schemas/ama_reasoning.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-C06",
-      "test_plan": "Reject invalid or over-budget reasoning profile; check: Grounding/fact-verification and uncertainty/abstention policy; input confidence is never authorization.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Return ungrounded high-confidence answer where grounding required; require abstention/escalation.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "C07",
@@ -431,8 +477,10 @@
       "normative_target": "packages/agent-model/schemas/ama_reasoning.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-C07",
-      "test_plan": "Reject invalid or over-budget reasoning profile; check: Separate synthesis, checking and authorized finalization. No model-generated self-assertion of acceptance.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Output PASS from the generator without verifier/acceptance; do not mark accepted.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "C08",
@@ -449,8 +497,10 @@
       "normative_target": "packages/agent-model/schemas/ama_reasoning.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-C08",
-      "test_plan": "Reject invalid or over-budget reasoning profile; check: Fallback/model substitution rules require regression against the approved model binding, not a silent upgrade.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Attempt unapproved model fallback after provider outage; suspend or require pinned substitution.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "D01",
@@ -467,8 +517,10 @@
       "normative_target": "packages/agent-model/schemas/ama_workflow.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-D01",
-      "test_plan": "Reject wrong workflow/tool version and invalid IO; check: Version-pinned Command→Workflow mapping; declared inputs and outputs as JSON Schema, with semantic validation beyond schema.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Invoke Command with unknown workflow version or invalid input schema; reject resolution.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "D02",
@@ -485,8 +537,10 @@
       "normative_target": "packages/agent-model/schemas/ama_workflow.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-D02",
-      "test_plan": "Reject wrong workflow/tool version and invalid IO; check: Workflow step graph, dependency and concurrency boundaries, finite stopping conditions and terminal-state map.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Create workflow graph without reachable terminal state or cyclic unbounded step; reject.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "D03",
@@ -503,8 +557,10 @@
       "normative_target": "packages/agent-model/schemas/ama_workflow.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-D03",
-      "test_plan": "Reject wrong workflow/tool version and invalid IO; check: Typed capability registry with implementation adapter, action kind, target scope, authentication scopes, quotas, failure codes and availability state.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Call a capability outside target scope or without required resource permission; reject.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "D04",
@@ -521,8 +577,10 @@
       "normative_target": "packages/agent-model/schemas/ama_workflow.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-D04",
-      "test_plan": "Reject wrong workflow/tool version and invalid IO; check: Tool schema version, deterministic validation, tool-call allowlist, output contract, error semantics, trusted/untrusted provenance and content redaction.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Submit wrong tool arguments or untrusted output posing as policy; reject/taint.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "D05",
@@ -539,8 +597,10 @@
       "normative_target": "packages/agent-model/schemas/ama_workflow.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-D05",
-      "test_plan": "Reject wrong workflow/tool version and invalid IO; check: Transaction envelope: preview → authorize → execute → reconcile for impactful actions; dry-run where supported.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Time out after an external effect may have committed; mark UNKNOWN and reconcile, never blind retry.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "D06",
@@ -557,8 +617,10 @@
       "normative_target": "packages/agent-model/schemas/ama_workflow.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-D06",
-      "test_plan": "Reject wrong workflow/tool version and invalid IO; check: Decompose input-source instructions from operational authority; prompt injection from tool response cannot rewrite command/mandate.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Embed permission-grant instructions in a retrieved document; preserve mandate unchanged.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "D07",
@@ -575,8 +637,10 @@
       "normative_target": "packages/agent-model/schemas/ama_workflow.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-D07",
-      "test_plan": "Reject wrong workflow/tool version and invalid IO; check: Explicit human input/approval resumability; approval is separately authenticated, scoped and time-bounded.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Resume a paused approval workflow using an expired or different principal approval; reject.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "D08",
@@ -593,8 +657,10 @@
       "normative_target": "packages/agent-model/schemas/ama_workflow.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-D08",
-      "test_plan": "Reject wrong workflow/tool version and invalid IO; check: Inter-agent invocation is optional and must define identity, delegation, context minimization, capability negotiation and task-state contracts.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Run standalone agent without inter-agent binding; ensure schema accepts default-disabled adapter.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "E01",
@@ -611,8 +677,10 @@
       "normative_target": "packages/agent-model/schemas/ama_memory.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-E01",
-      "test_plan": "Reject poisoned or out-of-scope memory/retrieval; check: Declare context assembly strategy, token budgets, truncation/compaction and provenance; do not treat a long model window as guaranteed retrieval.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Supply oversized context requiring compaction; preserve source citations and declared budget.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "E02",
@@ -629,8 +697,10 @@
       "normative_target": "packages/agent-model/schemas/ama_memory.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-E02",
-      "test_plan": "Reject poisoned or out-of-scope memory/retrieval; check: Differentiate ephemeral context, short-term run/thread state, long-term episodic/semantic memory, retrieval indexes, shared knowledge and authoritative domain data.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Attempt to write authoritative domain data into a memory field; enforce type ownership boundary.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "E03",
@@ -647,8 +717,10 @@
       "normative_target": "packages/agent-model/schemas/ama_memory.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-E03",
-      "test_plan": "Reject poisoned or out-of-scope memory/retrieval; check: Memory stores are typed, versioned, scoped, access-controlled, attributable and default disabled if not configured.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Enable persistent store without access scope or retention policy; reject activation.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "E04",
@@ -665,8 +737,10 @@
       "normative_target": "packages/agent-model/schemas/ama_memory.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-E04",
-      "test_plan": "Reject poisoned or out-of-scope memory/retrieval; check: Memory write admission, source trust rank, retention/expiry, revalidation, correction, deletion/erasure and poisoning defense.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Attempt untrusted memory write and expired retention; quarantine or reject and test deletion.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "E05",
@@ -683,8 +757,10 @@
       "normative_target": "packages/agent-model/schemas/ama_memory.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-E05",
-      "test_plan": "Reject poisoned or out-of-scope memory/retrieval; check: Retrieval quality checks: relevance, provenance, recency, contradictory claims, source access and no instruction injection.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Retrieve a stale contradictory record with hidden instructions; lower trust and prevent instruction execution.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "E06",
@@ -701,8 +777,10 @@
       "normative_target": "packages/agent-model/schemas/ama_memory.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-E06",
-      "test_plan": "Reject poisoned or out-of-scope memory/retrieval; check: Explicit context handoff and summarization with fidelity tests and privacy minimization.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Compact context and compare critical facts/source refs; fail on missing material obligations.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "E07",
@@ -719,8 +797,10 @@
       "normative_target": "packages/agent-model/schemas/ama_memory.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-E07",
-      "test_plan": "Reject poisoned or out-of-scope memory/retrieval; check: No learned/remembered statement can bypass a rule, tool permission or human decision.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Read memory claiming new tool permission; deny without independent mandate.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "F01",
@@ -737,8 +817,10 @@
       "normative_target": "packages/agent-model/schemas/ama_runtime.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-F01",
-      "test_plan": "Crash/replay run and verify legal transition/effect state; check: Separate session/conversation, task, run, step, event, approval, receipt and deployment identities.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Reuse an approval/receipt ID as a run ID; reject identity-type mismatch.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "F02",
@@ -755,8 +837,10 @@
       "normative_target": "packages/agent-model/schemas/ama_runtime.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-F02",
-      "test_plan": "Crash/replay run and verify legal transition/effect state; check: State machine with legal transitions, monotonic event history, optimistic concurrency/leases and cancellation.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Apply illegal lifecycle transition or stale concurrency revision; reject transition.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "F03",
@@ -773,8 +857,10 @@
       "normative_target": "packages/agent-model/schemas/ama_runtime.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-F03",
-      "test_plan": "Crash/replay run and verify legal transition/effect state; check: Checkpoints, resume, retry/replay boundaries, idempotency keys for external writes and dead-letter/reconciliation states.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Retry after checkpoint with same effect idempotency key; prevent duplicate side effect.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "F04",
@@ -791,8 +877,10 @@
       "normative_target": "packages/agent-model/schemas/ama_runtime.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-F04",
-      "test_plan": "Crash/replay run and verify legal transition/effect state; check: Effect execution and outcome uncertainty must be modeled explicitly: PREPARED/AUTHORIZED/EXECUTING/COMMITTED/UNKNOWN, as applicable.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Lose callback acknowledgment after remote action; enter explicit uncertain outcome state.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "F05",
@@ -809,8 +897,10 @@
       "normative_target": "packages/agent-model/schemas/ama_runtime.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-F05",
-      "test_plan": "Crash/replay run and verify legal transition/effect state; check: External effects cannot be assumed exactly-once merely because the workflow runner is durable. Use idempotent downstream APIs, transaction/outbox/saga/compensation when appropriate.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Call downstream non-idempotent endpoint twice; require reconciliation/compensation rather than exactly-once claim.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "F06",
@@ -827,8 +917,10 @@
       "normative_target": "packages/agent-model/schemas/ama_runtime.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-F06",
-      "test_plan": "Crash/replay run and verify legal transition/effect state; check: Crash recovery, worker fencing, lease expiry, backpressure, queue limits, poison task quarantine and bounded retries.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Simulate worker crash and expired lease; prevent stale worker effect and bound resumption.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "F07",
@@ -845,8 +937,10 @@
       "normative_target": "packages/agent-model/schemas/ama_runtime.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-F07",
-      "test_plan": "Crash/replay run and verify legal transition/effect state; check: Safe suspension/kill switch that prevents queued, running and resumed work from exceeding currently valid authority.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Suspend active version with queued work; all queued/resumed consequential attempts deny.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "F08",
@@ -863,8 +957,10 @@
       "normative_target": "packages/agent-model/schemas/ama_runtime.vNext.json",
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_id": "AMA-M0-F08",
-      "test_plan": "Crash/replay run and verify legal transition/effect state; check: Reproducible replay of **control events**, while accepting that stochastic model output may not reproduce byte-for-byte.",
-      "test_status": "NOT_IMPLEMENTED"
+      "test_plan": "Replay recorded control events; preserve event ordering and digests without demanding identical model text.",
+      "test_status": "NOT_IMPLEMENTED",
+      "expected_outcome": "ACCEPT_ALLOWED_CASE_AND_REJECT_OR_HOLD_SPECIFIED_NEGATIVE_CASE",
+      "test_state": "PLAN_ONLY_NOT_EXECUTED"
     },
     {
       "id": "G01",
@@ -1741,5 +1837,6 @@
     "ADOPT_OPTIONAL": 5,
     "HOST_BOUND": 2,
     "SOURCE_REVIEW_REQUIRED": 2
-  }
+  },
+  "test_plan_revision": "requirement-specific acceptance cases added; planned tests not executed"
 }
