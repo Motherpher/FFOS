@@ -19,11 +19,12 @@ export interface CDXPolicyDecision {
   outcome:CDXOutcome; decisionRef:string; policyPin:string;
   /** Only an independently authenticated adapter may assert these; never the model. */
   decisionAuthenticated?:boolean; spetlReceiptVerified?:boolean;
-  obligationsVerified?:boolean;
+  obligationsVerified?:boolean; trustedFactsDigest?:string;
   spetlReceiptRef:string; evaluatedTarget:string; evaluatedEffect:EffectClass;
 }
 export interface CDXPolicyPort {
   evaluate(request:CDXDecisionRequest):Promise<CDXPolicyDecision>;
+  assertStillCurrent?(request:CDXDecisionRequest,decision:CDXPolicyDecision):Promise<void>;
 }
 export interface CDXAnchorPort {
   assertPinned(expectedPolicyPin:string):Promise<void>;
@@ -129,6 +130,12 @@ export class AgentEffectGate {
     catch{throw new EffectDenied("CDX_ANCHOR_CHANGED_BEFORE_EFFECT");}
     try{await this.revocation.assertNotRevoked(context);}
     catch{throw new EffectDenied("REVOKED_BEFORE_EFFECT");}
+    if(this.policy.assertStillCurrent){
+      try{
+        await this.policy.assertStillCurrent(
+          {context,capabilityId,target,expectedPolicyPin:this.pin},d);
+      }catch{throw new EffectDenied("CDX_FACT_OR_POLICY_DRIFT_BEFORE_EFFECT");}
+    }
     let result:T;
     try{result=await perform();}
     catch(error){
