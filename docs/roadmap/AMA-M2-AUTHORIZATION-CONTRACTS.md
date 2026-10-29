@@ -48,3 +48,9 @@ Historical v1 schema, runtime gate and the M1 candidate contracts remain separat
 **M2 engineering pass conditions:** validation suite and all old regressions green; all schemas and TypeScript interfaces instance-free; fail-closed negative tests; no production migration or claimed runtime enforcement.
 
 **Remaining:** external authority service, actual policy/verifier revocation and controlled effects/read path (F8); durable races and effect uncertainty (M4); independent live evidence and acceptance (M5).
+
+## M2 extension — provider-neutral secret references
+
+`schemas/v0.2/secret-binding.schema.json` and `src/authorization-vnext.ts` now define optional, version-pinned secret bindings attached to exact agent and capability digests. The contract stores **opaque `ref:` pointers rather than secret material**, requires runtime injection, rotation/revocation checks, access audit and redaction, and prevents the credential scope exceeding the capability or agent mandate.
+
+`conformance/ama_support_profiles.py` tests structural and semantic continuity (including a credential-aware adapter), with adversarial cases in `tests/test_ama_support_profiles.py`. No provider is mandated and no real credential is read, rotated or revoked. These are separately host-enforced requirements; the M2 secret area is **partially implemented**, not operationally verified.
