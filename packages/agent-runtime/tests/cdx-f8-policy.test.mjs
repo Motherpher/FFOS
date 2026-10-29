@@ -210,3 +210,8 @@ test("F8.4: release or fact attestation fails at second verification",async()=>{
  f.state.releaseDown=true;
  await assert.rejects(()=>a.assertStillCurrent(r,d),/CDX PRE_RELEASE/);
 });
+
+test("F8.3: hidden obligations cannot be downgraded into unrestricted ALLOW",async()=>{
+ const f=await fixture();f.state.withObligations=true;
+ await deny(()=>f.make().evaluate(request()),"OBLIGATIONS_DOWNGRADED_TO_ALLOW");
+});
