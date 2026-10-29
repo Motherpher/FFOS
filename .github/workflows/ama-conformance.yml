@@ -54,6 +54,8 @@ jobs:
           node-version: "22"
       - name: Typed AMA execution-context guard tests
         run: node --experimental-strip-types --test packages/agent-model/src/index.test.mjs
+      - name: Parse candidate vNext TypeScript definitions
+        run: node --experimental-strip-types --input-type=module -e "await import('./packages/agent-model/src/vnext.ts')"
       - name: Install pinned PostgreSQL client
         run: npm install --no-save --prefix packages/agent-runtime pg@8.23.1 --ignore-scripts --no-audit --no-fund
       - name: Agent Stable guards and real PostgreSQL integration
