@@ -116,6 +116,16 @@ E0 observation can expose sensitive records. A set of individually allowed reads
 
 **F8 control requirement:** classified read admission, purpose and audience binding, taint labels, cross-boundary transfer controls, stateful risk accumulation, recipient-based egress checks and end-to-end trace evidence. This is an execution-control implementation requirement, not a reason to rename E0 universally.
 
+### 3.4 Trusted control selection and applicability
+
+The reference `POLICY/engine.py` selects controls by `context.surface` and accepts an optional `control_ids` filter. It denies when no applicable controls remain. However, **selecting an incomplete but non-empty subset is not equivalent to enforcing all mandatory controls**. The production adapter must obtain the applicable control set from the trusted policy/registry for the action, not from model-selected filter arguments.
+
+Some rules use `implies` on context flags such as `input_untrusted` or `external_effect`. If the classification flag is omitted or incorrectly asserted, the premise can evaluate false and a conditional rule may appear satisfied. **Required context completeness, type validation and classification provenance must be enforced before evaluating the rule**, not assumed from its boolean result.
+
+**F8 acceptance tests:** omit `input_untrusted`, change `surface`, select a harmless control subset, omit `external_effect`, or replay a stale policy binding; every affected consequential action must be held/denied until the trusted enforcement layer reconstructs the correct mandatory control set. Allow legitimate classified requests and measure false denial as well.
+
+This is an evidence-based *integration-security risk*, not a claim that the standalone reference engine is approved as a production API accepting arbitrary caller input.
+
 ## 4. F8 — Independent eighth stress question
 
 **F8 question:** *Can Conductellence demonstrably govern the identity, agency, behavior, data, tools, memory, external effects and accountability risks of AMA-constructed agents throughout their lifecycle, with independently verifiable local enforcement, while remaining subordinate to human authority and separate from AMA's universal template?*
