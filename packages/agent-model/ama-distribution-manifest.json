@@ -1,0 +1,72 @@
+{
+  "schema": "ama.distribution-manifest/v1",
+  "name": "AMA",
+  "artifact_kind": "ARCHITECTURE_SDK_CANDIDATE",
+  "architecture_version": "0.2.0-candidate",
+  "status": "ENGINEERING_CANDIDATE",
+  "not_an_agent": true,
+  "portable": true,
+  "domain_agnostic": true,
+  "legacy_contract": {
+    "path": "packages/agent-model/agent-manifest.schema.json",
+    "change_policy": "PRESERVE_V1"
+  },
+  "candidate_contracts": {
+    "directory": "packages/agent-model/schemas/v0.2",
+    "schema_dialect": "https://json-schema.org/draft/2020-12/schema",
+    "namespace": "https://ama.example/contracts/v0.2/",
+    "offline_resolvable": true
+  },
+  "interfaces": [
+    "manifest",
+    "workflow",
+    "command",
+    "capability",
+    "tool-adapter",
+    "task",
+    "effect",
+    "evidence",
+    "authorization",
+    "cognition",
+    "memory",
+    "durability",
+    "evaluation",
+    "operations"
+  ],
+  "required_assurance": [
+    "schema_integrity",
+    "reference_graph_closure",
+    "effect_ceiling_nonamplification",
+    "no_self_authorization",
+    "architecture_portability",
+    "migration_review",
+    "synthetic_negative_regression"
+  ],
+  "host_provided": [
+    "agent_identity",
+    "mandate",
+    "policy_authority",
+    "credentials",
+    "evidence_custody",
+    "runtime_host",
+    "deployment_control"
+  ],
+  "conformance": {
+    "validator": "packages/agent-model/conformance/ama_architecture_compatibility.py",
+    "boundary": "packages/agent-model/conformance/ama_architecture_boundary.py",
+    "ci": ".github/workflows/ama-conformance.yml",
+    "assurance_level": "STATIC_SYNTHETIC_NON_AUTHORIZING"
+  },
+  "adoption": {
+    "architecture_accepted": false,
+    "independent_review_required": true,
+    "agent_deployment_authorized": false
+  },
+  "excluded": [
+    "HOUSEHOLD",
+    "MESSI",
+    "CDX_WORK_PACKAGE_EXECUTOR",
+    "DOMAIN_PACKS",
+    "PRODUCTION_DEPLOYMENT"
+  ]
+}
