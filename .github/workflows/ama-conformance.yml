@@ -86,6 +86,11 @@ jobs:
         run: |
           python packages/agent-model/conformance/m6_emit_ci_candidate.py \
             --output "$RUNNER_TEMP/ama-m6-candidate-report.json"
+      - name: M7-E six-profile end-to-end synthetic reference engineering gate
+        run: |
+          python packages/agent-model/conformance/ama_m7_integration.py \
+            --preflight "$RUNNER_TEMP/ama-f8-preflight.json" \
+            --output-dir "$RUNNER_TEMP/ama-m7e"
       - name: Positive contract fixture
         run: |
           python packages/agent-model/conformance/ama_conformance.py \
@@ -101,4 +106,5 @@ jobs:
             ${{ runner.temp }}/ama-m5-candidate-report.json
             ${{ runner.temp }}/ama-f8-preflight.json
             ${{ runner.temp }}/ama-m6-candidate-report.json
+            ${{ runner.temp }}/ama-m7e/
           if-no-files-found: ignore
