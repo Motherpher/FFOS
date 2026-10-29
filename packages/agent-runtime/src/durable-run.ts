@@ -3,8 +3,9 @@
  * Consequential effects must still cross the existing AgentEffectGate.
  * A callback return is not proof of an external outcome or human acceptance.
  */
-import {randomUUID,createHash} from "node:crypto";
-import type {SqlPool,SqlClient,RuntimeReadinessVerifier} from "./stable-registry.ts";
+import {randomUUID} from "node:crypto";
+import {contentDigest} from "./stable-registry.ts";
+import type {SqlPool,SqlClient} from "./stable-registry.ts";
 import type {AMAExecutionContext} from "../../agent-model/src/index.ts";
 import type {AgentEffectGate} from "./effect-gate.ts";
 
@@ -40,7 +41,7 @@ export class DurableRunError extends Error {
   constructor(code:string){super("AMA M4 denied: "+code);this.code=code;this.name="DurableRunError";}
 }
 const required=(s:string)=>typeof s==="string"&&s.trim().length>0;
-const sha=(data:unknown)=>createHash("sha256").update(JSON.stringify(data)).digest("hex");
+const sha=(data:unknown)=>contentDigest(data);
 const ensure=(value:boolean,code:string):void=>{if(!value)throw new DurableRunError(code);};
 type RunRow={run_id:string;task_id:string;workflow_id:string;workflow_version:string;state:RunState;lease_owner:string|null;lease_epoch:string|number;
   lease_until:Date|null;cancel_requested:boolean;generation:string|number;agent_id:string;agent_version:string};
@@ -73,6 +74,25 @@ export class DurablePgCoordinator {
     await db.query("INSERT INTO ama_m4_events(event_id,run_id,event_type,state,lease_epoch,detail) VALUES($1,$2,$3,$4,$5,$6::jsonb)",
       [randomUUID(),runId,type,state,epoch,JSON.stringify(detail)]);
   }
+  private async verifiedCheckpoint(db:SqlClient,row:RunRow):
+    Promise<{generation:number;state:Record<string,unknown>}|null>{
+    const r=await db.query<{generation:string|number;state_data:Record<string,unknown>;state_sha256:string}>(
+      "SELECT generation,state_data,state_sha256 FROM ama_m4_checkpoints WHERE run_id=$1 ORDER BY generation DESC LIMIT 1",
+      [row.run_id]);
+    if(!r.rows.length){
+      ensure(Number(row.generation)===0,"CHECKPOINT_MISSING");
+      return null;
+    }
+    const cp=r.rows[0]!;
+    ensure(Number(cp.generation)===Number(row.generation)&&
+      cp.state_sha256===sha(cp.state_data),"CHECKPOINT_INTEGRITY");
+    return {generation:Number(cp.generation),state:cp.state_data};
+  }
+  /** Read persisted checkpoint only after digest and generation verification. */
+  async loadCheckpoint(runId:string):
+    Promise<{generation:number;state:Record<string,unknown>}|null>{
+    return this.tx(async db=>this.verifiedCheckpoint(db,await this.row(db,runId)));
+  }
   private async assertAdmitted(row:RunRow):Promise<void>{
     ensure(!!this.admission,"RUN_ADMISSION_NOT_BOUND");
     await this.admission!.assertAdmitted({
@@ -104,6 +124,7 @@ export class DurablePgCoordinator {
     return this.tx(async db=>{
       const row=await this.row(db,runId);
       await this.assertAdmitted(row);
+      await this.verifiedCheckpoint(db,row);
       ensure(["QUEUED","RUNNING"].includes(row.state)&&!row.cancel_requested,"RUN_NOT_CLAIMABLE");
       if(row.state==="RUNNING"&&row.lease_until&&row.lease_until.getTime()>Date.now())
         throw new DurableRunError("LEASE_BUSY");
