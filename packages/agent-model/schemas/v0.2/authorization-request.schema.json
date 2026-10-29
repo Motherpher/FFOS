@@ -75,6 +75,50 @@
         "TRUSTED_BOUNDARY",
         "UNTRUSTED_CONTENT"
       ]
+    },
+    "riskContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reversibility",
+        "impact",
+        "externalExposure",
+        "aggregateRead",
+        "financialAmountMinor"
+      ],
+      "properties": {
+        "reversibility": {
+          "enum": [
+            "REVERSIBLE",
+            "COMPENSATABLE",
+            "IRREVERSIBLE",
+            "UNKNOWN"
+          ]
+        },
+        "impact": {
+          "enum": [
+            "LOW",
+            "MODERATE",
+            "HIGH",
+            "CRITICAL",
+            "UNKNOWN"
+          ]
+        },
+        "externalExposure": {
+          "type": "boolean"
+        },
+        "aggregateRead": {
+          "type": "boolean"
+        },
+        "financialAmountMinor": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "currency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        }
+      }
     }
   },
   "required": [
@@ -95,7 +139,8 @@
     "recipientId",
     "purpose",
     "requestedAt",
-    "sourceTrust"
+    "sourceTrust",
+    "riskContext"
   ],
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://ama.example/contracts/v0.2/authorization-request.schema.json",
