@@ -64,3 +64,22 @@ Use a narrow, reversible **read-only** CDX WP inventory task before any mutation
 ## Completion definition
 
 AMA is *finished* only when Gates A–D produce independent evidence and a named human acceptance of a real bounded operation. WP execution can then be enabled per-work-package, not globally.
+
+
+## CORRECTION — Normative architecture/agent separation (2026-10-29)
+
+**Supersedes the mistaken objectives and definitions above wherever they characterize AMA as an agent, an executor, an actor, or a deployable operational agent.** AMA is the **Agent Master Architecture**, a generic reusable engineering and conformance architecture for constructing agents; it must remain domain-agnostic. No `AMA_OPERATIONAL_ACCEPTED` or `AMA_FIRST_CLASS_ACTIVATION` field may be interpreted as AMA itself being registered as an agent. M7-E/M7-O refer to architecture conformance and host runtime/instance acceptance evidence, not to a self-operating AMA actor.
+
+**Canonical intended dependency path:**
+
+1. **FFOS / Director / Agent Stable** — external authority, agent registry, shared host operations, Agent Mechanic as separately scoped maintenance/assurance function.
+2. **AMA** — universal agent build specification: manifests, modules, roles, commands/workflows, effect boundaries, cognition/memory options, durable runs, assurance, operational lifecycle and reusable conformance.
+3. **Household Family 2.0** — first narrowly scoped operational **agent built using AMA**, implemented as a ChatGPT-compatible MCP-facing service with durable orchestrator. Janitor, Handyman and Verifier are differentiated internal roles/workflows; never independently authorized or self-accepting agents. Director remains external.
+4. **Conductellence** — canonical security/constitutional authority and WP program. After Household is bounded, independently tested and authorized, Director may assign it specific CDX engineering/maintenance work packages; CDX cannot delegate constitutional decisions or independently accept its own changes. Household assists with **completion of CDX**, not AMA itself.
+5. **MESSI** — later, larger agent **also built from AMA**, after the necessary architecture and governance are operational. MESSI is not Household and is not AMA.
+
+**Execution-order nuance:** CDX's existing reference policy/contracts can govern early AMA/Household **development and synthetic tests** while production authorization is still fail-closed. This is distinct from full CDX release and consequential live effect permission. Work on Household must not be circularly blocked by demanding CDX estate-wide operational completion before non-production construction; conversely no unsafe live effects may be permitted until its actual runtime authorization gates are satisfied.
+
+**Replacement acceptance model:** AMA = architecture conformance and reusable build contracts; Household = concrete agent instance with bounded operational acceptance; CDX = independent policy/governance and work-package target; MESSI = subsequent AMA-built agent. The earlier paragraph 'First supervised pilot (once AMA M7-O accepted)' should be read as **first supervised Household pilot after Household instance acceptance under AMA and FFOS/CDX controls**, not AMA execution.
+
+**Do not use the erroneous earlier recommendation 'finish AMA as an operational FFOS agent' or 'AMA coordinates bounded work packages' as implementation guidance. The executor is Household, explicitly authorized by Director.**
