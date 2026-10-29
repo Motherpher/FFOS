@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "evidenceId",
+    "runId",
+    "kind",
+    "agentRef",
+    "sourceRef",
+    "contentDigest",
+    "correlationId",
+    "status"
+  ],
+  "properties": {
+    "schema": {
+      "const": "ama.evidence/v0.2-candidate"
+    },
+    "evidenceId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "runId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "kind": {
+      "enum": [
+        "DECISION",
+        "OBSERVATION",
+        "EFFECT_INTENT",
+        "EFFECT_OUTCOME",
+        "VERIFICATION"
+      ]
+    },
+    "agentRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "sourceRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "contentDigest": {
+      "$ref": "common.schema.json#/$defs/digest"
+    },
+    "correlationId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "OBSERVED",
+        "UNCERTAIN",
+        "BLOCKED",
+        "VERIFIED"
+      ]
+    },
+    "accepted": {
+      "const": false
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/evidence.schema.json",
+  "title": "AMA v0.2 candidate evidence contract"
+}
