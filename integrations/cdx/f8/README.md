@@ -4,6 +4,8 @@
 **Source contract:** CDX-RUNTIME-001, release-candidate 1.0.0, CDX-LAW-001  
 **Target:** FFOS's local Agent Stable effect/read boundary, separate from the universal AMA template.
 
+The F8 anchor is **mandatory in the FF_ESTATE operating realm** (Form & Flöde, subsidiaries and Pius). Outside that realm it can be explicitly detached for distribution, without detaching the universal M2 authority and mandate requirements. `realm-binding-policy.json` governs this distinction and the current AMA internal stewardship is declared at `packages/agent-model/ama-stewardship-realm.json`. A declared binding is not a verified production CDX connection.
+
 This directory contains the source-grounded F8.1 control matrix and F8.7 runtime-release preflight. It does **not** modify the upstream CDX constitutional or policy core.
 
 - `control-coverage.json`: 131 sections; 69 exactly mapped fully automatable reference controls, with original control IDs and SPETL/audit requirements; 62 other sections remain review-governed
