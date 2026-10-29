@@ -9,6 +9,8 @@ from pathlib import Path
 
 from ama_vnext import digest, validate_bundle
 from ama_milestone_integrity import load as milestone_integrity
+from ama_eventing import check_event_triggers
+from ama_support_profiles import check_secret_bindings, check_localization_profiles
 
 ROOT = Path(__file__).resolve().parents[3]
 MODEL = ROOT / "packages" / "agent-model"
@@ -35,8 +37,32 @@ def assemble(bundle, optional_modules=(), use_f8=False):
         if module not in allowed:
             problems.append("UNKNOWN_OR_NON_OPTIONAL_MODULE:" + str(module))
 
+    # Optional bundle records cannot silently evade the construction inventory.
+    configured = {
+        "knowledgeCatalogs": "knowledge",
+        "eventTriggers": "eventing",
+        "secretBindings": "secrets",
+        "localizationProfiles": "localization",
+        "memoryProfiles": "memory",
+        "retrievalPolicies": "retrieval",
+        "cognitiveBindings": "cognition",
+        "contextPolicies": "context",
+        "approvalEvents": "human-interaction",
+        "operationalProfiles": "operations",
+    }
+    implicitly_selected = {module for field, module in configured.items()
+                           if bundle.get(field) and module in allowed}
     selected = {x["id"] for x in rows if x["requirement"] == "CORE"}
     selected.update(x for x in requested if x in allowed)
+    selected.update(implicitly_selected)
+    for field, audit in (
+        ("eventTriggers", check_event_triggers),
+        ("secretBindings", check_secret_bindings),
+        ("localizationProfiles", check_localization_profiles),
+    ):
+        if bundle.get(field):
+            for err in audit(bundle)["errors"]:
+                problems.append(field + ":" + err)
     obligations = {}
     stage_summary = {}
     for stage in canonical["milestone_order"]:
@@ -71,7 +97,7 @@ def assemble(bundle, optional_modules=(), use_f8=False):
         "bundle_agent_id": bundle.get("agent", {}).get("agentId"),
         "architecture_stages": canonical["milestone_order"],
         "optional_host_integrations": ["F8_CDX"] if use_f8 else [],
-        "selected_optional_modules": sorted(set(x for x in requested if x in allowed)),
+        "selected_optional_modules": sorted((set(x for x in requested if x in allowed)) | implicitly_selected),
         "stages": stage_summary,
         "implementation_obligations": obligations,
         "status": "INVALID_SOURCE" if problems else "CONSTRUCTION_BLUEPRINT_CANDIDATE",
