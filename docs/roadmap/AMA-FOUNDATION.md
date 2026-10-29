@@ -130,3 +130,13 @@ The synthetic CI test harness does **not** certify live C4/C5 or promote agents;
 [M5 assurance specification](AMA-M5-INDEPENDENT-EVALUATION-ASSURANCE.md) · [M5 report](AMA-M5-EXECUTION-REPORT.md) · [combined CI baseline success 40835331056](https://github.com/Motherpher/FFOS/actions/runs/40835331056).
 
 Separate F8 identity/policy, independent verification of real final states, original oracle provenance, authorized human review and runtime deployment remain required. PR #19 stays draft.
+
+## F8 — Conductellence security and risk consumer integration (2026-10-29)
+
+**Development status:** F8.1–F8.6 candidate engineering and adversarial CI verified; F8.7 authentic CDX production release/runtime binding **blocked by upstream governance**.
+
+Source-grounded control coverage maps 131 CDX-LAW-001 sections to 69 reference controls and preserves 62 review-governed sections. The FFOS adapter adds independent policy/fact/attestation interfaces, complete mandatory control selection, exact seven-way decisions, verified obligations and SPETL v1.1 custody correlations, late authority-graph drift checks and a separate classified E0 read gate.
+
+[Architecture](AMA-F8-CDX-SECURITY-BINDING.md) · [Execution and release blockers](AMA-F8-EXECUTION-REPORT.md) · [GitHub Actions 40839505822](https://github.com/Motherpher/FFOS/actions/runs/40839505822) **SUCCESS**, 264 combined tests, source-matrix audit and machine-report upload.
+
+The authoritative CDX 1.0 source is `PRE_RELEASE`; FFOS remains `PINNED_COMMIT` and `BOUND_PENDING_RUNTIME_INTEGRATION`. No live production effects, independent operational evidence, release-state override or constitutional changes were made. M6 can continue as contract engineering only.
