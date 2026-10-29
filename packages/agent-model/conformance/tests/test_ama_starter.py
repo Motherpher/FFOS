@@ -12,7 +12,12 @@ from ama_vnext import validate_bundle
 
 def make(id="SYNTHETIC.ALPHA"):
     return starter(id, "Sample", "A synthetic scope-limited task",
-                   "synthetic/item", "SYNTHETIC.OWNER", "SYNTHETIC-START")
+                   "synthetic/item", "SYNTHETIC.OWNER", "SYNTHETIC-START",
+                   realm_id="EXTERNAL/SYNTHETIC", realm_category="EXTERNAL_CONSUMER",
+                   realm_owner_ref="SYNTHETIC.OWNER",
+                   policy_authority_ref="EXTERNAL:POLICY",
+                   security_anchor_ref="EXTERNAL:SECURITY",
+                   security_binding_mode="DETACHED_EXTERNAL")
 
 
 class StarterTests(unittest.TestCase):
@@ -20,6 +25,7 @@ class StarterTests(unittest.TestCase):
         bundle = make()
         self.assertEqual(validate_bundle(bundle), [])
         self.assertEqual(bundle["agent"]["lifecycleState"], "DRAFT")
+        self.assertEqual(bundle["operatingRealm"]["realmId"], "EXTERNAL/SYNTHETIC")
         self.assertEqual(bundle["toolAdapters"][0]["status"], "DRAFT")
         self.assertTrue(bundle["toolAdapters"][0]["credentialBindingRequired"])
         self.assertEqual(bundle["agent"]["modules"], [])
@@ -48,7 +54,10 @@ class StarterTests(unittest.TestCase):
     def test_external_authority_cannot_be_omitted(self):
         with self.assertRaises(ValueError):
             starter("SYNTHETIC.ALPHA", "Sample", "Task", "synthetic/item", "",
-                    "SYNTHETIC-START")
+                    "SYNTHETIC-START", realm_id="EXTERNAL/SYNTHETIC",
+                    realm_category="EXTERNAL_CONSUMER", realm_owner_ref="EXTERNAL.OWNER",
+                    policy_authority_ref="EXTERNAL:POLICY", security_anchor_ref="EXTERNAL:SECURITY",
+                    security_binding_mode="DETACHED_EXTERNAL")
 
 
 if __name__ == "__main__":
