@@ -28,3 +28,9 @@ Eight additional `schemas/v0.2/` contracts define versioned model, instruction, 
 Seven additional `schemas/v0.2/` schemas (run, step, attempt, checkpoint, effect-receipt, reconciliation and approval-event) make version-pinned execution and recovery records composable without changing v1 manifests. The independent `conformance/ama_durability.py` validator and `tests/test_m4_durability.py` check synthetic graph consistency. Portable TypeScript declarations are in `src/durable-vnext.ts`.
 
 Static eligibility never proves a remote effect or receipt authenticity. M4's PostgreSQL host coordinator is implemented separately in `agent-runtime`; production execution remains blocked pending external enforcement. [M4 specification](../../docs/roadmap/AMA-M4-DURABLE-EXECUTION-CONTRACTS.md).
+
+## AMA M5 — Evaluation and evidence assurance candidate
+
+Six additional `schemas/v0.2/` contracts define evaluation profiles, cases, observations, provenance, candidate reports and non-self-authorizing assessments. `src/evaluation-vnext.ts` mirrors the typed contracts; `conformance/ama_evaluation.py` calculates conservative multi-axis outcome/reliability/error/evidence metrics. `tests/test_m5_evaluation.py` covers synthetic adversarial and negative cases.
+
+**CI evaluations are synthetic, not independently certified.** The self-acceptance schemas reject activation and the evaluator always returns `independent_accepted=false`; real source/oracle attestation and production C4/C5 remain unproven. See [M5 assurance specification](../../docs/roadmap/AMA-M5-INDEPENDENT-EVALUATION-ASSURANCE.md).
