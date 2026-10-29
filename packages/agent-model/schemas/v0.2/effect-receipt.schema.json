@@ -10,7 +10,8 @@
     "observedAt",
     "evidenceDigest",
     "verifiedByRef",
-    "independentVerification"
+    "independentVerification",
+    "version"
   ],
   "properties": {
     "schema": {
@@ -49,6 +50,9 @@
     },
     "independentVerification": {
       "type": "boolean"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
     }
   },
   "$schema": "https://json-schema.org/draft/2020-12/schema",
