@@ -1,0 +1,150 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "agentId",
+    "agentVersion",
+    "amaVersion",
+    "name",
+    "purpose",
+    "mandate",
+    "authority",
+    "runtimeClass",
+    "lifecycleState",
+    "effectCeiling",
+    "workflowRefs",
+    "commandRefs",
+    "capabilityRefs",
+    "modules"
+  ],
+  "properties": {
+    "schema": {
+      "const": "ama.agent/v0.2-candidate"
+    },
+    "agentId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "agentVersion": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "amaVersion": {
+      "const": "0.2.0"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mandate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scope",
+        "nonGoals"
+      ],
+      "properties": {
+        "scope": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/scope"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "nonGoals": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "governingPrincipalRef",
+        "mandateRequired",
+        "selfApprovalProhibited",
+        "approvalMode"
+      ],
+      "properties": {
+        "governingPrincipalRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mandateRequired": {
+          "const": true
+        },
+        "selfApprovalProhibited": {
+          "const": true
+        },
+        "approvalMode": {
+          "enum": [
+            "INDEPENDENT",
+            "HUMAN_RESERVED"
+          ]
+        }
+      }
+    },
+    "runtimeClass": {
+      "enum": [
+        "REQUEST_RESPONSE",
+        "DURABLE_WORKER",
+        "SCHEDULED",
+        "EVENT_DRIVEN",
+        "COMPOSITE",
+        "HYBRID"
+      ]
+    },
+    "lifecycleState": {
+      "$ref": "common.schema.json#/$defs/life"
+    },
+    "effectCeiling": {
+      "$ref": "common.schema.json#/$defs/effect"
+    },
+    "workflowRefs": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/ref"
+      },
+      "minItems": 1
+    },
+    "commandRefs": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/ref"
+      },
+      "minItems": 1
+    },
+    "capabilityRefs": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/ref"
+      },
+      "minItems": 1
+    },
+    "modules": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/module"
+      }
+    },
+    "profileRefs": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/ref"
+      },
+      "default": []
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/agent.schema.json",
+  "title": "AMA v0.2 candidate agent contract"
+}
