@@ -13,14 +13,14 @@ from ama_blueprint import assemble
 TESTS = Path(__file__).resolve().parent / "tests"
 sys.path.insert(0, str(TESTS))
 from test_m1_contracts import fixture
-from test_ama_blueprint import complex_reference_bundle
+from test_ama_blueprint import complex_reference_bundle, attach_synthetic_external_realm
 
 
 def make(output_dir):
     output_dir.mkdir(parents=True, exist_ok=True)
     cases = {
-        "minimal": (fixture(), {}),
-        "complex": (complex_reference_bundle(), {
+        "minimal": (attach_synthetic_external_realm(fixture()), {}),
+        "complex": (attach_synthetic_external_realm(complex_reference_bundle()), {
             "at": "2026-10-29T12:00:00+00:00",
             "host_trust_domain": "synthetic",
         }),
@@ -30,7 +30,7 @@ def make(output_dir):
         "scope": "SYNTHETIC_CONSTRUCTION_ONLY",
         "architecture": "AMA",
         "stages": ["M0", "M1", "M2", "M3", "M4", "M5", "M6", "M7"],
-        "f8": "OPTIONAL_NOT_BOUND",
+        "f8": "REALM_CONDITIONAL_EXTERNAL_DETACHED_IN_SYNTHETIC_REFERENCES",
         "cases": {},
         "agent_registered": False,
         "agent_activated": False,
