@@ -11,6 +11,8 @@ export interface RuntimeAgentReader {
 }
 export interface CDXDecisionRequest {
   context:AMAExecutionContext; capabilityId:string; target:string; expectedPolicyPin:string;
+  readRecipientRef?:string; readPurposeRef?:string; readGrantRef?:string;
+  readClassification?:"PUBLIC"|"INTERNAL"|"CONFIDENTIAL"|"RESTRICTED";
 }
 export type CDXOutcome="ALLOW"|"ALLOW_WITH_CONTROLS"|"REQUIRE_HUMAN"|"QUARANTINE"|"DENY"|"SECURITY_STOP"|"CONSTITUTIONAL_STOP";
 export interface CDXPolicyDecision {
