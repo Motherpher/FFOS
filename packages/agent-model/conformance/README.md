@@ -45,3 +45,7 @@ The new `ama_vnext.py` validator reads only local schemas from `../schemas/v0.2/
 ## AMA M4 static durability preflight
 
 `ama_durability.py` checks cross-references for run/step/attempt/checkpoint and independent receipt/reconciliation declarations. It returns `STATIC_DURABILITY_ELIGIBLE` only for structurally consistent records; runtime_authorized and evidence_verified always remain false. PostgreSQL lease/fencing/idempotency recovery is tested independently by the runtime suite. [M4 specification](../../../docs/roadmap/AMA-M4-DURABLE-EXECUTION-CONTRACTS.md).
+
+## M5 evaluation candidate
+
+`ama_evaluation.py` checks pinned test/oracle/provenance chains, false-allow/false-deny rates, externally attested final-state coverage, ten axes, repeated-run variation, injection/outage/recovery coverage, holdout split, privacy redaction and cost/latency bounds. The model cannot self-certify. An attestor is an injected external port, mocked **only in CI**. `m5_emit_ci_candidate.py` produces an inspectable JSON report explicitly listing unresolved independent release gates. See [M5 assurance specification](../../../docs/roadmap/AMA-M5-INDEPENDENT-EVALUATION-ASSURANCE.md).
