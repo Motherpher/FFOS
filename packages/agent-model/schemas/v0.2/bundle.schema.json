@@ -159,6 +159,48 @@
         "$ref": "cognitive-binding.schema.json"
       },
       "maxItems": 1
+    },
+    "runs": {
+      "type": "array",
+      "items": {
+        "$ref": "run.schema.json"
+      }
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "$ref": "step.schema.json"
+      }
+    },
+    "attempts": {
+      "type": "array",
+      "items": {
+        "$ref": "attempt.schema.json"
+      }
+    },
+    "checkpoints": {
+      "type": "array",
+      "items": {
+        "$ref": "checkpoint.schema.json"
+      }
+    },
+    "effectReceipts": {
+      "type": "array",
+      "items": {
+        "$ref": "effect-receipt.schema.json"
+      }
+    },
+    "reconciliations": {
+      "type": "array",
+      "items": {
+        "$ref": "reconciliation.schema.json"
+      }
+    },
+    "approvalEvents": {
+      "type": "array",
+      "items": {
+        "$ref": "approval-event.schema.json"
+      }
     }
   },
   "$schema": "https://json-schema.org/draft/2020-12/schema",
