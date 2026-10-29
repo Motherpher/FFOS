@@ -49,3 +49,7 @@ The new `ama_vnext.py` validator reads only local schemas from `../schemas/v0.2/
 ## M5 evaluation candidate
 
 `ama_evaluation.py` checks pinned test/oracle/provenance chains, false-allow/false-deny rates, externally attested final-state coverage, ten axes, repeated-run variation, injection/outage/recovery coverage, holdout split, privacy redaction and cost/latency bounds. The model cannot self-certify. An attestor is an injected external port, mocked **only in CI**. `m5_emit_ci_candidate.py` produces an inspectable JSON report explicitly listing unresolved independent release gates. See [M5 assurance specification](../../../docs/roadmap/AMA-M5-INDEPENDENT-EVALUATION-ASSURANCE.md).
+
+## M6 operational preflight
+
+`ama_operations.py` statically validates operational version compatibility, monitoring thresholds, independent evidence ports, incidents, canary limits and rollback/release proposals. `m6_emit_ci_candidate.py` publishes a **synthetic candidate report only**. No static result may grant production deployment or release; real monitoring and independent acceptance are pending. See [M6 architecture](../../../docs/roadmap/AMA-M6-OPERATIONAL-LIFECYCLE-CONTRACTS.md).
