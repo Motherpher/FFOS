@@ -8,7 +8,8 @@
     "requestRef",
     "state",
     "evidenceRef",
-    "occurredAt"
+    "occurredAt",
+    "version"
   ],
   "properties": {
     "schema": {
@@ -41,6 +42,9 @@
     "occurredAt": {
       "type": "string",
       "format": "date-time"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
     }
   },
   "$schema": "https://json-schema.org/draft/2020-12/schema",
