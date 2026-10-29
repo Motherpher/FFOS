@@ -6,6 +6,18 @@
 **Runtime source:** `RUNTIME-INTEGRATION/CDX-RUNTIME-001.json` (release-candidate 1.0.0)  
 **Candidate status:** F8 consumer adapter engineering; no CDX constitutional amendment, no verified production binding.
 
+## Operating-realm binding — mandatory internally, detachable externally
+
+**AMA stewardship:** Form & Flöde's internal environment (including controlled subsidiaries and Pius) is represented by the `FF_ESTATE` realm in `packages/agent-model/ama-stewardship-realm.json`. AMA as a maintained engineering artifact is subject to a declared Conductellence governance anchor. This is a governance declaration; the current runtime remains unverified.
+
+**Every internal agent:** any agent built for `FF_ESTATE` or its sub-realms must declare its operating realm and bind to the F8 Conductellence authority interface. An internal agent may not classify itself as an external consumer to detach the binding, nor may it silently replace CDX as its governing policy authority. The binding is mandatory by realm, including for internal read-only agents; actual enforcement checks depend on the operation and data classification.
+
+**External AMA distribution:** the comprehensive universal template may be copied without the FF-specific CDX adapter, but the receiving organization must explicitly declare its own realm, accountable principal and policy/security binding. Disconnecting F8 never removes universal M2 authorization, evidence, effect boundaries or owner acceptance.
+
+**Separation of conditions:** a correct internal F8 declaration is not equivalent to a live verified CDX binding. F8.7 production activation remains subject to the upstream CDX release, signed policy, estate bindings, effect/read enforcement and evidence custody. Generic M7-A architecture baseline assessment still does not require live host integration.
+
+Canonical source: `integrations/cdx/f8/realm-binding-policy.json`; schema: `packages/agent-model/schemas/v0.2/operating-realm.schema.json`; validator: `packages/agent-model/conformance/ama_realm.py`.
+
 ## Authoritative source reconciliation
 
 The source repository `GOVERNANCE/system-state.json` observed 29 October 2026 reports:
