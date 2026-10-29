@@ -8,7 +8,7 @@
 
 An AMA user should be able to specify an agent using a complete configuration, choose optional functions, attach interchangeable host services, generate a validated agent blueprint and obtain an explicit inventory of missing implementation obligations **before** writing domain-specific code. A manifest is not enough; the template must cover design, tooling, behavior, governance, runtime integration, operation, evaluation and retirement.
 
-**The authoritative architecture is M0–M7, with optional CDX track F8.** The existing 32-module inventory at `packages/agent-model/ama-template-coverage.json` is a supplementary *coverage lens mapped into M1–M6*, not a new workstream or replacement for the 96-requirement register. Every listed module records its primary milestone and current contract status. The stage map is `packages/agent-model/ama-milestones.json`. **PARTIAL_EXISTING_CONTRACTS is not COMPLETE**. Template work must fill absent contracts rather than declaring completion by adding this inventory.
+**The authoritative architecture is M0–M7, with F8 as a realm-conditional CDX governance anchor: mandatory within Form & Flöde's estate and detachable for external users.** The existing 32-module inventory at `packages/agent-model/ama-template-coverage.json` is a supplementary *coverage lens mapped into M1–M6*, not a new workstream or replacement for the 96-requirement register. Every listed module records its primary milestone and current contract status. The stage map is `packages/agent-model/ama-milestones.json`. **PARTIAL_EXISTING_CONTRACTS is not COMPLETE**. Template work must fill absent contracts rather than declaring completion by adding this inventory.
 
 ## Practical agent construction process within M0–M7
 
@@ -54,7 +54,7 @@ Continue the existing M1–M6 engineering work to complete the unimplemented mod
 
 ## Construction tool (M7 reference implementation)
 
-`packages/agent-model/conformance/ama_blueprint.py` accepts an **existing M1 v0.2 bundle** and emits a non-executing blueprint organized by M0–M7. It reports obligations for selected core/optional modules and accepts `--f8-cdx` only when the agent's eventual host needs CDX binding. The tool reuses `ama_vnext.validate_bundle`; it does **not** replace M1 schemas, instantiate an agent, select a policy provider or deploy an agent.
+`packages/agent-model/conformance/ama_blueprint.py` accepts an **existing M1 v0.2 bundle** and emits a non-executing blueprint organized by M0–M7. It reports obligations for selected core/optional modules and requires an explicit operating-realm declaration on each new construction package. F8 is automatically required inside the FF estate; an external consumer may detach it and declare an alternative policy authority. The tool reuses `ama_vnext.validate_bundle`; it does **not** replace M1 schemas, instantiate an agent, select a policy provider or deploy an agent.
 
 Example: `python packages/agent-model/conformance/ama_blueprint.py path/to/agent-bundle.json --optional memory --output blueprint.json`.
 
