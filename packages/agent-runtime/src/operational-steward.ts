@@ -130,10 +130,10 @@ export class PgOperationalSteward {
     [input.agentId,input.agentVersion]);
    let effects=0;
    for(const run of runs.rows){
-    const unsettled=await db.query<{n:string}>(
-      "SELECT count(*)::text AS n FROM ama_m4_effects WHERE run_id=$1 AND state IN ('PREPARED','DISPATCHED','UNKNOWN') FOR UPDATE",
+    const unsettled=await db.query<{effect_id:string}>(
+      "SELECT effect_id FROM ama_m4_effects WHERE run_id=$1 AND state IN ('PREPARED','DISPATCHED','UNKNOWN') FOR UPDATE",
       [run.run_id]);
-    const count=Number(unsettled.rows[0]?.n??0);effects+=count;
+    const count=unsettled.rows.length;effects+=count;
     if(count)await db.query("UPDATE ama_m4_effects SET state='UNKNOWN',updated_at=now() WHERE run_id=$1 AND state IN ('PREPARED','DISPATCHED')",[run.run_id]);
     const state=count||run.state==="HOLD"?"HOLD":"CANCELLED",epoch=Number(run.lease_epoch)+1;
     await db.query("UPDATE ama_m4_runs SET state=$2,cancel_requested=true,lease_epoch=$3,lease_owner=NULL,lease_until=NULL,updated_at=now() WHERE run_id=$1",
