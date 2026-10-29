@@ -1,0 +1,107 @@
+{
+  "schema": "ama.m0.test-evidence-bridge/v1",
+  "architecture": "AMA",
+  "source_register": "docs/roadmap/AMA-REQUIREMENTS-DECISION-REGISTER.json",
+  "status": "PARTIAL_EVIDENCE_ONLY_NOT_REQUIREMENT_ACCEPTANCE",
+  "assertion_basis": "TEST_FUNCTION_EXISTS_NOT_FULL_REQUIREMENT_PROOF",
+  "entries": [
+    {
+      "requirement_id": "A01",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m1_contracts.py",
+      "test_functions": [
+        "test_cross_agent_owner_denied",
+        "test_unregistered_workflow_denied"
+      ]
+    },
+    {
+      "requirement_id": "A02",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m1_contracts.py",
+      "test_functions": [
+        "test_mutated_definition_with_old_digest_fails",
+        "test_stale_version_denied"
+      ]
+    },
+    {
+      "requirement_id": "D01",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m1_contracts.py",
+      "test_functions": [
+        "test_unregistered_workflow_denied",
+        "test_stale_version_denied"
+      ]
+    },
+    {
+      "requirement_id": "D02",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m1_contracts.py",
+      "test_functions": [
+        "test_workflow_cycle_denied",
+        "test_unreachable_step_denied",
+        "test_nonterminal_deadend_denied"
+      ]
+    },
+    {
+      "requirement_id": "E01",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m3_cognitive.py",
+      "test_functions": [
+        "test_context_over_model_budget_denied",
+        "test_compaction_critical_facts_cannot_silently_disappear"
+      ]
+    },
+    {
+      "requirement_id": "E02",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m3_cognitive.py",
+      "test_functions": [
+        "test_memory_cannot_become_authoritative_data"
+      ]
+    },
+    {
+      "requirement_id": "E03",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m3_cognitive.py",
+      "test_functions": [
+        "test_enabled_memory_without_policy_denied",
+        "test_disabled_memory_rejected_even_with_profile"
+      ]
+    },
+    {
+      "requirement_id": "E04",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m3_cognitive.py",
+      "test_functions": [
+        "test_memory_untrusted_tool_requires_quarantine",
+        "test_memory_retention_limit"
+      ]
+    },
+    {
+      "requirement_id": "E05",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m3_knowledge.py",
+      "test_functions": [
+        "test_stale_data_cannot_be_admitted",
+        "test_source_instructions_cannot_be_promoted"
+      ]
+    },
+    {
+      "requirement_id": "E06",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m3_cognitive.py",
+      "test_functions": [
+        "test_compaction_critical_facts_cannot_silently_disappear"
+      ]
+    },
+    {
+      "requirement_id": "E07",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m3_cognitive.py",
+      "test_functions": [
+        "test_memory_entry_authority_is_prohibited_in_schema",
+        "test_memory_unauthorized_scope_at_retrieval"
+      ]
+    }
+  ]
+}
