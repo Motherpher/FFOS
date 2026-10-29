@@ -120,13 +120,13 @@ const surfaces=(effect:string):readonly CDXSurface[]=>{
 };
 export class CDXF8VerifiedAdapter implements CDXPolicyPort {
  constructor(
-  private readonly catalogue:CDXControlIndex|null,
-  private readonly facts:F8FactSource|null,
-  private readonly trust:F8TrustVerifier|null,
-  private readonly release:F8ReleasedPolicy|null,
-  private readonly service:F8PolicyService|null,
-  private readonly obligations:F8ObligationVerifier|null,
-  private readonly custody:F8CustodyVerifier|null,
+  catalogue:CDXControlIndex|null,
+  facts:F8FactSource|null,
+  trust:F8TrustVerifier|null,
+  release:F8ReleasedPolicy|null,
+  service:F8PolicyService|null,
+  obligations:F8ObligationVerifier|null,
+  custody:F8CustodyVerifier|null,
  ){}
  async evaluate(req:CDXDecisionRequest):Promise<CDXPolicyDecision>{
   must(!!this.catalogue&&!!this.facts&&!!this.trust&&!!this.release&&
