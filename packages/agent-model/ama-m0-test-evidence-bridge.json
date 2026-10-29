@@ -24,6 +24,176 @@
       ]
     },
     {
+      "requirement_id": "A03",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m1_contracts.py",
+      "test_functions": [
+        "test_missing_required_authority_contract_denied"
+      ]
+    },
+    {
+      "requirement_id": "A05",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m1_contracts.py",
+      "test_functions": [
+        "test_migration_never_automatically_activates"
+      ]
+    },
+    {
+      "requirement_id": "B01",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m2_authorization.py",
+      "test_functions": [
+        "test_mandate_expired",
+        "test_mandate_revoked"
+      ]
+    },
+    {
+      "requirement_id": "B02",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m2_authorization.py",
+      "test_functions": [
+        "test_delegation_grants_cannot_amplify"
+      ]
+    },
+    {
+      "requirement_id": "B03",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_ama_support_profiles.py",
+      "test_functions": [
+        "test_secret_pointer_not_material_and_never_verified"
+      ]
+    },
+    {
+      "requirement_id": "B04",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m2_authorization.py",
+      "test_functions": [
+        "test_policy_pin_mismatch",
+        "test_policy_decision_expired"
+      ]
+    },
+    {
+      "requirement_id": "B05",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m2_authorization.py",
+      "test_functions": [
+        "test_sensitive_e0_not_safe_by_effect_class",
+        "test_unauthorized_observation_recipient"
+      ]
+    },
+    {
+      "requirement_id": "B06",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m2_authorization.py",
+      "test_functions": [
+        "test_high_impact_read_needs_human_review",
+        "test_fiscal_exposure_needs_currency_and_review"
+      ]
+    },
+    {
+      "requirement_id": "B07",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m2_authorization.py",
+      "test_functions": [
+        "test_self_approval_denied",
+        "test_e0_human_review_obligation"
+      ]
+    },
+    {
+      "requirement_id": "B08",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m2_authorization.py",
+      "test_functions": [
+        "test_mandate_revoked",
+        "test_missing_policy_decision_is_fail_closed"
+      ]
+    },
+    {
+      "requirement_id": "B09",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m2_authorization.py",
+      "test_functions": [
+        "test_principal_tenant_confusion"
+      ]
+    },
+    {
+      "requirement_id": "B10",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m2_authorization.py",
+      "test_functions": [
+        "test_policy_deny_never_survives_precheck",
+        "test_ambiguous_policy_decisions_are_fail_closed"
+      ]
+    },
+    {
+      "requirement_id": "C01",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m3_cognitive.py",
+      "test_functions": [
+        "test_stale_model_pin_rejected"
+      ]
+    },
+    {
+      "requirement_id": "C02",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m3_cognitive.py",
+      "test_functions": [
+        "test_instruction_substitution_denied",
+        "test_instruction_role_cannot_assume_system_priority"
+      ]
+    },
+    {
+      "requirement_id": "C03",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m3_cognitive.py",
+      "test_functions": [
+        "test_minimal_agent_needs_no_reasoning_or_memory"
+      ]
+    },
+    {
+      "requirement_id": "C04",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m3_cognitive.py",
+      "test_functions": [
+        "test_plan_cycle_denied",
+        "test_unadmitted_plan_tool_denied"
+      ]
+    },
+    {
+      "requirement_id": "C05",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m3_cognitive.py",
+      "test_functions": [
+        "test_bounded_budget_requests_stop",
+        "test_mandatory_stop_conditions_are_not_optional"
+      ]
+    },
+    {
+      "requirement_id": "C06",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m3_cognitive.py",
+      "test_functions": [
+        "test_static_checks_cannot_prove_source_truth"
+      ]
+    },
+    {
+      "requirement_id": "C07",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m5_evaluation.py",
+      "test_functions": [
+        "test_static_profile_cannot_self_claim_live_acceptance"
+      ]
+    },
+    {
+      "requirement_id": "C08",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m3_cognitive.py",
+      "test_functions": [
+        "test_unpinned_model_fallback_substitution_denied"
+      ]
+    },
+    {
       "requirement_id": "D01",
       "relation": "PARTIAL_TEST_EVIDENCE",
       "test_file": "packages/agent-model/conformance/tests/test_m1_contracts.py",
@@ -40,6 +210,56 @@
         "test_workflow_cycle_denied",
         "test_unreachable_step_denied",
         "test_nonterminal_deadend_denied"
+      ]
+    },
+    {
+      "requirement_id": "D03",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m1_contracts.py",
+      "test_functions": [
+        "test_capability_outside_mandate_denied",
+        "test_adapter_effect_mismatch_denied"
+      ]
+    },
+    {
+      "requirement_id": "D04",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m1_contracts.py",
+      "test_functions": [
+        "test_invalid_io_schema_denied",
+        "test_external_io_schema_reference_rejected"
+      ]
+    },
+    {
+      "requirement_id": "D05",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m4_durability.py",
+      "test_functions": [
+        "test_reconciliation_without_receipt_fails"
+      ]
+    },
+    {
+      "requirement_id": "D06",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m2_authorization.py",
+      "test_functions": [
+        "test_untrusted_content_cannot_claim_authority"
+      ]
+    },
+    {
+      "requirement_id": "D07",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m2_authorization.py",
+      "test_functions": [
+        "test_separate_human_approval_is_only_claim"
+      ]
+    },
+    {
+      "requirement_id": "D08",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m2_authorization.py",
+      "test_functions": [
+        "test_delegation_grants_cannot_amplify"
       ]
     },
     {
@@ -101,6 +321,236 @@
       "test_functions": [
         "test_memory_entry_authority_is_prohibited_in_schema",
         "test_memory_unauthorized_scope_at_retrieval"
+      ]
+    },
+    {
+      "requirement_id": "F01",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m4_durability.py",
+      "test_functions": [
+        "test_wrong_agent_digest_fails",
+        "test_wrong_run_on_receipt_denied"
+      ]
+    },
+    {
+      "requirement_id": "F03",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m4_durability.py",
+      "test_functions": [
+        "test_reconciliation_without_receipt_fails"
+      ]
+    },
+    {
+      "requirement_id": "F04",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m4_durability.py",
+      "test_functions": [
+        "test_consistent_receipt_run_graph"
+      ]
+    },
+    {
+      "requirement_id": "F06",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m4_durability.py",
+      "test_functions": [
+        "test_future_fence_denied"
+      ]
+    },
+    {
+      "requirement_id": "F07",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m6_operations.py",
+      "test_functions": [
+        "test_canary_stop_for_revocation"
+      ]
+    },
+    {
+      "requirement_id": "F08",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m7e_integration.py",
+      "test_functions": [
+        "test_evidence_is_repeatable_and_pinned"
+      ]
+    },
+    {
+      "requirement_id": "G03",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m3_cognitive.py",
+      "test_functions": [
+        "test_memory_untrusted_tool_requires_quarantine"
+      ]
+    },
+    {
+      "requirement_id": "G07",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m3_cognitive.py",
+      "test_functions": [
+        "test_memory_retention_limit",
+        "test_expired_memory_must_not_remain_active"
+      ]
+    },
+    {
+      "requirement_id": "G08",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m6_operations.py",
+      "test_functions": [
+        "test_unverified_high_severity_incident_blocks_release"
+      ]
+    },
+    {
+      "requirement_id": "G10",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m2_authorization.py",
+      "test_functions": [
+        "test_model_forged_policy_decider"
+      ]
+    },
+    {
+      "requirement_id": "H01",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m5_evaluation.py",
+      "test_functions": [
+        "test_clean_synthetic_suite_reports_candidate_only"
+      ]
+    },
+    {
+      "requirement_id": "H03",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m5_evaluation.py",
+      "test_functions": [
+        "test_wrong_final_state_fails"
+      ]
+    },
+    {
+      "requirement_id": "H04",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m5_evaluation.py",
+      "test_functions": [
+        "test_inconsistent_repetition_is_blocker"
+      ]
+    },
+    {
+      "requirement_id": "H06",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m5_evaluation.py",
+      "test_functions": [
+        "test_injection_mislabel_denied"
+      ]
+    },
+    {
+      "requirement_id": "H07",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m5_evaluation.py",
+      "test_functions": [
+        "test_latency_and_cost_limits"
+      ]
+    },
+    {
+      "requirement_id": "H08",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m5_evaluation.py",
+      "test_functions": [
+        "test_missing_axis_denies_even_with_good_other_results"
+      ]
+    },
+    {
+      "requirement_id": "H09",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m5_evaluation.py",
+      "test_functions": [
+        "test_provenance_content_tampering_denies"
+      ]
+    },
+    {
+      "requirement_id": "I03",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m4_durability.py",
+      "test_functions": [
+        "test_receipt_without_independent_proof_fails"
+      ]
+    },
+    {
+      "requirement_id": "I04",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m5_evaluation.py",
+      "test_functions": [
+        "test_provenance_content_tampering_denies"
+      ]
+    },
+    {
+      "requirement_id": "I08",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m4_durability.py",
+      "test_functions": [
+        "test_reconciliation_without_receipt_fails",
+        "test_receipt_digest_mismatch_fails"
+      ]
+    },
+    {
+      "requirement_id": "J01",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m6_operations.py",
+      "test_functions": [
+        "test_health_threshold_failure",
+        "test_missing_signal_fails_closed"
+      ]
+    },
+    {
+      "requirement_id": "J02",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m3_cognitive.py",
+      "test_functions": [
+        "test_bounded_budget_requests_stop"
+      ]
+    },
+    {
+      "requirement_id": "J05",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m6_operations.py",
+      "test_functions": [
+        "test_no_self_approval_schema",
+        "test_canary_size_exceeds_policy"
+      ]
+    },
+    {
+      "requirement_id": "J06",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m6_operations.py",
+      "test_functions": [
+        "test_incident_cannot_self_close"
+      ]
+    },
+    {
+      "requirement_id": "K04",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m1_contracts.py",
+      "test_functions": [
+        "test_invalid_io_schema_denied",
+        "test_missing_local_io_schema_pointer_rejected"
+      ]
+    },
+    {
+      "requirement_id": "K07",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m6_operations.py",
+      "test_functions": [
+        "test_protocol_dependency_is_conditional"
+      ]
+    },
+    {
+      "requirement_id": "L04",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m5_evaluation.py",
+      "test_functions": [
+        "test_static_profile_cannot_self_claim_live_acceptance"
+      ]
+    },
+    {
+      "requirement_id": "L05",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_m2_authorization.py",
+      "test_functions": [
+        "test_e0_human_review_obligation"
       ]
     }
   ]
