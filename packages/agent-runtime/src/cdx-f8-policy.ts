@@ -26,7 +26,7 @@ function must(ok:unknown,code:string):asserts ok{
 }
 export type CDXSurface=
  "AUTHORITY"|"IDENTITY_AUTHORITY"|"CAPABILITY_DELEGATION"|"BOUNDARY"|
- "MODEL_AGENT"|"TOOL_CONNECTOR"|"RUNTIME_AUTH"|"EXTERNAL_EFFECT"|"EVIDENCE";
+ "MODEL_AGENT"|"TOOL_CONNECTOR"|"RUNTIME_AUTH"|"EXTERNAL_EFFECT"|"EVIDENCE"|"DATA"|"CONTENT_MEMORY";
 export interface CDXExpectedControl {
  control_id:string;section_id:string;enforcement_surface:string;decision_on_fail:string;
  evidence_requirements:readonly string[];
@@ -66,6 +66,7 @@ export interface F8TrustedFacts {
  agentId:string;effectClass:string;target:string;policyPin:string;
  dataClassification:"PUBLIC"|"INTERNAL"|"CONFIDENTIAL"|"RESTRICTED";
  sourceIdentityRef:string;sourceAttestationRef:string;
+ recipientRef?:string;purposeRef?:string;dataGrantRef?:string;
  pathHistoryDigest:string;authorityGraphDigest:string;trustDomain:string;
  observationRef:string;
 }
@@ -111,6 +112,9 @@ export interface F8CustodyVerifier {
  ):Promise<{receiptRef:string;runId:string;policyDigest:string;custodyRef:string}>;
 }
 const surfaces=(effect:string):readonly CDXSurface[]=>{
+ if(effect==="E0_OBSERVE")return [
+  "AUTHORITY","IDENTITY_AUTHORITY","CAPABILITY_DELEGATION","BOUNDARY",
+  "DATA","CONTENT_MEMORY","RUNTIME_AUTH","EVIDENCE"];
  const base:CDXSurface[]=[
   "AUTHORITY","IDENTITY_AUTHORITY","CAPABILITY_DELEGATION","BOUNDARY",
   "MODEL_AGENT","TOOL_CONNECTOR","RUNTIME_AUTH","EVIDENCE"
@@ -126,6 +130,7 @@ export class CDXF8VerifiedAdapter implements CDXPolicyPort {
  readonly service:F8PolicyService|null;
  readonly obligations:F8ObligationVerifier|null;
  readonly custody:F8CustodyVerifier|null;
+ readonly readOnly:boolean;
  constructor(
   catalogue:CDXControlIndex|null,
   facts:F8FactSource|null,
@@ -134,6 +139,7 @@ export class CDXF8VerifiedAdapter implements CDXPolicyPort {
   service:F8PolicyService|null,
   obligations:F8ObligationVerifier|null,
   custody:F8CustodyVerifier|null,
+  readOnly=false,
  ){
   this.catalogue=catalogue;
   this.facts=facts;
@@ -142,6 +148,7 @@ export class CDXF8VerifiedAdapter implements CDXPolicyPort {
   this.service=service;
   this.obligations=obligations;
   this.custody=custody;
+  this.readOnly=readOnly;
  }
  async evaluate(req:CDXDecisionRequest):Promise<CDXPolicyDecision>{
   must(!!this.catalogue&&!!this.facts&&!!this.trust&&!!this.release&&
@@ -153,7 +160,7 @@ export class CDXF8VerifiedAdapter implements CDXPolicyPort {
     required(req.context.principalRef)&&required(req.context.authorityRef)&&
     required(req.context.mandateRef)&&required(req.capabilityId)&&required(req.target),
     "IDENTITY_OR_MANDATE_MISSING");
-  must(req.context.requestedEffect!=="E0_OBSERVE"&&
+  must((req.context.requestedEffect!=="E0_OBSERVE"||this.readOnly)&&
        req.context.requestedEffect!=="E4_AUTHORITY_CHANGE",
        "SEPARATE_READ_OR_AUTHORITY_GATE_REQUIRED");
   await this.release!.assertReleasedAndBound(req.expectedPolicyPin);
@@ -171,6 +178,9 @@ export class CDXF8VerifiedAdapter implements CDXPolicyPort {
       required(facts.trustDomain)&&required(facts.observationRef)&&
       ["PUBLIC","INTERNAL","CONFIDENTIAL","RESTRICTED"].includes(facts.dataClassification),
       "TRUSTED_FACT_BINDING_MISMATCH");
+  if(req.context.requestedEffect==="E0_OBSERVE")
+    must(required(facts.recipientRef)&&required(facts.purposeRef)&&
+         required(facts.dataGrantRef),"CLASSIFIED_READ_GRANT_MISSING");
   await this.trust!.assertFacts(facts);
   // No agent-supplied surface, controls or external-effect classifier is accepted.
   const requiredSurfaces=surfaces(req.context.requestedEffect);
@@ -186,7 +196,7 @@ export class CDXF8VerifiedAdapter implements CDXPolicyPort {
     });
     must(!!r&&r.surface===surface&&r.contextDigest===contextDigest&&
          r.policyDigest===req.expectedPolicyPin&&
-         required(r.policyVersion)&&required(r.decisionRef)&&required(r.signatureRef)&&
+         r.policyVersion==="1.0.0"&&required(r.decisionRef)&&required(r.signatureRef)&&
          rank.has(r.decision)&&Array.isArray(r.controlResults)&&
          Array.isArray(r.obligationRefs),
          "POLICY_RESULT_UNBOUND");
