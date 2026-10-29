@@ -1,0 +1,867 @@
+{
+  "audit": "HARP source identification, full reading of applicable sources, attribution, applicability and contradiction review",
+  "access_date": "2026-10-28",
+  "sources": [
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": ".github/workflows/ffos-household.yml",
+      "git_blob_sha": "d7b4630e4e26f09e1bac7fff7cf83dde94015141",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "5e8237e5d824e0344010837b8e75cb1f18dca908d9278a4ac5ecc1850091462d",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/.github/workflows/ffos-household.yml",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "00-governance/object-state-and-authority-grammar.md",
+      "git_blob_sha": "f3a6f1aaa5c040566b8747c93f803bede1ea3256",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "596e0105a0176fb8bd2fbfbff67a9094c1ea3f22ed19fb31d768d14ff441787d",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/00-governance/object-state-and-authority-grammar.md",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/director/wp-manifest.json",
+      "git_blob_sha": "498d191c02d5f8df6e178bc5d1d8462bdf11cbb9",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "00a591592d8d997890cde743c2d8499b69bd1d3b46720cf55d42d6dffbdb1dcf",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/director/wp-manifest.json",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/household/README.md",
+      "git_blob_sha": "44496b84460520326afbbac07de43a408c4bcde5",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "4c4f384d99df845a37dcfb77866d66da861bf6ed12c861458e1d7aa1a10332dd",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/household/README.md",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/household/exceptions.json",
+      "git_blob_sha": "74d37bfdb026cf03888ced21a2300f6339c41281",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "65658f0e3d6e7f9c2ee0c9b0aaaea42e81f6bdc5a8f791a95b808f3faec00cc5",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/household/exceptions.json",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/household/household-manifest.json",
+      "git_blob_sha": "ec27bb28a11f75a1a994877213e9f27c4c799988",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "6c13119951a7f5483038960af833216c5807260c576cfd89accf3af924d90b05",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/household/household-manifest.json",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/household/janitor-rules.json",
+      "git_blob_sha": "be845992f2f969bc0db485bf2ec1b8b3edd2500f",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "9af73fa525faccd6da911efe9b056744e44cc43d5489cf698ee052262c68dfff",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/household/janitor-rules.json",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/household/portable/README.md",
+      "git_blob_sha": "78bc15e79fe3557a691d3f65986df7fa5ff12ba9",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "cbb6965faf8e8d6598819824de8d5aa2220c7e819a4733bd3ab80e45087a5eed",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/household/portable/README.md",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/household/portable/install.py",
+      "git_blob_sha": "5e1c465bbac63feae0901144a9285afe5c1c0da0",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "49e1f0863a7b840e3b9464d3f8fe7c3f12960c6113d9527700d57069cbaa4f13",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/household/portable/install.py",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/household/portable/manifest.example.json",
+      "git_blob_sha": "3a0814c7b4b92a8f46f6c62ee9df14ffb435defa",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "e090634ec7a72c44d920ea081d7968ff18933701d5037bfb45f32218ed3163f2",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/household/portable/manifest.example.json",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/household/portable/repository-household.workflow.yml",
+      "git_blob_sha": "7c0fb1bf9d86e891f74709c0f6ac31b1f1dd3cdf",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "cbb3db26ae88f73b36c70a575f4da1cb29c7ac993bf56e7915a6af90a61f1046",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/household/portable/repository-household.workflow.yml",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/household/portable/rules.example.json",
+      "git_blob_sha": "5265f6c1a2711b51c8401a8a14efc1e7cabffa2e",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "016e4eef16eb3c6b4544bf3b15f8285b138c8e867c81569512d07641519b0510",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/household/portable/rules.example.json",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/household/runtime/core.py",
+      "git_blob_sha": "23c33495627f231850a9b6b37db4294bd9215f3b",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "b36fb27f7800396c78a6cf49d557f06f4ddef988925c9a384e78a639c223f5d0",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/household/runtime/core.py",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/household/runtime/director.py",
+      "git_blob_sha": "92b41d3e2bfb053390e7d083fd707bd0b0bb445f",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "de10e3b6b260f1a59f23d07fb9c5d9e044a4df981c7582e5820b980869d099b6",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/household/runtime/director.py",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/household/runtime/handyman.py",
+      "git_blob_sha": "6a223ec8067a8bedc49a6a825be5de81c04d3664",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "56af361a1ed965fb5838d3f8fab3ca1d9689127c1beb6ac57c545df0f034b8be",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/household/runtime/handyman.py",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/household/runtime/household.py",
+      "git_blob_sha": "4933f48089dbecba3467c55c17da6ae53ea507a7",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "83de04bbf679a197b50f44077bb70f1ea441c12de6ddc11922a07d043d34614b",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/household/runtime/household.py",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/household/runtime/janitor.py",
+      "git_blob_sha": "9012d66582c83179d260608faab3836d83f25b81",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "e5a31ffeaa366942cafced32d75226687c4ba7edcede528d6068810b692bc38e",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/household/runtime/janitor.py",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/household/runtime/repair_tools.py",
+      "git_blob_sha": "f87b10e56d548bd4359ec1af0e4fa919ffaf358f",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "12f842e1b0a536af28eedd0aac9aaa64ee7ac1f536fbb2225fd658816d557848",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/household/runtime/repair_tools.py",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/phase-ii/executive-special-order-wp21-wp36.md",
+      "git_blob_sha": "bb319b2c03e37356c43ec8e94ed33b6c977ffa33",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "9ed026d72a4c24e817fbf5e25d526c861dbb010a30382382ad21b62e228a6c99",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/phase-ii/executive-special-order-wp21-wp36.md",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/phase-ii/executive-special-order-wp32-deferral.md",
+      "git_blob_sha": "57e71af74ec0196919a62837953aff4e08e1569f",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "8af2c4931f12b11af1351b09e92dea6f9613ddaafb76d2f7be264abfa6287d88",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/phase-ii/executive-special-order-wp32-deferral.md",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/phase-ii/status.json",
+      "git_blob_sha": "b236ae0061aa726164eaa344d38a00c7397fed5e",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "b0a31f3cc6f66f1c8ececf5d45bc00a0167e1fece4f7df978fab22fd90339e35",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/phase-ii/status.json",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/phase-ii/wp35-autonomy-registry.json",
+      "git_blob_sha": "4af5dbca03795f6b80f9fc36e08556f376b3cdf4",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "af8068fcaafad487f3c2c678c364bf0ce5aace50a8a3c6ee83c2578d80655024",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/phase-ii/wp35-autonomy-registry.json",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/phase-iii/executive-special-order-wp39-wp52.md",
+      "git_blob_sha": "78d3257ce9d6828b4fb1ebda0a782fb7af2ee43f",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "02430dbc2232a82c88220a5bbedbc752b8eec28bf8532311965bceb205f592b4",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/phase-iii/executive-special-order-wp39-wp52.md",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/phase-iii/status.json",
+      "git_blob_sha": "a8a32a5eb1305186f558db3add3a88016bf2041b",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "60a1bd0be652b8437f06bd0c90bef57f7da77768f43f2bd594f5e5e971c42f31",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/phase-iii/status.json",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/phase-iv/executive-special-order-wp53-wp72.md",
+      "git_blob_sha": "c07e0061176d4e691def8d7906a19a20cea85a7a",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "9c4233e45e1f67e94504924a99303c4b7e44c3dee86cbab44080a0e0396fcf67",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/phase-iv/executive-special-order-wp53-wp72.md",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/phase-iv/status.json",
+      "git_blob_sha": "ed248ce61299de534f37a4bb27e6ced65db4aa12",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "bf471b4a2badcee1ccf6d56ff59f07250287771faa6d6b9cca797abf99b2bc1e",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/phase-iv/status.json",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/phase-v/director-surveillance-order.md",
+      "git_blob_sha": "7df7b13249596cd08f4bc4140e623d2e3c61e6c3",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "296f4b92e499df3cd5e63bfc808dda4722293ef1b5402dbdd1ff0c2055a0488b",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/phase-v/director-surveillance-order.md",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/phase-v/status.json",
+      "git_blob_sha": "c465d3b2aabe7a2ad2e5ab8ebed7e54b48daa3be",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "26e802f0e82be189b00c735119a87005b86992c65d0a423aee1e1fa60ea2f0af",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/phase-v/status.json",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/phase-vi/WORK-ORDER-FIGMA-FULL-INTEGRATION.md",
+      "git_blob_sha": "d073e1f1f457bc9e74004770624afb43d1dc2580",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "71bd1643f244568fae4e6ceb16fe5de220a0b23a800c76cd06226060561de83a",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/phase-vi/WORK-ORDER-FIGMA-FULL-INTEGRATION.md",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/phase-vi/status.json",
+      "git_blob_sha": "564f33c7638a55b5e9ee23450377a8190d07c236",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "cb20ea00f0626f0caba7efaaccee94c221d6f53e4be8d9a2f6ef631536a7c90e",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/phase-vi/status.json",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "commit": "1a5962b42a6f033bc932ab084a8808607cdf6266",
+      "path": "17-ffos/runtime/tests/test_household.py",
+      "git_blob_sha": "40ede7700968379422f05d130c174e33ee7205ca",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "content_sha256": "1ee7881b1a62d7b7f6269489694b5c3b95c6333d4acab758ba9e95b6a2f1d7a1",
+      "url": "https://github.com/Motherpher/form-flode/blob/1a5962b42a6f033bc932ab084a8808607cdf6266/17-ffos/runtime/tests/test_household.py",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "commit": "3a93eb3d7a5195232acc850c7d301bf901014306",
+      "path": "README.md",
+      "git_blob_sha": "8a6b3736a37fa8be95fbcbd8317c30d573beec6d",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "url": "https://github.com/Motherpher/FFOS/blob/3a93eb3d7a5195232acc850c7d301bf901014306/README.md",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "commit": "3a93eb3d7a5195232acc850c7d301bf901014306",
+      "path": "docs/specifications/OBJECT-MODEL.md",
+      "git_blob_sha": "259850a8507763c51f1bf9957a92cce63af768bc",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "url": "https://github.com/Motherpher/FFOS/blob/3a93eb3d7a5195232acc850c7d301bf901014306/docs/specifications/OBJECT-MODEL.md",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "commit": "3a93eb3d7a5195232acc850c7d301bf901014306",
+      "path": "docs/specifications/DISPATCH.md",
+      "git_blob_sha": "8bafc43b404ae6e10998b9c2eaf2e46879b93170",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "url": "https://github.com/Motherpher/FFOS/blob/3a93eb3d7a5195232acc850c7d301bf901014306/docs/specifications/DISPATCH.md",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "commit": "3a93eb3d7a5195232acc850c7d301bf901014306",
+      "path": "packages/registry/schema.sql",
+      "git_blob_sha": "722dbd0f79da3dd8461806db1ce07de131b8bb6a",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "url": "https://github.com/Motherpher/FFOS/blob/3a93eb3d7a5195232acc850c7d301bf901014306/packages/registry/schema.sql",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "commit": "3a93eb3d7a5195232acc850c7d301bf901014306",
+      "path": "package.json",
+      "git_blob_sha": "e093aeac90d42bea40734a7498cba61806e655d2",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "url": "https://github.com/Motherpher/FFOS/blob/3a93eb3d7a5195232acc850c7d301bf901014306/package.json",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "commit": "3a93eb3d7a5195232acc850c7d301bf901014306",
+      "path": "modules/README.md",
+      "git_blob_sha": "1c109bd329c98dd9f7c4adb29c293763b6475252",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "url": "https://github.com/Motherpher/FFOS/blob/3a93eb3d7a5195232acc850c7d301bf901014306/modules/README.md",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "commit": "3a93eb3d7a5195232acc850c7d301bf901014306",
+      "path": "docs/specifications/AUTHORITY.md",
+      "git_blob_sha": "bfa6f56ea70db48cd14d9c8da0b38da59977e9e8",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "url": "https://github.com/Motherpher/FFOS/blob/3a93eb3d7a5195232acc850c7d301bf901014306/docs/specifications/AUTHORITY.md",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "commit": "3a93eb3d7a5195232acc850c7d301bf901014306",
+      "path": "docs/architecture/ARCHITECTURE.md",
+      "git_blob_sha": "a2dd1aed1db9b5fa75d39291b18569dbe68fcf7d",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "url": "https://github.com/Motherpher/FFOS/blob/3a93eb3d7a5195232acc850c7d301bf901014306/docs/architecture/ARCHITECTURE.md",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "commit": "3a93eb3d7a5195232acc850c7d301bf901014306",
+      "path": ".cdx/anchor.json",
+      "git_blob_sha": "af2b84b8d97e9ce973b57625aa0a7d5dc336eb24",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "url": "https://github.com/Motherpher/FFOS/blob/3a93eb3d7a5195232acc850c7d301bf901014306/.cdx/anchor.json",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/FF-Spatial",
+      "commit": "3b91cf106995c678589d134ab70bc7fb5bbab5c4",
+      "path": "docs/ROADMAP.md",
+      "git_blob_sha": "19c76694e38bfd75a84ab80ebfe71272cfe61f10",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "url": "https://github.com/Motherpher/FF-Spatial/blob/3b91cf106995c678589d134ab70bc7fb5bbab5c4/docs/ROADMAP.md",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/FF-Spatial",
+      "commit": "3b91cf106995c678589d134ab70bc7fb5bbab5c4",
+      "path": "ops/workpackages/SOURCING_WP_REGISTER.json",
+      "git_blob_sha": "e766a7bb31cf0530206596206f16eceb642c3364",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "url": "https://github.com/Motherpher/FF-Spatial/blob/3b91cf106995c678589d134ab70bc7fb5bbab5c4/ops/workpackages/SOURCING_WP_REGISTER.json",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Motherpher/FF-Spatial",
+      "commit": "3b91cf106995c678589d134ab70bc7fb5bbab5c4",
+      "path": "docs/TARGET_ARCHITECTURE_V1.md",
+      "git_blob_sha": "72f2df8cfeb67351cad836c0f8c2ae07d157da20",
+      "publisher": "Motherpher",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "url": "https://github.com/Motherpher/FF-Spatial/blob/3b91cf106995c678589d134ab70bc7fb5bbab5c4/docs/TARGET_ARCHITECTURE_V1.md",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Hybrismannen/pius-codex-5",
+      "commit": "021101b7649f104ec73a4cdbdda21c83c75c0ab8",
+      "path": "01-constitutional/hcc/README.md",
+      "git_blob_sha": "e44f7ff15d2a358a722779bae050ed5e1612d700",
+      "publisher": "Hybrismannen",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "url": "https://github.com/Hybrismannen/pius-codex-5/blob/021101b7649f104ec73a4cdbdda21c83c75c0ab8/01-constitutional/hcc/README.md",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Hybrismannen/pius-codex-5",
+      "commit": "021101b7649f104ec73a4cdbdda21c83c75c0ab8",
+      "path": "01-constitutional/ex-inerta/README.md",
+      "git_blob_sha": "3f42d74036a0f9b4c7948cf64eb09af3ff723cbb",
+      "publisher": "Hybrismannen",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "url": "https://github.com/Hybrismannen/pius-codex-5/blob/021101b7649f104ec73a4cdbdda21c83c75c0ab8/01-constitutional/ex-inerta/README.md",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Hybrismannen/pius-codex-5",
+      "commit": "021101b7649f104ec73a4cdbdda21c83c75c0ab8",
+      "path": "03-protocols/harp/README.md",
+      "git_blob_sha": "7a612104121e1056e70a810670a495c9f266b893",
+      "publisher": "Hybrismannen",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "url": "https://github.com/Hybrismannen/pius-codex-5/blob/021101b7649f104ec73a4cdbdda21c83c75c0ab8/03-protocols/harp/README.md",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Hybrismannen/pius-codex-5",
+      "commit": "021101b7649f104ec73a4cdbdda21c83c75c0ab8",
+      "path": "06-agents-piusites/README.md",
+      "git_blob_sha": "1eb8635bbcb5c810ed71f2ab70f73f46fbf2377b",
+      "publisher": "Hybrismannen",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "url": "https://github.com/Hybrismannen/pius-codex-5/blob/021101b7649f104ec73a4cdbdda21c83c75c0ab8/06-agents-piusites/README.md",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Hybrismannen/pius-codex-5",
+      "commit": "021101b7649f104ec73a4cdbdda21c83c75c0ab8",
+      "path": "10-process/PIUS5_PROCESS_BASELINE.md",
+      "git_blob_sha": "cf7bf50de829c23581c9e225f1c0850d7b3921d8",
+      "publisher": "Hybrismannen",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "url": "https://github.com/Hybrismannen/pius-codex-5/blob/021101b7649f104ec73a4cdbdda21c83c75c0ab8/10-process/PIUS5_PROCESS_BASELINE.md",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Hybrismannen/Conductellence-",
+      "commit": "7edbc47899af23b415114628469aca2970779ea1",
+      "path": "RUNTIME-INTEGRATION/README.md",
+      "git_blob_sha": "0e3ec35c5659ddccac24de664f652db9d87bc17a",
+      "publisher": "Hybrismannen",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "url": "https://github.com/Hybrismannen/Conductellence-/blob/7edbc47899af23b415114628469aca2970779ea1/RUNTIME-INTEGRATION/README.md",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    },
+    {
+      "repository": "Hybrismannen/Conductellence-",
+      "commit": "7edbc47899af23b415114628469aca2970779ea1",
+      "path": "DISTRIBUTION/conductellence-runtime.py",
+      "git_blob_sha": "06505670ae7ec9c728dd297d6fb7ed7de3ebd26f",
+      "publisher": "Hybrismannen",
+      "accessed_at": "2026-10-28",
+      "role": "primary authenticated source",
+      "url": "https://github.com/Hybrismannen/Conductellence-/blob/7edbc47899af23b415114628469aca2970779ea1/DISTRIBUTION/conductellence-runtime.py",
+      "verification": {
+        "provenance": "authenticated connector, pinned full-file read",
+        "applicability": "reviewed for Household/Director governance or domain boundary",
+        "contradiction_review": "see protocol_reconciliation.md",
+        "confidence": "verified retrieved source; semantic author identity not independently attested"
+      }
+    }
+  ],
+  "supplied_sources": [
+    {
+      "filename": "HOUSEHOLD_FAMILY_2_0_WORK_BUILD_HANDOFF_v1_0(1).md",
+      "sha256": "eafbfd8caf24b08e02b5d2dfb0f4fc47ef18ed37b8b6de0bfcafae0f73411a64",
+      "publisher": "user-supplied; individual author/publication date not independently established",
+      "applicability": "proposed handoff"
+    },
+    {
+      "filename": "02-Pius-System-Codex-5.0.pdf",
+      "sha256": "6721ded6009bd771a22d0ed87444386b3a11d69c740d69828e357f1120abce20",
+      "publisher": "user-supplied; individual author/publication date not independently established",
+      "applicability": "governing source"
+    },
+    {
+      "filename": "03-PIVE-Core-Protocol-v.3.0.docx",
+      "sha256": "9331d9433d896188eeee04ec3de4f4fabb4c1232661d493bf832711115c00568",
+      "publisher": "user-supplied; individual author/publication date not independently established",
+      "applicability": "analogous evidence discipline; not an execution engine"
+    }
+  ],
+  "unresolved": [
+    "AMBIGUOUS_SOURCE_AMA",
+    "FF-Spatial P1-P5 mapping",
+    "current production Director/CDX permission envelope",
+    "HCC/constitutional release clearance"
+  ],
+  "excluded_claims": [
+    "test fixture decisions are not genuine Director/HCC/CDX authority",
+    "historical protocol activation claims are not runtime proof"
+  ]
+}

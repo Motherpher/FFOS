@@ -1,0 +1,40 @@
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: household
+      POSTGRES_DB: household
+      POSTGRES_PASSWORD: ${HF_POSTGRES_PASSWORD:?Set a unique database password}
+    volumes: ["household-db:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U household -d household"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+  mcp:
+    build: .
+    env_file: .env
+    ports: ["127.0.0.1:3000:3000"]
+    volumes: ["./deploy-secrets:/run/secrets:ro", "./config:/app/config:ro"]
+    depends_on:
+      postgres: { condition: service_healthy }
+    read_only: true
+    tmpfs: ["/tmp"]
+    cap_drop: ["ALL"]
+    security_opt: ["no-new-privileges:true"]
+    restart: unless-stopped
+  worker:
+    build: .
+    command: ["node", "dist/apps/worker/main.js"]
+    env_file: .env
+    volumes: ["./deploy-secrets:/run/secrets:ro"]
+    depends_on:
+      postgres: { condition: service_healthy }
+    read_only: true
+    tmpfs: ["/tmp"]
+    cap_drop: ["ALL"]
+    security_opt: ["no-new-privileges:true"]
+    restart: unless-stopped
+volumes:
+  household-db:

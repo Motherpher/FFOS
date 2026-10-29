@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "project_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,119}$"
+    },
+    "repo_full_name": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.-]+\\/[A-Za-z0-9_.-]+$"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "policy_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "allowed_paths": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 400
+      }
+    },
+    "allowed_actions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "read",
+          "branch",
+          "commit",
+          "pull_request"
+        ]
+      }
+    },
+    "protected_branches": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "max_concurrent_runs": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4
+    },
+    "max_repair_attempts": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 3
+    },
+    "cost_ceiling": {
+      "type": "number",
+      "minimum": 0
+    },
+    "allowed_ci_workflows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 400
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "required": [
+          "id",
+          "path",
+          "sha256"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "environment": {
+      "type": "string",
+      "enum": [
+        "test",
+        "sandbox",
+        "production"
+      ]
+    },
+    "owner_ref": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,119}$"
+    },
+    "permission": {
+      "type": "string",
+      "enum": [
+        "OBSERVE",
+        "PROPOSE",
+        "EXECUTE_BOUNDED"
+      ]
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+    },
+    "installation_id": {
+      "type": "integer",
+      "exclusiveMinimum": 0,
+      "maximum": 9007199254740991
+    },
+    "max_changed_files": {
+      "default": 5,
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 20
+    },
+    "max_patch_bytes": {
+      "default": 16384,
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100000
+    },
+    "require_ci": {
+      "default": true,
+      "type": "boolean"
+    },
+    "ci_cost_policy": {
+      "default": "UNCONFIRMED",
+      "type": "string",
+      "enum": [
+        "UNCONFIRMED",
+        "DIRECTOR_APPROVED_EXISTING_CAPACITY"
+      ]
+    }
+  },
+  "required": [
+    "project_id",
+    "repo_full_name",
+    "enabled",
+    "policy_ref",
+    "allowed_paths",
+    "allowed_actions",
+    "protected_branches",
+    "max_concurrent_runs",
+    "max_repair_attempts",
+    "cost_ceiling",
+    "allowed_ci_workflows",
+    "environment",
+    "owner_ref",
+    "permission",
+    "updated_at",
+    "installation_id",
+    "max_changed_files",
+    "max_patch_bytes",
+    "require_ci",
+    "ci_cost_policy"
+  ],
+  "additionalProperties": false
+}

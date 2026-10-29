@@ -1,0 +1,214 @@
+{
+  "observed_date": "2026-10-29",
+  "status": "SOURCE_RECONCILED_PREFABRICATION_PREPARED_NOT_BUILT_OR_ACTIVATED",
+  "ama": {
+    "meaning": "Agent Master Architecture",
+    "architecture_id": "FFOS-AMA-001",
+    "candidate_version": "0.2.0-candidate",
+    "source_commit": "42d8d1b12a2feaa5cb4ab7d4f2f2ad1df5714936",
+    "architecture_accepted": false,
+    "template_complete": false,
+    "scope": "M0-M7 architecture; F8 realm-dependent governance binding",
+    "latest_observed_checks": [
+      {
+        "id": 40906790818,
+        "name": "CDX Binding Audit",
+        "status": "completed",
+        "conclusion": "failure",
+        "head_sha": "42d8d1b12a2feaa5cb4ab7d4f2f2ad1df5714936",
+        "url": "https://github.com/Motherpher/FFOS/actions/runs/40906790818"
+      },
+      {
+        "id": 40906790745,
+        "name": "AMA conformance",
+        "status": "completed",
+        "conclusion": "failure",
+        "head_sha": "42d8d1b12a2feaa5cb4ab7d4f2f2ad1df5714936",
+        "url": "https://github.com/Motherpher/FFOS/actions/runs/40906790745"
+      }
+    ],
+    "partial_module_count": 32,
+    "partial_requirement_test_links": 65,
+    "requirement_total": 96
+  },
+  "household": {
+    "branch": "hf/household-family-2.0",
+    "source_commit": "0e5a295a337636f204a42ad12c3f326ca6c2b00b",
+    "pr": 20,
+    "pr_status": "DRAFT_OPEN",
+    "prior_ci": {
+      "date": "2026-10-28",
+      "passed": 46,
+      "failed": 0,
+      "skipped": 0,
+      "scope": "Existing engineering candidate only; not AMA conformance"
+    },
+    "full_build_waits_for_accepted_ama_baseline": true
+  },
+  "historical_ama_ambiguity": {
+    "previous": "AMBIGUOUS_SOURCE_AMA",
+    "current": "RESOLVED_SOURCE",
+    "runtime_warning_not_patched_in_this_documentation_update": true
+  },
+  "cdx": {
+    "host_source_commit": "1c73aa5774a7f2cef2e646ade36dd09369f4ae3b",
+    "binding_mode": "PINNED_RELEASE",
+    "release_ref": "1.0.0",
+    "runtime_state": "BOUND_PENDING_RUNTIME_INTEGRATION",
+    "existing_household_bootstrap_expects": "PINNED_COMMIT",
+    "must_not_downgrade_anchor_to_fit_old_bootstrap": true
+  },
+  "separation": {
+    "ama_is_agent": false,
+    "household_is_future_ama_consumer": true,
+    "janitor_handyman_verifier_are_internal_roles": true,
+    "director_external": true,
+    "cdx_mandatory_for_this_applicable_host": true,
+    "old_household_contract_pr21": "CLOSED_UNMERGED_OUTSIDE_AMA_SCOPE"
+  },
+  "changes_in_this_update": {
+    "runtime_code": false,
+    "ama_core": false,
+    "credentials": false,
+    "registry_registration": false,
+    "activation": false,
+    "deployment": false
+  },
+  "sources": [
+    {
+      "repository": "Motherpher/FFOS",
+      "commit": "42d8d1b12a2feaa5cb4ab7d4f2f2ad1df5714936",
+      "path": "docs/architecture/AMA.md",
+      "git_blob_sha": "66566c18066ec4ad4a06804924e7a410ab473b5e",
+      "role": "AMA candidate architecture/contract; not adopted operational authority",
+      "url": "https://github.com/Motherpher/FFOS/blob/42d8d1b12a2feaa5cb4ab7d4f2f2ad1df5714936/docs/architecture/AMA.md",
+      "content_sha256": "75e0ba5a70d033efa5502afc70c458a476fcd0805a4c245425ecc91e6e341591"
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "commit": "42d8d1b12a2feaa5cb4ab7d4f2f2ad1df5714936",
+      "path": "packages/agent-model/ama-distribution-manifest.json",
+      "git_blob_sha": "a114f60166079e3c565074d2aa194c38fc1ec13c",
+      "role": "AMA candidate architecture/contract; not adopted operational authority",
+      "url": "https://github.com/Motherpher/FFOS/blob/42d8d1b12a2feaa5cb4ab7d4f2f2ad1df5714936/packages/agent-model/ama-distribution-manifest.json",
+      "content_sha256": "4fef75a3f6d4f21827a7ea43d84ab92b19cf52ef5263b39948a2f628bbdd54fc"
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "commit": "42d8d1b12a2feaa5cb4ab7d4f2f2ad1df5714936",
+      "path": "packages/agent-model/ama-release-gates.json",
+      "git_blob_sha": "4707b2b6a3bbd09d840f57dc54fa28ab39950ac3",
+      "role": "AMA candidate architecture/contract; not adopted operational authority",
+      "url": "https://github.com/Motherpher/FFOS/blob/42d8d1b12a2feaa5cb4ab7d4f2f2ad1df5714936/packages/agent-model/ama-release-gates.json",
+      "content_sha256": "ce12429be8bd797ef50514eb8f0b4ca5971634b74c5b195ad00669152b34c54f"
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "commit": "42d8d1b12a2feaa5cb4ab7d4f2f2ad1df5714936",
+      "path": "packages/agent-model/ama-template-coverage.json",
+      "git_blob_sha": "4bed8e47730d873e0ed13a2f2f1041c4c6b52332",
+      "role": "AMA candidate architecture/contract; not adopted operational authority",
+      "url": "https://github.com/Motherpher/FFOS/blob/42d8d1b12a2feaa5cb4ab7d4f2f2ad1df5714936/packages/agent-model/ama-template-coverage.json",
+      "content_sha256": "5c20f5ac1d394649b4784357d65a2c92334fd4b3f64b962fd7b1d6e11b8f7e31"
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "commit": "42d8d1b12a2feaa5cb4ab7d4f2f2ad1df5714936",
+      "path": "packages/agent-model/ama-m0-test-evidence-bridge.json",
+      "git_blob_sha": "081551305d16217749174705f05ee8fab7f2f89c",
+      "role": "AMA candidate architecture/contract; not adopted operational authority",
+      "url": "https://github.com/Motherpher/FFOS/blob/42d8d1b12a2feaa5cb4ab7d4f2f2ad1df5714936/packages/agent-model/ama-m0-test-evidence-bridge.json",
+      "content_sha256": "aed389be5ec907463ade6fae70eea85e2e2af5589c26927904f2999478affefa"
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "commit": "42d8d1b12a2feaa5cb4ab7d4f2f2ad1df5714936",
+      "path": "packages/agent-model/schemas/v0.2/operating-realm.schema.json",
+      "git_blob_sha": "88be16be53cd9be7a40e556353bbbb50cad39dea",
+      "role": "AMA candidate architecture/contract; not adopted operational authority",
+      "url": "https://github.com/Motherpher/FFOS/blob/42d8d1b12a2feaa5cb4ab7d4f2f2ad1df5714936/packages/agent-model/schemas/v0.2/operating-realm.schema.json",
+      "content_sha256": "1d756fa54dfb3b849742989079fdcbf3ef9cecf8f10e008b2fa3bfc8e766463d"
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "commit": "42d8d1b12a2feaa5cb4ab7d4f2f2ad1df5714936",
+      "path": "packages/agent-runtime/README.md",
+      "git_blob_sha": "c4e495ff3ce3a4c75b0f654fad3e7642b8d5dc94",
+      "role": "AMA candidate architecture/contract; not adopted operational authority",
+      "url": "https://github.com/Motherpher/FFOS/blob/42d8d1b12a2feaa5cb4ab7d4f2f2ad1df5714936/packages/agent-runtime/README.md",
+      "content_sha256": "1d9a83a4fcc20b207664c1913a5b6d2abebc87d844bf26fa6c8971d74e3fd355"
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "commit": "42d8d1b12a2feaa5cb4ab7d4f2f2ad1df5714936",
+      "path": "docs/roadmap/AMA-M2-AUTHORIZATION-CONTRACTS.md",
+      "git_blob_sha": "fc6fe949c0f6e9f67731cc663fa4c122d69a5458",
+      "role": "AMA candidate architecture/contract; not adopted operational authority",
+      "url": "https://github.com/Motherpher/FFOS/blob/42d8d1b12a2feaa5cb4ab7d4f2f2ad1df5714936/docs/roadmap/AMA-M2-AUTHORIZATION-CONTRACTS.md",
+      "content_sha256": "e5413027e55dd0ce1ae4b89cd79f3d662a8916aafe1d70d19f7dc6c5528b1034"
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "commit": "42d8d1b12a2feaa5cb4ab7d4f2f2ad1df5714936",
+      "path": "docs/roadmap/AMA-M4-DURABLE-EXECUTION-CONTRACTS.md",
+      "git_blob_sha": "5fd5888476dc4df03b8b88d704bddea3914595a2",
+      "role": "AMA candidate architecture/contract; not adopted operational authority",
+      "url": "https://github.com/Motherpher/FFOS/blob/42d8d1b12a2feaa5cb4ab7d4f2f2ad1df5714936/docs/roadmap/AMA-M4-DURABLE-EXECUTION-CONTRACTS.md",
+      "content_sha256": "71277732771926c1694cba3e4ea7ba8636c5afad277e5f1c768accda96c046f8"
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "commit": "42d8d1b12a2feaa5cb4ab7d4f2f2ad1df5714936",
+      "path": "docs/roadmap/AMA-M5-INDEPENDENT-EVALUATION-ASSURANCE.md",
+      "git_blob_sha": "892927f5efab12775b0fa96cd3f636bd6ce1abac",
+      "role": "AMA candidate architecture/contract; not adopted operational authority",
+      "url": "https://github.com/Motherpher/FFOS/blob/42d8d1b12a2feaa5cb4ab7d4f2f2ad1df5714936/docs/roadmap/AMA-M5-INDEPENDENT-EVALUATION-ASSURANCE.md",
+      "content_sha256": "70d6dbc54798ad3bd84c7a90e23122b0e4c8cde72f5ee3a1fdfe86b25cbfa264"
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "commit": "42d8d1b12a2feaa5cb4ab7d4f2f2ad1df5714936",
+      "path": "docs/roadmap/AMA-M6-OPERATIONAL-LIFECYCLE-CONTRACTS.md",
+      "git_blob_sha": "af6f6bb2c2f701cf7f99c17429f3dbd6054dcf53",
+      "role": "AMA candidate architecture/contract; not adopted operational authority",
+      "url": "https://github.com/Motherpher/FFOS/blob/42d8d1b12a2feaa5cb4ab7d4f2f2ad1df5714936/docs/roadmap/AMA-M6-OPERATIONAL-LIFECYCLE-CONTRACTS.md",
+      "content_sha256": "d8a7e27a38bc63576082e98e4a967cd1f00a15c285a45390aef8797f62559f05"
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "commit": "c6db56724dfa679c325aeb129d66216cc933434a",
+      "path": "docs/roadmap/AMA-AGNOSTIC-SCOPE-BOUNDARY-2026-10-29.md",
+      "git_blob_sha": "4a0010d95a8042edaff383e419b9eaa5ee9975ad",
+      "role": "Scope clarification separating AMA from Household",
+      "url": "https://github.com/Motherpher/FFOS/blob/c6db56724dfa679c325aeb129d66216cc933434a/docs/roadmap/AMA-AGNOSTIC-SCOPE-BOUNDARY-2026-10-29.md",
+      "content_sha256": "8eb19154c2a63a3adac10dea25407190580c07923d902cd450d5a3f96fc9497d"
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "commit": "1c73aa5774a7f2cef2e646ade36dd09369f4ae3b",
+      "path": ".cdx/anchor.json",
+      "git_blob_sha": "9d66012af0f5568aa3586af9c4d1ae5be2f967ae",
+      "role": "Current FFOS host anchor snapshot",
+      "url": "https://github.com/Motherpher/FFOS/blob/1c73aa5774a7f2cef2e646ade36dd09369f4ae3b/.cdx/anchor.json",
+      "content_sha256": "486aaf1c6c0319de226ad3d5d891a0223e47e2a4433bb5df63ac6bc860023e41"
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "commit": "1c73aa5774a7f2cef2e646ade36dd09369f4ae3b",
+      "path": "docs/governance/CDX-ESTATE-POLICY.md",
+      "git_blob_sha": "e6be18a1bfadb0c41eb1b0c19c9673bc277a8228",
+      "role": "Registry-based realm applicability",
+      "url": "https://github.com/Motherpher/FFOS/blob/1c73aa5774a7f2cef2e646ade36dd09369f4ae3b/docs/governance/CDX-ESTATE-POLICY.md",
+      "content_sha256": "4a853eb8a61c90ccecf1dc928e9a8da4a118f645134a27831b4a69970d6f4095"
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "commit": "0e5a295a337636f204a42ad12c3f326ca6c2b00b",
+      "path": "modules/household-family/apps/runtime.ts",
+      "git_blob_sha": "d62645eee27645a8c0f7f4cf5d679b3a764f1a61",
+      "role": "Existing candidate bootstrap compatibility gap",
+      "url": "https://github.com/Motherpher/FFOS/blob/0e5a295a337636f204a42ad12c3f326ca6c2b00b/modules/household-family/apps/runtime.ts",
+      "content_sha256": "6f6860f55e272cdcc1637e448d492c4291cc107fea37a6fa24b987d560630a7d"
+    }
+  ]
+}
