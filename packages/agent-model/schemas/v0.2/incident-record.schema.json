@@ -1,0 +1,89 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.incident-record/v0.2-candidate"
+    },
+    "incidentId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "agentRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "runId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "kind": {
+      "enum": [
+        "POLICY_DRIFT",
+        "REVOKED_TOOL",
+        "MODEL_SUBSTITUTION",
+        "PROTOCOL_BREAK",
+        "UNSETTLED_EFFECT",
+        "HEALTH_DEGRADATION",
+        "PRIVACY_BREACH",
+        "UNKNOWN"
+      ]
+    },
+    "severity": {
+      "enum": [
+        "LOW",
+        "MODERATE",
+        "HIGH",
+        "CRITICAL"
+      ]
+    },
+    "state": {
+      "enum": [
+        "OPEN",
+        "CONTAINED",
+        "INVESTIGATING",
+        "RESOLVED",
+        "CLOSED"
+      ]
+    },
+    "detectedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "sourceEvidenceRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "containmentRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "independentReviewerRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "humanAcceptanceRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "releaseAllowed": {
+      "const": false
+    }
+  },
+  "required": [
+    "schema",
+    "incidentId",
+    "version",
+    "agentRef",
+    "kind",
+    "severity",
+    "state",
+    "detectedAt",
+    "sourceEvidenceRef",
+    "releaseAllowed"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/incident-record.schema.json",
+  "title": "AMA v0.2 candidate incident-record"
+}
