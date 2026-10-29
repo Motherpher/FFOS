@@ -49,15 +49,15 @@ All operational results are non-authorizing. Conditional MCP/A2A/OTel bindings d
 Generate an inert draft definition without credentials, a live adapter or runtime access:
 
 ```sh
-python conformance/ama_starter.py \\
-  --agent-id SYNTHETIC.ALPHA \\
-  --name "Sample agent" \\
-  --purpose "Verify a bounded task" \\
-  --scope synthetic/item \\
-  --governing-principal SYNTHETIC.OWNER \\
-  --command-token SYNTHETIC-START \\
+python conformance/ama_starter.py \
+  --agent-id SYNTHETIC.ALPHA \
+  --name "Sample agent" \
+  --purpose "Verify a bounded task" \
+  --scope synthetic/item \
+  --governing-principal SYNTHETIC.OWNER \
+  --command-token SYNTHETIC-START \
   --output /tmp/agent-draft.json
-python conformance/ama_blueprint.py /tmp/agent-draft.json \\
+python conformance/ama_blueprint.py /tmp/agent-draft.json \
   --optional memory --output /tmp/agent-blueprint.json
 ```
 
