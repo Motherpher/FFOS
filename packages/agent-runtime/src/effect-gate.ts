@@ -12,8 +12,12 @@ export interface RuntimeAgentReader {
 export interface CDXDecisionRequest {
   context:AMAExecutionContext; capabilityId:string; target:string; expectedPolicyPin:string;
 }
+export type CDXOutcome="ALLOW"|"ALLOW_WITH_CONTROLS"|"REQUIRE_HUMAN"|"QUARANTINE"|"DENY"|"SECURITY_STOP"|"CONSTITUTIONAL_STOP";
 export interface CDXPolicyDecision {
-  outcome:"ALLOW"|"DENY"|"HOLD"; decisionRef:string; policyPin:string;
+  outcome:CDXOutcome; decisionRef:string; policyPin:string;
+  /** Only an independently authenticated adapter may assert these; never the model. */
+  decisionAuthenticated?:boolean; spetlReceiptVerified?:boolean;
+  obligationsVerified?:boolean;
   spetlReceiptRef:string; evaluatedTarget:string; evaluatedEffect:EffectClass;
 }
 export interface CDXPolicyPort {
@@ -30,7 +34,7 @@ export interface EffectEvidence {
   workflowVersion:string;principalRef:string;authorityRef:string;mandateRef:string;
   capabilityId:string;target:string;effect:EffectClass;policyPin:string;
   policyDecisionRef:string;spetlReceiptRef:string;
-  outcome:"ALLOW"|"DENY"|"HOLD";stage:"PRE_EFFECT"|"POST_EFFECT"|"BLOCKED";detail:string;
+  outcome:CDXOutcome;stage:"PRE_EFFECT"|"POST_EFFECT"|"BLOCKED";detail:string;
 }
 export interface EvidenceWriter { append(event:EffectEvidence):Promise<void> }
 export class EffectDenied extends Error {
@@ -97,9 +101,9 @@ export class AgentEffectGate {
     if(!d||!nonempty(d.decisionRef)||!nonempty(d.spetlReceiptRef)||
        d.policyPin!==this.pin||d.evaluatedTarget!==target||
        d.evaluatedEffect!==context.requestedEffect||
-       !["ALLOW","DENY","HOLD"].includes(d.outcome))
+       !["ALLOW","ALLOW_WITH_CONTROLS","REQUIRE_HUMAN","QUARANTINE","DENY","SECURITY_STOP","CONSTITUTIONAL_STOP"].includes(d.outcome))
       throw new EffectDenied("INVALID_CDX_DECISION");
-    const event=(outcome:"ALLOW"|"DENY"|"HOLD",stage:EffectEvidence["stage"],
+    const event=(outcome:CDXOutcome,stage:EffectEvidence["stage"],
       detail:string):EffectEvidence=>({
       eventId:randomUUID(),runId:context.runId,agentId:context.agentId,
       agentVersion:context.agentVersion,workflowId:context.workflowId,
@@ -107,12 +111,15 @@ export class AgentEffectGate {
       authorityRef:context.authorityRef!,mandateRef:context.mandateRef!,
       capabilityId,target,effect:context.requestedEffect,policyPin:this.pin,
       policyDecisionRef:d.decisionRef,spetlReceiptRef:d.spetlReceiptRef,outcome,stage,detail});
-    if(d.outcome!=="ALLOW"){
+    if(d.outcome!=="ALLOW"&&d.outcome!=="ALLOW_WITH_CONTROLS"){
       try{await this.evidence.append(event(d.outcome,"BLOCKED","CDX restrictive decision"));}
       catch{throw new EffectDenied("EVIDENCE_UNAVAILABLE");}
       throw new EffectDenied("CDX_"+d.outcome);
     }
-    try{await this.evidence.append(event("ALLOW","PRE_EFFECT","Authorized intent; not completion"));}
+    if(d.decisionAuthenticated!==true||d.spetlReceiptVerified!==true||
+       (d.outcome==="ALLOW_WITH_CONTROLS"&&d.obligationsVerified!==true))
+      throw new EffectDenied("CDX_DECISION_OR_OBLIGATIONS_NOT_VERIFIED");
+    try{await this.evidence.append(event(d.outcome,"PRE_EFFECT","Authenticated intent; not completion"));}
     catch{throw new EffectDenied("EVIDENCE_UNAVAILABLE");}
     // Best-effort TOCTOU mitigation. Full lease/transactional effect coordination pending.
     await this.assertBound(context,capabilityId,target);
@@ -123,11 +130,11 @@ export class AgentEffectGate {
     let result:T;
     try{result=await perform();}
     catch(error){
-      try{await this.evidence.append(event("HOLD","POST_EFFECT","Effect uncertain; reconcile"));}
+      try{await this.evidence.append(event(d.outcome,"POST_EFFECT","Effect uncertain; reconcile"));}
       catch{/* original failure retained; operator must reconcile */}
       throw error;
     }
-    try{await this.evidence.append(event("ALLOW","POST_EFFECT","Callback returned; not Director acceptance"));}
+    try{await this.evidence.append(event(d.outcome,"POST_EFFECT","Callback returned; not independent acceptance"));}
     catch{throw new EffectDenied("POST_EFFECT_EVIDENCE_UNAVAILABLE_RECONCILE");}
     return result;
   }
