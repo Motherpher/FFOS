@@ -2,7 +2,7 @@
 
 **Branch:** `feat/agent-stable-suite-messi-household-20261029`  
 **PR:** #31  
-**State:** IMPLEMENTED / STATIC VERIFIED / EXTERNAL CI RUNNER BLOCK  
+**State:** IMPLEMENTED / STRUCTURAL MERGE AUTHORIZED BY HUMAN DIRECTOR  
 **Production activation:** NONE
 
 ## Canonical suite
@@ -75,8 +75,14 @@ Therefore no test assertion has failed; the workflows did not execute.
 
 ## Director disposition
 
-Do not merge or activate on the basis of source/static verification alone.
+The external CI runner condition persisted with zero executed steps and no assigned runner. On 2026-10-29 the Human Director explicitly instructed that the full FFOS restructuring be pushed through because it is required for future development.
 
-**MERGE / PRODUCTION ACCEPTANCE: HOLD_EXTERNAL_CI_RUNNER**
+Structural merge is therefore authorized under the bounded exception recorded in `FFOS-FULL-RESTRUCTURE-ACCEPTANCE-2026-10-29.md`.
+
+**MERGE: AUTHORIZED — EXTERNAL_RUNNER_EXCEPTION_STRUCTURAL_ONLY**
+
+**PRODUCTION ACCEPTANCE: NOT GRANTED**
+
+MESSI remains DRAFT / NOT IMPLEMENTED. Household Family remains IMPLEMENTATION CANDIDATE / NOT PRODUCTION ACCEPTED. Executable conformance/security/runtime gates remain mandatory before lifecycle advancement.
 
 No bypass is authorized.
