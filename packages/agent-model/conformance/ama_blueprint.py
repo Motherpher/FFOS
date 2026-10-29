@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[3]
 MODEL = ROOT / "packages" / "agent-model"
 
 
-def assemble(bundle, optional_modules=(), use_f8=False, *, at=None, host_trust_domain=None):
+def assemble(bundle, optional_modules=(), use_f8=False, *, at=None, host_trust_domain=None, attestor=None):
     """Return a build blueprint and precise blocking obligations.
 
     Invalid bundles and unrecognized optional modules fail closed.
@@ -67,7 +67,8 @@ def assemble(bundle, optional_modules=(), use_f8=False, *, at=None, host_trust_d
     # Never run semantic validators against structurally malformed bundles.
     if not problems:
         assessment = audit_semantics(bundle, at=at,
-                                     host_trust_domain=host_trust_domain)
+                                     host_trust_domain=host_trust_domain,
+                                     attestor=attestor)
         problems.extend(assessment["errors"])
     obligations = {}
     stage_summary = {}
