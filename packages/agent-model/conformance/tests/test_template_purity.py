@@ -48,6 +48,7 @@ class UniversalTemplatePurityTests(unittest.TestCase):
         paths.append(ROOT / "packages/agent-model/src/cognitive-vnext.ts")
         paths.append(ROOT / "packages/agent-model/src/durable-vnext.ts")
         paths.append(ROOT / "packages/agent-model/src/evaluation-vnext.ts")
+        paths.append(ROOT / "packages/agent-model/src/operations-vnext.ts")
         for p in paths:
             with self.subTest(path=p.name):
                 content = p.read_text(encoding="utf-8")
