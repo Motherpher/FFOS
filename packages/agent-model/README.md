@@ -34,3 +34,9 @@ Static eligibility never proves a remote effect or receipt authenticity. M4's Po
 Six additional `schemas/v0.2/` contracts define evaluation profiles, cases, observations, provenance, candidate reports and non-self-authorizing assessments. `src/evaluation-vnext.ts` mirrors the typed contracts; `conformance/ama_evaluation.py` calculates conservative multi-axis outcome/reliability/error/evidence metrics. `tests/test_m5_evaluation.py` covers synthetic adversarial and negative cases.
 
 **CI evaluations are synthetic, not independently certified.** The self-acceptance schemas reject activation and the evaluator always returns `independent_accepted=false`; real source/oracle attestation and production C4/C5 remain unproven. See [M5 assurance specification](../../docs/roadmap/AMA-M5-INDEPENDENT-EVALUATION-ASSURANCE.md).
+
+## M6 operational lifecycle contracts (candidate)
+
+Six portable v0.2 schemas (`operational-profile`, `compatibility-assessment`, `health-snapshot`, `incident-record`, `release-plan`, `rollback-plan`) extend the optional bundle without changing v1. Types: `src/operations-vnext.ts`; static validator and adversarial tests: `conformance/ama_operations.py` and `tests/test_m6_operations.py`.
+
+All operational results are non-authorizing. Conditional MCP/A2A/OTel bindings do not become template requirements. See [M6 architecture](../../docs/roadmap/AMA-M6-OPERATIONAL-LIFECYCLE-CONTRACTS.md).
