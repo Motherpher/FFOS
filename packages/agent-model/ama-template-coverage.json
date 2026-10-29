@@ -2,231 +2,266 @@
   "schema": "ama.template-coverage/v1",
   "architecture": "AMA",
   "template_not_agent": true,
-  "coverage_policy": "EXPLICITLY_TRACKED",
+  "coverage_policy": "SUPPLEMENTARY_WITHIN_M0_M7",
   "modules": [
     {
       "id": "identity",
       "requirement": "CORE",
       "purpose": "agent identity, ownership, instance IDs and version lineage",
       "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M1"
     },
     {
       "id": "mandate",
       "requirement": "CORE",
       "purpose": "purpose, goals, non-goals, authority and allowed boundaries",
       "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M2"
     },
     {
       "id": "instruction",
       "requirement": "CORE",
       "purpose": "layered instruction precedence, conflict resolution and immutable governance constraints",
-      "implementation_status": "REQUIRES_TEMPLATE_CONTRACT",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M3",
+      "evidence_contract": "packages/agent-model/schemas/v0.2/instruction-package.schema.json"
     },
     {
       "id": "capability",
       "requirement": "CORE",
       "purpose": "capability registry, typed I/O, effect ceilings and resource scopes",
       "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M1"
     },
     {
       "id": "workflow",
       "requirement": "CORE",
       "purpose": "bounded workflow DAG, dependencies, branching and terminal states",
       "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M1"
     },
     {
       "id": "command",
       "requirement": "CORE",
       "purpose": "stable invocation vocabulary and argument contracts",
       "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M1"
     },
     {
       "id": "adapter",
       "requirement": "CORE",
       "purpose": "replaceable tool/runtime adapters, authentication bindings and failures",
       "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M1"
     },
     {
       "id": "authorization",
       "requirement": "CORE",
       "purpose": "external policy decisions, approval, revocation and denial",
       "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M2"
     },
     {
       "id": "task-execution",
       "requirement": "CORE",
       "purpose": "task envelopes, run lifecycle, retry, stop/cancel and idempotency",
       "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M4"
     },
     {
       "id": "evidence",
       "requirement": "CORE",
       "purpose": "provenance, receipts, audit trail and integrity",
       "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M5"
     },
     {
       "id": "conformance",
       "requirement": "CORE",
       "purpose": "schema validation, negative cases, reference checks and CI",
       "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M5"
     },
     {
       "id": "lifecycle",
       "requirement": "CORE",
       "purpose": "versioning, migration, change review, rollback and retirement",
       "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M6"
     },
     {
       "id": "cognition",
       "requirement": "OPTIONAL",
       "purpose": "model choices, reasoning budgets and planning",
       "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M3"
     },
     {
       "id": "context",
       "requirement": "OPTIONAL",
       "purpose": "context assembly, redaction, truncation and injection defenses",
       "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M3"
     },
     {
       "id": "memory",
       "requirement": "OPTIONAL",
       "purpose": "short/long-term memory, retention, erasure and provenance",
       "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M3"
     },
     {
       "id": "retrieval",
       "requirement": "OPTIONAL",
       "purpose": "retrievers, indexing, source ranking and freshness",
       "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M3"
     },
     {
       "id": "knowledge",
       "requirement": "OPTIONAL",
       "purpose": "knowledge bases, citation rules and trust tiers",
       "implementation_status": "REQUIRES_TEMPLATE_CONTRACT",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M3"
     },
     {
       "id": "multi-agent",
       "requirement": "OPTIONAL",
       "purpose": "delegation, coordination, separation of duties and handoffs",
-      "implementation_status": "REQUIRES_TEMPLATE_CONTRACT",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M2",
+      "evidence_contract": "packages/agent-model/schemas/v0.2/delegation.schema.json"
     },
     {
       "id": "eventing",
       "requirement": "OPTIONAL",
       "purpose": "scheduled or event-triggered execution, webhooks and queues",
       "implementation_status": "REQUIRES_TEMPLATE_CONTRACT",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M4"
     },
     {
       "id": "durability",
       "requirement": "OPTIONAL",
       "purpose": "checkpoints, leases, unknown effects and reconciliation",
       "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M4"
     },
     {
       "id": "human-interaction",
       "requirement": "OPTIONAL",
       "purpose": "human input, pause/resume, consent and escalation",
       "implementation_status": "REQUIRES_TEMPLATE_CONTRACT",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M2"
     },
     {
       "id": "observability",
       "requirement": "OPTIONAL",
       "purpose": "tracing, metrics, logs, health, budgets and alarms",
-      "implementation_status": "REQUIRES_TEMPLATE_CONTRACT",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M6",
+      "evidence_contract": "packages/agent-model/schemas/v0.2/health-snapshot.schema.json"
     },
     {
       "id": "evaluation",
       "requirement": "OPTIONAL",
       "purpose": "scenario tests, independent oracle interfaces and acceptance thresholds",
       "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M5"
     },
     {
       "id": "safety",
       "requirement": "OPTIONAL",
       "purpose": "risk classification, fail-closed policies and abuse handling",
       "implementation_status": "REQUIRES_TEMPLATE_CONTRACT",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M2"
     },
     {
       "id": "privacy",
       "requirement": "OPTIONAL",
       "purpose": "data minimization, access control, retention and deletion",
       "implementation_status": "REQUIRES_TEMPLATE_CONTRACT",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M2"
     },
     {
       "id": "secrets",
       "requirement": "OPTIONAL",
       "purpose": "secret injection, rotation, revocation and audit",
       "implementation_status": "REQUIRES_TEMPLATE_CONTRACT",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M2"
     },
     {
       "id": "interoperability",
       "requirement": "OPTIONAL",
       "purpose": "MCP, A2A, API contracts and transport negotiation",
       "implementation_status": "REQUIRES_TEMPLATE_CONTRACT",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M1"
     },
     {
       "id": "deployment",
       "requirement": "OPTIONAL",
       "purpose": "host deployment descriptors, staged rollout and rollback",
       "implementation_status": "REQUIRES_TEMPLATE_CONTRACT",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M6"
     },
     {
       "id": "operations",
       "requirement": "OPTIONAL",
       "purpose": "runbooks, incident handling, SLO and continuity",
       "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M6"
     },
     {
       "id": "cost-control",
       "requirement": "OPTIONAL",
       "purpose": "budget ceilings, quota, cost attribution and throttling",
       "implementation_status": "REQUIRES_TEMPLATE_CONTRACT",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M6"
     },
     {
       "id": "localization",
       "requirement": "OPTIONAL",
       "purpose": "locale, timezone, accessibility and user experience",
       "implementation_status": "REQUIRES_TEMPLATE_CONTRACT",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M6"
     },
     {
       "id": "governance",
       "requirement": "CORE",
       "purpose": "owner acceptance, review record and authority boundaries",
       "implementation_status": "REQUIRES_TEMPLATE_CONTRACT",
-      "host_binding": "INJECTED_NOT_PRESELECTED"
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M6"
     }
   ],
   "rules": {
@@ -235,5 +270,6 @@
     "implementations_can_select_modules": true,
     "template_does_not_deploy_agents": true,
     "owner_accepts_baseline": true
-  }
+  },
+  "canonical_milestone_map": "packages/agent-model/ama-milestones.json"
 }
