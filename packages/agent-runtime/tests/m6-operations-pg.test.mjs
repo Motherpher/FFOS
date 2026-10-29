@@ -125,7 +125,11 @@ test("M6: release remains an immutable proposal, never traffic shift",{skip:!dsn
  reviewDown=false;
 });
 test("M6: high-severity incident blocks even preparation of upgrades",{skip:!dsn},async()=>{
- await denied(()=>steward().prepareRelease(proposal()),"HIGH_SEVERITY_INCIDENT_PREVENTS_PROPOSAL");
+ await pool.query("INSERT INTO ama_agent_versions(agent_id,agent_version,ama_version,definition,definition_sha256,source_commit,registered_by) VALUES ($1,$2,$3,$4::jsonb,$5,$6,$7)",
+  ["CI.M6.AGENT","4.0.0","0.1.0","{}","f".repeat(64),"CI","CI"]);
+ await steward().emergencySuspend({...incident(),agentVersion:"4.0.0"});
+ await denied(()=>steward().prepareRelease({...proposal(),agentVersion:"4.0.0",targetVersion:"4.1.0"}),
+  "HIGH_SEVERITY_INCIDENT_PREVENTS_PROPOSAL");
 });
 test("M6: suspended agent cannot admit new runs or reclaim M4 leases",{skip:!dsn},async()=>{
  await pool.query("INSERT INTO ama_agent_versions(agent_id,agent_version,ama_version,definition,definition_sha256,source_commit,registered_by) VALUES ($1,$2,$3,$4::jsonb,$5,$6,$7)",
