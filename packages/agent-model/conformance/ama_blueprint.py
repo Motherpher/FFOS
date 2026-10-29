@@ -9,14 +9,13 @@ from pathlib import Path
 
 from ama_vnext import digest, validate_bundle
 from ama_milestone_integrity import load as milestone_integrity
-from ama_eventing import check_event_triggers
-from ama_support_profiles import check_secret_bindings, check_localization_profiles
+from ama_blueprint_semantics import audit as audit_semantics
 
 ROOT = Path(__file__).resolve().parents[3]
 MODEL = ROOT / "packages" / "agent-model"
 
 
-def assemble(bundle, optional_modules=(), use_f8=False):
+def assemble(bundle, optional_modules=(), use_f8=False, *, at=None, host_trust_domain=None):
     """Return a build blueprint and precise blocking obligations.
 
     Invalid bundles and unrecognized optional modules fail closed.
@@ -55,14 +54,21 @@ def assemble(bundle, optional_modules=(), use_f8=False):
     selected = {x["id"] for x in rows if x["requirement"] == "CORE"}
     selected.update(x for x in requested if x in allowed)
     selected.update(implicitly_selected)
-    for field, audit in (
-        ("eventTriggers", check_event_triggers),
-        ("secretBindings", check_secret_bindings),
-        ("localizationProfiles", check_localization_profiles),
-    ):
-        if bundle.get(field):
-            for err in audit(bundle)["errors"]:
-                problems.append(field + ":" + err)
+    assessment = {
+        "schema": "ama.m7.semantic-assessment/v1",
+        "checks": {},
+        "errors": [],
+        "assessment_inputs_required": [],
+        "configuration_eligible": False,
+        "runtime_authorized": False,
+        "host_trust_verified": False,
+        "agent_activated": False,
+    }
+    # Never run semantic validators against structurally malformed bundles.
+    if not problems:
+        assessment = audit_semantics(bundle, at=at,
+                                     host_trust_domain=host_trust_domain)
+        problems.extend(assessment["errors"])
     obligations = {}
     stage_summary = {}
     for stage in canonical["milestone_order"]:
@@ -100,9 +106,13 @@ def assemble(bundle, optional_modules=(), use_f8=False):
         "selected_optional_modules": sorted((set(x for x in requested if x in allowed)) | implicitly_selected),
         "stages": stage_summary,
         "implementation_obligations": obligations,
-        "status": "INVALID_SOURCE" if problems else "CONSTRUCTION_BLUEPRINT_CANDIDATE",
+        "status": ("INVALID_SOURCE" if problems else
+                   "ASSESSMENT_INPUT_REQUIRED" if assessment["assessment_inputs_required"] else
+                   "CONSTRUCTION_BLUEPRINT_CANDIDATE"),
+        "semantic_assessment": assessment,
+        "assessment_inputs_required": assessment["assessment_inputs_required"],
         "validation_errors": sorted(set(problems)),
-        "template_complete": False if obligations or problems else stage_report["template_complete"],
+        "template_complete": False if obligations or problems or assessment["assessment_inputs_required"] else stage_report["template_complete"],
         "runtime_accepted": False,
         "effect_authorized": False,
         "agent_registered": False,
@@ -117,14 +127,17 @@ if __name__ == "__main__":
                      help="Optional inventory module identifier; repeat as required")
     cli.add_argument("--f8-cdx", action="store_true",
                      help="Include F8 host integration requirement, not CDX activation")
+    cli.add_argument("--at", help="Trusted host assessment timestamp with timezone")
+    cli.add_argument("--host-trust-domain", help="Injected trust-domain label for knowledge checks")
     cli.add_argument("--output", type=Path)
     opts = cli.parse_args()
     obj = json.loads(opts.bundle.read_text(encoding="utf-8"))
-    blueprint = assemble(obj, opts.optional, opts.f8_cdx)
+    blueprint = assemble(obj, opts.optional, opts.f8_cdx,
+                         at=opts.at, host_trust_domain=opts.host_trust_domain)
     text = json.dumps(blueprint, ensure_ascii=False, indent=2) + "\n"
     if opts.output:
         opts.output.parent.mkdir(parents=True, exist_ok=True)
         opts.output.write_text(text, encoding="utf-8")
     else:
         print(text, end="")
-    raise SystemExit(1 if blueprint["validation_errors"] else 0)
+    raise SystemExit(1 if blueprint["validation_errors"] or blueprint["assessment_inputs_required"] else 0)
