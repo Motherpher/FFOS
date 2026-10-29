@@ -1,0 +1,146 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.operational-profile/v0.2-candidate"
+    },
+    "profileId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "agentRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "status": {
+      "$ref": "common.schema.json#/$defs/bindingStatus"
+    },
+    "monitoring": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "maxHeartbeatAgeSeconds": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "maxFailureRate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "maxP95LatencyMs": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "maxCostMinor": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "currency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        },
+        "requiredSignals": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "HEALTH",
+              "ERROR_RATE",
+              "LATENCY",
+              "COST",
+              "POLICY_DRIFT",
+              "EFFECT_UNCERTAINTY",
+              "REVOCATION"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "maxHeartbeatAgeSeconds",
+        "maxFailureRate",
+        "maxP95LatencyMs",
+        "maxCostMinor",
+        "currency",
+        "requiredSignals"
+      ]
+    },
+    "releasePolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "canaryMaxPercent": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        },
+        "minCanaryObservations": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "requireIndependentDecision": {
+          "const": true
+        },
+        "requireCompatibilityCheck": {
+          "const": true
+        },
+        "failClosedOnMissingTelemetry": {
+          "const": true
+        }
+      },
+      "required": [
+        "canaryMaxPercent",
+        "minCanaryObservations",
+        "requireIndependentDecision",
+        "requireCompatibilityCheck",
+        "failClosedOnMissingTelemetry"
+      ]
+    },
+    "protocolBindings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "protocol": {
+            "enum": [
+              "MCP",
+              "A2A",
+              "OTEL",
+              "OTHER"
+            ]
+          },
+          "bindingRef": {
+            "$ref": "common.schema.json#/$defs/ref"
+          },
+          "required": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "protocol",
+          "bindingRef",
+          "required"
+        ]
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "schema",
+    "profileId",
+    "version",
+    "agentRef",
+    "status",
+    "monitoring",
+    "releasePolicy",
+    "protocolBindings"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/operational-profile.schema.json",
+  "title": "AMA v0.2 candidate operational-profile"
+}
