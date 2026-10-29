@@ -42,7 +42,7 @@ export class DurableRunError extends Error {
 const required=(s:string)=>typeof s==="string"&&s.trim().length>0;
 const sha=(data:unknown)=>createHash("sha256").update(JSON.stringify(data)).digest("hex");
 const ensure=(value:boolean,code:string):void=>{if(!value)throw new DurableRunError(code);};
-type RunRow={run_id:string;state:RunState;lease_owner:string|null;lease_epoch:string|number;
+type RunRow={run_id:string;task_id:string;workflow_id:string;workflow_version:string;state:RunState;lease_owner:string|null;lease_epoch:string|number;
   lease_until:Date|null;cancel_requested:boolean;generation:string|number;agent_id:string;agent_version:string};
 type EffectRow={effect_id:string;state:EffectState;run_id:string;operation_key:string};
 export class DurablePgCoordinator {
@@ -73,6 +73,14 @@ export class DurablePgCoordinator {
     await db.query("INSERT INTO ama_m4_events(event_id,run_id,event_type,state,lease_epoch,detail) VALUES($1,$2,$3,$4,$5,$6::jsonb)",
       [randomUUID(),runId,type,state,epoch,JSON.stringify(detail)]);
   }
+  private async assertAdmitted(row:RunRow):Promise<void>{
+    ensure(!!this.admission,"RUN_ADMISSION_NOT_BOUND");
+    await this.admission!.assertAdmitted({
+      runId:row.run_id,taskId:row.task_id,agentId:row.agent_id,
+      agentVersion:row.agent_version,workflowId:row.workflow_id,
+      workflowVersion:row.workflow_version,
+    });
+  }
   private live(row:RunRow,lease:Lease):void{
     ensure(row.run_id===lease.runId&&row.state==="RUNNING"&&
       row.lease_owner===lease.owner&&Number(row.lease_epoch)===lease.epoch&&
@@ -95,6 +103,7 @@ export class DurablePgCoordinator {
       "INVALID_LEASE");
     return this.tx(async db=>{
       const row=await this.row(db,runId);
+      await this.assertAdmitted(row);
       ensure(["QUEUED","RUNNING"].includes(row.state)&&!row.cancel_requested,"RUN_NOT_CLAIMABLE");
       if(row.state==="RUNNING"&&row.lease_until&&row.lease_until.getTime()>Date.now())
         throw new DurableRunError("LEASE_BUSY");
@@ -116,7 +125,8 @@ export class DurablePgCoordinator {
     }).then(lease=>{if(!lease)throw new DurableRunError("UNCERTAIN_EFFECT_RECONCILE");return lease;});
   }
   async assertLease(lease:Lease):Promise<void>{
-    await this.tx(async db=>{this.live(await this.row(db,lease.runId),lease);});
+    await this.tx(async db=>{const row=await this.row(db,lease.runId);
+      this.live(row,lease);await this.assertAdmitted(row);});
   }
   async attempt(lease:Lease,attemptId:string,stepId:string):Promise<void>{
     ensure(required(attemptId)&&required(stepId),"INVALID_ATTEMPT");
@@ -247,6 +257,7 @@ export class DurablePgCoordinator {
     await this.resume!.assertResumeAuthorized(runId,decisionRef);
     await this.tx(async db=>{
       const row=await this.row(db,runId);
+      await this.assertAdmitted(row);
       ensure(row.state==="HOLD"&&!row.cancel_requested,"RUN_NOT_RESUMABLE");
       const pending=await db.query("SELECT effect_id FROM ama_m4_effects WHERE run_id=$1 AND state IN ('PREPARED','DISPATCHED','UNKNOWN')",[runId]);
       ensure(!pending.rows.length,"EFFECT_REQUIRES_RECONCILIATION");
@@ -272,7 +283,7 @@ export class DurablePgCoordinator {
   async complete(lease:Lease):Promise<void>{
     await this.tx(async db=>{
       this.live(await this.row(db,lease.runId),lease);
-      const pending=await db.query("SELECT effect_id FROM ama_m4_effects WHERE run_id=$1 AND state IN ('PREPARED','DISPATCHED','UNKNOWN','BLOCKED')",[lease.runId]);
+      const pending=await db.query("SELECT effect_id FROM ama_m4_effects WHERE run_id=$1 AND state IN ('PREPARED','DISPATCHED','UNKNOWN','BLOCKED','NOT_APPLIED')",[lease.runId]);
       ensure(!pending.rows.length,"EFFECT_REQUIRES_RECONCILIATION");
       await db.query("UPDATE ama_m4_runs SET state='PASS',lease_owner=NULL,lease_until=NULL,updated_at=now() WHERE run_id=$1",[lease.runId]);
       await this.event(db,lease.runId,"EXECUTION_FINISHED_NOT_ACCEPTED","PASS",lease.epoch);
