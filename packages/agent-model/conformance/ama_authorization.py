@@ -36,6 +36,7 @@ def _match(grant, request):
             and _within(request["resourceScope"], grant["resourceScope"])
             and CLASS[request["dataClassification"]] <= CLASS[grant["maxDataClassification"]]
             and request["recipientId"] in grant["allowedRecipients"]
+            and (not request["riskContext"]["aggregateRead"] or grant["allowAggregation"])
             and grant["purpose"] == request["purpose"])
 
 
@@ -45,6 +46,7 @@ def _attenuated(child, parent):
             and _within(child["resourceScope"], parent["resourceScope"])
             and CLASS[child["maxDataClassification"]] <= CLASS[parent["maxDataClassification"]]
             and set(child["allowedRecipients"]).issubset(set(parent["allowedRecipients"]))
+            and (not child["allowAggregation"] or parent["allowAggregation"])
             and child["purpose"] == parent["purpose"]
             and (not parent["requiresHumanReview"] or child["requiresHumanReview"]))
 
@@ -230,11 +232,26 @@ def validate_authorization_contract(bundle, *, at):
             fail("REQUEST_FROM_FUTURE")
         if not is_valid(mandate["issuedAt"], mandate["expiresAt"], requested_at):
             fail("REQUEST_MANDATE_TIME_INVALID")
+        risk = req["riskContext"]
+        if risk["aggregateRead"] and req["actionKind"] != "OBSERVE":
+            fail("INVALID_AGGREGATION_CONTEXT")
+        if risk["aggregateRead"] and not any(
+                g["allowAggregation"] for g in mandate["grants"]):
+            fail("AGGREGATION_NOT_AUTHORIZED")
+        if risk["financialAmountMinor"] > 0 and not risk.get("currency"):
+            fail("FINANCIAL_CURRENCY_REQUIRED")
+        if (req["dataClassification"] in ("CONFIDENTIAL", "RESTRICTED")
+                or req["effectClass"] in ("E3_EXTERNAL_EFFECT", "E4_AUTHORITY_CHANGE")):
+            if risk["impact"] == "UNKNOWN" or risk["reversibility"] == "UNKNOWN":
+                fail("UNCLASSIFIED_CONSEQUENTIAL_RISK")
+        risk_review = (risk["impact"] in ("HIGH", "CRITICAL")
+                       or risk["externalExposure"] and req["dataClassification"] == "RESTRICTED"
+                       or risk["financialAmountMinor"] > 0)
         matched = [g for g in mandate["grants"] if _match(g, req)]
         if not matched:
             fail("REQUEST_OUTSIDE_MANDATE")
         approvals = [a for a in approval_list.values() if a["requestRef"]["id"] == req["requestId"]]
-        if any(g["requiresHumanReview"] for g in matched) or req["effectClass"] in (
+        if risk_review or any(g["requiresHumanReview"] for g in matched) or req["effectClass"] in (
                 "E3_EXTERNAL_EFFECT","E4_AUTHORITY_CHANGE"):
             if not approvals:
                 fail("INDEPENDENT_APPROVAL_REQUIRED")
