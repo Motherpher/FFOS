@@ -216,7 +216,17 @@ The security policy, operator and observation verifiers remain CI doubles; the m
 | 4 | M4: durable runtime protocol | restart/replay/duplicate-effect tests | TECHNICAL CANDIDATE CI VERIFIED; LIVE F8 BINDING BLOCKED |
 | 5 | M5: assurance evaluation | independent outcomes + source-backed regression | PLANNED |
 | 6 | M6: operations/extension contracts | change/incident/rollback suite | ENGINEERING CI VERIFIED; LIVE RELEASE/ACCEPTANCE BLOCKED |
-| 7 | M7: synthetic reference admission | independent acceptance evidence | DEFERRED |
+| 7 | M7-E: synthetic reference engineering integration | six-profile reference, actual PostgreSQL cross-layer test, CI report | ENGINEERING TESTS PASSED; HUMAN AUDIT PENDING |\n| 7 (post-F8.7) | M7-O: independent operational readiness | authentic CDX policy/receipt, live C4/C5 and governing approval | BLOCKED BY F8.7 + LIVE ASSURANCE |
+
+## M7-E engineering execution — 2026-10-29
+
+**Engineering gate verified:** [GitHub Actions 40848470365](https://github.com/Motherpher/FFOS/actions/runs/40848470365) passed **202 Python + 9 shared-model + 105 runtime/PostgreSQL = 316 combined tests** and emitted six synthetic pinned reference fixtures and the `SYNTHETIC_REFERENCE_PASS` engineering assessment. [Generated test evidence](https://github.com/Motherpher/FFOS/actions/runs/40848470365/artifacts/12885529212).
+
+Implemented: provider-neutral M1–M6 reference admission, memory ON/OFF contrast, bounded E0 recipient/grant checks, E2 effect against disposable PostgreSQL, actual FFOS F8 multi-surface adapter with **synthetic** release/identity/SPETL test doubles, M4 HOLD/UNKNOWN reconciliation, M6 emergency fencing, forged-source and false-allow negative regressions and non-self-authorizing readiness assessment.
+
+[M7-E engineering architecture](AMA-M7-E-END-TO-END-ENGINEERING.md) · [M7-E execution and CI report](AMA-M7-E-EXECUTION-REPORT.md).
+
+**No operational promotion:** The upstream CDX 1.0 release and FFOS production runtime F8.7 remain blocked. A generated `SYNTHETIC_REFERENCE_PASS` does not verify production signatures, independent SPETL custody, real final states, C4/C5 or human adoption. The next gated sequence is **F8.7 → M7-O → independent final release decision**. PR #19 remains draft.
 
 ## Operational boundaries / implementation hygiene
 
