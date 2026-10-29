@@ -6,7 +6,7 @@
     "name": "AMA",
     "kind": "ARCHITECTURE_NOT_AGENT",
     "source_repository": "Motherpher/FFOS",
-    "baseline_ref": "feat/ama-foundation-20261028"
+    "baseline_ref": "feat/agent-stable-suite-messi-household-20261029"
   },
   "governance": {
     "governing_authority": "FFOS_DIRECTOR",
@@ -99,5 +99,11 @@
     "fleet_ordinal": 2,
     "agent_id": "FFOS-AGENT-HOUSEHOLD-002",
     "manifest_ref": "agents/household-family/manifest-candidate-v0.1.json"
+  },
+  "implementation": {
+    "path": "modules/household-family",
+    "source_branch": "hf/household-family-2.0",
+    "integrated": true,
+    "production_accepted": false
   }
 }
