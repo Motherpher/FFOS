@@ -297,6 +297,9 @@
       "items": {
         "$ref": "localization-profile.schema.json"
       }
+    },
+    "operatingRealm": {
+      "$ref": "operating-realm.schema.json"
     }
   },
   "$schema": "https://json-schema.org/draft/2020-12/schema",
