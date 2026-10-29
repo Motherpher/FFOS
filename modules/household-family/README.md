@@ -4,6 +4,8 @@ One authenticated MCP plugin and an independent durable worker for bounded GitHu
 
 **Current delivery:** runnable code and tested contract integration. **Not yet deployed or registered in ChatGPT.** Test Director/CDX services are explicitly artificial; their signatures are not genuine governance clearance. Read [the execution report](docs/work_chat_execution_report.md) for current evidence and gates.
 
+**29 October AMA update:** AMA is now positively identified as Agent Master Architecture. The [source-pinned prefabrication review](docs/AMA-PREFABRICATION-2026-10-29.md) records safe preparation work, the pending AMA baseline/adaptation gates, and the required migration from the older commit-only CDX bootstrap to the current release-pinned host anchor. This is a documentation update; it does not establish AMA conformance or agent activation.
+
 ## Run the verified local demonstration
 
 Requires Node 24 and npm. From this directory:
