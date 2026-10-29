@@ -164,3 +164,49 @@ test("M4: immutable journal/checkpoint/receipt cannot be silently rewritten",{sk
  await assert.rejects(pool.query("UPDATE ama_m4_events SET event_type='TAMPERED' WHERE run_id=$1",[i.runId]));
  await assert.rejects(pool.query("DELETE FROM ama_m4_checkpoints WHERE run_id=$1",[i.runId]));
 });
+
+test("M4: competing workers cannot claim same lease",{skip:!dsn},async()=>{
+ const c=coordinator(),i=make();await c.create(i);
+ const settled=await Promise.allSettled([
+   c.claim(i.runId,"worker-A",120),c.claim(i.runId,"worker-B",120)]);
+ assert.equal(settled.filter(x=>x.status==="fulfilled").length,1);
+ assert.equal(settled.filter(x=>x.status==="rejected"&&
+   x.reason instanceof DurableRunError&&x.reason.code==="LEASE_BUSY").length,1);
+});
+
+test("M4: revoked admission prevents existing worker from dispatching",{skip:!dsn},async()=>{
+ let revoked=false;
+ const independent={async assertAdmitted(){if(revoked)throw Error("mandate revoked");}};
+ const c=new DurablePgCoordinator(pool,independent,gate,receipts,resume);
+ const i=make();await c.create(i);
+ const lease=await c.claim(i.runId,"worker",120);revoked=true;
+ await assert.rejects(()=>c.assertLease(lease),/mandate revoked/);
+});
+
+test("M4: post-callback evidence failure retains uncertain outcome",{skip:!dsn},async()=>{
+ const broken={async execute(ctx,cap,target,callback){
+   await callback();throw Error("post-effect evidence unavailable");
+ }};
+ const c=new DurablePgCoordinator(pool,admission,broken,receipts,resume);
+ const i=make();await c.create(i);
+ const lease=await c.claim(i.runId,"worker",120),attempt="CI-ATTEMPT-"+randomUUID();
+ await c.attempt(lease,attempt,"STEP.A");
+ const e=effect(i.runId,attempt);let calls=0;
+ await assert.rejects(()=>c.executeEffect(lease,e,context(i.runId),"C",async()=>{
+   calls++;return {ok:true};}),/post-effect evidence unavailable/);
+ assert.equal(calls,1);assert.equal((await state(e.effectId)).state,"UNKNOWN");
+ await deny(()=>c.resumeRun(i.runId,"INDEPENDENT-REVIEW"),"EFFECT_REQUIRES_RECONCILIATION");
+});
+
+test("M4: independently confirmed NOT_APPLIED cannot count as completed effect",{skip:!dsn},async()=>{
+ const c=coordinator(),i=make();await c.create(i);
+ const lease=await c.claim(i.runId,"worker",120),attempt="CI-ATTEMPT-"+randomUUID();
+ await c.attempt(lease,attempt,"STEP.A");const e=effect(i.runId,attempt);
+ await c.executeEffect(lease,e,context(i.runId),"C",async()=>"unverified");
+ await c.reconcile({receiptId:"CI-RECEIPT-"+randomUUID(),effectId:e.effectId,
+   outcome:"NOT_APPLIED",verifierRef:"INDEPENDENT-RECONCILER",
+   evidenceRef:"VERIFIED-EXTERNAL",evidenceSha256:"e".repeat(64)});
+ await c.resumeRun(i.runId,"INDEPENDENT-REVIEW");
+ const next=await c.claim(i.runId,"worker-2",120);
+ await deny(()=>c.complete(next),"EFFECT_REQUIRES_RECONCILIATION");
+});
