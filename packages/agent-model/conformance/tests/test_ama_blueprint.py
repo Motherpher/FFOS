@@ -7,7 +7,8 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(HERE / "tests"))
-from ama_blueprint import assemble
+from ama_blueprint import assemble as raw_assemble
+from ama_realm import declare_realm
 from test_m1_contracts import fixture
 from test_m4_eventing import event_fixture
 from test_ama_support_profiles import secret_fixture, localization_fixture
@@ -39,7 +40,60 @@ def complex_reference_bundle():
     return agent_bundle
 
 
+def attach_synthetic_external_realm(bundle):
+    """Fixtures predating realm context get an explicit test-only external binding."""
+    if "operatingRealm" not in bundle:
+        declare_realm(
+            bundle, realm_id="EXTERNAL/SYNTHETIC",
+            realm_owner_ref="SYNTHETIC.OWNER",
+            governing_principal_ref=bundle["agent"]["authority"]["governingPrincipalRef"],
+            policy_authority_ref="EXTERNAL:POLICY",
+            security_anchor_ref="EXTERNAL:SECURITY",
+            category="EXTERNAL_CONSUMER", mode="DETACHED_EXTERNAL",
+        )
+    return bundle
+
+
+def assemble(bundle, *args, **kwargs):
+    return raw_assemble(attach_synthetic_external_realm(bundle), *args, **kwargs)
+
+
 class BlueprintTests(unittest.TestCase):
+    def test_operating_realm_is_required_without_synthetic_fixture_binding(self):
+        raw=fixture()
+        b=raw_assemble(raw)
+        self.assertEqual(b["status"],"INVALID_SOURCE")
+        self.assertIn("REALM:OPERATING_REALM_REQUIRED",b["validation_errors"])
+
+    def test_internal_realm_automatically_requires_f8_even_without_flag(self):
+        b=fixture()
+        declare_realm(
+            b, realm_id="FF_ESTATE/PIUS", realm_owner_ref="Form & Flöde",
+            governing_principal_ref=b["agent"]["authority"]["governingPrincipalRef"],
+            policy_authority_ref="CDX:POLICY", security_anchor_ref="CDX:F8",
+            mode="MANDATORY", category="OWNER_ESTATE",
+        )
+        result=raw_assemble(b)
+        self.assertEqual(result["status"],"CONSTRUCTION_BLUEPRINT_CANDIDATE",result)
+        self.assertEqual(result["required_governance_integrations"],["F8_CDX"])
+        self.assertEqual(result["implementation_obligations"]["F8_HOST_BINDING"]["state"],
+                         "MANDATORY_INTERNAL_CDX_BINDING")
+        self.assertFalse(result["operating_realm"]["runtime_cdx_verified"])
+
+    def test_internal_realm_cannot_detach_cdx(self):
+        b=fixture()
+        declare_realm(
+            b, realm_id="FF_ESTATE/SUBSIDIARY", realm_owner_ref="Form & Flöde",
+            governing_principal_ref=b["agent"]["authority"]["governingPrincipalRef"],
+            policy_authority_ref="EXTERNAL:POLICY",
+            security_anchor_ref="EXTERNAL:SECURITY",
+            mode="DETACHED_EXTERNAL", category="OWNER_ESTATE",
+        )
+        result=raw_assemble(b)
+        self.assertEqual(result["status"],"INVALID_SOURCE")
+        self.assertIn("REALM:CDX_DETACHMENT_FORBIDDEN_IN_FF_ESTATE",result["validation_errors"])
+
+
     def test_valid_m1_bundle_generates_m0_to_m7_blueprint(self):
         blueprint = assemble(fixture())
         self.assertEqual(blueprint["status"], "CONSTRUCTION_BLUEPRINT_CANDIDATE")
