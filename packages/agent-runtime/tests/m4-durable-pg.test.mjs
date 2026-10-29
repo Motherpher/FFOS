@@ -165,6 +165,23 @@ test("M4: immutable journal/checkpoint/receipt cannot be silently rewritten",{sk
  await assert.rejects(pool.query("DELETE FROM ama_m4_checkpoints WHERE run_id=$1",[i.runId]));
 });
 
+test("M4: persisted checkpoint survives restart and validates digest",{skip:!dsn},async()=>{
+ const c=coordinator(),i=make();await c.create(i);
+ const lease=await c.claim(i.runId,"worker",120);
+ await c.checkpoint(lease,"CI-CHECKPOINT-"+randomUUID(),{phase:"confirmed",n:2});
+ const restored=await c.loadCheckpoint(i.runId);
+ assert.deepEqual(restored,{generation:1,state:{phase:"confirmed",n:2}});
+});
+
+test("M4: inconsistent checkpoint state prevents worker recovery",{skip:!dsn},async()=>{
+ const c=coordinator(),i=make();await c.create(i);
+ await c.claim(i.runId,"worker",120);
+ await pool.query("INSERT INTO ama_m4_checkpoints(checkpoint_id,run_id,generation,lease_epoch,state_data,state_sha256) VALUES($1,$2,$3,$4,$5::jsonb,$6)",
+   ["CI-CHECKPOINT-"+randomUUID(),i.runId,1,1,JSON.stringify({phase:"tampered"}),"0".repeat(64)]);
+ await pool.query("UPDATE ama_m4_runs SET generation=1,lease_until=now()-interval '1 second' WHERE run_id=$1",[i.runId]);
+ await deny(()=>c.claim(i.runId,"new-worker",120),"CHECKPOINT_INTEGRITY");
+});
+
 test("M4: competing workers cannot claim same lease",{skip:!dsn},async()=>{
  const c=coordinator(),i=make();await c.create(i);
  const settled=await Promise.allSettled([
