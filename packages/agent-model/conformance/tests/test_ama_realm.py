@@ -3,13 +3,14 @@
 All fixtures use synthetic agent identities. No runtime authority is established.
 """
 import copy
+import json
 import sys
 import unittest
 from pathlib import Path
 HERE=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(HERE))
 from test_m1_contracts import fixture
-from ama_realm import declare_realm,check_realm
+from ama_realm import declare_realm,check_realm,validate_stewardship
 
 
 def sample(realm_id="FF_ESTATE/PIUS",internal=True):
@@ -32,6 +33,20 @@ class RealmBindingTests(unittest.TestCase):
         self.assertIn(code,r["errors"])
         self.assertFalse(r["runtime_cdx_verified"])
         self.assertFalse(r["effect_authorized"])
+
+    def test_ama_stewardship_is_internal_and_cdx_anchored(self):
+        root=HERE.parents[2]
+        stewardship=json.loads((root/"packages/agent-model/ama-stewardship-realm.json").read_text())
+        policy=json.loads((root/"integrations/cdx/f8/realm-binding-policy.json").read_text())
+        distribution=json.loads((root/"packages/agent-model/ama-distribution-manifest.json").read_text())
+        result=validate_stewardship(stewardship,policy,distribution)
+        self.assertEqual(result["status"],"STATIC_STEWARDSHIP_CONSISTENT",result)
+        self.assertTrue(result["internal_cdx_required"])
+        self.assertTrue(result["external_distribution_detachable"])
+        self.assertFalse(result["cdx_runtime_verified"])
+        stewardship["governance_anchor"]="OTHER:SECURITY"
+        self.assertIn("STEWARDSHIP_MISSING_CDX",
+                      validate_stewardship(stewardship,policy,distribution)["errors"])
 
     def test_no_declared_realm_fails(self):
         self.deny(fixture(),"OPERATING_REALM_REQUIRED")
