@@ -6,7 +6,7 @@
     "name": "AMA",
     "kind": "ARCHITECTURE_NOT_AGENT",
     "source_repository": "Motherpher/FFOS",
-    "baseline_ref": "feat/agent-stable-suite-messi-household-20261029"
+    "baseline_ref": "main"
   },
   "governance": {
     "governing_authority": "FFOS_DIRECTOR",
@@ -104,6 +104,8 @@
     "path": "modules/household-family",
     "source_branch": "hf/household-family-2.0",
     "integrated": true,
-    "production_accepted": false
+    "production_accepted": false,
+    "canonical_repository": "Motherpher/FFOS",
+    "canonical_branch": "main"
   }
 }
