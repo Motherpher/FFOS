@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 
 from ama_vnext import digest, validate_bundle
+from ama_realm import declare_realm, check_realm
 
 
 def pin(row, key):
@@ -15,7 +16,9 @@ def pin(row, key):
 
 
 def starter(agent_id, name, purpose, scope, governing_principal,
-            command_token, version="0.1.0"):
+            command_token, version="0.1.0", *, realm_id, realm_category,
+            realm_owner_ref, policy_authority_ref, security_anchor_ref,
+            security_binding_mode):
     io = {"type": "object", "additionalProperties": False,
           "properties": {"value": {"type": "string"}}}
     adapter = {
@@ -85,7 +88,16 @@ def starter(agent_id, name, purpose, scope, governing_principal,
               "agent": agent, "workflows": [workflow],
               "commands": [command], "capabilities": [cap],
               "toolAdapters": [adapter], "profiles": []}
+    declare_realm(
+        bundle, realm_id=realm_id, realm_owner_ref=realm_owner_ref,
+        governing_principal_ref=governing_principal,
+        policy_authority_ref=policy_authority_ref,
+        security_anchor_ref=security_anchor_ref,
+        mode=security_binding_mode, category=realm_category,
+        external_export_allowed=False,
+    )
     errors = validate_bundle(bundle)
+    errors.extend(check_realm(bundle)["errors"])
     if errors:
         raise ValueError("INVALID_STARTER:" + ",".join(errors))
     return bundle
@@ -100,10 +112,21 @@ if __name__ == "__main__":
     p.add_argument("--governing-principal", required=True)
     p.add_argument("--command-token", required=True)
     p.add_argument("--version", default="0.1.0")
+    p.add_argument("--realm-id", required=True)
+    p.add_argument("--realm-category", choices=["OWNER_ESTATE","EXTERNAL_CONSUMER"], required=True)
+    p.add_argument("--realm-owner", required=True)
+    p.add_argument("--policy-authority", required=True)
+    p.add_argument("--security-anchor", required=True)
+    p.add_argument("--security-binding-mode", choices=["MANDATORY","DETACHED_EXTERNAL"], required=True)
     p.add_argument("--output", type=Path, required=True)
     args = p.parse_args()
     bundle = starter(args.agent_id, args.name, args.purpose, args.scope,
-                     args.governing_principal, args.command_token, args.version)
+                     args.governing_principal, args.command_token, args.version,
+                     realm_id=args.realm_id, realm_category=args.realm_category,
+                     realm_owner_ref=args.realm_owner,
+                     policy_authority_ref=args.policy_authority,
+                     security_anchor_ref=args.security_anchor,
+                     security_binding_mode=args.security_binding_mode)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(bundle, indent=2) + "\n", encoding="utf-8")
     print("AMA DRAFT bundle written; host binding and acceptance remain absent.")
