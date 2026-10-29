@@ -13,8 +13,8 @@
 **T0 = tested implementation:** A feature exercised in disposable CI, not a running service.  
 **S = sourced finding:** Statement made by a named standard, public technical guide or research publication. Where a source is a preprint, finding is not independently replicated by the fact of its publication.  
 **I = interpretation:** Our architecture inference from sources.  
-**R1 = first-level proposed recommendation:** A coherent change package covering multiple related requirements. **Not implemented.**  
-**R2 = conditional residual gap:** A remaining issue that **would still exist after R1 is fully implemented**. Not an extra duplicate to be counted before R1.  
+**F1–F7 = seven first-level proposed recommendation packages:** A coherent change package covering multiple related requirements. **Not implemented.**  
+**S01–S11 = conditional second-level residual gaps:** A remaining issue that **would still exist after F1 is fully implemented**. Not an extra duplicate to be counted before F1.  
 **V = verification:** What observable evidence would justify closing the gap.
 
 ### Evidence quality controls
@@ -65,7 +65,7 @@ The seven questions partition the 96 candidate requirements by *primary* domain 
 
 **Structured answer (I):** AMA is *universal in intent but not yet complete as a machine-verifiable type system*. Existing distinctions are architecturally sound; the inability to define all legal relationships and cardinalities makes a generic implementation difficult to prove.
 
-**First-level recommendation R1 — Contract decomposition and semantic compatibility:**
+**First-level recommendation F1 — Contract decomposition and semantic compatibility:**
 - Preserve \`AMA-CORE\` as the agent-independent authority for terms, state invariants and applicability.
 - Add interoperable JSON Schemas for Agent, Workflow, Command, Capability, Tool Adapter, Task/Run, Authorization Context, Evaluation and Evidence.
 - Require all cross-object bindings to resolve a **specific immutable definition version/digest** rather than free-form labels.
@@ -74,7 +74,7 @@ The seven questions partition the 96 candidate requirements by *primary* domain 
 
 **Expected first-order closure:** Resolves the document/schema mismatch, entity ambiguity, incomplete binding validation and unsafe extension defaults **as one work package**. Do not count each as an independent residual gap once the shared contract is implemented.
 
-**Residual R2-01 (conditional):** Cross-schema semantic conflicts, extension namespace collisions and version migration interpretation may still emerge even when each local schema validates. **Proof:** cross-profile compositional tests, migration fixtures and negative dependency tests.
+**Residual S01 (conditional):** Cross-schema semantic conflicts, extension namespace collisions and version migration interpretation may still emerge even when each local schema validates. **Proof:** cross-profile compositional tests, migration fixtures and negative dependency tests.
 
 **Assessment:** PARTIAL; promotion block for universal schema completeness, not evidence of a deployed agent.
 
@@ -88,7 +88,7 @@ The seven questions partition the 96 candidate requirements by *primary* domain 
 
 **Structured answer (I):** An ordinal effect ceiling is an upper bound on mutation *kind*, not proof of consent, scope, confidentiality, blast radius or delegation. A nominal E0 read can be higher-risk than an E2 update.
 
-**First-level recommendation R2 — Multidimensional authorization and delegation:**
+**First-level recommendation F2 — Multidimensional authorization and delegation:**
 - Represent principal, workload identity, delegation chain, mandate issuer, valid interval, audience, target resources, tenant/data classification and revocation.
 - Separate *action effect kind* from *risk and exposure dimensions*: read sensitivity, aggregation, recipients, reversibility, externality, scale and required approval.
 - Require resource-scoped access checks for reads **and** writes; let policy bind to full task/workflow context.
@@ -98,9 +98,9 @@ The seven questions partition the 96 candidate requirements by *primary* domain 
 
 **Expected first-order closure:** Resolves absent resource scoping, false E0 safety, missing delegation semantics and policy-decider separation through one authoritative control model.
 
-**Residual R2-02:** Multi-step *information aggregation and purpose inference* can cross an information barrier even when every single read is permitted. **Proof:** path-sensitive tests across tasks, contexts and target combinations; privacy impact evaluations.
+**Residual S02:** Multi-step *information aggregation and purpose inference* can cross an information barrier even when every single read is permitted. **Proof:** path-sensitive tests across tasks, contexts and target combinations; privacy impact evaluations.
 
-**Residual R2-03:** Cryptographic delegation freshness and revocation are still subject to time-of-check/time-of-use races and broken external enforcement points. **Proof:** tampered token, expired approval, mid-flight revocation, outage and adversarial delegation-chain tests against a real boundary.
+**Residual S03:** Cryptographic delegation freshness and revocation are still subject to time-of-check/time-of-use races and broken external enforcement points. **Proof:** tampered token, expired approval, mid-flight revocation, outage and adversarial delegation-chain tests against a real boundary.
 
 **Assessment:** FAIL as production-level universal authority assurance until independent policy is actually bound.
 
@@ -114,7 +114,7 @@ The seven questions partition the 96 candidate requirements by *primary* domain 
 
 **Structured answer (I):** AMA currently governs an agent's outer lifecycle more clearly than its cognitive decision process. Requiring one planner would violate universality; leaving planning undefined would under-specify safe execution.
 
-**First-level recommendation R3 — Conditional cognitive execution profile:**
+**First-level recommendation F3 — Conditional cognitive execution profile:**
 - Define \`modelProfileRef\`, \`instructionProfileRef\`, \`reasoningStrategyRef\`, \`taskHorizonPolicyRef\` and \`executionBudgetRef\` as replaceable, versioned contracts.
 - Separate model context capacity, task duration/dependencies and cross-session memory as independent variables.
 - Specify bounded goal/plan decomposition, allowed capability graph, checkpoint cadence, replanning rules, recursion/delegation ceilings, stop/abstain/escalate and model fallback migration.
@@ -123,7 +123,7 @@ The seven questions partition the 96 candidate requirements by *primary* domain 
 
 **Expected first-order closure:** Covers model/provider independence, instruction versioning, planning contract, bounded autonomy and budget/stop omissions in one conditional module family.
 
-**Residual R2-04:** There is no generally transferable predictive formula for long-horizon reliability; a planner that passes short tasks may still drift or fail at longer horizons. **Proof:** stratified horizon benchmarks, held-out tasks, repeated trials and ablation by model/harness.
+**Residual S04:** There is no generally transferable predictive formula for long-horizon reliability; a planner that passes short tasks may still drift or fail at longer horizons. **Proof:** stratified horizon benchmarks, held-out tasks, repeated trials and ablation by model/harness.
 
 **Assessment:** FAIL for fully specified model-driven and long-running cognition; optional profile design can address structural incompleteness without claiming performance.
 
@@ -137,7 +137,7 @@ The seven questions partition the 96 candidate requirements by *primary* domain 
 
 **Structured answer (I):** Memory is an optional implementation, but a *memory safety interface* is part of the core: without it, turning on memory silently creates a second control plane.
 
-**First-level recommendation R4 — Typed memory and context governance:**
+**First-level recommendation F4 — Typed memory and context governance:**
 - Separate working context, run checkpoint, episodic/semantic memory, retrieval index and authoritative domain data.
 - Introduce conditional \`memoryProfile\`, \`contextPolicy\`, \`memoryWritePolicy\`, \`retrievalTrustPolicy\`, and \`retentionDeletionPolicy\`.
 - Every retained item declares origin, actor, trust, access scope, storage location, expiry, validation status and ability to correct/delete.
@@ -146,9 +146,9 @@ The seven questions partition the 96 candidate requirements by *primary* domain 
 
 **Expected first-order closure:** Resolves coarse memory type, missing retention/provenance, retrieval scoping and infection channels through one guarded memory architecture.
 
-**Residual R2-05:** Persistent misinformation, long-term compaction drift and adaptation to changing sources remain unresolved even with trust labels. **Proof:** delayed poisoning, cross-session longitudinal accuracy, contradiction resolution and selective deletion tests.
+**Residual S05:** Persistent misinformation, long-term compaction drift and adaptation to changing sources remain unresolved even with trust labels. **Proof:** delayed poisoning, cross-session longitudinal accuracy, contradiction resolution and selective deletion tests.
 
-**Residual R2-06:** Data erasure, evidence immutability and legal retention can conflict. **Proof:** privacy/deletion tests on memory plus append-only audit references, with independent retention-policy approval.
+**Residual S06:** Data erasure, evidence immutability and legal retention can conflict. **Proof:** privacy/deletion tests on memory plus append-only audit references, with independent retention-policy approval.
 
 **Assessment:** FAIL for enabled persistent memory; OFF-by-default agents may remain valid without long-term memory.
 
@@ -162,7 +162,7 @@ The seven questions partition the 96 candidate requirements by *primary* domain 
 
 **Structured answer (I):** Durable workflow and side-effect authorization are different guarantees. A logged intent cannot prove the external action executed exactly once. A result returned to an LLM cannot prove acceptance.
 
-**First-level recommendation R5 — Generic durable task/effect protocol:**
+**First-level recommendation F5 — Generic durable task/effect protocol:**
 - Define Task, Run, Step, Attempt, Approval, Effect, Receipt and Reconciliation as distinct identities and state machines.
 - Require explicit idempotency key semantics, checkpoint/resume and bounded retries when durability is enabled.
 - Enforce a preview/authorize/execute/observe/reconcile envelope for consequential actions, with safe hold on uncertain completion.
@@ -171,7 +171,7 @@ The seven questions partition the 96 candidate requirements by *primary* domain 
 
 **Expected first-order closure:** Resolves missing run/task semantics, retries, cancellation, incomplete effect-state vocabulary and framework assumptions together.
 
-**Residual R2-07:** No AMA-local abstraction alone guarantees exactly-once effects against a non-idempotent external service or eliminates the revocation race. **Proof:** crash injection after remote commit, worker failover, duplicate callback and reconciliation tests with real integration surfaces.
+**Residual S07:** No AMA-local abstraction alone guarantees exactly-once effects against a non-idempotent external service or eliminates the revocation race. **Proof:** crash injection after remote commit, worker failover, duplicate callback and reconciliation tests with real integration surfaces.
 
 **Assessment:** PARTIAL CI prototype only; live execution claims remain unverified.
 
@@ -185,7 +185,7 @@ The seven questions partition the 96 candidate requirements by *primary* domain 
 
 **Structured answer (I):** Correctness, compliance, utility, observability, evidence and independent acceptance must be separately measured. One PASS should never collapse these.
 
-**First-level recommendation R6 — Multi-axis assurance system:**
+**First-level recommendation F6 — Multi-axis assurance system:**
 - Define evaluation suites for structural validity, authorized actions, final state, real effects, threat cases, recovery and human acceptance.
 - Require declared datasets/tasks, environmental state, success criteria, sample counts, repeated-trial reliability, variance and known blind spots.
 - Evaluate *false allow* and *false deny*, benign utility, safety, cost, latency, evidence completeness and operator burden independently.
@@ -194,9 +194,9 @@ The seven questions partition the 96 candidate requirements by *primary* domain 
 
 **Expected first-order closure:** Resolves unsupported PASS semantics, insufficient evidence contracts, missing reliability/cost/adversarial profile and acceptance conflation as one assurance workstream.
 
-**Residual R2-08:** Evaluator gaming, overfitting, judge bias and non-transfer of test results to new environments or longer horizons remain possible even after improved metrics. **Proof:** external challenge sets, independent reviewer calibration, canary/shadow comparison and blinded outcome audits.
+**Residual S08:** Evaluator gaming, overfitting, judge bias and non-transfer of test results to new environments or longer horizons remain possible even after improved metrics. **Proof:** external challenge sets, independent reviewer calibration, canary/shadow comparison and blinded outcome audits.
 
-**Residual R2-09:** Evidence that is complete may still expose sensitive inputs, while aggressive redaction may harm verification. **Proof:** redaction/verification reconciliation, field-level access and privacy-preserving receipt tests.
+**Residual S09:** Evidence that is complete may still expose sensitive inputs, while aggressive redaction may harm verification. **Proof:** redaction/verification reconciliation, field-level access and privacy-preserving receipt tests.
 
 **Assessment:** PARTIAL static assurance; not production certified.
 
@@ -210,7 +210,7 @@ The seven questions partition the 96 candidate requirements by *primary* domain 
 
 **Structured answer (I):** AMA can be universally stable only if *its conceptual contract* is versioned separately from evolving host bindings and agent implementations. Protocol-specific MUSTs should be conditional on enabling that protocol.
 
-**First-level recommendation R7 — Layered evolution and operational conformance:**
+**First-level recommendation F7 — Layered evolution and operational conformance:**
 - Standardize compatibility/deprecation contracts, profile negotiation, extension namespaces, source/build provenance and safe migration.
 - Define host-managed operational interfaces for health, cost/latency SLO, dependency failures, incidents, emergency suspension, rollback and retirement.
 - Keep MCP, A2A, telemetry and legal compliance as separately versioned conditional profiles. In particular, MCP authorization is optional at protocol level, and A2A Agent Card signing is optional; do not silently promote either into AMA-wide MUST.
@@ -219,9 +219,9 @@ The seven questions partition the 96 candidate requirements by *primary* domain 
 
 **Expected first-order closure:** Resolves extension and integration ambiguities, upgrade/operations gaps, vendor lock-in risk and incorrectly universalized external standards through one change-control framework.
 
-**Residual R2-10:** Protocol/provider/legal drift and incompatible external updates continue after the contract is built. **Proof:** version-compatibility fixtures, source monitoring, semantic diff and migration simulations.
+**Residual S10:** Protocol/provider/legal drift and incompatible external updates continue after the contract is built. **Proof:** version-compatibility fixtures, source monitoring, semantic diff and migration simulations.
 
-**Residual R2-11:** Production readiness depends on actual host integration, human acceptance, kill switch, incident handling and verifiable operations; an AMA template cannot supply these by itself. **Proof:** authenticated live adapter tests, staged rollout, independent sign-off and monitored rollback rehearsal.
+**Residual S11:** Production readiness depends on actual host integration, human acceptance, kill switch, incident handling and verifiable operations; an AMA template cannot supply these by itself. **Proof:** authenticated live adapter tests, staged rollout, independent sign-off and monitored rollback rehearsal.
 
 **Assessment:** PARTIAL; universal interface design is feasible, but full runtime and standard-following claims require host evidence.
 
@@ -229,73 +229,73 @@ The seven questions partition the 96 candidate requirements by *primary* domain 
 
 | Question | Primary evidence domains | Current contract | Executable proof | First-level decision |
 |---|---|---|---|---|
-| Q1 — Universal expressiveness | A01–A07 | PARTIAL | Schema and static bindings partially tested | R1 |
-| Q2 — Authority and scope | B01–B10, G01–G10 | INADEQUATE | Mocked local gate, no live authority service | R2 |
-| Q3 — Cognition and horizon | C01–C08 | MAJOR GAP | No generic reasoning profile tests | R3 |
-| Q4 — Memory and knowledge | E01–E07 | MAJOR GAP | No governed memory-runtime proof | R4 |
-| Q5 — Tool, workflow, durability | D01–D08, F01–F08 | PARTIAL | PostgreSQL/effect CI only | R5 |
-| Q6 — Reliability and independent assurance | H01–H09, I01–I08 | PARTIAL | Static C1/C2/C3/C6; live C4/C5 pending | R6 |
-| Q7 — Operations, adoption and evolution | J01–J07, K01–K07, L01–L07 | PARTIAL | Versioned design; deployed ops missing | R7 |
+| Q1 — Universal expressiveness | A01–A07 | PARTIAL | Schema and static bindings partially tested | F1 |
+| Q2 — Authority and scope | B01–B10, G01–G10 | INADEQUATE | Mocked local gate, no live authority service | F2 |
+| Q3 — Cognition and horizon | C01–C08 | MAJOR GAP | No generic reasoning profile tests | F3 |
+| Q4 — Memory and knowledge | E01–E07 | MAJOR GAP | No governed memory-runtime proof | F4 |
+| Q5 — Tool, workflow, durability | D01–D08, F01–F08 | PARTIAL | PostgreSQL/effect CI only | F5 |
+| Q6 — Reliability and independent assurance | H01–H09, I01–I08 | PARTIAL | Static C1/C2/C3/C6; live C4/C5 pending | F6 |
+| Q7 — Operations, adoption and evolution | J01–J07, K01–K07, L01–L07 | PARTIAL | Versioned design; deployed ops missing | F7 |
 
 All 96 original IDs have **one primary question**; relationships may also appear as secondary dependencies. Source-expansion E52–E58 are research records, **not additional normative requirement IDs**. The 86-source survey is a screening pool, not 86 additional accepted requirements.
 
-## 4. Consolidation: why seven R1 packages are better than applying 96 requirements independently
+## 4. Consolidation: why seven F1 packages are better than applying 96 requirements independently
 
-A naïve gap count treats "model binding missing," "prompt version missing," "planner stop condition missing" and "horizon absent" as four unrelated fixes. R3 adds a typed cognitive execution profile that can address all four through one design, followed by separate measurable tests.
+A naïve gap count treats "model binding missing," "prompt version missing," "planner stop condition missing" and "horizon absent" as four unrelated fixes. F3 adds a typed cognitive execution profile that can address all four through one design, followed by separate measurable tests.
 
 The same consolidation applies to:
-- R1: semantic contracts, cross-object version pins and optional profile registration;
-- R2: delegated authority, scoped policy evaluation, E0 exposure and risk dimensions;
-- R3: reasoning/model/prompt/planning/horizon/budget;
-- R4: memory/context write/read trust, provenance, retention and poisoning tests;
-- R5: workflow/task/run/effect state, idempotency, reconciliation and durability;
-- R6: evaluation, evidence, performance, security and independent acceptance;
-- R7: version compatibility, interoperability, operations, lifecycle and governance change.
+- F1: semantic contracts, cross-object version pins and optional profile registration;
+- F2: delegated authority, scoped policy evaluation, E0 exposure and risk dimensions;
+- F3: reasoning/model/prompt/planning/horizon/budget;
+- F4: memory/context write/read trust, provenance, retention and poisoning tests;
+- F5: workflow/task/run/effect state, idempotency, reconciliation and durability;
+- F6: evaluation, evidence, performance, security and independent acceptance;
+- F7: version compatibility, interoperability, operations, lifecycle and governance change.
 
-**Important logical distinction:** "R1 addresses gap X" means **expected coverage if fully implemented and verified**. It does not mean the gap is closed in the current codebase. A second-level gap is not counted as newly closed simply because it was named.
+**Important logical distinction:** "F1 addresses gap X" means **expected coverage if fully implemented and verified**. It does not mean the gap is closed in the current codebase. A second-level gap is not counted as newly closed simply because it was named.
 
-## 5. Second-level residual gap register — only after R1–R7
+## 5. Second-level residual gap register — only after F1–F7
 
-These are **conditional post-remediation questions**, not a second independent count of the initial 96 candidates.
+These are **conditional post-remediation questions**, not a second independent count of the initial 96 candidates. The S-series explicitly means *second-level residual*, while F1–F7 denotes the first-level recommendation packages.
 
-| Residual | Survives R1–R7 because | Impact | Closure evidence | Priority |
+| Residual | Survives F1–F7 because | Impact | Closure evidence | Priority |
 |---|---|---|---|---|
-| R2-01 Cross-contract semantic conflicts | Local schema validation cannot prove cross-profile meaning | Ambiguous execution semantics | Compositional and migration conformance | P1 |
-| R2-02 Path-dependent information leakage | Individual accesses can aggregate sensitive knowledge | Privacy and scope abuse | Multi-step information-flow/red-team tests | P0 |
-| R2-03 Delegation freshness and revocation races | Trust chain may change during execution | Unauthorized continuing effect | Live revocation/authority/target adversarial tests | P0 |
-| R2-04 Long-horizon prediction and model/harness confounds | Scaffold + model reliability varies by task length/domain | Unreliable long tasks | Cross-domain horizon evaluations and ablations | P1 |
-| R2-05 Memory poisoning, drift and repair | Trust labels do not ensure correctness years or sessions later | Persistent behavioral corruption | Delayed injection, truth repair, compaction tests | P0 when memory enabled |
-| R2-06 Privacy deletion versus append-only evidence | Audit and data rights can impose competing obligations | Legal and forensic conflict | Retention/redaction/deletion policy review | P1 |
-| R2-07 Distributed effect atomicity | External resources lack common transactional semantics | Duplicate or uncertain external action | Crash/failover/compensation tests against live adapters | P0 |
-| R2-08 Evaluation gaming and transfer validity | Tests can be overfit or optimized against graders | False assurance | Blind challenge sets and independent outcomes | P1 |
-| R2-09 Sensitive evidence minimization | Verification and privacy require competing data access | Leakage/irreproducible audit | Fine-grained evidence-access and audit tests | P1 |
-| R2-10 Protocol and obligation drift | External standards and providers change over time | Breaking changes and compliance gaps | Version tracking + controlled adaptation | P2 |
-| R2-11 Operational binding and real-world assurance | A normative architecture is not a functioning deployment | False readiness and uncontrolled effect | Independent end-to-end live C4/C5 + incident rehearsals | P0 for activation |
+| S01 Cross-contract semantic conflicts | Local schema validation cannot prove cross-profile meaning | Ambiguous execution semantics | Compositional and migration conformance | P1 |
+| S02 Path-dependent information leakage | Individual accesses can aggregate sensitive knowledge | Privacy and scope abuse | Multi-step information-flow/red-team tests | P0 |
+| S03 Delegation freshness and revocation races | Trust chain may change during execution | Unauthorized continuing effect | Live revocation/authority/target adversarial tests | P0 |
+| S04 Long-horizon prediction and model/harness confounds | Scaffold + model reliability varies by task length/domain | Unreliable long tasks | Cross-domain horizon evaluations and ablations | P1 |
+| S05 Memory poisoning, drift and repair | Trust labels do not ensure correctness years or sessions later | Persistent behavioral corruption | Delayed injection, truth repair, compaction tests | P0 when memory enabled |
+| S06 Privacy deletion versus append-only evidence | Audit and data rights can impose competing obligations | Legal and forensic conflict | Retention/redaction/deletion policy review | P1 |
+| S07 Distributed effect atomicity | External resources lack common transactional semantics | Duplicate or uncertain external action | Crash/failover/compensation tests against live adapters | P0 |
+| S08 Evaluation gaming and transfer validity | Tests can be overfit or optimized against graders | False assurance | Blind challenge sets and independent outcomes | P1 |
+| S09 Sensitive evidence minimization | Verification and privacy require competing data access | Leakage/irreproducible audit | Fine-grained evidence-access and audit tests | P1 |
+| S10 Protocol and obligation drift | External standards and providers change over time | Breaking changes and compliance gaps | Version tracking + controlled adaptation | P2 |
+| S11 Operational binding and real-world assurance | A normative architecture is not a functioning deployment | False readiness and uncontrolled effect | Independent end-to-end live C4/C5 + incident rehearsals | P0 for activation |
 
 ### Why no second-level residual "missing model profile" or "missing memory schema"?
 
-Those are already explicitly assigned to R3 and R4. They reappear as second-level concerns **only** where the first-level implementation could be structurally complete yet real behavior remains unreliable (e.g., long-horizon generalization or poisoned retrieved memory). This is the intended two-pass deduplication.
+Those are already explicitly assigned to F3 and F4. They reappear as second-level concerns **only** where the first-level implementation could be structurally complete yet real behavior remains unreliable (e.g., long-horizon generalization or poisoned retrieved memory). This is the intended two-pass deduplication.
 
 ## 6. Staged implementation dependencies, not 96 simultaneous work items
 
 \`\`\`text
 Source validation and universal contract boundary
                  |
-           R1 typed ontology
+           F1 typed ontology
                  |
     +------------+----------------+
     |                             |
- R2 identity and risk         R3 cognitive profile
+ F2 identity and risk         F3 cognitive profile
     |                             |
     +------------+----------------+
                  |
-             R4 memory/context
+             F4 memory/context
                  |
-             R5 execution effects
+             F5 execution effects
                  |
-          R6 evaluation/evidence
+          F6 evaluation/evidence
                  |
-        R7 operations/adaptation
+        F7 operations/adaptation
                  |
        SECOND-LEVEL residual tests
        (close by live verification,
@@ -310,13 +310,13 @@ This depicts primary dependencies, **not** a strict one-thread implementation se
 | Stage | Deliverable | Pass condition | Status |
 |---|---|---|---|
 | 0 | Evidence adjudication | Qualify primary/draft/secondary and identify disputed claims | PROPOSED |
-| 1 | R1 universal model | Cross-schema references and template-purity/compatibility tests | PROPOSED |
-| 2 | R2 policy control | Scoped reads/writes, human delegation, rejection and revocation | PROPOSED |
-| 3 | R3 + R4 conditional profiles | Typed reasoning/planning/memory with disabled-by-default behavior | PROPOSED |
-| 4 | R5 execution states | Crash, replay, idempotency, effect uncertainty and bounded resume tests | PROPOSED |
-| 5 | R6 independent assurance | Outcome, false-allow/deny, repeated trials and evidence completeness | PROPOSED |
-| 6 | R7 lifecycle and extensions | Compatibility, incident, rollback and controlled release | PROPOSED |
-| 7 | R2 residual validation | All P0 residual risks addressed or operationally blocked | PROPOSED |
+| 1 | F1 universal model | Cross-schema references and template-purity/compatibility tests | PROPOSED |
+| 2 | F2 policy control | Scoped reads/writes, human delegation, rejection and revocation | PROPOSED |
+| 3 | F3 + F4 conditional profiles | Typed reasoning/planning/memory with disabled-by-default behavior | PROPOSED |
+| 4 | F5 execution states | Crash, replay, idempotency, effect uncertainty and bounded resume tests | PROPOSED |
+| 5 | F6 independent assurance | Outcome, false-allow/deny, repeated trials and evidence completeness | PROPOSED |
+| 6 | F7 lifecycle and extensions | Compatibility, incident, rollback and controlled release | PROPOSED |
+| 7 | F2 residual validation | All P0 residual risks addressed or operationally blocked | PROPOSED |
 
 **Release rule:** A structural contract may be accepted as a design while production activation remains blocked by unverified authority and operational gates. No claim is made here that any proposed stage passed.
 
@@ -364,4 +364,4 @@ Production readiness: not established.**
 - A benchmark validity finding does not mean every use case is unreliable, and a reported negative effect of memory does not prove memory is universally harmful.
 - Static conformance tests cannot substantiate deployment safety or acceptance.
 - Remaining P0 residuals are **test/research and deployment blockers**, not evidence that a master architecture must solve all theoretical agent reliability problems before a single read-only agent can exist.
-- A future requirements decision table should assign each candidate requirement a normative level (CORE / CONDITIONAL / OPTIONAL / HOST), owner, explicit source, schema location, test case, decision and status. The companion coverage index maps all 96 original IDs to their primary question without deciding their adoption.
+- A future requirements decision table should assign each candidate requirement a normative level (CORE / CONDITIONAL / OPTIONAL / HOST), owner, explicit source, schema location, test case, decision and status. The companion machine-readable coverage index maps all 96 original IDs to their primary question without deciding their adoption.
