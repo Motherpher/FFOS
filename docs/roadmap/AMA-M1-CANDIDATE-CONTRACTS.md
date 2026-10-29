@@ -17,7 +17,7 @@ All schemas live in `packages/agent-model/schemas/v0.2/`, use JSON Schema Draft 
 | `capability.schema.json` | Typed technical capability, resource scope, adapter and optional module binding | Owner/scope/effect/adapter checks |
 | `tool-adapter.schema.json` | Replaceable tool implementation interface | Supported-effect and schema validity |
 | `profile.schema.json` | Conditional/optional extension declaration | Disabled-by-default behavior and profile/module consistency |
-| `run-event.schema.json` | Minimum event identity/typed provenance | Structural linking only; M4 durability is pending |
+| `task.schema.json` | Typed task, command/workflow principal-version and bounded requested scope | M1 ownership and scope; M4 durable scheduling pending |\n| `effect.schema.json` | Typed effect request, action classification and task/capability links | M1 referential validation; M2/F8 policy binding pending |\n| `run-event.schema.json` | Minimum event identity/typed provenance | Structural linking only; M4 durability is pending |
 | `evidence.schema.json` | Minimum evidence identity and digest | Structural linking only; M5 independent evidence is pending |
 | `bundle.schema.json` | Versioned composition of registered agent and definitions | Offline closure and semantic validation |
 
@@ -25,7 +25,7 @@ All schemas live in `packages/agent-model/schemas/v0.2/`, use JSON Schema Draft 
 
 `packages/agent-model/conformance/ama_vnext.py` validates:
 
-- schema-valid definitions and unique identifiers;
+- schema-valid definitions and unique identifiers;\n- replaceable TypeScript candidate interfaces in `packages/agent-model/src/vnext.ts` without modifying runtime v1 types;\n- offline-only local JSON Schema references in typed tool input/output definitions;
 - exact version and sha256 content digest for all admitted definitions;
 - agent-owned capability/workflow/command boundaries;
 - resource scopes constrained to declared mandate (segment-boundary matching, not string prefix);
@@ -33,15 +33,15 @@ All schemas live in `packages/agent-model/schemas/v0.2/`, use JSON Schema Draft 
 - active/disabled module and profile gating;
 - registered workflow requirements, step capability references, acyclic directed dependencies, reachable terminal nodes and no dead ends;
 - duplicate command tokens, unregistered or orphan adapters and inactive bindings;
-- optional run/evidence structural references;
+- optional task/effect/run/evidence structural references, including action-class and resource scope continuity;
 - advisory old-to-new migration analysis that **never automatically activates** an agent.
 
-The content hash is deterministic JSON canonicalization within the contract tests, **not** a cryptographic signature or trustworthy provenance attestation. Runtime authorization must independently verify trusted identity, policy, resources and receipts.
+The content hash is a pinned, deterministic JSON serialization within the contract tests, **not** a cryptographic signature or trustworthy provenance attestation. Runtime authorization must independently verify trusted identity, policy, resources and receipts.
 
 ## Separations retained
 
 - M1 does not supply a planner, model/runtime adapter or an agent implementation. Reasoning and memory profiles are structural placeholders until M3.
-- It does not implement a durable worker, transactionality, leases or idempotency; run/event structures will expand in M4.
+- It does not implement a durable worker, transactionality, leases or idempotency; task, effect and run/event record semantics will expand in M4.
 - It does not attest actual evidence, evaluation results, auditing or independent acceptance; those belong to M5/F8.
 - It does not implement full resource-sensitive reads, multidimensional risk or delegated authorization; those belong to M2.
 - No instance identity, host/provider hierarchy or domain workflow is embedded in this schema suite. Synthetic tests remain separate.
