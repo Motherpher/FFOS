@@ -46,6 +46,9 @@ class BlueprintTests(unittest.TestCase):
         self.assertEqual(blueprint["architecture_stages"],
                          ["M0", "M1", "M2", "M3", "M4", "M5", "M6", "M7"])
         self.assertEqual(blueprint["stages"]["M0"]["research_requirement_count"], 96)
+        self.assertEqual(blueprint["source_requirement_evidence"]["partial_test_link_count"],65)
+        self.assertEqual(blueprint["source_requirement_evidence"]["unmapped_test_link_count"],31)
+        self.assertEqual(blueprint["source_requirement_evidence"]["fully_accepted_requirement_count"],0)
         self.assertFalse(blueprint["template_complete"])
         self.assertFalse(blueprint["agent_registered"])
         self.assertFalse(blueprint["agent_activated"])
