@@ -43,3 +43,22 @@ Six additional `schemas/v0.2/` contracts define evaluation profiles, cases, obse
 Six portable v0.2 schemas (`operational-profile`, `compatibility-assessment`, `health-snapshot`, `incident-record`, `release-plan`, `rollback-plan`) extend the optional bundle without changing v1. Types: `src/operations-vnext.ts`; static validator and adversarial tests: `conformance/ama_operations.py` and `tests/test_m6_operations.py`.
 
 All operational results are non-authorizing. Conditional MCP/A2A/OTel bindings do not become template requirements. See [M6 architecture](../../docs/roadmap/AMA-M6-OPERATIONAL-LIFECYCLE-CONTRACTS.md).
+
+## Minimal-to-complex agent construction (M1 contract, M7 blueprint)
+
+Generate an inert draft definition without credentials, a live adapter or runtime access:
+
+```sh
+python conformance/ama_starter.py \\
+  --agent-id SYNTHETIC.ALPHA \\
+  --name "Sample agent" \\
+  --purpose "Verify a bounded task" \\
+  --scope synthetic/item \\
+  --governing-principal SYNTHETIC.OWNER \\
+  --command-token SYNTHETIC-START \\
+  --output /tmp/agent-draft.json
+python conformance/ama_blueprint.py /tmp/agent-draft.json \\
+  --optional memory --output /tmp/agent-blueprint.json
+```
+
+The first command uses the existing M1 schema and produces a `DRAFT` bundle; the second uses M0–M7 source mappings to generate implementation obligations. A passing draft or blueprint **does not** supply a working tool, authority, host runtime, acceptance, activation or production effect permission. Optional host-security profiles are specified separately from universal contracts.
