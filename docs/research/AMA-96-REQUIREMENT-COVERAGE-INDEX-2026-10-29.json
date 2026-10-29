@@ -70,7 +70,7 @@
       "closure_status": "NOT_ASSERTED",
       "independent_f8": {
         "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
-        "relevance": "GOVERNANCE_CONTEXT",
+        "relevance": "DIRECT_RISK_CONTROL",
         "conductellence_chapters_candidate": [
           "4",
           "9",
@@ -132,7 +132,7 @@
       "closure_status": "NOT_ASSERTED",
       "independent_f8": {
         "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
-        "relevance": "GOVERNANCE_CONTEXT",
+        "relevance": "DIRECT_RISK_CONTROL",
         "conductellence_chapters_candidate": [
           "4",
           "9",
@@ -163,7 +163,7 @@
       "closure_status": "NOT_ASSERTED",
       "independent_f8": {
         "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
-        "relevance": "GOVERNANCE_CONTEXT",
+        "relevance": "DIRECT_RISK_CONTROL",
         "conductellence_chapters_candidate": [
           "4",
           "9",
@@ -225,7 +225,7 @@
       "closure_status": "NOT_ASSERTED",
       "independent_f8": {
         "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
-        "relevance": "GOVERNANCE_CONTEXT",
+        "relevance": "DIRECT_RISK_CONTROL",
         "conductellence_chapters_candidate": [
           "4",
           "9",
@@ -627,7 +627,7 @@
       "closure_status": "NOT_ASSERTED",
       "independent_f8": {
         "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
-        "relevance": "GOVERNANCE_CONTEXT",
+        "relevance": "DIRECT_RISK_CONTROL",
         "conductellence_chapters_candidate": [
           "8",
           "9",
@@ -689,7 +689,7 @@
       "closure_status": "NOT_ASSERTED",
       "independent_f8": {
         "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
-        "relevance": "GOVERNANCE_CONTEXT",
+        "relevance": "DIRECT_RISK_CONTROL",
         "conductellence_chapters_candidate": [
           "8",
           "9",
@@ -720,7 +720,7 @@
       "closure_status": "NOT_ASSERTED",
       "independent_f8": {
         "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
-        "relevance": "GOVERNANCE_CONTEXT",
+        "relevance": "DIRECT_RISK_CONTROL",
         "conductellence_chapters_candidate": [
           "8",
           "9",
@@ -751,7 +751,7 @@
       "closure_status": "NOT_ASSERTED",
       "independent_f8": {
         "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
-        "relevance": "GOVERNANCE_CONTEXT",
+        "relevance": "DIRECT_RISK_CONTROL",
         "conductellence_chapters_candidate": [
           "8",
           "9",
@@ -782,7 +782,7 @@
       "closure_status": "NOT_ASSERTED",
       "independent_f8": {
         "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
-        "relevance": "GOVERNANCE_CONTEXT",
+        "relevance": "DIRECT_RISK_CONTROL",
         "conductellence_chapters_candidate": [
           "8",
           "9",
@@ -813,7 +813,7 @@
       "closure_status": "NOT_ASSERTED",
       "independent_f8": {
         "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
-        "relevance": "GOVERNANCE_CONTEXT",
+        "relevance": "DIRECT_RISK_CONTROL",
         "conductellence_chapters_candidate": [
           "8",
           "9",
@@ -2663,7 +2663,7 @@
       "closure_status": "NOT_ASSERTED",
       "independent_f8": {
         "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
-        "relevance": "DIRECT_RISK_CONTROL",
+        "relevance": "GOVERNANCE_CONTEXT",
         "conductellence_chapters_candidate": [
           "10",
           "12",
@@ -2756,7 +2756,7 @@
       "closure_status": "NOT_ASSERTED",
       "independent_f8": {
         "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
-        "relevance": "DIRECT_RISK_CONTROL",
+        "relevance": "GOVERNANCE_CONTEXT",
         "conductellence_chapters_candidate": [
           "10",
           "12",
