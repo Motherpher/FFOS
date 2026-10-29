@@ -6,11 +6,15 @@ on:
       - '.cdx/**'
       - '.github/workflows/cdx-binding-audit.yml'
       - 'integrations/cdx/**'
+      - 'apps/web/lib/cdx/**'
+      - 'apps/web/app/api/session/route.ts'
   pull_request:
     paths:
       - '.cdx/**'
       - '.github/workflows/cdx-binding-audit.yml'
       - 'integrations/cdx/**'
+      - 'apps/web/lib/cdx/**'
+      - 'apps/web/app/api/session/route.ts'
   workflow_dispatch:
 
 permissions:
@@ -34,7 +38,26 @@ jobs:
             .cdx_authority.canonical_name == "Conductellence" and
             .cdx_authority.short_name == "CDX" and
             (.governed_surface.repository | ascii_downcase) == ($repo | ascii_downcase) and
-            (.binding_mode == "PINNED_COMMIT" or .binding_mode == "PINNED_RELEASE" or .binding_mode == "TRACKING") and
-            .local_enforcement.fail_closed_for_consequential_effects == true
+            .binding_mode == "PINNED_RELEASE" and
+            .policy_pin.ref_type == "RELEASE" and
+            .policy_pin.ref == "1.0.0" and
+            .policy_pin.digest == "git-blob-sha1:55dbcdac2f822b59a5a5f0f19eeadfa61d2c7ed0" and
+            .local_enforcement.fail_closed_for_consequential_effects == true and
+            (.local_enforcement.points | length) > 0 and
+            .conformance.adapter_contract == "CDX-RUNTIME-001"
           ' .cdx/anchor.json
-          echo "PASS: FFOS canonical CDX anchor structure is valid."
+          echo "PASS: FFOS canonical CDX runtime anchor structure is valid."
+
+  runtime-acceptance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install FFOS workspace dependencies
+        run: npm install --no-audit --no-fund
+      - name: Execute CDX-RUNTIME-001 WP11 acceptance
+        run: node --experimental-strip-types integrations/cdx/wp11-acceptance.mts
+      - name: Build production Next.js application
+        run: npm run build
