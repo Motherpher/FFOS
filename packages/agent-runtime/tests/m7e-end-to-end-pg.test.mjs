@@ -9,6 +9,7 @@ import {randomUUID} from "node:crypto";
 import pg from "pg";
 import {AgentEffectGate,EffectDenied} from "../src/effect-gate.ts";
 import {CDXF8ReadGuard} from "../src/cdx-f8-read.ts";
+import {CDXF8VerifiedAdapter,readF8ControlIndex} from "../src/cdx-f8-policy.ts";
 import {DurablePgCoordinator,DurableRunError} from "../src/durable-run.ts";
 import {PgOperationalSteward,M6GuardedAdmission} from "../src/operational-steward.ts";
 const dsn=process.env.AMA_TEST_DATABASE_URL;
@@ -33,13 +34,67 @@ const hostRegistry={async getCurrent(agentId){
 }};
 const anchor={async assertPinned(pin){assert.equal(pin,PIN);}};
 const revoked={async assertNotRevoked(){if(state.revoked)throw Error("external revocation");}};
-const policy={async evaluate(r){
- if(state.policyDown)throw Error("unavailable synthetic policy");
- return {outcome:"ALLOW",policyPin:PIN,
-  decisionRef:"SYNTHETIC.POLICY.DECISION",spetlReceiptRef:"SYNTHETIC.CUSTODY",
-  decisionAuthenticated:state.signatureValid,spetlReceiptVerified:!state.custodyDown,
-  evaluatedTarget:r.target,evaluatedEffect:r.context.requestedEffect};
-},async assertStillCurrent(){if(state.revoked)throw Error("policy freshness changed");}};
+let f8Write,f8Read,f8Source;
+const policy={
+ async evaluate(req){
+  if(state.policyDown)throw Error("synthetic policy unavailable");
+  return (req.context.requestedEffect==="E0_OBSERVE"?f8Read:f8Write).evaluate(req);
+ },
+ async assertStillCurrent(req,decision){
+  if(state.revoked)throw Error("synthetic policy freshness changed");
+  return (req.context.requestedEffect==="E0_OBSERVE"?f8Read:f8Write)
+   .assertStillCurrent(req,decision);
+ }
+};
+// The COMPLETE CDX policy/control/custody interfaces are composed below,
+// but all external authorities are unmistakably CI test doubles.
+function bindSyntheticF8(index){
+ const facts={async collect(r){return {
+  runId:r.context.runId,principalRef:r.context.principalRef,
+  authorityRef:r.context.authorityRef,mandateRef:r.context.mandateRef,
+  agentId:r.context.agentId,effectClass:r.context.requestedEffect,
+  target:r.target,policyPin:PIN,dataClassification:r.readClassification??"INTERNAL",
+  sourceIdentityRef:"CI.EXTERNAL.IDENTITY",sourceAttestationRef:"CI.ATTEST.FACTS",
+  pathHistoryDigest:"sha256:"+"a".repeat(64),
+  authorityGraphDigest:"sha256:"+"b".repeat(64),
+  trustDomain:"SYNTHETIC",observationRef:"CI.FACTS.SNAPSHOT",
+  ...(r.context.requestedEffect==="E0_OBSERVE"?{
+   recipientRef:r.readRecipientRef,purposeRef:r.readPurposeRef,
+   dataGrantRef:r.readGrantRef}:{})
+ };}};
+ const trust={
+  async assertFacts(f){if(state.revoked||!state.signatureValid)
+    throw Error("CI fact signature unavailable");},
+  async assertSignedDecision(r,d){if(!state.signatureValid)
+    throw Error("CI decision signature unavailable");}
+ };
+ const release={async assertReleasedAndBound(pin){
+  // The real Conductellence upstream is PRE_RELEASE. This port is a SIMULATION.
+  assert.equal(pin,PIN);
+ }};
+ const service={async evaluateSurface(r){
+  const rows=index.bySurface.get(r.surface);
+  assert(rows?.length>0);
+  assert.deepEqual(r.controlIds,rows.map(c=>c.control_id));
+  return {surface:r.surface,contextDigest:r.contextDigest,policyDigest:r.policyDigest,
+   policyVersion:"1.0.0",decision:"ALLOW",
+   decisionRef:"CI.POLICY."+r.surface,signatureRef:"CI.SIGNATURE."+r.surface,
+   controlResults:rows.map(c=>({control_id:c.control_id,section_id:c.section_id,
+    pass:true,decision:"ALLOW"})),obligationRefs:[]};
+ }};
+ const obligations={async assertFulfilled(){throw Error("no implicit obligations");}};
+ const custody={async assertPreserved(f,decisions){
+  if(state.custodyDown)throw Error("CI custody unavailable");
+  return {receiptRef:"CI.SPETL.RECEIPT",runId:f.runId,policyDigest:f.policyPin,
+   custodyRef:"CI.SEPARATE.CUSTODIAN",spetlVersion:"1.1",
+   eventChainDigest:"sha256:"+"c".repeat(64),
+   custodyAttestationRef:"CI.SPETL.TEST.ATTESTATION",
+   verifiedDecisionRefs:decisions.map(d=>d.decisionRef)};
+ }};
+ f8Write=new CDXF8VerifiedAdapter(index,facts,trust,release,service,obligations,custody);
+ f8Read=new CDXF8VerifiedAdapter(index,facts,trust,release,service,obligations,custody,true);
+ f8Source=index;
+}
 const audit={async append(e){
  if(state.custodyDown)throw Error("synthetic custody offline");
  // Independent sink is simulated by a separate SQL insert, not trusted production custody.
@@ -86,6 +141,8 @@ before(async()=>{
   await pool.query(await readFile(file,"utf8"));
  await pool.query("INSERT INTO ama_agent_versions(agent_id,agent_version,ama_version,definition,definition_sha256,source_commit,registered_by) VALUES($1,$2,$3,$4::jsonb,$5,$6,$7)",
   [AGENT,version,"0.1.0","{}","a".repeat(64),"SYNTHETIC","SYNTHETIC"]);
+ bindSyntheticF8(await readF8ControlIndex("integrations/cdx/f8/control-coverage.json",
+  "55dbcdac2f822b59a5a5f0f19eeadfa61d2c7ed0"));
  await pool.query("CREATE TABLE m7e_synthetic_target(id TEXT PRIMARY KEY, content TEXT NOT NULL)");
  await pool.query("CREATE TABLE m7e_read_evidence(event_id TEXT PRIMARY KEY,stage TEXT NOT NULL,run_id TEXT NOT NULL,resource TEXT NOT NULL)");
 });
