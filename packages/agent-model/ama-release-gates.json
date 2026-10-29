@@ -13,10 +13,18 @@
         "DOCUMENTED_TECHNICAL_AUDIT",
         "HUMAN_ARCHITECTURE_ADOPTION"
       ],
-      "state": "OWNER_APPROVED_TECHNICAL_AUDIT_PENDING",
+      "state": "TECHNICAL_AUDIT_CANDIDATE_EXACT_HEAD_CI_FAIL",
       "host_runtime_required": false,
       "activation_authorized": false,
-      "external_reviewer_required": false
+      "external_reviewer_required": false,
+      "audit_ref": "docs/roadmap/AMA-M7-A-TECHNICAL-AUDIT-2026-10-29.md",
+      "release_readiness_report": "packages/agent-model/conformance/ama_m7a_release_audit.py",
+      "pending": [
+        "EXACT_HEAD_CI_PASS",
+        "RECONCILE_SOURCE_REQUIREMENT_EVIDENCE",
+        "COMPATIBILITY_AND_PORTABILITY_TECHNICAL_AUDIT_SIGNOFF",
+        "HUMAN_ARCHITECTURE_ADOPTION"
+      ]
     },
     "F8_7": {
       "scope": "REALM_CONDITIONAL_RUNTIME_BINDING",
