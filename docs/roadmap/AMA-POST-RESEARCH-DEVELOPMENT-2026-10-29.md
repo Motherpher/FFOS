@@ -216,3 +216,9 @@ Contract checks include immutable version/content-digest references, cross-objec
 **M1 state:** `STATIC_CANDIDATE` — verify final CI run for technical test completion. Requirements remain M0-proposed pending independent normative acceptance. No CDX runtime binding, agent activation or C4/C5 certification implied.
 
 **Next:** M2 generic authorization contract and F8 separate host risk-governance integration, after human acceptance of normative changes.
+
+## M3 candidate implementation — 2026-10-29
+
+F3/F4 conditional model, planning, context and memory contract engineering is implemented in eight v0.2 schemas, one isolated TypeScript module, an offline semantic validator and adversarial regression tests. See [M3 candidate contract specification](AMA-M3-COGNITIVE-MEMORY-CONTRACTS.md).
+
+The tests require default-off memory/reasoning, version-digest pins, explicit budget stops, quarantined untrusted memory, bounded retention and retrieval, and critical-source-marker preservation. **No real model, live memory store, semantic summary evaluation or independent outcome assurance is claimed.** Technical status is contingent on current CI; normative and operational acceptance are separate.
