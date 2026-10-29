@@ -1,0 +1,129 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.planning-profile/v0.2-candidate"
+    },
+    "profileId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "status": {
+      "$ref": "common.schema.json#/$defs/bindingStatus"
+    },
+    "moduleId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "strategy": {
+      "enum": [
+        "DIRECT",
+        "REACTIVE",
+        "PLAN_EXECUTE",
+        "REFLECTIVE",
+        "OTHER"
+      ]
+    },
+    "maxTaskHorizonSteps": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "maxExecutionSeconds": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "budgets": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "maxIterations": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "maxToolCalls": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "maxModelTokens": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "maxCostMinor": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "currency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        }
+      },
+      "required": [
+        "maxIterations",
+        "maxToolCalls",
+        "maxModelTokens",
+        "maxCostMinor",
+        "currency"
+      ]
+    },
+    "stopConditions": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "GOAL_REACHED",
+          "BUDGET_EXHAUSTED",
+          "TIME_LIMIT",
+          "POLICY_DENIAL",
+          "HUMAN_ESCALATION",
+          "CANCELLED",
+          "UNCERTAINTY"
+        ]
+      },
+      "minItems": 1
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "nodeId": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "dependsOn": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/id"
+            },
+            "minItems": 0
+          },
+          "capabilityRef": {
+            "$ref": "common.schema.json#/$defs/ref"
+          }
+        },
+        "required": [
+          "nodeId",
+          "dependsOn"
+        ]
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema",
+    "profileId",
+    "version",
+    "status",
+    "moduleId",
+    "strategy",
+    "maxTaskHorizonSteps",
+    "maxExecutionSeconds",
+    "budgets",
+    "stopConditions",
+    "nodes"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/planning-profile.schema.json",
+  "title": "AMA v0.2 candidate planning-profile contract"
+}
