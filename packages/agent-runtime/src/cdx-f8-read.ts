@@ -73,6 +73,9 @@ export class CDXF8ReadGuard {
   });
   await this.evidence.append(event("PRE_READ"));
   await this.authority.assertStillAdmitted(context,admission);
+  if(!this.policy.assertStillCurrent)
+    throw new F8BindingBlocked("READ_POLICY_FRESHNESS_NOT_BOUND");
+  await this.policy.assertStillCurrent(req,decision);
   let value:T;
   try{value=await load();}
   catch(error){
