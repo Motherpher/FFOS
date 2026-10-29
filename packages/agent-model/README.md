@@ -56,6 +56,12 @@ python conformance/ama_starter.py \
   --scope synthetic/item \
   --governing-principal SYNTHETIC.OWNER \
   --command-token SYNTHETIC-START \
+  --realm-id EXTERNAL/SYNTHETIC \
+  --realm-category EXTERNAL_CONSUMER \
+  --realm-owner SYNTHETIC.OWNER \
+  --policy-authority EXTERNAL:POLICY \
+  --security-anchor EXTERNAL:SECURITY \
+  --security-binding-mode DETACHED_EXTERNAL \
   --output /tmp/agent-draft.json
 python conformance/ama_blueprint.py /tmp/agent-draft.json \
   --optional memory --output /tmp/agent-blueprint.json
@@ -70,3 +76,7 @@ The M7 blueprint constructor now composes the existing M2–M6 **static** contra
 CI also exports two **synthetic, non-deploying reference packages**, with minimal and cross-module complex bundles, their M0–M7 construction blueprints and a source digest index. The generator is `conformance/ama_blueprint_reference.py`; its output is uploaded as `ama-m7-blueprints` inside the existing AMA conformance artifact.
 
 The original M0 requirement register stays unchanged. `ama-m0-test-evidence-bridge.json` supplies separate partial links to **65 of 96** candidate requirements, each checked against a concrete test function. This is not a declaration that any of those requirements has reached full runtime acceptance.
+
+## Mandatory operating-realm declaration
+
+Every new M7 blueprint requires an explicit, pinned `operatingRealm` record in its construction bundle. The record identifies the owning realm, governing principal, applicable policy authority and security anchor. A historical M1 bundle may still validate structurally without it for compatibility, but new construction fails closed. Host-specific governance providers are declared in external realm policy artifacts, rather than embedded in the universal schema. Realm-specific mandatory bindings cannot be detached by agents operating in that realm. External recipients must explicitly supply their own policy/security authority when detaching a source organization's integration. A declared anchor is not proof of live verification.
