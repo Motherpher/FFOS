@@ -34,7 +34,7 @@ test("wrong CDX policy pin denied",()=>check({
   conformance:{runtime_state:"VERIFIED_RUNTIME_BOUND"},
   local_enforcement:{owner:"FFOS",points:["AGENT_STABLE_EFFECT_GATE"],
     fail_closed_for_consequential_effects:true}},async g=>
-  assert.rejects(()=>g.assertPinned("0000000000000000000000000000000000000000"),/stale/)));
+  assert.rejects(()=>g.assertPinned("sha256:"+"0".repeat(64)),/stale/)));
 
 test("pre-release commit cannot be promoted through runtime-state flags",()=>check({
   conformance:{runtime_state:"VERIFIED_RUNTIME_BOUND"},
