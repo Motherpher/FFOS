@@ -273,6 +273,12 @@
       "items": {
         "$ref": "rollback-plan.schema.json"
       }
+    },
+    "knowledgeCatalogs": {
+      "type": "array",
+      "items": {
+        "$ref": "knowledge-catalog.schema.json"
+      }
     }
   },
   "$schema": "https://json-schema.org/draft/2020-12/schema",
