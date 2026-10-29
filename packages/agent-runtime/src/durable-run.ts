@@ -45,10 +45,17 @@ type RunRow={run_id:string;state:RunState;lease_owner:string|null;lease_epoch:st
   lease_until:Date|null;cancel_requested:boolean;generation:string|number;agent_id:string;agent_version:string};
 type EffectRow={effect_id:string;state:EffectState;run_id:string;operation_key:string};
 export class DurablePgCoordinator {
-  constructor(private readonly pool:SqlPool,private readonly admission:RunAdmissionPort|null,
-    private readonly gate:Pick<AgentEffectGate,"execute">|null,
-    private readonly reconciliation:ReconciliationPort|null,
-    private readonly resume:ResumeApprovalPort|null){}
+  private readonly pool:SqlPool;
+  private readonly admission:RunAdmissionPort|null;
+  private readonly gate:Pick<AgentEffectGate,"execute">|null;
+  private readonly reconciliation:ReconciliationPort|null;
+  private readonly resume:ResumeApprovalPort|null;
+  constructor(pool:SqlPool,admission:RunAdmissionPort|null,
+    gate:Pick<AgentEffectGate,"execute">|null,
+    reconciliation:ReconciliationPort|null,resume:ResumeApprovalPort|null){
+    this.pool=pool;this.admission=admission;this.gate=gate;
+    this.reconciliation=reconciliation;this.resume=resume;
+  }
   private async tx<T>(task:(db:SqlClient)=>Promise<T>):Promise<T>{
     const db=await this.pool.connect();let active=false;
     try{await db.query("BEGIN");active=true;const result=await task(db);
