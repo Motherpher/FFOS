@@ -13,7 +13,7 @@
       "ordinal": 1,
       "agentId": "FFOS-AGENT-MESSI-001",
       "name": "MESSI",
-      "manifest": "agents/messi/manifest-candidate-v0.1.json",
+      "manifest": "agent-stable/agents/01-messi/manifest-candidate-v0.1.json",
       "state": "DRAFT_NOT_IMPLEMENTED",
       "implementationEvidence": false
     },
@@ -21,8 +21,8 @@
       "ordinal": 2,
       "agentId": "FFOS-AGENT-HOUSEHOLD-002",
       "name": "Household Family",
-      "manifest": "agents/household-family/manifest-candidate-v0.1.json",
-      "instanceContract": "agents/household-family/household-instance.contract.json",
+      "manifest": "agent-stable/agents/02-household-family/manifest-candidate-v0.1.json",
+      "instanceContract": "agent-stable/agents/02-household-family/household-instance.contract.json",
       "implementationBranch": "MERGED_TO_MAIN",
       "state": "IMPLEMENTATION_CANDIDATE_NOT_PRODUCTION_ACCEPTED",
       "implementationEvidence": true,
@@ -48,5 +48,6 @@
     "commit": "4c70d74b468202303b4f4249567154fb0a02ad2b",
     "sourcePr": 31,
     "productionActivation": false
-  }
+  },
+  "registryPath": "agent-stable/registry.json"
 }
