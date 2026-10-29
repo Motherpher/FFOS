@@ -42,7 +42,7 @@ class UniversalTemplatePurityTests(unittest.TestCase):
     def test_candidate_schemas_and_types_are_agent_agnostic(self):
         schemas = ROOT / "packages/agent-model/schemas/v0.2"
         paths = sorted(schemas.glob("*.schema.json"))
-        self.assertEqual(12, len(paths))
+        self.assertEqual(18, len(paths))
         paths.append(ROOT / "packages/agent-model/src/vnext.ts")
         for p in paths:
             with self.subTest(path=p.name):
