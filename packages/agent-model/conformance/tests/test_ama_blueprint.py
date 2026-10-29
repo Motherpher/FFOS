@@ -16,6 +16,24 @@ from test_m1_contracts import digest
 from test_m3_knowledge import knowledge_fixture
 
 
+def complex_reference_bundle():
+    """A single synthetic agent composition across M3/M4/M6."""
+    agent_bundle=cognitive_fixture(memory=True,retrieval=True)
+    event=event_fixture()
+    agent_bundle["agent"]["modules"].append(
+        copy.deepcopy(event["agent"]["modules"][-1]))
+    agent_bundle["eventTriggers"]=copy.deepcopy(event["eventTriggers"])
+    agent_bundle["knowledgeCatalogs"]=copy.deepcopy(
+        knowledge_fixture()["knowledgeCatalogs"])
+    agent_bundle["localizationProfiles"]=copy.deepcopy(
+        localization_fixture()["localizationProfiles"])
+    agent_bundle=rebind(agent_bundle)
+    a=agent_bundle["agent"]
+    agent_bundle["localizationProfiles"][0]["agentRef"]={
+        "id":a["agentId"],"version":a["agentVersion"],"digest":digest(a)}
+    return agent_bundle
+
+
 class BlueprintTests(unittest.TestCase):
     def test_valid_m1_bundle_generates_m0_to_m7_blueprint(self):
         blueprint = assemble(fixture())
@@ -126,19 +144,7 @@ class BlueprintTests(unittest.TestCase):
 
     def test_complex_reference_composes_m3_m4_m6_without_host_activation(self):
         # Synthetic modules are composed under one M1 agent identity.
-        agent_bundle=cognitive_fixture(memory=True,retrieval=True)
-        event=event_fixture()
-        agent_bundle["agent"]["modules"].append(
-            copy.deepcopy(event["agent"]["modules"][-1]))
-        agent_bundle["eventTriggers"]=copy.deepcopy(event["eventTriggers"])
-        agent_bundle["knowledgeCatalogs"]=copy.deepcopy(
-            knowledge_fixture()["knowledgeCatalogs"])
-        agent_bundle["localizationProfiles"]=copy.deepcopy(
-            localization_fixture()["localizationProfiles"])
-        agent_bundle=rebind(agent_bundle)
-        a=agent_bundle["agent"]
-        agent_bundle["localizationProfiles"][0]["agentRef"]={
-            "id":a["agentId"],"version":a["agentVersion"],"digest":digest(a)}
+        agent_bundle=complex_reference_bundle()
         result=assemble(agent_bundle,at="2026-10-29T12:00:00+00:00",
                         host_trust_domain="synthetic")
         self.assertEqual(result["status"],"CONSTRUCTION_BLUEPRINT_CANDIDATE",result)
