@@ -198,7 +198,8 @@ class AuthorizationContracts(unittest.TestCase):
         self.assert_bad(b,"POLICY_DECISION_NOT_CURRENT")
 
     def test_policy_pin_mismatch(self):
-        b=baseline();b["authorizationDecisions"][0]["policyRef"]["digest"]="sha256:"+"0"*64
+        b=baseline();b["authorizationDecisions"][0]["policyRef"]=copy.deepcopy(b["authorizationDecisions"][0]["policyRef"])
+        b["authorizationDecisions"][0]["policyRef"]["digest"]="sha256:"+"0"*64
         self.assert_bad(b,"POLICY_PIN_MISMATCH")
 
     def test_no_unknown_principal(self):
