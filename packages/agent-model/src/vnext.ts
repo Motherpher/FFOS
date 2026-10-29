@@ -101,7 +101,21 @@ export interface AMAEvidenceVNext {
   readonly status:"OBSERVED"|"UNCERTAIN"|"BLOCKED"|"VERIFIED";
   readonly accepted?:false;
 }
+/** M1: the agent package explicitly states its governing operating realm.
+ * Named estate-provider policy is supplied in the host binding, not this type.
+ */
+export interface AMAOperatingRealmVNext {
+  readonly schema:"ama.operating-realm/v0.2-candidate";
+  readonly agentRef:AMAPinnedRef;readonly realmId:string;
+  readonly realmCategory:"OWNER_ESTATE"|"EXTERNAL_CONSUMER";
+  readonly realmOwnerRef:string;readonly governingPrincipalRef:string;
+  readonly policyAuthorityRef:string;readonly securityAnchorRef:string;
+  readonly securityBindingMode:"MANDATORY"|"DETACHED_EXTERNAL";
+  readonly bindingStatus:"DECLARED_NOT_RUNTIME_VERIFIED";
+  readonly externalExportAllowed:boolean;
+}
 export interface AMABundleVNext {
+  readonly operatingRealm?:AMAOperatingRealmVNext;
   readonly schema:"ama.bundle/v0.2-candidate";readonly agent:AMAAgentVNext;
   readonly workflows:readonly AMAWorkflowVNext[];
   readonly commands:readonly AMACommandVNext[];
