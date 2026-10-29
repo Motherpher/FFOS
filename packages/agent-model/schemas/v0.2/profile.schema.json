@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "profileId",
+    "version",
+    "status",
+    "kind",
+    "moduleId",
+    "config"
+  ],
+  "properties": {
+    "schema": {
+      "const": "ama.profile/v0.2-candidate"
+    },
+    "profileId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "status": {
+      "$ref": "common.schema.json#/$defs/bindingStatus"
+    },
+    "kind": {
+      "enum": [
+        "REASONING",
+        "MEMORY",
+        "RETRIEVAL",
+        "SCHEDULE",
+        "EVENTS",
+        "REVIEW",
+        "OTHER"
+      ]
+    },
+    "moduleId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "config": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/profile.schema.json",
+  "title": "AMA v0.2 candidate profile contract"
+}
