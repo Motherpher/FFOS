@@ -28,7 +28,7 @@ class CanonicalMilestoneTests(unittest.TestCase):
         self.assertEqual(report["errors"], [])
         self.assertEqual(report["stage_count"], 8)
         self.assertEqual(report["source_requirement_count"], 96)
-        self.assertEqual(report["f8"], "OPTIONAL_CDX_HOST_INTEGRATION")
+        self.assertEqual(report["f8"], "REALM_CONDITIONAL_CDX_GOVERNANCE_ANCHOR")
         self.assertFalse(report["template_complete"])
 
     def test_source_plan_records_cannot_count_as_complete(self):
