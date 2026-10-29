@@ -31,7 +31,7 @@ Fleet ordinal is identity order, not implementation maturity.
 
 ## Implementation completed
 
-- canonical fleet registry: `agents/registry.json`;
+- canonical fleet registry: `agent-stable/registry.json`;
 - MESSI manifest/bindings candidate;
 - Household manifest/bindings candidate;
 - Household AMA instance contract bound to Agent Stable;
@@ -89,3 +89,8 @@ Structural merge is therefore authorized under the bounded exception recorded in
 MESSI remains DRAFT / NOT IMPLEMENTED. Household Family remains IMPLEMENTATION CANDIDATE / NOT PRODUCTION ACCEPTED. Executable conformance/security/runtime gates remain mandatory before lifecycle advancement.
 
 No bypass is authorized.
+
+
+## Repository-path reconciliation — 2026-10-29
+
+The final FFOS estate restructure moved fleet definitions from top-level `agents/` into canonical `agent-stable/`. This record remains historical; current development paths are governed by `agent-stable/README.md` and `docs/architecture/REPOSITORY-STRUCTURE.md`.

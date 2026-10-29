@@ -21,8 +21,8 @@ def test_registry():
         assert key in non
 
 def test_manifests():
-    m=load(ROOT/"agents"/"messi"/"manifest-candidate-v0.1.json")
-    h=load(ROOT/"agents"/"household-family"/"manifest-candidate-v0.1.json")
+    m=load(STABLE/"agents"/"01-messi"/"manifest-candidate-v0.1.json"")
+    h=load(STABLE/"agents"/"02-household-family"/"manifest-candidate-v0.1.json"")
     assert m["agentId"]=="FFOS-AGENT-MESSI-001" and m["lifecycleState"]=="DRAFT"
     assert h["agentId"]=="FFOS-AGENT-HOUSEHOLD-002" and h["lifecycleState"]=="DRAFT"
     assert m["authority"]["governingAuthority"]=="FFOS_DIRECTOR"
