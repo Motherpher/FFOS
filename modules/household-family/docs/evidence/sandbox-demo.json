@@ -1,0 +1,2981 @@
+{
+  "fixture_public_keys": {
+    "director_ed25519_spki": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAVwc5gIc7lBH7gnM4hO0qYkp03/+1DTmjHIlN2DnT5+k=\n-----END PUBLIC KEY-----",
+    "issuer": "urn:ffos:test-director",
+    "audience": "urn:ffos:household:test"
+  },
+  "mode": "TEST_FIXTURE_ONLY",
+  "deployed": false,
+  "genuine_director_acceptance": false,
+  "description": "Production MCP components and GitHub/Director HTTP adapters tested against isolated contract services. Initial failure repaired with independent re-verification; external signed fixture decisions advance a two-WP DAG.",
+  "status": {
+    "status": "IDLE",
+    "projects": [
+      {
+        "project_id": "test-project",
+        "repository": "test-owner/household-sandbox",
+        "enabled": true,
+        "permission": "EXECUTE_BOUNDED",
+        "runs": [
+          {
+            "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+            "wp_id": "WP02",
+            "state": "RECORDED",
+            "ffos_state": "PASS",
+            "current_attempt": 0,
+            "commit_sha": "e769004e4e08b1eabe50267e08289ec0dcb22f41",
+            "pr_ref": "https://github.com/test-owner/household-sandbox/pull/2",
+            "last_error": null,
+            "updated_at": "2026-10-28T23:15:50.218Z"
+          },
+          {
+            "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+            "wp_id": "WP01",
+            "state": "RECORDED",
+            "ffos_state": "PASS",
+            "current_attempt": 1,
+            "commit_sha": "03946b009d8ded3c48bdfe0b7e0e9afe1aad72d0",
+            "pr_ref": "https://github.com/test-owner/household-sandbox/pull/1",
+            "last_error": null,
+            "updated_at": "2026-10-28T23:15:49.823Z"
+          }
+        ],
+        "queue": [
+          {
+            "state": "DONE",
+            "attempts": 7,
+            "failure_count": 0,
+            "last_error": null,
+            "lease_expires_at": null
+          },
+          {
+            "state": "DONE",
+            "attempts": 5,
+            "failure_count": 0,
+            "last_error": null,
+            "lease_expires_at": null
+          }
+        ],
+        "progression": [
+          {
+            "decision_id": "decision-e6884cc6-90e8-44c5-bad7-846a54b5e29c",
+            "state": "DONE",
+            "attempts": 0,
+            "last_error": null
+          },
+          {
+            "decision_id": "decision-f8dcc68b-af47-4642-a4e1-ac3e01c4d05e",
+            "state": "DONE",
+            "attempts": 0,
+            "last_error": null
+          }
+        ],
+        "metrics": {
+          "repair_attempts": 1,
+          "stale_leases": 0,
+          "dead_letters": 0,
+          "recorded_lead_seconds": [
+            0.389,
+            0.595
+          ]
+        },
+        "audit_chain_valid": true,
+        "latest_observation": "2026-10-28T23:15:50.222Z"
+      }
+    ]
+  },
+  "runs": [
+    {
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "wp_id": "WP01",
+      "wp_version": 1,
+      "project_id": "test-project",
+      "repo": "test-owner/household-sandbox",
+      "policy_version": "policy-1",
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "eligibility_revision": "revision-1",
+      "eligibility_snapshot_hash": "035d43e9f588cc1e79cf7d787a83d51b68bf95788daded1172e2c8229c1d9e82",
+      "baseline_sha": "6b0e9a399b8ad748434ef1a7ee4552ee52f31c5f",
+      "commit_sha": "03946b009d8ded3c48bdfe0b7e0e9afe1aad72d0",
+      "branch": "hf/2974f5ae1f0d291b6e992578",
+      "pr_ref": "https://github.com/test-owner/household-sandbox/pull/1",
+      "state": "RECORDED",
+      "revision": 32,
+      "lease_owner": null,
+      "lease_expires_at": null,
+      "current_attempt": 1,
+      "created_at": "2026-10-28T23:15:49.228Z",
+      "updated_at": "2026-10-28T23:15:49.823Z",
+      "completed_at": "2026-10-28T23:15:49.823Z",
+      "last_error": null,
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "idempotency_key": "demo-1",
+      "wp": {
+        "wp_id": "WP01",
+        "project_id": "test-project",
+        "repo": "test-owner/household-sandbox",
+        "version": 1,
+        "title": "WP01",
+        "description_ref": "test fixture (not authority)",
+        "dependency_ids": [],
+        "acceptance_criteria": [
+          {
+            "id": "content",
+            "text": "Expected independent raw-file check",
+            "method": "file_contains",
+            "path": "src/value.txt",
+            "value": "good"
+          }
+        ],
+        "priority": 1,
+        "eligibility_revision": "revision-1",
+        "baseline_sha": "6b0e9a399b8ad748434ef1a7ee4552ee52f31c5f",
+        "risk_tier": "LOW",
+        "scope_hash": "8685799f3194a62e99465116d052a9a4b69a4083a8fe30ae80495d5ca99deec4",
+        "director_policy_ref": "director:test-policy",
+        "max_repair_attempts": 2,
+        "requested_action": "branch_pr",
+        "time_budget_seconds": 600,
+        "mutation_recipe_id": "recipe-WP01",
+        "repair_recipe_ids": [
+          "repair-WP01"
+        ],
+        "status": "DISPATCHED"
+      },
+      "evidence_bundle_hash": "b2fee908cb4f7656c81851674d38cc9491c63fe25bcc2d5a0448c25cd4d4c617",
+      "stop_requested": false,
+      "origin_subject": "test-director",
+      "recipe_bases": {
+        "recipe-WP01": "6b0e9a399b8ad748434ef1a7ee4552ee52f31c5f",
+        "repair-WP01": "82af11f87efb5ab1c8de6902fd7fbf3a8dd7d693"
+      },
+      "recovery_state": null
+    },
+    {
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "wp_id": "WP02",
+      "wp_version": 1,
+      "project_id": "test-project",
+      "repo": "test-owner/household-sandbox",
+      "policy_version": "policy-1",
+      "policy_hash": "9ab95f560612cd57c520976ae5ec5ffdda8db47eb3b1ec1707a5be89f3f0d4c6",
+      "eligibility_revision": "revision-1",
+      "eligibility_snapshot_hash": "0eb4fa4da4f7ac8b691d8ce706ecaf5de78c18401945a7e67e09a73f8aaa3a3a",
+      "baseline_sha": "6b0e9a399b8ad748434ef1a7ee4552ee52f31c5f",
+      "commit_sha": "e769004e4e08b1eabe50267e08289ec0dcb22f41",
+      "branch": "hf/dfd1f84e52e52a3c2a839abe",
+      "pr_ref": "https://github.com/test-owner/household-sandbox/pull/2",
+      "state": "RECORDED",
+      "revision": 22,
+      "lease_owner": null,
+      "lease_expires_at": null,
+      "current_attempt": 0,
+      "created_at": "2026-10-28T23:15:49.829Z",
+      "updated_at": "2026-10-28T23:15:50.218Z",
+      "completed_at": "2026-10-28T23:15:50.218Z",
+      "last_error": null,
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "idempotency_key": "auto:decision-e6884cc6-90e8-44c5-bad7-846a54b5e29c:WP02:1",
+      "wp": {
+        "wp_id": "WP02",
+        "project_id": "test-project",
+        "repo": "test-owner/household-sandbox",
+        "version": 1,
+        "title": "WP02",
+        "description_ref": "test fixture (not authority)",
+        "dependency_ids": [
+          "WP01"
+        ],
+        "acceptance_criteria": [
+          {
+            "id": "content",
+            "text": "Expected independent raw-file check",
+            "method": "file_contains",
+            "path": "src/next.txt",
+            "value": "good"
+          }
+        ],
+        "priority": 1,
+        "eligibility_revision": "revision-1",
+        "baseline_sha": "6b0e9a399b8ad748434ef1a7ee4552ee52f31c5f",
+        "risk_tier": "LOW",
+        "scope_hash": "16b3e76ea61deeecc3eeadb2e9001a16fd5a8a8e6074dbbc93a488a928d69665",
+        "director_policy_ref": "director:test-policy",
+        "max_repair_attempts": 2,
+        "requested_action": "branch_pr",
+        "time_budget_seconds": 600,
+        "mutation_recipe_id": "recipe-WP02",
+        "repair_recipe_ids": [
+          "repair-WP02"
+        ],
+        "status": "DISPATCHED"
+      },
+      "evidence_bundle_hash": "46618136c66387cca8df8dcbfb736454e468b1c93ac6b9475efb2c0308878fe4",
+      "stop_requested": false,
+      "origin_subject": "test-worker",
+      "recipe_bases": {
+        "recipe-WP02": "6b0e9a399b8ad748434ef1a7ee4552ee52f31c5f"
+      },
+      "recovery_state": null
+    }
+  ],
+  "evidence": [
+    [
+      {
+        "evidence_id": "evidence-534274c4-b623-4738-b548-caf1815c6955",
+        "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+        "role": "JANITOR",
+        "criterion_id": "preflight",
+        "check": "read_only_repository_snapshot",
+        "result": "PASS",
+        "artifact_uri": "https://github.com/test-owner/household-sandbox/tree/6b0e9a399b8ad748434ef1a7ee4552ee52f31c5f",
+        "artifact_digest": "7f5651de2e0f854769221430f3c92d38fcfafbd04ba685b63e1ca3ed466832ee",
+        "commit_sha": "6b0e9a399b8ad748434ef1a7ee4552ee52f31c5f",
+        "ci_check_id": null,
+        "observed_at": "2026-10-28T23:15:49.274Z",
+        "verifier_identity": "JANITOR",
+        "context_id": "janitor-context-5910fff5-dfbc-41db-b3d7-68336ab8fc2c",
+        "raw": {
+          "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+          "commit_sha": "6b0e9a399b8ad748434ef1a7ee4552ee52f31c5f",
+          "criteria": [
+            {
+              "id": "content",
+              "text": "Expected independent raw-file check",
+              "method": "file_contains",
+              "path": "src/value.txt",
+              "value": "good"
+            }
+          ],
+          "files": {
+            "src/value.txt": {
+              "path": "src/value.txt",
+              "content": "initial",
+              "blob_sha": "0519517691f3257bac4b31d55b49acfdd387699e",
+              "mode": "100644",
+              "source": "https://github.com/test-owner/household-sandbox/blob/6b0e9a399b8ad748434ef1a7ee4552ee52f31c5f/src/value.txt"
+            }
+          },
+          "ci": [
+            {
+              "workflow_id": 1,
+              "run_id": 101,
+              "head_sha": "6b0e9a399b8ad748434ef1a7ee4552ee52f31c5f",
+              "conclusion": "success",
+              "status": "completed",
+              "html_url": "https://github.com/test-owner/household-sandbox/actions/runs/101",
+              "path": ".github/workflows/ci.yml",
+              "event": "push",
+              "run_attempt": 1,
+              "jobs": [
+                {
+                  "id": 1001,
+                  "name": "test-only-check",
+                  "conclusion": "success",
+                  "steps": [
+                    {
+                      "name": "fixture deterministic check",
+                      "conclusion": "success"
+                    }
+                  ]
+                }
+              ],
+              "artifacts": []
+            }
+          ],
+          "workflow_integrity": {
+            "1": true
+          },
+          "require_ci": true,
+          "required_workflow_ids": [
+            1
+          ],
+          "policy_scope_pass": true,
+          "disconnected": false,
+          "scope_observation": {
+            "baseline_sha": "6b0e9a399b8ad748434ef1a7ee4552ee52f31c5f",
+            "commit_sha": "6b0e9a399b8ad748434ef1a7ee4552ee52f31c5f",
+            "diff_paths": [],
+            "observed_pr": null,
+            "project_paths": [
+              "src"
+            ],
+            "director_paths": [
+              "src"
+            ]
+          }
+        }
+      },
+      {
+        "evidence_id": "evidence-b722931b-5f89-4635-99ec-659e3c4ad5dc",
+        "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+        "role": "VERIFIER",
+        "criterion_id": "content",
+        "check": "file_contains",
+        "result": "FAIL",
+        "artifact_uri": "https://github.com/test-owner/household-sandbox/blob/82af11f87efb5ab1c8de6902fd7fbf3a8dd7d693/src/value.txt",
+        "artifact_digest": "b694cf6e05de946c0aba8f18e0568dd0d7c0c68ef1b051f511a1e57620cc3d8f",
+        "commit_sha": "82af11f87efb5ab1c8de6902fd7fbf3a8dd7d693",
+        "ci_check_id": null,
+        "observed_at": "2026-10-28T23:15:49.479Z",
+        "verifier_identity": "isolated-node:344",
+        "context_id": "verifier-context-0fdd52e4-d580-4e65-ba73-0c27ca292bf4",
+        "raw": {
+          "path": "src/value.txt",
+          "content": "bad",
+          "blob_sha": "0be536ba133e22bdd211552fcc8c08ee6912fc75",
+          "mode": "100644",
+          "source": "https://github.com/test-owner/household-sandbox/blob/82af11f87efb5ab1c8de6902fd7fbf3a8dd7d693/src/value.txt"
+        }
+      },
+      {
+        "evidence_id": "evidence-37a75476-2cda-47e7-b91a-d263605614ce",
+        "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+        "role": "VERIFIER",
+        "criterion_id": "ci-1",
+        "check": "ci_workflow",
+        "result": "PASS",
+        "artifact_uri": "https://github.com/test-owner/household-sandbox/actions/runs/101",
+        "artifact_digest": "1149679708545bd63bf7853b20a0cb4ea022b5f8c6cc2ab1f44c7a9cc0c7ccf0",
+        "commit_sha": "82af11f87efb5ab1c8de6902fd7fbf3a8dd7d693",
+        "ci_check_id": 101,
+        "observed_at": "2026-10-28T23:15:49.480Z",
+        "verifier_identity": "isolated-node:344",
+        "context_id": "verifier-context-0fdd52e4-d580-4e65-ba73-0c27ca292bf4",
+        "raw": {
+          "workflow_id": 1,
+          "run_id": 101,
+          "head_sha": "82af11f87efb5ab1c8de6902fd7fbf3a8dd7d693",
+          "conclusion": "success",
+          "status": "completed",
+          "html_url": "https://github.com/test-owner/household-sandbox/actions/runs/101",
+          "path": ".github/workflows/ci.yml",
+          "event": "push",
+          "run_attempt": 1,
+          "jobs": [
+            {
+              "id": 1001,
+              "name": "test-only-check",
+              "conclusion": "success",
+              "steps": [
+                {
+                  "name": "fixture deterministic check",
+                  "conclusion": "success"
+                }
+              ]
+            }
+          ],
+          "artifacts": []
+        }
+      },
+      {
+        "evidence_id": "evidence-cf58ed21-74ce-4721-8e9e-4662baa20334",
+        "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+        "role": "VERIFIER",
+        "criterion_id": "policy-scope",
+        "check": "commit_diff_allowlist",
+        "result": "PASS",
+        "artifact_uri": "",
+        "artifact_digest": "2e17c725f42fed05872e927a6cc644341b60ff5dfba4d651629b5afbcb499e8e",
+        "commit_sha": "82af11f87efb5ab1c8de6902fd7fbf3a8dd7d693",
+        "ci_check_id": null,
+        "observed_at": "2026-10-28T23:15:49.480Z",
+        "verifier_identity": "isolated-node:344",
+        "context_id": "verifier-context-0fdd52e4-d580-4e65-ba73-0c27ca292bf4",
+        "raw": {
+          "policy_scope_pass": true,
+          "observation": {
+            "baseline_sha": "6b0e9a399b8ad748434ef1a7ee4552ee52f31c5f",
+            "commit_sha": "82af11f87efb5ab1c8de6902fd7fbf3a8dd7d693",
+            "diff_paths": [
+              "src/value.txt"
+            ],
+            "observed_pr": {
+              "url": "https://github.com/test-owner/household-sandbox/pull/1",
+              "head_sha": "82af11f87efb5ab1c8de6902fd7fbf3a8dd7d693",
+              "base": "main",
+              "state": "open",
+              "repo": "test-owner/household-sandbox"
+            },
+            "project_paths": [
+              "src"
+            ],
+            "director_paths": [
+              "src"
+            ]
+          }
+        }
+      },
+      {
+        "evidence_id": "evidence-a75d8ec2-bec3-4efb-bdf2-c5b710b2c0c2",
+        "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+        "role": "VERIFIER",
+        "criterion_id": "content",
+        "check": "file_contains",
+        "result": "PASS",
+        "artifact_uri": "https://github.com/test-owner/household-sandbox/blob/03946b009d8ded3c48bdfe0b7e0e9afe1aad72d0/src/value.txt",
+        "artifact_digest": "041e1e16f76f5092eb57cf7ebd6f3275a95c1cb5f8bdb1d54293e88d14bc4059",
+        "commit_sha": "03946b009d8ded3c48bdfe0b7e0e9afe1aad72d0",
+        "ci_check_id": null,
+        "observed_at": "2026-10-28T23:15:49.670Z",
+        "verifier_identity": "isolated-node:351",
+        "context_id": "verifier-context-c534edc1-4558-4aff-8170-0d0b0bb6cbb3",
+        "raw": {
+          "path": "src/value.txt",
+          "content": "good",
+          "blob_sha": "df027ecbd80f6797334f5f41e5d3a4055a54ab6b",
+          "mode": "100644",
+          "source": "https://github.com/test-owner/household-sandbox/blob/03946b009d8ded3c48bdfe0b7e0e9afe1aad72d0/src/value.txt"
+        }
+      },
+      {
+        "evidence_id": "evidence-aed193bf-b191-40a7-b07c-b3c5349517bb",
+        "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+        "role": "VERIFIER",
+        "criterion_id": "ci-1",
+        "check": "ci_workflow",
+        "result": "PASS",
+        "artifact_uri": "https://github.com/test-owner/household-sandbox/actions/runs/101",
+        "artifact_digest": "3ae3cbfec6a3a2b531da0c1badbd2cc7e0daea68e821af0f9b82f111be5d6598",
+        "commit_sha": "03946b009d8ded3c48bdfe0b7e0e9afe1aad72d0",
+        "ci_check_id": 101,
+        "observed_at": "2026-10-28T23:15:49.671Z",
+        "verifier_identity": "isolated-node:351",
+        "context_id": "verifier-context-c534edc1-4558-4aff-8170-0d0b0bb6cbb3",
+        "raw": {
+          "workflow_id": 1,
+          "run_id": 101,
+          "head_sha": "03946b009d8ded3c48bdfe0b7e0e9afe1aad72d0",
+          "conclusion": "success",
+          "status": "completed",
+          "html_url": "https://github.com/test-owner/household-sandbox/actions/runs/101",
+          "path": ".github/workflows/ci.yml",
+          "event": "push",
+          "run_attempt": 1,
+          "jobs": [
+            {
+              "id": 1001,
+              "name": "test-only-check",
+              "conclusion": "success",
+              "steps": [
+                {
+                  "name": "fixture deterministic check",
+                  "conclusion": "success"
+                }
+              ]
+            }
+          ],
+          "artifacts": []
+        }
+      },
+      {
+        "evidence_id": "evidence-98bec0ea-6320-4e04-ad7f-8f26cca03470",
+        "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+        "role": "VERIFIER",
+        "criterion_id": "policy-scope",
+        "check": "commit_diff_allowlist",
+        "result": "PASS",
+        "artifact_uri": "",
+        "artifact_digest": "5fe78d55788e2272ed976cf15135b75e2ff79003844a48316f97076546b1d403",
+        "commit_sha": "03946b009d8ded3c48bdfe0b7e0e9afe1aad72d0",
+        "ci_check_id": null,
+        "observed_at": "2026-10-28T23:15:49.671Z",
+        "verifier_identity": "isolated-node:351",
+        "context_id": "verifier-context-c534edc1-4558-4aff-8170-0d0b0bb6cbb3",
+        "raw": {
+          "policy_scope_pass": true,
+          "observation": {
+            "baseline_sha": "6b0e9a399b8ad748434ef1a7ee4552ee52f31c5f",
+            "commit_sha": "03946b009d8ded3c48bdfe0b7e0e9afe1aad72d0",
+            "diff_paths": [
+              "src/value.txt"
+            ],
+            "observed_pr": {
+              "url": "https://github.com/test-owner/household-sandbox/pull/1",
+              "head_sha": "03946b009d8ded3c48bdfe0b7e0e9afe1aad72d0",
+              "base": "main",
+              "state": "open",
+              "repo": "test-owner/household-sandbox"
+            },
+            "project_paths": [
+              "src"
+            ],
+            "director_paths": [
+              "src"
+            ]
+          }
+        }
+      },
+      {
+        "evidence_id": "evidence-cacf980f-0805-44fe-b3d6-63097b6a24cd",
+        "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+        "role": "VERIFIER",
+        "criterion_id": "content",
+        "check": "file_contains",
+        "result": "PASS",
+        "artifact_uri": "https://github.com/test-owner/household-sandbox/blob/03946b009d8ded3c48bdfe0b7e0e9afe1aad72d0/src/value.txt",
+        "artifact_digest": "041e1e16f76f5092eb57cf7ebd6f3275a95c1cb5f8bdb1d54293e88d14bc4059",
+        "commit_sha": "03946b009d8ded3c48bdfe0b7e0e9afe1aad72d0",
+        "ci_check_id": null,
+        "observed_at": "2026-10-28T23:15:49.813Z",
+        "verifier_identity": "isolated-node:358",
+        "context_id": "verifier-context-ab965da8-ec1e-463f-9fc9-1fc4e5709128",
+        "raw": {
+          "path": "src/value.txt",
+          "content": "good",
+          "blob_sha": "df027ecbd80f6797334f5f41e5d3a4055a54ab6b",
+          "mode": "100644",
+          "source": "https://github.com/test-owner/household-sandbox/blob/03946b009d8ded3c48bdfe0b7e0e9afe1aad72d0/src/value.txt"
+        }
+      },
+      {
+        "evidence_id": "evidence-dbebba4b-d94f-4079-a34b-3a51c2b5a53a",
+        "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+        "role": "VERIFIER",
+        "criterion_id": "ci-1",
+        "check": "ci_workflow",
+        "result": "PASS",
+        "artifact_uri": "https://github.com/test-owner/household-sandbox/actions/runs/101",
+        "artifact_digest": "3ae3cbfec6a3a2b531da0c1badbd2cc7e0daea68e821af0f9b82f111be5d6598",
+        "commit_sha": "03946b009d8ded3c48bdfe0b7e0e9afe1aad72d0",
+        "ci_check_id": 101,
+        "observed_at": "2026-10-28T23:15:49.813Z",
+        "verifier_identity": "isolated-node:358",
+        "context_id": "verifier-context-ab965da8-ec1e-463f-9fc9-1fc4e5709128",
+        "raw": {
+          "workflow_id": 1,
+          "run_id": 101,
+          "head_sha": "03946b009d8ded3c48bdfe0b7e0e9afe1aad72d0",
+          "conclusion": "success",
+          "status": "completed",
+          "html_url": "https://github.com/test-owner/household-sandbox/actions/runs/101",
+          "path": ".github/workflows/ci.yml",
+          "event": "push",
+          "run_attempt": 1,
+          "jobs": [
+            {
+              "id": 1001,
+              "name": "test-only-check",
+              "conclusion": "success",
+              "steps": [
+                {
+                  "name": "fixture deterministic check",
+                  "conclusion": "success"
+                }
+              ]
+            }
+          ],
+          "artifacts": []
+        }
+      },
+      {
+        "evidence_id": "evidence-7287aa08-21da-468d-9ab2-0ad15fac20bc",
+        "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+        "role": "VERIFIER",
+        "criterion_id": "policy-scope",
+        "check": "commit_diff_allowlist",
+        "result": "PASS",
+        "artifact_uri": "",
+        "artifact_digest": "5fe78d55788e2272ed976cf15135b75e2ff79003844a48316f97076546b1d403",
+        "commit_sha": "03946b009d8ded3c48bdfe0b7e0e9afe1aad72d0",
+        "ci_check_id": null,
+        "observed_at": "2026-10-28T23:15:49.814Z",
+        "verifier_identity": "isolated-node:358",
+        "context_id": "verifier-context-ab965da8-ec1e-463f-9fc9-1fc4e5709128",
+        "raw": {
+          "policy_scope_pass": true,
+          "observation": {
+            "baseline_sha": "6b0e9a399b8ad748434ef1a7ee4552ee52f31c5f",
+            "commit_sha": "03946b009d8ded3c48bdfe0b7e0e9afe1aad72d0",
+            "diff_paths": [
+              "src/value.txt"
+            ],
+            "observed_pr": {
+              "url": "https://github.com/test-owner/household-sandbox/pull/1",
+              "head_sha": "03946b009d8ded3c48bdfe0b7e0e9afe1aad72d0",
+              "base": "main",
+              "state": "open",
+              "repo": "test-owner/household-sandbox"
+            },
+            "project_paths": [
+              "src"
+            ],
+            "director_paths": [
+              "src"
+            ]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "evidence_id": "evidence-baeebfeb-5d11-4ed1-8837-f737563f311a",
+        "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+        "role": "JANITOR",
+        "criterion_id": "preflight",
+        "check": "read_only_repository_snapshot",
+        "result": "PASS",
+        "artifact_uri": "https://github.com/test-owner/household-sandbox/tree/6b0e9a399b8ad748434ef1a7ee4552ee52f31c5f",
+        "artifact_digest": "df6b04a3f10120b81049c4c52790abfd87481036a49f0f9d5dae298646b8eec7",
+        "commit_sha": "6b0e9a399b8ad748434ef1a7ee4552ee52f31c5f",
+        "ci_check_id": null,
+        "observed_at": "2026-10-28T23:15:49.851Z",
+        "verifier_identity": "JANITOR",
+        "context_id": "janitor-context-803aa5fb-155e-4c65-b673-e1a95c9a7fae",
+        "raw": {
+          "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+          "commit_sha": "6b0e9a399b8ad748434ef1a7ee4552ee52f31c5f",
+          "criteria": [
+            {
+              "id": "content",
+              "text": "Expected independent raw-file check",
+              "method": "file_contains",
+              "path": "src/next.txt",
+              "value": "good"
+            }
+          ],
+          "files": {
+            "src/next.txt": {
+              "path": "src/next.txt",
+              "content": "initial",
+              "blob_sha": "0519517691f3257bac4b31d55b49acfdd387699e",
+              "mode": "100644",
+              "source": "https://github.com/test-owner/household-sandbox/blob/6b0e9a399b8ad748434ef1a7ee4552ee52f31c5f/src/next.txt"
+            }
+          },
+          "ci": [
+            {
+              "workflow_id": 1,
+              "run_id": 101,
+              "head_sha": "6b0e9a399b8ad748434ef1a7ee4552ee52f31c5f",
+              "conclusion": "success",
+              "status": "completed",
+              "html_url": "https://github.com/test-owner/household-sandbox/actions/runs/101",
+              "path": ".github/workflows/ci.yml",
+              "event": "push",
+              "run_attempt": 1,
+              "jobs": [
+                {
+                  "id": 1001,
+                  "name": "test-only-check",
+                  "conclusion": "success",
+                  "steps": [
+                    {
+                      "name": "fixture deterministic check",
+                      "conclusion": "success"
+                    }
+                  ]
+                }
+              ],
+              "artifacts": []
+            }
+          ],
+          "workflow_integrity": {
+            "1": true
+          },
+          "require_ci": true,
+          "required_workflow_ids": [
+            1
+          ],
+          "policy_scope_pass": true,
+          "disconnected": false,
+          "scope_observation": {
+            "baseline_sha": "6b0e9a399b8ad748434ef1a7ee4552ee52f31c5f",
+            "commit_sha": "6b0e9a399b8ad748434ef1a7ee4552ee52f31c5f",
+            "diff_paths": [],
+            "observed_pr": null,
+            "project_paths": [
+              "src"
+            ],
+            "director_paths": [
+              "src"
+            ]
+          }
+        }
+      },
+      {
+        "evidence_id": "evidence-0dd7532d-5373-4a25-a819-31049961cb5c",
+        "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+        "role": "VERIFIER",
+        "criterion_id": "content",
+        "check": "file_contains",
+        "result": "PASS",
+        "artifact_uri": "https://github.com/test-owner/household-sandbox/blob/e769004e4e08b1eabe50267e08289ec0dcb22f41/src/next.txt",
+        "artifact_digest": "9a1b700b045dc123ff576ad55c041124a235316dcc68546190024c1d44cb8bd2",
+        "commit_sha": "e769004e4e08b1eabe50267e08289ec0dcb22f41",
+        "ci_check_id": null,
+        "observed_at": "2026-10-28T23:15:50.061Z",
+        "verifier_identity": "isolated-node:365",
+        "context_id": "verifier-context-72edc16e-4a32-447c-8732-ad7617d5e054",
+        "raw": {
+          "path": "src/next.txt",
+          "content": "good",
+          "blob_sha": "df027ecbd80f6797334f5f41e5d3a4055a54ab6b",
+          "mode": "100644",
+          "source": "https://github.com/test-owner/household-sandbox/blob/e769004e4e08b1eabe50267e08289ec0dcb22f41/src/next.txt"
+        }
+      },
+      {
+        "evidence_id": "evidence-d79f795a-a529-4364-be43-b85a760c7ca5",
+        "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+        "role": "VERIFIER",
+        "criterion_id": "ci-1",
+        "check": "ci_workflow",
+        "result": "PASS",
+        "artifact_uri": "https://github.com/test-owner/household-sandbox/actions/runs/101",
+        "artifact_digest": "435fdcd86f06302c6dfc8c6142182cfdf99044d1221a46f4ec3983c26027ca51",
+        "commit_sha": "e769004e4e08b1eabe50267e08289ec0dcb22f41",
+        "ci_check_id": 101,
+        "observed_at": "2026-10-28T23:15:50.062Z",
+        "verifier_identity": "isolated-node:365",
+        "context_id": "verifier-context-72edc16e-4a32-447c-8732-ad7617d5e054",
+        "raw": {
+          "workflow_id": 1,
+          "run_id": 101,
+          "head_sha": "e769004e4e08b1eabe50267e08289ec0dcb22f41",
+          "conclusion": "success",
+          "status": "completed",
+          "html_url": "https://github.com/test-owner/household-sandbox/actions/runs/101",
+          "path": ".github/workflows/ci.yml",
+          "event": "push",
+          "run_attempt": 1,
+          "jobs": [
+            {
+              "id": 1001,
+              "name": "test-only-check",
+              "conclusion": "success",
+              "steps": [
+                {
+                  "name": "fixture deterministic check",
+                  "conclusion": "success"
+                }
+              ]
+            }
+          ],
+          "artifacts": []
+        }
+      },
+      {
+        "evidence_id": "evidence-593a75e8-3a04-4375-8e75-e1411acaa73e",
+        "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+        "role": "VERIFIER",
+        "criterion_id": "policy-scope",
+        "check": "commit_diff_allowlist",
+        "result": "PASS",
+        "artifact_uri": "",
+        "artifact_digest": "5ed5806b9edf49a34671b049e8666cb50c51b4c97df5cc9beb548faa66223b02",
+        "commit_sha": "e769004e4e08b1eabe50267e08289ec0dcb22f41",
+        "ci_check_id": null,
+        "observed_at": "2026-10-28T23:15:50.062Z",
+        "verifier_identity": "isolated-node:365",
+        "context_id": "verifier-context-72edc16e-4a32-447c-8732-ad7617d5e054",
+        "raw": {
+          "policy_scope_pass": true,
+          "observation": {
+            "baseline_sha": "6b0e9a399b8ad748434ef1a7ee4552ee52f31c5f",
+            "commit_sha": "e769004e4e08b1eabe50267e08289ec0dcb22f41",
+            "diff_paths": [
+              "src/next.txt"
+            ],
+            "observed_pr": {
+              "url": "https://github.com/test-owner/household-sandbox/pull/2",
+              "head_sha": "e769004e4e08b1eabe50267e08289ec0dcb22f41",
+              "base": "main",
+              "state": "open",
+              "repo": "test-owner/household-sandbox"
+            },
+            "project_paths": [
+              "src"
+            ],
+            "director_paths": [
+              "src"
+            ]
+          }
+        }
+      },
+      {
+        "evidence_id": "evidence-129467a5-b564-4e74-972d-c1f309af6127",
+        "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+        "role": "VERIFIER",
+        "criterion_id": "content",
+        "check": "file_contains",
+        "result": "PASS",
+        "artifact_uri": "https://github.com/test-owner/household-sandbox/blob/e769004e4e08b1eabe50267e08289ec0dcb22f41/src/next.txt",
+        "artifact_digest": "9a1b700b045dc123ff576ad55c041124a235316dcc68546190024c1d44cb8bd2",
+        "commit_sha": "e769004e4e08b1eabe50267e08289ec0dcb22f41",
+        "ci_check_id": null,
+        "observed_at": "2026-10-28T23:15:50.208Z",
+        "verifier_identity": "isolated-node:372",
+        "context_id": "verifier-context-ed183305-c042-467c-a146-94e047bcbb01",
+        "raw": {
+          "path": "src/next.txt",
+          "content": "good",
+          "blob_sha": "df027ecbd80f6797334f5f41e5d3a4055a54ab6b",
+          "mode": "100644",
+          "source": "https://github.com/test-owner/household-sandbox/blob/e769004e4e08b1eabe50267e08289ec0dcb22f41/src/next.txt"
+        }
+      },
+      {
+        "evidence_id": "evidence-0d8f5c67-b024-467b-b031-a51fc51a20ac",
+        "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+        "role": "VERIFIER",
+        "criterion_id": "ci-1",
+        "check": "ci_workflow",
+        "result": "PASS",
+        "artifact_uri": "https://github.com/test-owner/household-sandbox/actions/runs/101",
+        "artifact_digest": "435fdcd86f06302c6dfc8c6142182cfdf99044d1221a46f4ec3983c26027ca51",
+        "commit_sha": "e769004e4e08b1eabe50267e08289ec0dcb22f41",
+        "ci_check_id": 101,
+        "observed_at": "2026-10-28T23:15:50.208Z",
+        "verifier_identity": "isolated-node:372",
+        "context_id": "verifier-context-ed183305-c042-467c-a146-94e047bcbb01",
+        "raw": {
+          "workflow_id": 1,
+          "run_id": 101,
+          "head_sha": "e769004e4e08b1eabe50267e08289ec0dcb22f41",
+          "conclusion": "success",
+          "status": "completed",
+          "html_url": "https://github.com/test-owner/household-sandbox/actions/runs/101",
+          "path": ".github/workflows/ci.yml",
+          "event": "push",
+          "run_attempt": 1,
+          "jobs": [
+            {
+              "id": 1001,
+              "name": "test-only-check",
+              "conclusion": "success",
+              "steps": [
+                {
+                  "name": "fixture deterministic check",
+                  "conclusion": "success"
+                }
+              ]
+            }
+          ],
+          "artifacts": []
+        }
+      },
+      {
+        "evidence_id": "evidence-79271c9b-474b-485b-b0a1-a655aa582f72",
+        "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+        "role": "VERIFIER",
+        "criterion_id": "policy-scope",
+        "check": "commit_diff_allowlist",
+        "result": "PASS",
+        "artifact_uri": "",
+        "artifact_digest": "5ed5806b9edf49a34671b049e8666cb50c51b4c97df5cc9beb548faa66223b02",
+        "commit_sha": "e769004e4e08b1eabe50267e08289ec0dcb22f41",
+        "ci_check_id": null,
+        "observed_at": "2026-10-28T23:15:50.209Z",
+        "verifier_identity": "isolated-node:372",
+        "context_id": "verifier-context-ed183305-c042-467c-a146-94e047bcbb01",
+        "raw": {
+          "policy_scope_pass": true,
+          "observation": {
+            "baseline_sha": "6b0e9a399b8ad748434ef1a7ee4552ee52f31c5f",
+            "commit_sha": "e769004e4e08b1eabe50267e08289ec0dcb22f41",
+            "diff_paths": [
+              "src/next.txt"
+            ],
+            "observed_pr": {
+              "url": "https://github.com/test-owner/household-sandbox/pull/2",
+              "head_sha": "e769004e4e08b1eabe50267e08289ec0dcb22f41",
+              "base": "main",
+              "state": "open",
+              "repo": "test-owner/household-sandbox"
+            },
+            "project_paths": [
+              "src"
+            ],
+            "director_paths": [
+              "src"
+            ]
+          }
+        }
+      }
+    ]
+  ],
+  "decisions": [
+    [
+      {
+        "decision_id": "decision-e6884cc6-90e8-44c5-bad7-846a54b5e29c",
+        "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+        "wp_id": "WP01",
+        "wp_version": 1,
+        "project_id": "test-project",
+        "actor": "Director",
+        "authority_ref": "urn:test-only:external-director",
+        "director_policy_version": "policy-1",
+        "eligibility_revision": "revision-1",
+        "decision": "ACCEPT",
+        "scope_hash": "8685799f3194a62e99465116d052a9a4b69a4083a8fe30ae80495d5ca99deec4",
+        "commit_sha": "03946b009d8ded3c48bdfe0b7e0e9afe1aad72d0",
+        "evidence_bundle_hash": "b2fee908cb4f7656c81851674d38cc9491c63fe25bcc2d5a0448c25cd4d4c617",
+        "reason": "TEST FIXTURE ONLY: external Director decision protocol exercise",
+        "timestamp": "2026-10-28T23:15:49.687Z"
+      }
+    ],
+    [
+      {
+        "decision_id": "decision-f8dcc68b-af47-4642-a4e1-ac3e01c4d05e",
+        "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+        "wp_id": "WP02",
+        "wp_version": 1,
+        "project_id": "test-project",
+        "actor": "Director",
+        "authority_ref": "urn:test-only:external-director",
+        "director_policy_version": "policy-1",
+        "eligibility_revision": "revision-1",
+        "decision": "ACCEPT",
+        "scope_hash": "16b3e76ea61deeecc3eeadb2e9001a16fd5a8a8e6074dbbc93a488a928d69665",
+        "commit_sha": "e769004e4e08b1eabe50267e08289ec0dcb22f41",
+        "evidence_bundle_hash": "46618136c66387cca8df8dcbfb736454e468b1c93ac6b9475efb2c0308878fe4",
+        "reason": "TEST FIXTURE ONLY: external Director decision protocol exercise",
+        "timestamp": "2026-10-28T23:15:50.072Z"
+      }
+    ]
+  ],
+  "events": [
+    {
+      "event_id": "event-09bcf1c1-9cc3-474c-bfb2-140b5bbe830d",
+      "run_id": null,
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": null,
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.180Z",
+      "correlation_id": "corr-288c5c9b-18fe-409a-9d91-b6a65c85ea05",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {
+        "config_hash": "6dc2362d32804528236e42e4f54d9546ee2cf1d95d90ff46f70ce5393e320027",
+        "permission": "EXECUTE_BOUNDED"
+      },
+      "project_id": "test-project",
+      "actor": "OPERATOR",
+      "event_type": "PROJECT_CONFIGURED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "event_hash": "89a40a4100674c53e42cf22848c7be8e52d23037ca36f5d360690edb62a4c10d"
+    },
+    {
+      "event_id": "event-0cfc5267-81b9-48ef-8905-f948e5a0b66f",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": "ELIGIBLE",
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.229Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {
+        "wp_version": 1,
+        "scope_hash": "8685799f3194a62e99465116d052a9a4b69a4083a8fe30ae80495d5ca99deec4"
+      },
+      "project_id": "test-project",
+      "actor": "test-director",
+      "event_type": "RUN_QUEUED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "89a40a4100674c53e42cf22848c7be8e52d23037ca36f5d360690edb62a4c10d",
+      "event_hash": "84122f897320b09f5a47c47b6615a47e9702298f338217c2f46981d7c47f79a8"
+    },
+    {
+      "event_id": "event-50831682-e455-4e00-9815-dd29f0ce2780",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": "ELIGIBLE",
+      "new_state": "ELIGIBLE",
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.231Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "LEASE_ACQUIRED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "84122f897320b09f5a47c47b6615a47e9702298f338217c2f46981d7c47f79a8",
+      "event_hash": "c5d7bcb4c602c753df714513f9fdaf587553278754ff7719bf45160ecd1d1601"
+    },
+    {
+      "event_id": "event-832fb172-de7e-4e20-b40c-b2fb876911d3",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": "ELIGIBLE",
+      "new_state": "LEASED",
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.237Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "STATE_TRANSITION",
+      "source_ref": "director:test-policy",
+      "previous_hash": "c5d7bcb4c602c753df714513f9fdaf587553278754ff7719bf45160ecd1d1601",
+      "event_hash": "64b5656a481b9c29e2cb10938175eb7790d3ee79cbd86389b3181fefe1ee39d7"
+    },
+    {
+      "event_id": "event-98d6a0c2-3947-4af8-8775-73cba9bb88fc",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": "LEASED",
+      "new_state": "INSPECTING",
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.238Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "STATE_TRANSITION",
+      "source_ref": "director:test-policy",
+      "previous_hash": "64b5656a481b9c29e2cb10938175eb7790d3ee79cbd86389b3181fefe1ee39d7",
+      "event_hash": "bab21489b05d21101eb69d019aaa262949245cba6ec5bafe66e1da8f39396bd9"
+    },
+    {
+      "event_id": "event-3bacb373-1527-4ba8-9c7e-de44b6b63b96",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": "INSPECTING",
+      "new_state": "INSPECTING",
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.240Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "LEASE_ACQUIRED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "bab21489b05d21101eb69d019aaa262949245cba6ec5bafe66e1da8f39396bd9",
+      "event_hash": "3e58fd360cef47adc6e1bfefa07222d57c2fe3f768c549c576db62b2e762ac2e"
+    },
+    {
+      "event_id": "event-b949ad70-01c3-4904-b975-fc27a7153781",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": null,
+      "evidence_refs": [
+        "evidence-534274c4-b623-4738-b548-caf1815c6955"
+      ],
+      "timestamp": "2026-10-28T23:15:49.277Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "JANITOR",
+      "event_type": "EVIDENCE_RECORDED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "3e58fd360cef47adc6e1bfefa07222d57c2fe3f768c549c576db62b2e762ac2e",
+      "event_hash": "8a3038800f91712e9767206bb5c47d62501a65f5734e2c1fc6519f2cc5e82b3c"
+    },
+    {
+      "event_id": "event-a5d74fa7-39b4-44a0-8517-2046277630ca",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": "INSPECTING",
+      "new_state": "EXECUTING",
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.278Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "STATE_TRANSITION",
+      "source_ref": "director:test-policy",
+      "previous_hash": "8a3038800f91712e9767206bb5c47d62501a65f5734e2c1fc6519f2cc5e82b3c",
+      "event_hash": "b1a64ecd5e73095a49b652e59751c2922a5b6ed1b9ef56f2d6c1d6f8c17dc740"
+    },
+    {
+      "event_id": "event-3de00ad2-2309-43ad-ac97-04ecab251578",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": "EXECUTING",
+      "new_state": "EXECUTING",
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.280Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "LEASE_ACQUIRED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "b1a64ecd5e73095a49b652e59751c2922a5b6ed1b9ef56f2d6c1d6f8c17dc740",
+      "event_hash": "3b96a121e04333a666eb2da07abd60a1b0b2fd1b5b2bead05d956fac97b8c35e"
+    },
+    {
+      "event_id": "event-f7b16dea-2837-4d6c-aec8-4b3242cc75f9",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.294Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {
+        "intent_hash": "f95bb2353dc144f3cd94a204c9ef3e4604c7ef0e0881fd1f87f3a7c89237967b",
+        "receipt": {
+          "decision": "ALLOW",
+          "intent_hash": "f95bb2353dc144f3cd94a204c9ef3e4604c7ef0e0881fd1f87f3a7c89237967b",
+          "authority_ref": "urn:test-only:external-director",
+          "mandate_ref": "urn:test-only:mandate",
+          "policy_pin": "test-only-pin",
+          "policy_version": "fixture-1",
+          "revoked": false,
+          "observed_at": "2026-10-28T23:15:49.292Z",
+          "expires_at": "2026-10-28T23:16:19.292Z",
+          "spetl_ref": "urn:test-only:spetl",
+          "control_results": [
+            {
+              "control_id": "fixture-only",
+              "pass": true,
+              "decision": "ALLOW"
+            }
+          ]
+        },
+        "signed_provenance": "eyJhbGciOiJFZERTQSJ9.eyJraW5kIjoiY2R4LWRlY2lzaW9uIiwiZGF0YSI6eyJkZWNpc2lvbiI6IkFMTE9XIiwiaW50ZW50X2hhc2giOiJmOTViYjIzNTNkYzE0NGYzY2Q5NGEyMDRjOWVmM2U0NjA0YzdlZjBlMDg4MWZkMWY4N2YzYTdjODkyMzc5NjdiIiwiYXV0aG9yaXR5X3JlZiI6InVybjp0ZXN0LW9ubHk6ZXh0ZXJuYWwtZGlyZWN0b3IiLCJtYW5kYXRlX3JlZiI6InVybjp0ZXN0LW9ubHk6bWFuZGF0ZSIsInBvbGljeV9waW4iOiJ0ZXN0LW9ubHktcGluIiwicG9saWN5X3ZlcnNpb24iOiJmaXh0dXJlLTEiLCJyZXZva2VkIjpmYWxzZSwib2JzZXJ2ZWRfYXQiOiIyMDI2LTEwLTI4VDIzOjE1OjQ5LjI5MloiLCJleHBpcmVzX2F0IjoiMjAyNi0xMC0yOFQyMzoxNjoxOS4yOTJaIiwic3BldGxfcmVmIjoidXJuOnRlc3Qtb25seTpzcGV0bCIsImNvbnRyb2xfcmVzdWx0cyI6W3siY29udHJvbF9pZCI6ImZpeHR1cmUtb25seSIsInBhc3MiOnRydWUsImRlY2lzaW9uIjoiQUxMT1cifV19LCJpc3MiOiJ1cm46ZmZvczp0ZXN0LWRpcmVjdG9yIiwiYXVkIjoidXJuOmZmb3M6aG91c2Vob2xkOnRlc3QiLCJpYXQiOjE3OTMyMjkzNDksImV4cCI6MTc5MzIyOTk0OSwianRpIjoic2lnbmVkLTY1NDEwZWQ2LTJjNjYtNGM2OC04MTAzLTJkNjEwMjM1NjEyNiJ9.dDZK5-S1-BnCBTLy7pdaAv70MH0QmgSEai238gKP_-Zn2CvnxJh0I6uaeudBVc0BjniEi0jKCh9bbtq-QFO1BQ"
+      },
+      "project_id": "test-project",
+      "actor": "CDX_ENFORCEMENT_POINT",
+      "event_type": "CDX_EFFECT_ALLOWED",
+      "source_ref": "urn:test-only:spetl",
+      "previous_hash": "3b96a121e04333a666eb2da07abd60a1b0b2fd1b5b2bead05d956fac97b8c35e",
+      "event_hash": "9c03ec91dda17300336358539ca8cf295a9dc00fddc8d38503ff760f90ea8e57"
+    },
+    {
+      "event_id": "event-4ab077fc-bc1e-4d83-a64a-0f23b1ebec4c",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.297Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676:branch",
+      "readback_verified": false,
+      "detail": {
+        "request_hash": "54bce954cb6ee10409429b9d6e2e12210a8390290415968bc746bbd7227e4b3a",
+        "key": "branch"
+      },
+      "project_id": "test-project",
+      "actor": "HANDYMAN",
+      "event_type": "EXTERNAL_WRITE_INTENT",
+      "source_ref": "director:test-policy",
+      "previous_hash": "9c03ec91dda17300336358539ca8cf295a9dc00fddc8d38503ff760f90ea8e57",
+      "event_hash": "aced2004f87047336646d0864b48dd21c9c53dad5583f6eb70aff86cdaa3a1fc"
+    },
+    {
+      "event_id": "event-dca85bbc-aa51-46ce-8a5d-4678bf335d71",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.303Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676:branch",
+      "readback_verified": true,
+      "detail": {
+        "result_hash": "3099db6f4bbfad09417dadf7b0eeaa67d9a28341f1716273b174bfd99d903b1b"
+      },
+      "project_id": "test-project",
+      "actor": "HANDYMAN",
+      "event_type": "EXTERNAL_WRITE_CONFIRMED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "aced2004f87047336646d0864b48dd21c9c53dad5583f6eb70aff86cdaa3a1fc",
+      "event_hash": "aca636166372e587f5af6aba6b4e54cdad16b9640db0850b0f6bd4799e191197"
+    },
+    {
+      "event_id": "event-59343a2e-2a24-4323-bc70-06f6af70c204",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.307Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {
+        "intent_hash": "28e13c989e7471bbe6612479396b0e16bc7b28430f63999b5c8c16f6318624f3",
+        "receipt": {
+          "decision": "ALLOW",
+          "intent_hash": "28e13c989e7471bbe6612479396b0e16bc7b28430f63999b5c8c16f6318624f3",
+          "authority_ref": "urn:test-only:external-director",
+          "mandate_ref": "urn:test-only:mandate",
+          "policy_pin": "test-only-pin",
+          "policy_version": "fixture-1",
+          "revoked": false,
+          "observed_at": "2026-10-28T23:15:49.306Z",
+          "expires_at": "2026-10-28T23:16:19.306Z",
+          "spetl_ref": "urn:test-only:spetl",
+          "control_results": [
+            {
+              "control_id": "fixture-only",
+              "pass": true,
+              "decision": "ALLOW"
+            }
+          ]
+        },
+        "signed_provenance": "eyJhbGciOiJFZERTQSJ9.eyJraW5kIjoiY2R4LWRlY2lzaW9uIiwiZGF0YSI6eyJkZWNpc2lvbiI6IkFMTE9XIiwiaW50ZW50X2hhc2giOiIyOGUxM2M5ODllNzQ3MWJiZTY2MTI0NzkzOTZiMGUxNmJjN2IyODQzMGY2Mzk5OWI1YzhjMTZmNjMxODYyNGYzIiwiYXV0aG9yaXR5X3JlZiI6InVybjp0ZXN0LW9ubHk6ZXh0ZXJuYWwtZGlyZWN0b3IiLCJtYW5kYXRlX3JlZiI6InVybjp0ZXN0LW9ubHk6bWFuZGF0ZSIsInBvbGljeV9waW4iOiJ0ZXN0LW9ubHktcGluIiwicG9saWN5X3ZlcnNpb24iOiJmaXh0dXJlLTEiLCJyZXZva2VkIjpmYWxzZSwib2JzZXJ2ZWRfYXQiOiIyMDI2LTEwLTI4VDIzOjE1OjQ5LjMwNloiLCJleHBpcmVzX2F0IjoiMjAyNi0xMC0yOFQyMzoxNjoxOS4zMDZaIiwic3BldGxfcmVmIjoidXJuOnRlc3Qtb25seTpzcGV0bCIsImNvbnRyb2xfcmVzdWx0cyI6W3siY29udHJvbF9pZCI6ImZpeHR1cmUtb25seSIsInBhc3MiOnRydWUsImRlY2lzaW9uIjoiQUxMT1cifV19LCJpc3MiOiJ1cm46ZmZvczp0ZXN0LWRpcmVjdG9yIiwiYXVkIjoidXJuOmZmb3M6aG91c2Vob2xkOnRlc3QiLCJpYXQiOjE3OTMyMjkzNDksImV4cCI6MTc5MzIyOTk0OSwianRpIjoic2lnbmVkLTNiODk4ZGQwLTJmM2EtNDk2Yi04NTQ0LTRjOGI0NmNiOGZmYyJ9.6mGSq8A7blRS0QLVVRZnIbGdIVrFuORLJe3iFW8RVP1oh8dr-C-_35Tyivvi4aAxApaDhOLJZ-A4GrWlV_u_Bg"
+      },
+      "project_id": "test-project",
+      "actor": "CDX_ENFORCEMENT_POINT",
+      "event_type": "CDX_EFFECT_ALLOWED",
+      "source_ref": "urn:test-only:spetl",
+      "previous_hash": "aca636166372e587f5af6aba6b4e54cdad16b9640db0850b0f6bd4799e191197",
+      "event_hash": "2c601304c51feb20bf86de92def8bfd19bbdd037d567d4a638bdce443c02703c"
+    },
+    {
+      "event_id": "event-3bd3b438-3422-4b70-ac6e-1fda91572516",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.309Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676:commit:recipe-WP01",
+      "readback_verified": false,
+      "detail": {
+        "request_hash": "cc90eaa05dbf3d3606d1d86e44ab7562c8982cf89eb71d6dee46610b21c87fd6",
+        "key": "commit:recipe-WP01"
+      },
+      "project_id": "test-project",
+      "actor": "HANDYMAN",
+      "event_type": "EXTERNAL_WRITE_INTENT",
+      "source_ref": "director:test-policy",
+      "previous_hash": "2c601304c51feb20bf86de92def8bfd19bbdd037d567d4a638bdce443c02703c",
+      "event_hash": "2a150d1c8396f1e3c96af9a0a617ff3ae41f40e2da1c950fd86e2f72e989cfb1"
+    },
+    {
+      "event_id": "event-491e1fda-30b5-4225-933c-4a86f5c55f66",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.320Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {
+        "intent_hash": "28e13c989e7471bbe6612479396b0e16bc7b28430f63999b5c8c16f6318624f3",
+        "receipt": {
+          "decision": "ALLOW",
+          "intent_hash": "28e13c989e7471bbe6612479396b0e16bc7b28430f63999b5c8c16f6318624f3",
+          "authority_ref": "urn:test-only:external-director",
+          "mandate_ref": "urn:test-only:mandate",
+          "policy_pin": "test-only-pin",
+          "policy_version": "fixture-1",
+          "revoked": false,
+          "observed_at": "2026-10-28T23:15:49.319Z",
+          "expires_at": "2026-10-28T23:16:19.319Z",
+          "spetl_ref": "urn:test-only:spetl",
+          "control_results": [
+            {
+              "control_id": "fixture-only",
+              "pass": true,
+              "decision": "ALLOW"
+            }
+          ]
+        },
+        "signed_provenance": "eyJhbGciOiJFZERTQSJ9.eyJraW5kIjoiY2R4LWRlY2lzaW9uIiwiZGF0YSI6eyJkZWNpc2lvbiI6IkFMTE9XIiwiaW50ZW50X2hhc2giOiIyOGUxM2M5ODllNzQ3MWJiZTY2MTI0NzkzOTZiMGUxNmJjN2IyODQzMGY2Mzk5OWI1YzhjMTZmNjMxODYyNGYzIiwiYXV0aG9yaXR5X3JlZiI6InVybjp0ZXN0LW9ubHk6ZXh0ZXJuYWwtZGlyZWN0b3IiLCJtYW5kYXRlX3JlZiI6InVybjp0ZXN0LW9ubHk6bWFuZGF0ZSIsInBvbGljeV9waW4iOiJ0ZXN0LW9ubHktcGluIiwicG9saWN5X3ZlcnNpb24iOiJmaXh0dXJlLTEiLCJyZXZva2VkIjpmYWxzZSwib2JzZXJ2ZWRfYXQiOiIyMDI2LTEwLTI4VDIzOjE1OjQ5LjMxOVoiLCJleHBpcmVzX2F0IjoiMjAyNi0xMC0yOFQyMzoxNjoxOS4zMTlaIiwic3BldGxfcmVmIjoidXJuOnRlc3Qtb25seTpzcGV0bCIsImNvbnRyb2xfcmVzdWx0cyI6W3siY29udHJvbF9pZCI6ImZpeHR1cmUtb25seSIsInBhc3MiOnRydWUsImRlY2lzaW9uIjoiQUxMT1cifV19LCJpc3MiOiJ1cm46ZmZvczp0ZXN0LWRpcmVjdG9yIiwiYXVkIjoidXJuOmZmb3M6aG91c2Vob2xkOnRlc3QiLCJpYXQiOjE3OTMyMjkzNDksImV4cCI6MTc5MzIyOTk0OSwianRpIjoic2lnbmVkLTJjNDgwNzZlLTRlNmUtNGM5YS1iZDdjLTJjODI1N2YzMWQyOSJ9.vXTB4r-Fk--yWlY7YZWXEEjYFoOO--6JLt2gWGSCKqyclJJT-ebl71MCBlz4HTlRGqKOoaxLbcvnbZXZCZFDDA"
+      },
+      "project_id": "test-project",
+      "actor": "CDX_ENFORCEMENT_POINT",
+      "event_type": "CDX_EFFECT_ALLOWED",
+      "source_ref": "urn:test-only:spetl",
+      "previous_hash": "2a150d1c8396f1e3c96af9a0a617ff3ae41f40e2da1c950fd86e2f72e989cfb1",
+      "event_hash": "fad328ffb0b3bd83c29a15da6159a37b2776baf0bdffc42608b04890159213e5"
+    },
+    {
+      "event_id": "event-243a947a-9333-4151-b9f9-dda4364e604b",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.331Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {
+        "intent_hash": "28e13c989e7471bbe6612479396b0e16bc7b28430f63999b5c8c16f6318624f3",
+        "receipt": {
+          "decision": "ALLOW",
+          "intent_hash": "28e13c989e7471bbe6612479396b0e16bc7b28430f63999b5c8c16f6318624f3",
+          "authority_ref": "urn:test-only:external-director",
+          "mandate_ref": "urn:test-only:mandate",
+          "policy_pin": "test-only-pin",
+          "policy_version": "fixture-1",
+          "revoked": false,
+          "observed_at": "2026-10-28T23:15:49.330Z",
+          "expires_at": "2026-10-28T23:16:19.330Z",
+          "spetl_ref": "urn:test-only:spetl",
+          "control_results": [
+            {
+              "control_id": "fixture-only",
+              "pass": true,
+              "decision": "ALLOW"
+            }
+          ]
+        },
+        "signed_provenance": "eyJhbGciOiJFZERTQSJ9.eyJraW5kIjoiY2R4LWRlY2lzaW9uIiwiZGF0YSI6eyJkZWNpc2lvbiI6IkFMTE9XIiwiaW50ZW50X2hhc2giOiIyOGUxM2M5ODllNzQ3MWJiZTY2MTI0NzkzOTZiMGUxNmJjN2IyODQzMGY2Mzk5OWI1YzhjMTZmNjMxODYyNGYzIiwiYXV0aG9yaXR5X3JlZiI6InVybjp0ZXN0LW9ubHk6ZXh0ZXJuYWwtZGlyZWN0b3IiLCJtYW5kYXRlX3JlZiI6InVybjp0ZXN0LW9ubHk6bWFuZGF0ZSIsInBvbGljeV9waW4iOiJ0ZXN0LW9ubHktcGluIiwicG9saWN5X3ZlcnNpb24iOiJmaXh0dXJlLTEiLCJyZXZva2VkIjpmYWxzZSwib2JzZXJ2ZWRfYXQiOiIyMDI2LTEwLTI4VDIzOjE1OjQ5LjMzMFoiLCJleHBpcmVzX2F0IjoiMjAyNi0xMC0yOFQyMzoxNjoxOS4zMzBaIiwic3BldGxfcmVmIjoidXJuOnRlc3Qtb25seTpzcGV0bCIsImNvbnRyb2xfcmVzdWx0cyI6W3siY29udHJvbF9pZCI6ImZpeHR1cmUtb25seSIsInBhc3MiOnRydWUsImRlY2lzaW9uIjoiQUxMT1cifV19LCJpc3MiOiJ1cm46ZmZvczp0ZXN0LWRpcmVjdG9yIiwiYXVkIjoidXJuOmZmb3M6aG91c2Vob2xkOnRlc3QiLCJpYXQiOjE3OTMyMjkzNDksImV4cCI6MTc5MzIyOTk0OSwianRpIjoic2lnbmVkLTM5ZTRjMGU0LTZiNTQtNDA4Zi1iYzUyLWI3NWZmMjBkZTU5YyJ9.y0sRYbqc6P3mkhmEE17dIaxZdYwOnTpHuX9QMclltMqaaEWiRc2zD7u8ECwQmOA3kYZaAXHBW1csq5IpF3Y1AA"
+      },
+      "project_id": "test-project",
+      "actor": "CDX_ENFORCEMENT_POINT",
+      "event_type": "CDX_EFFECT_ALLOWED",
+      "source_ref": "urn:test-only:spetl",
+      "previous_hash": "fad328ffb0b3bd83c29a15da6159a37b2776baf0bdffc42608b04890159213e5",
+      "event_hash": "c9919da8ce24a91037bcba8536dcc5a89b30a64a3bbb1557ef8a72db98aa64c1"
+    },
+    {
+      "event_id": "event-06d042a8-8ff0-4f16-93ef-8d8113c941c9",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.337Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {
+        "intent_hash": "28e13c989e7471bbe6612479396b0e16bc7b28430f63999b5c8c16f6318624f3",
+        "receipt": {
+          "decision": "ALLOW",
+          "intent_hash": "28e13c989e7471bbe6612479396b0e16bc7b28430f63999b5c8c16f6318624f3",
+          "authority_ref": "urn:test-only:external-director",
+          "mandate_ref": "urn:test-only:mandate",
+          "policy_pin": "test-only-pin",
+          "policy_version": "fixture-1",
+          "revoked": false,
+          "observed_at": "2026-10-28T23:15:49.336Z",
+          "expires_at": "2026-10-28T23:16:19.336Z",
+          "spetl_ref": "urn:test-only:spetl",
+          "control_results": [
+            {
+              "control_id": "fixture-only",
+              "pass": true,
+              "decision": "ALLOW"
+            }
+          ]
+        },
+        "signed_provenance": "eyJhbGciOiJFZERTQSJ9.eyJraW5kIjoiY2R4LWRlY2lzaW9uIiwiZGF0YSI6eyJkZWNpc2lvbiI6IkFMTE9XIiwiaW50ZW50X2hhc2giOiIyOGUxM2M5ODllNzQ3MWJiZTY2MTI0NzkzOTZiMGUxNmJjN2IyODQzMGY2Mzk5OWI1YzhjMTZmNjMxODYyNGYzIiwiYXV0aG9yaXR5X3JlZiI6InVybjp0ZXN0LW9ubHk6ZXh0ZXJuYWwtZGlyZWN0b3IiLCJtYW5kYXRlX3JlZiI6InVybjp0ZXN0LW9ubHk6bWFuZGF0ZSIsInBvbGljeV9waW4iOiJ0ZXN0LW9ubHktcGluIiwicG9saWN5X3ZlcnNpb24iOiJmaXh0dXJlLTEiLCJyZXZva2VkIjpmYWxzZSwib2JzZXJ2ZWRfYXQiOiIyMDI2LTEwLTI4VDIzOjE1OjQ5LjMzNloiLCJleHBpcmVzX2F0IjoiMjAyNi0xMC0yOFQyMzoxNjoxOS4zMzZaIiwic3BldGxfcmVmIjoidXJuOnRlc3Qtb25seTpzcGV0bCIsImNvbnRyb2xfcmVzdWx0cyI6W3siY29udHJvbF9pZCI6ImZpeHR1cmUtb25seSIsInBhc3MiOnRydWUsImRlY2lzaW9uIjoiQUxMT1cifV19LCJpc3MiOiJ1cm46ZmZvczp0ZXN0LWRpcmVjdG9yIiwiYXVkIjoidXJuOmZmb3M6aG91c2Vob2xkOnRlc3QiLCJpYXQiOjE3OTMyMjkzNDksImV4cCI6MTc5MzIyOTk0OSwianRpIjoic2lnbmVkLTg5YmMyNzQ5LTZiMzAtNDNjZC04NmFhLTk2MjVkNzIwOTMyZSJ9.0jBdiEA7wKFzRJ6Zj-3__Wj8-a82UVZSwQQBO1eCUCLSZSMmtk57M5QLDxhO4QDXBi9MFFY4xnoxS8TUppIeBg"
+      },
+      "project_id": "test-project",
+      "actor": "CDX_ENFORCEMENT_POINT",
+      "event_type": "CDX_EFFECT_ALLOWED",
+      "source_ref": "urn:test-only:spetl",
+      "previous_hash": "c9919da8ce24a91037bcba8536dcc5a89b30a64a3bbb1557ef8a72db98aa64c1",
+      "event_hash": "a045d0b2fbb8643ffcffaf28446219a7c0d22e1d3100b47803bf61b3adf89d91"
+    },
+    {
+      "event_id": "event-741553c5-5d1e-4b27-8263-fc7cba37c6bb",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.345Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {
+        "intent_hash": "28e13c989e7471bbe6612479396b0e16bc7b28430f63999b5c8c16f6318624f3",
+        "receipt": {
+          "decision": "ALLOW",
+          "intent_hash": "28e13c989e7471bbe6612479396b0e16bc7b28430f63999b5c8c16f6318624f3",
+          "authority_ref": "urn:test-only:external-director",
+          "mandate_ref": "urn:test-only:mandate",
+          "policy_pin": "test-only-pin",
+          "policy_version": "fixture-1",
+          "revoked": false,
+          "observed_at": "2026-10-28T23:15:49.344Z",
+          "expires_at": "2026-10-28T23:16:19.344Z",
+          "spetl_ref": "urn:test-only:spetl",
+          "control_results": [
+            {
+              "control_id": "fixture-only",
+              "pass": true,
+              "decision": "ALLOW"
+            }
+          ]
+        },
+        "signed_provenance": "eyJhbGciOiJFZERTQSJ9.eyJraW5kIjoiY2R4LWRlY2lzaW9uIiwiZGF0YSI6eyJkZWNpc2lvbiI6IkFMTE9XIiwiaW50ZW50X2hhc2giOiIyOGUxM2M5ODllNzQ3MWJiZTY2MTI0NzkzOTZiMGUxNmJjN2IyODQzMGY2Mzk5OWI1YzhjMTZmNjMxODYyNGYzIiwiYXV0aG9yaXR5X3JlZiI6InVybjp0ZXN0LW9ubHk6ZXh0ZXJuYWwtZGlyZWN0b3IiLCJtYW5kYXRlX3JlZiI6InVybjp0ZXN0LW9ubHk6bWFuZGF0ZSIsInBvbGljeV9waW4iOiJ0ZXN0LW9ubHktcGluIiwicG9saWN5X3ZlcnNpb24iOiJmaXh0dXJlLTEiLCJyZXZva2VkIjpmYWxzZSwib2JzZXJ2ZWRfYXQiOiIyMDI2LTEwLTI4VDIzOjE1OjQ5LjM0NFoiLCJleHBpcmVzX2F0IjoiMjAyNi0xMC0yOFQyMzoxNjoxOS4zNDRaIiwic3BldGxfcmVmIjoidXJuOnRlc3Qtb25seTpzcGV0bCIsImNvbnRyb2xfcmVzdWx0cyI6W3siY29udHJvbF9pZCI6ImZpeHR1cmUtb25seSIsInBhc3MiOnRydWUsImRlY2lzaW9uIjoiQUxMT1cifV19LCJpc3MiOiJ1cm46ZmZvczp0ZXN0LWRpcmVjdG9yIiwiYXVkIjoidXJuOmZmb3M6aG91c2Vob2xkOnRlc3QiLCJpYXQiOjE3OTMyMjkzNDksImV4cCI6MTc5MzIyOTk0OSwianRpIjoic2lnbmVkLWI0YzhhZTg5LTIyMWEtNGRkNi05MTI1LTA3NWY4ZjU4MTliMCJ9.zdvh2TrzysXcrvQWd5l9aEUgYWnk8P2CQ-nxfqzcKgt9dIcpNhK0-DFxgMIYqLBC-SrFFgJCUJ77fU9XAqoOBQ"
+      },
+      "project_id": "test-project",
+      "actor": "CDX_ENFORCEMENT_POINT",
+      "event_type": "CDX_EFFECT_ALLOWED",
+      "source_ref": "urn:test-only:spetl",
+      "previous_hash": "a045d0b2fbb8643ffcffaf28446219a7c0d22e1d3100b47803bf61b3adf89d91",
+      "event_hash": "f51be93b657b846e8701bdd4d3a2b657a6ff11828e6afd21c5badcb475000a42"
+    },
+    {
+      "event_id": "event-c085b7bb-a50a-49ad-bf5f-7282c4e636ec",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.353Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676:commit:recipe-WP01",
+      "readback_verified": true,
+      "detail": {
+        "result_hash": "961fbe2ceeebfe0c095b38fd5bf0815222d20dfa57f2a055040831adc0256e97"
+      },
+      "project_id": "test-project",
+      "actor": "HANDYMAN",
+      "event_type": "EXTERNAL_WRITE_CONFIRMED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "f51be93b657b846e8701bdd4d3a2b657a6ff11828e6afd21c5badcb475000a42",
+      "event_hash": "fa0117b3d13f1387b3c44ae220c829a7796136cabef96eb8f301b4e48f56f5f0"
+    },
+    {
+      "event_id": "event-d1dc6069-5eec-4898-a20b-5497842ed47f",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.358Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {
+        "intent_hash": "5fe7ceb6262dcc9de020e4a1254fe1efbc204ff69161c54f577f7bc90a18304e",
+        "receipt": {
+          "decision": "ALLOW",
+          "intent_hash": "5fe7ceb6262dcc9de020e4a1254fe1efbc204ff69161c54f577f7bc90a18304e",
+          "authority_ref": "urn:test-only:external-director",
+          "mandate_ref": "urn:test-only:mandate",
+          "policy_pin": "test-only-pin",
+          "policy_version": "fixture-1",
+          "revoked": false,
+          "observed_at": "2026-10-28T23:15:49.356Z",
+          "expires_at": "2026-10-28T23:16:19.356Z",
+          "spetl_ref": "urn:test-only:spetl",
+          "control_results": [
+            {
+              "control_id": "fixture-only",
+              "pass": true,
+              "decision": "ALLOW"
+            }
+          ]
+        },
+        "signed_provenance": "eyJhbGciOiJFZERTQSJ9.eyJraW5kIjoiY2R4LWRlY2lzaW9uIiwiZGF0YSI6eyJkZWNpc2lvbiI6IkFMTE9XIiwiaW50ZW50X2hhc2giOiI1ZmU3Y2ViNjI2MmRjYzlkZTAyMGU0YTEyNTRmZTFlZmJjMjA0ZmY2OTE2MWM1NGY1NzdmN2JjOTBhMTgzMDRlIiwiYXV0aG9yaXR5X3JlZiI6InVybjp0ZXN0LW9ubHk6ZXh0ZXJuYWwtZGlyZWN0b3IiLCJtYW5kYXRlX3JlZiI6InVybjp0ZXN0LW9ubHk6bWFuZGF0ZSIsInBvbGljeV9waW4iOiJ0ZXN0LW9ubHktcGluIiwicG9saWN5X3ZlcnNpb24iOiJmaXh0dXJlLTEiLCJyZXZva2VkIjpmYWxzZSwib2JzZXJ2ZWRfYXQiOiIyMDI2LTEwLTI4VDIzOjE1OjQ5LjM1NloiLCJleHBpcmVzX2F0IjoiMjAyNi0xMC0yOFQyMzoxNjoxOS4zNTZaIiwic3BldGxfcmVmIjoidXJuOnRlc3Qtb25seTpzcGV0bCIsImNvbnRyb2xfcmVzdWx0cyI6W3siY29udHJvbF9pZCI6ImZpeHR1cmUtb25seSIsInBhc3MiOnRydWUsImRlY2lzaW9uIjoiQUxMT1cifV19LCJpc3MiOiJ1cm46ZmZvczp0ZXN0LWRpcmVjdG9yIiwiYXVkIjoidXJuOmZmb3M6aG91c2Vob2xkOnRlc3QiLCJpYXQiOjE3OTMyMjkzNDksImV4cCI6MTc5MzIyOTk0OSwianRpIjoic2lnbmVkLTQyMjFmNjlhLTI3OGMtNDQ5Zi1hY2I3LTUwODZiZWFjOTBmNiJ9.LvNgwKYX7bhE5ny6oRB6TYn1eICeMe5cPhwn5zuqBEPHLKUQ_g8sy_-nsbELdXVZFIbe89GHK4_DbOv5f_RNDQ"
+      },
+      "project_id": "test-project",
+      "actor": "CDX_ENFORCEMENT_POINT",
+      "event_type": "CDX_EFFECT_ALLOWED",
+      "source_ref": "urn:test-only:spetl",
+      "previous_hash": "fa0117b3d13f1387b3c44ae220c829a7796136cabef96eb8f301b4e48f56f5f0",
+      "event_hash": "52822891bd5694e91c0afc1a66b6f4af30bafec2b59df809d87570593591260c"
+    },
+    {
+      "event_id": "event-e90c0857-5503-404b-854a-a04dff585a4e",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.360Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676:pr:recipe-WP01",
+      "readback_verified": false,
+      "detail": {
+        "request_hash": "f3ccca2b7026e2be970b7cb63f34bc6e6f508381f165f6c9c38f985a11168d3c",
+        "key": "pr:recipe-WP01"
+      },
+      "project_id": "test-project",
+      "actor": "HANDYMAN",
+      "event_type": "EXTERNAL_WRITE_INTENT",
+      "source_ref": "director:test-policy",
+      "previous_hash": "52822891bd5694e91c0afc1a66b6f4af30bafec2b59df809d87570593591260c",
+      "event_hash": "f3c095b97f2ecbbd83c24df1bb55fe2fa2ede83ac35d29656275f14781d3328c"
+    },
+    {
+      "event_id": "event-87b07cf1-34d9-4018-931f-59cc3fd94fca",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.366Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676:pr:recipe-WP01",
+      "readback_verified": true,
+      "detail": {
+        "result_hash": "e5138c85e83b70a91d39225464da1227dddc295fc0c673552ef03167bbac9675"
+      },
+      "project_id": "test-project",
+      "actor": "HANDYMAN",
+      "event_type": "EXTERNAL_WRITE_CONFIRMED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "f3c095b97f2ecbbd83c24df1bb55fe2fa2ede83ac35d29656275f14781d3328c",
+      "event_hash": "7bd9acf3ebc1258f7f09f716db7f47e983e4100acf2cac9bea79aef3bf32f29e"
+    },
+    {
+      "event_id": "event-2b051be8-6a4f-47e4-8ae3-9a3dc44362e0",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": "EXECUTING",
+      "new_state": "VERIFYING",
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.367Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "STATE_TRANSITION",
+      "source_ref": "director:test-policy",
+      "previous_hash": "7bd9acf3ebc1258f7f09f716db7f47e983e4100acf2cac9bea79aef3bf32f29e",
+      "event_hash": "28503b0722c7cfa1c12957257f44697ca4ccf99075ab6bf6cc74c4e8158fd001"
+    },
+    {
+      "event_id": "event-e7990dff-9a67-4aaa-8cc7-ba74bed8f8d6",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": "VERIFYING",
+      "new_state": "VERIFYING",
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.368Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "LEASE_ACQUIRED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "28503b0722c7cfa1c12957257f44697ca4ccf99075ab6bf6cc74c4e8158fd001",
+      "event_hash": "d94bae3906bae4f9b3e3f4aa5a6ab831efe90f8e59b2e48a1bf8c017c57558cb"
+    },
+    {
+      "event_id": "event-cebc78ec-79ec-4b85-bbe6-0892d182a809",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": null,
+      "evidence_refs": [
+        "evidence-b722931b-5f89-4635-99ec-659e3c4ad5dc",
+        "evidence-37a75476-2cda-47e7-b91a-d263605614ce",
+        "evidence-cf58ed21-74ce-4721-8e9e-4662baa20334"
+      ],
+      "timestamp": "2026-10-28T23:15:49.485Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "VERIFIER",
+      "event_type": "EVIDENCE_RECORDED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "d94bae3906bae4f9b3e3f4aa5a6ab831efe90f8e59b2e48a1bf8c017c57558cb",
+      "event_hash": "85d8a26638245b8f12cac1a71f26be584f95eea75e0e9150178ce11309847239"
+    },
+    {
+      "event_id": "event-a2528306-bace-4efc-bdad-9bc82257ae9d",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": "VERIFYING",
+      "new_state": "REPAIRING",
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.489Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "STATE_TRANSITION",
+      "source_ref": "director:test-policy",
+      "previous_hash": "85d8a26638245b8f12cac1a71f26be584f95eea75e0e9150178ce11309847239",
+      "event_hash": "ec821074b41fe84b59fa0ccb69d3afa9d27832bd5998bf2d5f6c7038f35205f1"
+    },
+    {
+      "event_id": "event-b80379ee-40b2-4eda-ae50-15c9b3ffb274",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": "REPAIRING",
+      "new_state": "REPAIRING",
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.491Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "LEASE_ACQUIRED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "ec821074b41fe84b59fa0ccb69d3afa9d27832bd5998bf2d5f6c7038f35205f1",
+      "event_hash": "de56f0b00ee52ae00e51db1826e4f90304201eba227e9f07daad3c789c3a4156"
+    },
+    {
+      "event_id": "event-06b81248-e328-45f0-a49d-59eb35322df2",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.498Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {
+        "intent_hash": "311f83f20af9b05c9ec6776f12741ae668785cc25cc57347b2c6fe3b95ed8636",
+        "receipt": {
+          "decision": "ALLOW",
+          "intent_hash": "311f83f20af9b05c9ec6776f12741ae668785cc25cc57347b2c6fe3b95ed8636",
+          "authority_ref": "urn:test-only:external-director",
+          "mandate_ref": "urn:test-only:mandate",
+          "policy_pin": "test-only-pin",
+          "policy_version": "fixture-1",
+          "revoked": false,
+          "observed_at": "2026-10-28T23:15:49.498Z",
+          "expires_at": "2026-10-28T23:16:19.498Z",
+          "spetl_ref": "urn:test-only:spetl",
+          "control_results": [
+            {
+              "control_id": "fixture-only",
+              "pass": true,
+              "decision": "ALLOW"
+            }
+          ]
+        },
+        "signed_provenance": "eyJhbGciOiJFZERTQSJ9.eyJraW5kIjoiY2R4LWRlY2lzaW9uIiwiZGF0YSI6eyJkZWNpc2lvbiI6IkFMTE9XIiwiaW50ZW50X2hhc2giOiIzMTFmODNmMjBhZjliMDVjOWVjNjc3NmYxMjc0MWFlNjY4Nzg1Y2MyNWNjNTczNDdiMmM2ZmUzYjk1ZWQ4NjM2IiwiYXV0aG9yaXR5X3JlZiI6InVybjp0ZXN0LW9ubHk6ZXh0ZXJuYWwtZGlyZWN0b3IiLCJtYW5kYXRlX3JlZiI6InVybjp0ZXN0LW9ubHk6bWFuZGF0ZSIsInBvbGljeV9waW4iOiJ0ZXN0LW9ubHktcGluIiwicG9saWN5X3ZlcnNpb24iOiJmaXh0dXJlLTEiLCJyZXZva2VkIjpmYWxzZSwib2JzZXJ2ZWRfYXQiOiIyMDI2LTEwLTI4VDIzOjE1OjQ5LjQ5OFoiLCJleHBpcmVzX2F0IjoiMjAyNi0xMC0yOFQyMzoxNjoxOS40OThaIiwic3BldGxfcmVmIjoidXJuOnRlc3Qtb25seTpzcGV0bCIsImNvbnRyb2xfcmVzdWx0cyI6W3siY29udHJvbF9pZCI6ImZpeHR1cmUtb25seSIsInBhc3MiOnRydWUsImRlY2lzaW9uIjoiQUxMT1cifV19LCJpc3MiOiJ1cm46ZmZvczp0ZXN0LWRpcmVjdG9yIiwiYXVkIjoidXJuOmZmb3M6aG91c2Vob2xkOnRlc3QiLCJpYXQiOjE3OTMyMjkzNDksImV4cCI6MTc5MzIyOTk0OSwianRpIjoic2lnbmVkLTNkMTliYzg1LTAwNGUtNDczYy1iZTMxLWUwNWNjN2Y3OGY2ZSJ9.PtdthtVlPzgWyCOVKYLfg_md6ukaKa2rwLjgr3vRm9YW890fPYSrpIpHc1Tz43S3DsmfG_G-W-OaWWPrfvlwCg"
+      },
+      "project_id": "test-project",
+      "actor": "CDX_ENFORCEMENT_POINT",
+      "event_type": "CDX_EFFECT_ALLOWED",
+      "source_ref": "urn:test-only:spetl",
+      "previous_hash": "de56f0b00ee52ae00e51db1826e4f90304201eba227e9f07daad3c789c3a4156",
+      "event_hash": "17ce65b6aca9f6d3d02e4a89094a8ac6da28be917761c362cd9bddabbfc4ce69"
+    },
+    {
+      "event_id": "event-b9cae2c7-9fe2-4d33-bcab-523761668b92",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.504Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676:branch",
+      "readback_verified": true,
+      "detail": {
+        "result_hash": "bb77a2f22e9964f8e623607262e45bf9a9f13e2027bec2cd0b6b05ba461523d0"
+      },
+      "project_id": "test-project",
+      "actor": "HANDYMAN",
+      "event_type": "EXTERNAL_WRITE_CONFIRMED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "17ce65b6aca9f6d3d02e4a89094a8ac6da28be917761c362cd9bddabbfc4ce69",
+      "event_hash": "32d62738367dea0c6db5c6d9a7fe9fd85697e1d8ba274aa202ce47ed5f08554d"
+    },
+    {
+      "event_id": "event-9551e411-f88f-46eb-9c06-6f6743c224d9",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.507Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {
+        "intent_hash": "72f822ffab061a014d461de5511e30260c0a0f39a67635c2fb1702ee42b234e1",
+        "receipt": {
+          "decision": "ALLOW",
+          "intent_hash": "72f822ffab061a014d461de5511e30260c0a0f39a67635c2fb1702ee42b234e1",
+          "authority_ref": "urn:test-only:external-director",
+          "mandate_ref": "urn:test-only:mandate",
+          "policy_pin": "test-only-pin",
+          "policy_version": "fixture-1",
+          "revoked": false,
+          "observed_at": "2026-10-28T23:15:49.506Z",
+          "expires_at": "2026-10-28T23:16:19.506Z",
+          "spetl_ref": "urn:test-only:spetl",
+          "control_results": [
+            {
+              "control_id": "fixture-only",
+              "pass": true,
+              "decision": "ALLOW"
+            }
+          ]
+        },
+        "signed_provenance": "eyJhbGciOiJFZERTQSJ9.eyJraW5kIjoiY2R4LWRlY2lzaW9uIiwiZGF0YSI6eyJkZWNpc2lvbiI6IkFMTE9XIiwiaW50ZW50X2hhc2giOiI3MmY4MjJmZmFiMDYxYTAxNGQ0NjFkZTU1MTFlMzAyNjBjMGEwZjM5YTY3NjM1YzJmYjE3MDJlZTQyYjIzNGUxIiwiYXV0aG9yaXR5X3JlZiI6InVybjp0ZXN0LW9ubHk6ZXh0ZXJuYWwtZGlyZWN0b3IiLCJtYW5kYXRlX3JlZiI6InVybjp0ZXN0LW9ubHk6bWFuZGF0ZSIsInBvbGljeV9waW4iOiJ0ZXN0LW9ubHktcGluIiwicG9saWN5X3ZlcnNpb24iOiJmaXh0dXJlLTEiLCJyZXZva2VkIjpmYWxzZSwib2JzZXJ2ZWRfYXQiOiIyMDI2LTEwLTI4VDIzOjE1OjQ5LjUwNloiLCJleHBpcmVzX2F0IjoiMjAyNi0xMC0yOFQyMzoxNjoxOS41MDZaIiwic3BldGxfcmVmIjoidXJuOnRlc3Qtb25seTpzcGV0bCIsImNvbnRyb2xfcmVzdWx0cyI6W3siY29udHJvbF9pZCI6ImZpeHR1cmUtb25seSIsInBhc3MiOnRydWUsImRlY2lzaW9uIjoiQUxMT1cifV19LCJpc3MiOiJ1cm46ZmZvczp0ZXN0LWRpcmVjdG9yIiwiYXVkIjoidXJuOmZmb3M6aG91c2Vob2xkOnRlc3QiLCJpYXQiOjE3OTMyMjkzNDksImV4cCI6MTc5MzIyOTk0OSwianRpIjoic2lnbmVkLTkzMTM0YjEwLTU2YzktNDAxMC1iNzJjLTY5ODYzY2M0YjI5NSJ9.tNi6vbeotclQX-M-FJkElZGuwJ3nd_1zXGwqQGlkY-jc0MxP-dALxk855w6U5iab8E5Fj7ZIlOb_HTxPLx95DQ"
+      },
+      "project_id": "test-project",
+      "actor": "CDX_ENFORCEMENT_POINT",
+      "event_type": "CDX_EFFECT_ALLOWED",
+      "source_ref": "urn:test-only:spetl",
+      "previous_hash": "32d62738367dea0c6db5c6d9a7fe9fd85697e1d8ba274aa202ce47ed5f08554d",
+      "event_hash": "a10a6cf9a163cffea62e0012554def33219661cf5921db0cb8f416da5ad5c262"
+    },
+    {
+      "event_id": "event-f32e7fa6-625b-4f3f-b492-d12af4e0a55a",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.510Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676:commit:repair-WP01",
+      "readback_verified": false,
+      "detail": {
+        "request_hash": "cc1b8e45becad170e385a7cd2d83a2e550acf355b724e686f8ffaf05906b8c21",
+        "key": "commit:repair-WP01"
+      },
+      "project_id": "test-project",
+      "actor": "HANDYMAN",
+      "event_type": "EXTERNAL_WRITE_INTENT",
+      "source_ref": "director:test-policy",
+      "previous_hash": "a10a6cf9a163cffea62e0012554def33219661cf5921db0cb8f416da5ad5c262",
+      "event_hash": "77db675f11e0cc427a098522a38d5c785e103c024286250180eca61917185398"
+    },
+    {
+      "event_id": "event-3f23316c-0c72-4c42-93c4-8ebf07f0f507",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.520Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {
+        "intent_hash": "72f822ffab061a014d461de5511e30260c0a0f39a67635c2fb1702ee42b234e1",
+        "receipt": {
+          "decision": "ALLOW",
+          "intent_hash": "72f822ffab061a014d461de5511e30260c0a0f39a67635c2fb1702ee42b234e1",
+          "authority_ref": "urn:test-only:external-director",
+          "mandate_ref": "urn:test-only:mandate",
+          "policy_pin": "test-only-pin",
+          "policy_version": "fixture-1",
+          "revoked": false,
+          "observed_at": "2026-10-28T23:15:49.519Z",
+          "expires_at": "2026-10-28T23:16:19.519Z",
+          "spetl_ref": "urn:test-only:spetl",
+          "control_results": [
+            {
+              "control_id": "fixture-only",
+              "pass": true,
+              "decision": "ALLOW"
+            }
+          ]
+        },
+        "signed_provenance": "eyJhbGciOiJFZERTQSJ9.eyJraW5kIjoiY2R4LWRlY2lzaW9uIiwiZGF0YSI6eyJkZWNpc2lvbiI6IkFMTE9XIiwiaW50ZW50X2hhc2giOiI3MmY4MjJmZmFiMDYxYTAxNGQ0NjFkZTU1MTFlMzAyNjBjMGEwZjM5YTY3NjM1YzJmYjE3MDJlZTQyYjIzNGUxIiwiYXV0aG9yaXR5X3JlZiI6InVybjp0ZXN0LW9ubHk6ZXh0ZXJuYWwtZGlyZWN0b3IiLCJtYW5kYXRlX3JlZiI6InVybjp0ZXN0LW9ubHk6bWFuZGF0ZSIsInBvbGljeV9waW4iOiJ0ZXN0LW9ubHktcGluIiwicG9saWN5X3ZlcnNpb24iOiJmaXh0dXJlLTEiLCJyZXZva2VkIjpmYWxzZSwib2JzZXJ2ZWRfYXQiOiIyMDI2LTEwLTI4VDIzOjE1OjQ5LjUxOVoiLCJleHBpcmVzX2F0IjoiMjAyNi0xMC0yOFQyMzoxNjoxOS41MTlaIiwic3BldGxfcmVmIjoidXJuOnRlc3Qtb25seTpzcGV0bCIsImNvbnRyb2xfcmVzdWx0cyI6W3siY29udHJvbF9pZCI6ImZpeHR1cmUtb25seSIsInBhc3MiOnRydWUsImRlY2lzaW9uIjoiQUxMT1cifV19LCJpc3MiOiJ1cm46ZmZvczp0ZXN0LWRpcmVjdG9yIiwiYXVkIjoidXJuOmZmb3M6aG91c2Vob2xkOnRlc3QiLCJpYXQiOjE3OTMyMjkzNDksImV4cCI6MTc5MzIyOTk0OSwianRpIjoic2lnbmVkLWVhY2FjYTFhLTJmOTMtNDc4My04YTQxLTczMWQ3YTYxNTg3YiJ9.q-BznTlvVD7E3Tf9xkXXttVs9o4s4WXGPPP2523qCuA-E5F_K3ce51O57enXuUm2uNN3a7Y7PoFrTOv3hZkGCg"
+      },
+      "project_id": "test-project",
+      "actor": "CDX_ENFORCEMENT_POINT",
+      "event_type": "CDX_EFFECT_ALLOWED",
+      "source_ref": "urn:test-only:spetl",
+      "previous_hash": "77db675f11e0cc427a098522a38d5c785e103c024286250180eca61917185398",
+      "event_hash": "61c9f262975281af2ab17f632c6f8f976b13ebb3ec327df42feb790ca309a402"
+    },
+    {
+      "event_id": "event-b9fc2365-7488-4211-8196-6a34e6705d1b",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.528Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {
+        "intent_hash": "72f822ffab061a014d461de5511e30260c0a0f39a67635c2fb1702ee42b234e1",
+        "receipt": {
+          "decision": "ALLOW",
+          "intent_hash": "72f822ffab061a014d461de5511e30260c0a0f39a67635c2fb1702ee42b234e1",
+          "authority_ref": "urn:test-only:external-director",
+          "mandate_ref": "urn:test-only:mandate",
+          "policy_pin": "test-only-pin",
+          "policy_version": "fixture-1",
+          "revoked": false,
+          "observed_at": "2026-10-28T23:15:49.527Z",
+          "expires_at": "2026-10-28T23:16:19.527Z",
+          "spetl_ref": "urn:test-only:spetl",
+          "control_results": [
+            {
+              "control_id": "fixture-only",
+              "pass": true,
+              "decision": "ALLOW"
+            }
+          ]
+        },
+        "signed_provenance": "eyJhbGciOiJFZERTQSJ9.eyJraW5kIjoiY2R4LWRlY2lzaW9uIiwiZGF0YSI6eyJkZWNpc2lvbiI6IkFMTE9XIiwiaW50ZW50X2hhc2giOiI3MmY4MjJmZmFiMDYxYTAxNGQ0NjFkZTU1MTFlMzAyNjBjMGEwZjM5YTY3NjM1YzJmYjE3MDJlZTQyYjIzNGUxIiwiYXV0aG9yaXR5X3JlZiI6InVybjp0ZXN0LW9ubHk6ZXh0ZXJuYWwtZGlyZWN0b3IiLCJtYW5kYXRlX3JlZiI6InVybjp0ZXN0LW9ubHk6bWFuZGF0ZSIsInBvbGljeV9waW4iOiJ0ZXN0LW9ubHktcGluIiwicG9saWN5X3ZlcnNpb24iOiJmaXh0dXJlLTEiLCJyZXZva2VkIjpmYWxzZSwib2JzZXJ2ZWRfYXQiOiIyMDI2LTEwLTI4VDIzOjE1OjQ5LjUyN1oiLCJleHBpcmVzX2F0IjoiMjAyNi0xMC0yOFQyMzoxNjoxOS41MjdaIiwic3BldGxfcmVmIjoidXJuOnRlc3Qtb25seTpzcGV0bCIsImNvbnRyb2xfcmVzdWx0cyI6W3siY29udHJvbF9pZCI6ImZpeHR1cmUtb25seSIsInBhc3MiOnRydWUsImRlY2lzaW9uIjoiQUxMT1cifV19LCJpc3MiOiJ1cm46ZmZvczp0ZXN0LWRpcmVjdG9yIiwiYXVkIjoidXJuOmZmb3M6aG91c2Vob2xkOnRlc3QiLCJpYXQiOjE3OTMyMjkzNDksImV4cCI6MTc5MzIyOTk0OSwianRpIjoic2lnbmVkLTVjZTBkZjllLTJlNjMtNDlhYy1hY2VjLTdiMjE2NzIwYjlhYSJ9._2RSVyvzuM7G_fd-UvzIpKf2X9RSVJfNUkoBkNIrqCMrQKUD4se1SrdwCC3puHTTCdQ9BuGXnhNIAL8V0LpIBA"
+      },
+      "project_id": "test-project",
+      "actor": "CDX_ENFORCEMENT_POINT",
+      "event_type": "CDX_EFFECT_ALLOWED",
+      "source_ref": "urn:test-only:spetl",
+      "previous_hash": "61c9f262975281af2ab17f632c6f8f976b13ebb3ec327df42feb790ca309a402",
+      "event_hash": "7e8eb9fceae5e5255e1e2bd99cb8e620c9dbeb276374d4519645a1d055d81991"
+    },
+    {
+      "event_id": "event-a13cf92a-1f4b-42f0-9647-2232427e429b",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.533Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {
+        "intent_hash": "72f822ffab061a014d461de5511e30260c0a0f39a67635c2fb1702ee42b234e1",
+        "receipt": {
+          "decision": "ALLOW",
+          "intent_hash": "72f822ffab061a014d461de5511e30260c0a0f39a67635c2fb1702ee42b234e1",
+          "authority_ref": "urn:test-only:external-director",
+          "mandate_ref": "urn:test-only:mandate",
+          "policy_pin": "test-only-pin",
+          "policy_version": "fixture-1",
+          "revoked": false,
+          "observed_at": "2026-10-28T23:15:49.533Z",
+          "expires_at": "2026-10-28T23:16:19.533Z",
+          "spetl_ref": "urn:test-only:spetl",
+          "control_results": [
+            {
+              "control_id": "fixture-only",
+              "pass": true,
+              "decision": "ALLOW"
+            }
+          ]
+        },
+        "signed_provenance": "eyJhbGciOiJFZERTQSJ9.eyJraW5kIjoiY2R4LWRlY2lzaW9uIiwiZGF0YSI6eyJkZWNpc2lvbiI6IkFMTE9XIiwiaW50ZW50X2hhc2giOiI3MmY4MjJmZmFiMDYxYTAxNGQ0NjFkZTU1MTFlMzAyNjBjMGEwZjM5YTY3NjM1YzJmYjE3MDJlZTQyYjIzNGUxIiwiYXV0aG9yaXR5X3JlZiI6InVybjp0ZXN0LW9ubHk6ZXh0ZXJuYWwtZGlyZWN0b3IiLCJtYW5kYXRlX3JlZiI6InVybjp0ZXN0LW9ubHk6bWFuZGF0ZSIsInBvbGljeV9waW4iOiJ0ZXN0LW9ubHktcGluIiwicG9saWN5X3ZlcnNpb24iOiJmaXh0dXJlLTEiLCJyZXZva2VkIjpmYWxzZSwib2JzZXJ2ZWRfYXQiOiIyMDI2LTEwLTI4VDIzOjE1OjQ5LjUzM1oiLCJleHBpcmVzX2F0IjoiMjAyNi0xMC0yOFQyMzoxNjoxOS41MzNaIiwic3BldGxfcmVmIjoidXJuOnRlc3Qtb25seTpzcGV0bCIsImNvbnRyb2xfcmVzdWx0cyI6W3siY29udHJvbF9pZCI6ImZpeHR1cmUtb25seSIsInBhc3MiOnRydWUsImRlY2lzaW9uIjoiQUxMT1cifV19LCJpc3MiOiJ1cm46ZmZvczp0ZXN0LWRpcmVjdG9yIiwiYXVkIjoidXJuOmZmb3M6aG91c2Vob2xkOnRlc3QiLCJpYXQiOjE3OTMyMjkzNDksImV4cCI6MTc5MzIyOTk0OSwianRpIjoic2lnbmVkLTljMGI0MDc2LTRlZjctNDQyZS1iYmEwLTI2NjYwZTJjNDMwOSJ9.nlj4hRybqI35M3cL5ePTujAg2TKqx88BInEFPeYD53J-FW2Zf8mAprIyVw6SgcvqDrCEfE_al2S2oo2kWlkWAQ"
+      },
+      "project_id": "test-project",
+      "actor": "CDX_ENFORCEMENT_POINT",
+      "event_type": "CDX_EFFECT_ALLOWED",
+      "source_ref": "urn:test-only:spetl",
+      "previous_hash": "7e8eb9fceae5e5255e1e2bd99cb8e620c9dbeb276374d4519645a1d055d81991",
+      "event_hash": "08dd731c31ac77e319c0e3b8d2594b47ffd32d383358a44eb300ac99d7364ffc"
+    },
+    {
+      "event_id": "event-afe48e18-0a6d-484c-a319-8f249de3594f",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.540Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {
+        "intent_hash": "72f822ffab061a014d461de5511e30260c0a0f39a67635c2fb1702ee42b234e1",
+        "receipt": {
+          "decision": "ALLOW",
+          "intent_hash": "72f822ffab061a014d461de5511e30260c0a0f39a67635c2fb1702ee42b234e1",
+          "authority_ref": "urn:test-only:external-director",
+          "mandate_ref": "urn:test-only:mandate",
+          "policy_pin": "test-only-pin",
+          "policy_version": "fixture-1",
+          "revoked": false,
+          "observed_at": "2026-10-28T23:15:49.540Z",
+          "expires_at": "2026-10-28T23:16:19.540Z",
+          "spetl_ref": "urn:test-only:spetl",
+          "control_results": [
+            {
+              "control_id": "fixture-only",
+              "pass": true,
+              "decision": "ALLOW"
+            }
+          ]
+        },
+        "signed_provenance": "eyJhbGciOiJFZERTQSJ9.eyJraW5kIjoiY2R4LWRlY2lzaW9uIiwiZGF0YSI6eyJkZWNpc2lvbiI6IkFMTE9XIiwiaW50ZW50X2hhc2giOiI3MmY4MjJmZmFiMDYxYTAxNGQ0NjFkZTU1MTFlMzAyNjBjMGEwZjM5YTY3NjM1YzJmYjE3MDJlZTQyYjIzNGUxIiwiYXV0aG9yaXR5X3JlZiI6InVybjp0ZXN0LW9ubHk6ZXh0ZXJuYWwtZGlyZWN0b3IiLCJtYW5kYXRlX3JlZiI6InVybjp0ZXN0LW9ubHk6bWFuZGF0ZSIsInBvbGljeV9waW4iOiJ0ZXN0LW9ubHktcGluIiwicG9saWN5X3ZlcnNpb24iOiJmaXh0dXJlLTEiLCJyZXZva2VkIjpmYWxzZSwib2JzZXJ2ZWRfYXQiOiIyMDI2LTEwLTI4VDIzOjE1OjQ5LjU0MFoiLCJleHBpcmVzX2F0IjoiMjAyNi0xMC0yOFQyMzoxNjoxOS41NDBaIiwic3BldGxfcmVmIjoidXJuOnRlc3Qtb25seTpzcGV0bCIsImNvbnRyb2xfcmVzdWx0cyI6W3siY29udHJvbF9pZCI6ImZpeHR1cmUtb25seSIsInBhc3MiOnRydWUsImRlY2lzaW9uIjoiQUxMT1cifV19LCJpc3MiOiJ1cm46ZmZvczp0ZXN0LWRpcmVjdG9yIiwiYXVkIjoidXJuOmZmb3M6aG91c2Vob2xkOnRlc3QiLCJpYXQiOjE3OTMyMjkzNDksImV4cCI6MTc5MzIyOTk0OSwianRpIjoic2lnbmVkLTk1OTU1Y2U3LWYzNzktNGQ3Ny05OGE4LWEwMGJiMWZhMGE1MyJ9.NW9WuN9pxnYROVPhfRyruxi8QuoitzrlAjIVFfXH0Nwr65yhv9eRYLvpleQKzMTsK0xVOVt-Q2vqiZg-eVdUBg"
+      },
+      "project_id": "test-project",
+      "actor": "CDX_ENFORCEMENT_POINT",
+      "event_type": "CDX_EFFECT_ALLOWED",
+      "source_ref": "urn:test-only:spetl",
+      "previous_hash": "08dd731c31ac77e319c0e3b8d2594b47ffd32d383358a44eb300ac99d7364ffc",
+      "event_hash": "6e79576a9ad578440a7f739c7eeebba6159f7ffc7ba5907b2824054e5d55373e"
+    },
+    {
+      "event_id": "event-7e08f032-6544-46a6-86ad-e040b71acb2b",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.547Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676:commit:repair-WP01",
+      "readback_verified": true,
+      "detail": {
+        "result_hash": "b33279607ba46c52425597247528b90ca88532d1f96d412c4d9226cc79e2b038"
+      },
+      "project_id": "test-project",
+      "actor": "HANDYMAN",
+      "event_type": "EXTERNAL_WRITE_CONFIRMED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "6e79576a9ad578440a7f739c7eeebba6159f7ffc7ba5907b2824054e5d55373e",
+      "event_hash": "cd804d70a066236a5c3fc34ad8130dd4b606e8967e31070890332cda40c49c8a"
+    },
+    {
+      "event_id": "event-d62183bf-f18d-493d-8065-4ec2ad6b064c",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.551Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {
+        "intent_hash": "68e2c838b70d5f2b87e32323e8025df24bf835f0ff3d7de3c28b697e26108ac5",
+        "receipt": {
+          "decision": "ALLOW",
+          "intent_hash": "68e2c838b70d5f2b87e32323e8025df24bf835f0ff3d7de3c28b697e26108ac5",
+          "authority_ref": "urn:test-only:external-director",
+          "mandate_ref": "urn:test-only:mandate",
+          "policy_pin": "test-only-pin",
+          "policy_version": "fixture-1",
+          "revoked": false,
+          "observed_at": "2026-10-28T23:15:49.550Z",
+          "expires_at": "2026-10-28T23:16:19.550Z",
+          "spetl_ref": "urn:test-only:spetl",
+          "control_results": [
+            {
+              "control_id": "fixture-only",
+              "pass": true,
+              "decision": "ALLOW"
+            }
+          ]
+        },
+        "signed_provenance": "eyJhbGciOiJFZERTQSJ9.eyJraW5kIjoiY2R4LWRlY2lzaW9uIiwiZGF0YSI6eyJkZWNpc2lvbiI6IkFMTE9XIiwiaW50ZW50X2hhc2giOiI2OGUyYzgzOGI3MGQ1ZjJiODdlMzIzMjNlODAyNWRmMjRiZjgzNWYwZmYzZDdkZTNjMjhiNjk3ZTI2MTA4YWM1IiwiYXV0aG9yaXR5X3JlZiI6InVybjp0ZXN0LW9ubHk6ZXh0ZXJuYWwtZGlyZWN0b3IiLCJtYW5kYXRlX3JlZiI6InVybjp0ZXN0LW9ubHk6bWFuZGF0ZSIsInBvbGljeV9waW4iOiJ0ZXN0LW9ubHktcGluIiwicG9saWN5X3ZlcnNpb24iOiJmaXh0dXJlLTEiLCJyZXZva2VkIjpmYWxzZSwib2JzZXJ2ZWRfYXQiOiIyMDI2LTEwLTI4VDIzOjE1OjQ5LjU1MFoiLCJleHBpcmVzX2F0IjoiMjAyNi0xMC0yOFQyMzoxNjoxOS41NTBaIiwic3BldGxfcmVmIjoidXJuOnRlc3Qtb25seTpzcGV0bCIsImNvbnRyb2xfcmVzdWx0cyI6W3siY29udHJvbF9pZCI6ImZpeHR1cmUtb25seSIsInBhc3MiOnRydWUsImRlY2lzaW9uIjoiQUxMT1cifV19LCJpc3MiOiJ1cm46ZmZvczp0ZXN0LWRpcmVjdG9yIiwiYXVkIjoidXJuOmZmb3M6aG91c2Vob2xkOnRlc3QiLCJpYXQiOjE3OTMyMjkzNDksImV4cCI6MTc5MzIyOTk0OSwianRpIjoic2lnbmVkLTQ5MWQ4YzBjLTdlMjMtNGI2OS04NGIyLWEzZWU0MzQ2NjUwZSJ9.CeXh7bjiUgZqoQsfoMxlA4P3-i2N9nOwjrwY3zzhWyQrRez1MmStoMzlkzXPCqEmgPyBCSBBU2lBqEKaa2eADw"
+      },
+      "project_id": "test-project",
+      "actor": "CDX_ENFORCEMENT_POINT",
+      "event_type": "CDX_EFFECT_ALLOWED",
+      "source_ref": "urn:test-only:spetl",
+      "previous_hash": "cd804d70a066236a5c3fc34ad8130dd4b606e8967e31070890332cda40c49c8a",
+      "event_hash": "cbb724f742c18bf573146fc28176b35cd33160a634efa6d5089d7c0562856489"
+    },
+    {
+      "event_id": "event-9e18ce20-6869-4118-9489-a41a07acab33",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.553Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676:pr:repair-WP01",
+      "readback_verified": false,
+      "detail": {
+        "request_hash": "9f4299593ccbcb8c026ec5bae290a5e90967a937042b92788c6dfe3017ce7235",
+        "key": "pr:repair-WP01"
+      },
+      "project_id": "test-project",
+      "actor": "HANDYMAN",
+      "event_type": "EXTERNAL_WRITE_INTENT",
+      "source_ref": "director:test-policy",
+      "previous_hash": "cbb724f742c18bf573146fc28176b35cd33160a634efa6d5089d7c0562856489",
+      "event_hash": "c7736112f56f5e45fa888a68a4366342ea57091303f12eb216171470a45d268d"
+    },
+    {
+      "event_id": "event-effe92c8-165c-4960-9881-385606e66de1",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.557Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676:pr:repair-WP01",
+      "readback_verified": true,
+      "detail": {
+        "result_hash": "ee9aecb7807cf476ff4da48f226dabd95824aa903da1b25a4edf4ddc22fe1133"
+      },
+      "project_id": "test-project",
+      "actor": "HANDYMAN",
+      "event_type": "EXTERNAL_WRITE_CONFIRMED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "c7736112f56f5e45fa888a68a4366342ea57091303f12eb216171470a45d268d",
+      "event_hash": "8283f7a4a62f3a34d44b4e4453f6bf4b5edee378f0270a7c8dcc0bcdbada4a1f"
+    },
+    {
+      "event_id": "event-363f1b65-66be-4f24-9712-9d8f1cf94728",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": "REPAIRING",
+      "new_state": "VERIFYING",
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.558Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "STATE_TRANSITION",
+      "source_ref": "director:test-policy",
+      "previous_hash": "8283f7a4a62f3a34d44b4e4453f6bf4b5edee378f0270a7c8dcc0bcdbada4a1f",
+      "event_hash": "c2b3a08e059d4aa5fd372f125f83d4c227f293a93479dd8c0a773e1124870b59"
+    },
+    {
+      "event_id": "event-f7417b81-5d80-4a7a-8d15-1b8cdbefd3b9",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": "VERIFYING",
+      "new_state": "VERIFYING",
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.559Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "LEASE_ACQUIRED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "c2b3a08e059d4aa5fd372f125f83d4c227f293a93479dd8c0a773e1124870b59",
+      "event_hash": "db5a3fe685d0b6805559d6e36d5f365aecc5cb69af807475f298dfac06583f27"
+    },
+    {
+      "event_id": "event-2f3cf2bb-8011-41a7-9bd2-275d47c340c0",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": null,
+      "evidence_refs": [
+        "evidence-a75d8ec2-bec3-4efb-bdf2-c5b710b2c0c2",
+        "evidence-aed193bf-b191-40a7-b07c-b3c5349517bb",
+        "evidence-98bec0ea-6320-4e04-ad7f-8f26cca03470"
+      ],
+      "timestamp": "2026-10-28T23:15:49.675Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "VERIFIER",
+      "event_type": "EVIDENCE_RECORDED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "db5a3fe685d0b6805559d6e36d5f365aecc5cb69af807475f298dfac06583f27",
+      "event_hash": "9e1d74e971181e406a9b5e45e29125c42dd2134e63bd22120e8e5ebfe7dccdb1"
+    },
+    {
+      "event_id": "event-51676970-49f8-4e9f-98f4-a88e846a43b4",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": "VERIFYING",
+      "new_state": "READY_FOR_DIRECTOR",
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.686Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "STATE_TRANSITION",
+      "source_ref": "director:test-policy",
+      "previous_hash": "9e1d74e971181e406a9b5e45e29125c42dd2134e63bd22120e8e5ebfe7dccdb1",
+      "event_hash": "bf1ee68493666207f698958cdb7c2d5037f7f1d86a4e83eb81ba2e021e948018"
+    },
+    {
+      "event_id": "event-73f01033-a128-4d3c-b9a5-a0f192b26495",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": null,
+      "evidence_refs": [
+        "evidence-cacf980f-0805-44fe-b3d6-63097b6a24cd",
+        "evidence-dbebba4b-d94f-4079-a34b-3a51c2b5a53a",
+        "evidence-7287aa08-21da-468d-9ab2-0ad15fac20bc"
+      ],
+      "timestamp": "2026-10-28T23:15:49.819Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "VERIFIER",
+      "event_type": "EVIDENCE_RECORDED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "bf1ee68493666207f698958cdb7c2d5037f7f1d86a4e83eb81ba2e021e948018",
+      "event_hash": "6d5453d5360bd8d6d5219d9719e303c9b00e955d0cccea1d0f047cce94463358"
+    },
+    {
+      "event_id": "event-0f229b32-77db-4a72-8e80-9a9312849169",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": "READY_FOR_DIRECTOR",
+      "new_state": "ACCEPTED",
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.821Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": true,
+      "detail": {
+        "decision_id": "decision-e6884cc6-90e8-44c5-bad7-846a54b5e29c",
+        "signature_hash": "4f512aec321dcf4ebf40be3cb11f447320dcb15f5b5f99579d47abb65a2ae261"
+      },
+      "project_id": "test-project",
+      "actor": "DIRECTOR",
+      "event_type": "DIRECTOR_ACCEPT",
+      "source_ref": "urn:test-only:external-director",
+      "previous_hash": "6d5453d5360bd8d6d5219d9719e303c9b00e955d0cccea1d0f047cce94463358",
+      "event_hash": "436f962fd6f2213ab54d8b1207d39ba3348076348efd157654ffb56da0b424b6"
+    },
+    {
+      "event_id": "event-2a5b78ab-7c24-4f90-82cf-c3761e9d1e2d",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": "ACCEPTED",
+      "new_state": "ACCEPTED",
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.823Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "LEASE_ACQUIRED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "436f962fd6f2213ab54d8b1207d39ba3348076348efd157654ffb56da0b424b6",
+      "event_hash": "73dc77ba907181d14c85b812fc7acaede10b9ecb03f71e7e55bc34d667b4d64c"
+    },
+    {
+      "event_id": "event-f4288813-6c9b-4ac2-bec5-0f0764de1943",
+      "run_id": "run-96f845f6-da89-489d-993e-cb3b10d3b676",
+      "previous_state": "ACCEPTED",
+      "new_state": "RECORDED",
+      "policy_hash": "315e3b7603439b1ca93a78ae54d90b18c9c509e6ec9754c44b826c78a0114e1f",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.823Z",
+      "correlation_id": "corr-2a254bff-9f12-4175-a49e-789ed9337dab",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "STATE_TRANSITION",
+      "source_ref": "director:test-policy",
+      "previous_hash": "73dc77ba907181d14c85b812fc7acaede10b9ecb03f71e7e55bc34d667b4d64c",
+      "event_hash": "fc9a79c95d592525e73dfa2275d55b949e906237f421741f14d2d6572c93d641"
+    },
+    {
+      "event_id": "event-6d490b79-2bf3-4490-a7d6-48d2f93fce72",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": null,
+      "new_state": "ELIGIBLE",
+      "policy_hash": "9ab95f560612cd57c520976ae5ec5ffdda8db47eb3b1ec1707a5be89f3f0d4c6",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.829Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {
+        "wp_version": 1,
+        "scope_hash": "16b3e76ea61deeecc3eeadb2e9001a16fd5a8a8e6074dbbc93a488a928d69665"
+      },
+      "project_id": "test-project",
+      "actor": "test-worker",
+      "event_type": "RUN_QUEUED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "fc9a79c95d592525e73dfa2275d55b949e906237f421741f14d2d6572c93d641",
+      "event_hash": "166a87e269a7e22313972829381b98407c42f21539778999f08870c6c567b9ce"
+    },
+    {
+      "event_id": "event-2daf28f7-0ac9-4971-8207-63c9c64eac8f",
+      "run_id": null,
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": null,
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.830Z",
+      "correlation_id": "corr-e7aaa855-cfd3-404d-95fd-729c0bc5e9cf",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {
+        "decision_id": "decision-e6884cc6-90e8-44c5-bad7-846a54b5e29c",
+        "auto_dispatch": true
+      },
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "DIRECTOR_PROGRESSION_RECONCILED",
+      "source_ref": "urn:test-only:external-director",
+      "previous_hash": "166a87e269a7e22313972829381b98407c42f21539778999f08870c6c567b9ce",
+      "event_hash": "17594a8b3bbf58ee2b4589d0c810f9268584cf4fcc089a892fbf9697348d2704"
+    },
+    {
+      "event_id": "event-be702c8f-708f-43a8-9ce2-e6fb0825a9b2",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": "ELIGIBLE",
+      "new_state": "ELIGIBLE",
+      "policy_hash": "9ab95f560612cd57c520976ae5ec5ffdda8db47eb3b1ec1707a5be89f3f0d4c6",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.830Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "LEASE_ACQUIRED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "17594a8b3bbf58ee2b4589d0c810f9268584cf4fcc089a892fbf9697348d2704",
+      "event_hash": "6969ea938e38add9c5a2b27cb8e2f22b7999e6da1db72066b2f9724b1de4e3d2"
+    },
+    {
+      "event_id": "event-167d7e38-718d-40dd-84a5-a22a09acb987",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": "ELIGIBLE",
+      "new_state": "LEASED",
+      "policy_hash": "9ab95f560612cd57c520976ae5ec5ffdda8db47eb3b1ec1707a5be89f3f0d4c6",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.835Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "STATE_TRANSITION",
+      "source_ref": "director:test-policy",
+      "previous_hash": "6969ea938e38add9c5a2b27cb8e2f22b7999e6da1db72066b2f9724b1de4e3d2",
+      "event_hash": "bc7ef9203201b9ad9af1ae0678436852acb1131396a144861baa15d819054dc4"
+    },
+    {
+      "event_id": "event-1a10adcc-93da-4fa2-8eaf-ed1507ea6e27",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": "LEASED",
+      "new_state": "INSPECTING",
+      "policy_hash": "9ab95f560612cd57c520976ae5ec5ffdda8db47eb3b1ec1707a5be89f3f0d4c6",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.836Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "STATE_TRANSITION",
+      "source_ref": "director:test-policy",
+      "previous_hash": "bc7ef9203201b9ad9af1ae0678436852acb1131396a144861baa15d819054dc4",
+      "event_hash": "c7b78b833d23d720802feabf20c1f8b853ecd50aa6d316db93780b189d2cccf2"
+    },
+    {
+      "event_id": "event-afa2e720-fe69-425e-bec8-c463e9bd8229",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": "INSPECTING",
+      "new_state": "INSPECTING",
+      "policy_hash": "9ab95f560612cd57c520976ae5ec5ffdda8db47eb3b1ec1707a5be89f3f0d4c6",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.838Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "LEASE_ACQUIRED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "c7b78b833d23d720802feabf20c1f8b853ecd50aa6d316db93780b189d2cccf2",
+      "event_hash": "6dd0216fd195a58da500087bcf67aa5748ec9b8078dea15955e68439cc59ddc1"
+    },
+    {
+      "event_id": "event-3c7b7ab8-aee2-43bb-acfd-268cae5befcd",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": null,
+      "evidence_refs": [
+        "evidence-baeebfeb-5d11-4ed1-8837-f737563f311a"
+      ],
+      "timestamp": "2026-10-28T23:15:49.851Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "JANITOR",
+      "event_type": "EVIDENCE_RECORDED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "6dd0216fd195a58da500087bcf67aa5748ec9b8078dea15955e68439cc59ddc1",
+      "event_hash": "bbc6032eb884922fa7a5b9a223c19c038004c1ce235852cdb1215a780130e57f"
+    },
+    {
+      "event_id": "event-c85a648e-5130-4862-9dee-a3e9c2d2647c",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": "INSPECTING",
+      "new_state": "EXECUTING",
+      "policy_hash": "9ab95f560612cd57c520976ae5ec5ffdda8db47eb3b1ec1707a5be89f3f0d4c6",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.852Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "STATE_TRANSITION",
+      "source_ref": "director:test-policy",
+      "previous_hash": "bbc6032eb884922fa7a5b9a223c19c038004c1ce235852cdb1215a780130e57f",
+      "event_hash": "623ccac086552e775de482b68c7908edf51c00068b80959281a5a579dc0677ab"
+    },
+    {
+      "event_id": "event-f92c3778-7635-481a-a951-aed43ac43b8d",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": "EXECUTING",
+      "new_state": "EXECUTING",
+      "policy_hash": "9ab95f560612cd57c520976ae5ec5ffdda8db47eb3b1ec1707a5be89f3f0d4c6",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.854Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "LEASE_ACQUIRED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "623ccac086552e775de482b68c7908edf51c00068b80959281a5a579dc0677ab",
+      "event_hash": "e88e60ad6d7ca25cb9523d3dde72b144380afd2167a57bdfc0d1e8cb31dd1f89"
+    },
+    {
+      "event_id": "event-61465156-7a9a-4556-ad2d-3b2b7659d8e7",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "9ab95f560612cd57c520976ae5ec5ffdda8db47eb3b1ec1707a5be89f3f0d4c6",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.862Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {
+        "intent_hash": "35f72c1c9dc91e15e8776a273c2bd84fcb1b43b4298d24455ed63ff8fad3733e",
+        "receipt": {
+          "decision": "ALLOW",
+          "intent_hash": "35f72c1c9dc91e15e8776a273c2bd84fcb1b43b4298d24455ed63ff8fad3733e",
+          "authority_ref": "urn:test-only:external-director",
+          "mandate_ref": "urn:test-only:mandate",
+          "policy_pin": "test-only-pin",
+          "policy_version": "fixture-1",
+          "revoked": false,
+          "observed_at": "2026-10-28T23:15:49.861Z",
+          "expires_at": "2026-10-28T23:16:19.861Z",
+          "spetl_ref": "urn:test-only:spetl",
+          "control_results": [
+            {
+              "control_id": "fixture-only",
+              "pass": true,
+              "decision": "ALLOW"
+            }
+          ]
+        },
+        "signed_provenance": "eyJhbGciOiJFZERTQSJ9.eyJraW5kIjoiY2R4LWRlY2lzaW9uIiwiZGF0YSI6eyJkZWNpc2lvbiI6IkFMTE9XIiwiaW50ZW50X2hhc2giOiIzNWY3MmMxYzlkYzkxZTE1ZTg3NzZhMjczYzJiZDg0ZmNiMWI0M2I0Mjk4ZDI0NDU1ZWQ2M2ZmOGZhZDM3MzNlIiwiYXV0aG9yaXR5X3JlZiI6InVybjp0ZXN0LW9ubHk6ZXh0ZXJuYWwtZGlyZWN0b3IiLCJtYW5kYXRlX3JlZiI6InVybjp0ZXN0LW9ubHk6bWFuZGF0ZSIsInBvbGljeV9waW4iOiJ0ZXN0LW9ubHktcGluIiwicG9saWN5X3ZlcnNpb24iOiJmaXh0dXJlLTEiLCJyZXZva2VkIjpmYWxzZSwib2JzZXJ2ZWRfYXQiOiIyMDI2LTEwLTI4VDIzOjE1OjQ5Ljg2MVoiLCJleHBpcmVzX2F0IjoiMjAyNi0xMC0yOFQyMzoxNjoxOS44NjFaIiwic3BldGxfcmVmIjoidXJuOnRlc3Qtb25seTpzcGV0bCIsImNvbnRyb2xfcmVzdWx0cyI6W3siY29udHJvbF9pZCI6ImZpeHR1cmUtb25seSIsInBhc3MiOnRydWUsImRlY2lzaW9uIjoiQUxMT1cifV19LCJpc3MiOiJ1cm46ZmZvczp0ZXN0LWRpcmVjdG9yIiwiYXVkIjoidXJuOmZmb3M6aG91c2Vob2xkOnRlc3QiLCJpYXQiOjE3OTMyMjkzNDksImV4cCI6MTc5MzIyOTk0OSwianRpIjoic2lnbmVkLTU0ODVhZGFhLTAyZjYtNGVmMS1hZWM1LTUwZGUyZjZkYmUzYiJ9.vS5tpDse5nl0Rurm6F6H0lRCArZ9d2psNpGQWgDpiYDkEXXKLDW7aRpJX2KDog4sdjgULg14oEVcE8iiL4hcAQ"
+      },
+      "project_id": "test-project",
+      "actor": "CDX_ENFORCEMENT_POINT",
+      "event_type": "CDX_EFFECT_ALLOWED",
+      "source_ref": "urn:test-only:spetl",
+      "previous_hash": "e88e60ad6d7ca25cb9523d3dde72b144380afd2167a57bdfc0d1e8cb31dd1f89",
+      "event_hash": "3c87a5299a97147d99b3c33c8c0322528613e3db42a3368c457f7c4e44f6de09"
+    },
+    {
+      "event_id": "event-eb559c4f-755a-4132-8c72-d9e4e4a2ff1d",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "9ab95f560612cd57c520976ae5ec5ffdda8db47eb3b1ec1707a5be89f3f0d4c6",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.864Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": "run-68e36d43-d23d-492a-b006-190895324a6c:branch",
+      "readback_verified": false,
+      "detail": {
+        "request_hash": "3c70fa78600c2aa0bda2d6889fb8229cc48044369bac1fef2ec8e5369e0c05bb",
+        "key": "branch"
+      },
+      "project_id": "test-project",
+      "actor": "HANDYMAN",
+      "event_type": "EXTERNAL_WRITE_INTENT",
+      "source_ref": "director:test-policy",
+      "previous_hash": "3c87a5299a97147d99b3c33c8c0322528613e3db42a3368c457f7c4e44f6de09",
+      "event_hash": "3ac01384e3a612121cf8b7579b1c878eec13920f3c0fa33392b95463d6dd3191"
+    },
+    {
+      "event_id": "event-c48192a2-fc1a-4e57-a000-5622b4227d56",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "9ab95f560612cd57c520976ae5ec5ffdda8db47eb3b1ec1707a5be89f3f0d4c6",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.871Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": "run-68e36d43-d23d-492a-b006-190895324a6c:branch",
+      "readback_verified": true,
+      "detail": {
+        "result_hash": "3ebb67612ce0c0616c705d0daf4c190682c2d7adaba695fabeddb62131795d00"
+      },
+      "project_id": "test-project",
+      "actor": "HANDYMAN",
+      "event_type": "EXTERNAL_WRITE_CONFIRMED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "3ac01384e3a612121cf8b7579b1c878eec13920f3c0fa33392b95463d6dd3191",
+      "event_hash": "0250e244d1dc241aaa0f2fecbdcd54d8cc0f8960babe5a3edfe4979b33923101"
+    },
+    {
+      "event_id": "event-a13bf108-3d0b-43ae-b6ee-873efc8156b7",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "9ab95f560612cd57c520976ae5ec5ffdda8db47eb3b1ec1707a5be89f3f0d4c6",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.875Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {
+        "intent_hash": "18b39c2db260726a5c9e9754b05137472dbbb01619435107d86afd260292a6c2",
+        "receipt": {
+          "decision": "ALLOW",
+          "intent_hash": "18b39c2db260726a5c9e9754b05137472dbbb01619435107d86afd260292a6c2",
+          "authority_ref": "urn:test-only:external-director",
+          "mandate_ref": "urn:test-only:mandate",
+          "policy_pin": "test-only-pin",
+          "policy_version": "fixture-1",
+          "revoked": false,
+          "observed_at": "2026-10-28T23:15:49.874Z",
+          "expires_at": "2026-10-28T23:16:19.874Z",
+          "spetl_ref": "urn:test-only:spetl",
+          "control_results": [
+            {
+              "control_id": "fixture-only",
+              "pass": true,
+              "decision": "ALLOW"
+            }
+          ]
+        },
+        "signed_provenance": "eyJhbGciOiJFZERTQSJ9.eyJraW5kIjoiY2R4LWRlY2lzaW9uIiwiZGF0YSI6eyJkZWNpc2lvbiI6IkFMTE9XIiwiaW50ZW50X2hhc2giOiIxOGIzOWMyZGIyNjA3MjZhNWM5ZTk3NTRiMDUxMzc0NzJkYmJiMDE2MTk0MzUxMDdkODZhZmQyNjAyOTJhNmMyIiwiYXV0aG9yaXR5X3JlZiI6InVybjp0ZXN0LW9ubHk6ZXh0ZXJuYWwtZGlyZWN0b3IiLCJtYW5kYXRlX3JlZiI6InVybjp0ZXN0LW9ubHk6bWFuZGF0ZSIsInBvbGljeV9waW4iOiJ0ZXN0LW9ubHktcGluIiwicG9saWN5X3ZlcnNpb24iOiJmaXh0dXJlLTEiLCJyZXZva2VkIjpmYWxzZSwib2JzZXJ2ZWRfYXQiOiIyMDI2LTEwLTI4VDIzOjE1OjQ5Ljg3NFoiLCJleHBpcmVzX2F0IjoiMjAyNi0xMC0yOFQyMzoxNjoxOS44NzRaIiwic3BldGxfcmVmIjoidXJuOnRlc3Qtb25seTpzcGV0bCIsImNvbnRyb2xfcmVzdWx0cyI6W3siY29udHJvbF9pZCI6ImZpeHR1cmUtb25seSIsInBhc3MiOnRydWUsImRlY2lzaW9uIjoiQUxMT1cifV19LCJpc3MiOiJ1cm46ZmZvczp0ZXN0LWRpcmVjdG9yIiwiYXVkIjoidXJuOmZmb3M6aG91c2Vob2xkOnRlc3QiLCJpYXQiOjE3OTMyMjkzNDksImV4cCI6MTc5MzIyOTk0OSwianRpIjoic2lnbmVkLTY3M2ExYTVmLWI1NzUtNDhiZi1iYWZmLTcxN2MyMTE1OTdlOCJ9.KwuvCSxJyva6W0yTWwvSGD8TVkVfu-T333RdsclZHA8m7a4MLYB0lb8fhjEqNYfoHxszKb9IdXeKkczAXTGpDg"
+      },
+      "project_id": "test-project",
+      "actor": "CDX_ENFORCEMENT_POINT",
+      "event_type": "CDX_EFFECT_ALLOWED",
+      "source_ref": "urn:test-only:spetl",
+      "previous_hash": "0250e244d1dc241aaa0f2fecbdcd54d8cc0f8960babe5a3edfe4979b33923101",
+      "event_hash": "aa7e2b83bfd23bb0a231daec7eb008acd353ef7616a46b5435c3f09c876d0759"
+    },
+    {
+      "event_id": "event-410a18ff-ab3c-41fe-80b7-3344e46d24cf",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "9ab95f560612cd57c520976ae5ec5ffdda8db47eb3b1ec1707a5be89f3f0d4c6",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.878Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": "run-68e36d43-d23d-492a-b006-190895324a6c:commit:recipe-WP02",
+      "readback_verified": false,
+      "detail": {
+        "request_hash": "f72a1b7e9bc6912704881c787522be669b3c83311b2a702323f77e0f6eaf4754",
+        "key": "commit:recipe-WP02"
+      },
+      "project_id": "test-project",
+      "actor": "HANDYMAN",
+      "event_type": "EXTERNAL_WRITE_INTENT",
+      "source_ref": "director:test-policy",
+      "previous_hash": "aa7e2b83bfd23bb0a231daec7eb008acd353ef7616a46b5435c3f09c876d0759",
+      "event_hash": "c965b7ac8ac32d7ad55c1c6a227611b8d6556d545dbbb57e29b3715700ed8bbe"
+    },
+    {
+      "event_id": "event-36fd12ba-f8e0-497b-816d-ec845f632286",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "9ab95f560612cd57c520976ae5ec5ffdda8db47eb3b1ec1707a5be89f3f0d4c6",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.888Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {
+        "intent_hash": "18b39c2db260726a5c9e9754b05137472dbbb01619435107d86afd260292a6c2",
+        "receipt": {
+          "decision": "ALLOW",
+          "intent_hash": "18b39c2db260726a5c9e9754b05137472dbbb01619435107d86afd260292a6c2",
+          "authority_ref": "urn:test-only:external-director",
+          "mandate_ref": "urn:test-only:mandate",
+          "policy_pin": "test-only-pin",
+          "policy_version": "fixture-1",
+          "revoked": false,
+          "observed_at": "2026-10-28T23:15:49.887Z",
+          "expires_at": "2026-10-28T23:16:19.887Z",
+          "spetl_ref": "urn:test-only:spetl",
+          "control_results": [
+            {
+              "control_id": "fixture-only",
+              "pass": true,
+              "decision": "ALLOW"
+            }
+          ]
+        },
+        "signed_provenance": "eyJhbGciOiJFZERTQSJ9.eyJraW5kIjoiY2R4LWRlY2lzaW9uIiwiZGF0YSI6eyJkZWNpc2lvbiI6IkFMTE9XIiwiaW50ZW50X2hhc2giOiIxOGIzOWMyZGIyNjA3MjZhNWM5ZTk3NTRiMDUxMzc0NzJkYmJiMDE2MTk0MzUxMDdkODZhZmQyNjAyOTJhNmMyIiwiYXV0aG9yaXR5X3JlZiI6InVybjp0ZXN0LW9ubHk6ZXh0ZXJuYWwtZGlyZWN0b3IiLCJtYW5kYXRlX3JlZiI6InVybjp0ZXN0LW9ubHk6bWFuZGF0ZSIsInBvbGljeV9waW4iOiJ0ZXN0LW9ubHktcGluIiwicG9saWN5X3ZlcnNpb24iOiJmaXh0dXJlLTEiLCJyZXZva2VkIjpmYWxzZSwib2JzZXJ2ZWRfYXQiOiIyMDI2LTEwLTI4VDIzOjE1OjQ5Ljg4N1oiLCJleHBpcmVzX2F0IjoiMjAyNi0xMC0yOFQyMzoxNjoxOS44ODdaIiwic3BldGxfcmVmIjoidXJuOnRlc3Qtb25seTpzcGV0bCIsImNvbnRyb2xfcmVzdWx0cyI6W3siY29udHJvbF9pZCI6ImZpeHR1cmUtb25seSIsInBhc3MiOnRydWUsImRlY2lzaW9uIjoiQUxMT1cifV19LCJpc3MiOiJ1cm46ZmZvczp0ZXN0LWRpcmVjdG9yIiwiYXVkIjoidXJuOmZmb3M6aG91c2Vob2xkOnRlc3QiLCJpYXQiOjE3OTMyMjkzNDksImV4cCI6MTc5MzIyOTk0OSwianRpIjoic2lnbmVkLTc4ZWZhMjM5LTg0NjctNDlhNy1hZDU0LWEwMWU1ZGYwNGQ0MSJ9.48tCenkUMLi8WVrZsmCxy2PCBWRBdNRLzkJxdjSoqCubnAUWy90j5OCKjK0zKXmD2pB7FWsdEC0P1-BauuEJAg"
+      },
+      "project_id": "test-project",
+      "actor": "CDX_ENFORCEMENT_POINT",
+      "event_type": "CDX_EFFECT_ALLOWED",
+      "source_ref": "urn:test-only:spetl",
+      "previous_hash": "c965b7ac8ac32d7ad55c1c6a227611b8d6556d545dbbb57e29b3715700ed8bbe",
+      "event_hash": "e5dc03a9fd709905911fb836e6cb73a5611622e26ab868c1fc998f1d1a520c59"
+    },
+    {
+      "event_id": "event-f33164b3-eb53-4eb4-b85d-de59fd2cdef6",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "9ab95f560612cd57c520976ae5ec5ffdda8db47eb3b1ec1707a5be89f3f0d4c6",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.899Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {
+        "intent_hash": "18b39c2db260726a5c9e9754b05137472dbbb01619435107d86afd260292a6c2",
+        "receipt": {
+          "decision": "ALLOW",
+          "intent_hash": "18b39c2db260726a5c9e9754b05137472dbbb01619435107d86afd260292a6c2",
+          "authority_ref": "urn:test-only:external-director",
+          "mandate_ref": "urn:test-only:mandate",
+          "policy_pin": "test-only-pin",
+          "policy_version": "fixture-1",
+          "revoked": false,
+          "observed_at": "2026-10-28T23:15:49.898Z",
+          "expires_at": "2026-10-28T23:16:19.898Z",
+          "spetl_ref": "urn:test-only:spetl",
+          "control_results": [
+            {
+              "control_id": "fixture-only",
+              "pass": true,
+              "decision": "ALLOW"
+            }
+          ]
+        },
+        "signed_provenance": "eyJhbGciOiJFZERTQSJ9.eyJraW5kIjoiY2R4LWRlY2lzaW9uIiwiZGF0YSI6eyJkZWNpc2lvbiI6IkFMTE9XIiwiaW50ZW50X2hhc2giOiIxOGIzOWMyZGIyNjA3MjZhNWM5ZTk3NTRiMDUxMzc0NzJkYmJiMDE2MTk0MzUxMDdkODZhZmQyNjAyOTJhNmMyIiwiYXV0aG9yaXR5X3JlZiI6InVybjp0ZXN0LW9ubHk6ZXh0ZXJuYWwtZGlyZWN0b3IiLCJtYW5kYXRlX3JlZiI6InVybjp0ZXN0LW9ubHk6bWFuZGF0ZSIsInBvbGljeV9waW4iOiJ0ZXN0LW9ubHktcGluIiwicG9saWN5X3ZlcnNpb24iOiJmaXh0dXJlLTEiLCJyZXZva2VkIjpmYWxzZSwib2JzZXJ2ZWRfYXQiOiIyMDI2LTEwLTI4VDIzOjE1OjQ5Ljg5OFoiLCJleHBpcmVzX2F0IjoiMjAyNi0xMC0yOFQyMzoxNjoxOS44OThaIiwic3BldGxfcmVmIjoidXJuOnRlc3Qtb25seTpzcGV0bCIsImNvbnRyb2xfcmVzdWx0cyI6W3siY29udHJvbF9pZCI6ImZpeHR1cmUtb25seSIsInBhc3MiOnRydWUsImRlY2lzaW9uIjoiQUxMT1cifV19LCJpc3MiOiJ1cm46ZmZvczp0ZXN0LWRpcmVjdG9yIiwiYXVkIjoidXJuOmZmb3M6aG91c2Vob2xkOnRlc3QiLCJpYXQiOjE3OTMyMjkzNDksImV4cCI6MTc5MzIyOTk0OSwianRpIjoic2lnbmVkLTAyNTlmZTNlLTY4NjAtNGE1MC05ZGI2LTMzOWI3Y2QyMDQ5NSJ9.n62pDtGiBx7PUJUBkzR1Q0ZxokwFu3F81BlC2WAGZAuruXGR6dkccyzCPOMa3JHnDUyvhyXN7AJQSaVaG4KwCQ"
+      },
+      "project_id": "test-project",
+      "actor": "CDX_ENFORCEMENT_POINT",
+      "event_type": "CDX_EFFECT_ALLOWED",
+      "source_ref": "urn:test-only:spetl",
+      "previous_hash": "e5dc03a9fd709905911fb836e6cb73a5611622e26ab868c1fc998f1d1a520c59",
+      "event_hash": "7f94601f9749f66bc1da5a362c415c738a2463cc339393abe6b140881feef2fd"
+    },
+    {
+      "event_id": "event-07e25fb9-6da4-42e9-8983-43d1c492dbbe",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "9ab95f560612cd57c520976ae5ec5ffdda8db47eb3b1ec1707a5be89f3f0d4c6",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.905Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {
+        "intent_hash": "18b39c2db260726a5c9e9754b05137472dbbb01619435107d86afd260292a6c2",
+        "receipt": {
+          "decision": "ALLOW",
+          "intent_hash": "18b39c2db260726a5c9e9754b05137472dbbb01619435107d86afd260292a6c2",
+          "authority_ref": "urn:test-only:external-director",
+          "mandate_ref": "urn:test-only:mandate",
+          "policy_pin": "test-only-pin",
+          "policy_version": "fixture-1",
+          "revoked": false,
+          "observed_at": "2026-10-28T23:15:49.905Z",
+          "expires_at": "2026-10-28T23:16:19.905Z",
+          "spetl_ref": "urn:test-only:spetl",
+          "control_results": [
+            {
+              "control_id": "fixture-only",
+              "pass": true,
+              "decision": "ALLOW"
+            }
+          ]
+        },
+        "signed_provenance": "eyJhbGciOiJFZERTQSJ9.eyJraW5kIjoiY2R4LWRlY2lzaW9uIiwiZGF0YSI6eyJkZWNpc2lvbiI6IkFMTE9XIiwiaW50ZW50X2hhc2giOiIxOGIzOWMyZGIyNjA3MjZhNWM5ZTk3NTRiMDUxMzc0NzJkYmJiMDE2MTk0MzUxMDdkODZhZmQyNjAyOTJhNmMyIiwiYXV0aG9yaXR5X3JlZiI6InVybjp0ZXN0LW9ubHk6ZXh0ZXJuYWwtZGlyZWN0b3IiLCJtYW5kYXRlX3JlZiI6InVybjp0ZXN0LW9ubHk6bWFuZGF0ZSIsInBvbGljeV9waW4iOiJ0ZXN0LW9ubHktcGluIiwicG9saWN5X3ZlcnNpb24iOiJmaXh0dXJlLTEiLCJyZXZva2VkIjpmYWxzZSwib2JzZXJ2ZWRfYXQiOiIyMDI2LTEwLTI4VDIzOjE1OjQ5LjkwNVoiLCJleHBpcmVzX2F0IjoiMjAyNi0xMC0yOFQyMzoxNjoxOS45MDVaIiwic3BldGxfcmVmIjoidXJuOnRlc3Qtb25seTpzcGV0bCIsImNvbnRyb2xfcmVzdWx0cyI6W3siY29udHJvbF9pZCI6ImZpeHR1cmUtb25seSIsInBhc3MiOnRydWUsImRlY2lzaW9uIjoiQUxMT1cifV19LCJpc3MiOiJ1cm46ZmZvczp0ZXN0LWRpcmVjdG9yIiwiYXVkIjoidXJuOmZmb3M6aG91c2Vob2xkOnRlc3QiLCJpYXQiOjE3OTMyMjkzNDksImV4cCI6MTc5MzIyOTk0OSwianRpIjoic2lnbmVkLTcxYThiZDJkLWNiYTYtNDg0Ny05Y2ZjLTU2Y2NkNTdiOTFmNyJ9.f3RXVSn4cocOL7VBZ_0tMoVf8k5GiDGJrAFCNQXX-0FSm9poaKz2JXMCIW7Qtm88xn3T-raE7FqDoR96wv30DA"
+      },
+      "project_id": "test-project",
+      "actor": "CDX_ENFORCEMENT_POINT",
+      "event_type": "CDX_EFFECT_ALLOWED",
+      "source_ref": "urn:test-only:spetl",
+      "previous_hash": "7f94601f9749f66bc1da5a362c415c738a2463cc339393abe6b140881feef2fd",
+      "event_hash": "bc8475a9425f53cf836423faaadc8e539af90e30395384d9870e020b7d2d163b"
+    },
+    {
+      "event_id": "event-4f838979-b519-4c2a-8115-c0d5870c5cc0",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "9ab95f560612cd57c520976ae5ec5ffdda8db47eb3b1ec1707a5be89f3f0d4c6",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.913Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {
+        "intent_hash": "18b39c2db260726a5c9e9754b05137472dbbb01619435107d86afd260292a6c2",
+        "receipt": {
+          "decision": "ALLOW",
+          "intent_hash": "18b39c2db260726a5c9e9754b05137472dbbb01619435107d86afd260292a6c2",
+          "authority_ref": "urn:test-only:external-director",
+          "mandate_ref": "urn:test-only:mandate",
+          "policy_pin": "test-only-pin",
+          "policy_version": "fixture-1",
+          "revoked": false,
+          "observed_at": "2026-10-28T23:15:49.912Z",
+          "expires_at": "2026-10-28T23:16:19.912Z",
+          "spetl_ref": "urn:test-only:spetl",
+          "control_results": [
+            {
+              "control_id": "fixture-only",
+              "pass": true,
+              "decision": "ALLOW"
+            }
+          ]
+        },
+        "signed_provenance": "eyJhbGciOiJFZERTQSJ9.eyJraW5kIjoiY2R4LWRlY2lzaW9uIiwiZGF0YSI6eyJkZWNpc2lvbiI6IkFMTE9XIiwiaW50ZW50X2hhc2giOiIxOGIzOWMyZGIyNjA3MjZhNWM5ZTk3NTRiMDUxMzc0NzJkYmJiMDE2MTk0MzUxMDdkODZhZmQyNjAyOTJhNmMyIiwiYXV0aG9yaXR5X3JlZiI6InVybjp0ZXN0LW9ubHk6ZXh0ZXJuYWwtZGlyZWN0b3IiLCJtYW5kYXRlX3JlZiI6InVybjp0ZXN0LW9ubHk6bWFuZGF0ZSIsInBvbGljeV9waW4iOiJ0ZXN0LW9ubHktcGluIiwicG9saWN5X3ZlcnNpb24iOiJmaXh0dXJlLTEiLCJyZXZva2VkIjpmYWxzZSwib2JzZXJ2ZWRfYXQiOiIyMDI2LTEwLTI4VDIzOjE1OjQ5LjkxMloiLCJleHBpcmVzX2F0IjoiMjAyNi0xMC0yOFQyMzoxNjoxOS45MTJaIiwic3BldGxfcmVmIjoidXJuOnRlc3Qtb25seTpzcGV0bCIsImNvbnRyb2xfcmVzdWx0cyI6W3siY29udHJvbF9pZCI6ImZpeHR1cmUtb25seSIsInBhc3MiOnRydWUsImRlY2lzaW9uIjoiQUxMT1cifV19LCJpc3MiOiJ1cm46ZmZvczp0ZXN0LWRpcmVjdG9yIiwiYXVkIjoidXJuOmZmb3M6aG91c2Vob2xkOnRlc3QiLCJpYXQiOjE3OTMyMjkzNDksImV4cCI6MTc5MzIyOTk0OSwianRpIjoic2lnbmVkLWVhMjlhYWRkLThiYjctNDYxMy05YzVkLTVhZDBlN2RmZGY2NyJ9.74jnFKDYMnozyULDKW7f5zRxVG91wAIwCSlTR4sJye1mOfGZ01wh5QptBAwd5rTXJOmwrqkgS1tMG5fFwnNKBQ"
+      },
+      "project_id": "test-project",
+      "actor": "CDX_ENFORCEMENT_POINT",
+      "event_type": "CDX_EFFECT_ALLOWED",
+      "source_ref": "urn:test-only:spetl",
+      "previous_hash": "bc8475a9425f53cf836423faaadc8e539af90e30395384d9870e020b7d2d163b",
+      "event_hash": "7e850f648c640eb45778cffc039804746963a873d0b7d52f0087c0f553519164"
+    },
+    {
+      "event_id": "event-9dd662a6-6e96-4373-a70b-f28e5ef34238",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "9ab95f560612cd57c520976ae5ec5ffdda8db47eb3b1ec1707a5be89f3f0d4c6",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.919Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": "run-68e36d43-d23d-492a-b006-190895324a6c:commit:recipe-WP02",
+      "readback_verified": true,
+      "detail": {
+        "result_hash": "ecc8f7c8251177def7b8a62bef7f05812d8635717bd4c52c2c323aceb1bf476a"
+      },
+      "project_id": "test-project",
+      "actor": "HANDYMAN",
+      "event_type": "EXTERNAL_WRITE_CONFIRMED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "7e850f648c640eb45778cffc039804746963a873d0b7d52f0087c0f553519164",
+      "event_hash": "7f7aa87d915eb7240a1dd0262c7451539cbea22cec6279d793b5e88496a5cb61"
+    },
+    {
+      "event_id": "event-3fff5f03-fb97-44da-92d4-cf1e064ced4d",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "9ab95f560612cd57c520976ae5ec5ffdda8db47eb3b1ec1707a5be89f3f0d4c6",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.923Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {
+        "intent_hash": "a267c7fdca662cd9f7c4783bce807e95c4b77ce24641401fbfc5a1bec885c053",
+        "receipt": {
+          "decision": "ALLOW",
+          "intent_hash": "a267c7fdca662cd9f7c4783bce807e95c4b77ce24641401fbfc5a1bec885c053",
+          "authority_ref": "urn:test-only:external-director",
+          "mandate_ref": "urn:test-only:mandate",
+          "policy_pin": "test-only-pin",
+          "policy_version": "fixture-1",
+          "revoked": false,
+          "observed_at": "2026-10-28T23:15:49.922Z",
+          "expires_at": "2026-10-28T23:16:19.922Z",
+          "spetl_ref": "urn:test-only:spetl",
+          "control_results": [
+            {
+              "control_id": "fixture-only",
+              "pass": true,
+              "decision": "ALLOW"
+            }
+          ]
+        },
+        "signed_provenance": "eyJhbGciOiJFZERTQSJ9.eyJraW5kIjoiY2R4LWRlY2lzaW9uIiwiZGF0YSI6eyJkZWNpc2lvbiI6IkFMTE9XIiwiaW50ZW50X2hhc2giOiJhMjY3YzdmZGNhNjYyY2Q5ZjdjNDc4M2JjZTgwN2U5NWM0Yjc3Y2UyNDY0MTQwMWZiZmM1YTFiZWM4ODVjMDUzIiwiYXV0aG9yaXR5X3JlZiI6InVybjp0ZXN0LW9ubHk6ZXh0ZXJuYWwtZGlyZWN0b3IiLCJtYW5kYXRlX3JlZiI6InVybjp0ZXN0LW9ubHk6bWFuZGF0ZSIsInBvbGljeV9waW4iOiJ0ZXN0LW9ubHktcGluIiwicG9saWN5X3ZlcnNpb24iOiJmaXh0dXJlLTEiLCJyZXZva2VkIjpmYWxzZSwib2JzZXJ2ZWRfYXQiOiIyMDI2LTEwLTI4VDIzOjE1OjQ5LjkyMloiLCJleHBpcmVzX2F0IjoiMjAyNi0xMC0yOFQyMzoxNjoxOS45MjJaIiwic3BldGxfcmVmIjoidXJuOnRlc3Qtb25seTpzcGV0bCIsImNvbnRyb2xfcmVzdWx0cyI6W3siY29udHJvbF9pZCI6ImZpeHR1cmUtb25seSIsInBhc3MiOnRydWUsImRlY2lzaW9uIjoiQUxMT1cifV19LCJpc3MiOiJ1cm46ZmZvczp0ZXN0LWRpcmVjdG9yIiwiYXVkIjoidXJuOmZmb3M6aG91c2Vob2xkOnRlc3QiLCJpYXQiOjE3OTMyMjkzNDksImV4cCI6MTc5MzIyOTk0OSwianRpIjoic2lnbmVkLTYwZjExZjQxLTJkMmQtNGIwNC1hYmM0LTVjOTkwN2QwODgwYSJ9.atoYAAW2fV9xTANGOB93gBTARLQDHuzw_9qj_7sfJhxmOh7m77N4WBiPM05XjjNzc4j7qYvgl8s_byVaRwtxBw"
+      },
+      "project_id": "test-project",
+      "actor": "CDX_ENFORCEMENT_POINT",
+      "event_type": "CDX_EFFECT_ALLOWED",
+      "source_ref": "urn:test-only:spetl",
+      "previous_hash": "7f7aa87d915eb7240a1dd0262c7451539cbea22cec6279d793b5e88496a5cb61",
+      "event_hash": "a0b9405d825a722a27be4309ded73c110a996e3c8d9fac7811db8f889435717b"
+    },
+    {
+      "event_id": "event-213ba0cf-33bf-42c3-8347-9e70324aded6",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "9ab95f560612cd57c520976ae5ec5ffdda8db47eb3b1ec1707a5be89f3f0d4c6",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.926Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": "run-68e36d43-d23d-492a-b006-190895324a6c:pr:recipe-WP02",
+      "readback_verified": false,
+      "detail": {
+        "request_hash": "7b8e211d429ae512808dcc012bbfae563701eb6a3fcff465ef383ee9084ca899",
+        "key": "pr:recipe-WP02"
+      },
+      "project_id": "test-project",
+      "actor": "HANDYMAN",
+      "event_type": "EXTERNAL_WRITE_INTENT",
+      "source_ref": "director:test-policy",
+      "previous_hash": "a0b9405d825a722a27be4309ded73c110a996e3c8d9fac7811db8f889435717b",
+      "event_hash": "2ea8a21984980a693533493aef9250bf3410aa4736bd26dadc6eee42c8968c2b"
+    },
+    {
+      "event_id": "event-71f5a7e2-89e3-456a-9ba5-6263afb4cb64",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": "9ab95f560612cd57c520976ae5ec5ffdda8db47eb3b1ec1707a5be89f3f0d4c6",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.931Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": "run-68e36d43-d23d-492a-b006-190895324a6c:pr:recipe-WP02",
+      "readback_verified": true,
+      "detail": {
+        "result_hash": "8ed69b6f18663183d3e2a0df779d922f7f002ee343995364fe865f6de36f8732"
+      },
+      "project_id": "test-project",
+      "actor": "HANDYMAN",
+      "event_type": "EXTERNAL_WRITE_CONFIRMED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "2ea8a21984980a693533493aef9250bf3410aa4736bd26dadc6eee42c8968c2b",
+      "event_hash": "5e9237bcf25b69a950091501d6fe78dd52121ab72f0e55e32734e1976bfd1a2b"
+    },
+    {
+      "event_id": "event-2d98f007-e705-4b82-8f62-c9b7ccd1f1e8",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": "EXECUTING",
+      "new_state": "VERIFYING",
+      "policy_hash": "9ab95f560612cd57c520976ae5ec5ffdda8db47eb3b1ec1707a5be89f3f0d4c6",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.932Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "STATE_TRANSITION",
+      "source_ref": "director:test-policy",
+      "previous_hash": "5e9237bcf25b69a950091501d6fe78dd52121ab72f0e55e32734e1976bfd1a2b",
+      "event_hash": "dc1b15d51ae8d40d2c8a8e5fd357a66806a73b69d98fd82d2c4381c012242fc7"
+    },
+    {
+      "event_id": "event-547392fc-6498-4afc-852d-b9b073ee73a9",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": "VERIFYING",
+      "new_state": "VERIFYING",
+      "policy_hash": "9ab95f560612cd57c520976ae5ec5ffdda8db47eb3b1ec1707a5be89f3f0d4c6",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:49.935Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "LEASE_ACQUIRED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "dc1b15d51ae8d40d2c8a8e5fd357a66806a73b69d98fd82d2c4381c012242fc7",
+      "event_hash": "6ac46c4d735e57d872b2e475076521ee960395764cbdfa43c9ffc3b66dd4f836"
+    },
+    {
+      "event_id": "event-ae3f09d8-b3ea-4a15-b7e1-85f6e722eb68",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": null,
+      "evidence_refs": [
+        "evidence-0dd7532d-5373-4a25-a819-31049961cb5c",
+        "evidence-d79f795a-a529-4364-be43-b85a760c7ca5",
+        "evidence-593a75e8-3a04-4375-8e75-e1411acaa73e"
+      ],
+      "timestamp": "2026-10-28T23:15:50.066Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "VERIFIER",
+      "event_type": "EVIDENCE_RECORDED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "6ac46c4d735e57d872b2e475076521ee960395764cbdfa43c9ffc3b66dd4f836",
+      "event_hash": "158f48700a2eaba0654831e3785b1c5f551d0429b64d51d3c1f337980ae0c082"
+    },
+    {
+      "event_id": "event-c9bdff3e-d69a-4966-be41-6bda5678286e",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": "VERIFYING",
+      "new_state": "READY_FOR_DIRECTOR",
+      "policy_hash": "9ab95f560612cd57c520976ae5ec5ffdda8db47eb3b1ec1707a5be89f3f0d4c6",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:50.071Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "STATE_TRANSITION",
+      "source_ref": "director:test-policy",
+      "previous_hash": "158f48700a2eaba0654831e3785b1c5f551d0429b64d51d3c1f337980ae0c082",
+      "event_hash": "5fc5757a719d8fdda2a1072e40691baae74ee1e9fd541af7688e0a4db99c2235"
+    },
+    {
+      "event_id": "event-691733b6-7f3d-4d01-a5dc-f0d5c098d278",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": null,
+      "evidence_refs": [
+        "evidence-129467a5-b564-4e74-972d-c1f309af6127",
+        "evidence-0d8f5c67-b024-467b-b031-a51fc51a20ac",
+        "evidence-79271c9b-474b-485b-b0a1-a655aa582f72"
+      ],
+      "timestamp": "2026-10-28T23:15:50.214Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "VERIFIER",
+      "event_type": "EVIDENCE_RECORDED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "5fc5757a719d8fdda2a1072e40691baae74ee1e9fd541af7688e0a4db99c2235",
+      "event_hash": "72aaca89f987f7dc649b54ccaeff8b29449e1717049b738a205bfce2d267ff40"
+    },
+    {
+      "event_id": "event-79e7a1a5-0fab-49e9-aae3-d385a252efac",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": "READY_FOR_DIRECTOR",
+      "new_state": "ACCEPTED",
+      "policy_hash": "9ab95f560612cd57c520976ae5ec5ffdda8db47eb3b1ec1707a5be89f3f0d4c6",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:50.215Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": null,
+      "readback_verified": true,
+      "detail": {
+        "decision_id": "decision-f8dcc68b-af47-4642-a4e1-ac3e01c4d05e",
+        "signature_hash": "2f2beaf1264f628c16794979592f7192214b760200696c5d0a3c83c23b2fbeb5"
+      },
+      "project_id": "test-project",
+      "actor": "DIRECTOR",
+      "event_type": "DIRECTOR_ACCEPT",
+      "source_ref": "urn:test-only:external-director",
+      "previous_hash": "72aaca89f987f7dc649b54ccaeff8b29449e1717049b738a205bfce2d267ff40",
+      "event_hash": "61b2dab3efc83aa39454f15e20eaaf1178851ef3b9940e1f30e3edfcf4a79e05"
+    },
+    {
+      "event_id": "event-7c63f1d2-9a8d-48ba-9e7a-987b6e749bbf",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": "ACCEPTED",
+      "new_state": "ACCEPTED",
+      "policy_hash": "9ab95f560612cd57c520976ae5ec5ffdda8db47eb3b1ec1707a5be89f3f0d4c6",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:50.217Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "LEASE_ACQUIRED",
+      "source_ref": "director:test-policy",
+      "previous_hash": "61b2dab3efc83aa39454f15e20eaaf1178851ef3b9940e1f30e3edfcf4a79e05",
+      "event_hash": "4a88602fa5974aa3a9a58f40059fcfa5626347cf9f7da092acc47ae9ddd12ee9"
+    },
+    {
+      "event_id": "event-62e9a48e-2ded-4213-b645-52db41b18a4c",
+      "run_id": "run-68e36d43-d23d-492a-b006-190895324a6c",
+      "previous_state": "ACCEPTED",
+      "new_state": "RECORDED",
+      "policy_hash": "9ab95f560612cd57c520976ae5ec5ffdda8db47eb3b1ec1707a5be89f3f0d4c6",
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:50.218Z",
+      "correlation_id": "corr-0c2e50c4-037c-4b17-97f8-2dd7f90fe6ec",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {},
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "STATE_TRANSITION",
+      "source_ref": "director:test-policy",
+      "previous_hash": "4a88602fa5974aa3a9a58f40059fcfa5626347cf9f7da092acc47ae9ddd12ee9",
+      "event_hash": "7a4346a7449df291d737c23eaf123ac51e14f8bfa5e309a01839b9c3da49e66d"
+    },
+    {
+      "event_id": "event-92bfb601-a976-4277-8823-b6b68d50a527",
+      "run_id": null,
+      "previous_state": null,
+      "new_state": null,
+      "policy_hash": null,
+      "evidence_refs": [],
+      "timestamp": "2026-10-28T23:15:50.222Z",
+      "correlation_id": "corr-94c65cf2-7cb6-4a4a-8305-f1a03b8dd3e0",
+      "external_write_id": null,
+      "readback_verified": false,
+      "detail": {
+        "decision_id": "decision-f8dcc68b-af47-4642-a4e1-ac3e01c4d05e",
+        "auto_dispatch": true
+      },
+      "project_id": "test-project",
+      "actor": "ORCHESTRATOR",
+      "event_type": "DIRECTOR_PROGRESSION_RECONCILED",
+      "source_ref": "urn:test-only:external-director",
+      "previous_hash": "7a4346a7449df291d737c23eaf123ac51e14f8bfa5e309a01839b9c3da49e66d",
+      "event_hash": "302d13ce226fb8e9bdb80c57a6d55c93a0023027fc852f3715255ea38db46a38"
+    }
+  ],
+  "audit_chain_valid": true,
+  "observed_mutations": [
+    "branch",
+    "commit",
+    "pull_request",
+    "commit",
+    "branch",
+    "commit",
+    "pull_request"
+  ]
+}

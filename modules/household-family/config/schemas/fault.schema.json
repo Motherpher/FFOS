@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "defect_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,119}$"
+    },
+    "J_class": {
+      "type": "string",
+      "enum": [
+        "J0",
+        "J1",
+        "J2",
+        "UNDETERMINED"
+      ]
+    },
+    "observed_in": {
+      "type": "string"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "scope": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 400
+      }
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "INFO",
+        "HYGIENE",
+        "DRIFT",
+        "CONTRADICTION",
+        "CONTROL_DEFECT",
+        "SECURITY_STOP",
+        "CONSTITUTIONAL_STOP"
+      ]
+    },
+    "suggested_fix": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "attempt_limit": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "OPEN",
+        "RESOLVED",
+        "HOLD"
+      ]
+    }
+  },
+  "required": [
+    "defect_id",
+    "J_class",
+    "observed_in",
+    "evidence",
+    "scope",
+    "severity",
+    "suggested_fix",
+    "attempt_limit",
+    "status"
+  ],
+  "additionalProperties": false
+}

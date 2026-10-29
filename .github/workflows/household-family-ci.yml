@@ -1,0 +1,53 @@
+name: Household Family CI
+on:
+  pull_request:
+    paths:
+      [
+        "modules/household-family/**",
+        ".github/workflows/household-family-*.yml",
+      ]
+  push:
+    branches: ["hf/household-family-2.0"]
+permissions:
+  contents: read
+jobs:
+  contracts-and-postgres:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: hf_test
+          POSTGRES_PASSWORD: hf_test_fixture_only
+          POSTGRES_DB: hf_test
+        ports: ["5432:5432"]
+        options: --health-cmd="pg_isready -U hf_test" --health-interval=5s --health-timeout=5s --health-retries=20
+    defaults:
+      run:
+        working-directory: modules/household-family
+    env:
+      HF_TEST_DATABASE_URL: postgresql://hf_test:hf_test_fixture_only@127.0.0.1:5432/hf_test
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: { persist-credentials: false }
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: "24.22.1"
+          cache: npm
+          cache-dependency-path: modules/household-family/package-lock.json
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: npm run build
+      - run: npm test -- --reporter=default --reporter=json --outputFile=test-results/vitest.json
+      - run: npm run demo
+      - run: npm run schemas
+      - name: Generated contracts are current
+        run: git diff --exit-code -- config/schemas config/project.schema.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: household-family-test-evidence
+          path: |
+            modules/household-family/test-results/
+            modules/household-family/docs/evidence/sandbox-demo.json
+          retention-days: 30
