@@ -6,6 +6,14 @@
 **Runtime source:** `RUNTIME-INTEGRATION/CDX-RUNTIME-001.json` (release-candidate 1.0.0)  
 **Candidate status:** F8 consumer adapter engineering; no CDX constitutional amendment, no verified production binding.
 
+## Canonical Estate terminology and membership precedence — owner-accepted
+
+**Estate** is the governing term. The canonical Estate definition and membership rules are maintained by Conductellence under `CDX-ESTATE-TERMS-001`: [policy adoption PR #54](https://github.com/Hybrismannen/Conductellence-/pull/54), `ESTATE-REGISTRY/ESTATE-NAMING-POLICY-v1.md`. The adopted registry (`ESTATE-REGISTRY/registry-v2.json` or approved successor) determines CDX applicability; **neither an agent's declared `operatingRealm` nor the `FF_ESTATE` internal scope label can independently establish or waive membership**.
+
+For every CDX-registered applicable consumer, F8 is mandatory at that consumer's admission boundary. FF_ESTATE is one internal grouping and MUST NOT exclude separately classified CDX-applicable systems. External distribution of the portable AMA template may detach the source Estate's CDX adapter only if the target is genuinely outside the source Estate and supplies an independently governed policy/security boundary. Excluded repositories remain outside applicability. A declaration is not registry attestation or runtime enforcement.
+
+The current `ama_realm.py` checker validates *declared* context only; it MUST NOT be treated as a trusted resolver of CDX registry membership. A verified registry/host admission check remains a separate F8 runtime implementation obligation. The central policy's rollout is tracked in the CDX repository and does not itself install anchors or activate agents.
+
 ## Operating-realm binding — mandatory internally, detachable externally
 
 **AMA stewardship:** Form & Flöde's internal environment (including controlled subsidiaries and Pius) is represented by the `FF_ESTATE` realm in `packages/agent-model/ama-stewardship-realm.json`. AMA as a maintained engineering artifact is subject to a declared Conductellence governance anchor. This is a governance declaration; the current runtime remains unverified.
