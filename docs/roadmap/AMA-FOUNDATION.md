@@ -98,3 +98,13 @@ The normative AMA 0.1 master and historical v1 manifest remain unchanged. Produc
 Six additional agent-neutral v0.2 schemas and portable TypeScript contracts define principals, mandates, delegation, authorization requests, policy decisions and approvals. A separate static gate validates claim structure, scoped grants, sensitive E0 reads, risk dimensions, restrictions, expiry and self-approval denial, **but never grants runtime authority**.
 
 See [M2 contract specification](AMA-M2-AUTHORIZATION-CONTRACTS.md) and [M2 execution report](AMA-M2-EXECUTION-REPORT.md). Existing v1 runtime and constitutional governance remain unchanged. F8 must independently attest policy facts, revocation and actual read/effect mediation.
+
+## M3 — Conditional reasoning and governed memory (2026-10-29)
+
+**Status:** ENGINEERING CANDIDATE VERIFIED; NORMATIVE HUMAN ACCEPTANCE AND RUNTIME/F8/M5 ASSURANCE PENDING.
+
+Eight candidate schemas and a provider-neutral validator define model/instruction pins, bounded planning and stopping, context compaction source traceability, memory lifetime and quarantine, trusted retrieval scope and optional cognitive binding. A valid agent may still have no model and no memory.
+
+[M3 candidate specification](AMA-M3-COGNITIVE-MEMORY-CONTRACTS.md) · [M3 execution report](AMA-M3-EXECUTION-REPORT.md) · [CI run 40809807317](https://github.com/Motherpher/FFOS/actions/runs/40809807317).
+
+All M3 checks are static/synthetic. They cannot establish live model performance, memory erasure, real poisoning resilience, provenance authenticity, independent authorization or agent activation. Proceed to M4 candidate execution design, with F8 and M5 evidence as separate gates.
