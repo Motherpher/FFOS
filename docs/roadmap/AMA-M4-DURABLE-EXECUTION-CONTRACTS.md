@@ -60,3 +60,11 @@ The static `test_m4_durability.py` exercises schema and graph cases without a da
 **M4-DURABILITY-PASS (candidate)** requires a green complete CI run with the real disposable PostgreSQL tests, not only schema parsing. Even then, `RUNTIME_BOUND` and `INDEPENDENTLY_ACCEPTED` remain unproven.
 
 F8 must deliver authenticated policy inputs, comprehensive decision mapping, live CDX anchor and SPETL/receipt custody. M5 must independently verify actual final-state outcomes, adversarial reliability and failure recovery in the chosen production environment. F7/M6 covers operational incident handling and deployment safety. **No production migration, real effect, PR merge or agent activation is authorized by this document.**
+
+## M4 extension — scheduled and external event triggers
+
+The optional M4 eventing extension is `schemas/v0.2/event-trigger.schema.json`, added to the existing bundle via `eventTriggers[]`. `src/durable-vnext.ts` exports its candidate TypeScript declaration. This is **M4**, not a new milestone or an event-dispatch agent.
+
+A trigger resolves one immutable command/workflow pair and binds an enabled `SCHEDULING` or `EVENTS` module. Schedules declare an expression, timezone and required occurrence key. Webhooks and queue consumers declare an external source, authentication requirement, idempotency-key field and typed payload. Every trigger requires bounded delivery/age/concurrency, external authorization, a no-implicit-replay policy, HOLD on failure and an invariant that event payloads cannot expand an agent mandate.
+
+`conformance/ama_eventing.py` performs static semantic pin, module and effect-ceiling checks, with adversarial tests in `tests/test_m4_eventing.py`. **No scheduler, transport, dispatch, source authentication, replay ledger or actual policy decision is implemented by this contract.** Those remain explicit host obligations, tracked as PARTIAL_EXISTING_CONTRACTS in the supplementary inventory.
