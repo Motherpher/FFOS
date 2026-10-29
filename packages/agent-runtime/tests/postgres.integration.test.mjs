@@ -74,7 +74,8 @@ test("PostgreSQL: versioned registry, Director transitions, audit, revocation",{
     const pin="7edbc47899af23b415114628469aca2970779ea1";
     const gate=new AgentEffectGate(reg,{async evaluate(req){return {
       outcome:"ALLOW",decisionRef:"MOCK-DECISION",policyPin:pin,
-      spetlReceiptRef:"MOCK-SPETL",evaluatedTarget:req.target,
+      spetlReceiptRef:"MOCK-SPETL",decisionAuthenticated:true,
+      spetlReceiptVerified:true,evaluatedTarget:req.target,
       evaluatedEffect:req.context.requestedEffect};}},
       {async assertNotRevoked(){}},new PgEffectEvidenceWriter(pool),pin,
       {async assertPinned(){}});
