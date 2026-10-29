@@ -95,6 +95,12 @@ def evaluate(bundle, *, profile_id, at, attestor=None):
     axes = {c["axis"] for c in selected}
     if not set(profile["requiredAxes"]).issubset(axes):
         findings.add("AXIS_COVERAGE_GAP")
+    scenario_classes={c["scenarioClass"] for c in selected}
+    if not {"INJECTION", "OUTAGE", "RECOVERY"}.issubset(scenario_classes):
+        findings.add("ADVERSARIAL_OUTAGE_RECOVERY_COVERAGE_GAP")
+    if any(c["axis"] == "ADVERSARIAL" and c["scenarioClass"] != "INJECTION"
+           for c in selected):
+        findings.add("ADVERSARIAL_SCENARIO_MISCLASSIFIED")
     if profile["holdoutRequired"] and not any(c["holdout"] for c in selected):
         findings.add("NO_HOLDOUT_CASES")
     if profile["holdoutRequired"] and not any(not c["holdout"] for c in selected):
@@ -196,7 +202,7 @@ def evaluate(bundle, *, profile_id, at, attestor=None):
                     and p["collectorKind"] in ("INDEPENDENT_SERVICE","HUMAN_REVIEWER")
                     and p.get("attestationRef") and attestor is not None):
                     try:
-                        verified = bool(attestor(p, o)) or verified
+                        verified = bool(attestor(p, o, case)) or verified
                     except Exception:
                         findings.add("ATTESTATION_SERVICE_FAILED")
             if verified:
