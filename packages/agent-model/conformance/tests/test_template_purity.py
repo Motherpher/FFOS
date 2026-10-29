@@ -39,6 +39,17 @@ class UniversalTemplatePurityTests(unittest.TestCase):
                 )
                 self.assertNotIn(OLD_TOPOLOGY, source)
 
+    def test_candidate_schemas_and_types_are_agent_agnostic(self):
+        schemas = ROOT / "packages/agent-model/schemas/v0.2"
+        paths = sorted(schemas.glob("*.schema.json"))
+        self.assertEqual(12, len(paths))
+        paths.append(ROOT / "packages/agent-model/src/vnext.ts")
+        for p in paths:
+            with self.subTest(path=p.name):
+                content = p.read_text(encoding="utf-8")
+                self.assertIsNone(FORBIDDEN.search(content))
+                self.assertNotIn(OLD_TOPOLOGY, content)
+
     def test_master_section_fifteen_is_non_goals(self):
         master = (ROOT / "docs/architecture/AMA.md").read_text(encoding="utf-8")
         self.assertRegex(master, r"(?m)^## 15\. Non-goals\s*$")
