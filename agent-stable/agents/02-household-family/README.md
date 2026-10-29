@@ -23,6 +23,6 @@ These are internal roles/workflows, not independent agents.
 
 ## Technical implementation
 
-The concrete Household Family 2.0 implementation exists on branch `hf/household-family-2.0` under `modules/household-family/`.
+The concrete Household Family 2.0 implementation is integrated in canonical `main` under `modules/household-family/`. The former `hf/household-family-2.0` branch remains source-lineage evidence only.
 
 The instance contract in this directory is the AMA/Agent Stable binding. Source presence does not imply deployment or production acceptance.
