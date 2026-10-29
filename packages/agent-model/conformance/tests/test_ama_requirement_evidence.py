@@ -19,8 +19,8 @@ class RequirementEvidenceTests(unittest.TestCase):
         r=load()
         self.assertEqual(r["findings"],[],r)
         self.assertEqual(r["original_requirement_count"],96)
-        self.assertEqual(r["partial_evidence_link_count"],11)
-        self.assertEqual(r["missing_direct_link_count"],85)
+        self.assertEqual(r["partial_evidence_link_count"],65)
+        self.assertEqual(r["missing_direct_link_count"],31)
         self.assertEqual(r["fully_accepted_requirement_count"],0)
 
     def test_missing_test_function_fails(self):
