@@ -1,0 +1,122 @@
+{
+  "schema": "ama.milestones/v1",
+  "architecture": "AMA",
+  "kind": "DOMAIN_AGNOSTIC_AGENT_TEMPLATE",
+  "milestone_order": [
+    "M0",
+    "M1",
+    "M2",
+    "M3",
+    "M4",
+    "M5",
+    "M6",
+    "M7"
+  ],
+  "milestones": {
+    "M0": {
+      "purpose": "Research, source decisions and requirement traceability",
+      "source_packages": [],
+      "source_artifacts": [
+        "docs/roadmap/AMA-REQUIREMENTS-DECISION-REGISTER.json",
+        "docs/research/AMA-REQUIREMENT-TRACEABILITY.json"
+      ],
+      "test_artifact": "packages/agent-model/conformance/tests/test_m0_governance.py"
+    },
+    "M1": {
+      "purpose": "Universal ontology, identity, commands, workflows, capabilities and contracts",
+      "source_packages": [
+        "F1"
+      ],
+      "source_artifacts": [
+        "docs/roadmap/AMA-M1-CANDIDATE-CONTRACTS.md",
+        "packages/agent-model/schemas/v0.2/bundle.schema.json"
+      ],
+      "test_artifact": "packages/agent-model/conformance/tests/test_m1_contracts.py"
+    },
+    "M2": {
+      "purpose": "Provider-neutral mandate, delegation and authorization",
+      "source_packages": [
+        "F2"
+      ],
+      "source_artifacts": [
+        "docs/roadmap/AMA-M2-AUTHORIZATION-CONTRACTS.md",
+        "packages/agent-model/conformance/ama_authorization.py"
+      ],
+      "test_artifact": "packages/agent-model/conformance/tests/test_m2_authorization.py"
+    },
+    "M3": {
+      "purpose": "Optional cognition, context, retrieval and memory",
+      "source_packages": [
+        "F3",
+        "F4"
+      ],
+      "source_artifacts": [
+        "docs/roadmap/AMA-M3-COGNITIVE-MEMORY-CONTRACTS.md",
+        "packages/agent-model/conformance/ama_cognitive.py"
+      ],
+      "test_artifact": "packages/agent-model/conformance/tests/test_m3_cognitive.py"
+    },
+    "M4": {
+      "purpose": "Durable execution, state and recovery",
+      "source_packages": [
+        "F5"
+      ],
+      "source_artifacts": [
+        "docs/roadmap/AMA-M4-DURABLE-EXECUTION-CONTRACTS.md",
+        "packages/agent-model/conformance/ama_durability.py"
+      ],
+      "test_artifact": "packages/agent-model/conformance/tests/test_m4_durability.py"
+    },
+    "M5": {
+      "purpose": "Evaluation, evidence and assurance",
+      "source_packages": [
+        "F6"
+      ],
+      "source_artifacts": [
+        "docs/roadmap/AMA-M5-INDEPENDENT-EVALUATION-ASSURANCE.md",
+        "packages/agent-model/conformance/ama_evaluation.py"
+      ],
+      "test_artifact": "packages/agent-model/conformance/tests/test_m5_evaluation.py"
+    },
+    "M6": {
+      "purpose": "Lifecycle, operations and maintenance",
+      "source_packages": [
+        "F7"
+      ],
+      "source_artifacts": [
+        "docs/roadmap/AMA-M6-OPERATIONAL-LIFECYCLE-CONTRACTS.md",
+        "packages/agent-model/conformance/ama_operations.py"
+      ],
+      "test_artifact": "packages/agent-model/conformance/tests/test_m6_operations.py"
+    },
+    "M7": {
+      "purpose": "End-to-end reference integration and conformance",
+      "source_packages": [],
+      "source_artifacts": [
+        "docs/roadmap/AMA-M7-E-END-TO-END-ENGINEERING.md",
+        "packages/agent-model/conformance/ama_m7_integration.py"
+      ],
+      "test_artifact": "packages/agent-model/conformance/tests/test_m7e_integration.py"
+    }
+  },
+  "f8": {
+    "id": "F8",
+    "role": "OPTIONAL_EXTERNAL_CDX_INTEGRATION_TRACK",
+    "core_milestone": false,
+    "provider": "CDX",
+    "portable_interface": "M2 provider-neutral authority and effect contract",
+    "source_artifacts": [
+      "docs/roadmap/AMA-F8-CDX-SECURITY-BINDING.md",
+      "integrations/cdx/f8/README.md"
+    ],
+    "production_binding_required_for_template": false
+  },
+  "coverage_register": "docs/roadmap/AMA-REQUIREMENTS-DECISION-REGISTER.json",
+  "supplementary_module_inventory": "packages/agent-model/ama-template-coverage.json",
+  "acceptance": {
+    "owner_reviews_and_accepts": true,
+    "ci_evidence_required": true,
+    "external_reviewer_mandated": false
+  },
+  "caveat": "M0-M7 are architectural work stages, not agent instances. F8 is an optional host integration. This map does not confer release, deployment or operational acceptance."
+}
