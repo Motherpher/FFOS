@@ -41,6 +41,36 @@ def registry():
                  for p in SCHEMAS.glob("*.schema.json")}
 
 
+def io_refs_local(schema):
+    """Require an offline-resolvable, self-contained I/O JSON Schema."""
+    seen = set()
+    def resolve(pointer):
+        if pointer == "#":
+            return schema
+        if not pointer.startswith("#/"):
+            raise ValueError("EXTERNAL_SCHEMA_REFERENCE")
+        parts = pointer[2:].split("/")
+        node = schema
+        for part in parts:
+            key = part.replace("~1", "/").replace("~0", "~")
+            node = node[int(key)] if isinstance(node, list) else node[key]
+        return node
+    def scan(node):
+        if isinstance(node, dict):
+            for k, val in node.items():
+                if k in ("$ref", "$dynamicRef"):
+                    if not isinstance(val, str):
+                        raise ValueError("INVALID_SCHEMA_REFERENCE")
+                    resolve(val)
+                if isinstance(val, (dict, list)):
+                    scan(val)
+        elif isinstance(node, list):
+            for val in node:
+                scan(val)
+    scan(schema)
+    return True
+
+
 def validate_bundle(bundle):
     """Return ordered error codes. Empty list = static contract only."""
     reg, schemas = registry()
@@ -201,11 +231,13 @@ def validate_bundle(bundle):
             if "inputSchema" in item:
                 try:
                     Draft202012Validator.check_schema(item["inputSchema"])
+                    io_refs_local(item["inputSchema"])
                 except Exception:
                     fail("INVALID_IO_SCHEMA")
             if "outputSchema" in item:
                 try:
                     Draft202012Validator.check_schema(item["outputSchema"])
+                    io_refs_local(item["outputSchema"])
                 except Exception:
                     fail("INVALID_IO_SCHEMA")
     # M1 task/effect shape and referential closure, not effect authorization.
