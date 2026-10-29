@@ -237,6 +237,18 @@ class AuthorizationContracts(unittest.TestCase):
         b=baseline();b["authorizationDecisions"][0]["outcome"]="PERMIT_WITH_OBLIGATIONS"
         self.assert_bad(b,"MISSING_POLICY_OBLIGATIONS")
 
+    def test_policy_deny_never_survives_precheck(self):
+        b=baseline();b["authorizationDecisions"][0]["outcome"]="DENY"
+        self.assert_bad(b,"RESTRICTIVE_POLICY_OUTCOME")
+
+    def test_policy_stop_never_survives_precheck(self):
+        b=baseline();b["authorizationDecisions"][0]["outcome"]="STOP"
+        self.assert_bad(b,"RESTRICTIVE_POLICY_OUTCOME")
+
+    def test_human_review_policy_requires_independent_review(self):
+        b=baseline();b["authorizationDecisions"][0]["outcome"]="REQUIRE_HUMAN"
+        self.assert_bad(b,"RESTRICTIVE_POLICY_OUTCOME")
+
     def test_future_request_denied(self):
         b=baseline();b["authorizationRequests"][0]["requestedAt"]="2026-10-30T11:00:00+00:00"
         self.assert_bad(repin(b),"REQUEST_FROM_FUTURE")
