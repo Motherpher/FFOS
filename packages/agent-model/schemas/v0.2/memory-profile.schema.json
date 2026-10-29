@@ -1,0 +1,89 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.memory-profile/v0.2-candidate"
+    },
+    "profileId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "status": {
+      "$ref": "common.schema.json#/$defs/bindingStatus"
+    },
+    "moduleId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "storeTypes": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "EPISODIC",
+          "SEMANTIC",
+          "RETRIEVAL_INDEX",
+          "RUN_STATE",
+          "DOMAIN_DATA"
+        ]
+      },
+      "minItems": 1
+    },
+    "allowedScopes": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/scope"
+      },
+      "minItems": 1
+    },
+    "retentionMaxSeconds": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "writeAdmission": {
+      "enum": [
+        "TRUSTED_GATE_REQUIRED"
+      ]
+    },
+    "retrievalAdmission": {
+      "enum": [
+        "TRUSTED_GATE_REQUIRED"
+      ]
+    },
+    "provenanceRequired": {
+      "const": true
+    },
+    "quarantineUntrusted": {
+      "const": true
+    },
+    "allowMemoryAuthority": {
+      "const": false
+    },
+    "deletionPolicy": {
+      "enum": [
+        "ERASE_OR_TOMBSTONE_WITH_AUDIT",
+        "RETENTION_HOLD_REQUIRES_REVIEW"
+      ]
+    }
+  },
+  "required": [
+    "schema",
+    "profileId",
+    "version",
+    "status",
+    "moduleId",
+    "storeTypes",
+    "allowedScopes",
+    "retentionMaxSeconds",
+    "writeAdmission",
+    "retrievalAdmission",
+    "provenanceRequired",
+    "quarantineUntrusted",
+    "allowMemoryAuthority",
+    "deletionPolicy"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/memory-profile.schema.json",
+  "title": "AMA v0.2 candidate memory-profile contract"
+}
