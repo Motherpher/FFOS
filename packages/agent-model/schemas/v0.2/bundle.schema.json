@@ -74,6 +74,42 @@
       "items": {
         "$ref": "effect.schema.json"
       }
+    },
+    "principals": {
+      "type": "array",
+      "items": {
+        "$ref": "principal.schema.json"
+      }
+    },
+    "mandates": {
+      "type": "array",
+      "items": {
+        "$ref": "mandate.schema.json"
+      }
+    },
+    "delegations": {
+      "type": "array",
+      "items": {
+        "$ref": "delegation.schema.json"
+      }
+    },
+    "authorizationRequests": {
+      "type": "array",
+      "items": {
+        "$ref": "authorization-request.schema.json"
+      }
+    },
+    "authorizationDecisions": {
+      "type": "array",
+      "items": {
+        "$ref": "authorization-decision.schema.json"
+      }
+    },
+    "approvals": {
+      "type": "array",
+      "items": {
+        "$ref": "approval.schema.json"
+      }
     }
   },
   "$schema": "https://json-schema.org/draft/2020-12/schema",
