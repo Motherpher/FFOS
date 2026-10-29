@@ -9,6 +9,7 @@ from pathlib import Path
 
 from ama_vnext import digest, validate_bundle
 from ama_milestone_integrity import load as milestone_integrity
+from ama_requirement_evidence import load as requirement_evidence
 from ama_blueprint_semantics import audit as audit_semantics
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -23,6 +24,9 @@ def assemble(bundle, optional_modules=(), use_f8=False, *, at=None, host_trust_d
     """
     problems = validate_bundle(bundle)
     stage_report = milestone_integrity()
+    trace_report = requirement_evidence()
+    if trace_report["findings"]:
+        problems.extend("M0_REQUIREMENT_TRACE:" + e for e in trace_report["findings"])
     if stage_report["errors"]:
         problems.extend("MILESTONE:" + e for e in stage_report["errors"])
     coverage = json.loads((MODEL / "ama-template-coverage.json").read_text(encoding="utf-8"))
@@ -106,6 +110,13 @@ def assemble(bundle, optional_modules=(), use_f8=False, *, at=None, host_trust_d
         "optional_host_integrations": ["F8_CDX"] if use_f8 else [],
         "selected_optional_modules": sorted((set(x for x in requested if x in allowed)) | implicitly_selected),
         "stages": stage_summary,
+        "source_requirement_evidence": {
+            "candidate_count": trace_report["original_requirement_count"],
+            "partial_test_link_count": trace_report["partial_evidence_link_count"],
+            "unmapped_test_link_count": trace_report["missing_direct_link_count"],
+            "fully_accepted_requirement_count": 0,
+            "test_results_authenticated": False,
+        },
         "implementation_obligations": obligations,
         "status": ("INVALID_SOURCE" if problems else
                    "ASSESSMENT_INPUT_REQUIRED" if assessment["assessment_inputs_required"] else
