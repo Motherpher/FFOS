@@ -54,7 +54,9 @@ docs/roadmap/           Work packages and implementation sequence
 
 ## Status
 
-Repository initialized. Core control-plane contracts exist. AMA static conformance checks and CI tests are implemented on the AMA feature branch. Agent Stable registry and local effect gate are implemented on the feature branch and verified with disposable PostgreSQL integration tests, but neither is deployed or bound to production authorization/CDX policy services. No claim is made that durable agent runtime, CDX runtime enforcement, HCC–CDX integration or a production first-class agent is complete until executable bindings, human approvals and live-evidence gates pass.
+The Agent Stable structural baseline is merged on `main` at `4c70d74b468202303b4f4249567154fb0a02ad2b` (PR #31). AMA contracts, Agent Mechanic, fleet registry, MESSI candidate definitions, Household Family 2.0 candidate implementation, shared agent model/runtime packages and conformance infrastructure are now part of the canonical technical baseline.
+
+This is **not** a production-agent activation. MESSI remains DRAFT / NOT IMPLEMENTED. Household Family remains IMPLEMENTATION CANDIDATE / NOT PRODUCTION ACCEPTED. Agent Stable registry/effect-gate components are not production-deployed or bound to complete live authorization/CDX services. Future lifecycle advancement still requires executable conformance, security, runtime, independent verification and Director acceptance.
 
 
 ## Canonical Agent Stable fleet
