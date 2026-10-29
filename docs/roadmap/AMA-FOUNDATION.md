@@ -108,3 +108,13 @@ Eight candidate schemas and a provider-neutral validator define model/instructio
 [M3 candidate specification](AMA-M3-COGNITIVE-MEMORY-CONTRACTS.md) · [M3 execution report](AMA-M3-EXECUTION-REPORT.md) · [CI run 40809807317](https://github.com/Motherpher/FFOS/actions/runs/40809807317).
 
 All M3 checks are static/synthetic. They cannot establish live model performance, memory erasure, real poisoning resilience, provenance authenticity, independent authorization or agent activation. Proceed to M4 candidate execution design, with F8 and M5 evidence as separate gates.
+
+## M4 — Durable Execution and Effect Reconciliation (2026-10-29)
+
+**Status: ENGINEERING CANDIDATE VALIDATED IN DISPOSABLE POSTGRESQL; NO PRODUCTION ENFORCEMENT OR HUMAN NORMATIVE ACCEPTANCE.**
+
+Seven generic durable run/attempt/checkpoint/receipt schemas, a Python conformance checker and an independently injected PostgreSQL coordinator provide lease fencing, crash-safe checkpoint verification, append-only run evidence, operation-key deduplication, cancellation and explicit independent effect reconciliation. The coordinator wraps (and does not replace) the existing effect gate.
+
+[M4 architecture](AMA-M4-DURABLE-EXECUTION-CONTRACTS.md) · [M4 verification report](AMA-M4-EXECUTION-REPORT.md) · [CI success 40812050101](https://github.com/Motherpher/FFOS/actions/runs/40812050101) (207 combined tests).
+
+**Release boundary:** Migrated only in disposable CI; no live policy/receipt binding, deployed database, agent activation or C4/C5 certification. Next: M5 independent outcome/evidence evaluation and the separate F8 security runtime integration.
