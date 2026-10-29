@@ -83,3 +83,35 @@ AMA is *finished* only when Gates A–D produce independent evidence and a named
 **Replacement acceptance model:** AMA = architecture conformance and reusable build contracts; Household = concrete agent instance with bounded operational acceptance; CDX = independent policy/governance and work-package target; MESSI = subsequent AMA-built agent. The earlier paragraph 'First supervised pilot (once AMA M7-O accepted)' should be read as **first supervised Household pilot after Household instance acceptance under AMA and FFOS/CDX controls**, not AMA execution.
 
 **Do not use the erroneous earlier recommendation 'finish AMA as an operational FFOS agent' or 'AMA coordinates bounded work packages' as implementation guidance. The executor is Household, explicitly authorized by Director.**
+
+
+## FINAL SUITE CLARIFICATION — Agent Stable fleet identity (2026-10-29)
+
+This clarification supersedes any remaining wording in this document that can be read as fleet numbering or agent identity order.
+
+The canonical Agent Stable fleet is:
+
+1. **Agent #1 — MESSI**
+2. **Agent #2 — Household Family**
+
+**Fleet ordinal is identity order, not implementation chronology or maturity.** Household Family currently has the more concrete implementation candidate; this does not make it Agent #1. MESSI remains Agent #1 while still DRAFT / not implemented.
+
+The phrase above describing Household as the “first narrowly scoped operational agent built using AMA” means the first concrete Household implementation candidate in this workstream, **not the first Agent Stable fleet identity**.
+
+The stable containment is:
+
+```text
+FFOS
+└── Agent Stable
+    ├── AMA
+    ├── Agent Mechanic
+    ├── #1 MESSI
+    └── #2 Household Family
+         ├── Janitor
+         ├── Handyman
+         └── Verifier
+```
+
+Director remains external governing authority. AMA and Agent Mechanic are not agents. Janitor, Handyman and Verifier are not agents. Cashin, Carpenter, Evaluate and Research are not separate fleet agents; where retained they are MESSI workflows/commands/capabilities.
+
+Machine authority: `agents/registry.json`.
