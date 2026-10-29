@@ -18,9 +18,9 @@ class DistributionTests(unittest.TestCase):
  def test_canonical_milestone_binding(self):
   x=copy.deepcopy(BASE);x["canonical_milestones"]="packages/agent-model/new-framework.json"
   self.assertIn("M0_M7_BOUNDARY",validate(x))
- def test_f8_remains_optional(self):
+ def test_f8_is_realm_conditional(self):
   x=copy.deepcopy(BASE);x["f8_integration_mode"]="MANDATORY_PRODUCTION_BINDING"
-  self.assertIn("F8_NOT_OPTIONAL",validate(x))
+  self.assertIn("F8_REALM_POLICY",validate(x))
  def test_no_instance_leak(self):
   x=copy.deepcopy(BASE);x["excluded"].remove("HOUSEHOLD");self.assertTrue(validate(x))
 if __name__=="__main__": unittest.main()
