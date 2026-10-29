@@ -1,0 +1,114 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.memory-entry/v0.2-candidate"
+    },
+    "entryId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "profileRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "storeType": {
+      "enum": [
+        "EPISODIC",
+        "SEMANTIC",
+        "RETRIEVAL_INDEX",
+        "RUN_STATE",
+        "DOMAIN_DATA"
+      ]
+    },
+    "contentDigest": {
+      "$ref": "common.schema.json#/$defs/digest"
+    },
+    "sourceRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "originTrustDomain": {
+      "type": "string",
+      "minLength": 1
+    },
+    "originActorRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "originKind": {
+      "enum": [
+        "USER",
+        "TOOL",
+        "DOCUMENT",
+        "SYSTEM_RECORD",
+        "AGENT_SYNTHESIS"
+      ]
+    },
+    "trustLabel": {
+      "enum": [
+        "VERIFIED",
+        "UNVERIFIED",
+        "SUSPECT",
+        "REVOKED"
+      ]
+    },
+    "writeDecisionRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "$ref": "common.schema.json#/$defs/scope"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "quarantined": {
+      "type": "boolean"
+    },
+    "instructionAuthority": {
+      "const": false
+    },
+    "correctionOfEntryRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "deletionState": {
+      "enum": [
+        "ACTIVE",
+        "TOMBSTONED",
+        "ERASED"
+      ]
+    }
+  },
+  "required": [
+    "schema",
+    "entryId",
+    "version",
+    "profileRef",
+    "storeType",
+    "contentDigest",
+    "sourceRef",
+    "originTrustDomain",
+    "originActorRef",
+    "originKind",
+    "trustLabel",
+    "writeDecisionRef",
+    "scope",
+    "createdAt",
+    "expiresAt",
+    "quarantined",
+    "instructionAuthority",
+    "deletionState"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/memory-entry.schema.json",
+  "title": "AMA v0.2 candidate memory-entry contract"
+}
