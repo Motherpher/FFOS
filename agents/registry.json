@@ -1,0 +1,42 @@
+{
+  "schema": "ffos.agent-stable.fleet-registry/v1",
+  "registryOwner": "FFOS_AGENT_STABLE",
+  "governance": {
+    "director": "EXTERNAL_GOVERNING_AUTHORITY",
+    "ama": "ARCHITECTURE_NOT_AGENT",
+    "mechanic": "TECHNICAL_MAINTENANCE_ASSURANCE_NOT_FLEET_AGENT",
+    "selfAcceptanceProhibited": true
+  },
+  "numberingRule": "FLEET_IDENTITY_ORDER_NOT_IMPLEMENTATION_MATURITY",
+  "fleet": [
+    {
+      "ordinal": 1,
+      "agentId": "FFOS-AGENT-MESSI-001",
+      "name": "MESSI",
+      "manifest": "agents/messi/manifest-candidate-v0.1.json",
+      "state": "DRAFT_NOT_IMPLEMENTED",
+      "implementationEvidence": false
+    },
+    {
+      "ordinal": 2,
+      "agentId": "FFOS-AGENT-HOUSEHOLD-002",
+      "name": "Household Family",
+      "manifest": "agents/household-family/manifest-candidate-v0.1.json",
+      "instanceContract": "agents/household-family/household-instance.contract.json",
+      "implementationBranch": "hf/household-family-2.0",
+      "state": "IMPLEMENTATION_CANDIDATE_NOT_PRODUCTION_ACCEPTED",
+      "implementationEvidence": true
+    }
+  ],
+  "nonFleetClassification": {
+    "cashin": "MESSI_WORKFLOW_COMMAND_CAPABILITY_CANDIDATE",
+    "carpenter": "MESSI_WORKFLOW_COMMAND_CAPABILITY_CANDIDATE",
+    "evaluate": "MESSI_WORKFLOW_COMMAND_CAPABILITY_CANDIDATE",
+    "research": "MESSI_WORKFLOW_COMMAND_CAPABILITY_CANDIDATE",
+    "janitor": "HOUSEHOLD_INTERNAL_ROLE_WORKFLOW",
+    "handyman": "HOUSEHOLD_INTERNAL_ROLE_WORKFLOW",
+    "verifier": "HOUSEHOLD_INTERNAL_ROLE_WORKFLOW",
+    "director": "EXTERNAL_AUTHORITY",
+    "legacyFfosRoles": "PERMISSIONED_RUNTIME_ROLES_NOT_AGENT_STABLE_FLEET"
+  }
+}
