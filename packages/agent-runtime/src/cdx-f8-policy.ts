@@ -119,6 +119,13 @@ const surfaces=(effect:string):readonly CDXSurface[]=>{
  return base;
 };
 export class CDXF8VerifiedAdapter implements CDXPolicyPort {
+ readonly catalogue:CDXControlIndex|null;
+ readonly facts:F8FactSource|null;
+ readonly trust:F8TrustVerifier|null;
+ readonly release:F8ReleasedPolicy|null;
+ readonly service:F8PolicyService|null;
+ readonly obligations:F8ObligationVerifier|null;
+ readonly custody:F8CustodyVerifier|null;
  constructor(
   catalogue:CDXControlIndex|null,
   facts:F8FactSource|null,
