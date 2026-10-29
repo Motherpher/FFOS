@@ -1,8 +1,9 @@
 # Agent Stable — FFOS Agent Infrastructure Contract
 
 **ID:** FFOS-AGENT-STABLE-001  
-**Status:** PARTIALLY IMPLEMENTED (static conformance + CI-tested PostgreSQL registry/effect gate; not deployed)  
-**Director-defined hierarchy:** Human Director → CDX → FFC → FFOS → Agent Stable.
+**Status:** STRUCTURAL BASELINE MERGED / PARTIALLY IMPLEMENTED / NOT DEPLOYED  
+**Director-defined hierarchy:** Human Director → CDX → FFC → FFOS → Agent Stable.  
+**Structural baseline commit:** `4c70d74b468202303b4f4249567154fb0a02ad2b` (PR #31).
 
 ## Purpose and ownership
 
