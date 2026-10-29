@@ -188,6 +188,20 @@ class AuthorizationContracts(unittest.TestCase):
         b=baseline();b["authorizationRequests"][0]["sourceTrust"]="UNTRUSTED_CONTENT"
         self.assert_bad(b,"UNTRUSTED_CONTENT_CANNOT_AUTHORIZE")
 
+    def test_mandate_grant_cannot_exceed_agent_scope(self):
+        b=baseline();b["mandates"][0]["grants"][0]["resourceScope"]="other"
+        self.assert_bad(repin(b),"MANDATE_GRANT_OUTSIDE_AGENT_SCOPE")
+
+    def test_mandate_grant_cannot_exceed_agent_effect(self):
+        b=baseline();g=b["mandates"][0]["grants"][0]
+        g["effectClass"]="E3_EXTERNAL_EFFECT"
+        g["actionKind"]="EXTERNAL_ACTION"
+        self.assert_bad(repin(b),"MANDATE_GRANT_EXCEEDS_AGENT_EFFECT")
+
+    def test_mandate_grant_wrong_action_kind(self):
+        b=baseline();b["mandates"][0]["grants"][0]["actionKind"]="AUTHORITY_CHANGE"
+        self.assert_bad(repin(b),"MANDATE_GRANT_ACTION_MISMATCH")
+
     def test_mandate_revoked(self):
         b=baseline();b["mandates"][0]["status"]="REVOKED"
         self.assert_bad(repin(b),"REVOKED_OR_EXPIRED_MANDATE")
