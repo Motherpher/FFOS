@@ -201,6 +201,42 @@
       "items": {
         "$ref": "approval-event.schema.json"
       }
+    },
+    "evaluationProfiles": {
+      "type": "array",
+      "items": {
+        "$ref": "evaluation-profile.schema.json"
+      }
+    },
+    "evaluationCases": {
+      "type": "array",
+      "items": {
+        "$ref": "evaluation-case.schema.json"
+      }
+    },
+    "evaluationObservations": {
+      "type": "array",
+      "items": {
+        "$ref": "evaluation-observation.schema.json"
+      }
+    },
+    "evaluationProvenance": {
+      "type": "array",
+      "items": {
+        "$ref": "evaluation-provenance.schema.json"
+      }
+    },
+    "evaluationReports": {
+      "type": "array",
+      "items": {
+        "$ref": "evaluation-report.schema.json"
+      }
+    },
+    "acceptanceAssessments": {
+      "type": "array",
+      "items": {
+        "$ref": "acceptance-assessment.schema.json"
+      }
     }
   },
   "$schema": "https://json-schema.org/draft/2020-12/schema",
