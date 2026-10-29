@@ -25,7 +25,10 @@
       "instanceContract": "agents/household-family/household-instance.contract.json",
       "implementationBranch": "hf/household-family-2.0",
       "state": "IMPLEMENTATION_CANDIDATE_NOT_PRODUCTION_ACCEPTED",
-      "implementationEvidence": true
+      "implementationEvidence": true,
+      "implementationPath": "modules/household-family",
+      "sourceImplementationBranch": "hf/household-family-2.0",
+      "integrationBranch": "feat/agent-stable-suite-messi-household-20261029"
     }
   ],
   "nonFleetClassification": {
