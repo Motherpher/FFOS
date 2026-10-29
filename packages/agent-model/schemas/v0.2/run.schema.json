@@ -1,0 +1,72 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.run/v0.2-candidate"
+    },
+    "runId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "taskRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "agentRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "workflowRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "state": {
+      "enum": [
+        "QUEUED",
+        "RUNNING",
+        "HOLD",
+        "PASS",
+        "FAIL",
+        "CANCELLED"
+      ]
+    },
+    "generation": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "leaseEpoch": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "leaseOwner": {
+      "type": "string",
+      "minLength": 1
+    },
+    "leaseExpiresAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "checkpointRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "correlationId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "policyRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    }
+  },
+  "required": [
+    "schema",
+    "runId",
+    "taskRef",
+    "agentRef",
+    "workflowRef",
+    "state",
+    "generation",
+    "leaseEpoch",
+    "correlationId",
+    "policyRef"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/run.schema.json",
+  "title": "AMA v0.2 candidate run contract"
+}
