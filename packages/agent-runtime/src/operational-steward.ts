@@ -119,6 +119,15 @@ export class PgOperationalSteward {
     [input.agentId,input.agentVersion]);
    // Incident ledger has no self-closed state; external human closure is separate.
    guard(Number(open.rows[0]?.n??0)===0,"HIGH_SEVERITY_INCIDENT_PREVENTS_PROPOSAL");
+   const health=await db.query<{signal_data:HealthObservationInput["signals"];signal_digest:string}>(
+    "SELECT signal_data,signal_digest FROM ama_m6_health_observations WHERE observation_id=$1 AND agent_id=$2 AND agent_version=$3",
+    [input.healthEvidenceRef,input.agentId,input.agentVersion]);
+   guard(health.rows.length===1&&health.rows[0]!.signal_digest===sha(health.rows[0]!.signal_data),
+     "RELEASE_HEALTH_EVIDENCE_MISSING_OR_CORRUPT");
+   const signals=health.rows[0]!.signal_data;
+   guard(!signals.policyDrift&&!signals.revocationDetected&&
+      signals.unsettledEffects===0,
+     "RELEASE_HEALTH_BLOCKED");
    await db.query("INSERT INTO ama_m6_release_proposals(proposal_id,agent_id,agent_version,target_version,candidate_digest,compatibility_evidence_ref,health_evidence_ref,rollback_ref,proposer_ref,canary_percent) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)",
     [input.proposalId,input.agentId,input.agentVersion,input.targetVersion,
      input.candidateDigest,input.compatibilityEvidenceRef,input.healthEvidenceRef,
