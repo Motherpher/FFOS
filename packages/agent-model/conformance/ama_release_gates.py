@@ -11,14 +11,26 @@ def check(data):
         errors.append("GATE_SET")
     if gates.get("M7_A", {}).get("host_runtime_required") is not False:
         errors.append("M7_A_HOST_COUPLING")
-    if gates.get("F8_7", {}).get("scope") != "OPTIONAL_HOST_RUNTIME_BINDING":
+    if gates.get("F8_7", {}).get("scope") != "REALM_CONDITIONAL_RUNTIME_BINDING":
         errors.append("F8_7_SCOPE")
     if gates.get("M7_O", {}).get("scope") != "GENERIC_INSTANCE_OPERATIONAL_CONFORMANCE_CRITERIA":
         errors.append("M7_O_SCOPE")
     if any(g.get("activation_authorized") is not False for g in gates.values()):
         errors.append("ACTIVATION_CLAIM")
-    if not all(data.get("rules", {}).values()) or len(data.get("rules", {})) != 4:
-        errors.append("PORTABILITY_INVARIANT")
+    rules=data.get("rules",{})
+    expected={
+        "architecture_may_be_accepted_without_host_binding": True,
+        "architecture_may_be_accepted_without_instance_activation": True,
+        "independent_instance_acceptance_separate": True,
+        "conformance_never_authorizes_effects": True,
+        "internal_agent_may_activate_without_required_cdx": False,
+        "external_realm_requires_other_explicit_governance": True,
+    }
+    if rules != expected:
+        errors.append("PORTABILITY_AND_REALM_INVARIANT")
+    f8=gates.get("F8_7",{})
+    if f8.get("internal_ff_estate_required") is not True or f8.get("external_distribution_detachable") is not True:
+        errors.append("F8_ESTATE_GATE_INVARIANT")
     return errors
 
 if __name__ == "__main__":
