@@ -208,6 +208,50 @@ def validate_bundle(bundle):
                     Draft202012Validator.check_schema(item["outputSchema"])
                 except Exception:
                     fail("INVALID_IO_SCHEMA")
+    # M1 task/effect shape and referential closure, not effect authorization.
+    tasks = index(bundle.get("tasks", []), "taskId")
+    effects = index(bundle.get("effects", []), "effectId")
+    action_kind = {
+        "E0_OBSERVE": "OBSERVE",
+        "E1_INTERNAL_STATE": "STATE_MUTATION",
+        "E2_REPOSITORY_CHANGE": "REPOSITORY_MUTATION",
+        "E3_EXTERNAL_EFFECT": "EXTERNAL_ACTION",
+        "E4_AUTHORITY_CHANGE": "AUTHORITY_CHANGE",
+    }
+    for task in tasks.values():
+        agent_ref = task["agentRef"]
+        if (agent_ref["id"] != owner or
+                agent_ref["version"] != agent["agentVersion"] or
+                agent_ref["digest"] != digest(agent)):
+            fail("TASK_AGENT_MISMATCH")
+        resolve(task["workflowRef"], indices["workflows"], "workflowId")
+        resolve(task["commandRef"], indices["commands"], "commandId")
+        command = indices["commands"].get(task["commandRef"]["id"])
+        if command and command["workflowRef"] != task["workflowRef"]:
+            fail("TASK_COMMAND_WORKFLOW_MISMATCH")
+        for scope in task["requestedScopes"]:
+            if not scope_ok(scope):
+                fail("TASK_OUTSIDE_MANDATE")
+    for effect in effects.values():
+        task = resolve(effect["taskRef"], tasks, "taskId")
+        cap = resolve(effect["capabilityRef"], indices["capabilities"], "capabilityId")
+        if task and task["runId"] != effect["runId"]:
+            fail("EFFECT_RUN_MISMATCH")
+        if cap:
+            if effect["effectClass"] != cap["effectClass"]:
+                fail("EFFECT_CLASS_MISMATCH")
+            if not any(effect["resourceScope"] == scope or
+                       effect["resourceScope"].startswith(scope.rstrip("/") + "/")
+                       for scope in cap["resourceScopes"]):
+                fail("EFFECT_OUTSIDE_CAPABILITY_SCOPE")
+        if task and not any(
+                effect["resourceScope"] == scope or
+                effect["resourceScope"].startswith(scope.rstrip("/") + "/")
+                for scope in task["requestedScopes"]):
+            fail("EFFECT_OUTSIDE_TASK_SCOPE")
+        if effect["actionKind"] != action_kind[effect["effectClass"]]:
+            fail("EFFECT_ACTION_KIND_MISMATCH")
+        # A validated effect description NEVER proves its authorization.
     for e in bundle.get("runEvents", []):
         if e["agentRef"]["id"] != owner or e["agentRef"]["version"] != agent["agentVersion"]:
             fail("RUN_AGENT_MISMATCH")
