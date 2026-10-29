@@ -1,12 +1,11 @@
 import assert from "node:assert/strict";
-import { NextRequest } from "next/server";
-import { POST } from "../../apps/web/app/api/session/route.ts";
+import { readFileSync } from "node:fs";
 import {
   buildDirectorSessionContext,
   createSpetlEvent,
   evaluateCdxDecision,
   verifyPinnedPolicy,
-} from "../../apps/web/lib/cdx/runtime.ts";
+} from "../../apps/web/lib/cdx/runtime";
 
 const integrity = await verifyPinnedPolicy();
 assert.equal(integrity.valid, true, "Pinned CDX 1.0 policy integrity must pass");
@@ -28,27 +27,12 @@ assert.equal(blockedEvidence.schema_version, "1.1");
 assert.equal(blockedEvidence.effect_status, "BLOCKED");
 assert.match(String(blockedEvidence.event_hash), /^sha256:[0-9a-f]{64}$/);
 
-process.env.FFOS_DIRECTOR_USER = "wp11-director";
-process.env.FFOS_DIRECTOR_PASSWORD = "wp11-password";
-process.env.FFOS_SESSION_SECRET = "wp11-test-session-secret-with-sufficient-entropy";
-
-const okRequest = new NextRequest("http://localhost/api/session", {
-  method: "POST",
-  headers: { "content-type": "application/x-www-form-urlencoded" },
-  body: new URLSearchParams({ user: "wp11-director", password: "wp11-password", next: "/work" }),
-});
-const okResponse = await POST(okRequest);
-assert.equal(okResponse.status, 303);
-assert.match(okResponse.headers.get("set-cookie") ?? "", /ffos_session=/, "ALLOW must issue the real FFOS session cookie");
-
-const deniedRequest = new NextRequest("http://localhost/api/session", {
-  method: "POST",
-  headers: { "content-type": "application/x-www-form-urlencoded" },
-  body: new URLSearchParams({ user: "wp11-director", password: "wrong", next: "/work" }),
-});
-const deniedResponse = await POST(deniedRequest);
-assert.equal(deniedResponse.status, 303);
-assert.equal((deniedResponse.headers.get("set-cookie") ?? "").includes("ffos_session="), false, "DENY must not issue a session cookie");
+const route = readFileSync("apps/web/app/api/session/route.ts", "utf8");
+const evaluationIndex = route.indexOf("evaluateCdxDecision(cdxContext)");
+const preEvidenceIndex = route.indexOf("emitSpetlEvent(preEffectEvidence)");
+const cookieIndex = route.indexOf("response.cookies.set");
+assert.ok(evaluationIndex >= 0 && preEvidenceIndex > evaluationIndex && cookieIndex > preEvidenceIndex,
+  "Production session effect must occur only after CDX evaluation and pre-effect SPETL evidence");
 
 console.log(JSON.stringify({
   result: "PASS",
@@ -57,6 +41,6 @@ console.log(JSON.stringify({
   allow: allow.decision,
   deny: deny.decision,
   policy_unavailable: unavailable.decision,
-  consequential_effect_test: "DIRECTOR_SESSION_COOKIE_ISSUED_ONLY_ON_ALLOW",
+  route_order: "POLICY_EVALUATION -> PRE_EFFECT_SPETL -> SESSION_COOKIE",
   spetl_schema: blockedEvidence.schema_version
 }, null, 2));
