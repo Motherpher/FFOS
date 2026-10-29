@@ -1,6 +1,6 @@
 # @ffos/agent-model
 
-**Canonical AMA roadmap: M0–M7, with F8 as the optional CDX host-security integration track.** No competing 32-stage architecture exists. `ama-milestones.json` maps the original 96 researched requirements to M0–M7; `ama-template-coverage.json` is a subordinate module inventory. Run `python conformance/ama_milestone_integrity.py` to verify the source mapping and `python conformance/ama_blueprint.py <bundle.json>` to assemble a non-executing construction blueprint. The original v1 interface remains unchanged.
+**Canonical AMA roadmap: M0–M7, with F8 as the optional external security-integration track.** No competing 32-stage architecture exists. `ama-milestones.json` maps the original 96 researched requirements to M0–M7; `ama-template-coverage.json` is a subordinate module inventory. Run `python conformance/ama_milestone_integrity.py` to verify the source mapping and `python conformance/ama_blueprint.py <bundle.json>` to assemble a non-executing construction blueprint. The original v1 interface remains unchanged.
 
 
 Shared machine-readable contracts for FFOS Agent Master Architecture (AMA).
