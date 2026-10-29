@@ -35,7 +35,7 @@ def grant(scope="synthetic", classification="CONFIDENTIAL", recipient="RECIPIENT
     return {"actionKind": "OBSERVE", "effectClass": "E0_OBSERVE",
             "resourceScope": scope, "maxDataClassification": classification,
             "allowedRecipients": [recipient], "purpose": "synthetic-analysis",
-            "requiresHumanReview": approval}
+            "requiresHumanReview": approval, "allowAggregation": False}
 
 
 def baseline(effect=False):
@@ -70,7 +70,10 @@ def baseline(effect=False):
                "resourceScope": "synthetic/item", "dataClassification": "INTERNAL",
                "recipientId": "RECIPIENT.A", "purpose": "synthetic-analysis",
                "requestedAt": "2026-10-29T11:00:00+00:00",
-               "sourceTrust": "TRUSTED_BOUNDARY"}
+               "sourceTrust": "TRUSTED_BOUNDARY",
+               "riskContext": {"reversibility": "REVERSIBLE", "impact": "LOW",
+                               "externalExposure": False, "aggregateRead": False,
+                               "financialAmountMinor": 0}}
     if effect:
         request["effectRef"] = pin(b["effects"][0], "effectId")
     b["authorizationRequests"] = [request]
@@ -258,6 +261,31 @@ class AuthorizationContracts(unittest.TestCase):
         second["decisionId"]="SYNTHETIC.OTHER.DECISION"
         b["authorizationDecisions"].append(second)
         self.assert_bad(b,"AMBIGUOUS_POLICY_DECISIONS")
+
+    def test_aggregated_read_denied_unless_granted(self):
+        b=baseline();b["authorizationRequests"][0]["riskContext"]["aggregateRead"]=True
+        self.assert_bad(b,"AGGREGATION_NOT_AUTHORIZED")
+
+    def test_aggregate_read_granted_still_not_runtime_permit(self):
+        b=baseline();b["mandates"][0]["grants"][0]["allowAggregation"]=True
+        b["authorizationRequests"][0]["riskContext"]["aggregateRead"]=True
+        self.assertEqual("STATIC_ELIGIBLE_FOR_EXTERNAL_VERIFICATION",
+                         self.check(repin(b))["status"])
+
+    def test_high_impact_read_needs_human_review(self):
+        b=baseline();b["authorizationRequests"][0]["riskContext"]["impact"]="CRITICAL"
+        self.assert_bad(repin(b),"INDEPENDENT_APPROVAL_REQUIRED")
+
+    def test_fiscal_exposure_needs_currency_and_review(self):
+        b=baseline();b["authorizationRequests"][0]["riskContext"]["financialAmountMinor"]=2000
+        self.assert_bad(repin(b),"FINANCIAL_CURRENCY_REQUIRED")
+
+    def test_restricted_data_undetermined_risk_denied(self):
+        b=baseline();b["mandates"][0]["grants"][0]["maxDataClassification"]="RESTRICTED"
+        req=b["authorizationRequests"][0]
+        req["dataClassification"]="RESTRICTED"
+        req["riskContext"]["reversibility"]="UNKNOWN"
+        self.assert_bad(repin(b),"UNCLASSIFIED_CONSEQUENTIAL_RISK")
 
     def test_future_request_denied(self):
         b=baseline();b["authorizationRequests"][0]["requestedAt"]="2026-10-30T11:00:00+00:00"
