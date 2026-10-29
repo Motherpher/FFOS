@@ -32,11 +32,13 @@ async function fixture(){
   omitControl:false,selectControls:false,changedSurface:false,
   decisionContradiction:false,signatureDown:false,custodyDown:false,
   falseCustodyBinding:false,withObligations:false,obligationDown:false,
+  graphDrift:false,
   outcome:"ALLOW",forceBadOutcome:false,missingPath:false};
  const ports={
   facts:{async collect(r){const f=facts(r);
     if(state.factMismatch)f.principalRef="OTHER";
     if(state.missingPath)f.pathHistoryDigest="";
+    if(state.graphDrift)f.authorityGraphDigest="sha256:"+"0".repeat(64);
     if(r.context.requestedEffect==="E0_OBSERVE"){
       f.recipientRef=r.readRecipientRef;
       f.purposeRef=r.readPurposeRef;
@@ -193,4 +195,18 @@ test("F8 E0: separately typed read adapter includes DATA and CONTENT_MEMORY",asy
 test("F8 E0: no silent authority for missing recipient/grant",async()=>{
  const f=await fixture(),r=request("E0_OBSERVE");
  await deny(()=>f.makeRead().evaluate(r),"CLASSIFIED_READ_GRANT_MISSING");
+});
+
+test("F8.4: authority graph changes between policy and dispatch are blocked",async()=>{
+ const f=await fixture(),a=f.make(),r=request();
+ const d=await a.evaluate(r);
+ await a.assertStillCurrent(r,d);
+ f.state.graphDrift=true;
+ await deny(()=>a.assertStillCurrent(r,d),"PATH_OR_AUTHORITY_GRAPH_DRIFT");
+});
+test("F8.4: release or fact attestation fails at second verification",async()=>{
+ const f=await fixture(),a=f.make(),r=request();
+ const d=await a.evaluate(r);
+ f.state.releaseDown=true;
+ await assert.rejects(()=>a.assertStillCurrent(r,d),/CDX PRE_RELEASE/);
 });
