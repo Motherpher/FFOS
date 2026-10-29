@@ -86,11 +86,18 @@
     "construction": "ENGINEERING_CANDIDATE",
     "production_authorized": false,
     "release_binding": "HOLD_EXTERNAL_GOVERNANCE",
-    "messenger_agent": "MESSI_SEPARATE_FUTURE_INSTANCE"
+    "messenger_agent": "MESSI_IS_SEPARATE_AGENT_1_NOT_HOUSEHOLD_COMPONENT",
+    "messi_ref": "agents/messi/README.md"
   },
   "use_case": {
     "primary": "BOUNDED_DIRECTOR_ASSIGNED_CDX_WORK_PACKAGES",
     "target_wp": "WP08-WP14_DEPENDENCY_ORDER_TO_BE_VERIFIED",
     "initial_pilot": "READ_ONLY_INVENTORY"
+  },
+  "agent_stable": {
+    "registry_ref": "agents/registry.json",
+    "fleet_ordinal": 2,
+    "agent_id": "FFOS-AGENT-HOUSEHOLD-002",
+    "manifest_ref": "agents/household-family/manifest-candidate-v0.1.json"
   }
 }
