@@ -180,7 +180,12 @@ export class CDXF8VerifiedAdapter implements CDXPolicyPort {
       "TRUSTED_FACT_BINDING_MISMATCH");
   if(req.context.requestedEffect==="E0_OBSERVE")
     must(required(facts.recipientRef)&&required(facts.purposeRef)&&
-         required(facts.dataGrantRef),"CLASSIFIED_READ_GRANT_MISSING");
+         required(facts.dataGrantRef)&&
+         facts.recipientRef===req.readRecipientRef&&
+         facts.purposeRef===req.readPurposeRef&&
+         facts.dataGrantRef===req.readGrantRef&&
+         facts.dataClassification===req.readClassification,
+         "CLASSIFIED_READ_GRANT_MISSING");
   await this.trust!.assertFacts(facts);
   // No agent-supplied surface, controls or external-effect classifier is accepted.
   const requiredSurfaces=surfaces(req.context.requestedEffect);
