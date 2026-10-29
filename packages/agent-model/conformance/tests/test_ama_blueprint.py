@@ -11,7 +11,8 @@ from ama_blueprint import assemble
 from test_m1_contracts import fixture
 from test_m4_eventing import event_fixture
 from test_ama_support_profiles import secret_fixture, localization_fixture
-from test_m3_cognitive import cognitive_fixture
+from test_m3_cognitive import cognitive_fixture, rebind
+from test_m1_contracts import digest
 from test_m3_knowledge import knowledge_fixture
 
 
@@ -122,6 +123,45 @@ class BlueprintTests(unittest.TestCase):
         result=assemble(bad,at="2026-10-29T12:00:00+00:00")
         self.assertIn("M3.cognition:DIGEST_MISMATCH_MODELPROFILES",
                       result["validation_errors"])
+
+    def test_complex_reference_composes_m3_m4_m6_without_host_activation(self):
+        # Synthetic modules are composed under one M1 agent identity.
+        agent_bundle=cognitive_fixture(memory=True,retrieval=True)
+        event=event_fixture()
+        agent_bundle["agent"]["modules"].append(
+            copy.deepcopy(event["agent"]["modules"][-1]))
+        agent_bundle["eventTriggers"]=copy.deepcopy(event["eventTriggers"])
+        agent_bundle["knowledgeCatalogs"]=copy.deepcopy(
+            knowledge_fixture()["knowledgeCatalogs"])
+        agent_bundle["localizationProfiles"]=copy.deepcopy(
+            localization_fixture()["localizationProfiles"])
+        agent_bundle=rebind(agent_bundle)
+        a=agent_bundle["agent"]
+        agent_bundle["localizationProfiles"][0]["agentRef"]={
+            "id":a["agentId"],"version":a["agentVersion"],"digest":digest(a)}
+        result=assemble(agent_bundle,at="2026-10-29T12:00:00+00:00",
+                        host_trust_domain="synthetic")
+        self.assertEqual(result["status"],"CONSTRUCTION_BLUEPRINT_CANDIDATE",result)
+        self.assertGreaterEqual(len(result["selected_optional_modules"]),5)
+        self.assertEqual(result["semantic_assessment"]["checks"]["M3.knowledge"]["status"],
+                         "STATIC_KNOWLEDGE_ELIGIBLE")
+        self.assertEqual(result["semantic_assessment"]["checks"]["M4.eventing"]["status"],
+                         "STATIC_EVENTING_ELIGIBLE")
+        self.assertEqual(result["semantic_assessment"]["checks"]["M6.localization"]["status"],
+                         "STATIC_LOCALIZATION_ELIGIBLE")
+        self.assertFalse(result["agent_activated"])
+        self.assertFalse(result["runtime_accepted"])
+        self.assertFalse(result["template_complete"])
+
+    def test_complex_reference_requires_real_assessment_inputs(self):
+        bundle=cognitive_fixture(memory=True,retrieval=True)
+        bundle["knowledgeCatalogs"]=copy.deepcopy(
+            knowledge_fixture()["knowledgeCatalogs"])
+        result=assemble(bundle)
+        self.assertEqual(result["status"],"ASSESSMENT_INPUT_REQUIRED",result)
+        self.assertIn("M3.knowledge:TRUST_DOMAIN_REQUIRED",
+                      result["assessment_inputs_required"])
+        self.assertFalse(result["effect_authorized"])
 
     def test_unknown_module_is_not_accepted(self):
         b = assemble(fixture(), optional_modules=["imaginary-module"])
