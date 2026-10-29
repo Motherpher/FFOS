@@ -19,5 +19,8 @@
   "external_export_f8": "DETACHABLE",
   "core_authorization_contracts_remain_required": true,
   "architecture_accepted": false,
-  "activation_authorized": false
+  "activation_authorized": false,
+  "canonical_estate_policy_id": "CDX-ESTATE-TERMS-001",
+  "estate_membership_authority": "CDX_ESTATE_REGISTRY",
+  "realm_name_is_not_membership_attestation": true
 }
