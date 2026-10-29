@@ -37,3 +37,7 @@ The new `ama_vnext.py` validator reads only local schemas from `../schemas/v0.2/
 `ama_authorization.py` validates identity and agent/workload/actor separation, root/delegated mandate attenuation, scoped and sensitive E0 reads, risk-context completeness, policy decision references, time validity and declared independent human approvals. The six supporting JSON Schemas reside in `../schemas/v0.2/`, and negative regression tests in `tests/test_m2_authorization.py`.
 
 **No runtime permission is ever issued.** Even a successful precheck returns `STATIC_ELIGIBLE_FOR_EXTERNAL_VERIFICATION` with `authority_granted: false`. Real trusted facts, revocation, policy outcomes, obligation fulfillment and effect mediation require a separately verified host integration. See [M2 contract guide](../../../docs/roadmap/AMA-M2-AUTHORIZATION-CONTRACTS.md).
+
+## AMA M3 offline cognitive and memory preflight
+
+`ama_cognitive.py` checks optional model/instruction/plan/context bindings, fail-closed budgets, memory provenance/quarantine/retention, cross-domain retrieval and source-marker compaction tests. It uses a deterministic observation timestamp for expiry checks; it does not authenticate source facts or run a model/memory backend. See [M3 specifications](../../../docs/roadmap/AMA-M3-COGNITIVE-MEMORY-CONTRACTS.md).
