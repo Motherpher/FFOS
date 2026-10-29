@@ -1,0 +1,25 @@
+{
+  "schema": "ffos.f8.cdx-source-state/v1",
+  "source": {
+    "repository": "Hybrismannen/Conductellence-",
+    "path": "GOVERNANCE/system-state.json",
+    "git_blob_sha": "5c57791f7b0ce9d4775f56dabf78fdfc45f2a54d",
+    "observed_date": "2026-10-29"
+  },
+  "constitutional_state": "ADOPTED",
+  "core_runtime_state": "VERIFIED_REFERENCE_RUNTIME",
+  "release_state": "PRE_RELEASE",
+  "enforcement_state": "BOOTSTRAP",
+  "estate_integration_state": "PENDING_RUNTIME_BINDINGS",
+  "core_release_blockers": [
+    "CDX-BLOCK-REPO-PROTECTION-001"
+  ],
+  "estate_enforcement_blockers": [
+    "CDX-BLOCK-ESTATE-RUNTIME-001"
+  ],
+  "ffos_consumer_binding": "NOT_STARTED",
+  "ffos_runtime": "BOUND_PENDING_RUNTIME_INTEGRATION",
+  "release_authorized": false,
+  "governed_runtime_bindable": false,
+  "snapshot_status": "SOURCE_OBSERVATION_NOT_PRODUCTION_ATTESTATION"
+}
