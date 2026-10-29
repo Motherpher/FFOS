@@ -50,7 +50,7 @@ Append-only migrations 0002/0003 and `packages/agent-runtime/src/stable-registry
 `packages/agent-runtime/src/effect-gate.ts` rejects missing local enforcement, policy mismatch/denial, insufficient mandate, disabled capabilities, expired active version and revocation. The host-specific policy-anchor adapter correctly refuses a pending runtime binding. `pg-evidence.ts` records pre/post effects and restricted decisions in append-only PostgreSQL. Tests use *mock* external policy and approval services; real policy decisions, evidence receipt validation, deployment, stronger effect-lease controls and complete denial audit remain pending.
 
 ## AMA-09 — Technical stewardship runtime
-**Status:** NEXT — OPERATIONAL RUNTIME NOT IMPLEMENTED
+**Status:** M6 CANDIDATE IMPLEMENTED AND CI VERIFIED; HOST DEPLOYMENT/EXTERNAL AUTHORITY PENDING
 
 Implement inventory, conformance execution, drift detection, upgrade proposals, health/incident state and rollback preparation. The technical steward remains non-authorizing and non-accepting.
 
@@ -140,3 +140,13 @@ Source-grounded control coverage maps 131 CDX-LAW-001 sections to 69 reference c
 [Architecture](AMA-F8-CDX-SECURITY-BINDING.md) · [Execution and release blockers](AMA-F8-EXECUTION-REPORT.md) · [GitHub Actions 40839505822](https://github.com/Motherpher/FFOS/actions/runs/40839505822) **SUCCESS**, 264 combined tests, source-matrix audit and machine-report upload.
 
 The authoritative CDX 1.0 source is `PRE_RELEASE`; FFOS remains `PINNED_COMMIT` and `BOUND_PENDING_RUNTIME_INTEGRATION`. No live production effects, independent operational evidence, release-state override or constitutional changes were made. M6 can continue as contract engineering only.
+
+## M6 — Operational Compatibility, Health and Incident Safety (2026-10-29)
+
+**Status:** ENGINEERING CANDIDATE VERIFIED; NORMATIVE/HUMAN ADOPTION, REAL F8.7 AUTHORITY AND PRODUCTION RELEASE BLOCKED.
+
+Six agent-independent v0.2 schemas and a standalone static operational validator define compatibility, model/tool/protocol changes, health/cost and drift evidence, incident escalation, rollback/canary safety and non-self-authorizing release proposals. `PgOperationalSteward` and additive migration `0005_ama_m6_operations.sql` implement append-only operational evidence, separately authorized emergency suspension and M4 lease/effect fencing. A persisted suspension tombstone and DB insert guard prevent new work after containment; optional `M6GuardedAdmission` supplies additional worker-claim checks. No live deployment, automatic rollback or unrestricted technical steward authority exists.
+
+[M6 specification](AMA-M6-OPERATIONAL-LIFECYCLE-CONTRACTS.md) · [M6 execution report](AMA-M6-EXECUTION-REPORT.md) · [CI 40846425828](https://github.com/Motherpher/FFOS/actions/runs/40846425828) (298 combined tests, success).
+
+**Next:** M7-E integration and readiness engineering, followed by independent F8.7 CDX release/binding and final M7-O operational evaluation and authorized human acceptance. PR #19 remains draft.
