@@ -242,6 +242,8 @@ export class CDXF8VerifiedAdapter implements CDXPolicyPort {
   const obligations=[...new Set(responses.flatMap(x=>x.obligationRefs))];
   for(const response of responses)
     if(rank.get(response.decision)!>rank.get(final)!)final=response.decision;
+  if(final==="ALLOW"&&obligations.length>0)
+    throw new F8BindingBlocked("OBLIGATIONS_DOWNGRADED_TO_ALLOW");
   if(final==="ALLOW_WITH_CONTROLS"){
     must(obligations.length>0,"OBLIGATIONS_NOT_DECLARED");
     await this.obligations!.assertFulfilled(obligations,facts);
