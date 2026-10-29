@@ -41,3 +41,7 @@ The new `ama_vnext.py` validator reads only local schemas from `../schemas/v0.2/
 ## AMA M3 offline cognitive and memory preflight
 
 `ama_cognitive.py` checks optional model/instruction/plan/context bindings, fail-closed budgets, memory provenance/quarantine/retention, cross-domain retrieval and source-marker compaction tests. It uses a deterministic observation timestamp for expiry checks; it does not authenticate source facts or run a model/memory backend. See [M3 specifications](../../../docs/roadmap/AMA-M3-COGNITIVE-MEMORY-CONTRACTS.md).
+
+## AMA M4 static durability preflight
+
+`ama_durability.py` checks cross-references for run/step/attempt/checkpoint and independent receipt/reconciliation declarations. It returns `STATIC_DURABILITY_ELIGIBLE` only for structurally consistent records; runtime_authorized and evidence_verified always remain false. PostgreSQL lease/fencing/idempotency recovery is tested independently by the runtime suite. [M4 specification](../../../docs/roadmap/AMA-M4-DURABLE-EXECUTION-CONTRACTS.md).
