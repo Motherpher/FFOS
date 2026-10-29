@@ -14,6 +14,11 @@ from test_ama_support_profiles import secret_fixture, localization_fixture
 from test_m3_cognitive import cognitive_fixture, rebind
 from test_m1_contracts import digest
 from test_m3_knowledge import knowledge_fixture
+from test_m2_authorization import baseline as authorization_fixture
+from test_m4_durability import fixture as durable_fixture
+from test_m5_evaluation import sample as evaluation_fixture, test_only_attestor
+from test_m6_operations import sample as operations_fixture, test_attestor
+
 
 
 def complex_reference_bundle():
@@ -168,6 +173,49 @@ class BlueprintTests(unittest.TestCase):
         self.assertIn("M3.knowledge:TRUST_DOMAIN_REQUIRED",
                       result["assessment_inputs_required"])
         self.assertFalse(result["effect_authorized"])
+
+    def test_m2_authorization_requires_host_clock(self):
+        b=assemble(authorization_fixture())
+        self.assertEqual(b["status"],"ASSESSMENT_INPUT_REQUIRED",b)
+        self.assertIn("M2.authorization:HOST_TIME_REQUIRED",
+                      b["assessment_inputs_required"])
+        checked=assemble(authorization_fixture(),at="2026-10-29T12:00:00+00:00")
+        self.assertEqual(checked["status"],"CONSTRUCTION_BLUEPRINT_CANDIDATE",checked)
+        self.assertEqual(checked["semantic_assessment"]["checks"]["M2.authorization"]["status"],
+                         "STATIC_ELIGIBLE_FOR_EXTERNAL_VERIFICATION")
+        self.assertFalse(checked["effect_authorized"])
+
+    def test_m4_durable_reference_is_statically_checked(self):
+        result=assemble(durable_fixture())
+        self.assertEqual(result["status"],"CONSTRUCTION_BLUEPRINT_CANDIDATE",result)
+        self.assertEqual(result["semantic_assessment"]["checks"]["M4.durability"]["status"],
+                         "STATIC_DURABILITY_ELIGIBLE")
+        self.assertFalse(result["agent_registered"])
+
+    def test_m5_declared_evaluation_needs_injected_attestor(self):
+        pending=assemble(evaluation_fixture(),at="2026-10-29T11:00:00+00:00")
+        self.assertEqual(pending["status"],"ASSESSMENT_INPUT_REQUIRED",pending)
+        self.assertIn("M5.evaluation:INDEPENDENT_EVIDENCE_ATTESTOR_REQUIRED",
+                      pending["assessment_inputs_required"])
+        checked=assemble(evaluation_fixture(),at="2026-10-29T11:00:00+00:00",
+                         attestor=test_only_attestor)
+        self.assertEqual(checked["status"],"CONSTRUCTION_BLUEPRINT_CANDIDATE",checked)
+        self.assertEqual(
+            checked["semantic_assessment"]["checks"]["M5.evaluation:SYNTHETIC.EVALUATION"]["status"],
+            "CANDIDATE_METRICS_PASS")
+        self.assertFalse(checked["runtime_accepted"])
+
+    def test_m6_observability_requires_separate_attestor(self):
+        pending=assemble(operations_fixture(),at="2026-10-29T12:00:00+00:00")
+        self.assertEqual(pending["status"],"ASSESSMENT_INPUT_REQUIRED",pending)
+        self.assertIn("M6.operations:INDEPENDENT_EVIDENCE_ATTESTOR_REQUIRED",
+                      pending["assessment_inputs_required"])
+        checked=assemble(operations_fixture(),at="2026-10-29T12:00:00+00:00",
+                         attestor=test_attestor)
+        self.assertEqual(checked["status"],"CONSTRUCTION_BLUEPRINT_CANDIDATE",checked)
+        self.assertEqual(checked["semantic_assessment"]["checks"]["M6.operations"]["status"],
+                         "STATIC_OPERATIONAL_ELIGIBLE")
+        self.assertFalse(checked["agent_activated"])
 
     def test_unknown_module_is_not_accepted(self):
         b = assemble(fixture(), optional_modules=["imaginary-module"])
