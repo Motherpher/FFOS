@@ -157,6 +157,13 @@ class M5Evaluation(unittest.TestCase):
                if o["caseRef"]["id"]=="SYNTHETIC.CASE.6")
         x["redacted"]=False
         self.reject(repin_provenance(b),"SENSITIVE_EVIDENCE_NOT_REDACTED")
+    def test_sensitive_provenance_requires_redaction(self):
+        b=sample()
+        p=next(p for p in b["evaluationProvenance"]
+               if p["observationRef"]["id"]=="SYNTHETIC.OBS.6.0")
+        p["redacted"]=False
+        self.reject(b,"SENSITIVE_PROVENANCE_NOT_REDACTED")
+
     def test_latency_and_cost_limits(self):
         b=sample();b["evaluationObservations"][0]["latencyMs"]=10000
         b["evaluationObservations"][1]["latencyMs"]=10000
