@@ -67,3 +67,18 @@ Deliver an instance-registration and extension interface allowing independently 
 ## October 2026 research baseline
 
 External standards and adoption boundaries are documented in `docs/research/AMA-2026-ENGINEERING-BASELINE.md`. MCP adapter, OpenTelemetry instrumentation, A2A interoperability, OWASP runtime controls, durable orchestration and NIST identity guidance are design inputs and future integration contracts — not deployed FFOS capabilities.
+
+## Post-research development sequencing — F1–F8 (29 October 2026)
+
+The source-round synthesis and independent Conductellence F8 analysis have been converted into a **non-normative, gated development plan**:
+
+- [AMA post-research development roadmap](AMA-POST-RESEARCH-DEVELOPMENT-2026-10-29.md)
+- [F1–F7 source insights and seven stress tests](../research/AMA-KNOWLEDGE-INSIGHT-SEVEN-STRESS-TESTS-2026-10-29.md)
+- [F8 CDX security and risk assurance](../research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md)
+- [96-requirement candidate coverage index](../research/AMA-96-REQUIREMENT-COVERAGE-INDEX-2026-10-29.json)
+
+**Immediate work package:** M0 requirements admission and source traceability. The original 96 research-derived requirements remain unadopted candidates until dispositioned. F8 is cross-cutting host integration and must remain outside the universal master contract.
+
+**Research decision:** No further broad source round before M0/M1. Targeted source validation is required only where normative priority, standards semantics, legal applicability or contradictory findings affect a specific requirements decision.
+
+**Release boundary:** PR #19 stays draft; CDX production runtime binding and independent C4/C5 evidence remain blocked/unverified.
