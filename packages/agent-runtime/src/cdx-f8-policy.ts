@@ -150,6 +150,19 @@ export class CDXF8VerifiedAdapter implements CDXPolicyPort {
   this.custody=custody;
   this.readOnly=readOnly;
  }
+ async assertStillCurrent(req:CDXDecisionRequest,decision:CDXPolicyDecision):
+ Promise<void>{
+  must(!!this.facts&&!!this.trust&&!!this.release,
+       "FRESHNESS_VERIFIERS_NOT_BOUND");
+  must(required(decision.trustedFactsDigest)&&
+       decision.policyPin===req.expectedPolicyPin,
+       "UNBOUND_OR_UNPINNED_DECISION");
+  await this.release!.assertReleasedAndBound(req.expectedPolicyPin);
+  const current=await this.facts!.collect(req);
+  must(digest(current)===decision.trustedFactsDigest,
+       "PATH_OR_AUTHORITY_GRAPH_DRIFT");
+  await this.trust!.assertFacts(current);
+ }
  async evaluate(req:CDXDecisionRequest):Promise<CDXPolicyDecision>{
   must(!!this.catalogue&&!!this.facts&&!!this.trust&&!!this.release&&
        !!this.service&&!!this.obligations&&!!this.custody,
@@ -244,6 +257,7 @@ export class CDXF8VerifiedAdapter implements CDXPolicyPort {
    evaluatedTarget:req.target,evaluatedEffect:req.context.requestedEffect,
    decisionAuthenticated:true,spetlReceiptVerified:true,
    obligationsVerified:final==="ALLOW_WITH_CONTROLS"||final==="ALLOW",
+   trustedFactsDigest:digest(facts),
   };
  }
 }
