@@ -68,6 +68,13 @@ def sample():
                 "redacted":True})
     return b
 
+def repin_provenance(b):
+    """Update synthetic fixture's observer provenance after legitimate test edit."""
+    obs={o["observationId"]:o for o in b["evaluationObservations"]}
+    for p in b["evaluationProvenance"]:
+        p["observationRef"]=pin(obs[p["observationRef"]["id"]],"observationId")
+    return b
+
 def test_only_attestor(provenance, observation):
     """Explicit test double; cannot certify real independent evidence."""
     return provenance["collectorRef"]=="synthetic-test-verifier"
@@ -102,19 +109,19 @@ class M5Evaluation(unittest.TestCase):
         self.reject(b,"EVIDENCE_COVERAGE_BELOW_THRESHOLD")
     def test_false_allow_is_blocker(self):
         b=sample();b["evaluationObservations"][2]["actualDecision"]="ALLOW"
-        self.reject(b,"FALSE_ALLOW_RATE_EXCEEDED")
+        self.reject(repin_provenance(b),"FALSE_ALLOW_RATE_EXCEEDED")
     def test_false_deny_is_blocker(self):
         b=sample();b["evaluationObservations"][0]["actualDecision"]="DENY"
-        self.reject(b,"FALSE_DENY_RATE_EXCEEDED")
+        self.reject(repin_provenance(b),"FALSE_DENY_RATE_EXCEEDED")
     def test_inconsistent_repetition_is_blocker(self):
         b=sample();b["evaluationObservations"][1]["actualFinalState"]="HOLD"
-        self.reject(b,"REPEATED_RUN_VARIANCE")
+        self.reject(repin_provenance(b),"REPEATED_RUN_VARIANCE")
     def test_wrong_tool_target_fails(self):
         b=sample();b["evaluationObservations"][0]["targetRef"]="synthetic/other"
-        self.reject(b,"ORACLE_OUTCOME_MISMATCH")
+        self.reject(repin_provenance(b),"ORACLE_OUTCOME_MISMATCH")
     def test_wrong_final_state_fails(self):
         b=sample();b["evaluationObservations"][0]["actualFinalState"]="UNKNOWN"
-        self.reject(b,"FINAL_STATE_VERIFICATION_BELOW_THRESHOLD")
+        self.reject(repin_provenance(b),"FINAL_STATE_VERIFICATION_BELOW_THRESHOLD")
     def test_missing_axis_denies_even_with_good_other_results(self):
         b=sample();b["evaluationCases"][0]["axis"]="EVIDENCE"
         self.reject(b,"AXIS_COVERAGE_GAP")
@@ -136,13 +143,13 @@ class M5Evaluation(unittest.TestCase):
         x=next(o for o in b["evaluationObservations"]
                if o["caseRef"]["id"]=="SYNTHETIC.CASE.6")
         x["redacted"]=False
-        self.reject(b,"SENSITIVE_EVIDENCE_NOT_REDACTED")
+        self.reject(repin_provenance(b),"SENSITIVE_EVIDENCE_NOT_REDACTED")
     def test_latency_and_cost_limits(self):
         b=sample();b["evaluationObservations"][0]["latencyMs"]=10000
         b["evaluationObservations"][1]["latencyMs"]=10000
         b["evaluationObservations"][1]["costMinor"]=20000
-        self.reject(b,"LATENCY_P95_EXCEEDED")
-        self.reject(b,"COST_BUDGET_EXCEEDED")
+        self.reject(repin_provenance(b),"LATENCY_P95_EXCEEDED")
+        self.reject(repin_provenance(b),"COST_BUDGET_EXCEEDED")
     def test_evidence_service_failure_denies(self):
         def offline(*args): raise OSError("unavailable")
         self.reject(sample(),"ATTESTATION_SERVICE_FAILED",attestor=offline)
