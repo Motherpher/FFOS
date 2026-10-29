@@ -203,7 +203,7 @@ The M4 execution contract can be developed as a candidate, while F8 and M5 suppl
 | 0 | M0: evidence/requirement decision register | 96 controlled disposition records | NEXT |
 | 1 | M1: universal type/schema suite | compositional conformance & compatibility | TECHNICALLY VERIFIED CANDIDATE; HUMAN ACCEPTANCE PENDING |
 | 2 | M2: generic scoped authority | authorization contract negative suite | PLANNED |
-| 2 (parallel) | M2-CDX: F8 trust/decision/evidence adapter | independently tested CDX policy binding | BLOCKED FOR LIVE BINDING BY CDX RELEASE STATE |
+| 2 (parallel) | M2-CDX: F8 trust/decision/evidence adapter | independently tested CDX policy binding | CANDIDATE IMPLEMENTED; LIVE BINDING BLOCKED |
 | 3 | M3: conditional model/memory profiles | profile conformance and poisoning evals | ENGINEERING CANDIDATE VERIFIED; HUMAN ADOPTION PENDING |
 | 4 | M4: durable runtime protocol | restart/replay/duplicate-effect tests | TECHNICAL CANDIDATE CI VERIFIED; LIVE F8 BINDING BLOCKED |
 | 5 | M5: assurance evaluation | independent outcomes + source-backed regression | PLANNED |
