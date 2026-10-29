@@ -114,7 +114,10 @@ test("M6: release remains an immutable proposal, never traffic shift",{skip:!dsn
  // Other tests may have CRITICAL incidents. Use separate registered synthetic version.
  await pool.query("INSERT INTO ama_agent_versions(agent_id,agent_version,ama_version,definition,definition_sha256,source_commit,registered_by) VALUES ($1,$2,$3,$4::jsonb,$5,$6,$7)",
   ["CI.M6.AGENT","2.0.0","0.1.0","{}","f".repeat(64),"CI","CI"]);
- const p={...proposal(),agentVersion:"2.0.0",targetVersion:"2.1.0"};
+ const observation={...health(),agentVersion:"2.0.0"};
+ await steward().recordHealth(observation);
+ const p={...proposal(),agentVersion:"2.0.0",targetVersion:"2.1.0",
+   healthEvidenceRef:observation.observationId};
  const r=await steward().prepareRelease(p);
  assert.deepEqual(r,{state:"APPROVAL_PENDING",activated:false});
  const row=(await pool.query("SELECT state FROM ama_m6_release_proposals WHERE proposal_id=$1",[p.proposalId])).rows[0];
@@ -123,6 +126,15 @@ test("M6: release remains an immutable proposal, never traffic shift",{skip:!dsn
  reviewDown=true;
  await assert.rejects(()=>steward().prepareRelease({...p,proposalId:"CI-ALT-"+randomUUID()}),/review unavailable/);
  reviewDown=false;
+});
+test("M6: new M4 runs fail at database boundary even with unguarded admission",{skip:!dsn},async()=>{
+ const c=new DurablePgCoordinator(pool,{async assertAdmitted(){}},null,null,null);
+ await assert.rejects(()=>c.create(run()),/AMA_M6_AGENT_EMERGENCY_SUSPENDED/);
+});
+test("M6: proposal without independently stored matching health is denied",{skip:!dsn},async()=>{
+ await denied(()=>steward().prepareRelease({...proposal(),
+   agentVersion:"2.0.0",targetVersion:"2.1.0",
+   healthEvidenceRef:"UNKNOWN.HEALTH"}),"RELEASE_HEALTH_EVIDENCE_MISSING_OR_CORRUPT");
 });
 test("M6: high-severity incident blocks even preparation of upgrades",{skip:!dsn},async()=>{
  await pool.query("INSERT INTO ama_agent_versions(agent_id,agent_version,ama_version,definition,definition_sha256,source_commit,registered_by) VALUES ($1,$2,$3,$4::jsonb,$5,$6,$7)",
