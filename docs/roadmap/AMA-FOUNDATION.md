@@ -90,3 +90,11 @@ The source-round synthesis and independent Conductellence F8 analysis have been 
 The new [M1 execution report](AMA-M1-EXECUTION-REPORT.md) covers twelve versioned, agent-neutral schemas, isolated TypeScript candidate definitions, cross-object static conformance, compatibility and negative tests. [CI run 40806829631](https://github.com/Motherpher/FFOS/actions/runs/40806829631) succeeded, including existing v1 and PostgreSQL integration regressions.
 
 The normative AMA 0.1 master and historical v1 manifest remain unchanged. Production authorization, CDX runtime integration, C4/C5 and independent acceptance have **not** been established. Next is M2 scoped authorization, with F8 host risk governance in a separate track.
+
+## M2 — Provider-neutral scoped authorization (2026-10-29)
+
+**Status:** ENGINEERING CANDIDATE IMPLEMENTED; NORMATIVE HUMAN ACCEPTANCE AND REAL F8 RUNTIME ENFORCEMENT PENDING.
+
+Six additional agent-neutral v0.2 schemas and portable TypeScript contracts define principals, mandates, delegation, authorization requests, policy decisions and approvals. A separate static gate validates claim structure, scoped grants, sensitive E0 reads, risk dimensions, restrictions, expiry and self-approval denial, **but never grants runtime authority**.
+
+See [M2 contract specification](AMA-M2-AUTHORIZATION-CONTRACTS.md) and [M2 execution report](AMA-M2-EXECUTION-REPORT.md). Existing v1 runtime and constitutional governance remain unchanged. F8 must independently attest policy facts, revocation and actual read/effect mediation.
