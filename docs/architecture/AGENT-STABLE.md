@@ -10,7 +10,7 @@
 
 1. **AMA — Agent Master Architecture:** construction contracts, registries, manifests, capability limits and evaluation requirements.
 2. **Agent Mechanic:** the *audit and maintenance function* for conformance, drift, health, regression and upgrade proposals. Mechanic has no independent mandate-approval or self-acceptance powers.
-3. **Agent fleet:** a deliberately small population of registered first-class FFOS agents with named operational purpose, deployment versions and state.
+3. **Agent fleet:** a deliberately small population of registered first-class FFOS agents with named operational purpose, deployment versions and state. The canonical fleet identity order is **#1 MESSI; #2 Household Family**.
 4. **Shared workflows/commands/capabilities:** typed versioned bindings used by the fleet. These are not promoted to agent identities merely because they are named.
 
 System-specific integration and governance links are defined in the separate FFOS estate architecture, not in the AMA master template.
@@ -65,3 +65,17 @@ Static validation must never mutate the agent's acceptance or operational lifecy
 | Fully deployed FFOS agent fleet | NOT PRESENT |
 
 No claim of a running Agent Stable service is made solely from these files.
+
+
+## Canonical fleet — 2026-10-29
+
+Fleet numbering is **identity order, not implementation maturity**.
+
+| # | Agent | State | Purpose |
+|---:|---|---|---|
+| 1 | MESSI | DRAFT / NOT IMPLEMENTED | Broad user-facing Form & Flöde worker; named functions such as Cashin/Carpenter/Evaluate/Research remain workflows/commands/capabilities, not separate agents |
+| 2 | Household Family | IMPLEMENTATION CANDIDATE / NOT PRODUCTION ACCEPTED | Bounded Director-assigned repository/work-package maintenance using Janitor, Handyman and Verifier internal roles |
+
+Machine registry: `agents/registry.json`.
+
+Director remains external governing authority for both agents. AMA and Agent Mechanic are infrastructure, not fleet agents.
