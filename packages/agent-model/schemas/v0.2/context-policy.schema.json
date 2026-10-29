@@ -1,0 +1,85 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.context-policy/v0.2-candidate"
+    },
+    "policyId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "status": {
+      "$ref": "common.schema.json#/$defs/bindingStatus"
+    },
+    "moduleId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "maxAssembledTokens": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "reservedOutputTokens": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "compaction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "maxSummaryTokens": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "requireSourceProvenance": {
+          "const": true
+        },
+        "requireCriticalFactChecks": {
+          "const": true
+        },
+        "dropUnverifiedInstructions": {
+          "const": true
+        }
+      },
+      "required": [
+        "enabled",
+        "maxSummaryTokens",
+        "requireSourceProvenance",
+        "requireCriticalFactChecks",
+        "dropUnverifiedInstructions"
+      ]
+    },
+    "contextSources": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "RUN_CONTEXT",
+          "USER_INPUT",
+          "RETRIEVED_CONTENT",
+          "DOMAIN_DATA",
+          "MEMORY"
+        ]
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema",
+    "policyId",
+    "version",
+    "status",
+    "moduleId",
+    "maxAssembledTokens",
+    "reservedOutputTokens",
+    "compaction",
+    "contextSources"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/context-policy.schema.json",
+  "title": "AMA v0.2 candidate context-policy contract"
+}
