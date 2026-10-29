@@ -5,7 +5,7 @@
 **Purpose:** Translate the expanded AMA evidence round into architecturally coherent decisions, stress-test the universal AMA purpose, and identify **second-level gaps only after assuming first-level recommendations are implemented correctly**.  
 **Source scope:** Original 51-source dossier, seven additional records E52–E58, and independently initiated TinyFish 86-reference source review. These sets **overlap**; do not add their counts as a distinct-source total.  
 **Research material:** [original source round](AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md), [targeted expansion](AMA-SOURCE-EXPANSION-TINYFISH-ARTICLE-GALAXY-2026-10-29.md), [completed TinyFish report](https://agent.tinyfish.ai/playground/research/share/01a18517-da9b-7a93-89cd-def1bbeabdb4).  
-**Baseline comparison:** [AMA.md](../architecture/AMA.md), \`packages/agent-model/agent-manifest.schema.json\`, \`docs/specifications/AMA-CONFORMANCE.md\`, current shared types and CI-tested, unconnected runtime adapters.
+**Baseline comparison:** [AMA.md](../architecture/AMA.md), `packages/agent-model/agent-manifest.schema.json`, `docs/specifications/AMA-CONFORMANCE.md`, current shared types and CI-tested, unconnected runtime adapters.
 
 ## 0. Analytical protocol — what is source-derived and what is inferred?
 
@@ -14,7 +14,7 @@
 **S = sourced finding:** Statement made by a named standard, public technical guide or research publication. Where a source is a preprint, finding is not independently replicated by the fact of its publication.  
 **I = interpretation:** Our architecture inference from sources.  
 **F1–F7 = seven first-level proposed recommendation packages:** A coherent change package covering multiple related requirements. **Not implemented.**  
-**S01–S11 = conditional second-level residual gaps:** A remaining issue that **would still exist after F1 is fully implemented**. Not an extra duplicate to be counted before F1.  
+**S01–S11 = conditional second-level residual gaps:** A remaining issue that **would still exist after the applicable F1–F7 packages are fully implemented**. Not an extra duplicate to be counted before those first-level packages.  
 **V = verification:** What observable evidence would justify closing the gap.
 
 ### Evidence quality controls
@@ -61,12 +61,12 @@ The seven questions partition the 96 candidate requirements by *primary* domain 
 
 **Sources and insight (S):** The original A01–A07 ontology set distinguishes agents, commands, workflows, capabilities, tools, roles, tasks and runs. Vendor guidance favors simple orchestration before agent proliferation. The original D01/D03 schema findings expose the risk of conflating labels, authority and implementation.
 
-**Baseline (D0/T0): PARTIAL.** \`AMA.md\` is agent-agnostic with a first-class admission test; the current manifest has 19 top-level properties, and registry bindings are mostly string IDs. Static C1/C3 tests are available; typed cross-object semantics and complete schema suite are absent.
+**Baseline (D0/T0): PARTIAL.** `AMA.md` is agent-agnostic with a first-class admission test; the current manifest has 19 top-level properties, and registry bindings are mostly string IDs. Static C1/C3 tests are available; typed cross-object semantics and complete schema suite are absent.
 
 **Structured answer (I):** AMA is *universal in intent but not yet complete as a machine-verifiable type system*. Existing distinctions are architecturally sound; the inability to define all legal relationships and cardinalities makes a generic implementation difficult to prove.
 
 **First-level recommendation F1 — Contract decomposition and semantic compatibility:**
-- Preserve \`AMA-CORE\` as the agent-independent authority for terms, state invariants and applicability.
+- Preserve `AMA-CORE` as the agent-independent authority for terms, state invariants and applicability.
 - Add interoperable JSON Schemas for Agent, Workflow, Command, Capability, Tool Adapter, Task/Run, Authorization Context, Evaluation and Evidence.
 - Require all cross-object bindings to resolve a **specific immutable definition version/digest** rather than free-form labels.
 - Introduce generic, conditional model, planning, memory and deployment profiles; defaults are OFF unless admitted.
@@ -84,7 +84,7 @@ The seven questions partition the 96 candidate requirements by *primary* domain 
 
 **Sources and insight (S):** Original B01–B10/G01–G10; NIST 2026 proposes distinct agent identity, attenuation, just-in-time privileges, signed mandates, policy/reasoning separation, deterministic decisions and independent evidence. OWASP agent-specific threat coverage and MCP token audience controls reinforce scope-dependent checks. E55 NOMOS proposes deterministic gates but warns about false denials from faulty policy compilation.
 
-**Baseline (D0/T0): INADEQUATE FOR PRODUCTION.** Schema mandates \`authorityRefRequired\` and \`mandateRefRequired\` booleans, with an E0–E4 ordinal ceiling. The local effect gate is CI-tested using mock authority/policy adapters, and E0-sensitive reads are not covered by a production-attested resource authorization path.
+**Baseline (D0/T0): INADEQUATE FOR PRODUCTION.** Schema mandates `authorityRefRequired` and `mandateRefRequired` booleans, with an E0–E4 ordinal ceiling. The local effect gate is CI-tested using mock authority/policy adapters, and E0-sensitive reads are not covered by a production-attested resource authorization path.
 
 **Structured answer (I):** An ordinal effect ceiling is an upper bound on mutation *kind*, not proof of consent, scope, confidentiality, blast radius or delegation. A nominal E0 read can be higher-risk than an E2 update.
 
@@ -110,12 +110,12 @@ The seven questions partition the 96 candidate requirements by *primary* domain 
 
 **Sources and insight (S):** Original C01–C08; E52 Horizon Gap distinguishes task horizon from context length and long-term memory. The completed TinyFish review emphasizes long-horizon failure, model/harness confounds and benchmark validity. ReAct and Reflexion demonstrate alternative reasoning strategies, not universal mandates.
 
-**Baseline (D0/T0): MAJOR GAP.** \`runtimeClass\` declares invocation mode, but the current manifest does not express a reusable model binding, prompt provenance, planning strategy, token/time/cost budgets, stop conditions or supported evaluation profile.
+**Baseline (D0/T0): MAJOR GAP.** `runtimeClass` declares invocation mode, but the current manifest does not express a reusable model binding, prompt provenance, planning strategy, token/time/cost budgets, stop conditions or supported evaluation profile.
 
 **Structured answer (I):** AMA currently governs an agent's outer lifecycle more clearly than its cognitive decision process. Requiring one planner would violate universality; leaving planning undefined would under-specify safe execution.
 
 **First-level recommendation F3 — Conditional cognitive execution profile:**
-- Define \`modelProfileRef\`, \`instructionProfileRef\`, \`reasoningStrategyRef\`, \`taskHorizonPolicyRef\` and \`executionBudgetRef\` as replaceable, versioned contracts.
+- Define `modelProfileRef`, `instructionProfileRef`, `reasoningStrategyRef`, `taskHorizonPolicyRef` and `executionBudgetRef` as replaceable, versioned contracts.
 - Separate model context capacity, task duration/dependencies and cross-session memory as independent variables.
 - Specify bounded goal/plan decomposition, allowed capability graph, checkpoint cadence, replanning rules, recursion/delegation ceilings, stop/abstain/escalate and model fallback migration.
 - Preserve deterministic control-envelope semantics while permitting probabilistic reasoning inside bounded steps.
@@ -133,13 +133,13 @@ The seven questions partition the 96 candidate requirements by *primary* domain 
 
 **Sources and insight (S):** Original E01–E07; E52–E54 distinguish persistence and show plausible delayed/cross-domain memory injection. The TinyFish survey reports mixed memory performance: some memory systems help cross-session tasks, while some memory scaffolds worsen certain long-horizon benchmarks. These are setting-specific claims, not universal laws.
 
-**Baseline (D0/T0): MAJOR GAP.** \`statePolicy\` has \`durableState\`, \`memoryMode\` and optional store reference. It cannot describe separate memory write/read approvals, source trust, version, retention, retrieval scoping, contradiction, poisoning or deletion obligations.
+**Baseline (D0/T0): MAJOR GAP.** `statePolicy` has `durableState`, `memoryMode` and optional store reference. It cannot describe separate memory write/read approvals, source trust, version, retention, retrieval scoping, contradiction, poisoning or deletion obligations.
 
 **Structured answer (I):** Memory is an optional implementation, but a *memory safety interface* is part of the core: without it, turning on memory silently creates a second control plane.
 
 **First-level recommendation F4 — Typed memory and context governance:**
 - Separate working context, run checkpoint, episodic/semantic memory, retrieval index and authoritative domain data.
-- Introduce conditional \`memoryProfile\`, \`contextPolicy\`, \`memoryWritePolicy\`, \`retrievalTrustPolicy\`, and \`retentionDeletionPolicy\`.
+- Introduce conditional `memoryProfile`, `contextPolicy`, `memoryWritePolicy`, `retrievalTrustPolicy`, and `retentionDeletionPolicy`.
 - Every retained item declares origin, actor, trust, access scope, storage location, expiry, validation status and ability to correct/delete.
 - Prevent memory retrieval from granting instruction or authorization precedence; quarantine suspicious writes.
 - Require tests for delayed poisoning, cross-domain retrieval, contradiction, compaction fidelity and cost/latency usefulness; memory remains OFF by default.
@@ -239,7 +239,7 @@ The seven questions partition the 96 candidate requirements by *primary* domain 
 
 All 96 original IDs have **one primary question**; relationships may also appear as secondary dependencies. Source-expansion E52–E58 are research records, **not additional normative requirement IDs**. The 86-source survey is a screening pool, not 86 additional accepted requirements.
 
-## 4. Consolidation: why seven F1 packages are better than applying 96 requirements independently
+## 4. Consolidation: why seven F1–F7 packages are better than applying 96 requirements independently
 
 A naïve gap count treats "model binding missing," "prompt version missing," "planner stop condition missing" and "horizon absent" as four unrelated fixes. F3 adds a typed cognitive execution profile that can address all four through one design, followed by separate measurable tests.
 
@@ -252,7 +252,7 @@ The same consolidation applies to:
 - F6: evaluation, evidence, performance, security and independent acceptance;
 - F7: version compatibility, interoperability, operations, lifecycle and governance change.
 
-**Important logical distinction:** "F1 addresses gap X" means **expected coverage if fully implemented and verified**. It does not mean the gap is closed in the current codebase. A second-level gap is not counted as newly closed simply because it was named.
+**Important logical distinction:** "A first-level package addresses gap X" means **expected coverage if fully implemented and verified**. It does not mean the gap is closed in the current codebase. A second-level gap is not counted as newly closed simply because it was named.
 
 ## 5. Second-level residual gap register — only after F1–F7
 
@@ -278,7 +278,7 @@ Those are already explicitly assigned to F3 and F4. They reappear as second-leve
 
 ## 6. Staged implementation dependencies, not 96 simultaneous work items
 
-\`\`\`text
+```text
 Source validation and universal contract boundary
                  |
            F1 typed ontology
@@ -301,7 +301,7 @@ Source validation and universal contract boundary
        (close by live verification,
        new controls, or explicitly
        accepted and documented limits)
-\`\`\`
+```
 
 This depicts primary dependencies, **not** a strict one-thread implementation sequence: security controls, memory safety and evaluation design can be developed in parallel once their common interfaces are versioned.
 
@@ -340,9 +340,9 @@ Production readiness: not established.**
 
 ## 8. Source traceability
 
-**Original catalog:** A01–L07 plus original bibliography 1–51 — \`AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md\`.
+**Original catalog:** A01–L07 plus original bibliography 1–51 — `AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md`.
 
-**Targeted additions:** E52–E58 — \`AMA-SOURCE-EXPANSION-TINYFISH-ARTICLE-GALAXY-2026-10-29.md\`.
+**Targeted additions:** E52–E58 — `AMA-SOURCE-EXPANSION-TINYFISH-ARTICLE-GALAXY-2026-10-29.md`.
 
 **Broad screening:** TinyFish completed research, 86 cited references across 15+ topics and 20 sections: https://agent.tinyfish.ai/playground/research/share/01a18517-da9b-7a93-89cd-def1bbeabdb4 . Article-level HARP verification remains incomplete; individual source statements should be used with their own certainty.
 
