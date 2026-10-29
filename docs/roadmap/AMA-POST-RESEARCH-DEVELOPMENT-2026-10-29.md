@@ -188,3 +188,13 @@ Start **M0 now**, then implement **M1**. In parallel, F8.1 mapping and trusted-f
 - [M0 CI validation](https://github.com/Motherpher/FFOS/actions/runs/40803697223) — SUCCESS; test IDs and cases planned, not yet the corresponding runtime conformance implementations.
 
 **M0 remaining human decision:** independently accept or modify dispositions and the candidate compatibility strategy before they become normative AMA vNext requirements. The two protocol candidates require exact normative source review. Do not promote M0 success to RUNTIME_BOUND, CDX ENFORCING, C4/C5 or agent ACTIVE.
+
+## M1 execution (2026-10-29)
+
+**Development candidate delivered on PR #19.** Added 12 generic, versioned JSON Schemas; isolated TypeScript candidate types; offline `ama_vnext.py` semantic bundle validator; synthetic positive/negative tests; and a formal [M1 contract guide](AMA-M1-CANDIDATE-CONTRACTS.md).
+
+Contract checks include immutable version/content-digest references, cross-object binding closure, command resolution, finite workflow graphs, scoped capabilities, disabled-by-default modules, typed task/effect boundaries and compatibility review. Existing AMA 0.1/v1 definitions and host runtime are not migrated or rewritten.
+
+**M1 state:** `STATIC_CANDIDATE` — verify final CI run for technical test completion. Requirements remain M0-proposed pending independent normative acceptance. No CDX runtime binding, agent activation or C4/C5 certification implied.
+
+**Next:** M2 generic authorization contract and F8 separate host risk-governance integration, after human acceptance of normative changes.
