@@ -9,7 +9,7 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 from jsonschema import Draft202012Validator, FormatChecker
-from ama_vnext import digest, registry, validate_bundle
+from ama_vnext import digest, registry, validate_bundle, RANK
 
 CLASS = {"PUBLIC": 0, "INTERNAL": 1, "CONFIDENTIAL": 2, "RESTRICTED": 3}
 EFFECT_KIND = {"E0_OBSERVE": "OBSERVE", "E1_INTERNAL_STATE": "STATE_MUTATION",
@@ -167,7 +167,8 @@ def validate_authorization_contract(bundle, *, at):
             fail("MANDATE_AGENT_MISMATCH")
         if mandate["status"] != "ISSUED":
             fail("REVOKED_OR_EXPIRED_MANDATE")
-        is_valid(mandate["issuedAt"], mandate["expiresAt"], now)
+        if not is_valid(mandate["issuedAt"], mandate["expiresAt"], now):
+            fail("MANDATE_NOT_CURRENT")
         parents = links.get(mandate["mandateId"], [])
         if len(parents) > 1:
             fail("AMBIGUOUS_DELEGATION_CHAIN")
@@ -175,9 +176,6 @@ def validate_authorization_contract(bundle, *, at):
             fail("ROOT_MANDATE_ISSUER_NOT_HUMAN")
         if parents and issuer["principalKind"] == "HUMAN":
             fail("DELEGATED_MANDATE_ISSUER_INVALID")
-        if parents and mandate["delegationDepth"] == 0 and links.get(parents[0]):
-            # A final child may be unable to delegate further, but may be delegated to.
-            pass
 
     # Parent graph must be acyclic; every non-root subject depends on the root.
     def ancestry(mid, visiting):
@@ -216,10 +214,8 @@ def validate_authorization_contract(bundle, *, at):
             fail("REQUEST_MANDATE_SUBJECT_MISMATCH")
         if req["sourceTrust"] != "TRUSTED_BOUNDARY":
             fail("UNTRUSTED_CONTENT_CANNOT_AUTHORIZE")
-        if req["effectClass"] != agent["effectCeiling"] and (
-            req["effectClass"] not in ("E0_OBSERVE","E1_INTERNAL_STATE",
-                                      "E2_REPOSITORY_CHANGE","E3_EXTERNAL_EFFECT")):
-            fail("INVALID_REQUEST_EFFECT")
+        if RANK[req["effectClass"]] > RANK[agent["effectCeiling"]]:
+            fail("REQUEST_EXCEEDS_AGENT_EFFECT")
         if req["actionKind"] != EFFECT_KIND[req["effectClass"]]:
             fail("REQUEST_ACTION_KIND_MISMATCH")
         if cap and (cap["effectClass"] != req["effectClass"] or not any(
@@ -234,8 +230,6 @@ def validate_authorization_contract(bundle, *, at):
             fail("REQUEST_FROM_FUTURE")
         if not is_valid(mandate["issuedAt"], mandate["expiresAt"], requested_at):
             fail("REQUEST_MANDATE_TIME_INVALID")
-        if req["purpose"] != agent["purpose"] and not req["purpose"]:
-            fail("INVALID_PURPOSE")
         matched = [g for g in mandate["grants"] if _match(g, req)]
         if not matched:
             fail("REQUEST_OUTSIDE_MANDATE")
@@ -275,7 +269,8 @@ def validate_authorization_contract(bundle, *, at):
             fail("SELF_POLICY_DECISION")
         if decision["policyRef"] != req["policyRef"]:
             fail("POLICY_PIN_MISMATCH")
-        is_valid(decision["validFrom"], decision["validUntil"], now)
+        if not is_valid(decision["validFrom"], decision["validUntil"], now):
+            fail("POLICY_DECISION_NOT_CURRENT")
         if decision["outcome"] == "PERMIT_WITH_OBLIGATIONS" and not decision["obligations"]:
             fail("MISSING_POLICY_OBLIGATIONS")
         if decision["outcome"] == "PERMIT" and decision["obligations"]:
@@ -291,7 +286,8 @@ def validate_authorization_contract(bundle, *, at):
             fail("SELF_APPROVAL_PROHIBITED")
         if approval["outcome"] != "APPROVE":
             fail("APPROVAL_REJECTED")
-        is_valid(approval["issuedAt"], approval["expiresAt"], now)
+        if not is_valid(approval["issuedAt"], approval["expiresAt"], now):
+            fail("APPROVAL_NOT_CURRENT")
 
     return {"status": "REJECTED" if errors else "STATIC_ELIGIBLE_FOR_EXTERNAL_VERIFICATION",
             "errors": sorted(errors), "authority_granted": False,
