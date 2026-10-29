@@ -1,6 +1,6 @@
 # Agent Master Architecture (AMA)
 
-**Canonical engineering stages:** M0–M7. **F8:** additional external policy-integration specification (external host adapter, never an AMA agent or an M8 stage). See `packages/agent-model/ama-milestones.json` for the current stage/source index and `packages/agent-model/AMA-COMPREHENSIVE-TEMPLATE.md` for practical construction guidance. The supplementary 32-module coverage inventory must not replace M0–M7 or the 96 source-derived candidate requirements.
+**Canonical engineering stages:** M0–M7. **F8:** a separately bound, realm-dependent external policy-integration interface (never an AMA agent or an M8 stage). See `packages/agent-model/ama-milestones.json` for the current stage/source index and `packages/agent-model/AMA-COMPREHENSIVE-TEMPLATE.md` for practical construction guidance. The supplementary 32-module coverage inventory must not replace M0–M7 or the 96 source-derived candidate requirements.
 
 **Version interpretation:** The historical 0.1.0 foundation and its wire schema remain preserved. Separate v0.2 candidate contracts extend this template without silently modifying legacy compatibility or claiming adoption of a released baseline. Construction work is reviewed and accepted by the owner based on documented technical evidence; no external reviewer is required by the AMA template itself.
 
@@ -10,6 +10,12 @@
 **Contract owner:** FFOS / Agent Stable  
 **Applicability:** All first-class agents admitted under this contract  
 **Governance:** Explicit human mandate, independent policy evaluation, technical conformance and independent acceptance
+
+## Operating realm boundary
+
+Every newly constructed agent package must explicitly declare its operating realm and accountable governing principal, including its security and policy authority binding. A realm is not inferred from the model, a tool, or a user's informal description. The M1 contract uses a provider-neutral operating-realm declaration; M7 checks this declaration before constructing the blueprint. A configured internal estate may require a non-detachable named governance provider, while an external distribution may detach that provider only when a separate authorized host governance binding is declared. The underlying M2 mandate/authority contracts are never removable.
+
+AMA's **own** stewardship realm and named host policies belong in separate, versioned owner/consumer artifacts, not the portable master schema. A package may be structurally valid without a realm only for historical contract compatibility; it is **not** eligible for a new M7 construction blueprint without an explicit realm. A declared governance anchor does not prove live runtime enforcement.
 
 ## 1. Purpose and scope
 
