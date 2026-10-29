@@ -1,10 +1,12 @@
-# Household Family 2.0 — implementation candidate
+# Household Family 2.0 — Agent Stable Agent #2 implementation candidate
+
+**Canonical identity:** `FFOS-AGENT-HOUSEHOLD-002` · **Fleet ordinal:** 2 · **Architecture:** AMA · **Production state:** NOT ACCEPTED
 
 One authenticated MCP plugin and an independent durable worker for bounded GitHub repository work. Janitor observes; Handyman applies registered J1 recipes to isolated feature branches; Verifier checks immutable repository/CI observations in a fresh process. Director remains external and signs every acceptance. This package does not provide arbitrary shell execution, autonomous priority setting, automatic merge, deployment, publication or constitutional release authority.
 
 **Current delivery:** runnable code and tested contract integration. **Not yet deployed or registered in ChatGPT.** Test Director/CDX services are explicitly artificial; their signatures are not genuine governance clearance. Read [the execution report](docs/work_chat_execution_report.md) for current evidence and gates.
 
-**29 October AMA update:** AMA is now positively identified as Agent Master Architecture. The [source-pinned prefabrication review](docs/AMA-PREFABRICATION-2026-10-29.md) records safe preparation work, the pending AMA baseline/adaptation gates, and the required migration from the older commit-only CDX bootstrap to the current release-pinned host anchor. This is a documentation update; it does not establish AMA conformance or agent activation.
+**29 October AMA update:** AMA is now positively identified as Agent Master Architecture. The [source-pinned prefabrication review](docs/AMA-PREFABRICATION-2026-10-29.md) records safe preparation work, the pending AMA baseline/adaptation gates, and the required migration from the older commit-only CDX bootstrap to the current release-pinned host anchor. The current Agent Stable integration line now includes a Household AMA manifest/bindings candidate. This still does not establish production activation.
 
 ## Run the verified local demonstration
 
@@ -61,7 +63,7 @@ For a packaged manifest run `npm run configure-plugin -- https://YOUR-VERIFIED-H
 
 ## Source and release boundaries
 
-Canonical J0 is ephemeral cleanup; J1 is deterministic registered repair; J2 is an interpretive/constitutional stop. AMA remains `AMBIGUOUS_SOURCE_AMA` and grants no authority. September orders marked fulfilled/closed do not authorize this new runtime. Pius is still an external reserved domain in FFOS; this module does not install an old Pius runtime (Motherpher, 2026a; 2026b).
+Canonical J0 is ephemeral cleanup; J1 is deterministic registered repair; J2 is an interpretive/constitutional stop. AMA is positively identified as Agent Master Architecture and grants no authority. September orders marked fulfilled/closed do not authorize this new runtime. Pius is still an external reserved domain in FFOS; this module does not install an old Pius runtime (Motherpher, 2026a; 2026b).
 
 See [source lineage](docs/source_lineage.md), [protocol reconciliation](docs/protocol_reconciliation.md), [operator manual](docs/operator_manual.md), [Director integration](docs/director_contract.md), [security model](docs/security_threat_model.md), [decision register](docs/decision_register.md) and [release/rollback](docs/release.md). License selection and release acceptance remain human decisions.
 
@@ -71,3 +73,16 @@ See [source lineage](docs/source_lineage.md), [protocol reconciliation](docs/pro
 - Motherpher (2026b) _FFOS Architecture Baseline_. Available at: https://github.com/Motherpher/FFOS/blob/3a93eb3d7a5195232acc850c7d301bf901014306/docs/architecture/ARCHITECTURE.md (Accessed: 28 October 2026).
 - OpenAI (2026a) _Add custom MCP server_. Available at: https://developers.openai.com/api/docs/guides/custom-mcp-server (Accessed: 28 October 2026).
 - OpenAI (2026b) _Authentication_. Available at: https://developers.openai.com/plugins/build/auth (Accessed: 28 October 2026).
+
+
+## Agent Stable binding
+
+Household Family is **Agent #2** in the canonical Agent Stable fleet. Agent #1 is MESSI. Fleet numbering is stable identity order, not implementation maturity.
+
+Canonical suite sources on this branch:
+- `agents/registry.json`;
+- `agents/household-family/manifest-candidate-v0.1.json`;
+- `agents/household-family/bindings-candidate-v0.1.json`;
+- `agents/household-family/household-instance.contract.json`.
+
+Director remains external governing authority. Janitor, Handyman and Verifier are internal roles/workflows only.
