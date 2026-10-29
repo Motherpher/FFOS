@@ -10,6 +10,22 @@ CREATE TABLE IF NOT EXISTS ama_m6_suspensions (
  FOREIGN KEY(agent_id,agent_version) REFERENCES ama_agent_versions(agent_id,agent_version)
 );
 -- Suspension records deliberately have no automatic reinstatement endpoint.
+-- Serialize M4 run INSERT with independently authorized emergency suspension.
+-- This is an additional database defense; M6GuardedAdmission also checks claims.
+CREATE OR REPLACE FUNCTION ama_m6_guard_new_runs() RETURNS trigger
+LANGUAGE plpgsql AS $
+BEGIN
+ PERFORM pg_advisory_xact_lock(hashtext(NEW.agent_id));
+ IF EXISTS(SELECT 1 FROM ama_m6_suspensions
+           WHERE agent_id=NEW.agent_id AND agent_version=NEW.agent_version) THEN
+   RAISE EXCEPTION 'AMA_M6_AGENT_EMERGENCY_SUSPENDED';
+ END IF;
+ RETURN NEW;
+END $;
+DROP TRIGGER IF EXISTS ama_m6_new_run_guard ON ama_m4_runs;
+CREATE TRIGGER ama_m6_new_run_guard BEFORE INSERT ON ama_m4_runs
+FOR EACH ROW EXECUTE FUNCTION ama_m6_guard_new_runs();
+
 CREATE TABLE IF NOT EXISTS ama_m6_health_observations (
  observation_id TEXT PRIMARY KEY,
  agent_id TEXT NOT NULL,agent_version TEXT NOT NULL,
