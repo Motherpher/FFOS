@@ -27,7 +27,11 @@ def validate(data):
     check(data.get("template_complete") is False,"FALSE_TEMPLATE_COMPLETION")
     check(data.get("template_coverage")=="packages/agent-model/ama-template-coverage.json","COVERAGE_BINDING")
     check(data.get("canonical_milestones")=="packages/agent-model/ama-milestones.json","M0_M7_BOUNDARY")
-    check(data.get("f8_integration_mode")=="OPTIONAL_EXTERNAL_HOST_PROFILE","F8_NOT_OPTIONAL")
+    check(data.get("f8_integration_mode")=="MANDATORY_FOR_FF_ESTATE_DETACHABLE_FOR_EXTERNAL","F8_REALM_POLICY")
+    check(data.get("internal_stewardship_realm")=="packages/agent-model/ama-stewardship-realm.json","AMA_STEWARDSHIP_REALM")
+    check(data.get("f8_realm_policy")=="integrations/cdx/f8/realm-binding-policy.json","F8_REALM_BINDING")
+    check(data.get("require_agent_operating_realm_at_construction") is True,"REALM_REQUIRED_FOR_AGENT")
+    check(data.get("external_distribution_requires_explicit_host_governance") is True,"NO_UNGOVERNED_EXPORT")
     check({"HOUSEHOLD","MESSI","CDX_WORK_PACKAGE_EXECUTOR"}<=set(data.get("excluded",[])),"INSTANCE_SCOPE_LEAK")
     return errors
 
