@@ -285,6 +285,47 @@ class M1Contracts(unittest.TestCase):
         }
         self.assertEqual([], validate_bundle(repin(b)))
 
+    def test_enabled_conditional_profile_needs_explicit_registration(self):
+        b = fixture()
+        module = b["agent"]["modules"][0]
+        module["enabled"] = True
+        profile = {"schema": "ama.profile/v0.2-candidate",
+                   "profileId": "SYNTHETIC.MEMORY.PROFILE", "version": V,
+                   "status": "VALIDATED", "kind": "MEMORY",
+                   "moduleId": module["moduleId"], "config": {}}
+        b["profiles"] = [profile]
+        b["agent"]["profileRefs"] = [pin(profile, "profileId")]
+        self.assertEqual([], validate_bundle(b))
+
+    def test_disabled_conditional_profile_is_not_admitted(self):
+        b = fixture()
+        profile = {"schema": "ama.profile/v0.2-candidate",
+                   "profileId": "SYNTHETIC.MEMORY.PROFILE", "version": V,
+                   "status": "VALIDATED", "kind": "MEMORY",
+                   "moduleId": "SYNTHETIC.MEMORY", "config": {}}
+        b["profiles"] = [profile]
+        b["agent"]["profileRefs"] = [pin(profile, "profileId")]
+        self.assert_invalid(b, "PROFILE_MODULE_DISABLED")
+
+    def test_profile_kind_mismatch_is_denied(self):
+        b = fixture()
+        b["agent"]["modules"][0]["enabled"] = True
+        profile = {"schema": "ama.profile/v0.2-candidate",
+                   "profileId": "SYNTHETIC.MEMORY.PROFILE", "version": V,
+                   "status": "VALIDATED", "kind": "CONNECTOR",
+                   "moduleId": "SYNTHETIC.MEMORY", "config": {}}
+        b["profiles"] = [profile]
+        b["agent"]["profileRefs"] = [pin(profile, "profileId")]
+        self.assert_invalid(b, "PROFILE_KIND_MISMATCH")
+
+    def test_duplicate_command_tokens_denied(self):
+        b = fixture()
+        duplicate = copy.deepcopy(b["commands"][0])
+        duplicate["commandId"] = "SYNTHETIC.OTHER.CMD"
+        b["commands"].append(duplicate)
+        b["agent"]["commandRefs"].append(pin(duplicate, "commandId"))
+        self.assert_invalid(b, "DUPLICATE_COMMAND_TOKEN")
+
     def test_v1_manifest_stays_distinct(self):
         old = json.loads((HERE / "fixtures" / "agent.json").read_text())
         self.assertEqual("ffos.ama.agent-manifest/v1", old["schema"])
