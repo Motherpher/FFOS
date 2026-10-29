@@ -85,6 +85,8 @@ export interface AMAKnowledgeSourceVNext {
  readonly trustDomain:string;readonly trustLabel:"VERIFIED"|"UNVERIFIED"|"SUSPECT"|"REVOKED";
  readonly issuerRef:string;readonly observedAt:string;readonly maxAgeSeconds:number;
  readonly sensitivity:"PUBLIC"|"INTERNAL"|"CONFIDENTIAL"|"RESTRICTED";
+ readonly admissionState:"ADMITTED"|"QUARANTINED"|"BLOCKED";
+ readonly hostAuthorizationRef?:string;
  readonly sourceInstructionsAdmitted:false;
 }
 export interface AMAKnowledgeCatalogVNext {
