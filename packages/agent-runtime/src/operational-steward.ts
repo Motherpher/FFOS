@@ -53,10 +53,13 @@ export class M6GuardedAdmission implements RunAdmissionPort {
  async assertAdmitted(input:CreateRunRequest):Promise<void>{
   guard(!!this.upstream,"INDEPENDENT_ADMISSION_NOT_BOUND");
   await this.upstream!.assertAdmitted(input);
-  const q=await this.pool.query<{agent_id:string}>(
+  const db=await this.pool.connect();
+  try{
+   const q=await db.query<{agent_id:string}>(
     "SELECT agent_id FROM ama_m6_suspensions WHERE agent_id=$1 AND agent_version=$2",
     [input.agentId,input.agentVersion]);
-  guard(q.rows.length===0,"AGENT_EMERGENCY_SUSPENDED");
+   guard(q.rows.length===0,"AGENT_EMERGENCY_SUSPENDED");
+  }finally{db.release();}
  }
 }
 export class PgOperationalSteward {
