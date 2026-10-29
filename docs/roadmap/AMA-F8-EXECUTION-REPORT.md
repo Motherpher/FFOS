@@ -46,7 +46,7 @@ No CDX constitutional changes, policy changes or release-state mutations were ma
 
 The F8 changes are covered by the existing `ama-conformance.yml` test matrix, plus the F8 source matrix audit and fail-closed release preflight. The CDX anchor audit remains independently triggered. The upload-artifact path was repaired so both M5 and F8 machine-readable reports can be retained.
 
-**Record the latest completed successful code SHA and Actions run ID in the PR after verification.** CI tests contain no real CDX policy credentials, live security graph, production data or independently signed consumer receipts. A green CI result establishes only source mapping, static interface checks, synthetic security behavior and disposable PostgreSQL regressions.
+[GitHub Actions run 40839505822](https://github.com/Motherpher/FFOS/actions/runs/40839505822) **completed SUCCESS**, covering **169 Python + 9 shared-model + 86 runtime/PostgreSQL tests = 264 combined** (existing M0–M5 regressions included). The F8 source mapping audit, machine preflight, M5 synthetic evidence output and multi-file artifact upload all passed. The archived artifact is [ama-static-conformance.zip, ID 12882840711](https://github.com/Motherpher/FFOS/actions/runs/40839505822/artifacts/12882840711). The artifact is a CI/synthetic assurance report, **not** live independent CDX custody. No real CDX policy credentials, live security graph, production data or independently signed consumer receipts were present.
 
 ## E. Release-blocking facts, not engineering defects
 
