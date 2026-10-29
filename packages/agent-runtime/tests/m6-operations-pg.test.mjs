@@ -20,6 +20,9 @@ const denied=(fn,code)=>assert.rejects(fn,e=>e instanceof M6OperationalDenied&&e
 const run=()=>({runId:"CI-M6-RUN-"+randomUUID(),taskId:"TASK-"+randomUUID(),
  agentId:"CI.M6.AGENT",agentVersion:"1.0.0",workflowId:"CI.WORKFLOW",
  workflowVersion:"1.0.0"});
+const registerVersion=async version=>pool.query(
+ "INSERT INTO ama_agent_versions(agent_id,agent_version,ama_version,definition,definition_sha256,source_commit,registered_by) VALUES ($1,$2,$3,$4::jsonb,$5,$6,$7)",
+ ["CI.M6.AGENT",version,"0.1.0","{}","f".repeat(64),"CI","CI"]);
 const incident=()=>({incidentId:"CI-M6-INC-"+randomUUID(),agentId:"CI.M6.AGENT",
  agentVersion:"1.0.0",kind:"REVOKED_TOOL",severity:"CRITICAL",
  evidenceRef:"independent/test/proof",authorityRef:"verified/human"});
@@ -75,7 +78,8 @@ test("M6: independent emergency containment fences worker, journals and preserve
  assert.equal(actions.length,1);
 });
 test("M6: uncertain dispatched effect transitions to HOLD UNKNOWN, never blindly replayed",{skip:!dsn},async()=>{
- const i=run(),coord=new DurablePgCoordinator(pool,
+ await registerVersion("5.0.0");
+ const i={...run(),agentVersion:"5.0.0"},coord=new DurablePgCoordinator(pool,
   {async assertAdmitted(){}},null,null,null);
  await coord.create(i);const lease=await coord.claim(i.runId,"worker",120);
  const attempt="CI-M6-ATT-"+randomUUID();
@@ -83,7 +87,7 @@ test("M6: uncertain dispatched effect transitions to HOLD UNKNOWN, never blindly
  const effectId="CI-M6-EFFECT-"+randomUUID();
  await pool.query("INSERT INTO ama_m4_effects(effect_id,run_id,operation_key,attempt_id,target_scope,effect_class,state) VALUES($1,$2,$3,$4,$5,$6,'DISPATCHED')",
   [effectId,i.runId,"CI-KEY",attempt,"synthetic","E2_REPOSITORY_CHANGE"]);
- const result=await steward().emergencySuspend(incident());
+ const result=await steward().emergencySuspend({...incident(),agentVersion:"5.0.0"});
  assert.equal(result.uncertainEffects,1);
  const state=(await pool.query("SELECT state FROM ama_m4_runs WHERE run_id=$1",[i.runId])).rows[0];
  assert.equal(state.state,"HOLD");
@@ -92,7 +96,8 @@ test("M6: uncertain dispatched effect transitions to HOLD UNKNOWN, never blindly
  await assert.rejects(()=>coord.claim(i.runId,"new-worker",120),/RUN_NOT_CLAIMABLE/);
 });
 test("M6: independent suspension authority outage causes no mutation",{skip:!dsn},async()=>{
- const i=run(),coord=new DurablePgCoordinator(pool,
+ await registerVersion("6.0.0");
+ const i={...run(),agentVersion:"6.0.0"},coord=new DurablePgCoordinator(pool,
   {async assertAdmitted(){}},null,null,null);await coord.create(i);
  revoke=true;
  await assert.rejects(()=>steward().emergencySuspend(incident()),/authority revoked/);
