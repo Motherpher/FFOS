@@ -35,8 +35,9 @@ def inspect(milestones, coverage, decisions, source_index):
 
     f8 = milestones.get("f8", {})
     require(f8.get("id") == "F8" and f8.get("core_milestone") is False
-            and f8.get("role") == "OPTIONAL_EXTERNAL_CDX_INTEGRATION_TRACK",
+            and f8.get("role") == "REALM_CONDITIONAL_CDX_GOVERNANCE_ANCHOR",
             "F8_NOT_EXTERNAL")
+    require(f8.get("internal_implementation_required") is True and f8.get("external_distribution_detachable") is True, "F8_REALM_REQUIRED")
     require(f8.get("production_binding_required_for_template") is False,
             "F8_REQUIRED_FOR_TEMPLATE")
 
@@ -90,7 +91,7 @@ def inspect(milestones, coverage, decisions, source_index):
                                  for x in modules) and not unresolved_tests and not errors,
         "requirement_test_records_unresolved": len(unresolved_tests),
         "tracking_note": "M0 register test states are historical plan records; this count is not proof that corresponding engineering tests do not exist.",
-        "f8": "OPTIONAL_CDX_HOST_INTEGRATION",
+        "f8": "REALM_CONDITIONAL_CDX_GOVERNANCE_ANCHOR",
         "stages": summary,
         "errors": sorted(set(errors)),
     }
