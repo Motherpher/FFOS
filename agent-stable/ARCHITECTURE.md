@@ -77,6 +77,6 @@ Fleet numbering is **identity order, not implementation maturity**.
 | 1 | MESSI | DRAFT / NOT IMPLEMENTED | Broad user-facing Form & Flöde worker; named functions such as Cashin/Carpenter/Evaluate/Research remain workflows/commands/capabilities, not separate agents |
 | 2 | Household Family | IMPLEMENTATION CANDIDATE / NOT PRODUCTION ACCEPTED | Bounded Director-assigned repository/work-package maintenance using Janitor, Handyman and Verifier internal roles |
 
-Machine registry: `agents/registry.json`.
+Machine registry: `agent-stable/registry.json`.
 
 Director remains external governing authority for both agents. AMA and Agent Mechanic are infrastructure, not fleet agents.
