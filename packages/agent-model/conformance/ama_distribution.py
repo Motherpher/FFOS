@@ -26,6 +26,8 @@ def validate(data):
     check(adoption.get("owner_review_and_acceptance_required") is True,"OWNER_ACCEPTANCE_REQUIRED")
     check(data.get("template_complete") is False,"FALSE_TEMPLATE_COMPLETION")
     check(data.get("template_coverage")=="packages/agent-model/ama-template-coverage.json","COVERAGE_BINDING")
+    check(data.get("canonical_milestones")=="packages/agent-model/ama-milestones.json","M0_M7_BOUNDARY")
+    check(data.get("f8_integration_mode")=="OPTIONAL_EXTERNAL_HOST_PROFILE","F8_NOT_OPTIONAL")
     check({"HOUSEHOLD","MESSI","CDX_WORK_PACKAGE_EXECUTOR"}<=set(data.get("excluded",[])),"INSTANCE_SCOPE_LEAK")
     return errors
 
