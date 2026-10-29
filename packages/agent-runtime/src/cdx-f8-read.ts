@@ -26,11 +26,13 @@ export interface F8ReadEvidence {
 }
 const ok=(s:unknown):s is string=>typeof s==="string"&&s.trim().length>0;
 export class CDXF8ReadGuard {
- constructor(
-  readonly policy:CDXPolicyPort|null,
-  readonly authority:F8ReadAuthority|null,
-  readonly evidence:F8ReadEvidence|null,
- ){}
+ readonly policy:CDXPolicyPort|null;
+ readonly authority:F8ReadAuthority|null;
+ readonly evidence:F8ReadEvidence|null;
+ constructor(policy:CDXPolicyPort|null,authority:F8ReadAuthority|null,
+   evidence:F8ReadEvidence|null){
+  this.policy=policy;this.authority=authority;this.evidence=evidence;
+ }
  async read<T>(context:AMAExecutionContext,capabilityId:string,
   admission:F8ReadAdmission,load:()=>Promise<T>):Promise<T>{
   if(!this.policy||!this.authority||!this.evidence)
