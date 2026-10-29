@@ -183,7 +183,7 @@ class M1Contracts(unittest.TestCase):
 
     def test_required_capability_unresolved_denied(self):
         b = fixture()
-        b["workflows"][0]["steps"][0]["capabilityRef"]["id"] = "SYNTHETIC.UNKNOWN"
+        b["workflows"][0]["steps"][0]["capabilityRef"] = {**b["workflows"][0]["steps"][0]["capabilityRef"], "id": "SYNTHETIC.UNKNOWN"}
         self.assert_invalid(b, "STEP_CAPABILITY_UNDECLARED")
 
     def test_active_agent_disallows_unready_bindings(self):
