@@ -243,9 +243,17 @@
       "id": "secrets",
       "requirement": "OPTIONAL",
       "purpose": "secret injection, rotation, revocation and audit",
-      "implementation_status": "REQUIRES_TEMPLATE_CONTRACT",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
       "host_binding": "INJECTED_NOT_PRESELECTED",
-      "milestone": "M2"
+      "milestone": "M2",
+      "evidence_contract": "packages/agent-model/schemas/v0.2/secret-binding.schema.json",
+      "evidence_validator": "packages/agent-model/conformance/ama_support_profiles.py",
+      "evidence_tests": "packages/agent-model/conformance/tests/test_ama_support_profiles.py",
+      "remaining_host_obligations": [
+        "LIVE_SECRET_PROVIDER",
+        "ROTATION_REVOCATION_ENFORCEMENT",
+        "ACCESS_AUDIT"
+      ]
     },
     {
       "id": "interoperability",
@@ -298,9 +306,17 @@
       "id": "localization",
       "requirement": "OPTIONAL",
       "purpose": "locale, timezone, accessibility and user experience",
-      "implementation_status": "REQUIRES_TEMPLATE_CONTRACT",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
       "host_binding": "INJECTED_NOT_PRESELECTED",
-      "milestone": "M6"
+      "milestone": "M6",
+      "evidence_contract": "packages/agent-model/schemas/v0.2/localization-profile.schema.json",
+      "evidence_validator": "packages/agent-model/conformance/ama_support_profiles.py",
+      "evidence_tests": "packages/agent-model/conformance/tests/test_ama_support_profiles.py",
+      "remaining_host_obligations": [
+        "RUNTIME_LOCALE_RESOLUTION",
+        "TRANSLATION_VALIDATION",
+        "ACCESSIBILITY_HOST_TESTING"
+      ]
     },
     {
       "id": "governance",
