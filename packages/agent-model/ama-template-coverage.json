@@ -187,9 +187,14 @@
       "id": "human-interaction",
       "requirement": "OPTIONAL",
       "purpose": "human input, pause/resume, consent and escalation",
-      "implementation_status": "REQUIRES_TEMPLATE_CONTRACT",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
       "host_binding": "INJECTED_NOT_PRESELECTED",
-      "milestone": "M2"
+      "milestone": "M2",
+      "evidence_contracts": [
+        "packages/agent-model/schemas/v0.2/approval.schema.json",
+        "packages/agent-model/schemas/v0.2/approval-event.schema.json"
+      ],
+      "reconciliation_note": "Existing M0–M7 contracts cover part of this concern; full reusable lifecycle and semantic conformance not yet proven"
     },
     {
       "id": "observability",
@@ -212,17 +217,27 @@
       "id": "safety",
       "requirement": "OPTIONAL",
       "purpose": "risk classification, fail-closed policies and abuse handling",
-      "implementation_status": "REQUIRES_TEMPLATE_CONTRACT",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
       "host_binding": "INJECTED_NOT_PRESELECTED",
-      "milestone": "M2"
+      "milestone": "M2",
+      "evidence_contracts": [
+        "packages/agent-model/schemas/v0.2/authorization-decision.schema.json",
+        "packages/agent-model/schemas/v0.2/release-plan.schema.json"
+      ],
+      "reconciliation_note": "Existing M0–M7 contracts cover part of this concern; full reusable lifecycle and semantic conformance not yet proven"
     },
     {
       "id": "privacy",
       "requirement": "OPTIONAL",
       "purpose": "data minimization, access control, retention and deletion",
-      "implementation_status": "REQUIRES_TEMPLATE_CONTRACT",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
       "host_binding": "INJECTED_NOT_PRESELECTED",
-      "milestone": "M2"
+      "milestone": "M2",
+      "evidence_contracts": [
+        "packages/agent-model/schemas/v0.2/memory-profile.schema.json",
+        "packages/agent-model/schemas/v0.2/knowledge-catalog.schema.json"
+      ],
+      "reconciliation_note": "Existing M0–M7 contracts cover part of this concern; full reusable lifecycle and semantic conformance not yet proven"
     },
     {
       "id": "secrets",
@@ -236,17 +251,27 @@
       "id": "interoperability",
       "requirement": "OPTIONAL",
       "purpose": "MCP, A2A, API contracts and transport negotiation",
-      "implementation_status": "REQUIRES_TEMPLATE_CONTRACT",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
       "host_binding": "INJECTED_NOT_PRESELECTED",
-      "milestone": "M1"
+      "milestone": "M1",
+      "evidence_contracts": [
+        "packages/agent-model/schemas/v0.2/tool-adapter.schema.json",
+        "packages/agent-model/schemas/v0.2/operational-profile.schema.json"
+      ],
+      "reconciliation_note": "Existing M0–M7 contracts cover part of this concern; full reusable lifecycle and semantic conformance not yet proven"
     },
     {
       "id": "deployment",
       "requirement": "OPTIONAL",
       "purpose": "host deployment descriptors, staged rollout and rollback",
-      "implementation_status": "REQUIRES_TEMPLATE_CONTRACT",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
       "host_binding": "INJECTED_NOT_PRESELECTED",
-      "milestone": "M6"
+      "milestone": "M6",
+      "evidence_contracts": [
+        "packages/agent-model/schemas/v0.2/release-plan.schema.json",
+        "packages/agent-model/schemas/v0.2/rollback-plan.schema.json"
+      ],
+      "reconciliation_note": "Existing M0–M7 contracts cover part of this concern; full reusable lifecycle and semantic conformance not yet proven"
     },
     {
       "id": "operations",
@@ -260,9 +285,14 @@
       "id": "cost-control",
       "requirement": "OPTIONAL",
       "purpose": "budget ceilings, quota, cost attribution and throttling",
-      "implementation_status": "REQUIRES_TEMPLATE_CONTRACT",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
       "host_binding": "INJECTED_NOT_PRESELECTED",
-      "milestone": "M6"
+      "milestone": "M6",
+      "evidence_contracts": [
+        "packages/agent-model/schemas/v0.2/planning-profile.schema.json",
+        "packages/agent-model/schemas/v0.2/operational-profile.schema.json"
+      ],
+      "reconciliation_note": "Existing M0–M7 contracts cover part of this concern; full reusable lifecycle and semantic conformance not yet proven"
     },
     {
       "id": "localization",
@@ -276,9 +306,14 @@
       "id": "governance",
       "requirement": "CORE",
       "purpose": "owner acceptance, review record and authority boundaries",
-      "implementation_status": "REQUIRES_TEMPLATE_CONTRACT",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
       "host_binding": "INJECTED_NOT_PRESELECTED",
-      "milestone": "M6"
+      "milestone": "M6",
+      "evidence_contracts": [
+        "packages/agent-model/schemas/v0.2/acceptance-assessment.schema.json",
+        "packages/agent-model/ama-release-gates.json"
+      ],
+      "reconciliation_note": "Existing M0–M7 contracts cover part of this concern; full reusable lifecycle and semantic conformance not yet proven"
     }
   ],
   "rules": {
