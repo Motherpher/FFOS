@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.attempt/v0.2-candidate"
+    },
+    "attemptId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "runId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "stepId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "workerRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "leaseEpoch": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "startedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "outcome": {
+      "enum": [
+        "STARTED",
+        "SUCCEEDED",
+        "FAILED",
+        "UNKNOWN",
+        "ABORTED"
+      ]
+    },
+    "endAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "schema",
+    "attemptId",
+    "runId",
+    "stepId",
+    "workerRef",
+    "leaseEpoch",
+    "startedAt",
+    "outcome"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/attempt.schema.json",
+  "title": "AMA v0.2 candidate attempt contract"
+}
