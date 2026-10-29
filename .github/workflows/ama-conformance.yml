@@ -4,6 +4,8 @@ on:
     paths:
       - "packages/agent-model/**"
       - "packages/agent-runtime/**"
+      - "integrations/cdx/f8/**"
+      - ".cdx/**"
       - "packages/registry/migrations/**"
       - "docs/specifications/AMA-CONFORMANCE.md"
       - "docs/roadmap/AMA-*"
@@ -47,6 +49,12 @@ jobs:
           python-version: "3.12"
       - name: Install pinned JSON Schema evaluator
         run: python -m pip install -r packages/agent-model/conformance/requirements.txt
+      - name: F8 catalogue mapping audit
+        run: python integrations/cdx/f8/audit_coverage.py
+      - name: F8 external release preflight (expected blocked)
+        run: |
+          python integrations/cdx/f8/preflight.py \
+            --output "$RUNNER_TEMP/ama-f8-preflight.json"
       - name: Unit tests and negative/adversarial cases
         run: python -m unittest discover -s packages/agent-model/conformance/tests -v
       - uses: actions/setup-node@v4
@@ -82,5 +90,8 @@ jobs:
         if: always()
         with:
           name: ama-static-conformance
-          path: |\n            ${{ runner.temp }}/ama-static-report.json\n            ${{ runner.temp }}/ama-m5-candidate-report.json
+          path: |
+            ${{ runner.temp }}/ama-static-report.json
+            ${{ runner.temp }}/ama-m5-candidate-report.json
+            ${{ runner.temp }}/ama-f8-preflight.json
           if-no-files-found: ignore
