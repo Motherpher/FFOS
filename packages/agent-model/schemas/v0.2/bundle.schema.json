@@ -110,6 +110,55 @@
       "items": {
         "$ref": "approval.schema.json"
       }
+    },
+    "modelProfiles": {
+      "type": "array",
+      "items": {
+        "$ref": "model-profile.schema.json"
+      }
+    },
+    "instructionPackages": {
+      "type": "array",
+      "items": {
+        "$ref": "instruction-package.schema.json"
+      }
+    },
+    "planningProfiles": {
+      "type": "array",
+      "items": {
+        "$ref": "planning-profile.schema.json"
+      }
+    },
+    "contextPolicies": {
+      "type": "array",
+      "items": {
+        "$ref": "context-policy.schema.json"
+      }
+    },
+    "memoryProfiles": {
+      "type": "array",
+      "items": {
+        "$ref": "memory-profile.schema.json"
+      }
+    },
+    "memoryEntries": {
+      "type": "array",
+      "items": {
+        "$ref": "memory-entry.schema.json"
+      }
+    },
+    "retrievalPolicies": {
+      "type": "array",
+      "items": {
+        "$ref": "retrieval-policy.schema.json"
+      }
+    },
+    "cognitiveBindings": {
+      "type": "array",
+      "items": {
+        "$ref": "cognitive-binding.schema.json"
+      },
+      "maxItems": 1
     }
   },
   "$schema": "https://json-schema.org/draft/2020-12/schema",
