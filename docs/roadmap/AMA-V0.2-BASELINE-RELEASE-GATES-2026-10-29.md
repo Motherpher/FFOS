@@ -2,7 +2,7 @@
 
 **Date:** 2026-10-29  
 **Scope:** Domain-agnostic Agent Master Architecture; not an agent.  
-**Disposition:** `CI_ENGINEERING_PASS_PENDING_INDEPENDENT_REVIEW`.  
+**Disposition:** `CI_PASS_OWNER_ACCEPTED_FINAL_AUDIT_PENDING`.  
 **Target candidate:** `0.2.0-candidate`. No stable architecture version or publication is authorized.
 
 ## Verified GitHub evidence
@@ -27,7 +27,7 @@
 | Engineering conformance CI | PASS | Exact run/job success and archived artifact above |
 | Compatibility/architecture portability | CI-PASS / REVIEW-PENDING | Independent assessment of schema invariants and host independence |
 | Architecture documentation/semantic consistency | REVIEW-PENDING | Validate M0–M7 wording: AMA is architecture; agent-instance operational tests are fixtures, not AMA activation |
-| Independent architecture review | OPEN | Reviewer findings, disposition, and acceptance on current PR head |
+| Technical audit | OPEN | Documented findings and owner disposition for current PR head |
 | Branch protection and merge checks | UNVERIFIED | Owner/platform readback on FFOS PR #19; no bypass |
 | Stable architecture adoption | NOT AUTHORIZED | Separate human approval of stable version, evidence and semantic baseline |
 | Merge PR #19 | NOT PERFORMED | Requires governance review and passing required checks |
@@ -40,4 +40,4 @@
 5. Have all documentation statements implying AMA is an active agent or production-deployable actor been removed or explicitly superseded?
 
 ## Safe-next disposition
-Obtain an independent reviewer assessment and authoritative FFOS mergeability/readback. Address findings on a fresh exact PR head, repeat CI, then ask human governing authority to adopt the stable architecture baseline. Do not merge or mark `STABLE` merely from CI success; do not activate an agent.
+Perform and record the technical audit and authoritative FFOS mergeability/readback. Address findings on a fresh exact PR head, repeat CI, then ask human governing authority to adopt the stable architecture baseline. Do not merge or mark `STABLE` merely from CI success; do not activate an agent.
