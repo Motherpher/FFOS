@@ -91,6 +91,29 @@ def repin(bundle):
     return b
 
 
+def task_fixture():
+    b = fixture()
+    a = b["agent"]
+    task = {"schema": "ama.task/v0.2-candidate",
+            "taskId": "SYNTHETIC.TASK", "version": V,
+            "agentRef": {"id": a["agentId"], "version": a["agentVersion"],
+                         "digest": digest(a)},
+            "workflowRef": pin(b["workflows"][0], "workflowId"),
+            "commandRef": pin(b["commands"][0], "commandId"),
+            "state": "RUNNING", "requestedScopes": ["synthetic/item"],
+            "maxSteps": 3, "runId": "SYNTHETIC.RUN"}
+    effect = {"schema": "ama.effect/v0.2-candidate",
+              "effectId": "SYNTHETIC.EFFECT", "version": V,
+              "taskRef": pin(task, "taskId"), "runId": task["runId"],
+              "capabilityRef": pin(b["capabilities"][0], "capabilityId"),
+              "effectClass": "E0_OBSERVE", "actionKind": "OBSERVE",
+              "resourceScope": "synthetic/item",
+              "state": "PREPARED", "evidenceRefs": []}
+    b["tasks"] = [task]
+    b["effects"] = [effect]
+    return b
+
+
 class M1Contracts(unittest.TestCase):
     def assert_invalid(self, b, code):
         errors = validate_bundle(b)
@@ -98,7 +121,7 @@ class M1Contracts(unittest.TestCase):
 
     def test_schemas_are_valid_and_registered(self):
         reg, sources = registry()
-        self.assertEqual(10, len(sources))
+        self.assertEqual(12, len(sources))
         for schema in sources.values():
             Draft202012Validator.check_schema(schema)
             self.assertIn("v0.2", schema["$id"])
@@ -213,6 +236,35 @@ class M1Contracts(unittest.TestCase):
         self.assertEqual(1, len(assessment["reasons"]))
         old["effectCeiling"] = "E2_REPOSITORY_CHANGE"
         self.assertIn("EFFECT_CEILING_CHANGED", migration_review(old, b)["reasons"])
+
+    def test_typed_task_effect_contract_is_statically_consistent(self):
+        self.assertEqual([], validate_bundle(task_fixture()))
+
+    def test_task_pinned_agent_tampering_denied(self):
+        b = task_fixture()
+        b["tasks"][0]["agentRef"]["digest"] = "sha256:" + "0" * 64
+        self.assert_invalid(b, "TASK_AGENT_MISMATCH")
+
+    def test_effect_target_must_remain_in_task_and_capability(self):
+        b = task_fixture()
+        b["effects"][0]["resourceScope"] = "synthetic/private"
+        self.assert_invalid(b, "EFFECT_OUTSIDE_TASK_SCOPE")
+        self.assert_invalid(b, "EFFECT_OUTSIDE_CAPABILITY_SCOPE")
+
+    def test_effect_run_cannot_change_identity(self):
+        b = task_fixture()
+        b["effects"][0]["runId"] = "SYNTHETIC.DIFFERENT"
+        self.assert_invalid(b, "EFFECT_RUN_MISMATCH")
+
+    def test_effect_action_kind_mismatch_rejected(self):
+        b = task_fixture()
+        b["effects"][0]["actionKind"] = "EXTERNAL_ACTION"
+        self.assert_invalid(b, "EFFECT_ACTION_KIND_MISMATCH")
+
+    def test_effect_reference_digest_mutation_rejected(self):
+        b = task_fixture()
+        b["tasks"][0]["maxSteps"] = 7
+        self.assert_invalid(b, "DIGEST_MISMATCH")
 
     def test_v1_manifest_stays_distinct(self):
         old = json.loads((HERE / "fixtures" / "agent.json").read_text())
