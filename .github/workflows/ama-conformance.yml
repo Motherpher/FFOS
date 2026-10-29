@@ -77,6 +77,9 @@ jobs:
             --output "$RUNNER_TEMP/ama-m0-requirement-evidence.json"
       - name: Unit tests and negative/adversarial cases
         run: python -m unittest discover -s packages/agent-model/conformance/tests -v
+      - name: Emit M7 minimal and complex synthetic blueprint references
+        run: |
+          python packages/agent-model/conformance/ama_blueprint_reference.py --output-dir "$RUNNER_TEMP/ama-m7-blueprints"
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
@@ -130,4 +133,5 @@ jobs:
             ${{ runner.temp }}/ama-f8-preflight.json
             ${{ runner.temp }}/ama-m6-candidate-report.json
             ${{ runner.temp }}/ama-m7e/
+            ${{ runner.temp }}/ama-m7-blueprints/
           if-no-files-found: ignore
