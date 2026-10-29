@@ -77,6 +77,9 @@ def inspect(milestones, coverage, decisions, source_index):
         }
     summary["M0"]["requirement_count"] = len(entries)
     summary["M7"]["integrates"] = STAGES[1:7]
+    unresolved_tests = [x.get("id") for x in entries
+                        if x.get("test_status") == "NOT_IMPLEMENTED"
+                        or x.get("test_state") == "PLAN_ONLY_NOT_EXECUTED"]
     return {
         "schema": "ama.milestone-integrity-report/v1",
         "architecture": "AMA",
@@ -84,7 +87,9 @@ def inspect(milestones, coverage, decisions, source_index):
         "source_requirement_count": len(entries),
         "supplementary_module_count": len(modules),
         "template_complete": all(x.get("implementation_status") == "COMPLETE"
-                                 for x in modules) and not errors,
+                                 for x in modules) and not unresolved_tests and not errors,
+        "requirement_test_records_unresolved": len(unresolved_tests),
+        "tracking_note": "M0 register test states are historical plan records; this count is not proof that corresponding engineering tests do not exist.",
         "f8": "OPTIONAL_CDX_HOST_INTEGRATION",
         "stages": summary,
         "errors": sorted(set(errors)),
