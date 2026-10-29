@@ -1,6 +1,15 @@
 -- M6 development candidate: append-only incident, health and release proposals.
 -- Apply to disposable CI only pending independent migration and database-role approval.
 -- Source-of-truth authority remains the registered agent and external governing services.
+CREATE TABLE IF NOT EXISTS ama_m6_suspensions (
+ agent_id TEXT NOT NULL,agent_version TEXT NOT NULL,
+ incident_id TEXT NOT NULL UNIQUE,
+ authority_ref TEXT NOT NULL,proof_ref TEXT NOT NULL,
+ suspended_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+ PRIMARY KEY(agent_id,agent_version),
+ FOREIGN KEY(agent_id,agent_version) REFERENCES ama_agent_versions(agent_id,agent_version)
+);
+-- Suspension records deliberately have no automatic reinstatement endpoint.
 CREATE TABLE IF NOT EXISTS ama_m6_health_observations (
  observation_id TEXT PRIMARY KEY,
  agent_id TEXT NOT NULL,agent_version TEXT NOT NULL,
@@ -46,6 +55,10 @@ CREATE TABLE IF NOT EXISTS ama_m6_release_proposals (
  FOREIGN KEY(agent_id,agent_version) REFERENCES ama_agent_versions(agent_id,agent_version)
 );
 -- No mutable release-state, no production deployment API and no self-acceptance.
+DROP TRIGGER IF EXISTS ama_m6_suspensions_immutable ON ama_m6_suspensions;
+CREATE TRIGGER ama_m6_suspensions_immutable BEFORE UPDATE OR DELETE ON ama_m6_suspensions
+FOR EACH ROW EXECUTE FUNCTION ffos_reject_mutation();
+
 DO $$ BEGIN
  IF to_regprocedure('ffos_reject_mutation()') IS NULL THEN
   RAISE EXCEPTION 'ffos_reject_mutation() missing';
