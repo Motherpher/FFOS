@@ -170,6 +170,16 @@ The M4 execution contract can be developed as a candidate, while F8 and M5 suppl
 
 **Gate:** M5-INDEPENDENT-ASSURANCE-PASS; structural pass ≠ live C4/C5 certification.
 
+## M5 engineering candidate — 2026-10-29
+
+**Implemented:** six agent-neutral evaluation/assurance schemas (39 cumulative), TypeScript contract mirrors, deterministic multi-axis scoring and negative tests, oracle-aware external attestation port, baseline comparison that cannot grant release, and GitHub Actions machine-readable **synthetic** assurance report.
+
+[M5 specification](AMA-M5-INDEPENDENT-EVALUATION-ASSURANCE.md) · [M5 execution report](AMA-M5-EXECUTION-REPORT.md).
+
+[CI 40835331056](https://github.com/Motherpher/FFOS/actions/runs/40835331056) succeeded with 168 Python, nine shared-model and 54 runtime/PostgreSQL tests (231 cumulative). The latest CI for the report artifact is a separate final checkpoint.
+
+**Engineering candidate ≠ independent assurance.** The evaluator never accepts its own report. Genuine oracle attestation, live C4/C5, human calibration, operational policy service, evidence custody, governed acceptance and production deployment are still blocked.
+
 ## M6 — F7: Host-neutral operational interfaces and compatibility
 
 **Build:** extension/version compatibility, drift/incident/health/cost, canary/rollback and release controls. MCP/A2A and OTel remain **conditionally bound adapters**; do not turn protocol-specific requirements into universal AMA MUSTs. Technical steward can audit/prepare repairs but cannot authorize or self-accept changes.
