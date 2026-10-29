@@ -266,6 +266,25 @@ class M1Contracts(unittest.TestCase):
         b["tasks"][0]["maxSteps"] = 7
         self.assert_invalid(b, "DIGEST_MISMATCH")
 
+    def test_external_io_schema_reference_rejected(self):
+        b = fixture()
+        b["toolAdapters"][0]["inputSchema"] = {"$ref": "https://invalid.example/remote.json"}
+        self.assert_invalid(repin(b), "INVALID_IO_SCHEMA")
+
+    def test_missing_local_io_schema_pointer_rejected(self):
+        b = fixture()
+        b["toolAdapters"][0]["outputSchema"] = {"$ref": "#/$defs/not-present"}
+        self.assert_invalid(repin(b), "INVALID_IO_SCHEMA")
+
+    def test_valid_local_io_schema_reference_allowed(self):
+        b = fixture()
+        b["toolAdapters"][0]["outputSchema"] = {
+            "$defs": {"payload": {"type": "string"}},
+            "type": "object",
+            "properties": {"value": {"$ref": "#/$defs/payload"}}
+        }
+        self.assertEqual([], validate_bundle(repin(b)))
+
     def test_v1_manifest_stays_distinct(self):
         old = json.loads((HERE / "fixtures" / "agent.json").read_text())
         self.assertEqual("ffos.ama.agent-manifest/v1", old["schema"])
