@@ -237,6 +237,42 @@
       "items": {
         "$ref": "acceptance-assessment.schema.json"
       }
+    },
+    "operationalProfiles": {
+      "type": "array",
+      "items": {
+        "$ref": "operational-profile.schema.json"
+      }
+    },
+    "compatibilityAssessments": {
+      "type": "array",
+      "items": {
+        "$ref": "compatibility-assessment.schema.json"
+      }
+    },
+    "healthSnapshots": {
+      "type": "array",
+      "items": {
+        "$ref": "health-snapshot.schema.json"
+      }
+    },
+    "incidentRecords": {
+      "type": "array",
+      "items": {
+        "$ref": "incident-record.schema.json"
+      }
+    },
+    "releasePlans": {
+      "type": "array",
+      "items": {
+        "$ref": "release-plan.schema.json"
+      }
+    },
+    "rollbackPlans": {
+      "type": "array",
+      "items": {
+        "$ref": "rollback-plan.schema.json"
+      }
     }
   },
   "$schema": "https://json-schema.org/draft/2020-12/schema",
