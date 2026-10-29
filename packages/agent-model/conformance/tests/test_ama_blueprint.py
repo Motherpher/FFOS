@@ -11,6 +11,8 @@ from ama_blueprint import assemble
 from test_m1_contracts import fixture
 from test_m4_eventing import event_fixture
 from test_ama_support_profiles import secret_fixture, localization_fixture
+from test_m3_cognitive import cognitive_fixture
+from test_m3_knowledge import knowledge_fixture
 
 
 class BlueprintTests(unittest.TestCase):
@@ -51,7 +53,7 @@ class BlueprintTests(unittest.TestCase):
         bad["eventTriggers"][0]["maxEffectClass"]="E3_EXTERNAL_EFFECT"
         b=assemble(bad)
         self.assertEqual(b["status"],"INVALID_SOURCE")
-        self.assertIn("eventTriggers:TRIGGER_EFFECT_ESCALATION",b["validation_errors"])
+        self.assertIn("M4.eventing:TRIGGER_EFFECT_ESCALATION",b["validation_errors"])
 
     def test_secret_binding_implicitly_selects_m2_module(self):
         b=assemble(secret_fixture())
@@ -62,7 +64,7 @@ class BlueprintTests(unittest.TestCase):
         bad=secret_fixture()
         bad["secretBindings"][0]["resourceScope"]="synthetic/items"
         b=assemble(bad)
-        self.assertIn("secretBindings:SECRET_SCOPE_EXCEEDS_CAPABILITY",b["validation_errors"])
+        self.assertIn("M2.secrets:SECRET_SCOPE_EXCEEDS_CAPABILITY",b["validation_errors"])
 
     def test_locale_profile_implicitly_selects_m6_module(self):
         b=assemble(localization_fixture())
@@ -73,7 +75,53 @@ class BlueprintTests(unittest.TestCase):
         bad=localization_fixture()
         bad["localizationProfiles"][0]["fallbackLocales"]=["fr-FR"]
         b=assemble(bad)
-        self.assertIn("localizationProfiles:INVALID_FALLBACK_LOCALE",b["validation_errors"])
+        self.assertIn("M6.localization:INVALID_FALLBACK_LOCALE",b["validation_errors"])
+
+    def test_cognitive_profiles_require_host_clock(self):
+        result=assemble(cognitive_fixture())
+        self.assertEqual(result["status"],"ASSESSMENT_INPUT_REQUIRED",result)
+        self.assertIn("M3.cognition:HOST_TIME_REQUIRED",result["assessment_inputs_required"])
+        self.assertFalse(result["template_complete"])
+        self.assertFalse(result["runtime_accepted"])
+
+    def test_cognitive_profiles_checked_when_clock_supplied(self):
+        result=assemble(cognitive_fixture(),at="2026-10-29T12:00:00+00:00")
+        self.assertEqual(result["status"],"CONSTRUCTION_BLUEPRINT_CANDIDATE",result)
+        self.assertEqual(result["semantic_assessment"]["checks"]["M3.cognition"]["status"],
+                         "STATIC_COGNITIVE_ELIGIBLE")
+
+    def test_knowledge_catalog_must_have_host_domain_and_clock(self):
+        result=assemble(knowledge_fixture())
+        self.assertEqual(result["status"],"ASSESSMENT_INPUT_REQUIRED",result)
+        self.assertIn("M3.knowledge:TRUST_DOMAIN_REQUIRED",
+                      result["assessment_inputs_required"])
+        self.assertIn("M3.cognition:HOST_TIME_REQUIRED",
+                      result["assessment_inputs_required"])
+
+    def test_knowledge_source_is_statically_checked_with_host_context(self):
+        result=assemble(knowledge_fixture(),at="2026-10-29T12:00:00+00:00",
+                        host_trust_domain="synthetic")
+        self.assertEqual(result["status"],"CONSTRUCTION_BLUEPRINT_CANDIDATE",result)
+        self.assertIn("knowledge",result["selected_optional_modules"])
+        self.assertEqual(result["semantic_assessment"]["checks"]["M3.knowledge"]["status"],
+                         "STATIC_KNOWLEDGE_ELIGIBLE")
+        self.assertFalse(result["runtime_accepted"])
+
+    def test_m7_rejects_source_poisoning(self):
+        bad=knowledge_fixture()
+        bad["knowledgeCatalogs"][0]["sources"][0]["trustLabel"]="REVOKED"
+        result=assemble(bad,at="2026-10-29T12:00:00+00:00",
+                        host_trust_domain="synthetic")
+        self.assertEqual(result["status"],"INVALID_SOURCE")
+        self.assertIn("M3.knowledge:UNTRUSTED_KNOWLEDGE_ADMITTED",
+                      result["validation_errors"])
+
+    def test_invalid_m3_model_pin_rejected_in_blueprint(self):
+        bad=cognitive_fixture()
+        bad["modelProfiles"][0]["modelRevision"]="unexpected"
+        result=assemble(bad,at="2026-10-29T12:00:00+00:00")
+        self.assertIn("M3.cognition:DIGEST_MISMATCH_MODELPROFILES",
+                      result["validation_errors"])
 
     def test_unknown_module_is_not_accepted(self):
         b = assemble(fixture(), optional_modules=["imaginary-module"])
