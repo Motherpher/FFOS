@@ -23,12 +23,13 @@
       "name": "Household Family",
       "manifest": "agents/household-family/manifest-candidate-v0.1.json",
       "instanceContract": "agents/household-family/household-instance.contract.json",
-      "implementationBranch": "hf/household-family-2.0",
+      "implementationBranch": "MERGED_TO_MAIN",
       "state": "IMPLEMENTATION_CANDIDATE_NOT_PRODUCTION_ACCEPTED",
       "implementationEvidence": true,
       "implementationPath": "modules/household-family",
       "sourceImplementationBranch": "hf/household-family-2.0",
-      "integrationBranch": "feat/agent-stable-suite-messi-household-20261029"
+      "integrationBranch": "MERGED_TO_MAIN",
+      "implementationBaselineCommit": "4c70d74b468202303b4f4249567154fb0a02ad2b"
     }
   ],
   "nonFleetClassification": {
@@ -41,5 +42,11 @@
     "verifier": "HOUSEHOLD_INTERNAL_ROLE_WORKFLOW",
     "director": "EXTERNAL_AUTHORITY",
     "legacyFfosRoles": "PERMISSIONED_RUNTIME_ROLES_NOT_AGENT_STABLE_FLEET"
+  },
+  "structuralBaseline": {
+    "state": "MERGED_MAIN",
+    "commit": "4c70d74b468202303b4f4249567154fb0a02ad2b",
+    "sourcePr": 31,
+    "productionActivation": false
   }
 }
