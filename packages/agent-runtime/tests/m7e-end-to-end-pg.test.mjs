@@ -43,7 +43,7 @@ const policy={async evaluate(r){
 const audit={async append(e){
  if(state.custodyDown)throw Error("synthetic custody offline");
  // Independent sink is simulated by a separate SQL insert, not trusted production custody.
- await pool.query("INSERT INTO ama_effect_evidence_events(event_id,run_id,agent_id,agent_version,workflow_id,workflow_version,principal_ref,authority_ref,mandate_ref,capability_id,target,effect,policy_pin,policy_decision_ref,spetl_receipt_ref,outcome,stage,detail) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18)",
+ await pool.query("INSERT INTO ama_effect_evidence_events(event_id,run_id,agent_id,agent_version,workflow_id,workflow_version,principal_ref,authority_ref,mandate_ref,capability_id,target_ref,effect_class,policy_pin,policy_decision_ref,spetl_receipt_ref,outcome,stage,detail) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18)",
   [e.eventId,e.runId,e.agentId,e.agentVersion,e.workflowId,
   e.workflowVersion,e.principalRef,e.authorityRef,e.mandateRef,
   e.capabilityId,e.target,e.effect,e.policyPin,e.policyDecisionRef,
