@@ -3,7 +3,7 @@ name: Agent Stable Suite
 on:
   pull_request:
     paths:
-      - "agents/**"
+      - "agent-stable/**"
       - "docs/architecture/AGENT-STABLE.md"
       - "docs/architecture/AMA.md"
       - "docs/specifications/AGENT-MECHANIC.md"
@@ -12,7 +12,7 @@ on:
   push:
     branches: [main]
     paths:
-      - "agents/**"
+      - "agent-stable/**"
       - "docs/architecture/AGENT-STABLE.md"
       - "docs/architecture/AMA.md"
       - "docs/specifications/AGENT-MECHANIC.md"
@@ -26,10 +26,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: python agents/test_stable_suite.py
+      - run: python agent-stable/tests/test_stable_suite.py
       - run: pip install -r packages/agent-model/conformance/requirements.txt
-      - run: python packages/agent-model/conformance/ama_conformance.py --manifest agents/messi/manifest-candidate-v0.1.json --bindings agents/messi/bindings-candidate-v0.1.json
-      - run: python packages/agent-model/conformance/ama_conformance.py --manifest agents/household-family/manifest-candidate-v0.1.json --bindings agents/household-family/bindings-candidate-v0.1.json
+      - run: python packages/agent-model/conformance/ama_conformance.py --manifest agent-stable/agents/01-messi/manifest-candidate-v0.1.json --bindings agent-stable/agents/01-messi/bindings-candidate-v0.1.json
+      - run: python packages/agent-model/conformance/ama_conformance.py --manifest agent-stable/agents/02-household-family/manifest-candidate-v0.1.json --bindings agent-stable/agents/02-household-family/bindings-candidate-v0.1.json
   household-candidate:
     runs-on: ubuntu-latest
     defaults:
