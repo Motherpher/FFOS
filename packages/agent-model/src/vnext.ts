@@ -67,7 +67,7 @@ export interface AMAToolAdapterVNext {
 export interface AMAProfileVNext {
   readonly schema:"ama.profile/v0.2-candidate";readonly profileId:string;
   readonly version:AMASemver;readonly status:AMABindingState;
-  readonly kind:"REASONING"|"MEMORY"|"RETRIEVAL"|"SCHEDULE"|"EVENTS"|"REVIEW"|"OTHER";
+  readonly kind:AMAModuleKind;
   readonly moduleId:string;readonly config:Readonly<Record<string,unknown>>;
 }
 export interface AMATaskVNext {
