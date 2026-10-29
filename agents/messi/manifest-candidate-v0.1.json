@@ -1,0 +1,51 @@
+{
+  "schema": "ffos.ama.agent-manifest/v1",
+  "agentId": "FFOS-AGENT-MESSI-001",
+  "name": "MESSI",
+  "agentVersion": "0.1.0",
+  "amaVersion": "0.1.0",
+  "purpose": "Broad user-facing Form & Flöde worker that executes separately registered workflows under explicit Director mandate.",
+  "mandate": {
+    "scope": [
+      "Execute bounded Form & Flöde work through separately registered workflows, commands and capabilities.",
+      "Produce auditable work products within explicit authority, mandate and effect boundaries."
+    ],
+    "nonGoals": [
+      "Self-approve purpose, mandate, permissions or lifecycle transitions.",
+      "Act as Agent Mechanic or Household Family.",
+      "Acquire Pius/Piusite identity by inheritance.",
+      "Execute consequential external effects without separately admitted authority and runtime bindings."
+    ]
+  },
+  "runtimeClass": "HYBRID",
+  "lifecycleState": "DRAFT",
+  "authority": {
+    "governingAuthority": "FFOS_DIRECTOR",
+    "authorityRefRequired": true,
+    "mandateRefRequired": true,
+    "selfApprovalProhibited": true
+  },
+  "effectCeiling": "E2_REPOSITORY_CHANGE",
+  "workflows": [],
+  "commands": [],
+  "capabilities": [],
+  "statePolicy": {
+    "durableState": false,
+    "memoryMode": "NONE"
+  },
+  "evidence": {
+    "runRecordRequired": true,
+    "failedRunRecordRequired": true,
+    "requiredArtifacts": [
+      "authority-decision",
+      "run-record",
+      "verification-record"
+    ]
+  },
+  "conformance": {
+    "profile": "AMA_BASELINE",
+    "regressionRequired": true,
+    "authorityDenialTestsRequired": true,
+    "suiteRef": "packages/agent-model/conformance"
+  }
+}
