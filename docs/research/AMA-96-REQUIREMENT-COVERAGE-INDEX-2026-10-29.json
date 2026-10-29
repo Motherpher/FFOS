@@ -4,7 +4,7 @@
   "date": "2026-10-29",
   "source_document": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
   "analysis_document": "docs/research/AMA-KNOWLEDGE-INSIGHT-SEVEN-STRESS-TESTS-2026-10-29.md",
-  "note": "Every entry is an original proposed requirement; mapping implies coverage/ownership, not adoption or implementation. Residuals are conditional after F1–F7, not current extra gaps.",
+  "note": "Every entry is an original proposed requirement; mapping implies coverage/ownership, not adoption or implementation. Residuals are conditional after F1–F7, not current extra gaps. F8 added as cross-cutting candidate Conductellence assurance mapping; chapter hints are NOT validated control bindings.",
   "counts": {
     "requirements": 96,
     "domains": {
@@ -36,7 +36,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "GOVERNANCE_CONTEXT",
+        "conductellence_chapters_candidate": [
+          "4",
+          "9",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "A02",
@@ -51,7 +67,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "GOVERNANCE_CONTEXT",
+        "conductellence_chapters_candidate": [
+          "4",
+          "9",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "A03",
@@ -66,7 +98,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "GOVERNANCE_CONTEXT",
+        "conductellence_chapters_candidate": [
+          "4",
+          "9",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "A04",
@@ -81,7 +129,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "GOVERNANCE_CONTEXT",
+        "conductellence_chapters_candidate": [
+          "4",
+          "9",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "A05",
@@ -96,7 +160,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "GOVERNANCE_CONTEXT",
+        "conductellence_chapters_candidate": [
+          "4",
+          "9",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "A06",
@@ -111,7 +191,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "GOVERNANCE_CONTEXT",
+        "conductellence_chapters_candidate": [
+          "4",
+          "9",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "A07",
@@ -126,7 +222,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "GOVERNANCE_CONTEXT",
+        "conductellence_chapters_candidate": [
+          "4",
+          "9",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "B01",
@@ -142,7 +254,25 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "4",
+          "5",
+          "6",
+          "13",
+          "14"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "B02",
@@ -158,7 +288,25 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "4",
+          "5",
+          "6",
+          "13",
+          "14"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "B03",
@@ -174,7 +322,25 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "4",
+          "5",
+          "6",
+          "13",
+          "14"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "B04",
@@ -190,7 +356,25 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "4",
+          "5",
+          "6",
+          "13",
+          "14"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "B05",
@@ -206,7 +390,25 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "4",
+          "5",
+          "6",
+          "13",
+          "14"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "B06",
@@ -222,7 +424,25 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "4",
+          "5",
+          "6",
+          "13",
+          "14"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "B07",
@@ -238,7 +458,25 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "4",
+          "5",
+          "6",
+          "13",
+          "14"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "B08",
@@ -254,7 +492,25 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "4",
+          "5",
+          "6",
+          "13",
+          "14"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "B09",
@@ -270,7 +526,25 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "4",
+          "5",
+          "6",
+          "13",
+          "14"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "B10",
@@ -286,7 +560,25 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "4",
+          "5",
+          "6",
+          "13",
+          "14"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "C01",
@@ -301,7 +593,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "GOVERNANCE_CONTEXT",
+        "conductellence_chapters_candidate": [
+          "8",
+          "9",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "C02",
@@ -316,7 +624,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "GOVERNANCE_CONTEXT",
+        "conductellence_chapters_candidate": [
+          "8",
+          "9",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "C03",
@@ -331,7 +655,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "GOVERNANCE_CONTEXT",
+        "conductellence_chapters_candidate": [
+          "8",
+          "9",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "C04",
@@ -346,7 +686,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "GOVERNANCE_CONTEXT",
+        "conductellence_chapters_candidate": [
+          "8",
+          "9",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "C05",
@@ -361,7 +717,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "GOVERNANCE_CONTEXT",
+        "conductellence_chapters_candidate": [
+          "8",
+          "9",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "C06",
@@ -376,7 +748,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "GOVERNANCE_CONTEXT",
+        "conductellence_chapters_candidate": [
+          "8",
+          "9",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "C07",
@@ -391,7 +779,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "GOVERNANCE_CONTEXT",
+        "conductellence_chapters_candidate": [
+          "8",
+          "9",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "C08",
@@ -406,7 +810,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "GOVERNANCE_CONTEXT",
+        "conductellence_chapters_candidate": [
+          "8",
+          "9",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "D01",
@@ -421,7 +841,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "9",
+          "10",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "D02",
@@ -436,7 +872,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "9",
+          "10",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "D03",
@@ -451,7 +903,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "9",
+          "10",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "D04",
@@ -466,7 +934,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "9",
+          "10",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "D05",
@@ -481,7 +965,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "9",
+          "10",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "D06",
@@ -496,7 +996,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "9",
+          "10",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "D07",
@@ -511,7 +1027,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "9",
+          "10",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "D08",
@@ -526,7 +1058,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "9",
+          "10",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "E01",
@@ -542,7 +1090,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "7",
+          "8",
+          "15"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "E02",
@@ -558,7 +1122,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "7",
+          "8",
+          "15"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "E03",
@@ -574,7 +1154,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "7",
+          "8",
+          "15"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "E04",
@@ -590,7 +1186,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "7",
+          "8",
+          "15"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "E05",
@@ -606,7 +1218,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "7",
+          "8",
+          "15"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "E06",
@@ -622,7 +1250,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "7",
+          "8",
+          "15"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "E07",
@@ -638,7 +1282,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "7",
+          "8",
+          "15"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "F01",
@@ -653,7 +1313,24 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "13",
+          "14",
+          "15",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "F02",
@@ -668,7 +1345,24 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "13",
+          "14",
+          "15",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "F03",
@@ -683,7 +1377,24 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "13",
+          "14",
+          "15",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "F04",
@@ -698,7 +1409,24 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "13",
+          "14",
+          "15",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "F05",
@@ -713,7 +1441,24 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "13",
+          "14",
+          "15",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "F06",
@@ -728,7 +1473,24 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "13",
+          "14",
+          "15",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "F07",
@@ -743,7 +1505,24 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "13",
+          "14",
+          "15",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "F08",
@@ -758,7 +1537,24 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "13",
+          "14",
+          "15",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "G01",
@@ -774,7 +1570,26 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "6",
+          "7",
+          "8",
+          "10",
+          "11",
+          "12"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "G02",
@@ -790,7 +1605,26 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "6",
+          "7",
+          "8",
+          "10",
+          "11",
+          "12"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "G03",
@@ -806,7 +1640,26 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "6",
+          "7",
+          "8",
+          "10",
+          "11",
+          "12"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "G04",
@@ -822,7 +1675,26 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "6",
+          "7",
+          "8",
+          "10",
+          "11",
+          "12"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "G05",
@@ -838,7 +1710,26 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "6",
+          "7",
+          "8",
+          "10",
+          "11",
+          "12"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "G06",
@@ -854,7 +1745,26 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "6",
+          "7",
+          "8",
+          "10",
+          "11",
+          "12"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "G07",
@@ -870,7 +1780,26 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "6",
+          "7",
+          "8",
+          "10",
+          "11",
+          "12"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "G08",
@@ -886,7 +1815,26 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "6",
+          "7",
+          "8",
+          "10",
+          "11",
+          "12"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "G09",
@@ -902,7 +1850,26 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "6",
+          "7",
+          "8",
+          "10",
+          "11",
+          "12"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "G10",
@@ -918,7 +1885,26 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "6",
+          "7",
+          "8",
+          "10",
+          "11",
+          "12"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "H01",
@@ -933,7 +1919,22 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "16",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "H02",
@@ -948,7 +1949,22 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "16",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "H03",
@@ -963,7 +1979,22 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "16",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "H04",
@@ -978,7 +2009,22 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "16",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "H05",
@@ -993,7 +2039,22 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "16",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "H06",
@@ -1008,7 +2069,22 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "16",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "H07",
@@ -1023,7 +2099,22 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "16",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "H08",
@@ -1038,7 +2129,22 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "16",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "H09",
@@ -1053,7 +2159,22 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "16",
+          "17"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "I01",
@@ -1068,7 +2189,22 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "15",
+          "16"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "I02",
@@ -1083,7 +2219,22 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "15",
+          "16"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "I03",
@@ -1098,7 +2249,22 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "15",
+          "16"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "I04",
@@ -1113,7 +2279,22 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "15",
+          "16"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "I05",
@@ -1128,7 +2309,22 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "15",
+          "16"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "I06",
@@ -1143,7 +2339,22 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "15",
+          "16"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "I07",
@@ -1158,7 +2369,22 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "15",
+          "16"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "I08",
@@ -1173,7 +2399,22 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "15",
+          "16"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "J01",
@@ -1189,7 +2430,24 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "11",
+          "13",
+          "17",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "J02",
@@ -1205,7 +2463,24 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "11",
+          "13",
+          "17",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "J03",
@@ -1221,7 +2496,24 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "11",
+          "13",
+          "17",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "J04",
@@ -1237,7 +2529,24 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "11",
+          "13",
+          "17",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "J05",
@@ -1253,7 +2562,24 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "11",
+          "13",
+          "17",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "J06",
@@ -1269,7 +2595,24 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "11",
+          "13",
+          "17",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "J07",
@@ -1285,7 +2628,24 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "11",
+          "13",
+          "17",
+          "18"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "K01",
@@ -1300,7 +2660,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "10",
+          "12",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "K02",
@@ -1315,7 +2691,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "10",
+          "12",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "K03",
@@ -1330,7 +2722,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "10",
+          "12",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "K04",
@@ -1345,7 +2753,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "10",
+          "12",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "K05",
@@ -1360,7 +2784,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "GOVERNANCE_CONTEXT",
+        "conductellence_chapters_candidate": [
+          "10",
+          "12",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "K06",
@@ -1375,7 +2815,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "10",
+          "12",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "K07",
@@ -1390,7 +2846,23 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "10",
+          "12",
+          "13"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "L01",
@@ -1407,7 +2879,24 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "2",
+          "14",
+          "16",
+          "19"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "L02",
@@ -1424,7 +2913,24 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "2",
+          "14",
+          "16",
+          "19"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "L03",
@@ -1441,7 +2947,24 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "2",
+          "14",
+          "16",
+          "19"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "L04",
@@ -1458,7 +2981,24 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "2",
+          "14",
+          "16",
+          "19"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "L05",
@@ -1475,7 +3015,24 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "2",
+          "14",
+          "16",
+          "19"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "L06",
@@ -1492,7 +3049,24 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "2",
+          "14",
+          "16",
+          "19"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     },
     {
       "id": "L07",
@@ -1509,7 +3083,39 @@
       "adoption_decision": "PENDING",
       "schema_owner": "TO_ASSIGN",
       "test_id": "TO_ASSIGN",
-      "closure_status": "NOT_ASSERTED"
+      "closure_status": "NOT_ASSERTED",
+      "independent_f8": {
+        "status": "CROSSWALK_CANDIDATE_NOT_VERIFIED",
+        "relevance": "DIRECT_RISK_CONTROL",
+        "conductellence_chapters_candidate": [
+          "2",
+          "14",
+          "16",
+          "19"
+        ],
+        "refer_to": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+        "law_section": "TO_VERIFY",
+        "control_id": "TO_VERIFY",
+        "audit_id": "TO_VERIFY",
+        "runtime_enforcement": "NOT_VERIFIED",
+        "spetl_evidence": "NOT_VERIFIED",
+        "note": "CDX chapter indications only; individual predicates, facts, and evidence not yet independently crosswalked. Does not modify the primary Q1–Q7 mapping."
+      }
     }
-  ]
+  ],
+  "independent_security_assurance": {
+    "package": "F8",
+    "type": "CROSS_CUTTING_HOST_GOVERNANCE_NOT_NORMATIVE_AMA",
+    "source": "Hybrismannen/Conductellence- canonical law and system-state",
+    "report": "docs/research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md",
+    "conditional_residuals": [
+      "S12",
+      "S13",
+      "S14",
+      "S15"
+    ],
+    "first_level_package_proposed": true,
+    "adopted": false,
+    "notes": "F8 augments but does not replace Q1–Q7 primary mapping and is not itself a new item among the 96 source-derived universal candidates."
+  }
 }
