@@ -36,7 +36,8 @@ export interface ReconciliationInput {
   verifierRef:string;evidenceRef:string;evidenceSha256:string;
 }
 export class DurableRunError extends Error {
-  constructor(readonly code:string){super("AMA M4 denied: "+code);this.name="DurableRunError";}
+  readonly code:string;
+  constructor(code:string){super("AMA M4 denied: "+code);this.code=code;this.name="DurableRunError";}
 }
 const required=(s:string)=>typeof s==="string"&&s.trim().length>0;
 const sha=(data:unknown)=>createHash("sha256").update(JSON.stringify(data)).digest("hex");
