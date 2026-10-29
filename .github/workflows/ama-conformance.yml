@@ -67,6 +67,10 @@ jobs:
         run: python packages/agent-model/conformance/ama_release_gates.py
       - name: Report full AMA template coverage and gaps
         run: python packages/agent-model/conformance/ama_template_coverage.py
+      - name: Canonical M0-M7 source integrity (F8 optional)
+        run: |
+          python packages/agent-model/conformance/ama_milestone_integrity.py \
+            --output "$RUNNER_TEMP/ama-milestone-integrity.json"
       - name: Unit tests and negative/adversarial cases
         run: python -m unittest discover -s packages/agent-model/conformance/tests -v
       - uses: actions/setup-node@v4
@@ -114,6 +118,7 @@ jobs:
         with:
           name: ama-static-conformance
           path: |
+            ${{ runner.temp }}/ama-milestone-integrity.json
             ${{ runner.temp }}/ama-architecture-compatibility.json
             ${{ runner.temp }}/ama-static-report.json
             ${{ runner.temp }}/ama-m5-candidate-report.json
