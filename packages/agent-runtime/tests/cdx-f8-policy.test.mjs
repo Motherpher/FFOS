@@ -37,6 +37,12 @@ async function fixture(){
   facts:{async collect(r){const f=facts(r);
     if(state.factMismatch)f.principalRef="OTHER";
     if(state.missingPath)f.pathHistoryDigest="";
+    if(r.context.requestedEffect==="E0_OBSERVE"){
+      f.recipientRef=r.readRecipientRef;
+      f.purposeRef=r.readPurposeRef;
+      f.dataGrantRef=r.readGrantRef;
+      f.dataClassification=r.readClassification;
+    }
     return f;
   }},
   trust:{
@@ -86,7 +92,9 @@ async function fixture(){
  };
  const make=(cat=catalogue)=>new CDXF8VerifiedAdapter(cat,ports.facts,
    ports.trust,ports.release,ports.service,ports.obligations,ports.custody);
- return {catalogue,state,observed,ports,make};
+ const makeRead=()=>new CDXF8VerifiedAdapter(catalogue,ports.facts,
+   ports.trust,ports.release,ports.service,ports.obligations,ports.custody,true);
+ return {catalogue,state,observed,ports,make,makeRead};
 }
 test("F8.1: full 131/69 source matrix is coherent",async()=>{
  const index=await readF8ControlIndex(matrixPath,SOURCE_BLOB);
@@ -170,4 +178,19 @@ test("F8.3: E0 read and E4 authority mutation have independent gates",async()=>{
  const f=await fixture();
  await deny(()=>f.make().evaluate(request("E0_OBSERVE")),"SEPARATE_READ_OR_AUTHORITY_GATE_REQUIRED");
  await deny(()=>f.make().evaluate(request("E4_AUTHORITY_CHANGE")),"SEPARATE_READ_OR_AUTHORITY_GATE_REQUIRED");
+});
+
+test("F8 E0: separately typed read adapter includes DATA and CONTENT_MEMORY",async()=>{
+ const f=await fixture(),r=request("E0_OBSERVE");
+ Object.assign(r,{readRecipientRef:"VERIFIED.RECIPIENT",readPurposeRef:"RESEARCH",
+   readGrantRef:"TRUSTED.READ.GRANT",readClassification:"RESTRICTED"});
+ const result=await f.makeRead().evaluate(r);
+ assert.equal(result.outcome,"ALLOW");
+ assert(f.observed.surfaces.includes("DATA"));
+ assert(f.observed.surfaces.includes("CONTENT_MEMORY"));
+ assert(!f.observed.surfaces.includes("EXTERNAL_EFFECT"));
+});
+test("F8 E0: no silent authority for missing recipient/grant",async()=>{
+ const f=await fixture(),r=request("E0_OBSERVE");
+ await deny(()=>f.makeRead().evaluate(r),"CLASSIFIED_READ_GRANT_MISSING");
 });
