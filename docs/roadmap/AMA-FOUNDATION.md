@@ -55,7 +55,7 @@ Append-only migrations 0002/0003 and `packages/agent-runtime/src/stable-registry
 Implement inventory, conformance execution, drift detection, upgrade proposals, health/incident state and rollback preparation. The technical steward remains non-authorizing and non-accepting.
 
 ## AMA-10 — Reference agent fixture
-**Status:** PLANNED
+**Status:** M7-E SYNTHETIC REFERENCE ENGINEERING VERIFIED; LIVE INSTANCE ACTIVATION NOT AUTHORIZED
 
 Build and evaluate a synthetic, non-production reference fixture to prove generic contracts without importing any domain semantics.
 
@@ -150,3 +150,13 @@ Six agent-independent v0.2 schemas and a standalone static operational validator
 [M6 specification](AMA-M6-OPERATIONAL-LIFECYCLE-CONTRACTS.md) · [M6 execution report](AMA-M6-EXECUTION-REPORT.md) · [CI 40846425828](https://github.com/Motherpher/FFOS/actions/runs/40846425828) (298 combined tests, success).
 
 **Next:** M7-E integration and readiness engineering, followed by independent F8.7 CDX release/binding and final M7-O operational evaluation and authorized human acceptance. PR #19 remains draft.
+
+## M7-E — Synthetic Reference and End-to-End Engineering Integration (2026-10-29)
+
+**Status:** `M7-E-ENGINEERING-PASS` verified by GitHub Actions, **not** `M7-O` operational acceptance.
+
+The M1–M6 candidate profiles (six independent synthetic reference cases) are source-pinned and automatically evaluated for structure, E0 scoped authorization, conditional memory ON/OFF, M4 durability, M5 ten-axis evaluation, and M6 health/canary/incident safety. A separate disposable PostgreSQL host test crosses the actual `CDXF8VerifiedAdapter` consumer in E0 and simulated E2 paths, `AgentEffectGate`, durable M4 reconciliation/resume, and independent-test-double M6 suspension. All live CDX release, policy signatures, identity and SPETL receipt verification remain test doubles.
+
+[Engineering design](AMA-M7-E-END-TO-END-ENGINEERING.md) · [Execution and verification](AMA-M7-E-EXECUTION-REPORT.md) · [GitHub Actions 40848470365](https://github.com/Motherpher/FFOS/actions/runs/40848470365) — **316 combined tests passed** · [Synthetic evidence artifact](https://github.com/Motherpher/FFOS/actions/runs/40848470365/artifacts/12885529212).
+
+**Next required gates:** F8.7 independent CDX 1.0 release and authenticated FFOS runtime binding; M5 real C4/C5; M6 actual monitoring and release operation; independent M7-O review and governing human acceptance. No production migration, automatic agent registration/activation, real-world side effect, merged PR or normative AMA adoption.
