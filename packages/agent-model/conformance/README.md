@@ -25,3 +25,9 @@ Structured reports use `ffos.ama.conformance-report/v1`: `STATIC_PASS` or `FAIL`
 C4 runtime execution and C5 live evidence are NOT evaluated by this tool. No production policy adapter, registered deployment, independently authorized activation, network endpoint, domain-specific governance extension, or durable worker is implemented here. This is a deterministic pre-admission gate, not production runtime validation.
 
 The bundled synthetic fixture tests contract behavior only; it is not a real agent, an instance template, or an endorsement of any domain workflow.
+
+## Separate v0.2 candidate gate
+
+The new `ama_vnext.py` validator reads only local schemas from `../schemas/v0.2/`. It validates complete versioned bundles and distinguishes document/schema correctness from runtime permission. M1 regression tests in `tests/test_m1_contracts.py` include malformed schemas, scope and effect escalation, graph cycles, digest mismatch, disabled modules, task/effect misbinding and migration review. The original `ama_conformance.py` entry point and v1 fixtures remain unchanged.
+
+`STATIC_PASS_CANDIDATE` is not agent activation or policy approval; v1 and v0.2 validators remain intentionally separate.
