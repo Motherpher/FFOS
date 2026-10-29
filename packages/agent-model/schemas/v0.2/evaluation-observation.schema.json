@@ -1,0 +1,107 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.evaluation-observation/v0.2-candidate"
+    },
+    "observationId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "caseRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "repeatIndex": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "actualDecision": {
+      "enum": [
+        "ALLOW",
+        "DENY",
+        "HOLD",
+        "STOP",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "actualFinalState": {
+      "enum": [
+        "SUCCESS",
+        "FAIL",
+        "HOLD",
+        "UNKNOWN",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "targetRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "finalStateEvidenceRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "policyEvidenceRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "runCorrelationId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "latencyMs": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "costMinor": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "redacted": {
+      "type": "boolean"
+    },
+    "evidenceRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "observedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "sourceKind": {
+      "enum": [
+        "MOCK",
+        "DISPOSABLE_INTEGRATION",
+        "LIVE_HOST"
+      ]
+    }
+  },
+  "required": [
+    "schema",
+    "observationId",
+    "version",
+    "caseRef",
+    "repeatIndex",
+    "actualDecision",
+    "actualFinalState",
+    "targetRef",
+    "runCorrelationId",
+    "latencyMs",
+    "costMinor",
+    "redacted",
+    "evidenceRefs",
+    "observedAt",
+    "sourceKind"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/evaluation-observation.schema.json",
+  "title": "AMA 0.2 candidate evaluation-observation contract"
+}
