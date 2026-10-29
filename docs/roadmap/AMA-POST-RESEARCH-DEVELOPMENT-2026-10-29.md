@@ -99,6 +99,16 @@ F8 is an **independent host-security assurance track**, not a new agent-specific
 
 **Gate:** M2-AUTHORITY-CONTRACT-PASS (schema/interface assurance only; real host assurance requires F8).
 
+## M2 execution — provider-neutral scoped authorization candidate
+
+**Development implementation delivered 2026-10-29; final CI and human acceptance tracked separately.**
+
+- Six additional agent-independent schemas (principal, mandate, delegation, authorization request, decision and approval) and TypeScript candidate types.
+- `packages/agent-model/conformance/ama_authorization.py` performs fail-closed static preflight over independently scoped claims, delegated grants, classified E0 observations, aggregate reads, impact/reversibility, recipients, policy pins, expiry, restrictive decision declarations and review requirements.
+- Its success state **never grants authority**; external identity verification, signed mandates, live revocation, applied obligations, policy authenticity and action-boundary enforcement remain **F8/host** obligations.
+- [M2 detailed contract specification](AMA-M2-AUTHORIZATION-CONTRACTS.md).
+- No normative adoption, CDX constitutional amendment, v1 migration, production activation or live C4/C5 assertion.
+
 ## M2-CDX — F8: Conductellence security assurance and host binding
 
 **Build separately from normative AMA:**
