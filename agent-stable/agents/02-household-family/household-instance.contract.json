@@ -87,7 +87,7 @@
     "production_authorized": false,
     "release_binding": "HOLD_EXTERNAL_GOVERNANCE",
     "messenger_agent": "MESSI_IS_SEPARATE_AGENT_1_NOT_HOUSEHOLD_COMPONENT",
-    "messi_ref": "agents/messi/README.md"
+    "messi_ref": "agent-stable/agents/01-messi/README.md"
   },
   "use_case": {
     "primary": "BOUNDED_DIRECTOR_ASSIGNED_CDX_WORK_PACKAGES",
@@ -95,10 +95,10 @@
     "initial_pilot": "READ_ONLY_INVENTORY"
   },
   "agent_stable": {
-    "registry_ref": "agents/registry.json",
+    "registry_ref": "agent-stable/registry.json",
     "fleet_ordinal": 2,
     "agent_id": "FFOS-AGENT-HOUSEHOLD-002",
-    "manifest_ref": "agents/household-family/manifest-candidate-v0.1.json"
+    "manifest_ref": "agent-stable/agents/02-household-family/manifest-candidate-v0.1.json"
   },
   "implementation": {
     "path": "modules/household-family",
