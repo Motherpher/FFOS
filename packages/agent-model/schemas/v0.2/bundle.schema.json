@@ -1,0 +1,70 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "agent",
+    "workflows",
+    "commands",
+    "capabilities",
+    "toolAdapters",
+    "profiles"
+  ],
+  "properties": {
+    "schema": {
+      "const": "ama.bundle/v0.2-candidate"
+    },
+    "agent": {
+      "$ref": "agent.schema.json"
+    },
+    "workflows": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "workflow.schema.json"
+      }
+    },
+    "commands": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "command.schema.json"
+      }
+    },
+    "capabilities": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "capability.schema.json"
+      }
+    },
+    "toolAdapters": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "tool-adapter.schema.json"
+      }
+    },
+    "profiles": {
+      "type": "array",
+      "items": {
+        "$ref": "profile.schema.json"
+      }
+    },
+    "runEvents": {
+      "type": "array",
+      "items": {
+        "$ref": "run-event.schema.json"
+      }
+    },
+    "evidenceRecords": {
+      "type": "array",
+      "items": {
+        "$ref": "evidence.schema.json"
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/bundle.schema.json",
+  "title": "AMA v0.2 candidate bundle contract"
+}
