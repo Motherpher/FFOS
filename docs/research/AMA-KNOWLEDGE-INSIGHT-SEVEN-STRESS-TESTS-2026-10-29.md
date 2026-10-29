@@ -1,4 +1,4 @@
-# AMA — Knowledge & Insight Synthesis, Seven Architecture Stress Tests, and Residual Gap Analysis
+# AMA — Knowledge & Insight Synthesis, Seven Universal Stress Tests + Independent F8, and Residual Gap Analysis
 
 **Date:** 2026-10-29  
 **Document status:** RESEARCH / RECOMMENDATION / NON-NORMATIVE. Not a conformance certificate, accepted specification, or production-readiness attestation.  
@@ -53,7 +53,7 @@ The assessment's target is **contract completeness**, not universal automation o
 
 ## 2. Seven overarching stress tests and structured answers
 
-The seven questions partition the 96 candidate requirements by *primary* domain responsibility, although cross-cutting dependencies remain. Every question tests (a) a source-discovered need, (b) AMA's stated purpose, (c) the current specification, and (d) residual gaps after its first-order remediation.
+The first seven questions partition the 96 candidate requirements by *primary* domain responsibility. **F8 is independent, cross-cutting host-governance scrutiny** and is not a new universal domain or agent-specific rule inside AMA. Every universal question tests (a) a source-discovered need, (b) AMA's stated purpose, (c) the current specification, and (d) residual gaps after its first-order remediation.
 
 ### Q1 — Can AMA describe and admit any first-class agent without smuggling instance-specific definitions, while preserving formal relationships across all component schemas?
 
@@ -225,6 +225,26 @@ The seven questions partition the 96 candidate requirements by *primary* domain 
 
 **Assessment:** PARTIAL; universal interface design is feasible, but full runtime and standard-following claims require host evidence.
 
+## 2A. Independent F8 — Can Conductellence actually govern AMA's agent risk?
+
+**F8 question:** How will Conductellence, designed explicitly for risks arising from non-human digital agency, provide independently enforceable and verifiable security, risk, policy, evidence and incident controls for agents built under AMA—without replacing the universal AMA template?
+
+**Primary source:** the **actual Conductellence** law, control catalogue, reference engine, SPETL, Security Twin, red-team suite, estate anchor, runtime-integration contract and declared system state, not an invented security stack.
+
+**Source-backed outcome:** CDX-LAW-001 is internally **ADOPTED** and explicitly addresses identity, delegated authority, data, trust domains, memory poisoning, tool misuse, credentials, runtime mediation, external effects, independent evidence, red-team assurance and emergency stops. The implementation contains 69 reference-runtime controls, 62 review-bound sections, a deterministic policy engine and verified **reference** evidence custody. **CDX itself reports PRE_RELEASE / BOOTSTRAP / PENDING_RUNTIME_BINDINGS.** FFOS is CI-anchor-bound but not application-runtime-bound.
+
+**Critical integration distinction:** The existing reference predicates sometimes depend on supplied booleans (`tool_admitted`, `policy_evaluated`, `external_effect_gate_passed`); the production gate must verify the authority and provenance of these facts rather than trust an agent to assert them. CDX's seven outcome types must be mapped without information loss to the current host effect gate, which supports only three. An anchor is not proof of effect mediation.
+
+**First-level recommendation F8 — Conductellence agent-risk assurance:** seven subpackages F8.1 source-to-control mapping; F8.2 trusted security-context/mandate binding; F8.3 full decision/obligation semantics; F8.4 path-dependent risk and Security Twin; F8.5 SPETL custody and independent verification; F8.6 adversarial controls/incident lifecycle; F8.7 governed release and real host runtime integration.
+
+**Second-level:** F8 may help address existing S02/S03/S05/S06/S07/S08/S09/S10/S11 but **does not close them without evidence**. Distinct post-F8 residuals are S12 trusted policy fact provenance, S13 decision semantic loss, S14 cross-control/path coverage and S15 control-of-controls/estate enforcement assurance.
+
+**Boundary rule:** F2 remains the generic AMA authority/risk *contract*. **F8 tests CDX as the separately governed implementation of those interfaces** for this estate. F8 does not rename AMA, insert a specific host into normative master schemas, or bypass CDX's frozen 1.0 constitutional boundary.
+
+**Full analysis:** [F8 Conductellence Security & Agent-Risk Assurance](AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md).
+
+---
+
 ## 3. Top-level cross-question scorecard (baseline, not projected success)
 
 | Question | Primary evidence domains | Current contract | Executable proof | First-level decision |
@@ -236,6 +256,7 @@ The seven questions partition the 96 candidate requirements by *primary* domain 
 | Q5 — Tool, workflow, durability | D01–D08, F01–F08 | PARTIAL | PostgreSQL/effect CI only | F5 |
 | Q6 — Reliability and independent assurance | H01–H09, I01–I08 | PARTIAL | Static C1/C2/C3/C6; live C4/C5 pending | F6 |
 | Q7 — Operations, adoption and evolution | J01–J07, K01–K07, L01–L07 | PARTIAL | Versioned design; deployed ops missing | F7 |
+| **F8 — CDX risk and security governance (independent)** | Cross-cutting A–L, particularly B/E/F/G/H/I | DOCTRINE + REFERENCE CONTROLS | **CDX BOOTSTRAP; estate runtime NOT VERIFIED** | **F8** |
 
 All 96 original IDs have **one primary question**; relationships may also appear as secondary dependencies. Source-expansion E52–E58 are research records, **not additional normative requirement IDs**. The 86-source survey is a screening pool, not 86 additional accepted requirements.
 
@@ -254,9 +275,9 @@ The same consolidation applies to:
 
 **Important logical distinction:** "A first-level package addresses gap X" means **expected coverage if fully implemented and verified**. It does not mean the gap is closed in the current codebase. A second-level gap is not counted as newly closed simply because it was named.
 
-## 5. Second-level residual gap register — only after F1–F7
+## 5. Second-level residual gap register — after F1–F7, and independent F8
 
-These are **conditional post-remediation questions**, not a second independent count of the initial 96 candidates. The S-series explicitly means *second-level residual*, while F1–F7 denotes the first-level recommendation packages.
+S01–S11 assess first-level universal contracts. **F8 adds S12–S15 only for independent CDX security assurance**, documented in the linked F8 report. These are **conditional post-remediation questions**, not a second independent count of the initial 96 candidates. The S-series explicitly means *second-level residual*, while F1–F7 denotes the first-level recommendation packages.
 
 | Residual | Survives F1–F7 because | Impact | Closure evidence | Priority |
 |---|---|---|---|---|
@@ -339,6 +360,9 @@ Research sufficiency for next requirements draft: sufficient with source qualifi
 Production readiness: not established.**
 
 ## 8. Source traceability
+
+**Independent F8 source map:** [CDX F8 risk assurance dossier](AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md) grounded in Conductellence's adopted law, current control registry, reference runtime, SPETL, Security Twin and release/integration status. F8 is host-specific analysis, not a modification of the normative AMA master template.
+
 
 **Original catalog:** A01–L07 plus original bibliography 1–51 — `AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md`.
 
