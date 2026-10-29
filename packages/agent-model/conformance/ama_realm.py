@@ -96,3 +96,58 @@ def _report(errors,realm,internal):
         "effect_authorized":False,
         "agent_activated":False,
     }
+
+
+def validate_stewardship(stewardship, policy, distribution):
+    """Keep AMA's own internal stewardship anchored without coupling the portable core."""
+    errors=[]
+    if stewardship.get("schema")!="ama.stewardship-realm/v1":
+        errors.append("STEWARDSHIP_SCHEMA")
+    if stewardship.get("realm_id")!=policy.get("estate_root"):
+        errors.append("STEWARDSHIP_WRONG_ESTATE")
+    if stewardship.get("governance_anchor")!=policy.get("required_security_anchor_ref"):
+        errors.append("STEWARDSHIP_MISSING_CDX")
+    if stewardship.get("policy_authority")!=policy.get("required_policy_authority_ref"):
+        errors.append("STEWARDSHIP_MISSING_CDX_POLICY")
+    if stewardship.get("governance_binding")!="MANDATORY_FOR_INTERNAL_STEWARDSHIP":
+        errors.append("STEWARDSHIP_NOT_MANDATORY")
+    if stewardship.get("cdx_runtime_binding")!="PENDING_VERIFICATION_NOT_ENFORCED_LIVE":
+        errors.append("STEWARDSHIP_FALSE_RUNTIME_CLAIM")
+    if stewardship.get("core_authorization_contracts_remain_required") is not True:
+        errors.append("STEWARDSHIP_CORE_AUTHORIZATION")
+    if stewardship.get("portable_export_allowed") is not True:
+        errors.append("STEWARDSHIP_NOT_PORTABLE")
+    if stewardship.get("architecture_accepted") is not False or stewardship.get("activation_authorized") is not False:
+        errors.append("STEWARDSHIP_FALSE_ACCEPTANCE")
+    if distribution.get("f8_integration_mode")!="MANDATORY_FOR_FF_ESTATE_DETACHABLE_FOR_EXTERNAL":
+        errors.append("DISTRIBUTION_REALM_MODE")
+    if distribution.get("require_agent_operating_realm_at_construction") is not True:
+        errors.append("CONSTRUCTION_REALM_REQUIRED")
+    if policy.get("may_detach_in_owner_estate") is not False:
+        errors.append("INTERNAL_CDX_DETACHABLE")
+    return {"schema":"ama.realm-stewardship-assessment/v1",
+            "status":"REJECTED" if errors else "STATIC_STEWARDSHIP_CONSISTENT",
+            "errors":sorted(set(errors)),
+            "internal_cdx_required":True,
+            "external_distribution_detachable":True,
+            "cdx_runtime_verified":False,
+            "agent_activated":False}
+
+
+if __name__ == "__main__":
+    import argparse
+    ap=argparse.ArgumentParser()
+    ap.add_argument("--output",type=Path)
+    args=ap.parse_args()
+    read=lambda p:json.loads(p.read_text(encoding="utf-8"))
+    result=validate_stewardship(
+        read(ROOT/"packages/agent-model/ama-stewardship-realm.json"),
+        read(POLICY_PATH),
+        read(ROOT/"packages/agent-model/ama-distribution-manifest.json"))
+    rendered=json.dumps(result,indent=2)+"\n"
+    if args.output:
+        args.output.parent.mkdir(parents=True,exist_ok=True)
+        args.output.write_text(rendered,encoding="utf-8")
+    else:
+        print(rendered,end="")
+    raise SystemExit(1 if result["errors"] else 0)
