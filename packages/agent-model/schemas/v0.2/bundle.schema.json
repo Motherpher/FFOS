@@ -62,6 +62,18 @@
       "items": {
         "$ref": "evidence.schema.json"
       }
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "$ref": "task.schema.json"
+      }
+    },
+    "effects": {
+      "type": "array",
+      "items": {
+        "$ref": "effect.schema.json"
+      }
     }
   },
   "$schema": "https://json-schema.org/draft/2020-12/schema",
