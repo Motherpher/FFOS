@@ -1,0 +1,98 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "ama.release-plan/v0.2-candidate"
+    },
+    "planId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "agentRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "candidateVersion": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "candidateDigest": {
+      "$ref": "common.schema.json#/$defs/digest"
+    },
+    "compatibilityRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "operationalProfileRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "baselineEvidenceRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "canaryPercent": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100
+    },
+    "requiredObservations": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "safetyChecks": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "IDENTITY",
+          "POLICY",
+          "REVOCATION",
+          "HEALTH",
+          "EFFECTS",
+          "EVIDENCE",
+          "COST",
+          "COMPATIBILITY"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "rollbackRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "state": {
+      "enum": [
+        "PROPOSED",
+        "PREPARED",
+        "BLOCKED",
+        "APPROVAL_PENDING"
+      ]
+    },
+    "approvalRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "activationAuthorized": {
+      "const": false
+    }
+  },
+  "required": [
+    "schema",
+    "planId",
+    "version",
+    "agentRef",
+    "candidateVersion",
+    "candidateDigest",
+    "compatibilityRef",
+    "operationalProfileRef",
+    "baselineEvidenceRef",
+    "canaryPercent",
+    "requiredObservations",
+    "safetyChecks",
+    "rollbackRef",
+    "state",
+    "activationAuthorized"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/release-plan.schema.json",
+  "title": "AMA v0.2 candidate release-plan"
+}
