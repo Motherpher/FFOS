@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import {readFile} from "node:fs/promises";
 import {randomUUID} from "node:crypto";
 import pg from "pg";
-import {PgOperationalSteward,M6OperationalDenied} from "../src/operational-steward.ts";
+import {PgOperationalSteward,M6OperationalDenied,M6GuardedAdmission} from "../src/operational-steward.ts";
 import {DurablePgCoordinator} from "../src/durable-run.ts";
 
 const dsn=process.env.AMA_TEST_DATABASE_URL;
@@ -126,6 +126,19 @@ test("M6: release remains an immutable proposal, never traffic shift",{skip:!dsn
 });
 test("M6: high-severity incident blocks even preparation of upgrades",{skip:!dsn},async()=>{
  await denied(()=>steward().prepareRelease(proposal()),"HIGH_SEVERITY_INCIDENT_PREVENTS_PROPOSAL");
+});
+test("M6: suspended agent cannot admit new runs or reclaim M4 leases",{skip:!dsn},async()=>{
+ const i=run(),independent={async assertAdmitted(){}};
+ const guarded=new M6GuardedAdmission(pool,independent);
+ const coord=new DurablePgCoordinator(pool,guarded,null,null,null);
+ await coord.create(i);
+ await steward().emergencySuspend(incident());
+ await denied(()=>coord.create(run()),"AGENT_EMERGENCY_SUSPENDED");
+ await denied(()=>coord.claim(i.runId,"worker",120),"AGENT_EMERGENCY_SUSPENDED");
+ await denied(()=>new M6GuardedAdmission(pool,null).assertAdmitted(run()),"INDEPENDENT_ADMISSION_NOT_BOUND");
+ const n=(await pool.query("SELECT count(*)::int AS n FROM ama_m6_suspensions WHERE agent_id='CI.M6.AGENT' AND agent_version='1.0.0'")).rows[0].n;
+ assert.equal(n,1);
+ await assert.rejects(()=>pool.query("DELETE FROM ama_m6_suspensions WHERE agent_id='CI.M6.AGENT'"));
 });
 test("M6: duplicate emergency incident key cannot rewrite audit",{skip:!dsn},async()=>{
  const x=incident();
