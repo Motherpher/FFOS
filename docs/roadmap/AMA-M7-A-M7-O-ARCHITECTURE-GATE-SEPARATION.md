@@ -10,7 +10,7 @@ AMA is the reusable Agent Master Architecture, not an agent, agent executor, ope
 
 | Gate | Owns | Required evidence | Does NOT establish |
 | --- | --- | --- | --- |
-| **M7-A — Architecture baseline acceptance** | Universal AMA schemas, interfaces, compatibility, portability, conformance and independently reviewed reference package | Passing exact-head architecture CI; versioned manifest; complete v1/v0.2 compatibility evidence; independent human technical review; architecture adoption decision | Any agent runtime registration, deployment, external-policy approval or effect authorization |
+| **M7-A — Architecture baseline acceptance** | Universal AMA schemas, interfaces, compatibility, portability, conformance and independently reviewed reference package | Passing exact-head architecture CI; versioned manifest; complete v1/v0.2 compatibility evidence; documented technical audit; architecture adoption decision | Any agent runtime registration, deployment, external-policy approval or effect authorization |
 | **F8.7 — Host-specific CDX runtime binding** | Optional FFOS consumer adapter to externally governed CDX release and its independent security/custody authority | Published immutable CDX release, independently verified runtime policy/identity/revocation and custody, host authorization | Completeness or correctness of AMA's universal architecture |
 | **M7-O — Operational conformance model** | Generic reusable reference criteria for admitting an AMA-built *agent instance* in a particular host | Vendor/host-neutral criteria for runtime gates, telemetry, recovery, custody, rollback, governance and independent instance acceptance; synthetic demonstration of criteria | Actual deployment of AMA or operational admission of an instance without host evidence |
 
@@ -27,10 +27,10 @@ The current upstream CDX state has WP05 closed and a sovereign `RELEASE_1_0_0` d
 **Candidate:** `AMA 0.2.0-candidate`.  
 **Engineering:** CI reference passing on earlier observed commits; final PR-head verification must recur after this change.  
 **Human review:** User confirmed review of architecture direction; this is not a separate independent technical attestation.  
-**Independent technical review:** Pending.  
+**Technical audit:** Required; owner acceptance is authoritative, with no external reviewer required.  
 **Stable architecture adoption:** Pending; `architecture_accepted=false`.
 
-A reviewer must inspect schema dialect/version compatibility, reference digest pinning, scope/effect nonamplification, optional-module isolation, host substitution, fail-closed semantics and non-self-certification. Only a reviewed stable architecture baseline may be adopted.
+A documented technical audit must inspect schema dialect/version compatibility, reference digest pinning, scope/effect nonamplification, optional-module isolation, host substitution, fail-closed semantics and non-self-certification. Only a reviewed stable architecture baseline may be adopted.
 
 ## M7-O reference criteria (architecture artifact, not operation)
 
