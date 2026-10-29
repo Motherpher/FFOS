@@ -1,0 +1,23 @@
+{
+  "schema": "ama.stewardship-realm/v1",
+  "architecture": "AMA",
+  "artifact": "TEMPLATE_NOT_AGENT",
+  "realm_id": "FF_ESTATE",
+  "owner": "Form & Flöde",
+  "estate_scope": [
+    "Form & Flöde",
+    "its subsidiaries/controlled companies",
+    "Pius and related internal operations"
+  ],
+  "governance_anchor": "CDX:F8",
+  "policy_authority": "CDX:POLICY",
+  "governance_binding": "MANDATORY_FOR_INTERNAL_STEWARDSHIP",
+  "operating_context": "INTERNAL_ARCHITECTURE_STEWARDSHIP",
+  "cdx_runtime_binding": "PENDING_VERIFICATION_NOT_ENFORCED_LIVE",
+  "portable_export_allowed": true,
+  "external_export_requires": "EXPLICIT_EXTERNAL_REALM_AND_GOVERNANCE_AUTHORITY",
+  "external_export_f8": "DETACHABLE",
+  "core_authorization_contracts_remain_required": true,
+  "architecture_accepted": false,
+  "activation_authorized": false
+}
