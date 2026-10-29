@@ -22,6 +22,7 @@ function fixture(){
   const reader={async getCurrent(){return s.inactive?null:{manifest,bindings,lifecycleState:"ACTIVE"};}};
   const policy={async evaluate(r){return {outcome:"ALLOW",decisionRef:"MOCK-DEC",
     policyPin:PIN,spetlReceiptRef:"MOCK-RECEIPT",
+    decisionAuthenticated:true,spetlReceiptVerified:true,
     evaluatedTarget:r.target,evaluatedEffect:r.context.requestedEffect};}};
   const revoked={async assertNotRevoked(){
     s.revocationCalls++;if(s.revoked||(s.failAfter&&s.revocationCalls>1))throw Error("revoked");}};
@@ -106,11 +107,42 @@ test("disabled optional module denied",async()=>{
 });
 test("failed effect leaves reconciliation HOLD record",async()=>{
   const f=fixture();await assert.rejects(()=>f.gate().execute(f.ctx,"C","fixture",async()=>{throw Error("unknown result");}),/unknown result/);
-  assert.deepEqual(f.s.records.map(e=>e.outcome),["ALLOW","HOLD"]);
+  assert.deepEqual(f.s.records.map(e=>e.outcome),["ALLOW","ALLOW"]);
+  assert.equal(f.s.records[1].detail,"Effect uncertain; reconcile");
 });
 test("post-effect journal failure requires reconciliation",async()=>{
   const f=fixture();let n=0;const a={async append(e){if(++n===2)throw Error("offline");f.s.records.push(e);}};
   await denied(()=>f.gate(f.policy,a).execute(f.ctx,"C","fixture",f.effect),
     "POST_EFFECT_EVIDENCE_UNAVAILABLE_RECONCILE");
   assert.equal(f.s.performed,1);
+});
+
+test("seven-way CDX restrictive outcomes remain separate and block callback",async()=>{
+ for(const outcome of ["REQUIRE_HUMAN","QUARANTINE","DENY","SECURITY_STOP","CONSTITUTIONAL_STOP"]){
+   const f=fixture();const p={async evaluate(r){return {...await f.policy.evaluate(r),outcome};}};
+   await denied(()=>f.gate(p).execute(f.ctx,"C","fixture",f.effect),"CDX_"+outcome);
+   assert.equal(f.s.performed,0);
+   assert.equal(f.s.records[0].outcome,outcome);
+   assert.equal(f.s.records[0].stage,"BLOCKED");
+ }
+});
+test("ALLOW_WITH_CONTROLS needs separately verified obligations",async()=>{
+ const f=fixture();
+ const p={async evaluate(r){return {...await f.policy.evaluate(r),outcome:"ALLOW_WITH_CONTROLS"};}};
+ await denied(()=>f.gate(p).execute(f.ctx,"C","fixture",f.effect),
+   "CDX_DECISION_OR_OBLIGATIONS_NOT_VERIFIED");
+ assert.equal(f.s.performed,0);
+ const g=fixture();const approved={async evaluate(r){return {...await g.policy.evaluate(r),
+   outcome:"ALLOW_WITH_CONTROLS",obligationsVerified:true};}};
+ assert.equal(await g.gate(approved).execute(g.ctx,"C","fixture",g.effect),"ok");
+ assert.equal(g.s.records[0].outcome,"ALLOW_WITH_CONTROLS");
+});
+test("unverified permissive decision or SPETL custody cannot dispatch",async()=>{
+ for(const missing of ["decisionAuthenticated","spetlReceiptVerified"]){
+  const f=fixture(),p={async evaluate(r){const v={...await f.policy.evaluate(r)};
+   delete v[missing];return v;}};
+  await denied(()=>f.gate(p).execute(f.ctx,"C","fixture",f.effect),
+    "CDX_DECISION_OR_OBLIGATIONS_NOT_VERIFIED");
+  assert.equal(f.s.performed,0);
+ }
 });
