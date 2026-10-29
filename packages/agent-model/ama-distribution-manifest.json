@@ -71,5 +71,7 @@
     "PRODUCTION_DEPLOYMENT"
   ],
   "template_coverage": "packages/agent-model/ama-template-coverage.json",
-  "template_complete": false
+  "template_complete": false,
+  "canonical_milestones": "packages/agent-model/ama-milestones.json",
+  "f8_integration_mode": "OPTIONAL_EXTERNAL_HOST_PROFILE"
 }
