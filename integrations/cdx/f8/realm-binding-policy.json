@@ -19,5 +19,9 @@
   },
   "production_status": "BOUND_PENDING_RUNTIME_INTEGRATION",
   "host_live_verification_required": true,
-  "source": "docs/roadmap/AMA-F8-CDX-SECURITY-BINDING.md"
+  "source": "docs/roadmap/AMA-F8-CDX-SECURITY-BINDING.md",
+  "canonical_estate_policy_id": "CDX-ESTATE-TERMS-001",
+  "applicability_registry": "Hybrismannen/Conductellence-:ESTATE-REGISTRY/registry-v2.json",
+  "registry_membership_required_for_runtime_admission": true,
+  "estate_root_is_scope_label_not_registry_proof": true
 }
