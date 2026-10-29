@@ -75,6 +75,10 @@ jobs:
         run: |
           python packages/agent-model/conformance/ama_requirement_evidence.py \
             --output "$RUNNER_TEMP/ama-m0-requirement-evidence.json"
+      - name: AMA operating realm and estate stewardship conformance
+        run: |
+          python packages/agent-model/conformance/ama_realm.py \
+            --output "$RUNNER_TEMP/ama-realm-stewardship.json"
       - name: Unit tests and negative/adversarial cases
         run: python -m unittest discover -s packages/agent-model/conformance/tests -v
       - name: Emit M7 minimal and complex synthetic blueprint references
@@ -125,6 +129,7 @@ jobs:
         with:
           name: ama-static-conformance
           path: |
+            ${{ runner.temp }}/ama-realm-stewardship.json
             ${{ runner.temp }}/ama-m0-requirement-evidence.json
             ${{ runner.temp }}/ama-milestone-integrity.json
             ${{ runner.temp }}/ama-architecture-compatibility.json
