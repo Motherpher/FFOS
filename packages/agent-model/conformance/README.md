@@ -31,3 +31,9 @@ The bundled synthetic fixture tests contract behavior only; it is not a real age
 The new `ama_vnext.py` validator reads only local schemas from `../schemas/v0.2/`. It validates complete versioned bundles and distinguishes document/schema correctness from runtime permission. M1 regression tests in `tests/test_m1_contracts.py` include malformed schemas, scope and effect escalation, graph cycles, digest mismatch, disabled modules, task/effect misbinding and migration review. The original `ama_conformance.py` entry point and v1 fixtures remain unchanged.
 
 `STATIC_PASS_CANDIDATE` is not agent activation or policy approval; v1 and v0.2 validators remain intentionally separate.
+
+## M2 — scoped authorization precheck (candidate only)
+
+`ama_authorization.py` validates identity and agent/workload/actor separation, root/delegated mandate attenuation, scoped and sensitive E0 reads, risk-context completeness, policy decision references, time validity and declared independent human approvals. The six supporting JSON Schemas reside in `../schemas/v0.2/`, and negative regression tests in `tests/test_m2_authorization.py`.
+
+**No runtime permission is ever issued.** Even a successful precheck returns `STATIC_ELIGIBLE_FOR_EXTERNAL_VERIFICATION` with `authority_granted: false`. Real trusted facts, revocation, policy outcomes, obligation fulfillment and effect mediation require a separately verified host integration. See [M2 contract guide](../../../docs/roadmap/AMA-M2-AUTHORIZATION-CONTRACTS.md).
