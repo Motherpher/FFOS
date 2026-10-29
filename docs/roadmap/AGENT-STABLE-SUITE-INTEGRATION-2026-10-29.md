@@ -2,7 +2,8 @@
 
 **Branch:** `feat/agent-stable-suite-messi-household-20261029`  
 **PR:** #31  
-**State:** IMPLEMENTED / STRUCTURAL MERGE AUTHORIZED BY HUMAN DIRECTOR  
+**State:** MERGED TO MAIN / STRUCTURAL BASELINE ESTABLISHED  
+**Merged baseline:** `4c70d74b468202303b4f4249567154fb0a02ad2b`  
 **Production activation:** NONE
 
 ## Canonical suite
@@ -79,7 +80,9 @@ The external CI runner condition persisted with zero executed steps and no assig
 
 Structural merge is therefore authorized under the bounded exception recorded in `FFOS-FULL-RESTRUCTURE-ACCEPTANCE-2026-10-29.md`.
 
-**MERGE: AUTHORIZED — EXTERNAL_RUNNER_EXCEPTION_STRUCTURAL_ONLY**
+**MERGE: COMPLETED — `4c70d74b468202303b4f4249567154fb0a02ad2b`**
+
+**EXCEPTION:** EXTERNAL_RUNNER_EXCEPTION_STRUCTURAL_ONLY
 
 **PRODUCTION ACCEPTANCE: NOT GRANTED**
 
