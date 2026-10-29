@@ -275,6 +275,8 @@ def validate_authorization_contract(bundle, *, at):
             fail("MISSING_POLICY_OBLIGATIONS")
         if decision["outcome"] == "PERMIT" and decision["obligations"]:
             fail("UNRESOLVED_POLICY_OBLIGATIONS")
+        if decision["outcome"] in ("DENY", "HOLD", "STOP", "REQUIRE_HUMAN"):
+            fail("RESTRICTIVE_POLICY_OUTCOME")
     for approval in approval_list.values():
         req = resolve(approval["requestRef"], "authorizationRequests")
         approver = resolve(approval["approvedByRef"], "principals")
