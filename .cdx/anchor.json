@@ -13,13 +13,13 @@
     "short_name": "CDX"
   },
   "law_id": "CDX-LAW-001",
-  "binding_mode": "PINNED_COMMIT",
+  "binding_mode": "PINNED_RELEASE",
   "policy_pin": {
-    "ref_type": "COMMIT",
-    "ref": "7edbc47899af23b415114628469aca2970779ea1",
-    "digest": "CDX-GOV-ANCHOR-001"
+    "ref_type": "RELEASE",
+    "ref": "1.0.0",
+    "digest": "git-blob-sha1:55dbcdac2f822b59a5a5f0f19eeadfa61d2c7ed0"
   },
-  "binding_state": "CDX_CI_MONITORED",
+  "binding_state": "CDX_BOUND",
   "authority_context": {
     "authority_ref_required": true,
     "mandate_ref_required": true
@@ -36,12 +36,12 @@
   },
   "evidence": {
     "spetl_required": true,
-    "preservation_target": "PENDING_CDX_RELEASE_BINDING",
-    "reconciliation_surface": "FFOS_REGISTRY_PENDING_IMPLEMENTATION"
+    "preservation_target": "WP10_VERIFICATION_PENDING",
+    "reconciliation_surface": "CDX_ESTATE_REGISTRY_V2_WP10"
   },
   "verification": {
-    "last_verified_at": "2026-10-06T19:56:34Z",
+    "last_verified_at": "2026-10-29T15:19:00Z",
     "verification_state": "PASS",
-    "verified_against": "7edbc47899af23b415114628469aca2970779ea1"
+    "verified_against": "Hybrismannen/Conductellence-@ad26ea289ab71c86bea2461e0509c5b4bec9a32e:ESTATE-REGISTRY/wp10-anchor-verification-evidence.json"
   }
 }
