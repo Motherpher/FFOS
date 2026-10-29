@@ -32,7 +32,7 @@ async function fixture(){
   omitControl:false,selectControls:false,changedSurface:false,
   decisionContradiction:false,signatureDown:false,custodyDown:false,
   falseCustodyBinding:false,withObligations:false,obligationDown:false,
-  graphDrift:false,
+  graphDrift:false,badCustodyChain:false,missingCustodyDecision:false,
   outcome:"ALLOW",forceBadOutcome:false,missingPath:false};
  const ports={
   facts:{async collect(r){const f=facts(r);
@@ -89,7 +89,12 @@ async function fixture(){
   custody:{async assertPreserved(f,decisions){observed.custodyChecks++;
     if(state.custodyDown)throw Error("custody offline");
     return {receiptRef:"SPETL.CUSTODY.RECEIPT",custodyRef:"CUSTODIAN",
-      runId:state.falseCustodyBinding?"OTHER":f.runId,policyDigest:f.policyPin};
+      runId:state.falseCustodyBinding?"OTHER":f.runId,policyDigest:f.policyPin,
+      spetlVersion:"1.1",
+      eventChainDigest:state.badCustodyChain?"invalid":"sha256:"+"f".repeat(64),
+      custodyAttestationRef:"INDEPENDENT.CUSTODY.ATTESTATION",
+      verifiedDecisionRefs:state.missingCustodyDecision?[]:
+        decisions.map(d=>d.decisionRef)};
   }}
  };
  const make=(cat=catalogue)=>new CDXF8VerifiedAdapter(cat,ports.facts,
@@ -215,4 +220,11 @@ test("F8.4: release or fact attestation fails at second verification",async()=>{
 test("F8.3: hidden obligations cannot be downgraded into unrestricted ALLOW",async()=>{
  const f=await fixture();f.state.withObligations=true;
  await deny(()=>f.make().evaluate(request()),"OBLIGATIONS_DOWNGRADED_TO_ALLOW");
+});
+
+test("F8.5: malformed SPETL chain or partial decision custody never authorizes",async()=>{
+ const f=await fixture();f.state.badCustodyChain=true;
+ await deny(()=>f.make().evaluate(request()),"SPETL_CUSTODY_UNVERIFIED");
+ f.state.badCustodyChain=false;f.state.missingCustodyDecision=true;
+ await deny(()=>f.make().evaluate(request()),"SPETL_CUSTODY_UNVERIFIED");
 });
