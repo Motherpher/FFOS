@@ -19,7 +19,7 @@
     "ref": "1.0.0",
     "digest": "git-blob-sha1:55dbcdac2f822b59a5a5f0f19eeadfa61d2c7ed0"
   },
-  "binding_state": "CDX_RUNTIME_GUARDED",
+  "binding_state": "CDX_RUNTIME_VERIFIED",
   "authority_context": {
     "authority_ref_required": true,
     "mandate_ref_required": true
@@ -36,16 +36,22 @@
   "conformance": {
     "ci_workflow": ".github/workflows/cdx-binding-audit.yml",
     "adapter_contract": "CDX-RUNTIME-001",
-    "runtime_state": "RUNTIME_GUARDED_UNVERIFIED"
+    "runtime_state": "VERIFIED_RUNTIME_BOUND"
   },
   "evidence": {
     "spetl_required": true,
     "preservation_target": "GITHUB_ACTIONS_ARTIFACTS_AND_RUNTIME_LOGS",
-    "reconciliation_surface": "CDX_FFOS_RUNTIME_BINDING_2026_10_30"
+    "reconciliation_surface": "CDX_FFOS_RUNTIME_BINDING_2026_10_30",
+    "runtime_verification_ref": "integrations/cdx/runtime-verification-2026-10-30.json"
   },
   "verification": {
     "last_verified_at": "2026-10-29T15:19:00Z",
     "verification_state": "PASS",
-    "verified_against": "Hybrismannen/Conductellence-@ad26ea289ab71c86bea2461e0509c5b4bec9a32e:ESTATE-REGISTRY/wp10-anchor-verification-evidence.json"
+    "verified_against": "Hybrismannen/Conductellence-@ad26ea289ab71c86bea2461e0509c5b4bec9a32e:ESTATE-REGISTRY/wp10-anchor-verification-evidence.json",
+    "runtime_verified_at": "2026-10-30",
+    "runtime_verification_state": "PASS_PENDING_PROMOTION_MERGE",
+    "runtime_verified_implementation_merge": "5d5024078074c3ad00d454964357e546d2e6dac7",
+    "runtime_branch_evidence_run": "41086856528",
+    "runtime_branch_evidence_artifact": "12992671446"
   }
 }
