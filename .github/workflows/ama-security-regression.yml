@@ -1,0 +1,37 @@
+name: AMA security regressions
+
+on:
+  pull_request:
+    paths:
+      - 'agent-stable/ama/**'
+      - 'packages/agent-model/**'
+      - '.github/workflows/ama-security-regression.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'agent-stable/ama/**'
+      - 'packages/agent-model/**'
+      - '.github/workflows/ama-security-regression.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  static-denial-regressions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install offline validator dependency
+        run: python -m pip install 'jsonschema>=4.21,<5'
+      - name: Run AMA static security regressions
+        run: python -m unittest discover -s packages/agent-model/conformance -p 'test_ama_security.py' -v
+
+# A passing job means offline/static conformance only.
+# It does not constitute CDX binding, Director acceptance or activation.
