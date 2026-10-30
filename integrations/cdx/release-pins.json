@@ -15,10 +15,16 @@
     "git_blob_sha": "2809554a2a1e672d2859a1ff28819ec64d8affeb"
   },
   "wp11": {
-    "enforcement_point": "apps/web/app/api/session/route.ts",
-    "effect": "ISSUE_DIRECTOR_SESSION",
     "evidence_surface": "GITHUB_ACTIONS_HTTP_RUNTIME_EVIDENCE",
     "state": "RUNTIME_GUARDED_UNVERIFIED",
-    "deployment_required": false
+    "deployment_required": false,
+    "enforcement_points": [
+      "apps/web/app/api/session/route.ts",
+      "apps/web/app/api/cdx/runtime-proof/route.ts"
+    ],
+    "effects": [
+      "ISSUE_DIRECTOR_SESSION",
+      "ISSUE_RUNTIME_PROOF_RECEIPT"
+    ]
   }
 }
