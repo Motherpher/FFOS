@@ -1,12 +1,15 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import {
+import * as runtimeNamespace from "../../apps/web/lib/cdx/runtime.ts";
+
+const runtime = (runtimeNamespace as any).default ?? runtimeNamespace;
+const {
   buildDirectorSessionContext,
   buildRuntimeProbeContext,
   createSpetlEvent,
   evaluateCdxDecision,
   verifyPinnedPolicy,
-} from "../../apps/web/lib/cdx/runtime.ts";
+} = runtime;
 
 const integrity = await verifyPinnedPolicy();
 assert.equal(integrity.valid, true, "Pinned CDX 1.0 policy integrity must pass");
