@@ -40,8 +40,8 @@
   },
   "evidence": {
     "spetl_required": true,
-    "preservation_target": "GITHUB_ACTIONS_PLUS_VERCEL_RUNTIME_LOGS",
-    "reconciliation_surface": "CDX_FFOS_PRODUCTION_RUNTIME_BINDING_2026_10_30"
+    "preservation_target": "GITHUB_ACTIONS_ARTIFACTS_AND_RUNTIME_LOGS",
+    "reconciliation_surface": "CDX_FFOS_RUNTIME_BINDING_2026_10_30"
   },
   "verification": {
     "last_verified_at": "2026-10-29T15:19:00Z",
