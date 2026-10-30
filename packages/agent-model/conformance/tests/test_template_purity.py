@@ -9,7 +9,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[4]
 NORMATIVE = [
-    "docs/architecture/AMA.md",
+    "agent-stable/ama/README.md",
     "docs/decisions/ADR-0004-agent-master-architecture.md",
     "docs/specifications/AGENT-MANIFEST.md",
     "docs/specifications/AMA-CONFORMANCE.md",
@@ -56,7 +56,7 @@ class UniversalTemplatePurityTests(unittest.TestCase):
                 self.assertNotIn(OLD_TOPOLOGY, content)
 
     def test_master_section_fifteen_is_non_goals(self):
-        master = (ROOT / "docs/architecture/AMA.md").read_text(encoding="utf-8")
+        master = (ROOT / "agent-stable/ama/README.md").read_text(encoding="utf-8")
         self.assertRegex(master, r"(?m)^## 15\. Non-goals\s*$")
         self.assertIn("Template purity invariant", master)
         self.assertIn("## 16. Foundation acceptance", master)
