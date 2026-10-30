@@ -1,40 +1,103 @@
-name: CDX Binding Audit
+name: CDX Runtime Binding
 
 on:
   push:
+    branches: [main]
     paths:
       - '.cdx/**'
       - '.github/workflows/cdx-binding-audit.yml'
       - 'integrations/cdx/**'
+      - 'apps/web/lib/cdx/**'
+      - 'apps/web/app/api/session/route.ts'
+      - 'apps/web/app/api/cdx/runtime-proof/route.ts'
   pull_request:
     paths:
       - '.cdx/**'
       - '.github/workflows/cdx-binding-audit.yml'
       - 'integrations/cdx/**'
+      - 'apps/web/lib/cdx/**'
+      - 'apps/web/app/api/session/route.ts'
+      - 'apps/web/app/api/cdx/runtime-proof/route.ts'
   workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  validate-anchor:
+  runtime-binding:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
-      - name: Validate canonical CDX anchor
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Validate guarded anchor
+        run: |
+          python3 - <<'PY'
+          import json
+          a=json.load(open(".cdx/anchor.json"))
+          assert a["schema"]=="cdx.anchor/v1"
+          assert a["governed_surface"]["repository"]=="Motherpher/FFOS"
+          assert a["binding_mode"]=="PINNED_RELEASE"
+          assert a["policy_pin"]["ref"]=="1.0.0"
+          assert a["policy_pin"]["digest"]=="git-blob-sha1:55dbcdac2f822b59a5a5f0f19eeadfa61d2c7ed0"
+          assert a["binding_state"] in {"CDX_RUNTIME_GUARDED","CDX_RUNTIME_VERIFIED"}
+          assert a["conformance"]["runtime_state"] in {"RUNTIME_GUARDED_UNVERIFIED","VERIFIED_RUNTIME_BOUND"}
+          assert a["local_enforcement"]["fail_closed_for_consequential_effects"] is True
+          assert len(a["local_enforcement"]["points"]) >= 3
+          print("PASS: CDX runtime anchor is structurally bound.")
+          PY
+      - name: Install workspaces
+        run: npm install --no-audit --no-fund
+      - name: Static runtime acceptance
+        run: node --experimental-strip-types integrations/cdx/runtime-acceptance.mts
+      - name: Production build
+        run: npm run build
+      - name: Exercise actual HTTP effect gates
         shell: bash
         run: |
           set -euo pipefail
-          test -f .cdx/anchor.json
-          jq -e --arg repo "$GITHUB_REPOSITORY" '
-            .schema == "cdx.anchor/v1" and
-            .system_short_name == "CDX" and
-            .law_id == "CDX-LAW-001" and
-            .cdx_authority.repository == "Hybrismannen/Conductellence-" and
-            .cdx_authority.canonical_name == "Conductellence" and
-            .cdx_authority.short_name == "CDX" and
-            (.governed_surface.repository | ascii_downcase) == ($repo | ascii_downcase) and
-            (.binding_mode == "PINNED_COMMIT" or .binding_mode == "PINNED_RELEASE" or .binding_mode == "TRACKING") and
-            .local_enforcement.fail_closed_for_consequential_effects == true
-          ' .cdx/anchor.json
-          echo "PASS: FFOS canonical CDX anchor structure is valid."
+          export FFOS_DIRECTOR_USER="runtime-ci-director"
+          export FFOS_DIRECTOR_PASSWORD="runtime-ci-password"
+          export FFOS_SESSION_SECRET="runtime-ci-session-secret-0123456789abcdef"
+          export CDX_RUNTIME_PROBE_TOKEN="runtime-ci-probe-token-0123456789abcdef"
+          npm --workspace apps/web run start -- --hostname 127.0.0.1 --port 3000 > /tmp/ffos-cdx-runtime.log 2>&1 &
+          pid=$!
+          trap 'kill "$pid" 2>/dev/null || true' EXIT
+          for i in $(seq 1 30); do
+            curl -fsS http://127.0.0.1:3000/login >/dev/null && break
+            sleep 1
+          done
+
+          allow=$(curl -sS -o /tmp/director-allow.out -D /tmp/director-allow.headers -w '%{http_code}'             -X POST -H 'content-type: application/x-www-form-urlencoded'             --data 'user=runtime-ci-director&password=runtime-ci-password&next=%2F'             http://127.0.0.1:3000/api/session)
+          test "$allow" = "303"
+          grep -qi '^set-cookie: ffos_session=' /tmp/director-allow.headers
+
+          deny=$(curl -sS -o /tmp/director-deny.out -D /tmp/director-deny.headers -w '%{http_code}'             -X POST -H 'content-type: application/x-www-form-urlencoded'             --data 'user=runtime-ci-director&password=wrong&next=%2F'             http://127.0.0.1:3000/api/session)
+          test "$deny" = "303"
+          ! grep -qi '^set-cookie: ffos_session=' /tmp/director-deny.headers
+
+          probe_allow=$(curl -sS -o /tmp/probe-allow.out -D /tmp/probe-allow.headers -w '%{http_code}'             -X POST -H 'x-cdx-runtime-probe: runtime-ci-probe-token-0123456789abcdef'             http://127.0.0.1:3000/api/cdx/runtime-proof)
+          test "$probe_allow" = "200"
+          grep -qi '^set-cookie: ffos_cdx_runtime_probe=' /tmp/probe-allow.headers
+
+          probe_deny=$(curl -sS -o /tmp/probe-deny.out -D /tmp/probe-deny.headers -w '%{http_code}'             -X POST -H 'x-cdx-runtime-probe: wrong'             http://127.0.0.1:3000/api/cdx/runtime-proof)
+          test "$probe_deny" = "403"
+          ! grep -qi '^set-cookie: ffos_cdx_runtime_probe=' /tmp/probe-deny.headers
+
+          unavailable=$(curl -sS -o /tmp/probe-unavailable.out -D /tmp/probe-unavailable.headers -w '%{http_code}'             -X POST             -H 'x-cdx-runtime-probe: runtime-ci-probe-token-0123456789abcdef'             -H 'x-cdx-probe-mode: policy-unavailable'             http://127.0.0.1:3000/api/cdx/runtime-proof)
+          test "$unavailable" = "503"
+          ! grep -qi '^set-cookie: ffos_cdx_runtime_probe=' /tmp/probe-unavailable.headers
+
+          grep -q 'FFOS_CDX_SPETL' /tmp/ffos-cdx-runtime.log
+          grep -q '"effect_status":"PERMITTED"' /tmp/ffos-cdx-runtime.log
+          grep -q '"effect_status":"BLOCKED"' /tmp/ffos-cdx-runtime.log
+          echo "PASS: CDX consequential gates mediate real HTTP effects."
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ffos-cdx-runtime-binding-evidence
+          path: /tmp/ffos-cdx-runtime.log
+          retention-days: 90
