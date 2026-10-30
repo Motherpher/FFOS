@@ -46,7 +46,8 @@ run schema-compatibility python3 packages/agent-model/conformance/ama_architectu
 run typed-context node --experimental-strip-types --test packages/agent-model/src/index.test.mjs
 run install-pg npm install --no-save --prefix packages/agent-runtime pg@8.23.1 --ignore-scripts --no-audit --no-fund
 run runtime-pg node --experimental-strip-types --test packages/agent-runtime/tests/*.test.mjs
-run m7e python3 packages/agent-model/conformance/ama_m7_integration.py --output-dir "$OUT/ama-m7e"
+run f8-preflight python3 integrations/cdx/f8/preflight.py --output "$OUT/ama-f8-preflight.json"
+run m7e python3 packages/agent-model/conformance/ama_m7_integration.py --preflight "$OUT/ama-f8-preflight.json" --output-dir "$OUT/ama-m7e"
 python3 - "$OUT" <<'PY'
 import hashlib, json, pathlib, sys
 root=pathlib.Path(sys.argv[1])
