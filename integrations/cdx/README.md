@@ -5,7 +5,7 @@
 **FFOS role:** local consumer / enforcement owner  
 **Branch state:** `CDX_RUNTIME_GUARDED / RUNTIME_GUARDED_UNVERIFIED`
 
-## Production chain
+## Runtime chain
 
 ```text
 authenticated FFOS intent
@@ -20,10 +20,10 @@ authenticated FFOS intent
 
 Missing policy, policy-integrity failure, unknown policy operation, absent controls, restrictive decisions or evidence failure fail closed.
 
-## Bound effects
+## Bound runtime effects
 
 1. `ISSUE_DIRECTOR_SESSION` — the real FFOS Director-session cookie cannot be issued before CDX evaluation and pre-effect evidence.
-2. `ISSUE_RUNTIME_PROOF_RECEIPT` — a non-privileged, short-lived production verification cookie used to prove the deployed runtime without accessing Director credentials.
+2. `ISSUE_RUNTIME_PROOF_RECEIPT` — a non-privileged, short-lived runtime verification cookie used to exercise the real HTTP effect boundary without accessing Director credentials.
 
 The proof endpoint does **not** create a Director session or grant application authority.
 
@@ -33,11 +33,13 @@ This branch is intentionally only `RUNTIME_GUARDED_UNVERIFIED`.
 
 Promotion to `CDX_RUNTIME_VERIFIED / VERIFIED_RUNTIME_BOUND` requires:
 
-1. branch CI acceptance;
-2. reviewed merge to current FFOS main;
-3. exact merged commit deployed to Vercel production and `READY`;
-4. live production ALLOW, DENY and POLICY_UNAVAILABLE proof;
-5. SPETL evidence readback;
+1. branch CI acceptance on the exact implementation;
+2. real HTTP ALLOW, DENY and POLICY_UNAVAILABLE effect tests against that implementation;
+3. SPETL PRE_EFFECT / BLOCKED / POST_EFFECT evidence from those tests;
+4. reviewed merge to current FFOS main;
+5. exact merged-main re-verification;
 6. independent CDX-side reconciliation.
+
+A Vercel deployment is not part of this acceptance contract.
 
 The reusable Agent Stable `AgentEffectGate` remains the enforcement mechanism for future agent effects. This first binding verifies the consumer runtime boundary without prematurely declaring Household Family or other agents production-accepted.
