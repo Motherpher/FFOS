@@ -1,0 +1,27 @@
+{
+  "schema": "ama.f8.realm-policy/v1",
+  "scope": "FF_CONSUMER_BOUNDARY",
+  "estate_root": "FF_ESTATE",
+  "covers": [
+    "Form & Flöde",
+    "subsidiaries and controlled entities",
+    "Pius"
+  ],
+  "realm_category": "OWNER_ESTATE",
+  "required_security_anchor_ref": "CDX:F8",
+  "required_policy_authority_ref": "CDX:POLICY",
+  "required_mode": "MANDATORY",
+  "may_detach_in_owner_estate": false,
+  "exported_external_distribution": {
+    "allow_detach": true,
+    "require_explicit_host_policy_authority": true,
+    "never_grant_effects_by_detachment": true
+  },
+  "production_status": "BOUND_PENDING_RUNTIME_INTEGRATION",
+  "host_live_verification_required": true,
+  "source": "docs/roadmap/AMA-F8-CDX-SECURITY-BINDING.md",
+  "canonical_estate_policy_id": "CDX-ESTATE-TERMS-001",
+  "applicability_registry": "Hybrismannen/Conductellence-:ESTATE-REGISTRY/registry-v2.json",
+  "registry_membership_required_for_runtime_admission": true,
+  "estate_root_is_scope_label_not_registry_proof": true
+}

@@ -68,7 +68,21 @@ export interface AMAReleasePlanVNext {
  readonly rollbackRef:AMAPinnedRef;readonly state:"PROPOSED"|"PREPARED"|"BLOCKED"|"APPROVAL_PENDING";
  readonly approvalRef?:string;readonly activationAuthorized:false;
 }
+/** M6: optional localization/accessibility declarations, no language engine attached. */
+export interface AMALocalizationProfileVNext {
+ readonly schema:"ama.localization-profile/v0.2-candidate";readonly profileId:string;
+ readonly version:AMASemver;readonly status:AMABindingState;
+ readonly agentRef:AMAPinnedRef;readonly defaultLocale:string;
+ readonly supportedLocales:readonly string[];readonly fallbackLocales:readonly string[];
+ readonly timezonePolicy:"HOST_LOCAL_TIMEZONE_REQUIRED"|"UTC_WITH_EXPLICIT_LOCAL_CONVERSION";
+ readonly accessibility:Readonly<{structuredTextRequired:true;
+  keyboardAccessibleHostRequired:true;semanticLabelsRequired:true}>;
+ readonly translation:Readonly<{sourceLanguageAttributionRequired:true;
+  dataClassificationPreserved:true;translationGrantsAuthority:false;
+  consequentialOutputReviewRequired:true}>;
+}
 export interface AMAOperationalBundleVNext {
+ readonly localizationProfiles?:readonly AMALocalizationProfileVNext[];
  readonly operationalProfiles?:readonly AMAOperationalProfileVNext[];
  readonly compatibilityAssessments?:readonly AMACompatibilityAssessmentVNext[];
  readonly healthSnapshots?:readonly AMAHealthSnapshotVNext[];

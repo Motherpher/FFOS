@@ -61,3 +61,9 @@ The M6 database tables (health, incident, incident actions, suspension and relea
 `M6-OPERATIONAL-CONTRACT-PASS` requires: 45 valid agent-neutral schemas, static negative regression suites, Node type parsing, disposable PostgreSQL suspension/release/immutability tests and a successful combined GitHub Actions run with the explicit synthetic M6 readiness artifact.
 
 **Human adoption, CDX F8.7 live binding, independently signed acceptance and production deployment remain separate gates.**
+
+## M6 extension — localization and accessibility profile
+
+`schemas/v0.2/localization-profile.schema.json` and `src/operations-vnext.ts` define an optional locale and accessibility configuration for an AMA-built agent, with supported/default/fallback locales, timezone policy, semantic labels, keyboard-accessible host obligations and source-attributed translation. Translation cannot grant authority or change data classification; consequential translated outputs require human review.
+
+The static checks in `conformance/ama_support_profiles.py` verify pinned agent ownership, normalized locale uniqueness and allowed fallback rules. They **do not validate full BCP 47 semantics**, host accessibility compliance, time conversion accuracy or translation quality. The M6 localization area is **partially implemented** and its runtime responsibilities remain external.

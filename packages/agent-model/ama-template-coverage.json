@@ -1,0 +1,343 @@
+{
+  "schema": "ama.template-coverage/v1",
+  "architecture": "AMA",
+  "template_not_agent": true,
+  "coverage_policy": "SUPPLEMENTARY_WITHIN_M0_M7",
+  "modules": [
+    {
+      "id": "identity",
+      "requirement": "CORE",
+      "purpose": "agent identity, ownership, instance IDs and version lineage",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M1"
+    },
+    {
+      "id": "mandate",
+      "requirement": "CORE",
+      "purpose": "purpose, goals, non-goals, authority and allowed boundaries",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M2"
+    },
+    {
+      "id": "instruction",
+      "requirement": "CORE",
+      "purpose": "layered instruction precedence, conflict resolution and immutable governance constraints",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M3",
+      "evidence_contract": "packages/agent-model/schemas/v0.2/instruction-package.schema.json"
+    },
+    {
+      "id": "capability",
+      "requirement": "CORE",
+      "purpose": "capability registry, typed I/O, effect ceilings and resource scopes",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M1"
+    },
+    {
+      "id": "workflow",
+      "requirement": "CORE",
+      "purpose": "bounded workflow DAG, dependencies, branching and terminal states",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M1"
+    },
+    {
+      "id": "command",
+      "requirement": "CORE",
+      "purpose": "stable invocation vocabulary and argument contracts",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M1"
+    },
+    {
+      "id": "adapter",
+      "requirement": "CORE",
+      "purpose": "replaceable tool/runtime adapters, authentication bindings and failures",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M1"
+    },
+    {
+      "id": "authorization",
+      "requirement": "CORE",
+      "purpose": "external policy decisions, approval, revocation and denial",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M2"
+    },
+    {
+      "id": "task-execution",
+      "requirement": "CORE",
+      "purpose": "task envelopes, run lifecycle, retry, stop/cancel and idempotency",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M4"
+    },
+    {
+      "id": "evidence",
+      "requirement": "CORE",
+      "purpose": "provenance, receipts, audit trail and integrity",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M5"
+    },
+    {
+      "id": "conformance",
+      "requirement": "CORE",
+      "purpose": "schema validation, negative cases, reference checks and CI",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M5"
+    },
+    {
+      "id": "lifecycle",
+      "requirement": "CORE",
+      "purpose": "versioning, migration, change review, rollback and retirement",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M6"
+    },
+    {
+      "id": "cognition",
+      "requirement": "OPTIONAL",
+      "purpose": "model choices, reasoning budgets and planning",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M3"
+    },
+    {
+      "id": "context",
+      "requirement": "OPTIONAL",
+      "purpose": "context assembly, redaction, truncation and injection defenses",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M3"
+    },
+    {
+      "id": "memory",
+      "requirement": "OPTIONAL",
+      "purpose": "short/long-term memory, retention, erasure and provenance",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M3"
+    },
+    {
+      "id": "retrieval",
+      "requirement": "OPTIONAL",
+      "purpose": "retrievers, indexing, source ranking and freshness",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M3"
+    },
+    {
+      "id": "knowledge",
+      "requirement": "OPTIONAL",
+      "purpose": "knowledge bases, citation rules and trust tiers",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M3",
+      "evidence_contract": "packages/agent-model/schemas/v0.2/knowledge-catalog.schema.json",
+      "evidence_validator": "packages/agent-model/conformance/ama_knowledge.py",
+      "evidence_tests": "packages/agent-model/conformance/tests/test_m3_knowledge.py",
+      "remaining_host_obligations": [
+        "SOURCE_PROVENANCE_AUTHENTICATION",
+        "ACCESS_POLICY_ENFORCEMENT",
+        "CONTENT_VERIFICATION"
+      ]
+    },
+    {
+      "id": "multi-agent",
+      "requirement": "OPTIONAL",
+      "purpose": "delegation, coordination, separation of duties and handoffs",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M2",
+      "evidence_contract": "packages/agent-model/schemas/v0.2/delegation.schema.json"
+    },
+    {
+      "id": "eventing",
+      "requirement": "OPTIONAL",
+      "purpose": "scheduled or event-triggered execution, webhooks and queues",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M4",
+      "evidence_contract": "packages/agent-model/schemas/v0.2/event-trigger.schema.json",
+      "evidence_validator": "packages/agent-model/conformance/ama_eventing.py",
+      "evidence_tests": "packages/agent-model/conformance/tests/test_m4_eventing.py",
+      "remaining_host_obligations": [
+        "SCHEDULER_OR_EVENT_TRANSPORT",
+        "HOST_SOURCE_AUTHENTICATION",
+        "DELIVERY_DEDUPLICATION_AND_REPLAY_ENFORCEMENT",
+        "PER_TRIGGER_POLICY_CHECK"
+      ]
+    },
+    {
+      "id": "durability",
+      "requirement": "OPTIONAL",
+      "purpose": "checkpoints, leases, unknown effects and reconciliation",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M4"
+    },
+    {
+      "id": "human-interaction",
+      "requirement": "OPTIONAL",
+      "purpose": "human input, pause/resume, consent and escalation",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M2",
+      "evidence_contracts": [
+        "packages/agent-model/schemas/v0.2/approval.schema.json",
+        "packages/agent-model/schemas/v0.2/approval-event.schema.json"
+      ],
+      "reconciliation_note": "Existing M0–M7 contracts cover part of this concern; full reusable lifecycle and semantic conformance not yet proven"
+    },
+    {
+      "id": "observability",
+      "requirement": "OPTIONAL",
+      "purpose": "tracing, metrics, logs, health, budgets and alarms",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M6",
+      "evidence_contract": "packages/agent-model/schemas/v0.2/health-snapshot.schema.json"
+    },
+    {
+      "id": "evaluation",
+      "requirement": "OPTIONAL",
+      "purpose": "scenario tests, independent oracle interfaces and acceptance thresholds",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M5"
+    },
+    {
+      "id": "safety",
+      "requirement": "OPTIONAL",
+      "purpose": "risk classification, fail-closed policies and abuse handling",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M2",
+      "evidence_contracts": [
+        "packages/agent-model/schemas/v0.2/authorization-decision.schema.json",
+        "packages/agent-model/schemas/v0.2/release-plan.schema.json"
+      ],
+      "reconciliation_note": "Existing M0–M7 contracts cover part of this concern; full reusable lifecycle and semantic conformance not yet proven"
+    },
+    {
+      "id": "privacy",
+      "requirement": "OPTIONAL",
+      "purpose": "data minimization, access control, retention and deletion",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M2",
+      "evidence_contracts": [
+        "packages/agent-model/schemas/v0.2/memory-profile.schema.json",
+        "packages/agent-model/schemas/v0.2/knowledge-catalog.schema.json"
+      ],
+      "reconciliation_note": "Existing M0–M7 contracts cover part of this concern; full reusable lifecycle and semantic conformance not yet proven"
+    },
+    {
+      "id": "secrets",
+      "requirement": "OPTIONAL",
+      "purpose": "secret injection, rotation, revocation and audit",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M2",
+      "evidence_contract": "packages/agent-model/schemas/v0.2/secret-binding.schema.json",
+      "evidence_validator": "packages/agent-model/conformance/ama_support_profiles.py",
+      "evidence_tests": "packages/agent-model/conformance/tests/test_ama_support_profiles.py",
+      "remaining_host_obligations": [
+        "LIVE_SECRET_PROVIDER",
+        "ROTATION_REVOCATION_ENFORCEMENT",
+        "ACCESS_AUDIT"
+      ]
+    },
+    {
+      "id": "interoperability",
+      "requirement": "OPTIONAL",
+      "purpose": "MCP, A2A, API contracts and transport negotiation",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M1",
+      "evidence_contracts": [
+        "packages/agent-model/schemas/v0.2/tool-adapter.schema.json",
+        "packages/agent-model/schemas/v0.2/operational-profile.schema.json"
+      ],
+      "reconciliation_note": "Existing M0–M7 contracts cover part of this concern; full reusable lifecycle and semantic conformance not yet proven"
+    },
+    {
+      "id": "deployment",
+      "requirement": "OPTIONAL",
+      "purpose": "host deployment descriptors, staged rollout and rollback",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M6",
+      "evidence_contracts": [
+        "packages/agent-model/schemas/v0.2/release-plan.schema.json",
+        "packages/agent-model/schemas/v0.2/rollback-plan.schema.json"
+      ],
+      "reconciliation_note": "Existing M0–M7 contracts cover part of this concern; full reusable lifecycle and semantic conformance not yet proven"
+    },
+    {
+      "id": "operations",
+      "requirement": "OPTIONAL",
+      "purpose": "runbooks, incident handling, SLO and continuity",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M6"
+    },
+    {
+      "id": "cost-control",
+      "requirement": "OPTIONAL",
+      "purpose": "budget ceilings, quota, cost attribution and throttling",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M6",
+      "evidence_contracts": [
+        "packages/agent-model/schemas/v0.2/planning-profile.schema.json",
+        "packages/agent-model/schemas/v0.2/operational-profile.schema.json"
+      ],
+      "reconciliation_note": "Existing M0–M7 contracts cover part of this concern; full reusable lifecycle and semantic conformance not yet proven"
+    },
+    {
+      "id": "localization",
+      "requirement": "OPTIONAL",
+      "purpose": "locale, timezone, accessibility and user experience",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M6",
+      "evidence_contract": "packages/agent-model/schemas/v0.2/localization-profile.schema.json",
+      "evidence_validator": "packages/agent-model/conformance/ama_support_profiles.py",
+      "evidence_tests": "packages/agent-model/conformance/tests/test_ama_support_profiles.py",
+      "remaining_host_obligations": [
+        "RUNTIME_LOCALE_RESOLUTION",
+        "TRANSLATION_VALIDATION",
+        "ACCESSIBILITY_HOST_TESTING"
+      ]
+    },
+    {
+      "id": "governance",
+      "requirement": "CORE",
+      "purpose": "owner acceptance, review record and authority boundaries",
+      "implementation_status": "PARTIAL_EXISTING_CONTRACTS",
+      "host_binding": "INJECTED_NOT_PRESELECTED",
+      "milestone": "M6",
+      "evidence_contracts": [
+        "packages/agent-model/schemas/v0.2/acceptance-assessment.schema.json",
+        "packages/agent-model/ama-release-gates.json"
+      ],
+      "reconciliation_note": "Existing M0–M7 contracts cover part of this concern; full reusable lifecycle and semantic conformance not yet proven"
+    }
+  ],
+  "rules": {
+    "all_core_modules_required_for_complete_template": true,
+    "optional_modules_must_have_defined_disabled_behavior": true,
+    "implementations_can_select_modules": true,
+    "template_does_not_deploy_agents": true,
+    "owner_accepts_baseline": true
+  },
+  "canonical_milestone_map": "packages/agent-model/ama-milestones.json"
+}

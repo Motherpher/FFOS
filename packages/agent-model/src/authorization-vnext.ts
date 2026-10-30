@@ -58,7 +58,18 @@ export interface AMAApprovalContract {
  readonly outcome:"APPROVE"|"REJECT";readonly issuedAt:string;readonly expiresAt:string;
  readonly approvalEvidenceDigest:AMASha256Digest;
 }
+/** M2: metadata-only secret binding; never embeds credential material. */
+export interface AMASecretBindingVNext {
+ readonly schema:"ama.secret-binding/v0.2-candidate";readonly bindingId:string;
+ readonly version:AMASemver;readonly status:"DRAFT"|"VALIDATED"|"ACTIVE"|"SUSPENDED"|"DEPRECATED";
+ readonly agentRef:AMAPinnedRef;readonly capabilityRef:AMAPinnedRef;
+ readonly providerRef:string;readonly secretRef:string;readonly resourceScope:string;
+ readonly maxRotationAgeSeconds:number;readonly revocationCheckRequired:true;
+ readonly accessAuditRequired:true;readonly runtimeInjectionRequired:true;
+ readonly redactionRequired:true;readonly rawSecretMaterialAllowed:false;
+}
 export interface AMAAuthorityBundleContract {
+ readonly secretBindings?:readonly AMASecretBindingVNext[];
  readonly principals?:readonly AMAPrincipalContract[];
  readonly mandates?:readonly AMAMandateContract[];
  readonly delegations?:readonly AMADelegationContract[];

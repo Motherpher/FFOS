@@ -103,7 +103,7 @@ class M0AdmissionTests(unittest.TestCase):
         self.assertEqual(self.decision["state"], "PROPOSED_DISPOSITIONS_NOT_NORMATIVE_ADOPTION")
         self.assertEqual(self.crosswalk["cdx"]["enforcement"], "BOOTSTRAP")
         self.assertEqual(self.crosswalk["cdx"]["estate_integration"], "PENDING_RUNTIME_BINDINGS")
-        master = (ROOT / "docs/architecture/AMA.md").read_text()
+        master = (ROOT / "agent-stable/ama/ARCHITECTURE-v0.2-CANDIDATE.md").read_text()
         self.assertFalse(any(n in master.lower() for n in ("conductellence", "household", "janitor")))
 
 if __name__ == "__main__":

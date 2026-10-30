@@ -2,6 +2,7 @@ name: AMA conformance
 on:
   pull_request:
     paths:
+      - "agent-stable/ama/**"
       - "packages/agent-model/**"
       - "packages/agent-runtime/**"
       - "integrations/cdx/f8/**"
@@ -15,6 +16,7 @@ on:
   push:
     branches: [main]
     paths:
+      - "agent-stable/ama/**"
       - "packages/agent-model/**"
       - "docs/roadmap/AMA-*"
       - "docs/research/AMA-*"
@@ -55,8 +57,39 @@ jobs:
         run: |
           python integrations/cdx/f8/preflight.py \
             --output "$RUNNER_TEMP/ama-f8-preflight.json"
+      - name: Universal AMA architecture boundary (no agent activation)
+        run: python packages/agent-model/conformance/ama_architecture_boundary.py
+      - name: Universal AMA v1-vNext compatibility (static only)
+        run: |
+          python packages/agent-model/conformance/ama_architecture_compatibility.py \
+            --output "$RUNNER_TEMP/ama-architecture-compatibility.json"
+      - name: Validate portable AMA architecture distribution
+        run: python packages/agent-model/conformance/ama_distribution.py
+      - name: AMA architecture versus operational gate separation
+        run: python packages/agent-model/conformance/ama_release_gates.py
+      - name: Report full AMA template coverage and gaps
+        run: python packages/agent-model/conformance/ama_template_coverage.py
+      - name: Canonical M0-M7 source integrity (F8 optional)
+        run: |
+          python packages/agent-model/conformance/ama_milestone_integrity.py \
+            --output "$RUNNER_TEMP/ama-milestone-integrity.json"
+      - name: M0 explicit source-to-test evidence audit
+        run: |
+          python packages/agent-model/conformance/ama_requirement_evidence.py \
+            --output "$RUNNER_TEMP/ama-m0-requirement-evidence.json"
+      - name: AMA operating realm and estate stewardship conformance
+        run: |
+          python packages/agent-model/conformance/ama_realm.py \
+            --output "$RUNNER_TEMP/ama-realm-stewardship.json"
+      - name: M7-A source-backed readiness and coverage report (non-authorizing)
+        run: |
+          python packages/agent-model/conformance/ama_m7a_release_audit.py \
+            --output "$RUNNER_TEMP/ama-m7a-readiness.json"
       - name: Unit tests and negative/adversarial cases
         run: python -m unittest discover -s packages/agent-model/conformance/tests -v
+      - name: Emit M7 minimal and complex synthetic blueprint references
+        run: |
+          python packages/agent-model/conformance/ama_blueprint_reference.py --output-dir "$RUNNER_TEMP/ama-m7-blueprints"
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
@@ -102,9 +135,15 @@ jobs:
         with:
           name: ama-static-conformance
           path: |
+            ${{ runner.temp }}/ama-realm-stewardship.json
+            ${{ runner.temp }}/ama-m7a-readiness.json
+            ${{ runner.temp }}/ama-m0-requirement-evidence.json
+            ${{ runner.temp }}/ama-milestone-integrity.json
+            ${{ runner.temp }}/ama-architecture-compatibility.json
             ${{ runner.temp }}/ama-static-report.json
             ${{ runner.temp }}/ama-m5-candidate-report.json
             ${{ runner.temp }}/ama-f8-preflight.json
             ${{ runner.temp }}/ama-m6-candidate-report.json
             ${{ runner.temp }}/ama-m7e/
+            ${{ runner.temp }}/ama-m7-blueprints/
           if-no-files-found: ignore

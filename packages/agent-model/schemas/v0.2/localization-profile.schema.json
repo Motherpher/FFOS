@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/localization-profile.schema.json",
+  "title": "AMA M6 localization/accessibility/translation configuration contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "profileId",
+    "version",
+    "status",
+    "agentRef",
+    "defaultLocale",
+    "supportedLocales",
+    "fallbackLocales",
+    "timezonePolicy",
+    "accessibility",
+    "translation"
+  ],
+  "properties": {
+    "schema": {
+      "const": "ama.localization-profile/v0.2-candidate"
+    },
+    "profileId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "status": {
+      "$ref": "common.schema.json#/$defs/bindingStatus"
+    },
+    "agentRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "defaultLocale": {
+      "type": "string",
+      "pattern": "^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$"
+    },
+    "supportedLocales": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$"
+      }
+    },
+    "fallbackLocales": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$"
+      }
+    },
+    "timezonePolicy": {
+      "enum": [
+        "HOST_LOCAL_TIMEZONE_REQUIRED",
+        "UTC_WITH_EXPLICIT_LOCAL_CONVERSION"
+      ]
+    },
+    "accessibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "structuredTextRequired",
+        "keyboardAccessibleHostRequired",
+        "semanticLabelsRequired"
+      ],
+      "properties": {
+        "structuredTextRequired": {
+          "const": true
+        },
+        "keyboardAccessibleHostRequired": {
+          "const": true
+        },
+        "semanticLabelsRequired": {
+          "const": true
+        }
+      }
+    },
+    "translation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceLanguageAttributionRequired",
+        "dataClassificationPreserved",
+        "translationGrantsAuthority",
+        "consequentialOutputReviewRequired"
+      ],
+      "properties": {
+        "sourceLanguageAttributionRequired": {
+          "const": true
+        },
+        "dataClassificationPreserved": {
+          "const": true
+        },
+        "translationGrantsAuthority": {
+          "const": false
+        },
+        "consequentialOutputReviewRequired": {
+          "const": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/event-trigger.schema.json",
+  "title": "AMA M4 event trigger: bounded, signed-origin and idempotent delivery declaration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "triggerId",
+    "version",
+    "status",
+    "moduleId",
+    "triggerKind",
+    "commandRef",
+    "workflowRef",
+    "maxEffectClass",
+    "authorizationRequired",
+    "untrustedPayloadCannotOverrideMandate",
+    "maxEventAgeSeconds",
+    "maxDeliveries",
+    "maxConcurrentRuns",
+    "replayPolicy",
+    "failureMode"
+  ],
+  "properties": {
+    "schema": {
+      "const": "ama.event-trigger/v0.2-candidate"
+    },
+    "triggerId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "status": {
+      "$ref": "common.schema.json#/$defs/bindingStatus"
+    },
+    "moduleId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "triggerKind": {
+      "enum": [
+        "SCHEDULE",
+        "WEBHOOK",
+        "QUEUE"
+      ]
+    },
+    "commandRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "workflowRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "maxEffectClass": {
+      "$ref": "common.schema.json#/$defs/effect"
+    },
+    "authorizationRequired": {
+      "const": true
+    },
+    "untrustedPayloadCannotOverrideMandate": {
+      "const": true
+    },
+    "maxEventAgeSeconds": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "maxDeliveries": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100
+    },
+    "maxConcurrentRuns": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "replayPolicy": {
+      "const": "NO_IMPLICIT_REPLAY"
+    },
+    "failureMode": {
+      "const": "HOLD_FOR_REVIEW"
+    },
+    "schedule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "expression",
+        "timeZone",
+        "occurrenceKeyRequired"
+      ],
+      "properties": {
+        "expression": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "timeZone": {
+          "type": "string",
+          "minLength": 1
+        },
+        "occurrenceKeyRequired": {
+          "const": true
+        }
+      }
+    },
+    "externalSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceRef",
+        "authenticationRequired",
+        "idempotencyKeyField",
+        "payloadSchema"
+      ],
+      "properties": {
+        "sourceRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authenticationRequired": {
+          "const": true
+        },
+        "idempotencyKeyField": {
+          "type": "string",
+          "minLength": 1
+        },
+        "payloadSchema": {
+          "type": "object",
+          "minProperties": 1
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "triggerKind": {
+            "const": "SCHEDULE"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "schedule"
+        ],
+        "not": {
+          "required": [
+            "externalSource"
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "triggerKind": {
+            "enum": [
+              "WEBHOOK",
+              "QUEUE"
+            ]
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "externalSource"
+        ],
+        "not": {
+          "required": [
+            "schedule"
+          ]
+        }
+      }
+    }
+  ]
+}

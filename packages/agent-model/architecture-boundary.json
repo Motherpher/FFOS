@@ -1,0 +1,50 @@
+{
+  "schema": "ama.architecture-boundary/v1",
+  "architecture_id": "AMA",
+  "kind": "REUSABLE_AGENT_ARCHITECTURE",
+  "scope": "DOMAIN_AGNOSTIC",
+  "contract_status": "CANDIDATE",
+  "template_is_agent": false,
+  "default_domain": null,
+  "default_agent_instance": null,
+  "default_governing_authority": null,
+  "default_security_provider": null,
+  "production_authorized": false,
+  "conformance_is_deployment_authorization": false,
+  "contracts": [
+    "agent",
+    "command",
+    "workflow",
+    "capability",
+    "tool-adapter",
+    "task",
+    "effect",
+    "run",
+    "evidence",
+    "evaluation",
+    "operational-lifecycle"
+  ],
+  "optional_features": [
+    "cognition",
+    "memory",
+    "retrieval",
+    "durable-execution",
+    "interoperability",
+    "external-policy"
+  ],
+  "boundaries": {
+    "host_policy_injected": true,
+    "agent_identity_injected": true,
+    "domain_pack_optional": true,
+    "independent_acceptance_required": true,
+    "external_effects_deny_by_default": true
+  },
+  "excluded_responsibilities": [
+    "INSTANTIATE_NAMED_AGENTS",
+    "ASSIGN_DIRECTOR_WORK_PACKAGES",
+    "SELECT_DOMAIN_POLICIES",
+    "PUBLISH_AGENT_RELEASES",
+    "DEPLOY_AGENTS",
+    "ACCEPT_OWN_CONFORMANCE"
+  ]
+}

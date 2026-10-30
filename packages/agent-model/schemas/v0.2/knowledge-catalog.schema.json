@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/knowledge-catalog.schema.json",
+  "title": "AMA M3 candidate knowledge-source catalog (provider-neutral)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "catalogId",
+    "version",
+    "status",
+    "moduleId",
+    "retrievalPolicyRef",
+    "sources",
+    "contentGrantsAuthority",
+    "sourceInstructionsAdmitted"
+  ],
+  "properties": {
+    "schema": {
+      "const": "ama.knowledge-catalog/v0.2-candidate"
+    },
+    "catalogId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "status": {
+      "$ref": "common.schema.json#/$defs/bindingStatus"
+    },
+    "moduleId": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "retrievalPolicyRef": {
+      "$ref": "common.schema.json#/$defs/ref"
+    },
+    "contentGrantsAuthority": {
+      "const": false
+    },
+    "sourceInstructionsAdmitted": {
+      "const": false
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "sourceId",
+          "sourceRef",
+          "sourceRevision",
+          "contentDigest",
+          "sourceScope",
+          "trustDomain",
+          "trustLabel",
+          "issuerRef",
+          "observedAt",
+          "maxAgeSeconds",
+          "sensitivity",
+          "sourceInstructionsAdmitted",
+          "admissionState"
+        ],
+        "properties": {
+          "sourceId": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "sourceRef": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "sourceRevision": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "contentDigest": {
+            "$ref": "common.schema.json#/$defs/digest"
+          },
+          "sourceScope": {
+            "$ref": "common.schema.json#/$defs/scope"
+          },
+          "trustDomain": {
+            "type": "string",
+            "minLength": 1
+          },
+          "trustLabel": {
+            "enum": [
+              "VERIFIED",
+              "UNVERIFIED",
+              "SUSPECT",
+              "REVOKED"
+            ]
+          },
+          "issuerRef": {
+            "type": "string",
+            "minLength": 1
+          },
+          "observedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "maxAgeSeconds": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "sensitivity": {
+            "enum": [
+              "PUBLIC",
+              "INTERNAL",
+              "CONFIDENTIAL",
+              "RESTRICTED"
+            ]
+          },
+          "sourceInstructionsAdmitted": {
+            "const": false
+          },
+          "admissionState": {
+            "enum": [
+              "ADMITTED",
+              "QUARANTINED",
+              "BLOCKED"
+            ]
+          },
+          "hostAuthorizationRef": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}
