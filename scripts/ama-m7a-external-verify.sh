@@ -36,6 +36,12 @@ run() {
     printf 'FAIL\n' > "$OUT/$label.status"; return 1; fi
 }
 # Match the executable conformance contract rather than its non-executed GitHub job status.
+run f8-catalogue python3 integrations/cdx/f8/audit_coverage.py
+run distribution python3 packages/agent-model/conformance/ama_distribution.py
+run release-gates python3 packages/agent-model/conformance/ama_release_gates.py
+run milestone-integrity python3 packages/agent-model/conformance/ama_milestone_integrity.py --output "$OUT/ama-milestone-integrity.json"
+run realm-stewardship python3 packages/agent-model/conformance/ama_realm.py --output "$OUT/ama-realm-stewardship.json"
+run blueprint-reference python3 packages/agent-model/conformance/ama_blueprint_reference.py --output-dir "$OUT/ama-m7-blueprints"
 run static-tests python3 -m unittest discover -s packages/agent-model/conformance/tests -v
 run security-tests python3 -m unittest discover -s packages/agent-model/conformance -p 'test_ama*.py' -v
 run architecture-boundary python3 packages/agent-model/conformance/ama_architecture_boundary.py
@@ -44,10 +50,16 @@ run source-evidence python3 packages/agent-model/conformance/ama_requirement_evi
 run m7a-readiness python3 packages/agent-model/conformance/ama_m7a_release_audit.py --output "$OUT/ama-m7a-readiness.json"
 run schema-compatibility python3 packages/agent-model/conformance/ama_architecture_compatibility.py --output "$OUT/ama-compatibility.json"
 run typed-context node --experimental-strip-types --test packages/agent-model/src/index.test.mjs
+for contract in vnext authorization-vnext cognitive-vnext durable-vnext evaluation-vnext operations-vnext; do
+  run "parse-$contract" node --experimental-strip-types --input-type=module -e "await import('./packages/agent-model/src/$contract.ts')"
+done
 run install-pg npm install --no-save --prefix packages/agent-runtime pg@8.23.1 --ignore-scripts --no-audit --no-fund
 run runtime-pg node --experimental-strip-types --test packages/agent-runtime/tests/*.test.mjs
 run f8-preflight python3 integrations/cdx/f8/preflight.py --output "$OUT/ama-f8-preflight.json"
+run m5-candidate python3 packages/agent-model/conformance/m5_emit_ci_candidate.py --output "$OUT/ama-m5-candidate-report.json"
+run m6-candidate python3 packages/agent-model/conformance/m6_emit_ci_candidate.py --output "$OUT/ama-m6-candidate-report.json"
 run m7e python3 packages/agent-model/conformance/ama_m7_integration.py --preflight "$OUT/ama-f8-preflight.json" --output-dir "$OUT/ama-m7e"
+run positive-fixture python3 packages/agent-model/conformance/ama_conformance.py --manifest packages/agent-model/conformance/fixtures/agent.json --bindings packages/agent-model/conformance/fixtures/bindings.json --report "$OUT/ama-static-report.json"
 python3 - "$OUT" <<'PY'
 import hashlib, json, pathlib, sys
 root=pathlib.Path(sys.argv[1])
