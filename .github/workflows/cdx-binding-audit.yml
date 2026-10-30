@@ -70,25 +70,69 @@ jobs:
             sleep 1
           done
 
-          allow=$(curl -sS -o /tmp/director-allow.out -D /tmp/director-allow.headers -w '%{http_code}'             -X POST -H 'content-type: application/x-www-form-urlencoded'             --data 'user=runtime-ci-director&password=runtime-ci-password&next=%2F'             http://127.0.0.1:3000/api/session)
+          allow=$(curl -sS -o /tmp/director-allow.out -D /tmp/director-allow.headers -w '%{http_code}' \
+            -X POST -H 'content-type: application/x-www-form-urlencoded' \
+            --data 'user=runtime-ci-director&password=runtime-ci-password&next=%2F' \
+            http://127.0.0.1:3000/api/session)
+          echo "director_allow_status=$allow"
           test "$allow" = "303"
-          grep -qi '^set-cookie: ffos_session=' /tmp/director-allow.headers
+          if grep -qi '^set-cookie: ffos_session=' /tmp/director-allow.headers; then
+            echo "director_allow_cookie=present"
+          else
+            echo "director_allow_cookie=missing"
+            exit 1
+          fi
 
-          deny=$(curl -sS -o /tmp/director-deny.out -D /tmp/director-deny.headers -w '%{http_code}'             -X POST -H 'content-type: application/x-www-form-urlencoded'             --data 'user=runtime-ci-director&password=wrong&next=%2F'             http://127.0.0.1:3000/api/session)
+          deny=$(curl -sS -o /tmp/director-deny.out -D /tmp/director-deny.headers -w '%{http_code}' \
+            -X POST -H 'content-type: application/x-www-form-urlencoded' \
+            --data 'user=runtime-ci-director&password=wrong&next=%2F' \
+            http://127.0.0.1:3000/api/session)
+          echo "director_deny_status=$deny"
           test "$deny" = "303"
-          ! grep -qi '^set-cookie: ffos_session=' /tmp/director-deny.headers
+          if grep -qi '^set-cookie: ffos_session=' /tmp/director-deny.headers; then
+            echo "director_deny_cookie=unexpected"
+            exit 1
+          else
+            echo "director_deny_cookie=absent"
+          fi
 
-          probe_allow=$(curl -sS -o /tmp/probe-allow.out -D /tmp/probe-allow.headers -w '%{http_code}'             -X POST -H 'x-cdx-runtime-probe: runtime-ci-probe-token-0123456789abcdef'             http://127.0.0.1:3000/api/cdx/runtime-proof)
+          probe_allow=$(curl -sS -o /tmp/probe-allow.out -D /tmp/probe-allow.headers -w '%{http_code}' \
+            -X POST -H 'x-cdx-runtime-probe: runtime-ci-probe-token-0123456789abcdef' \
+            http://127.0.0.1:3000/api/cdx/runtime-proof)
+          echo "probe_allow_status=$probe_allow"
           test "$probe_allow" = "200"
-          grep -qi '^set-cookie: ffos_cdx_runtime_probe=' /tmp/probe-allow.headers
+          if grep -qi '^set-cookie: ffos_cdx_runtime_probe=' /tmp/probe-allow.headers; then
+            echo "probe_allow_cookie=present"
+          else
+            echo "probe_allow_cookie=missing"
+            exit 1
+          fi
 
-          probe_deny=$(curl -sS -o /tmp/probe-deny.out -D /tmp/probe-deny.headers -w '%{http_code}'             -X POST -H 'x-cdx-runtime-probe: wrong'             http://127.0.0.1:3000/api/cdx/runtime-proof)
+          probe_deny=$(curl -sS -o /tmp/probe-deny.out -D /tmp/probe-deny.headers -w '%{http_code}' \
+            -X POST -H 'x-cdx-runtime-probe: wrong' \
+            http://127.0.0.1:3000/api/cdx/runtime-proof)
+          echo "probe_deny_status=$probe_deny"
           test "$probe_deny" = "403"
-          ! grep -qi '^set-cookie: ffos_cdx_runtime_probe=' /tmp/probe-deny.headers
+          if grep -qi '^set-cookie: ffos_cdx_runtime_probe=' /tmp/probe-deny.headers; then
+            echo "probe_deny_cookie=unexpected"
+            exit 1
+          else
+            echo "probe_deny_cookie=absent"
+          fi
 
-          unavailable=$(curl -sS -o /tmp/probe-unavailable.out -D /tmp/probe-unavailable.headers -w '%{http_code}'             -X POST             -H 'x-cdx-runtime-probe: runtime-ci-probe-token-0123456789abcdef'             -H 'x-cdx-probe-mode: policy-unavailable'             http://127.0.0.1:3000/api/cdx/runtime-proof)
+          unavailable=$(curl -sS -o /tmp/probe-unavailable.out -D /tmp/probe-unavailable.headers -w '%{http_code}' \
+            -X POST \
+            -H 'x-cdx-runtime-probe: runtime-ci-probe-token-0123456789abcdef' \
+            -H 'x-cdx-probe-mode: policy-unavailable' \
+            http://127.0.0.1:3000/api/cdx/runtime-proof)
+          echo "probe_policy_unavailable_status=$unavailable"
           test "$unavailable" = "503"
-          ! grep -qi '^set-cookie: ffos_cdx_runtime_probe=' /tmp/probe-unavailable.headers
+          if grep -qi '^set-cookie: ffos_cdx_runtime_probe=' /tmp/probe-unavailable.headers; then
+            echo "probe_policy_unavailable_cookie=unexpected"
+            exit 1
+          else
+            echo "probe_policy_unavailable_cookie=absent"
+          fi
 
           grep -q 'FFOS_CDX_SPETL' /tmp/ffos-cdx-runtime.log
           grep -q '"effect_status":"PERMITTED"' /tmp/ffos-cdx-runtime.log
