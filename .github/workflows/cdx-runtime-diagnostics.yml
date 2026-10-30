@@ -8,6 +8,7 @@ on:
       - 'apps/web/lib/cdx/**'
       - 'apps/web/app/api/session/route.ts'
       - 'apps/web/app/api/cdx/runtime-proof/route.ts'
+      - 'apps/web/middleware.ts'
       - '.github/workflows/cdx-runtime-diagnostics.yml'
   workflow_dispatch:
 
