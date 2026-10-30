@@ -17,7 +17,8 @@
   "wp11": {
     "enforcement_point": "apps/web/app/api/session/route.ts",
     "effect": "ISSUE_DIRECTOR_SESSION",
-    "evidence_surface": "VERCEL_RUNTIME_LOGS",
-    "state": "RUNTIME_GUARDED_UNVERIFIED"
+    "evidence_surface": "GITHUB_ACTIONS_HTTP_RUNTIME_EVIDENCE",
+    "state": "RUNTIME_GUARDED_UNVERIFIED",
+    "deployment_required": false
   }
 }
