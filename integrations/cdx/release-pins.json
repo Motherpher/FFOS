@@ -1,0 +1,30 @@
+{
+  "schema": "ffos.cdx-release-pins/v1",
+  "source": "Hybrismannen/Conductellence-",
+  "release": "1.0.0",
+  "runtime_contract": {
+    "path": "RUNTIME-INTEGRATION/CDX-RUNTIME-001.json",
+    "git_blob_sha": "ad0c01d997c1db8ac73681566b4934f1b76f7141"
+  },
+  "policy": {
+    "path": "DISTRIBUTION/conductellence-policy.json",
+    "git_blob_sha": "55dbcdac2f822b59a5a5f0f19eeadfa61d2c7ed0"
+  },
+  "spetl_event_schema": {
+    "path": "SPETL/schemas/event.schema.json",
+    "git_blob_sha": "2809554a2a1e672d2859a1ff28819ec64d8affeb"
+  },
+  "wp11": {
+    "evidence_surface": "GITHUB_ACTIONS_HTTP_RUNTIME_EVIDENCE",
+    "state": "RUNTIME_GUARDED_UNVERIFIED",
+    "deployment_required": false,
+    "enforcement_points": [
+      "apps/web/app/api/session/route.ts",
+      "apps/web/app/api/cdx/runtime-proof/route.ts"
+    ],
+    "effects": [
+      "ISSUE_DIRECTOR_SESSION",
+      "ISSUE_RUNTIME_PROOF_RECEIPT"
+    ]
+  }
+}

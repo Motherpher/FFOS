@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { SESSION_COOKIE, verifyDirectorSession } from "./lib/auth";
 
-const PUBLIC_PATHS = new Set(["/login", "/api/session"]);
+const PUBLIC_PATHS = new Set(["/login", "/api/session", "/api/cdx/runtime-proof"]);
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
