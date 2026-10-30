@@ -49,9 +49,10 @@
     "verification_state": "PASS",
     "verified_against": "Hybrismannen/Conductellence-@ad26ea289ab71c86bea2461e0509c5b4bec9a32e:ESTATE-REGISTRY/wp10-anchor-verification-evidence.json",
     "runtime_verified_at": "2026-10-30",
-    "runtime_verification_state": "PASS_PENDING_PROMOTION_MERGE",
+    "runtime_verification_state": "PASS",
     "runtime_verified_implementation_merge": "5d5024078074c3ad00d454964357e546d2e6dac7",
     "runtime_branch_evidence_run": "41086856528",
-    "runtime_branch_evidence_artifact": "12992671446"
+    "runtime_branch_evidence_artifact": "12992671446",
+    "runtime_verification_basis": "VERIFIED_EFFECT_EVIDENCE_PLUS_EXACT_MERGED_TREE_IDENTITY"
   }
 }
