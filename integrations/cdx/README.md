@@ -43,3 +43,8 @@ Promotion to `CDX_RUNTIME_VERIFIED / VERIFIED_RUNTIME_BOUND` requires:
 A Vercel deployment is not part of this acceptance contract.
 
 The reusable Agent Stable `AgentEffectGate` remains the enforcement mechanism for future agent effects. This first binding verifies the consumer runtime boundary without prematurely declaring Household Family or other agents production-accepted.
+
+
+## AMA conformance note
+
+The CDX runtime binding does not alter AMA semantics. The canonical AMA master now lives at `agent-stable/ama/README.md`; legacy architecture paths are compatibility pointers only. Runtime acceptance must therefore coexist with the current Agent Stable conformance suite.
