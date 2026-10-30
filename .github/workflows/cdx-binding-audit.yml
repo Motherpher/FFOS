@@ -52,7 +52,7 @@ jobs:
       - name: Install workspaces
         run: npm install --no-audit --no-fund
       - name: Static runtime acceptance
-        run: node --experimental-strip-types integrations/cdx/runtime-acceptance.mts
+        run: npx --yes tsx@4.20.6 integrations/cdx/runtime-acceptance.mts
       - name: Production build
         run: npm run build
       - name: Exercise actual HTTP effect gates
