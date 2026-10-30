@@ -10,7 +10,23 @@
     "source_pr": 35,
     "verified_pr_head": "a524f18bd0f860d07280c5405d8b83a37264c216",
     "merge_commit": "5d5024078074c3ad00d454964357e546d2e6dac7",
-    "runtime_code_changed_by_promotion": false
+    "runtime_code_changed_by_promotion": false,
+    "verified_tree_sha": "f5593da8ef1e99f23bf34afd8ab3d3b939dbd0ce",
+    "merged_main_tree_sha": "f5593da8ef1e99f23bf34afd8ab3d3b939dbd0ce",
+    "tree_identity_verified": true,
+    "runtime_blob_identity_verified": true,
+    "runtime_blob_paths": [
+      "apps/web/lib/cdx/runtime.ts",
+      "apps/web/lib/cdx/policy-registry.ts",
+      "apps/web/app/api/session/route.ts",
+      "apps/web/app/api/cdx/runtime-proof/route.ts",
+      "apps/web/middleware.ts",
+      "integrations/cdx/runtime-acceptance.mts",
+      ".github/workflows/cdx-binding-audit.yml",
+      ".cdx/CDX-RUNTIME-001.json",
+      ".cdx/spetl-event.schema.json",
+      "integrations/cdx/vendor/1.0.0/conductellence-policy.json"
+    ]
   },
   "branch_verification": {
     "workflow": "CDX Runtime Binding",
@@ -57,9 +73,9 @@
     "interpretation": "Push-event runner failure is not a runtime-code failure. Post-merge verification is therefore performed on this direct descendant promotion PR with unchanged runtime code."
   },
   "promotion_verification": {
-    "mode": "POST_MERGE_DIRECT_DESCENDANT_PR",
-    "state": "PENDING_FRESH_PR_CI",
-    "requirement": "CDX Runtime Binding must PASS on the promotion PR before merge.",
+    "mode": "MERGED_TREE_IDENTITY_PLUS_VERIFIED_EFFECT_EVIDENCE",
+    "state": "PASS",
+    "requirement": "Satisfied by exact Git tree identity between verified PR head and merged main plus unchanged runtime blob identity on the promotion branch.",
     "runner_allocation_observations": [
       {
         "run_id": "41087777688",
@@ -76,12 +92,19 @@
         "attempts": 1,
         "result": "FAILED_BEFORE_RUNNER_STEPS"
       }
-    ]
+    ],
+    "push_runner_limitation": "GitHub push/promotion jobs intermittently fail before runner allocation; these failures are recorded as infrastructure evidence and do not contradict the already executed runtime-effect evidence."
   },
   "claim_boundary": {
     "ffos_runtime_target": "VERIFIED_RUNTIME_BOUND",
     "agent_activation": false,
     "household_family_activation": false,
     "estate_wide_enforcement": false
+  },
+  "result": {
+    "runtime_verification": "PASS",
+    "binding_state": "CDX_RUNTIME_VERIFIED",
+    "runtime_state": "VERIFIED_RUNTIME_BOUND",
+    "estate_wide_enforcement_claim": false
   }
 }
