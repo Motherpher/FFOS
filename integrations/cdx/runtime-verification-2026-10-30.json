@@ -58,8 +58,25 @@
   },
   "promotion_verification": {
     "mode": "POST_MERGE_DIRECT_DESCENDANT_PR",
-    "state": "PENDING_PR_CI",
-    "requirement": "CDX Runtime Binding must PASS on the promotion PR before merge."
+    "state": "PENDING_FRESH_PR_CI",
+    "requirement": "CDX Runtime Binding must PASS on the promotion PR before merge.",
+    "runner_allocation_observations": [
+      {
+        "run_id": "41087777688",
+        "attempts": 2,
+        "result": "FAILED_BEFORE_RUNNER_STEPS"
+      },
+      {
+        "run_id": "41087777686",
+        "attempts": 2,
+        "result": "FAILED_BEFORE_RUNNER_STEPS"
+      },
+      {
+        "run_id": "41087777650",
+        "attempts": 1,
+        "result": "FAILED_BEFORE_RUNNER_STEPS"
+      }
+    ]
   },
   "claim_boundary": {
     "ffos_runtime_target": "VERIFIED_RUNTIME_BOUND",
