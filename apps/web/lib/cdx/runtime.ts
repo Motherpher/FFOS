@@ -275,7 +275,7 @@ export function buildRuntimeProbeContext(tokenMatch: boolean): CdxDecisionContex
     correlation_id: correlation,
     causation_id: correlation,
     run_id: `FFOS-CDX-PROBE-${crypto.randomUUID()}`,
-    trace_ref: `FFOS-CDX-PROD-${crypto.randomUUID()}`,
+    trace_ref: `FFOS-CDX-RUNTIME-${crypto.randomUUID()}`,
     attempted_effect: {
       surface: "FFOS_RUNTIME_PROOF",
       operation: "ISSUE_RUNTIME_PROOF_RECEIPT",
