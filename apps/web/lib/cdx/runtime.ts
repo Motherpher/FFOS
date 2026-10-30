@@ -1,4 +1,4 @@
-import { CDX_POLICY_1_0_0 } from "./policy-registry";
+import { CDX_POLICY_1_0_0 } from "./policy-registry.ts";
 
 export const CDX_RELEASE_REF = "1.0.0";
 export const CDX_POLICY_GIT_BLOB = "git-blob-sha1:55dbcdac2f822b59a5a5f0f19eeadfa61d2c7ed0";
