@@ -1,0 +1,70 @@
+{
+  "schema": "ffos.cdx-runtime-verification/v1.0",
+  "evidence_id": "FFOS-CDX-RUNTIME-VERIFICATION-2026-10-30",
+  "observed_at": "2026-10-30",
+  "repository": "Motherpher/FFOS",
+  "contract": "CDX-RUNTIME-001@1.0.0",
+  "release": "1.0.0",
+  "policy_digest": "git-blob-sha1:55dbcdac2f822b59a5a5f0f19eeadfa61d2c7ed0",
+  "implementation": {
+    "source_pr": 35,
+    "verified_pr_head": "a524f18bd0f860d07280c5405d8b83a37264c216",
+    "merge_commit": "5d5024078074c3ad00d454964357e546d2e6dac7",
+    "runtime_code_changed_by_promotion": false
+  },
+  "branch_verification": {
+    "workflow": "CDX Runtime Binding",
+    "run_id": "41086856528",
+    "result": "PASS",
+    "artifact_id": "12992671446",
+    "artifact_digest": "sha256:f4c50555f27a15752195c0f881bf34c6cc8b5ae71233153923d804f7eb4cd354",
+    "artifact_retention_until": "2027-01-28",
+    "cases": {
+      "director_allow": {
+        "http_status": 303,
+        "effect_cookie": "PRESENT"
+      },
+      "director_deny": {
+        "http_status": 303,
+        "effect_cookie": "ABSENT"
+      },
+      "probe_allow": {
+        "http_status": 200,
+        "effect_cookie": "PRESENT"
+      },
+      "probe_deny": {
+        "http_status": 403,
+        "effect_cookie": "ABSENT"
+      },
+      "policy_unavailable": {
+        "http_status": 503,
+        "decision": "SECURITY_STOP",
+        "effect_cookie": "ABSENT"
+      }
+    },
+    "spetl": {
+      "pre_effect": true,
+      "blocked": true,
+      "post_effect": true,
+      "schema_version": "1.1"
+    }
+  },
+  "implementation_merge_push": {
+    "commit": "5d5024078074c3ad00d454964357e546d2e6dac7",
+    "runtime_run_id": "41087294299",
+    "result": "EXECUTION_INFRASTRUCTURE_FAILURE",
+    "runner_steps_executed": false,
+    "interpretation": "Push-event runner failure is not a runtime-code failure. Post-merge verification is therefore performed on this direct descendant promotion PR with unchanged runtime code."
+  },
+  "promotion_verification": {
+    "mode": "POST_MERGE_DIRECT_DESCENDANT_PR",
+    "state": "PENDING_PR_CI",
+    "requirement": "CDX Runtime Binding must PASS on the promotion PR before merge."
+  },
+  "claim_boundary": {
+    "ffos_runtime_target": "VERIFIED_RUNTIME_BOUND",
+    "agent_activation": false,
+    "household_family_activation": false,
+    "estate_wide_enforcement": false
+  }
+}
