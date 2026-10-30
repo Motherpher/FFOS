@@ -3,7 +3,7 @@
 **CDX release:** `1.0.0`  
 **Contract:** `CDX-RUNTIME-001@1.0.0`  
 **FFOS role:** local consumer / enforcement owner  
-**Branch state:** `CDX_RUNTIME_GUARDED / RUNTIME_GUARDED_UNVERIFIED`
+**Runtime state:** `CDX_RUNTIME_VERIFIED / VERIFIED_RUNTIME_BOUND`
 
 ## Runtime chain
 
@@ -29,9 +29,9 @@ The proof endpoint does **not** create a Director session or grant application a
 
 ## Verification ladder
 
-This branch is intentionally only `RUNTIME_GUARDED_UNVERIFIED`.
+PR #35 satisfied the implementation-level runtime gates and merged to `main` at `5d5024078074c3ad00d454964357e546d2e6dac7`.
 
-Promotion to `CDX_RUNTIME_VERIFIED / VERIFIED_RUNTIME_BOUND` requires:
+The promotion is supported by executed effect evidence plus exact Git tree identity between the verified PR head and the merged runtime implementation. The verification chain is:
 
 1. branch CI acceptance on the exact implementation;
 2. real HTTP ALLOW, DENY and POLICY_UNAVAILABLE effect tests against that implementation;

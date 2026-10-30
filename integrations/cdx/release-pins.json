@@ -16,7 +16,7 @@
   },
   "wp11": {
     "evidence_surface": "GITHUB_ACTIONS_HTTP_RUNTIME_EVIDENCE",
-    "state": "RUNTIME_GUARDED_UNVERIFIED",
+    "state": "VERIFIED_RUNTIME_BOUND",
     "deployment_required": false,
     "enforcement_points": [
       "apps/web/app/api/session/route.ts",
@@ -25,6 +25,8 @@
     "effects": [
       "ISSUE_DIRECTOR_SESSION",
       "ISSUE_RUNTIME_PROOF_RECEIPT"
-    ]
+    ],
+    "verification_ref": "integrations/cdx/runtime-verification-2026-10-30.json",
+    "implementation_merge": "5d5024078074c3ad00d454964357e546d2e6dac7"
   }
 }
