@@ -1,5 +1,10 @@
 # @ffos/agent-model
 
+**Architecture ownership:** `agent-stable/ama/README.md` is the currently canonical 0.1.0 foundation. The full v0.2 candidate lives in `agent-stable/ama/ARCHITECTURE-v0.2-CANDIDATE.md`; the schemas and validators in this package are candidate engineering, not normative adoption.
+
+**Canonical AMA roadmap: M0–M7, with F8 as the optional external security-integration track.** No competing 32-stage architecture exists. `ama-milestones.json` maps the original 96 researched requirements to M0–M7; `ama-template-coverage.json` is a subordinate module inventory. Run `python conformance/ama_milestone_integrity.py` to verify the source mapping and `python conformance/ama_blueprint.py <bundle.json>` to assemble a non-executing construction blueprint. The original v1 interface remains unchanged.
+
+
 Shared machine-readable contracts for FFOS Agent Master Architecture (AMA).
 
 Current contents:
@@ -40,3 +45,40 @@ Six additional `schemas/v0.2/` contracts define evaluation profiles, cases, obse
 Six portable v0.2 schemas (`operational-profile`, `compatibility-assessment`, `health-snapshot`, `incident-record`, `release-plan`, `rollback-plan`) extend the optional bundle without changing v1. Types: `src/operations-vnext.ts`; static validator and adversarial tests: `conformance/ama_operations.py` and `tests/test_m6_operations.py`.
 
 All operational results are non-authorizing. Conditional MCP/A2A/OTel bindings do not become template requirements. See [M6 architecture](../../docs/roadmap/AMA-M6-OPERATIONAL-LIFECYCLE-CONTRACTS.md).
+
+## Minimal-to-complex agent construction (M1 contract, M7 blueprint)
+
+Generate an inert draft definition without credentials, a live adapter or runtime access:
+
+```sh
+python conformance/ama_starter.py \
+  --agent-id SYNTHETIC.ALPHA \
+  --name "Sample agent" \
+  --purpose "Verify a bounded task" \
+  --scope synthetic/item \
+  --governing-principal SYNTHETIC.OWNER \
+  --command-token SYNTHETIC-START \
+  --realm-id EXTERNAL/SYNTHETIC \
+  --realm-category EXTERNAL_CONSUMER \
+  --realm-owner SYNTHETIC.OWNER \
+  --policy-authority EXTERNAL:POLICY \
+  --security-anchor EXTERNAL:SECURITY \
+  --security-binding-mode DETACHED_EXTERNAL \
+  --output /tmp/agent-draft.json
+python conformance/ama_blueprint.py /tmp/agent-draft.json \
+  --optional memory --output /tmp/agent-blueprint.json
+```
+
+The first command uses the existing M1 schema and produces a `DRAFT` bundle; the second uses M0–M7 source mappings to generate implementation obligations. A passing draft or blueprint **does not** supply a working tool, authority, host runtime, acceptance, activation or production effect permission. Optional host-security profiles are specified separately from universal contracts.
+
+## M7 semantic assessment and reference outputs
+
+The M7 blueprint constructor now composes the existing M2–M6 **static** contract validators for any configured sections. Run `python conformance/ama_blueprint.py <bundle.json> --at 2026-10-29T12:00:00+00:00 --host-trust-domain synthetic` to supply an explicit test-only assessment context for cognitive/knowledge contracts. Without required context, `ASSESSMENT_INPUT_REQUIRED` is returned instead of a misleading conformance pass. These options are not trusted policy decisions or live source authentication.
+
+CI also exports two **synthetic, non-deploying reference packages**, with minimal and cross-module complex bundles, their M0–M7 construction blueprints and a source digest index. The generator is `conformance/ama_blueprint_reference.py`; its output is uploaded as `ama-m7-blueprints` inside the existing AMA conformance artifact.
+
+The original M0 requirement register stays unchanged. `ama-m0-test-evidence-bridge.json` supplies separate partial links to **65 of 96** candidate requirements, each checked against a concrete test function. This is not a declaration that any of those requirements has reached full runtime acceptance.
+
+## Mandatory operating-realm declaration
+
+Every new M7 blueprint requires an explicit, pinned `operatingRealm` record in its construction bundle. The record identifies the owning realm, governing principal, applicable policy authority and security anchor. A historical M1 bundle may still validate structurally without it for compatibility, but new construction fails closed. Host-specific governance providers are declared in external realm policy artifacts, rather than embedded in the universal schema. Realm-specific mandatory bindings cannot be detached by agents operating in that realm. External recipients must explicitly supply their own policy/security authority when detaching a source organization's integration. A declared anchor is not proof of live verification.

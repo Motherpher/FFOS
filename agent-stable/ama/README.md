@@ -305,3 +305,9 @@ The universal architecture foundation requires:
 8. explicit separation of normative AMA requirements from all agent instances and host integrations.
 
 Deployment and operational acceptance are separately tracked by the host, never inferred from this document.
+
+## v0.2 candidate integration (30 October 2026)
+
+The 0.1.0 foundation above remains canonical until an explicit M7-A architecture acceptance. The **non-normative** 0.2.0 candidate under review resides at [ARCHITECTURE-v0.2-CANDIDATE.md](ARCHITECTURE-v0.2-CANDIDATE.md); machine-readable contracts, milestones, conformance and generation tooling remain under `packages/agent-model/`. M7-A audit evidence is in `docs/roadmap/AMA-M7-A-TECHNICAL-AUDIT-2026-10-29.md`. This split preserves the FFOS restructuring law: `agent-stable/ama/` owns architecture, `packages/` shared code, `modules/` implementations and `integrations/` host adapters.
+
+The 0.2.0 candidate is **not yet accepted, released or agent-authorizing**. The 96 M0 decisions remain proposed, the 32-module inventory is partially implemented, and exact-head CI plus owner sign-off remain required. Host-specific F8 integration is not a universal AMA prerequisite.

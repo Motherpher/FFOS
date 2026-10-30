@@ -57,3 +57,13 @@ These are **mocked/static adversarial fixtures**. No real LLM call, persisted me
 M3 introduces **optional contracts and validators**, not a generic planner/executor and not the universal adoption of a particular prompt hierarchy, model provider or memory database. M4 handles durable task state and external effect uncertainty; F8 must establish independently authenticated policy, memory-write and retrieval gates; M5 must establish empirical performance, benchmark reliability and independent outcome evidence.
 
 **Decision:** M3 candidate contract engineering may be considered technically validated only after the combined GitHub conformance run passes. Formal normative adoption and production activation remain separate human-governed gates.
+
+## M3 extension — knowledge-source catalog (candidate)
+
+The existing M3 cognition, retrieval and memory model now includes an **optional** `knowledge-catalog.schema.json` under the same `v0.2` schema family. It is registered through `bundle.knowledgeCatalogs[]` and typed by `AMAKnowledgeCatalogVNext`/`AMAKnowledgeSourceVNext` in `src/cognitive-vnext.ts`. This is **M3**, not a new AMA milestone or mandatory host integration.
+
+Knowledge catalogs deliberately differ from remembered content, context summaries and authoritative domain data: each source declares an ID, content digest, revision, issuer reference, trust domain, scope, sensitivity, observation time, freshness ceiling and an explicit `ADMITTED | QUARANTINED | BLOCKED` inventory disposition. A source never grants authority or changes instruction precedence; high-sensitivity declared admission requires a separate host-authorization reference. The schema does not authenticate any such reference.
+
+`conformance/ama_knowledge.py` supplies an independent **non-executing static preflight** over existing M1/M3 contracts and optional retrieval-policy/module bindings. It checks source freshness, scope continuity, policy digests, duplicate identities, quarantine, cross-domain boundaries and instruction laundering. `tests/test_m3_knowledge.py` covers positive and negative synthetic cases.
+
+**Remaining obligations:** verify real source/issuer provenance and content digests, enforce actual data-access decisions and revocation, evaluate retrieval quality and reconcile knowledge updates or deletions in the host. A static result never authorizes a retrieval or a consequential effect. The comprehensive template coverage inventory therefore records this as **PARTIAL_EXISTING_CONTRACTS**.

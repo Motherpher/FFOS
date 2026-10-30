@@ -273,6 +273,33 @@
       "items": {
         "$ref": "rollback-plan.schema.json"
       }
+    },
+    "knowledgeCatalogs": {
+      "type": "array",
+      "items": {
+        "$ref": "knowledge-catalog.schema.json"
+      }
+    },
+    "eventTriggers": {
+      "type": "array",
+      "items": {
+        "$ref": "event-trigger.schema.json"
+      }
+    },
+    "secretBindings": {
+      "type": "array",
+      "items": {
+        "$ref": "secret-binding.schema.json"
+      }
+    },
+    "localizationProfiles": {
+      "type": "array",
+      "items": {
+        "$ref": "localization-profile.schema.json"
+      }
+    },
+    "operatingRealm": {
+      "$ref": "operating-realm.schema.json"
     }
   },
   "$schema": "https://json-schema.org/draft/2020-12/schema",

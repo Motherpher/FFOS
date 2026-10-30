@@ -46,7 +46,22 @@ export interface AMAApprovalEventVNext {
  readonly state:"REQUESTED"|"APPROVED"|"REJECTED"|"EXPIRED";
  readonly evidenceRef:string;readonly occurredAt:string;
 }
+/** M4 opt-in trigger definition; host scheduler/webhook/queue service is external. */
+export interface AMAEventTriggerVNext {
+ readonly schema:"ama.event-trigger/v0.2-candidate";readonly triggerId:string;
+ readonly version:AMASemver;readonly status:"DRAFT"|"VALIDATED"|"ACTIVE"|"SUSPENDED"|"DEPRECATED";
+ readonly moduleId:string;readonly triggerKind:"SCHEDULE"|"WEBHOOK"|"QUEUE";
+ readonly commandRef:AMAPinnedRef;readonly workflowRef:AMAPinnedRef;
+ readonly maxEffectClass:AMAEffectClass;readonly authorizationRequired:true;
+ readonly untrustedPayloadCannotOverrideMandate:true;readonly maxEventAgeSeconds:number;
+ readonly maxDeliveries:number;readonly maxConcurrentRuns:number;
+ readonly replayPolicy:"NO_IMPLICIT_REPLAY";readonly failureMode:"HOLD_FOR_REVIEW";
+ readonly schedule?:Readonly<{expression:string;timeZone:string;occurrenceKeyRequired:true}>;
+ readonly externalSource?:Readonly<{sourceRef:string;authenticationRequired:true;
+  idempotencyKeyField:string;payloadSchema:Readonly<Record<string,unknown>>}>;
+}
 export interface AMADurabilityBundleVNext {
+ readonly eventTriggers?:readonly AMAEventTriggerVNext[];
  readonly runs?:readonly AMARunVNext[];
  readonly steps?:readonly AMAStepVNextRecord[];
  readonly attempts?:readonly AMAAttemptVNext[];

@@ -4,7 +4,7 @@
 **Status:** PROPOSED IMPLEMENTATION ROADMAP — not an authorized production deployment or adopted normative revision.  
 **Source baseline:** [Seven universal stress tests + F8](../research/AMA-KNOWLEDGE-INSIGHT-SEVEN-STRESS-TESTS-2026-10-29.md), [F8 Conductellence assessment](../research/AMA-F8-CONDUCTELLENCE-SECURITY-RISK-ASSURANCE-2026-10-29.md), [96 candidate requirements](../research/AMA-96-REQUIREMENT-COVERAGE-INDEX-2026-10-29.json).  
 **Governance:** Preserve universal AMA master-contract purity. Host/CDX implementations and agent instances live in separate architecture, adapter and instance artifacts. CDX Act 1.0 is frozen for closure, with its own authorized exception process.  
-**Current branch:** \`feat/ama-foundation-20261028\` / draft PR #19. No merge, production migration or live agent activation is implied.
+**Original implementation branch:** \`feat/ama-foundation-20261028\` / PR #19 (status tracked on GitHub). No merge, production migration or live agent activation is implied.
 
 ## Decision: stop broad sourcing, start controlled development
 
@@ -19,6 +19,10 @@ Further research is **targeted only**, triggered by:
 
 The 96 original requirements are **candidates**, not automatically accepted requirements. Before implementing a candidate as mandatory, record source, decision, scope, type (CORE/CONDITIONAL/OPTIONAL/HOST), component owner, assurance test and intended compatibility impact.
 
+## Canonical interpretation (subsequent owner clarification)
+
+**M0–M7 are the only AMA architecture milestones.** The original F1–F7 research packages map into M1–M6, with M0 governing the source-decision record and M7 integrating the candidate reference. **F8 is solely the optional external CDX host-security track.** It is not an M8 stage, nor does a live CDX deployment block completion of the reusable AMA template. The supplementary 32-module list is mapped into M1–M6 in `packages/agent-model/ama-milestones.json`, not a competing roadmap. Earlier M7 operational and F8 release wording in this research-era plan must not override this separation.
+
 ## Workstreams and dependency structure
 
 \`\`\`mermaid
@@ -26,7 +30,7 @@ flowchart TD
   M0["M0 — Decision register, source validation and compatibility baseline"]
   M1["M1 — F1: Universal ontology and modular contract schemas"]
   M2["M2 — F2: Provider-neutral identity, mandate and authorization semantics"]
-  M8["M2-CDX — F8: Trusted CDX control/decision adapter, separate host track"]
+  F8["F8 — Optional CDX integration: external host control/decision adapter"]
   M3["M3 — F3 + F4: Model, planning, context and memory profiles"]
   M4["M4 — F5: Durable task/run/effect/recovery protocol"]
   M5["M5 — F6: Evaluation, conformance, evidence and adversarial proof"]
@@ -35,11 +39,11 @@ flowchart TD
   M0 --> M1
   M1 --> M2
   M1 --> M3
-  M2 --> M8
+  M2 -. optional host adapter .-> F8
   M2 --> M4
   M3 --> M4
   M4 --> M5
-  M8 --> M7
+
   M5 --> M6
   M6 --> M7
 \`\`\`

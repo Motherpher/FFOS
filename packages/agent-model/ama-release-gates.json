@@ -1,0 +1,52 @@
+{
+  "schema": "ama.release-gates/v1",
+  "architecture": "AMA",
+  "architecture_not_agent": true,
+  "version": "0.2.0-candidate",
+  "gates": {
+    "M7_A": {
+      "scope": "ARCHITECTURE_BASELINE",
+      "requires": [
+        "EXACT_HEAD_CI",
+        "PORTABILITY_REVIEW",
+        "V1_VNEXT_COMPATIBILITY",
+        "DOCUMENTED_TECHNICAL_AUDIT",
+        "HUMAN_ARCHITECTURE_ADOPTION"
+      ],
+      "state": "TECHNICAL_AUDIT_CANDIDATE_EXACT_HEAD_CI_FAIL",
+      "host_runtime_required": false,
+      "activation_authorized": false,
+      "external_reviewer_required": false,
+      "audit_ref": "docs/roadmap/AMA-M7-A-TECHNICAL-AUDIT-2026-10-29.md",
+      "release_readiness_report": "packages/agent-model/conformance/ama_m7a_release_audit.py",
+      "pending": [
+        "EXACT_HEAD_CI_PASS",
+        "RECONCILE_SOURCE_REQUIREMENT_EVIDENCE",
+        "COMPATIBILITY_AND_PORTABILITY_TECHNICAL_AUDIT_SIGNOFF",
+        "HUMAN_ARCHITECTURE_ADOPTION"
+      ]
+    },
+    "F8_7": {
+      "scope": "REALM_CONDITIONAL_RUNTIME_BINDING",
+      "state": "HOST_SPECIFIC_NOT_ARCHITECTURE_BLOCKER",
+      "host_runtime_required": true,
+      "activation_authorized": false,
+      "internal_ff_estate_required": true,
+      "external_distribution_detachable": true
+    },
+    "M7_O": {
+      "scope": "GENERIC_INSTANCE_OPERATIONAL_CONFORMANCE_CRITERIA",
+      "state": "REFERENCE_CRITERIA_DEFINED_INSTANCE_ADMISSION_OUT_OF_SCOPE",
+      "host_runtime_required_for_reference": false,
+      "activation_authorized": false
+    }
+  },
+  "rules": {
+    "architecture_may_be_accepted_without_host_binding": true,
+    "architecture_may_be_accepted_without_instance_activation": true,
+    "independent_instance_acceptance_separate": true,
+    "conformance_never_authorizes_effects": true,
+    "internal_agent_may_activate_without_required_cdx": false,
+    "external_realm_requires_other_explicit_governance": true
+  }
+}
