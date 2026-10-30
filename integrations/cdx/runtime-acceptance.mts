@@ -37,6 +37,9 @@ const preEvidenceIndex = route.indexOf("emitSpetlEvent(preEffectEvidence)");
 const cookieIndex = route.indexOf("response.cookies.set");
 assert.ok(evaluationIndex >= 0 && preEvidenceIndex > evaluationIndex && cookieIndex > preEvidenceIndex);
 
+const middleware = readFileSync("apps/web/middleware.ts", "utf8");
+assert.ok(middleware.includes('"/api/cdx/runtime-proof"'), "Runtime proof endpoint must bypass Director-session middleware and rely on its dedicated probe token");
+
 const proof = readFileSync("apps/web/app/api/cdx/runtime-proof/route.ts", "utf8");
 const proofEval = proof.indexOf("evaluateCdxDecision");
 const proofPre = proof.indexOf("emitSpetlEvent(pre)");
