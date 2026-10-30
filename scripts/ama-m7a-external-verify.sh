@@ -19,7 +19,7 @@ node --version > "$OUT/node-version.txt"
 docker --version > "$OUT/docker-version.txt"
 if ! python3 -m pip install -r packages/agent-model/conformance/requirements.txt; then echo "HOLD: dependency install failed" >&2; exit 67; fi
 # Runner must be locally provisioned; docker requires explicit cleanup on exit.
-CONTAINER="ama-m7a-$$$"
+CONTAINER="ama-m7a-${BASHPID}"
 cleanup() { docker rm -f "$CONTAINER" >/dev/null 2>&1 || true; }
 trap cleanup EXIT
 docker run -d --name "$CONTAINER" -e POSTGRES_USER=ffos_ama -e POSTGRES_PASSWORD=ffos_ama_ci -e POSTGRES_DB=ffos_ama_test -p 127.0.0.1:5432:5432 postgres:17 > "$OUT/postgres-container.txt"
