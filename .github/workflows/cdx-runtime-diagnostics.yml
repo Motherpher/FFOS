@@ -1,0 +1,83 @@
+name: CDX Runtime Diagnostics
+
+on:
+  pull_request:
+    paths:
+      - '.cdx/**'
+      - 'integrations/cdx/**'
+      - 'apps/web/lib/cdx/**'
+      - 'apps/web/app/api/session/route.ts'
+      - 'apps/web/app/api/cdx/runtime-proof/route.ts'
+      - '.github/workflows/cdx-runtime-diagnostics.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  runtime-static:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '24', cache: npm }
+      - run: npm install --no-audit --no-fund
+      - run: npx --yes tsx@4.20.6 integrations/cdx/runtime-acceptance.mts
+
+  runtime-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '24', cache: npm }
+      - run: npm install --no-audit --no-fund
+      - run: npm run build
+
+  f8-preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: python integrations/cdx/f8/preflight.py --output "$RUNNER_TEMP/f8.json"
+
+  ama-python-unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: python -m pip install -r packages/agent-model/conformance/requirements.txt
+      - run: python -m unittest discover -s packages/agent-model/conformance/tests -v
+
+  agent-runtime-tests:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: ffos_ama
+          POSTGRES_PASSWORD: ffos_ama_ci
+          POSTGRES_DB: ffos_ama_test
+        ports: [5432:5432]
+        options: >-
+          --health-cmd "pg_isready -U ffos_ama -d ffos_ama_test"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      AMA_TEST_DATABASE_URL: postgres://ffos_ama:ffos_ama_ci@localhost:5432/ffos_ama_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - run: npm install --no-save --prefix packages/agent-runtime pg@8.23.1 --ignore-scripts --no-audit --no-fund
+      - run: node --experimental-strip-types --test packages/agent-runtime/tests/*.test.mjs
+
+  m7-integration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: python -m pip install -r packages/agent-model/conformance/requirements.txt
+      - run: python integrations/cdx/f8/preflight.py --output "$RUNNER_TEMP/f8.json"
+      - run: python packages/agent-model/conformance/ama_m7_integration.py --preflight "$RUNNER_TEMP/f8.json" --output-dir "$RUNNER_TEMP/m7"
