@@ -19,25 +19,29 @@
     "ref": "1.0.0",
     "digest": "git-blob-sha1:55dbcdac2f822b59a5a5f0f19eeadfa61d2c7ed0"
   },
-  "binding_state": "CDX_BOUND",
+  "binding_state": "CDX_RUNTIME_GUARDED",
   "authority_context": {
     "authority_ref_required": true,
     "mandate_ref_required": true
   },
   "local_enforcement": {
     "owner": "FFOS",
-    "points": [],
+    "points": [
+      "apps/web/app/api/session/route.ts#POST:ISSUE_DIRECTOR_SESSION",
+      "apps/web/app/api/cdx/runtime-proof/route.ts#POST:ISSUE_RUNTIME_PROOF_RECEIPT",
+      "apps/web/lib/cdx/runtime.ts#evaluateCdxDecision"
+    ],
     "fail_closed_for_consequential_effects": true
   },
   "conformance": {
     "ci_workflow": ".github/workflows/cdx-binding-audit.yml",
     "adapter_contract": "CDX-RUNTIME-001",
-    "runtime_state": "BOUND_PENDING_RUNTIME_INTEGRATION"
+    "runtime_state": "RUNTIME_GUARDED_UNVERIFIED"
   },
   "evidence": {
     "spetl_required": true,
-    "preservation_target": "WP10_VERIFICATION_PENDING",
-    "reconciliation_surface": "CDX_ESTATE_REGISTRY_V2_WP10"
+    "preservation_target": "GITHUB_ACTIONS_PLUS_VERCEL_RUNTIME_LOGS",
+    "reconciliation_surface": "CDX_FFOS_PRODUCTION_RUNTIME_BINDING_2026_10_30"
   },
   "verification": {
     "last_verified_at": "2026-10-29T15:19:00Z",
