@@ -284,11 +284,11 @@ export function buildRuntimeProbeContext(tokenMatch: boolean): CdxDecisionContex
     data_minimization: {
       personal_data_present: false,
       redacted_fields: ["probe_token", "runtime_probe_cookie"],
-      rationale: "Production verification uses a dedicated non-privileged probe secret and records no user credentials.",
+      rationale: "Runtime verification uses a dedicated non-privileged probe secret and records no user credentials.",
     },
     subject_ref: "FFOS:CDX_RUNTIME_PROBE",
     reviewer_ref: null,
-    evidence_refs: ["CDX-RUNTIME-001@1.0.0", "FFOS:PRODUCTION_RUNTIME_PROOF"],
+    evidence_refs: ["CDX-RUNTIME-001@1.0.0", "FFOS:RUNTIME_PROOF"],
     principal_class: "SERVICE",
     principal_id: tokenMatch ? "FFOS:CDX_RUNTIME_PROBE" : null,
     model_id: "NOT_APPLICABLE:SERVICE_PRINCIPAL",
