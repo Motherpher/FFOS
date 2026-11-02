@@ -46,6 +46,7 @@ run static-tests python3 -m unittest discover -s packages/agent-model/conformanc
 run security-tests python3 -m unittest discover -s packages/agent-model/conformance -p 'test_ama*.py' -v
 run architecture-boundary python3 packages/agent-model/conformance/ama_architecture_boundary.py
 run template-coverage python3 packages/agent-model/conformance/ama_template_coverage.py
+run fin02-modules python3 packages/agent-model/conformance/ama_fin02_module_audit.py --output "$OUT/ama-fin02-modules.json"
 run source-evidence python3 packages/agent-model/conformance/ama_requirement_evidence.py --output "$OUT/ama-m0-evidence.json"
 run m7a-readiness python3 packages/agent-model/conformance/ama_m7a_release_audit.py --output "$OUT/ama-m7a-readiness.json"
 run schema-compatibility python3 packages/agent-model/conformance/ama_architecture_compatibility.py --output "$OUT/ama-compatibility.json"
