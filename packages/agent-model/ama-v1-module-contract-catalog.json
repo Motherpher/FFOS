@@ -1,0 +1,910 @@
+{
+  "schema": "ama.v1.module-contract-catalog/v1",
+  "architecture": "AMA",
+  "target_version": "1.0.0",
+  "state": "NORMATIVE_CONTRACT_CANDIDATE",
+  "scope": "PORTABLE_TEMPLATE_NOT_AGENT",
+  "constraints": {
+    "core_disabled_prohibited": true,
+    "optional_enabled_by_default": false,
+    "capability_never_grants_authority": true,
+    "run_not_approval": true,
+    "realm_governance_host_injected": true,
+    "live_host_approval_not_implied": true
+  },
+  "module_count": 32,
+  "modules": [
+    {
+      "id": "identity",
+      "stage": "M1",
+      "classification": "CORE",
+      "default_enabled": true,
+      "normative_capability": "immutable identity and version lineage",
+      "mandatory_denial_case": "reject duplicate or mismatched identity",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "mandate",
+      "stage": "M2",
+      "classification": "CORE",
+      "default_enabled": true,
+      "normative_capability": "explicit scope, authority and expiry",
+      "mandatory_denial_case": "reject unauthorized or expired mandate",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "instruction",
+      "stage": "M3",
+      "classification": "CORE",
+      "default_enabled": true,
+      "normative_capability": "ordered precedence and protected governance constraints",
+      "mandatory_denial_case": "reject untrusted priority escalation",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [
+        "packages/agent-model/schemas/v0.2/instruction-package.schema.json"
+      ],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "capability",
+      "stage": "M1",
+      "classification": "CORE",
+      "default_enabled": true,
+      "normative_capability": "typed capability and ceiling registry",
+      "mandatory_denial_case": "reject out-of-scope or unregistered capability",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "workflow",
+      "stage": "M1",
+      "classification": "CORE",
+      "default_enabled": true,
+      "normative_capability": "bounded versioned workflow graph",
+      "mandatory_denial_case": "reject cycles or undeclared workflow transitions",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "command",
+      "stage": "M1",
+      "classification": "CORE",
+      "default_enabled": true,
+      "normative_capability": "unique command mapping to pinned workflow",
+      "mandatory_denial_case": "reject duplicate token and stale workflow version",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "adapter",
+      "stage": "M1",
+      "classification": "CORE",
+      "default_enabled": true,
+      "normative_capability": "bound provider interface and effect class",
+      "mandatory_denial_case": "reject effect or credential boundary mismatch",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "authorization",
+      "stage": "M2",
+      "classification": "CORE",
+      "default_enabled": true,
+      "normative_capability": "independent policy decision and revocation",
+      "mandatory_denial_case": "reject absent policy and self-approval",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "task-execution",
+      "stage": "M4",
+      "classification": "CORE",
+      "default_enabled": true,
+      "normative_capability": "bounded run state and termination rules",
+      "mandatory_denial_case": "reject invalid transition and uncontrolled retry",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "evidence",
+      "stage": "M5",
+      "classification": "CORE",
+      "default_enabled": true,
+      "normative_capability": "append-only source and outcome provenance",
+      "mandatory_denial_case": "reject unverifiable or mutated evidence",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "conformance",
+      "stage": "M5",
+      "classification": "CORE",
+      "default_enabled": true,
+      "normative_capability": "positive and adverse case evaluation",
+      "mandatory_denial_case": "reject passing static checks as runtime approval",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "lifecycle",
+      "stage": "M6",
+      "classification": "CORE",
+      "default_enabled": true,
+      "normative_capability": "admitted transition and rollback pathway",
+      "mandatory_denial_case": "reject unapproved activation and upgrade amplification",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "cognition",
+      "stage": "M3",
+      "classification": "OPTIONAL",
+      "default_enabled": false,
+      "normative_capability": "bounded model and reasoning profile",
+      "mandatory_denial_case": "reject unpinned fallback and budget overrun",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "context",
+      "stage": "M3",
+      "classification": "OPTIONAL",
+      "default_enabled": false,
+      "normative_capability": "trusted context envelope and truncation policy",
+      "mandatory_denial_case": "reject injected authority in retrieved context",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "memory",
+      "stage": "M3",
+      "classification": "OPTIONAL",
+      "default_enabled": false,
+      "normative_capability": "retention and provenance-bound memory",
+      "mandatory_denial_case": "reject expired or authoritative memory",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "retrieval",
+      "stage": "M3",
+      "classification": "OPTIONAL",
+      "default_enabled": false,
+      "normative_capability": "authorized source, freshness and trust filter",
+      "mandatory_denial_case": "reject untrusted source elevation",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "knowledge",
+      "stage": "M3",
+      "classification": "OPTIONAL",
+      "default_enabled": false,
+      "normative_capability": "source-owned versioned knowledge catalog",
+      "mandatory_denial_case": "reject stale or unauthorized knowledge",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [
+        "packages/agent-model/schemas/v0.2/knowledge-catalog.schema.json",
+        "packages/agent-model/conformance/ama_knowledge.py",
+        "packages/agent-model/conformance/tests/test_m3_knowledge.py"
+      ],
+      "host_obligations": [
+        "SOURCE_PROVENANCE_AUTHENTICATION",
+        "ACCESS_POLICY_ENFORCEMENT",
+        "CONTENT_VERIFICATION"
+      ],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "multi-agent",
+      "stage": "M2",
+      "classification": "OPTIONAL",
+      "default_enabled": false,
+      "normative_capability": "non-amplifying delegation and role separation",
+      "mandatory_denial_case": "reject cyclic or self-authorized delegation",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [
+        "packages/agent-model/schemas/v0.2/delegation.schema.json"
+      ],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "eventing",
+      "stage": "M4",
+      "classification": "OPTIONAL",
+      "default_enabled": false,
+      "normative_capability": "source-authenticated event delivery and deduplication",
+      "mandatory_denial_case": "reject replay or unauthorized event",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [
+        "packages/agent-model/schemas/v0.2/event-trigger.schema.json",
+        "packages/agent-model/conformance/ama_eventing.py",
+        "packages/agent-model/conformance/tests/test_m4_eventing.py"
+      ],
+      "host_obligations": [
+        "SCHEDULER_OR_EVENT_TRANSPORT",
+        "HOST_SOURCE_AUTHENTICATION",
+        "DELIVERY_DEDUPLICATION_AND_REPLAY_ENFORCEMENT",
+        "PER_TRIGGER_POLICY_CHECK"
+      ],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "durability",
+      "stage": "M4",
+      "classification": "OPTIONAL",
+      "default_enabled": false,
+      "normative_capability": "checkpoint, lease and unknown-effect reconciliation",
+      "mandatory_denial_case": "reject replay of unresolved effects",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "human-interaction",
+      "stage": "M2",
+      "classification": "OPTIONAL",
+      "default_enabled": false,
+      "normative_capability": "authenticated pause/resume and approval event",
+      "mandatory_denial_case": "reject forged or self-issued approval",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [
+        "packages/agent-model/schemas/v0.2/approval.schema.json",
+        "packages/agent-model/schemas/v0.2/approval-event.schema.json"
+      ],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "observability",
+      "stage": "M6",
+      "classification": "OPTIONAL",
+      "default_enabled": false,
+      "normative_capability": "redacted telemetry and health assertions",
+      "mandatory_denial_case": "reject telemetry used as authorization",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [
+        "packages/agent-model/schemas/v0.2/health-snapshot.schema.json"
+      ],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "evaluation",
+      "stage": "M5",
+      "classification": "OPTIONAL",
+      "default_enabled": false,
+      "normative_capability": "independent oracle and threshold assessment",
+      "mandatory_denial_case": "reject self-certified outcome",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "safety",
+      "stage": "M2",
+      "classification": "OPTIONAL",
+      "default_enabled": false,
+      "normative_capability": "risk class and fail-closed stop gates",
+      "mandatory_denial_case": "reject execution past mandatory stop",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [
+        "packages/agent-model/schemas/v0.2/authorization-decision.schema.json",
+        "packages/agent-model/schemas/v0.2/release-plan.schema.json"
+      ],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "privacy",
+      "stage": "M2",
+      "classification": "OPTIONAL",
+      "default_enabled": false,
+      "normative_capability": "minimization, retention and erasure obligations",
+      "mandatory_denial_case": "reject unauthorized retention and disclosure",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [
+        "packages/agent-model/schemas/v0.2/memory-profile.schema.json",
+        "packages/agent-model/schemas/v0.2/knowledge-catalog.schema.json"
+      ],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "secrets",
+      "stage": "M2",
+      "classification": "OPTIONAL",
+      "default_enabled": false,
+      "normative_capability": "injected secret references and rotation controls",
+      "mandatory_denial_case": "reject plaintext secrets and stale credentials",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [
+        "packages/agent-model/schemas/v0.2/secret-binding.schema.json",
+        "packages/agent-model/conformance/ama_support_profiles.py",
+        "packages/agent-model/conformance/tests/test_ama_support_profiles.py"
+      ],
+      "host_obligations": [
+        "LIVE_SECRET_PROVIDER",
+        "ROTATION_REVOCATION_ENFORCEMENT",
+        "ACCESS_AUDIT"
+      ],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "interoperability",
+      "stage": "M1",
+      "classification": "OPTIONAL",
+      "default_enabled": false,
+      "normative_capability": "transport-neutral typed interoperability",
+      "mandatory_denial_case": "reject incompatible protocol negotiation",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [
+        "packages/agent-model/schemas/v0.2/tool-adapter.schema.json",
+        "packages/agent-model/schemas/v0.2/operational-profile.schema.json"
+      ],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "deployment",
+      "stage": "M6",
+      "classification": "OPTIONAL",
+      "default_enabled": false,
+      "normative_capability": "governed rollout and rollback manifest",
+      "mandatory_denial_case": "reject deployment without separate admission",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [
+        "packages/agent-model/schemas/v0.2/release-plan.schema.json",
+        "packages/agent-model/schemas/v0.2/rollback-plan.schema.json"
+      ],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "operations",
+      "stage": "M6",
+      "classification": "OPTIONAL",
+      "default_enabled": false,
+      "normative_capability": "health, incident, continuity and retirement policy",
+      "mandatory_denial_case": "reject unresolved incident promotion",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "cost-control",
+      "stage": "M6",
+      "classification": "OPTIONAL",
+      "default_enabled": false,
+      "normative_capability": "resource budget and consumption accounting",
+      "mandatory_denial_case": "reject unbounded spend and quota bypass",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [
+        "packages/agent-model/schemas/v0.2/planning-profile.schema.json",
+        "packages/agent-model/schemas/v0.2/operational-profile.schema.json"
+      ],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "localization",
+      "stage": "M6",
+      "classification": "OPTIONAL",
+      "default_enabled": false,
+      "normative_capability": "versioned language and accessibility settings",
+      "mandatory_denial_case": "reject unsupported locale fallback as verified",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [
+        "packages/agent-model/schemas/v0.2/localization-profile.schema.json",
+        "packages/agent-model/conformance/ama_support_profiles.py",
+        "packages/agent-model/conformance/tests/test_ama_support_profiles.py"
+      ],
+      "host_obligations": [
+        "RUNTIME_LOCALE_RESOLUTION",
+        "TRANSLATION_VALIDATION",
+        "ACCESSIBILITY_HOST_TESTING"
+      ],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    },
+    {
+      "id": "governance",
+      "stage": "M6",
+      "classification": "CORE",
+      "default_enabled": true,
+      "normative_capability": "separate owner acceptance and release authority",
+      "mandatory_denial_case": "reject approval by execution principal",
+      "contract_requirements": [
+        "version_pinned_configuration",
+        "explicit_authority_scope",
+        "typed_input_output",
+        "denial_evidence",
+        "change_impact_and_rollback",
+        "host_dependency_declaration"
+      ],
+      "source_status": "PARTIAL_EXISTING_CONTRACTS",
+      "source_references": [
+        "packages/agent-model/schemas/v0.2/acceptance-assessment.schema.json",
+        "packages/agent-model/ama-release-gates.json"
+      ],
+      "host_obligations": [],
+      "verification": {
+        "contract": "PENDING_CONFORMANCE",
+        "negative": "PENDING_EXECUTABLE_TEST",
+        "migration": "PENDING",
+        "blueprint": "PENDING"
+      },
+      "release_claim": "NOT_COMPLETED"
+    }
+  ]
+}
