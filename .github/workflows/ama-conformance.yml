@@ -71,6 +71,8 @@ jobs:
         run: python packages/agent-model/conformance/ama_template_coverage.py
       - name: AMA FIN-02 32-module contract audit (non-authorizing)
         run: python packages/agent-model/conformance/ama_fin02_module_audit.py --output "$RUNNER_TEMP/ama-fin02-modules.json"
+      - name: FIN-02 universal module contract catalog (candidate only)
+        run: python packages/agent-model/conformance/ama_fin02_catalog_audit.py --output "$RUNNER_TEMP/ama-fin02-catalog.json"
       - name: Canonical M0-M7 source integrity (F8 optional)
         run: |
           python packages/agent-model/conformance/ama_milestone_integrity.py \
@@ -140,6 +142,7 @@ jobs:
             ${{ runner.temp }}/ama-realm-stewardship.json
             ${{ runner.temp }}/ama-m7a-readiness.json
             ${{ runner.temp }}/ama-fin02-modules.json
+            ${{ runner.temp }}/ama-fin02-catalog.json
             ${{ runner.temp }}/ama-m0-requirement-evidence.json
             ${{ runner.temp }}/ama-milestone-integrity.json
             ${{ runner.temp }}/ama-architecture-compatibility.json
