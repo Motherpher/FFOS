@@ -10,7 +10,7 @@ Repair actual navigation gaps while respecting canonical source authority, exist
 
 | Repository | PR / branch | Files | Change | State |
 |---|---|---|---|---|
-| [Motherpher/FFOS](https://github.com/Motherpher/FFOS) | WO-002 WP01 review branch `docs/wo002-wp01-estate-navigation-20261103` | README; WP04 estate README, handover, configuration, DG-04 audit; WP03 Wiki register; new D01–D04 | Reconcile verified WP04 merge vs DG-04 HOLD and publish navigation source register | PR to be linked after creation |
+| [Motherpher/FFOS](https://github.com/Motherpher/FFOS) | [PR #49](https://github.com/Motherpher/FFOS/pull/49) · `docs/wo002-wp01-estate-navigation-20261103` | README; WP04 estate README, handover, configuration, DG-04 audit; WP03 Wiki register; new D01–D04 | Reconcile verified WP04 merge vs DG-04 HOLD and publish navigation source register | DRAFT / OPEN; DG-01 pending |
 | [Hybrismannen/Hy](https://github.com/Hybrismannen/Hy) | [PR #4](https://github.com/Hybrismannen/Hy/pull/4) | `README.md` | Neutral source/governance navigation; product role explicitly unknown | DRAFT / OPEN |
 | [Hybrismannen/pius-pwe](https://github.com/Hybrismannen/pius-pwe) | [PR #8](https://github.com/Hybrismannen/pius-pwe/pull/8) | `README.md` | Pius PWE source entry, Vercel blocker and security/source-format limitations | DRAFT / OPEN; **independent security HOLD** |
 | [Hybrismannen/Barnombudet](https://github.com/Hybrismannen/Barnombudet) | [PR #1](https://github.com/Hybrismannen/Barnombudet/pull/1) | `README.md` | Expose source-controlled Swedish manual alongside app manual | DRAFT / OPEN |
