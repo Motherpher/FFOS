@@ -20,9 +20,9 @@ Always state the population, grain, source, capture date, definition and failure
 | Source Issue state OPEN | **22/22** | Native Issue state in captured Project; no assumption about acceptance |
 | Project Work Stage Blocked | **7** | Current operational projections, not distinct external failures |
 | Project Work Stage Intake | **11** | New/selective intake plus existing items |
-| Project Work Stage Verification | **1** | Operational queue only |
+| Project Work Stage Verification | **2** | Operational queue, including WP04 after technical candidate verification |
 | Project Work Stage Accepted | **2** | DG-02 and DG-03 source-supported decision projections |
-| Project Work Stage Active | **1** | WP04 programme currently active |
+| Project Work Stage Active | **0** | No items at Active in refreshed snapshot; this is an observed count, not a fabricated zero |
 | Authority Gate Approved (Source Recorded) | **2** | DG-02/DG-03; source decision links must verify |
 | Authority Gate Require Human | **2** | Project requests needing source-competent decision |
 | Authority Gate Pending Verification | **17** | Work with evidence not yet accepted |
