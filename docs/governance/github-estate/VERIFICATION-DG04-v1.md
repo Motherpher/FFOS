@@ -74,3 +74,15 @@ These **only test the committed snapshot and local invariants**; they do not sho
 Prior WP02/WP03 Director acceptances remain valid **only in their bounded scope**. Source-projected Project acceptance fields do not extend that scope. No source Issue was closed to claim WP04 completion.
 
 **Decision status:** DG-04 **AWAITING DIRECTOR DISPOSITION; no self-acceptance.**
+
+## 7. Additional observed actions and evidence (2026-11-03)
+
+- **Native Project intake idempotency test:** authenticated GraphQL `addProjectV2ItemById` repeated on existing [WP04 Issue #46](https://github.com/Motherpher/FFOS/issues/46) returned its **original Project item node ID `PVTI_lADOE9niMs4Bp6f2zhFp9TM`**. A separate read-back confirmed 22 source Issues, **22 distinct source node IDs**, all Issue states OPEN, Project still private, Auto-close issue still OFF. This is evidence of **GitHub's native Project add behaviour**, not a distributed worker/effect-gate test. T36 remains PARTIAL.
+- **Programme views:** added `Products & Platforms` (view #9) and `Research & Delivery` (view #10) to the private Project, with saved Programme filters; view items were retrieved through authenticated GitHub Project view API. Their presence does not imply any product acceptance.
+- **Repository discoverability:** the Project is linked in the same-owner private `Motherpher/GreenBell` Projects tab, in addition to pre-existing `Motherpher/FFOS` and `Motherpher/form-flode` links. Public repositories were not formally linked to avoid unnecessary private-Project exposure risk.
+- **FFOS local template adoption candidate:** two Issue Forms and one Pull Request template have been added **only on WP04 draft PR #47** under `.github/`; no default-branch/template deployment or cross-repository mass update has occurred. Local owner review and DG-04 approval remain required.
+- **Source-linked dashboard:** 10 native views plus a dated [Project dashboard](ESTATE-DASHBOARD.md), with all 22 Projects items registered in an exact [snapshot](data/portfolio-snapshot-2026-11-03.json).
+- **Documentation links:** repository-relative links across 11 WP04 Markdown pages were checked against the exact review-branch Git tree: **55 link occurrences, 22 distinct resolved targets, 0 missing**; this establishes file-path existence, not signed-in operator usability.
+- **Automation:** GitHub Actions read-only assurance has reported successful earlier head runs, including [run 41625480998](https://github.com/Motherpher/FFOS/actions/runs/41625480998); recheck the final branch head before claiming current CI PASS. No live cross-owner sync is activated.
+
+**DG-04 remains HOLD for full-scope acceptance** because this work has not satisfied independent verification, whole-Project recovery, role-specific privacy or recurrent runtime integration. A Director may later approve a bounded acceptance with all outstanding gates explicitly carried forward, but that decision is not presumed.
