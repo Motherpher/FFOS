@@ -1,6 +1,6 @@
 # WP03 — Documentation and Wiki Pilot Verification / DG-03 Gate
 
-**ID:** FF-GH-WP03-VER-001 · **Status:** IMPLEMENTATION CANDIDATE / DG-03 DECISION REQUIRED  
+**ID:** FF-GH-WP03-VER-001 · **Status:** DG-03 DIRECTOR ACCEPTED (BOUNDED) — merges authorised subject to final verification; residual usability and CI evidence incomplete  
 **Date:** 2026-11-03 · **Work order:** FF-GH-WO-001 WP03  
 **Review surfaces:** FFOS `docs/wp03-estate-operator-guide-20261103` and UDL Twin `docs/wp03-udl-user-guide-20261103`.
 
@@ -53,7 +53,7 @@ FFOS and UDL Twin are private repositories, and GitHub native Wikis are unavaila
 
 A DG-03 acceptance must explicitly state what it accepts, identify any deferred tasks, and identify whether PR merge is authorised. **WP04 SHALL NOT START** from this document alone.
 
-**Decision:** PENDING.
+**Decision:** **ACCEPTED (BOUNDED)** on 2026-11-03 — [Director source decision](https://github.com/Motherpher/FFOS/issues/45#issuecomment-6599403434). Merging PR #44 and UDL PR #26 is expressly authorised only after final verification. No WP04 mandate is granted.
 
 ## 6. Submitted PR and source attestation (2026-11-03)
 
@@ -62,4 +62,13 @@ A DG-03 acceptance must explicitly state what it accepts, identify any deferred 
 - **Source link test:** 30 distinct relative path targets resolved against the two exact source branches through GitHub GraphQL `repository.object(expression: branch:path)`. This validates target existence, not anchor rendering, runtime behaviour, or permissions of a distinct user.
 - **CI:** Head commit check-runs endpoint returned **0 visible checks** in both repositories at inspection; **NO CI PASS IS CLAIMED**. Recheck when any CI runs complete.
 - **Review:** PRs are unmerged. Documentation source/PR head must be rechecked immediately before DG-03 acceptance and merge.
-- **Director gate:** [DG-03 Issue #45](https://github.com/Motherpher/FFOS/issues/45) is open, awaiting explicit acceptance decision.
+- **Director gate:** [DG-03 Issue #45](https://github.com/Motherpher/FFOS/issues/45) has an [accepted bounded Director decision](https://github.com/Motherpher/FFOS/issues/45#issuecomment-6599403434), with PR merges conditional on final verification. Independent real-user tests and actual CI acceptance remain deferred obligations.
+
+## 7. Pre-merge final verification note (2026-11-03)
+
+- FFOS PR #44: **mergeable** (GitHub `mergeable=true`), review-head initially `1d606be9d547dbd5e4d4a690fb8c506d5acbac98`, only the seven approved documentation/README files. `main` branch reports **no enforced required status checks** at verification.
+- **External non-blocking CI/Deployment exception:** FFOS head's combined commit status is **failure** solely because external `Vercel` reports **`Account is blocked.`**. This is **NOT a PASS**, is unrelated to the documentation file changes as observed, and must not be described as functioning deployment. Check suite items were queued/without conclusions. Do not bypass any *required* failing checks if they later become enforceable.
+- UDL Twin PR #26: mergeable; only four approved documentation/README paths. A newer `main` commit altered `docs/metadata-dashboard/data/dashboard-data.json` and `repository-state.json`, not normative Blueprint or guide targets. GitHub reports **no enforced required checks**; status pending with zero combined statuses and queued check suites. No CI PASS claimed.
+- DG-03 is **accepted only for the bounded documentation pilots**. Do not infer live authenticated UI verification, full privacy assurance, runtime compliance, or authority over WP04.
+
+**Post-merge evidence must be appended to the source GitHub Issue [#45](https://github.com/Motherpher/FFOS/issues/45).** This static document retains the *pre-merge* evidence checkpoint; it is not automatically a live state monitor.
