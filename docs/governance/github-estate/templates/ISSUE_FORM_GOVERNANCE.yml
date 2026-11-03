@@ -1,0 +1,50 @@
+name: "Governance / Director decision"
+description: "Make an explicit source-backed decision request with no implied self-approval"
+title: "DECISION — "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A Project field or comment is not a substitute for the competent authority.
+        This form does not grant permission; record who can approve and what effects are in scope.
+  - type: input
+    id: decision_id
+    attributes:
+      label: "Stable decision or gate ID"
+      placeholder: "DG-xx or canonical decision identifier"
+  - type: textarea
+    id: question
+    attributes:
+      label: "Decision required"
+      description: "State the exact bounded choice."
+    validations:
+      required: true
+  - type: textarea
+    id: authority
+    attributes:
+      label: "Authority, mandate and policy references"
+      description: "Who is entitled to approve this action? Cite exact source."
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: "Options, dependencies and potential effects"
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: "Evidence, verification status and unknowns"
+      description: "Distinguish PASS, PARTIAL, FAIL, HOLD and NOT TESTED."
+    validations:
+      required: true
+  - type: textarea
+    id: decision
+    attributes:
+      label: "Recorded decision and scope"
+      description: "Populate after an actual authorised decision, with timestamp and source link."
+  - type: textarea
+    id: followup
+    attributes:
+      label: "Constraints and required follow-up"
