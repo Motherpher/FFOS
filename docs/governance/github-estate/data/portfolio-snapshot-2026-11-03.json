@@ -1,16 +1,93 @@
 {
   "schema": "ff-gh-projects-v2-snapshot-v1",
   "captured_date": "2026-11-03",
+  "capture_stage": "WP04 POST-VERIFICATION — refreshed after Project item #46 moved to Verification",
   "source_project": "https://github.com/orgs/Motherpher/projects/2",
   "project_id": "PVT_kwDOE9niMs4Bp6f2",
   "visibility": "private",
   "source": "authenticated GitHub GraphQL organization.projectV2(number:2)",
   "limitations": [
     "Point-in-time snapshot, not live usage telemetry",
-    "Source Issue state, Project Work Stage and Director source acceptance are distinct",
-    "Selected issue intake; not full estate work population",
+    "Source Issue state, Work Stage and Director source acceptance distinct",
+    "Selected native Issue intake, not whole estate population",
     "No release/CI/runtime inferred from Issue state",
-    "Selected app/repository coverage is not all GitHub estate"
+    "Selected installation/repository coverage is not all GitHub"
+  ],
+  "linked_repositories": [
+    {
+      "repository": "Motherpher/GreenBell",
+      "private": true
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "private": true
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "private": true
+    }
+  ],
+  "views": [
+    {
+      "name": "Estate Overview",
+      "number": 1,
+      "layout": "TABLE_LAYOUT",
+      "filter": ""
+    },
+    {
+      "name": "Workflow Board",
+      "number": 2,
+      "layout": "BOARD_LAYOUT",
+      "filter": null
+    },
+    {
+      "name": "Director Decisions",
+      "number": 3,
+      "layout": "TABLE_LAYOUT",
+      "filter": "authority-gate:\"Require Human\""
+    },
+    {
+      "name": "Risks & Blockers",
+      "number": 4,
+      "layout": "TABLE_LAYOUT",
+      "filter": "work-stage:Blocked"
+    },
+    {
+      "name": "Verification Queue",
+      "number": 5,
+      "layout": "TABLE_LAYOUT",
+      "filter": "work-stage:Verification"
+    },
+    {
+      "name": "Roadmap — Dates Pending",
+      "number": 6,
+      "layout": "ROADMAP_LAYOUT",
+      "filter": null
+    },
+    {
+      "name": "Release Readiness",
+      "number": 7,
+      "layout": "TABLE_LAYOUT",
+      "filter": "work-type:Release"
+    },
+    {
+      "name": "Source Reconciliation",
+      "number": 8,
+      "layout": "TABLE_LAYOUT",
+      "filter": "no:evidence-reference"
+    },
+    {
+      "name": "Products & Platforms",
+      "number": 9,
+      "layout": "TABLE_LAYOUT",
+      "filter": "programme:\"Products & Platforms\""
+    },
+    {
+      "name": "Research & Delivery",
+      "number": 10,
+      "layout": "TABLE_LAYOUT",
+      "filter": "programme:\"Research & Delivery\""
+    }
   ],
   "workflows": [
     {
@@ -61,9 +138,8 @@
     "stages": {
       "Blocked": 7,
       "Intake": 11,
-      "Verification": 1,
-      "Accepted": 2,
-      "Active": 1
+      "Verification": 2,
+      "Accepted": 2
     },
     "authority_gates": {
       "Pending Verification": 17,
@@ -543,16 +619,17 @@
       "title": "FF-GH-WP04 — Estate adoption, bounded automation and DG-04 assurance",
       "source_url": "https://github.com/Motherpher/FFOS/issues/46",
       "source_state": "OPEN",
-      "source_updated_at": "2026-11-03T10:57:16Z",
+      "source_updated_at": "2026-11-03T11:25:49Z",
       "fields": {
         "Title": "FF-GH-WP04 — Estate adoption, bounded automation and DG-04 assurance",
         "Status": "Todo",
         "Programme": "FFOS",
         "Work Type": "Implementation",
-        "Work Stage": "Active",
+        "Work Stage": "Verification",
         "Authority Gate": "Pending Verification",
         "Canonical Object ID": "FF-GH-WP04",
-        "Dependency Reference": "https://github.com/Motherpher/FFOS/issues/46"
+        "Dependency Reference": "https://github.com/Motherpher/FFOS/issues/46",
+        "Evidence Reference": "https://github.com/Motherpher/FFOS/issues/46#issuecomment-6602567522"
       }
     }
   ]
