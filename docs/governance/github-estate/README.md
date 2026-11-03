@@ -1,6 +1,6 @@
 # GitHub Estate Operations — WP04
 
-**Status:** WP04 ACTIVE / DG-04 NOT ACCEPTED. **Source:** [FF-GH-WP04 Issue #46](https://github.com/Motherpher/FFOS/issues/46). **Review:** [PR #47](https://github.com/Motherpher/FFOS/pull/47).  
+**Status:** WP04 BOUNDED STAGE MERGED AND VERIFIED / **DG-04 FINAL HOLD**. **Source:** [FF-GH-WP04 Issue #46](https://github.com/Motherpher/FFOS/issues/46) · [Director stage approval](https://github.com/Motherpher/FFOS/issues/46#issuecomment-6602862060) · [merged PR #47](https://github.com/Motherpher/FFOS/pull/47) · [exact merge commit](https://github.com/Motherpher/FFOS/commit/014b75b538f54e6141504d40aebad22d269ae4b0).  
 **Privacy:** private FFOS repository; snapshots may include metadata and titles of private source Issues.
 
 ## Director's entry points
@@ -17,7 +17,7 @@
 |---|---|---|
 | 04.01 Adoption register | [MD](ADOPTION-REGISTER-v1.md) and [JSON](data/estate-adoption-register-v1.json) | 31/31 accessible repositories inventoried and classified; maintainers not individually approved |
 | 04.02 Project intake | [Live Project](https://github.com/orgs/Motherpher/projects/2), [D25 native issue ledger](PROJECT-ADOPTION-LEDGER-v1.md), [snapshot](data/portfolio-snapshot-2026-11-03.json) | 13 additional existing Issues linked, 22 total; no source Issue closure |
-| 04.03 Reusable configuration | [Standard](CONFIGURATION-STANDARD.md), [templates](templates/) | Version-controlled candidates; no mass deployment to other repos |
+| 04.03 Reusable configuration | [Standard](CONFIGURATION-STANDARD.md), [templates](templates/) | FFOS-local Issue/PR templates merged into main; reusable candidates not installed in other repos |
 | 04.04 Controlled automation | [Contract](PROJECT-SYNCHRONISATION-CONTRACT-v1.md), [script](../../../tools/estate/reconcile.py), [tests](../../../tests/test_estate_reconcile.py) | Read-only offline integrity checks; no live recurring worker or credentials |
 | 04.05 FFOS/CDX integration | [Proposed spec](FFOS-CDX-INTEGRATION-SPEC-v1.md) | Design only; not CDX runtime-bound |
 | 04.06 Estate dashboard | [Source-backed dashboard](ESTATE-DASHBOARD.md) and native Project views | Interactive GitHub Project with dated reporting snapshot; no fake live refresh |
@@ -37,6 +37,6 @@
 
 ## Data and tests
 
-[REST metadata snapshots](data/) were captured with authenticated GitHub access and explicitly dated 2026-11-03. Reconciliation is deterministic and can run with no network. [GitHub read-only Actions](https://github.com/Motherpher/FFOS/actions) exercised the staged tests on a WP04 draft PR, but the result certifies only offline data integrity, not current API/runtime health.
+[REST metadata snapshots](data/) were captured with authenticated GitHub access and explicitly dated 2026-11-03. Reconciliation is deterministic and can run with no network. [Read-only GitHub Actions run 41627933272](https://github.com/Motherpher/FFOS/actions/runs/41627933272) passed at the exact pre-merge PR head; the authorised bounded PR #47 was subsequently merged into main. This tests only offline snapshot integrity, not current API connectivity or production runtime.
 
 **DG-04 remains HOLD pending source-owner, independent user/technical assurance, privacy, restore and live sync gates.** This directory provides a coherent operating map, not an additional constitutional system.
