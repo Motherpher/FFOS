@@ -1,0 +1,46 @@
+name: WP04 estate snapshot assurance (read-only)
+
+on:
+  pull_request:
+    paths:
+      - "tools/estate/**"
+      - "tests/test_estate_reconcile.py"
+      - "docs/governance/github-estate/**"
+      - ".github/workflows/estate-snapshot-audit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-snapshot:
+    name: Check estate snapshot and governance invariants
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out exact source revision
+        uses: actions/checkout@v4
+
+      - name: Verify deterministic snapshot checks
+        run: python3 -m unittest discover -s tests -p "test_estate_reconcile.py" -v
+
+      - name: Reconcile committed authenticated snapshots (no network)
+        run: |
+          python3 tools/estate/reconcile.py \
+            --adoption docs/governance/github-estate/data/estate-adoption-register-v1.json \
+            --project docs/governance/github-estate/data/portfolio-snapshot-2026-11-03.json \
+            --output "$RUNNER_TEMP/ff-gh-wp04-report.json"
+
+      - name: Publish bounded validation summary
+        run: |
+          python3 -c 'import json,os; d=json.load(open(os.environ["RUNNER_TEMP"]+"/ff-gh-wp04-report.json")); print("Estate snapshot status:",d["status"]); print("Alert severity counts:",d["alerts_by_severity"])' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Preserve immutable run output
+        uses: actions/upload-artifact@v4
+        with:
+          name: ff-gh-wp04-snapshot-report
+          path: ${{ runner.temp }}/ff-gh-wp04-report.json
+          retention-days: 7
+
+# This workflow uses no cross-owner token, has no write permission,
+# makes no GitHub API calls and never promotes an issue or a Director gate.
+# It checks only the dated committed snapshots; live synchronization remains gated.
