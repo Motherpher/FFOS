@@ -1,6 +1,6 @@
 # Estate Operations Dashboard — source-backed snapshot (2026-11-03)
 
-**Status:** WP04 implementation candidate, not DG-04 accepted. **Security:** PRIVATE FFOS. [Live operational Project](https://github.com/orgs/Motherpher/projects/2). [Exact data snapshot](data/portfolio-snapshot-2026-11-03.json). This markdown is a **snapshot**, not a live connected dashboard. See [adoption register](ADOPTION-REGISTER-v1.md) for all 31 accessible repositories. GitHub Projects filters/views remain the interactive management surface.
+**Status:** WP04 implementation candidate, not DG-04 accepted. **Security:** PRIVATE FFOS. [Live operational Project](https://github.com/orgs/Motherpher/projects/2). [Exact data snapshot](data/portfolio-snapshot-2026-11-03.json). This markdown is a **post-verification snapshot** (WP04 moved to Verification), not a live connected dashboard. See [adoption register](ADOPTION-REGISTER-v1.md) for all 31 accessible repositories. GitHub Projects' 10 verified saved views remain the interactive management surface.
 
 ## Overview
 
@@ -31,9 +31,8 @@
 |---|---:|
 | Intake | 11 |
 | Blocked | 7 |
+| Verification | 2 |
 | Accepted | 2 |
-| Verification | 1 |
-| Active | 1 |
 
 ## Authority gate
 
