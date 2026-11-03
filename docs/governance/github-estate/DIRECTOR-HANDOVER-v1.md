@@ -69,7 +69,7 @@ The code runs without network access or GitHub write permissions and returns `PA
 | Private cross-owner Project V2 | **FUNCTIONAL** for manual native Issue linking and read-back |
 | 31-repo source register | **DELIVERED as review-branch data** |
 | Selective multi-programme Project intake | **EXECUTED**; 13 new native Issue links |
-| Programme-specific Project views | **CREATED**, filter rendering still subject to validation |
+| Programme-specific Project views | **CREATED**, Programme filters and Issue results inspected through authenticated Project View API; role-specific usability remains untested |
 | Read-only snapshot integrity assurance | **AUTOMATED on GitHub Actions** for committed inputs; independent check results must be read at final PR head |
 | Recurrent live portfolio refresh | **NOT CONNECTED** |
 | Automatic cross-owner writes | **NOT IMPLEMENTED / NOT AUTHORISED** |
@@ -90,3 +90,7 @@ The code runs without network access or GitHub write permissions and returns `PA
 **No work-package document can grant authority to bypass mandatory CDX, AMA, FFC, Pius, source/repository or human acceptance.**
 
 **This handover is a usable management map, not a certificate that the entire estate is operationally automated.**
+
+## 8. FFOS local template pilot (staged, not active)
+
+The [WP04 draft PR #47](https://github.com/Motherpher/FFOS/pull/47) includes two additive Issue Forms at `.github/ISSUE_TEMPLATE/` and a PR review template at `.github/PULL_REQUEST_TEMPLATE.md`. They will become available for **FFOS only** after an approved merge. The reusable source library remains in [templates](templates/). No template was installed automatically in CareerHubZero, Politent, GreenBell, Pius Universe or the other owner repositories. Never confuse this candidate with an organisation-wide default.
