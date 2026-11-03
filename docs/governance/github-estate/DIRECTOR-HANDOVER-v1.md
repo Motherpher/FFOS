@@ -24,7 +24,7 @@
 
 **What can be trusted?** Source repository identity, exact GitHub Issue and PR links, DG-02/DG-03 acceptance comments, captured GraphQL/REST fields and bounded regression tests. A PASS on an offline fixture does not prove product runtime or all credentials/permissions.
 
-**How is it operated?** Follow [Operations Playbook](OPERATIONS-PLAYBOOK-v1.md) and [FFOS Operator Manual](../operator/FFOS-OPERATOR-MANUAL-v1.0.md). Add existing Issues selectively, verify ownership, preserve IDs, attach source decisions and reconcile Project projections.
+**How is it operated?** Follow [Operations Playbook](OPERATIONS-PLAYBOOK-v1.md) and [FFOS Operator Manual](../../operator/FFOS-OPERATOR-MANUAL-v1.0.md). Add existing Issues selectively, verify ownership, preserve IDs, attach source decisions and reconcile Project projections.
 
 ## 3. Open the principal navigation surfaces
 
