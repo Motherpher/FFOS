@@ -1,0 +1,58 @@
+name: "Estate work package — source-linked"
+description: "Bounded work package; preserves the source repository as authority"
+title: "WP — "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is a work-planning input form, not execution permission.
+        Do not include secrets, credentials, personal data or private client material.
+  - type: input
+    id: canonical_id
+    attributes:
+      label: "Existing canonical work-package ID"
+      description: "Leave blank if no stable ID has been assigned."
+      placeholder: "WPxx or repository-specific identifier"
+  - type: textarea
+    id: objective
+    attributes:
+      label: "Objective and purpose"
+      description: "What bounded result is needed and why?"
+    validations:
+      required: true
+  - type: textarea
+    id: source_and_authority
+    attributes:
+      label: "Canonical source and governing contract"
+      description: "Repository paths, version/commit, and any required mandate."
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: "In scope and explicitly excluded"
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: "Dependencies / blockers / prohibited moves"
+      description: "Link exact Issue/PR/specification; do not infer upstream completion."
+  - type: textarea
+    id: deliverables
+    attributes:
+      label: "Deliverables and verification evidence"
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: "Acceptance conditions and responsible authority"
+      description: "Issue closure and PR merge are not human acceptance."
+    validations:
+      required: true
+  - type: textarea
+    id: rollback
+    attributes:
+      label: "Rollback and evidence preservation"
+      description: "How can non-canonical configuration changes be reversed?"

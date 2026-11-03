@@ -1,0 +1,55 @@
+{
+  "schema": "ff-gh-wp04-label-dictionary/v1",
+  "status": "PROPOSED_NOT_APPLIED",
+  "warning": "Additive only. Never mass replace labels or infer authority from tags.",
+  "labels": [
+    {
+      "name": "work:implementation",
+      "description": "Implementation task"
+    },
+    {
+      "name": "work:governance",
+      "description": "Governed process or policy task"
+    },
+    {
+      "name": "work:research",
+      "description": "Research evidence work"
+    },
+    {
+      "name": "work:audit",
+      "description": "Verification and audit"
+    },
+    {
+      "name": "work:documentation",
+      "description": "Operator/documentation update"
+    },
+    {
+      "name": "gate:director",
+      "description": "Requires a separate formal Director decision"
+    },
+    {
+      "name": "gate:evidence",
+      "description": "Unresolved evidence requirement"
+    },
+    {
+      "name": "state:blocked",
+      "description": "Has a documented blocker, not necessarily closed"
+    },
+    {
+      "name": "priority:P0",
+      "description": "Explicit sourced priority only"
+    },
+    {
+      "name": "priority:P1",
+      "description": "Explicit sourced priority only"
+    },
+    {
+      "name": "priority:P2",
+      "description": "Explicit sourced priority only"
+    },
+    {
+      "name": "priority:P3",
+      "description": "Explicit sourced priority only"
+    }
+  ]
+}

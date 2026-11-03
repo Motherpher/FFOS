@@ -1,0 +1,636 @@
+{
+  "schema": "ff-gh-projects-v2-snapshot-v1",
+  "captured_date": "2026-11-03",
+  "capture_stage": "WP04 POST-VERIFICATION — refreshed after Project item #46 moved to Verification",
+  "source_project": "https://github.com/orgs/Motherpher/projects/2",
+  "project_id": "PVT_kwDOE9niMs4Bp6f2",
+  "visibility": "private",
+  "source": "authenticated GitHub GraphQL organization.projectV2(number:2)",
+  "limitations": [
+    "Point-in-time snapshot, not live usage telemetry",
+    "Source Issue state, Work Stage and Director source acceptance distinct",
+    "Selected native Issue intake, not whole estate population",
+    "No release/CI/runtime inferred from Issue state",
+    "Selected installation/repository coverage is not all GitHub"
+  ],
+  "linked_repositories": [
+    {
+      "repository": "Motherpher/GreenBell",
+      "private": true
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "private": true
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "private": true
+    }
+  ],
+  "views": [
+    {
+      "name": "Estate Overview",
+      "number": 1,
+      "layout": "TABLE_LAYOUT",
+      "filter": ""
+    },
+    {
+      "name": "Workflow Board",
+      "number": 2,
+      "layout": "BOARD_LAYOUT",
+      "filter": null
+    },
+    {
+      "name": "Director Decisions",
+      "number": 3,
+      "layout": "TABLE_LAYOUT",
+      "filter": "authority-gate:\"Require Human\""
+    },
+    {
+      "name": "Risks & Blockers",
+      "number": 4,
+      "layout": "TABLE_LAYOUT",
+      "filter": "work-stage:Blocked"
+    },
+    {
+      "name": "Verification Queue",
+      "number": 5,
+      "layout": "TABLE_LAYOUT",
+      "filter": "work-stage:Verification"
+    },
+    {
+      "name": "Roadmap — Dates Pending",
+      "number": 6,
+      "layout": "ROADMAP_LAYOUT",
+      "filter": null
+    },
+    {
+      "name": "Release Readiness",
+      "number": 7,
+      "layout": "TABLE_LAYOUT",
+      "filter": "work-type:Release"
+    },
+    {
+      "name": "Source Reconciliation",
+      "number": 8,
+      "layout": "TABLE_LAYOUT",
+      "filter": "no:evidence-reference"
+    },
+    {
+      "name": "Products & Platforms",
+      "number": 9,
+      "layout": "TABLE_LAYOUT",
+      "filter": "programme:\"Products & Platforms\""
+    },
+    {
+      "name": "Research & Delivery",
+      "number": 10,
+      "layout": "TABLE_LAYOUT",
+      "filter": "programme:\"Research & Delivery\""
+    }
+  ],
+  "workflows": [
+    {
+      "name": "Auto-add sub-issues to project",
+      "enabled": true
+    },
+    {
+      "name": "Auto-add to project",
+      "enabled": true
+    },
+    {
+      "name": "Auto-close issue",
+      "enabled": false
+    },
+    {
+      "name": "Item added to project",
+      "enabled": true
+    },
+    {
+      "name": "Item closed",
+      "enabled": true
+    },
+    {
+      "name": "Pull request linked to issue",
+      "enabled": true
+    },
+    {
+      "name": "Pull request merged",
+      "enabled": true
+    }
+  ],
+  "metrics": {
+    "items": 22,
+    "source_repositories": 12,
+    "owners": 2,
+    "private_repositories": 7,
+    "source_states": {
+      "OPEN": 22
+    },
+    "programmes": {
+      "FFC": 2,
+      "Conductellence / CDX": 1,
+      "FFOS": 6,
+      "Pius": 2,
+      "Products & Platforms": 10,
+      "Research & Delivery": 1
+    },
+    "stages": {
+      "Blocked": 7,
+      "Intake": 11,
+      "Verification": 2,
+      "Accepted": 2
+    },
+    "authority_gates": {
+      "Pending Verification": 17,
+      "Not Required": 1,
+      "Require Human": 2,
+      "Approved (Source Recorded)": 2
+    }
+  },
+  "items": [
+    {
+      "project_item_id": "PVTI_lADOE9niMs4Bp6f2zhFiGn8",
+      "type": "ISSUE",
+      "source_id": "I_kwDOUjtfnc8AAAABTCt0Pw",
+      "repository": "Motherpher/form-flode",
+      "repository_private": true,
+      "source_number": 26,
+      "title": "[General Audit Support] Appendix 003 — FFC-VIS / Figma full integration",
+      "source_url": "https://github.com/Motherpher/form-flode/issues/26",
+      "source_state": "OPEN",
+      "source_updated_at": "2026-09-24T20:39:00Z",
+      "fields": {
+        "Title": "[General Audit Support] Appendix 003 — FFC-VIS / Figma full integration",
+        "Status": "Todo",
+        "Programme": "FFC",
+        "Work Stage": "Blocked",
+        "Work Type": "Audit",
+        "Authority Gate": "Pending Verification",
+        "Canonical Object ID": "FFC-AUD-20260924-001-APP-003"
+      }
+    },
+    {
+      "project_item_id": "PVTI_lADOE9niMs4Bp6f2zhFiGoQ",
+      "type": "ISSUE",
+      "source_id": "I_kwDOUjtfnc8AAAABUBNebg",
+      "repository": "Motherpher/form-flode",
+      "repository_private": true,
+      "source_number": 31,
+      "title": "Reminder: preserve FFOS ↔ Pius boundary in future cognitive-runtime integration",
+      "source_url": "https://github.com/Motherpher/form-flode/issues/31",
+      "source_state": "OPEN",
+      "source_updated_at": "2026-09-29T23:21:45Z",
+      "fields": {
+        "Title": "Reminder: preserve FFOS ↔ Pius boundary in future cognitive-runtime integration",
+        "Status": "Todo",
+        "Programme": "FFC",
+        "Work Stage": "Intake",
+        "Work Type": "Governance",
+        "Authority Gate": "Not Required",
+        "Dependency Reference": "https://github.com/Hybrismannen/pius-codex-5/issues/10"
+      }
+    },
+    {
+      "project_item_id": "PVTI_lADOE9niMs4Bp6f2zhFiJb8",
+      "type": "ISSUE",
+      "source_id": "I_kwDOUp6KVc8AAAABTGcvng",
+      "repository": "Hybrismannen/Conductellence-",
+      "repository_private": false,
+      "source_number": 7,
+      "title": "CDX-BLOCK-ESTATE-RUNTIME-001 — Complete runtime enforcement integration across governed estate",
+      "source_url": "https://github.com/Hybrismannen/Conductellence-/issues/7",
+      "source_state": "OPEN",
+      "source_updated_at": "2026-10-30T16:23:20Z",
+      "fields": {
+        "Title": "CDX-BLOCK-ESTATE-RUNTIME-001 — Complete runtime enforcement integration across governed estate",
+        "Status": "Todo",
+        "Programme": "Conductellence / CDX",
+        "Work Stage": "Blocked",
+        "Work Type": "Governance",
+        "Authority Gate": "Pending Verification",
+        "Canonical Object ID": "CDX-BLOCK-ESTATE-RUNTIME-001"
+      }
+    },
+    {
+      "project_item_id": "PVTI_lADOE9niMs4Bp6f2zhFiJnc",
+      "type": "ISSUE",
+      "source_id": "I_kwDOU8zs-88AAAABb-J3pg",
+      "repository": "Motherpher/FFOS",
+      "repository_private": true,
+      "source_number": 42,
+      "title": "AMA-M7-A — blocked CI execution and external verification",
+      "source_url": "https://github.com/Motherpher/FFOS/issues/42",
+      "source_state": "OPEN",
+      "source_updated_at": "2026-11-02T22:20:47Z",
+      "fields": {
+        "Title": "AMA-M7-A — blocked CI execution and external verification",
+        "Status": "Todo",
+        "Programme": "FFOS",
+        "Work Stage": "Blocked",
+        "Work Type": "Defect",
+        "Authority Gate": "Pending Verification",
+        "Canonical Object ID": "AMA-M7-A",
+        "Dependency Reference": "https://github.com/Motherpher/FFOS/pull/34"
+      }
+    },
+    {
+      "project_item_id": "PVTI_lADOE9niMs4Bp6f2zhFiJn8",
+      "type": "ISSUE",
+      "source_id": "I_kwDOU8zs-88AAAABb-J1PA",
+      "repository": "Motherpher/FFOS",
+      "repository_private": true,
+      "source_number": 41,
+      "title": "AMA-FIN-05 — Director approval and AMA v1.0 release",
+      "source_url": "https://github.com/Motherpher/FFOS/issues/41",
+      "source_state": "OPEN",
+      "source_updated_at": "2026-11-02T22:20:45Z",
+      "fields": {
+        "Title": "AMA-FIN-05 — Director approval and AMA v1.0 release",
+        "Status": "Todo",
+        "Programme": "FFOS",
+        "Work Stage": "Blocked",
+        "Work Type": "Release",
+        "Authority Gate": "Require Human",
+        "Canonical Object ID": "AMA-FIN-05",
+        "Dependency Reference": "https://github.com/Motherpher/FFOS/issues/40"
+      }
+    },
+    {
+      "project_item_id": "PVTI_lADOE9niMs4Bp6f2zhFiJoQ",
+      "type": "ISSUE",
+      "source_id": "I_kwDOU8zs-88AAAABb-JzwA",
+      "repository": "Motherpher/FFOS",
+      "repository_private": true,
+      "source_number": 40,
+      "title": "AMA-FIN-04 — independent technical and portability audit",
+      "source_url": "https://github.com/Motherpher/FFOS/issues/40",
+      "source_state": "OPEN",
+      "source_updated_at": "2026-11-02T22:20:43Z",
+      "fields": {
+        "Title": "AMA-FIN-04 — independent technical and portability audit",
+        "Status": "Todo",
+        "Programme": "FFOS",
+        "Work Stage": "Verification",
+        "Work Type": "Audit",
+        "Authority Gate": "Pending Verification",
+        "Canonical Object ID": "AMA-FIN-04",
+        "Dependency Reference": "https://github.com/Motherpher/FFOS/pull/34"
+      }
+    },
+    {
+      "project_item_id": "PVTI_lADOE9niMs4Bp6f2zhFiJo0",
+      "type": "ISSUE",
+      "source_id": "I_kwDOTnXu1s8AAAABatLJbQ",
+      "repository": "Hybrismannen/pius-universe",
+      "repository_private": true,
+      "source_number": 14,
+      "title": "PU6 P0–P5 acceptance gates — M1 source attestation, ADR-008 decision, WP-12/13/14 and CDX runtime",
+      "source_url": "https://github.com/Hybrismannen/pius-universe/issues/14",
+      "source_state": "OPEN",
+      "source_updated_at": "2026-10-28T22:53:00Z",
+      "fields": {
+        "Title": "PU6 P0–P5 acceptance gates — M1 source attestation, ADR-008 decision, WP-12/13/14 and CDX runtime",
+        "Status": "Todo",
+        "Programme": "Pius",
+        "Work Stage": "Blocked",
+        "Work Type": "Governance",
+        "Authority Gate": "Pending Verification",
+        "Dependency Reference": "https://github.com/Hybrismannen/Conductellence-/issues/7"
+      }
+    },
+    {
+      "project_item_id": "PVTI_lADOE9niMs4Bp6f2zhFiYSo",
+      "type": "ISSUE",
+      "source_id": "I_kwDOU8zs-88AAAABb_HHDA",
+      "repository": "Motherpher/FFOS",
+      "repository_private": true,
+      "source_number": 43,
+      "title": "FF-GH-WP02-ACC-001 — Estate Portfolio pilot verification and Director DG-02 acceptance",
+      "source_url": "https://github.com/Motherpher/FFOS/issues/43",
+      "source_state": "OPEN",
+      "source_updated_at": "2026-11-02T23:52:44Z",
+      "fields": {
+        "Title": "FF-GH-WP02-ACC-001 — Estate Portfolio pilot verification and Director DG-02 acceptance",
+        "Status": "Todo",
+        "Programme": "FFOS",
+        "Work Stage": "Accepted",
+        "Work Type": "Decision",
+        "Authority Gate": "Approved (Source Recorded)",
+        "Canonical Object ID": "FF-GH-WP02-ACC-001",
+        "Evidence Reference": "https://github.com/Motherpher/FFOS/issues/43#issuecomment-6591480963"
+      }
+    },
+    {
+      "project_item_id": "PVTI_lADOE9niMs4Bp6f2zhFixc8",
+      "type": "ISSUE",
+      "source_id": "I_kwDOU8zs-88AAAABb_Ys5w",
+      "repository": "Motherpher/FFOS",
+      "repository_private": true,
+      "source_number": 45,
+      "title": "FF-GH-WP03-DG03 — ACCEPTED: bounded documentation pilots; FFOS #44 and UDL Twin #26 merged",
+      "source_url": "https://github.com/Motherpher/FFOS/issues/45",
+      "source_state": "OPEN",
+      "source_updated_at": "2026-11-03T09:06:05Z",
+      "fields": {
+        "Title": "FF-GH-WP03-DG03 — ACCEPTED: bounded documentation pilots; FFOS #44 and UDL Twin #26 merged",
+        "Status": "Todo",
+        "Programme": "FFOS",
+        "Work Stage": "Accepted",
+        "Work Type": "Decision",
+        "Authority Gate": "Approved (Source Recorded)",
+        "Canonical Object ID": "FF-GH-WP03-DG03",
+        "Evidence Reference": "https://github.com/Motherpher/FFOS/issues/45#issuecomment-6599403434"
+      }
+    },
+    {
+      "project_item_id": "PVTI_lADOE9niMs4Bp6f2zhFp9J0",
+      "type": "ISSUE",
+      "source_id": "I_kwDOUn4rpM8AAAABVj51kQ",
+      "repository": "Motherpher/CareerHubZero",
+      "repository_private": false,
+      "source_number": 53,
+      "title": "WP40.4 — Help, Fleet Hardening, Release Audit & WP40 Lock",
+      "source_url": "https://github.com/Motherpher/CareerHubZero/issues/53",
+      "source_state": "OPEN",
+      "source_updated_at": "2026-10-07T11:43:28Z",
+      "fields": {
+        "Title": "WP40.4 — Help, Fleet Hardening, Release Audit & WP40 Lock",
+        "Status": "Todo",
+        "Programme": "Products & Platforms",
+        "Work Type": "Release",
+        "Work Stage": "Intake",
+        "Authority Gate": "Pending Verification",
+        "Canonical Object ID": "WP40.4",
+        "Dependency Reference": "https://github.com/Motherpher/CareerHubZero/issues/41"
+      }
+    },
+    {
+      "project_item_id": "PVTI_lADOE9niMs4Bp6f2zhFp9Kk",
+      "type": "ISSUE",
+      "source_id": "I_kwDOUn4rpM8AAAABVWIzgg",
+      "repository": "Motherpher/CareerHubZero",
+      "repository_private": false,
+      "source_number": 39,
+      "title": "WP-CHM-OPS-02 — Restore HRDM-R Results, Auto-Hybridianesque, Search Delta & Wish Routing",
+      "source_url": "https://github.com/Motherpher/CareerHubZero/issues/39",
+      "source_state": "OPEN",
+      "source_updated_at": "2026-10-06T11:17:45Z",
+      "fields": {
+        "Title": "WP-CHM-OPS-02 — Restore HRDM-R Results, Auto-Hybridianesque, Search Delta & Wish Routing",
+        "Status": "Todo",
+        "Programme": "Products & Platforms",
+        "Work Type": "Defect",
+        "Work Stage": "Intake",
+        "Authority Gate": "Pending Verification",
+        "Canonical Object ID": "WP-CHM-OPS-02",
+        "Dependency Reference": "https://github.com/Motherpher/CareerHubZero/issues/38"
+      }
+    },
+    {
+      "project_item_id": "PVTI_lADOE9niMs4Bp6f2zhFp9Ls",
+      "type": "ISSUE",
+      "source_id": "I_kwDOUz6EYs8AAAABUKZowQ",
+      "repository": "Motherpher/Politent",
+      "repository_private": false,
+      "source_number": 20,
+      "title": "WP4.5 — Release audit, documentation and Politent 3.0 handoff",
+      "source_url": "https://github.com/Motherpher/Politent/issues/20",
+      "source_state": "OPEN",
+      "source_updated_at": "2026-09-30T14:27:17Z",
+      "fields": {
+        "Title": "WP4.5 — Release audit, documentation and Politent 3.0 handoff",
+        "Status": "Todo",
+        "Programme": "Products & Platforms",
+        "Work Type": "Release",
+        "Work Stage": "Intake",
+        "Authority Gate": "Require Human",
+        "Canonical Object ID": "WP4.5",
+        "Dependency Reference": "https://github.com/Motherpher/Politent/issues/19"
+      }
+    },
+    {
+      "project_item_id": "PVTI_lADOE9niMs4Bp6f2zhFp9MU",
+      "type": "ISSUE",
+      "source_id": "I_kwDOUz6EYs8AAAABUKZmaw",
+      "repository": "Motherpher/Politent",
+      "repository_private": false,
+      "source_number": 19,
+      "title": "WP4.4 — Production QGIS package, automation and exports",
+      "source_url": "https://github.com/Motherpher/Politent/issues/19",
+      "source_state": "OPEN",
+      "source_updated_at": "2026-09-30T14:27:15Z",
+      "fields": {
+        "Title": "WP4.4 — Production QGIS package, automation and exports",
+        "Status": "Todo",
+        "Programme": "Products & Platforms",
+        "Work Type": "Implementation",
+        "Work Stage": "Intake",
+        "Authority Gate": "Pending Verification",
+        "Canonical Object ID": "WP4.4",
+        "Dependency Reference": "https://github.com/Motherpher/Politent/issues/16"
+      }
+    },
+    {
+      "project_item_id": "PVTI_lADOE9niMs4Bp6f2zhFp9NY",
+      "type": "ISSUE",
+      "source_id": "I_kwDOVDlu0s8AAAABWgIgMQ",
+      "repository": "Motherpher/GreenBell",
+      "repository_private": true,
+      "source_number": 7,
+      "title": "GB-I008 — Harden Green Bell ↔ StatsVault product contract",
+      "source_url": "https://github.com/Motherpher/GreenBell/issues/7",
+      "source_state": "OPEN",
+      "source_updated_at": "2026-10-11T20:49:06Z",
+      "fields": {
+        "Title": "GB-I008 — Harden Green Bell ↔ StatsVault product contract",
+        "Status": "Todo",
+        "Programme": "Products & Platforms",
+        "Work Type": "Governance",
+        "Work Stage": "Intake",
+        "Authority Gate": "Pending Verification",
+        "Canonical Object ID": "GB-I008",
+        "Dependency Reference": "https://github.com/Hybrismannen/green-bell-statsvault"
+      }
+    },
+    {
+      "project_item_id": "PVTI_lADOE9niMs4Bp6f2zhFp9OA",
+      "type": "ISSUE",
+      "source_id": "I_kwDOVDlu0s8AAAABWgIYNQ",
+      "repository": "Motherpher/GreenBell",
+      "repository_private": true,
+      "source_number": 4,
+      "title": "GB-I005 — HARP audit legacy quantitative and novelty claims",
+      "source_url": "https://github.com/Motherpher/GreenBell/issues/4",
+      "source_state": "OPEN",
+      "source_updated_at": "2026-10-11T20:48:49Z",
+      "fields": {
+        "Title": "GB-I005 — HARP audit legacy quantitative and novelty claims",
+        "Status": "Todo",
+        "Programme": "Products & Platforms",
+        "Work Type": "Audit",
+        "Work Stage": "Intake",
+        "Authority Gate": "Pending Verification",
+        "Canonical Object ID": "GB-I005",
+        "Dependency Reference": "https://github.com/Motherpher/GreenBell/tree/main/08-research-quality"
+      }
+    },
+    {
+      "project_item_id": "PVTI_lADOE9niMs4Bp6f2zhFp9Os",
+      "type": "ISSUE",
+      "source_id": "I_kwDOVgqCPs8AAAABb-Y53Q",
+      "repository": "Hybrismannen/Opal-Sense-I",
+      "repository_private": false,
+      "source_number": 16,
+      "title": "[OSI] GitHub Projects — Editorial Command Centre",
+      "source_url": "https://github.com/Hybrismannen/Opal-Sense-I/issues/16",
+      "source_state": "OPEN",
+      "source_updated_at": "2026-11-02T22:47:17Z",
+      "fields": {
+        "Title": "[OSI] GitHub Projects — Editorial Command Centre",
+        "Status": "Todo",
+        "Programme": "Products & Platforms",
+        "Work Type": "Implementation",
+        "Work Stage": "Intake",
+        "Authority Gate": "Pending Verification",
+        "Canonical Object ID": "OSI-PROJECTS-16",
+        "Dependency Reference": "https://github.com/Hybrismannen/Opal-Sense-I/issues/16",
+        "Priority": "P0 Critical"
+      }
+    },
+    {
+      "project_item_id": "PVTI_lADOE9niMs4Bp6f2zhFp9Pk",
+      "type": "ISSUE",
+      "source_id": "I_kwDOVgqCPs8AAAABb-Y00A",
+      "repository": "Hybrismannen/Opal-Sense-I",
+      "repository_private": false,
+      "source_number": 13,
+      "title": "[OSI] GitHub Wiki — initial reference architecture",
+      "source_url": "https://github.com/Hybrismannen/Opal-Sense-I/issues/13",
+      "source_state": "OPEN",
+      "source_updated_at": "2026-11-02T22:47:08Z",
+      "fields": {
+        "Title": "[OSI] GitHub Wiki — initial reference architecture",
+        "Status": "Todo",
+        "Programme": "Products & Platforms",
+        "Work Type": "Documentation",
+        "Work Stage": "Intake",
+        "Authority Gate": "Pending Verification",
+        "Canonical Object ID": "OSI-WIKI-13",
+        "Dependency Reference": "https://github.com/Hybrismannen/Opal-Sense-I/tree/main/docs/wiki-seed",
+        "Priority": "P0 Critical"
+      }
+    },
+    {
+      "project_item_id": "PVTI_lADOE9niMs4Bp6f2zhFp9QY",
+      "type": "ISSUE",
+      "source_id": "I_kwDOUffLms8AAAABSoq4tg",
+      "repository": "Hybrismannen/green-bell-statsvault",
+      "repository_private": true,
+      "source_number": 7,
+      "title": "Refine dual metadata dashboards into top-level automated visual control room",
+      "source_url": "https://github.com/Hybrismannen/green-bell-statsvault/issues/7",
+      "source_state": "OPEN",
+      "source_updated_at": "2026-09-22T22:00:06Z",
+      "fields": {
+        "Title": "Refine dual metadata dashboards into top-level automated visual control room",
+        "Status": "Todo",
+        "Programme": "Products & Platforms",
+        "Work Type": "Implementation",
+        "Work Stage": "Intake",
+        "Authority Gate": "Pending Verification",
+        "Canonical Object ID": "GBSV-DASHBOARD-7",
+        "Dependency Reference": "https://github.com/Hybrismannen/green-bell-statsvault/issues/7"
+      }
+    },
+    {
+      "project_item_id": "PVTI_lADOE9niMs4Bp6f2zhFp9RM",
+      "type": "ISSUE",
+      "source_id": "I_kwDOU8fFRs8AAAABVKSXiw",
+      "repository": "Motherpher/BDNA",
+      "repository_private": false,
+      "source_number": 13,
+      "title": "REPLAY-V — Replace Vercel MOCK-DONE gates with real deployment evidence",
+      "source_url": "https://github.com/Motherpher/BDNA/issues/13",
+      "source_state": "OPEN",
+      "source_updated_at": "2026-10-05T15:50:34Z",
+      "fields": {
+        "Title": "REPLAY-V — Replace Vercel MOCK-DONE gates with real deployment evidence",
+        "Status": "Todo",
+        "Programme": "Products & Platforms",
+        "Work Type": "Release",
+        "Work Stage": "Blocked",
+        "Authority Gate": "Pending Verification",
+        "Canonical Object ID": "BDNA-REPLAY-V",
+        "Dependency Reference": "https://github.com/Motherpher/BDNA/blob/main/docs/missions/VERCEL-MOCK-GATES.md"
+      }
+    },
+    {
+      "project_item_id": "PVTI_lADOE9niMs4Bp6f2zhFp9SQ",
+      "type": "ISSUE",
+      "source_id": "I_kwDOUmMaas8AAAABSn9kmw",
+      "repository": "Hybrismannen/Digital-Apartheid",
+      "repository_private": true,
+      "source_number": 2,
+      "title": "WP-REF-IMPORT — Reconstruct legacy references through HARP",
+      "source_url": "https://github.com/Hybrismannen/Digital-Apartheid/issues/2",
+      "source_state": "OPEN",
+      "source_updated_at": "2026-09-22T20:24:34Z",
+      "fields": {
+        "Title": "WP-REF-IMPORT — Reconstruct legacy references through HARP",
+        "Status": "Todo",
+        "Programme": "Research & Delivery",
+        "Work Type": "Audit",
+        "Work Stage": "Intake",
+        "Authority Gate": "Pending Verification",
+        "Canonical Object ID": "WP-REF-IMPORT",
+        "Dependency Reference": "https://github.com/Hybrismannen/pius-codex-5"
+      }
+    },
+    {
+      "project_item_id": "PVTI_lADOE9niMs4Bp6f2zhFp9Ss",
+      "type": "ISSUE",
+      "source_id": "I_kwDOO9881c8AAAABS1ChEA",
+      "repository": "Hybrismannen/pius-pwe",
+      "repository_private": true,
+      "source_number": 2,
+      "title": "Vercel: consolidate duplicate failing project integrations before readiness merge",
+      "source_url": "https://github.com/Hybrismannen/pius-pwe/issues/2",
+      "source_state": "OPEN",
+      "source_updated_at": "2026-09-23T19:38:46Z",
+      "fields": {
+        "Title": "Vercel: consolidate duplicate failing project integrations before readiness merge",
+        "Status": "Todo",
+        "Programme": "Pius",
+        "Work Type": "Defect",
+        "Work Stage": "Blocked",
+        "Authority Gate": "Pending Verification",
+        "Canonical Object ID": "PWE-VERCEL-2",
+        "Dependency Reference": "https://github.com/Hybrismannen/pius-pwe/issues/2"
+      }
+    },
+    {
+      "project_item_id": "PVTI_lADOE9niMs4Bp6f2zhFp9TM",
+      "type": "ISSUE",
+      "source_id": "I_kwDOU8zs-88AAAABcG0hVA",
+      "repository": "Motherpher/FFOS",
+      "repository_private": true,
+      "source_number": 46,
+      "title": "FF-GH-WP04 — Estate adoption, bounded automation and DG-04 assurance",
+      "source_url": "https://github.com/Motherpher/FFOS/issues/46",
+      "source_state": "OPEN",
+      "source_updated_at": "2026-11-03T11:25:49Z",
+      "fields": {
+        "Title": "FF-GH-WP04 — Estate adoption, bounded automation and DG-04 assurance",
+        "Status": "Todo",
+        "Programme": "FFOS",
+        "Work Type": "Implementation",
+        "Work Stage": "Verification",
+        "Authority Gate": "Pending Verification",
+        "Canonical Object ID": "FF-GH-WP04",
+        "Dependency Reference": "https://github.com/Motherpher/FFOS/issues/46",
+        "Evidence Reference": "https://github.com/Motherpher/FFOS/issues/46#issuecomment-6602567522"
+      }
+    }
+  ]
+}
