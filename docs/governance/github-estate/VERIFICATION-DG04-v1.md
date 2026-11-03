@@ -1,5 +1,7 @@
 # FF-GH-WP04 — Independent Assurance and Director DG-04 Gate
 
+> **POST-MERGE STATUS RECONCILIATION (2026-11-03, FF-GH-WO-002/WP01):** WP04's bounded implementation was [authorised by the Director](https://github.com/Motherpher/FFOS/issues/46#issuecomment-6602862060), [merged as PR #47](https://github.com/Motherpher/FFOS/pull/47) and [verified in source](https://github.com/Motherpher/FFOS/issues/46#issuecomment-6602905872), commit `014b75b538f54e6141504d40aebad22d269ae4b0`. **DG-04 FINAL ACCEPTANCE REMAINS HOLD**. The pre-merge inspection and conditional recommendations below are retained as historical audit evidence; they must not be read as describing the current merge state. T34–T37/T42/T44/T46 remain unresolved.
+
 **Record:** FF-GH-WP04-D32-VER-001  
 **Date:** 2026-11-03 · **Status:** TECHNICAL IMPLEMENTATION CANDIDATE; DG-04 HOLD / NOT ACCEPTED  
 **Source Work Order:** [FF-GH-WP04 Issue #46](https://github.com/Motherpher/FFOS/issues/46) · **Review PR:** [FFOS PR #47](https://github.com/Motherpher/FFOS/pull/47)
