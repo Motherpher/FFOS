@@ -1,0 +1,123 @@
+{
+  "as_of": "2026-11-03",
+  "source": "GitHub REST default-branch trees",
+  "group": "Hybrismannen 1",
+  "rows": [
+    {
+      "repo": "Hybrismannen/Hy",
+      "tree_sha": "7607ede14fbb1c567440c144f6a43c42b8cad758",
+      "truncated": false,
+      "root": null,
+      "candidates": [],
+      "candidates_total": 0
+    },
+    {
+      "repo": "Hybrismannen/pius-pwe",
+      "tree_sha": "f6f36bf4825781e9dc3914a7840aab7f4951da5a",
+      "truncated": false,
+      "root": null,
+      "candidates": [],
+      "candidates_total": 0
+    },
+    {
+      "repo": "Hybrismannen/livicity-cwvs-reference",
+      "tree_sha": "be3d5d46185e92d1007c307590f567947f0d06e8",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "README.md"
+      ],
+      "candidates_total": 1
+    },
+    {
+      "repo": "Hybrismannen/nsliengine",
+      "tree_sha": "8e73821984481fad7341c71970972a108dab359f",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "README.md"
+      ],
+      "candidates_total": 1
+    },
+    {
+      "repo": "Hybrismannen/pius-universe",
+      "tree_sha": "1f7ee643c275bb2e3825f2e204b34f30da5df801",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "README.md",
+        "docs/architecture-decisions/README.md"
+      ],
+      "candidates_total": 2
+    },
+    {
+      "repo": "Hybrismannen/udl-twin",
+      "tree_sha": "aa19fc90d45d35d4051f6f6e18d61a1d20df12cc",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "README.md",
+        "docs/architecture/B1.0/README.md",
+        "docs/architecture/README.md",
+        "docs/metadata-dashboard/README.md",
+        "docs/metadata-dashboard/index.html",
+        "docs/user-guide/EXAMPLE-EXPOSURE-TO-LEARNING.md",
+        "docs/user-guide/README.md",
+        "docs/user-guide/UDL-TWIN-EVALUATOR-GUIDE-v1.0.md"
+      ],
+      "candidates_total": 8
+    },
+    {
+      "repo": "Hybrismannen/pius-codex-5",
+      "tree_sha": "f53c4feab3c2a8f13d75902ec2371eee9d407e8e",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "00-codex/README.md",
+        "README.md"
+      ],
+      "candidates_total": 2
+    },
+    {
+      "repo": "Hybrismannen/pius-lifetime-audit-2026",
+      "tree_sha": "ac9bf8027ee7c486eca6973da1c5affd537faa4b",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "README.md",
+        "docs/README.md"
+      ],
+      "candidates_total": 2
+    },
+    {
+      "repo": "Hybrismannen/green-bell-statsvault",
+      "tree_sha": "3fa29b019f1dc9270275b48bd638e37b2d55214e",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "README.md",
+        "docs/README.md",
+        "docs/archive/pre-v3/README.md",
+        "docs/archive/v2/README.md",
+        "docs/design/report-system/README.md",
+        "docs/exports/docx/README.md",
+        "docs/operations/README.md",
+        "docs/operations/metadata-dashboard/README.md",
+        "docs/v3/extensions/geo-k/README.md",
+        "docs/v3/extensions/usr-t/README.md",
+        "docs/v3/reviews/README.md"
+      ],
+      "candidates_total": 11
+    },
+    {
+      "repo": "Hybrismannen/form-flode-dna",
+      "tree_sha": "4b1ed9615e26accc2237aa246297283bd64137c8",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "README.md"
+      ],
+      "candidates_total": 1
+    }
+  ]
+}
