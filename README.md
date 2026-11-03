@@ -2,6 +2,12 @@
 
 FFOS is the central operating shell for Form & Flöde. It coordinates work across domains without absorbing their canonical repositories.
 
+## Start here — operating FFOS
+
+- **[FFOS Operator Manual](docs/operator/README.md)** — practical Director and authorised-operator guide (WP03 review candidate; not a runtime certification).
+- **[Source-linked manual](docs/operator/FFOS-OPERATOR-MANUAL-v1.0.md)** — work packages, status, evidence, approvals, escalation and troubleshooting.
+- **[Motherpher Estate Portfolio](https://github.com/orgs/Motherpher/projects/2)** — private cross-repository planning projection; source decisions remain authoritative.
+
 ## Core rules
 
 1. **FFOS owns orchestration, not every domain.** Existing repositories remain authoritative for their own systems, methods and products.
