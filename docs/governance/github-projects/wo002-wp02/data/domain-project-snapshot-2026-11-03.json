@@ -1,0 +1,1000 @@
+{
+  "schema": "ff-gh-wo002-wp02-project-snapshot-v1",
+  "date": "2026-11-03",
+  "source": "authenticated GitHub GraphQL Project V2 read after project creation and source item classification",
+  "limit": "Point-in-time snapshot; not autonomous synchronisation or role access test",
+  "projects": [
+    {
+      "key": "opal",
+      "project_id": "PVT_kwHOB52Brc4BqAzN",
+      "url": "https://github.com/users/Hybrismannen/projects/2",
+      "title": "The Opal — Editorial & Archive Operations",
+      "private": true,
+      "closed": false,
+      "owner_repo": "Hybrismannen/Opal-Sense-I",
+      "linked_repositories": [
+        {
+          "name": "Hybrismannen/Opal-Sense-I",
+          "private": false
+        }
+      ],
+      "views": [
+        {
+          "filter": null,
+          "id": "PVTV_lAHOB52Brc4BqAzNzgMYf5E",
+          "layout": "BOARD_LAYOUT",
+          "name": "Editorial Kanban",
+          "number": 1
+        },
+        {
+          "filter": "desk:\"Reading Room\"",
+          "id": "PVTV_lAHOB52Brc4BqAzNzgMYgrM",
+          "layout": "TABLE_LAYOUT",
+          "name": "Research Desk",
+          "number": 2
+        },
+        {
+          "filter": null,
+          "id": "PVTV_lAHOB52Brc4BqAzNzgMYgrQ",
+          "layout": "TABLE_LAYOUT",
+          "name": "Evidence Review",
+          "number": 3
+        },
+        {
+          "filter": null,
+          "id": "PVTV_lAHOB52Brc4BqAzNzgMYgrU",
+          "layout": "ROADMAP_LAYOUT",
+          "name": "Publication Roadmap",
+          "number": 4
+        }
+      ],
+      "workflows": [
+        {
+          "enabled": true,
+          "name": "Item added to project"
+        },
+        {
+          "enabled": true,
+          "name": "Item closed"
+        },
+        {
+          "enabled": true,
+          "name": "Pull request linked to issue"
+        },
+        {
+          "enabled": true,
+          "name": "Pull request merged"
+        }
+      ],
+      "items_count": 16,
+      "classifications": {
+        "Backlog": 2,
+        "UNCLASSIFIED": 14
+      },
+      "items": [
+        {
+          "project_item_id": "PVTI_lAHOB52Brc4BqAzNzhFswwk",
+          "type": "ISSUE",
+          "source_id": "I_kwDOVgqCPs8AAAABb-TOPA",
+          "source_repo": "Hybrismannen/Opal-Sense-I",
+          "source_number": 1,
+          "source_title": "[OSI] Establish editorial governance: Projects, Issues and Wiki",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Hybrismannen/Opal-Sense-I/issues/1",
+          "source_updated_at": "2026-11-02T22:48:10Z",
+          "fields": {
+            "Title": "[OSI] Establish editorial governance: Projects, Issues and Wiki",
+            "Priority": "P0",
+            "Editorial Phase": "Backlog",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lAHOB52Brc4BqAzNzhFswxM",
+          "type": "ISSUE",
+          "source_id": "I_kwDOVgqCPs8AAAABb-UlFw",
+          "source_repo": "Hybrismannen/Opal-Sense-I",
+          "source_number": 2,
+          "source_title": "[OSI] Archive ingestion — recover prior fashion chats and Palm Angels material",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Hybrismannen/Opal-Sense-I/issues/2",
+          "source_updated_at": "2026-11-02T22:46:34Z",
+          "fields": {
+            "Title": "[OSI] Archive ingestion — recover prior fashion chats and Palm Angels material",
+            "Priority": "P1",
+            "Editorial Phase": "Backlog",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lAHOB52Brc4BqAzNzhFswx0",
+          "type": "ISSUE",
+          "source_id": "I_kwDOVgqCPs8AAAABb-UnAg",
+          "source_repo": "Hybrismannen/Opal-Sense-I",
+          "source_number": 3,
+          "source_title": "[OSI] Footwear catalogue — verify 35 independent object records",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Hybrismannen/Opal-Sense-I/issues/3",
+          "source_updated_at": "2026-11-02T22:46:38Z",
+          "fields": {
+            "Title": "[OSI] Footwear catalogue — verify 35 independent object records",
+            "Priority": "P1",
+            "Desk": "Objects & Engineering",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lAHOB52Brc4BqAzNzhFswys",
+          "type": "ISSUE",
+          "source_id": "I_kwDOVgqCPs8AAAABb-UoyA",
+          "source_repo": "Hybrismannen/Opal-Sense-I",
+          "source_number": 4,
+          "source_title": "[OSI] Special Issue 001 — Black dandyism and the culture of the dapper",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Hybrismannen/Opal-Sense-I/issues/4",
+          "source_updated_at": "2026-11-02T22:46:41Z",
+          "fields": {
+            "Title": "[OSI] Special Issue 001 — Black dandyism and the culture of the dapper",
+            "Priority": "P1",
+            "Desk": "Culture & Identity",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lAHOB52Brc4BqAzNzhFswzU",
+          "type": "ISSUE",
+          "source_id": "I_kwDOVgqCPs8AAAABb-YX9w",
+          "source_repo": "Hybrismannen/Opal-Sense-I",
+          "source_number": 5,
+          "source_title": "[OSI] Issue 002 — Fashion futures editorial dossier",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Hybrismannen/Opal-Sense-I/issues/5",
+          "source_updated_at": "2026-11-02T22:46:44Z",
+          "fields": {
+            "Title": "[OSI] Issue 002 — Fashion futures editorial dossier",
+            "Priority": "P1",
+            "Desk": "Culture & Identity",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lAHOB52Brc4BqAzNzhFsw0c",
+          "type": "ISSUE",
+          "source_id": "I_kwDOVgqCPs8AAAABb-YpUg",
+          "source_repo": "Hybrismannen/Opal-Sense-I",
+          "source_number": 6,
+          "source_title": "[OSI] Special Issue 003 — Moroccan djellaba: history, form and craftsmanship",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Hybrismannen/Opal-Sense-I/issues/6",
+          "source_updated_at": "2026-11-02T22:46:47Z",
+          "fields": {
+            "Title": "[OSI] Special Issue 003 — Moroccan djellaba: history, form and craftsmanship",
+            "Priority": "P1",
+            "Desk": "Garments & Traditions",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lAHOB52Brc4BqAzNzhFsw1U",
+          "type": "ISSUE",
+          "source_id": "I_kwDOVgqCPs8AAAABb-YrEA",
+          "source_repo": "Hybrismannen/Opal-Sense-I",
+          "source_number": 7,
+          "source_title": "[OSI] Special Issue 004 — South African houses and African couture",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Hybrismannen/Opal-Sense-I/issues/7",
+          "source_updated_at": "2026-11-02T22:46:50Z",
+          "fields": {
+            "Title": "[OSI] Special Issue 004 — South African houses and African couture",
+            "Priority": "P1",
+            "Desk": "Designers & Houses",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lAHOB52Brc4BqAzNzhFsw2E",
+          "type": "ISSUE",
+          "source_id": "I_kwDOVgqCPs8AAAABb-Ysmw",
+          "source_repo": "Hybrismannen/Opal-Sense-I",
+          "source_number": 8,
+          "source_title": "[OSI] Special Issue 005 — The Nordic and European fashion observer",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Hybrismannen/Opal-Sense-I/issues/8",
+          "source_updated_at": "2026-11-02T22:46:53Z",
+          "fields": {
+            "Title": "[OSI] Special Issue 005 — The Nordic and European fashion observer",
+            "Priority": "P2",
+            "Desk": "Global Observer",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lAHOB52Brc4BqAzNzhFsw2o",
+          "type": "ISSUE",
+          "source_id": "I_kwDOVgqCPs8AAAABb-YuBg",
+          "source_repo": "Hybrismannen/Opal-Sense-I",
+          "source_number": 9,
+          "source_title": "[OSI] Special Issue 006 — Afropunk: music, style and subculture",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Hybrismannen/Opal-Sense-I/issues/9",
+          "source_updated_at": "2026-11-02T22:46:56Z",
+          "fields": {
+            "Title": "[OSI] Special Issue 006 — Afropunk: music, style and subculture",
+            "Priority": "P2",
+            "Desk": "Culture & Identity",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lAHOB52Brc4BqAzNzhFsw3I",
+          "type": "ISSUE",
+          "source_id": "I_kwDOVgqCPs8AAAABb-Yvkw",
+          "source_repo": "Hybrismannen/Opal-Sense-I",
+          "source_number": 10,
+          "source_title": "[OSI] Brand dossier system — histories, designers, lines and legacy",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Hybrismannen/Opal-Sense-I/issues/10",
+          "source_updated_at": "2026-11-02T22:46:59Z",
+          "fields": {
+            "Title": "[OSI] Brand dossier system — histories, designers, lines and legacy",
+            "Priority": "P1",
+            "Desk": "Designers & Houses",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lAHOB52Brc4BqAzNzhFsw4E",
+          "type": "ISSUE",
+          "source_id": "I_kwDOVgqCPs8AAAABb-YxQQ",
+          "source_repo": "Hybrismannen/Opal-Sense-I",
+          "source_number": 11,
+          "source_title": "[OSI] The Opal publication — magazine design and issue reader",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Hybrismannen/Opal-Sense-I/issues/11",
+          "source_updated_at": "2026-11-02T22:47:01Z",
+          "fields": {
+            "Title": "[OSI] The Opal publication — magazine design and issue reader",
+            "Priority": "P1",
+            "Desk": "Platform",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lAHOB52Brc4BqAzNzhFsw4w",
+          "type": "ISSUE",
+          "source_id": "I_kwDOVgqCPs8AAAABb-YzOw",
+          "source_repo": "Hybrismannen/Opal-Sense-I",
+          "source_number": 12,
+          "source_title": "[OSI] Reading Room — references, source reliability and review",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Hybrismannen/Opal-Sense-I/issues/12",
+          "source_updated_at": "2026-11-02T22:47:05Z",
+          "fields": {
+            "Title": "[OSI] Reading Room — references, source reliability and review",
+            "Priority": "P0",
+            "Desk": "Reading Room",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lAHOB52Brc4BqAzNzhFsw5Q",
+          "type": "ISSUE",
+          "source_id": "I_kwDOVgqCPs8AAAABb-Y00A",
+          "source_repo": "Hybrismannen/Opal-Sense-I",
+          "source_number": 13,
+          "source_title": "[OSI] GitHub Wiki — initial reference architecture",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Hybrismannen/Opal-Sense-I/issues/13",
+          "source_updated_at": "2026-11-02T22:47:08Z",
+          "fields": {
+            "Title": "[OSI] GitHub Wiki — initial reference architecture",
+            "Priority": "P0",
+            "Desk": "Reading Room",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lAHOB52Brc4BqAzNzhFsw5w",
+          "type": "ISSUE",
+          "source_id": "I_kwDOVgqCPs8AAAABb-Y2eg",
+          "source_repo": "Hybrismannen/Opal-Sense-I",
+          "source_number": 14,
+          "source_title": "[OSI] Design identity — OPAL SENSE I and The Opal visual system",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Hybrismannen/Opal-Sense-I/issues/14",
+          "source_updated_at": "2026-11-02T22:47:11Z",
+          "fields": {
+            "Title": "[OSI] Design identity — OPAL SENSE I and The Opal visual system",
+            "Priority": "P2",
+            "Desk": "Platform",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lAHOB52Brc4BqAzNzhFsw6g",
+          "type": "ISSUE",
+          "source_id": "I_kwDOVgqCPs8AAAABb-Y4KA",
+          "source_repo": "Hybrismannen/Opal-Sense-I",
+          "source_number": 15,
+          "source_title": "[OSI] Durable catalogue — data schema, search and editorial versions",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Hybrismannen/Opal-Sense-I/issues/15",
+          "source_updated_at": "2026-11-02T22:47:14Z",
+          "fields": {
+            "Title": "[OSI] Durable catalogue — data schema, search and editorial versions",
+            "Priority": "P1",
+            "Desk": "Platform",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lAHOB52Brc4BqAzNzhFsw7w",
+          "type": "ISSUE",
+          "source_id": "I_kwDOVgqCPs8AAAABb-Y53Q",
+          "source_repo": "Hybrismannen/Opal-Sense-I",
+          "source_number": 16,
+          "source_title": "[OSI] GitHub Projects — Editorial Command Centre",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Hybrismannen/Opal-Sense-I/issues/16",
+          "source_updated_at": "2026-11-02T22:47:17Z",
+          "fields": {
+            "Title": "[OSI] GitHub Projects — Editorial Command Centre",
+            "Priority": "P0",
+            "Desk": "Platform",
+            "Status": "Todo"
+          }
+        }
+      ]
+    },
+    {
+      "key": "politent",
+      "project_id": "PVT_kwDOE9niMs4BqAzQ",
+      "url": "https://github.com/orgs/Motherpher/projects/3",
+      "title": "Politent — Research, Models & Release",
+      "private": true,
+      "closed": false,
+      "owner_repo": "Motherpher/Politent",
+      "linked_repositories": [
+        {
+          "name": "Motherpher/Politent",
+          "private": false
+        }
+      ],
+      "views": [
+        {
+          "filter": null,
+          "id": "PVTV_lADOE9niMs4BqAzQzgMYf5g",
+          "layout": "BOARD_LAYOUT",
+          "name": "Research Workstreams",
+          "number": 1
+        },
+        {
+          "filter": "research-stream:\"Data & Sources\"",
+          "id": "PVTV_lADOE9niMs4BqAzQzgMYgr0",
+          "layout": "TABLE_LAYOUT",
+          "name": "Data & Sources",
+          "number": 2
+        },
+        {
+          "filter": "research-stream:\"Behavioural Models\"",
+          "id": "PVTV_lADOE9niMs4BqAzQzgMYgr4",
+          "layout": "TABLE_LAYOUT",
+          "name": "Behavioural Models",
+          "number": 3
+        },
+        {
+          "filter": "research-stream:\"Spatial & GIS\"",
+          "id": "PVTV_lADOE9niMs4BqAzQzgMYgr8",
+          "layout": "TABLE_LAYOUT",
+          "name": "Spatial & GIS",
+          "number": 4
+        },
+        {
+          "filter": "research-stream:\"Temporal Reconstruction\"",
+          "id": "PVTV_lADOE9niMs4BqAzQzgMYgsA",
+          "layout": "TABLE_LAYOUT",
+          "name": "Temporal & Backtesting",
+          "number": 5
+        },
+        {
+          "filter": "research-stream:\"Validation & Release\"",
+          "id": "PVTV_lADOE9niMs4BqAzQzgMYgsU",
+          "layout": "TABLE_LAYOUT",
+          "name": "Release & Assurance",
+          "number": 6
+        }
+      ],
+      "workflows": [
+        {
+          "enabled": true,
+          "name": "Item added to project"
+        },
+        {
+          "enabled": true,
+          "name": "Item closed"
+        },
+        {
+          "enabled": true,
+          "name": "Pull request linked to issue"
+        },
+        {
+          "enabled": true,
+          "name": "Pull request merged"
+        }
+      ],
+      "items_count": 18,
+      "classifications": {
+        "Data & Sources": 3,
+        "Spatial & GIS": 6,
+        "Behavioural Models": 5,
+        "Temporal Reconstruction": 2,
+        "Validation & Release": 2
+      },
+      "items": [
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzQzhFsxEw",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUz6EYs8AAAABUKZIpw",
+          "source_repo": "Motherpher/Politent",
+          "source_number": 3,
+          "source_title": "WP1.3 — Official election-result backbone",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/Politent/issues/3",
+          "source_updated_at": "2026-09-30T15:50:24Z",
+          "fields": {
+            "Title": "WP1.3 — Official election-result backbone",
+            "Status": "Todo",
+            "Research Stream": "Data & Sources"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzQzhFsxF0",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUz6EYs8AAAABUKZLZg",
+          "source_repo": "Motherpher/Politent",
+          "source_number": 4,
+          "source_title": "WP1.4 — Population/context and poststratification frame",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/Politent/issues/4",
+          "source_updated_at": "2026-10-01T18:47:55Z",
+          "fields": {
+            "Title": "WP1.4 — Population/context and poststratification frame",
+            "Research Stream": "Data & Sources",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzQzhFsxGQ",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUz6EYs8AAAABUKZNYA",
+          "source_repo": "Motherpher/Politent",
+          "source_number": 5,
+          "source_title": "WP1.5 — QGIS base implementation and QA",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/Politent/issues/5",
+          "source_updated_at": "2026-09-30T14:26:47Z",
+          "fields": {
+            "Title": "WP1.5 — QGIS base implementation and QA",
+            "Research Stream": "Spatial & GIS",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzQzhFsxGw",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUz6EYs8AAAABUKZPlA",
+          "source_repo": "Motherpher/Politent",
+          "source_number": 6,
+          "source_title": "WP2.1 — Survey corpus audit and harmonisation",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/Politent/issues/6",
+          "source_updated_at": "2026-09-30T14:26:49Z",
+          "fields": {
+            "Title": "WP2.1 — Survey corpus audit and harmonisation",
+            "Research Stream": "Behavioural Models",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzQzhFsxHg",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUz6EYs8AAAABUKZRUg",
+          "source_repo": "Motherpher/Politent",
+          "source_number": 7,
+          "source_title": "WP2.2 — Voter transition and volatility engine",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/Politent/issues/7",
+          "source_updated_at": "2026-09-30T14:26:51Z",
+          "fields": {
+            "Title": "WP2.2 — Voter transition and volatility engine",
+            "Research Stream": "Behavioural Models",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzQzhFsxI0",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUz6EYs8AAAABUKZS7A",
+          "source_repo": "Motherpher/Politent",
+          "source_number": 8,
+          "source_title": "WP2.3 — PTV, consideration-set and two-hurdle engine",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/Politent/issues/8",
+          "source_updated_at": "2026-09-30T14:26:53Z",
+          "fields": {
+            "Title": "WP2.3 — PTV, consideration-set and two-hurdle engine",
+            "Research Stream": "Behavioural Models",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzQzhFsxJs",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUz6EYs8AAAABUKZUow",
+          "source_repo": "Motherpher/Politent",
+          "source_number": 9,
+          "source_title": "WP2.4 — Partisan attachment and latent-state comparison",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/Politent/issues/9",
+          "source_updated_at": "2026-09-30T14:26:55Z",
+          "fields": {
+            "Title": "WP2.4 — Partisan attachment and latent-state comparison",
+            "Research Stream": "Behavioural Models",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzQzhFsxKU",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUz6EYs8AAAABUKZWOw",
+          "source_repo": "Motherpher/Politent",
+          "source_number": 10,
+          "source_title": "WP2.5 — Behavioural synthesis and validation",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/Politent/issues/10",
+          "source_updated_at": "2026-09-30T14:26:57Z",
+          "fields": {
+            "Title": "WP2.5 — Behavioural synthesis and validation",
+            "Research Stream": "Behavioural Models",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzQzhFsxLA",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUz6EYs8AAAABUKZX7w",
+          "source_repo": "Motherpher/Politent",
+          "source_number": 11,
+          "source_title": "WP3.1 — MRP and small-area estimation engine",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/Politent/issues/11",
+          "source_updated_at": "2026-09-30T14:26:59Z",
+          "fields": {
+            "Title": "WP3.1 — MRP and small-area estimation engine",
+            "Research Stream": "Spatial & GIS",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzQzhFsxMA",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUz6EYs8AAAABUKZZ5A",
+          "source_repo": "Motherpher/Politent",
+          "source_number": 12,
+          "source_title": "WP3.2 — Spatial weights and exploratory spatial statistics",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/Politent/issues/12",
+          "source_updated_at": "2026-09-30T14:27:01Z",
+          "fields": {
+            "Title": "WP3.2 — Spatial weights and exploratory spatial statistics",
+            "Research Stream": "Spatial & GIS",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzQzhFsxNA",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUz6EYs8AAAABUKZcIA",
+          "source_repo": "Motherpher/Politent",
+          "source_number": 13,
+          "source_title": "WP3.3 — Ideology and issue layers",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/Politent/issues/13",
+          "source_updated_at": "2026-09-30T14:27:03Z",
+          "fields": {
+            "Title": "WP3.3 — Ideology and issue layers",
+            "Research Stream": "Spatial & GIS",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzQzhFsxN0",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUz6EYs8AAAABUKZd5w",
+          "source_repo": "Motherpher/Politent",
+          "source_number": 14,
+          "source_title": "WP3.4 — Politent Political Terrain and functional fields",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/Politent/issues/14",
+          "source_updated_at": "2026-09-30T14:27:05Z",
+          "fields": {
+            "Title": "WP3.4 — Politent Political Terrain and functional fields",
+            "Research Stream": "Spatial & GIS",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzQzhFsxOc",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUz6EYs8AAAABUKZfxA",
+          "source_repo": "Motherpher/Politent",
+          "source_number": 15,
+          "source_title": "WP3.5 — MAUP, spatial robustness and cross-scale validation",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/Politent/issues/15",
+          "source_updated_at": "2026-09-30T14:27:07Z",
+          "fields": {
+            "Title": "WP3.5 — MAUP, spatial robustness and cross-scale validation",
+            "Research Stream": "Spatial & GIS",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzQzhFsxPk",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUz6EYs8AAAABUKZhcQ",
+          "source_repo": "Motherpher/Politent",
+          "source_number": 16,
+          "source_title": "WP4.1 — 2026 source completion and incremental ingest",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/Politent/issues/16",
+          "source_updated_at": "2026-09-30T14:27:09Z",
+          "fields": {
+            "Title": "WP4.1 — 2026 source completion and incremental ingest",
+            "Research Stream": "Data & Sources",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzQzhFsxV4",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUz6EYs8AAAABUKZi-Q",
+          "source_repo": "Motherpher/Politent",
+          "source_number": 17,
+          "source_title": "WP4.2 — Historical spatiotemporal reconstruction",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/Politent/issues/17",
+          "source_updated_at": "2026-09-30T14:27:11Z",
+          "fields": {
+            "Title": "WP4.2 — Historical spatiotemporal reconstruction",
+            "Research Stream": "Temporal Reconstruction",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzQzhFsxXQ",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUz6EYs8AAAABUKZkkg",
+          "source_repo": "Motherpher/Politent",
+          "source_number": 18,
+          "source_title": "WP4.3 — Historical back-test and hypothesis programme",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/Politent/issues/18",
+          "source_updated_at": "2026-09-30T14:27:13Z",
+          "fields": {
+            "Title": "WP4.3 — Historical back-test and hypothesis programme",
+            "Research Stream": "Temporal Reconstruction",
+            "Status": "Todo"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzQzhFsxX8",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUz6EYs8AAAABUKZmaw",
+          "source_repo": "Motherpher/Politent",
+          "source_number": 19,
+          "source_title": "WP4.4 — Production QGIS package, automation and exports",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/Politent/issues/19",
+          "source_updated_at": "2026-09-30T14:27:15Z",
+          "fields": {
+            "Title": "WP4.4 — Production QGIS package, automation and exports",
+            "Status": "Todo",
+            "Research Stream": "Validation & Release"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzQzhFsxYk",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUz6EYs8AAAABUKZowQ",
+          "source_repo": "Motherpher/Politent",
+          "source_number": 20,
+          "source_title": "WP4.5 — Release audit, documentation and Politent 3.0 handoff",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/Politent/issues/20",
+          "source_updated_at": "2026-09-30T14:27:17Z",
+          "fields": {
+            "Title": "WP4.5 — Release audit, documentation and Politent 3.0 handoff",
+            "Research Stream": "Validation & Release",
+            "Status": "Todo"
+          }
+        }
+      ]
+    },
+    {
+      "key": "career",
+      "project_id": "PVT_kwDOE9niMs4BqAzR",
+      "url": "https://github.com/orgs/Motherpher/projects/4",
+      "title": "CareerHub — Product & Profile Fleet",
+      "private": true,
+      "closed": false,
+      "owner_repo": "Motherpher/CareerHubZero",
+      "linked_repositories": [
+        {
+          "name": "Motherpher/CareerHubZero",
+          "private": false
+        }
+      ],
+      "views": [
+        {
+          "filter": null,
+          "id": "PVTV_lADOE9niMs4BqAzRzgMYf5k",
+          "layout": "BOARD_LAYOUT",
+          "name": "Product Board",
+          "number": 1
+        },
+        {
+          "filter": "product-lane:\"Core Engine\"",
+          "id": "PVTV_lADOE9niMs4BqAzRzgMYgs4",
+          "layout": "TABLE_LAYOUT",
+          "name": "Core Engine",
+          "number": 2
+        },
+        {
+          "filter": "product-lane:\"Search & Geography\"",
+          "id": "PVTV_lADOE9niMs4BqAzRzgMYgs8",
+          "layout": "TABLE_LAYOUT",
+          "name": "Search & Geography",
+          "number": 3
+        },
+        {
+          "filter": "product-lane:\"Analysis & HRDM\"",
+          "id": "PVTV_lADOE9niMs4BqAzRzgMYgtA",
+          "layout": "TABLE_LAYOUT",
+          "name": "Analysis & HRDM",
+          "number": 4
+        },
+        {
+          "filter": "product-lane:\"Profiles & UX\"",
+          "id": "PVTV_lADOE9niMs4BqAzRzgMYgtI",
+          "layout": "TABLE_LAYOUT",
+          "name": "Profiles & UX",
+          "number": 5
+        },
+        {
+          "filter": "product-lane:\"Help & Release\"",
+          "id": "PVTV_lADOE9niMs4BqAzRzgMYgtM",
+          "layout": "TABLE_LAYOUT",
+          "name": "Release Readiness",
+          "number": 6
+        }
+      ],
+      "workflows": [
+        {
+          "enabled": true,
+          "name": "Item closed"
+        },
+        {
+          "enabled": true,
+          "name": "Pull request merged"
+        }
+      ],
+      "items_count": 13,
+      "classifications": {
+        "Core Engine": 3,
+        "Help & Release": 2,
+        "Search & Geography": 2,
+        "Analysis & HRDM": 2,
+        "Applications & Outcomes": 1,
+        "Profiles & UX": 3
+      },
+      "items": [
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzRzhFsxhE",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUn4rpM8AAAABS0dFRw",
+          "source_repo": "Motherpher/CareerHubZero",
+          "source_number": 1,
+          "source_title": "WP01 — Collapse Runtime to One CareerHub Body",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/CareerHubZero/issues/1",
+          "source_updated_at": "2026-09-24T23:39:21Z",
+          "fields": {
+            "Title": "WP01 — Collapse Runtime to One CareerHub Body",
+            "Product Lane": "Core Engine"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzRzhFsxik",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUn4rpM8AAAABS3p_Kg",
+          "source_repo": "Motherpher/CareerHubZero",
+          "source_number": 14,
+          "source_title": "WP10 — Contract, Audit and Lock CareerHub 1.0",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/CareerHubZero/issues/14",
+          "source_updated_at": "2026-09-25T00:56:23Z",
+          "fields": {
+            "Title": "WP10 — Contract, Audit and Lock CareerHub 1.0",
+            "Product Lane": "Help & Release"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzRzhFsxjk",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUn4rpM8AAAABTDNB0w",
+          "source_repo": "Motherpher/CareerHubZero",
+          "source_number": 15,
+          "source_title": "WP06 — Unify Geography: one geo object, global map, country adapters",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/CareerHubZero/issues/15",
+          "source_updated_at": "2026-09-25T00:56:20Z",
+          "fields": {
+            "Title": "WP06 — Unify Geography: one geo object, global map, country adapters",
+            "Product Lane": "Search & Geography"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzRzhFsxkY",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUn4rpM8AAAABTD0Jww",
+          "source_repo": "Motherpher/CareerHubZero",
+          "source_number": 16,
+          "source_title": "WP04 — Unify the Search Kernel: evidence → hypotheses → source queries",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/CareerHubZero/issues/16",
+          "source_updated_at": "2026-09-24T23:39:26Z",
+          "fields": {
+            "Title": "WP04 — Unify the Search Kernel: evidence → hypotheses → source queries",
+            "Product Lane": "Search & Geography"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzRzhFsxlk",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUn4rpM8AAAABTD0LOQ",
+          "source_repo": "Motherpher/CareerHubZero",
+          "source_number": 17,
+          "source_title": "WP05 — Career Learning Loop: outcomes update hypotheses, never candidate truth",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/CareerHubZero/issues/17",
+          "source_updated_at": "2026-09-24T23:39:28Z",
+          "fields": {
+            "Title": "WP05 — Career Learning Loop: outcomes update hypotheses, never candidate truth",
+            "Product Lane": "Core Engine"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzRzhFsxmo",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUn4rpM8AAAABTD0M2A",
+          "source_repo": "Motherpher/CareerHubZero",
+          "source_number": 18,
+          "source_title": "WP07 — Canonical HRDM: one full v6.3 path, Hybridianesque, ledger and report lifecycle",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/CareerHubZero/issues/18",
+          "source_updated_at": "2026-09-24T23:39:32Z",
+          "fields": {
+            "Title": "WP07 — Canonical HRDM: one full v6.3 path, Hybridianesque, ledger and report lifecycle",
+            "Product Lane": "Analysis & HRDM"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzRzhFsxns",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUn4rpM8AAAABTD0N2Q",
+          "source_repo": "Motherpher/CareerHubZero",
+          "source_number": 19,
+          "source_title": "WP08 — One Application & Outcome State Machine",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/CareerHubZero/issues/19",
+          "source_updated_at": "2026-09-24T23:39:34Z",
+          "fields": {
+            "Title": "WP08 — One Application & Outcome State Machine",
+            "Product Lane": "Applications & Outcomes"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzRzhFsxo8",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUn4rpM8AAAABTD0PIg",
+          "source_repo": "Motherpher/CareerHubZero",
+          "source_number": 20,
+          "source_title": "WP09 — One Hub Surface: Find → Analyse? → Apply",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/CareerHubZero/issues/20",
+          "source_updated_at": "2026-09-24T23:39:36Z",
+          "fields": {
+            "Title": "WP09 — One Hub Surface: Find → Analyse? → Apply",
+            "Product Lane": "Profiles & UX"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzRzhFsxqM",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUn4rpM8AAAABVWD8Cw",
+          "source_repo": "Motherpher/CareerHubZero",
+          "source_number": 38,
+          "source_title": "WP-CHM-UX-01 — Motor Interaction Clarity & Guidance",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/CareerHubZero/issues/38",
+          "source_updated_at": "2026-10-06T11:11:22Z",
+          "fields": {
+            "Title": "WP-CHM-UX-01 — Motor Interaction Clarity & Guidance",
+            "Product Lane": "Profiles & UX"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzRzhFsxq4",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUn4rpM8AAAABVWIzgg",
+          "source_repo": "Motherpher/CareerHubZero",
+          "source_number": 39,
+          "source_title": "WP-CHM-OPS-02 — Restore HRDM-R Results, Auto-Hybridianesque, Search Delta & Wish Routing",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/CareerHubZero/issues/39",
+          "source_updated_at": "2026-10-06T11:17:45Z",
+          "fields": {
+            "Title": "WP-CHM-OPS-02 — Restore HRDM-R Results, Auto-Hybridianesque, Search Delta & Wish Routing",
+            "Product Lane": "Analysis & HRDM"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzRzhFsxrk",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUn4rpM8AAAABVeZktA",
+          "source_repo": "Motherpher/CareerHubZero",
+          "source_number": 41,
+          "source_title": "WP40 — CareerHub Reset, Background Execution & Search/Library Usability",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/CareerHubZero/issues/41",
+          "source_updated_at": "2026-10-07T11:43:40Z",
+          "fields": {
+            "Title": "WP40 — CareerHub Reset, Background Execution & Search/Library Usability",
+            "Product Lane": "Core Engine"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzRzhFsxsQ",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUn4rpM8AAAABVe16yw",
+          "source_repo": "Motherpher/CareerHubZero",
+          "source_number": 43,
+          "source_title": "Personalisation: add first-class profile-owned visual layer beyond theme tokens",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/CareerHubZero/issues/43",
+          "source_updated_at": "2026-10-06T23:25:27Z",
+          "fields": {
+            "Title": "Personalisation: add first-class profile-owned visual layer beyond theme tokens",
+            "Product Lane": "Profiles & UX"
+          }
+        },
+        {
+          "project_item_id": "PVTI_lADOE9niMs4BqAzRzhFsxs0",
+          "type": "ISSUE",
+          "source_id": "I_kwDOUn4rpM8AAAABVj51kQ",
+          "source_repo": "Motherpher/CareerHubZero",
+          "source_number": 53,
+          "source_title": "WP40.4 — Help, Fleet Hardening, Release Audit & WP40 Lock",
+          "source_state": "OPEN",
+          "source_url": "https://github.com/Motherpher/CareerHubZero/issues/53",
+          "source_updated_at": "2026-10-07T11:43:28Z",
+          "fields": {
+            "Title": "WP40.4 — Help, Fleet Hardening, Release Audit & WP40 Lock",
+            "Product Lane": "Help & Release"
+          }
+        }
+      ]
+    }
+  ]
+}
