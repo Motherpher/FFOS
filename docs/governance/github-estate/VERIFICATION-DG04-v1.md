@@ -8,7 +8,7 @@
 
 - Repository snapshots (authenticated REST) for **31 accessible** repos across Hybrismannen/Motherpher, stored as private dated JSON.
 - Owner-aware Tier A/B/C/D adoption register, **31 entries**, with source authority, privacy and nonactivation guardrails.
-- **13 selected existing** source Issues manually added to private Motherpher Project #2, expanding total linked Project items to **22** from **12 distinct repositories**.
+- **13 selected existing** source Issues manually added to private Motherpher Project #2, expanding total linked Project items to **22** from **12 distinct repositories**; exact mappings and source rationale are retained in [D25 Project Adoption Ledger](PROJECT-ADOPTION-LEDGER-v1.md).
 - Native work-item IDs and Issue URLs preserved; sources remain open, not duplicated or closed.
 - Project classifications: Programme, Work Stage, Work Type, source IDs, selected source-given priorities/dependencies. No invented Director approval or production effect.
 - Two additional selective Project views: Products & Platforms and Research & Delivery (filter behaviour to be separately validated).
