@@ -16,7 +16,7 @@
 | WP04 element | Working object | Exact status |
 |---|---|---|
 | 04.01 Adoption register | [MD](ADOPTION-REGISTER-v1.md) and [JSON](data/estate-adoption-register-v1.json) | 31/31 accessible repositories inventoried and classified; maintainers not individually approved |
-| 04.02 Project intake | [Live Project](https://github.com/orgs/Motherpher/projects/2), [snapshot](data/portfolio-snapshot-2026-11-03.json) | 13 additional existing Issues linked, 22 total; no source Issue closure |
+| 04.02 Project intake | [Live Project](https://github.com/orgs/Motherpher/projects/2), [D25 native issue ledger](PROJECT-ADOPTION-LEDGER-v1.md), [snapshot](data/portfolio-snapshot-2026-11-03.json) | 13 additional existing Issues linked, 22 total; no source Issue closure |
 | 04.03 Reusable configuration | [Standard](CONFIGURATION-STANDARD.md), [templates](templates/) | Version-controlled candidates; no mass deployment to other repos |
 | 04.04 Controlled automation | [Contract](PROJECT-SYNCHRONISATION-CONTRACT-v1.md), [script](../../../tools/estate/reconcile.py), [tests](../../../tests/test_estate_reconcile.py) | Read-only offline integrity checks; no live recurring worker or credentials |
 | 04.05 FFOS/CDX integration | [Proposed spec](FFOS-CDX-INTEGRATION-SPEC-v1.md) | Design only; not CDX runtime-bound |
