@@ -1,7 +1,7 @@
 # FFOS Operator Manual — source-linked practical guide v1.0
 
 **Guide ID:** FF-GH-WP03-D20 · **Audience:** Human Director; authorised FFOS operator; repository maintainer; reviewer  
-**Status:** WP03 review candidate — **not** a production-runbook certification.  
+**Status:** DG-03 bounded documentation pilot accepted ([Director decision](https://github.com/Motherpher/FFOS/issues/45#issuecomment-6599403434)); independently observed operator usability and production-runbook certification remain **NOT VERIFIED**.  
 **Reconciled:** 2026-11-03 against FFOS current `main` source files.  
 **Authority:** This is an **interpretive guide**. Canonical architecture is [FFOS README](../../README.md), [Authority Topology](../architecture/FFOS-ESTATE-AUTHORITY-TOPOLOGY.md), [Object Model](../specifications/OBJECT-MODEL.md) and [AMA source](../../agent-stable/ama/README.md).  
 **Access:** FFOS private repository. Never insert credentials or personal data into an Issue, Project or example.
@@ -247,4 +247,4 @@ The point is to preserve the complete line from intent through evidence and acce
 - [CDX runtime blocker](https://github.com/Hybrismannen/Conductellence-/issues/7) · [DG-02 portfolio acceptance](https://github.com/Motherpher/FFOS/issues/43).
 - [GitHub documentation standard](../governance/github-documentation/WP03-DOCUMENTATION-TAXONOMY-AND-PROVENANCE-v1.0.md).
 
-**Change control:** Update this guide through a reviewed Pull Request when its source contracts, operational status or steps change. The Operator Manual is **not** a general warrant for autonomous execution, and cannot override a source contract. **DG-03 review required before representing this candidate as an accepted guide.**
+**Change control:** Update this guide through a reviewed Pull Request when its source contracts, operational status or steps change. The Operator Manual is **not** a general warrant for autonomous execution, and cannot override a source contract. **DG-03 accepted this bounded interpretive guide, with documented validation limitations.** It is not a certified runtime operating procedure or a substitute for the canonical source.
