@@ -18,7 +18,7 @@ Provide a small, reusable GitHub operating grammar for the estate, without rewri
 
 ## 3. Reusable configuration assets
 
-Staged templates are in [templates](templates/), deliberately **not** in `.github/`. Applying a template to any repository requires a separate local reviewed PR.
+Reusable master templates are in [templates](templates/). The present **FFOS-only local implementation candidate** additionally stages copies at `.github/ISSUE_TEMPLATE/estate-work-package.yml`, `.github/ISSUE_TEMPLATE/estate-governance-decision.yml` and `.github/PULL_REQUEST_TEMPLATE.md` on [WP04 draft PR #47](https://github.com/Motherpher/FFOS/pull/47). These will only become active if their local PR is merged after acceptance; no templates have been installed in other repositories. Further adoption requires separate owner-reviewed PRs.
 
 1. [Work-package Issue Form](templates/ISSUE_FORM_WORKPACKAGE.yml): objective, source, scope, dependencies, output, acceptance and evidence.
 2. [Director / governance decision Issue Form](templates/ISSUE_FORM_GOVERNANCE.yml): mandate, authority, effect, risks, decision and proof.
