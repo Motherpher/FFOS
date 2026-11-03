@@ -54,3 +54,12 @@ FFOS and UDL Twin are private repositories, and GitHub native Wikis are unavaila
 A DG-03 acceptance must explicitly state what it accepts, identify any deferred tasks, and identify whether PR merge is authorised. **WP04 SHALL NOT START** from this document alone.
 
 **Decision:** PENDING.
+
+## 6. Submitted PR and source attestation (2026-11-03)
+
+- **FFOS:** [PR #44](https://github.com/Motherpher/FFOS/pull/44) — `docs/wp03-estate-operator-guide-20261103` → `main`; initial review HEAD `e975a93e8d7d80d5ca2463a40a90a8c83a2acc35`, base SHA `76374e2a45f4195ffc443df7ba716eb8284acaeb`; **7 changed files**; GitHub reported mergeable at inspection.
+- **UDL Twin:** [PR #26](https://github.com/Hybrismannen/udl-twin/pull/26) — `docs/wp03-udl-user-guide-20261103` → `main`; initial review HEAD `4ff3dcda3ba9b7bb942530a4ab896e64e8be80ef`, base SHA `438be5505f4169f80671dce9e64e9ea047511875`; **4 changed files**; reported mergeable at inspection.
+- **Source link test:** 30 distinct relative path targets resolved against the two exact source branches through GitHub GraphQL `repository.object(expression: branch:path)`. This validates target existence, not anchor rendering, runtime behaviour, or permissions of a distinct user.
+- **CI:** Head commit check-runs endpoint returned **0 visible checks** in both repositories at inspection; **NO CI PASS IS CLAIMED**. Recheck when any CI runs complete.
+- **Review:** PRs are unmerged. Documentation source/PR head must be rechecked immediately before DG-03 acceptance and merge.
+- **Director gate:** [DG-03 Issue #45](https://github.com/Motherpher/FFOS/issues/45) is open, awaiting explicit acceptance decision.
