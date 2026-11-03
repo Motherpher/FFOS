@@ -4,13 +4,13 @@
 
 ## Overview
 
-| Metric | Observed value
-| ---|---:
-| Linked Project Items | 22
-| Distinct linked source repositories | 12
-| GitHub owners in portfolio | 2
-| Open source Issues | 22
-| Source Issues in other states | 0
+| Metric | Observed value |
+|---|---:|
+| Linked Project Items | 22 |
+| Distinct linked source repositories | 12 |
+| GitHub owners in portfolio | 2 |
+| Open source Issues | 22 |
+| Source Issues in other states | 0 |
 
 **Important:** These 22 Project items were **selectively** linked, not imported as all current Issues or all active work. Source Issue OPEN/CLOSED and Project Work Stage do not establish technical completion or Director acceptance.
 
@@ -43,6 +43,22 @@
 | Require Human | 2 |
 | Approved (Source Recorded) | 2 |
 | Not Required | 1 |
+
+## Evidence and operating flow (not an authority hierarchy)
+
+```mermaid
+flowchart LR
+    SRC["31 accessible source repositories"] --> ISS["Native Issues / PRs"]
+    ISS --> PROJ["Private Estate Portfolio · 22 linked Issues"]
+    PROJ --> V["10 native Project views"]
+    PROJ --> SNAP["Dated GraphQL snapshot"]
+    SNAP --> QA["Offline reconciliation / unit tests"]
+    QA --> DGA["DG-04 assurance — HOLD"]
+    DEC["Actual Director source decisions"] -. "verified source references" .-> PROJ
+    DGA -. "requires separate Director acceptance" .-> DEC
+```
+
+**Actual operations:** source links, private Project, saved views, manual issue intake and offline snapshot validation. **Not implemented:** automatic cross-owner write synchronisation, self-acceptance, runtime policy enforcement or live performance telemetry.
 
 ## Risk/Decision queue — operational use
 
