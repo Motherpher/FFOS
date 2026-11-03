@@ -4,7 +4,7 @@ FFOS is the central operating shell for Form & Flöde. It coordinates work acros
 
 ## Start here — operating FFOS
 
-- **[GitHub Estate Operations — WP04](docs/governance/github-estate/README.md)** — private source-backed estate register, portfolio, dashboard, operating standard and DG-04 review (implementation candidate; not accepted or runtime-bound).
+- **[GitHub Estate Operations — WP04](docs/governance/github-estate/README.md)** — private source-backed estate register, Project, dashboard and operating standard. Bounded WP04 documentation/offline-assurance merge verified; **DG-04 final acceptance remains HOLD** and runtime integration is not certified.
 
 - **[FFOS Operator Manual](docs/operator/README.md)** — practical Director and authorised-operator guide (DG-03 bounded pilot accepted; independent signed-in usability test pending; not a runtime certification).
 - **[Source-linked manual](docs/operator/FFOS-OPERATOR-MANUAL-v1.0.md)** — work packages, status, evidence, approvals, escalation and troubleshooting.
