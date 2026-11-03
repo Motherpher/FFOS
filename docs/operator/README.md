@@ -1,6 +1,6 @@
 # FFOS — Operator documentation
 
-**Guide class:** Interpretive, source-linked operator handbook. **Status:** WP03 review candidate — not an authorisation or certification of live production functionality.  
+**Guide class:** Interpretive, source-linked operator handbook. **Status:** DG-03 bounded pilot accepted on 2026-11-03 ([decision](https://github.com/Motherpher/FFOS/issues/45#issuecomment-6599403434)); independent operator usability tests pending. Not an authorisation or certification of live production functionality.  
 **Last source reconciliation:** 2026-11-03. **Work package:** FF-GH-WP03.
 
 ## Choose your route
