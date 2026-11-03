@@ -26,9 +26,10 @@
 | N01 — complete audited population | 31/31 authenticated `main` tree reads, none truncated | **PASS (scope-limited)** |
 | N02 — source guide path presence | D01 register captures root and preferred guides with source tree SHA | **PASS for inventory**, not user usability |
 | N03 — primary README remediation | 2 no-README repositories have drafted first entry PRs | **PARTIAL** — not merged/owner-accepted |
-| N04 — current authoritative status drift | FFOS 6 focused files edited on review branch; source acceptance retained | **PARTIAL** — merge/read-back pending |
+| N04 — current authoritative status drift | FFOS 6 focused files edited on [PR #49](https://github.com/Motherpher/FFOS/pull/49); source acceptance retained | **PARTIAL** — merge/read-back pending |
 | N05 — local guide navigation PRs | Six source-local PRs open, file lists bounded to READMEs/one guide | **PASS for PR staging**, **HOLD for merge** |
 | N06 — local relative-link targets | 47 relative targets at six exact source PR HEAD trees, zero unresolved | **PASS (path level)** |
+| N06b — central FFOS navigation paths | 71 relative link occurrences, 31 distinct path targets on first audited PR HEAD, zero missing | **PASS at inspected revision**; recheck at final HEAD |
 | N07 — owner access and rights | Source repo read/write branch possible; different nonprivileged roles not tested | **PARTIAL / NOT TESTED** |
 | N08 — run-time user tasks | F-1/F-2 and U-1/U-2, new CareerHub flow, Opal Wiki readers | **NOT TESTED** |
 | N09 — documentation provenance | D03 source-owner/change triggers/status vocabulary; no canon changes | **PASS for draft design**, owner adoption pending |
