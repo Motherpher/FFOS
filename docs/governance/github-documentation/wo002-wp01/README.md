@@ -13,6 +13,7 @@ The goal is not to force 31 Wikis or Projects. It is to make the **existing syst
 | Actual FFOS operator procedure | [FFOS Operator Manual](../../../operator/FFOS-OPERATOR-MANUAL-v1.0.md) |
 | 31-repository navigation audit | [D01 estate register](ESTATE-NAVIGATION-REGISTER-v1.md) |
 | Source/governance/guide precedence | [D03 maintenance standard](DOCUMENTATION-PROVENANCE-AND-MAINTENANCE-v1.md) |
+| Source-owned change ledger and PR links | [D02 local documentation ledger](D02-DOCUMENTATION-CHANGE-LEDGER-v1.md) |
 | Review and unverified work | [D04 verification and discrepancy record](D04-VERIFICATION-AND-DG01-GATE-v1.md) |
 
 ## Main practical user guides (current sources)
