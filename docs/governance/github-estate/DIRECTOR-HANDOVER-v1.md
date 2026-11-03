@@ -7,7 +7,8 @@
 
 - [Motherpher Estate Portfolio #2](https://github.com/orgs/Motherpher/projects/2) — **private** interactive GitHub Project with **22 selected linked native Issues**, including 13 additions under WP04, across 12 actual repositories. This is a work-planning projection, not a canonical system.
 - [Estate Adoption Register](ADOPTION-REGISTER-v1.md) — all **31 accessible** repositories, with explicit Tier A/B/C/D, visibility and feature suitability; not every registered repository is active in the Project.
-- [Estate Dashboard](ESTATE-DASHBOARD.md) — source-backed point-in-time reporting, Project fields and Director/risk queues.
+- [Estate Dashboard](ESTATE-DASHBOARD.md)
+- [D25 Project Adoption Ledger](PROJECT-ADOPTION-LEDGER-v1.md) — exact 13 newly linked source Issues and controls. — source-backed point-in-time reporting, Project fields and Director/risk queues.
 - [Repository metadata snapshots](data/) — dated REST metadata, private Project fields, and adoption classifications.
 - [Configuration standard](CONFIGURATION-STANDARD.md) and [templates](templates/) — optional reusable forms, not imposed across the estate.
 - [Sync contract](PROJECT-SYNCHRONISATION-CONTRACT-v1.md) and [FFOS/CDX proposed integration](FFOS-CDX-INTEGRATION-SPEC-v1.md) — rigorous lifecycle and effect-gate boundaries.
