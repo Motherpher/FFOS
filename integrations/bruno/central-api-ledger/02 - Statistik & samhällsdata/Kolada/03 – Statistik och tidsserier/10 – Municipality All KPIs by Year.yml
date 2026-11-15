@@ -5,7 +5,7 @@ info:
 
 http:
   method: GET
-  url: "{{kolada_base_url}}/data/municipality/{{municipality_id}}/year/{{year}}?page=1&per_page=1"
+  url: "{{kolada_base_url}}/data/municipality/{{municipality_id}}/year/{{year}}?page=1&per_page=100"
   params:
     - name: from_date
       value: 2025-01-01
@@ -15,7 +15,7 @@ http:
       value: "1"
       type: query
     - name: per_page
-      value: "1"
+      value: "100"
       type: query
   auth: inherit
 

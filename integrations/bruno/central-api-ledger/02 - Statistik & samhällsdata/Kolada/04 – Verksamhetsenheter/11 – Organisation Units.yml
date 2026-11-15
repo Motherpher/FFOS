@@ -10,6 +10,7 @@ http:
     - name: title
       value: ""
       type: query
+      disabled: true
     - name: page
       value: "1"
       type: query

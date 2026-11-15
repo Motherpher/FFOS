@@ -8,7 +8,7 @@ http:
   url: https://apiafr.scb.se/v1/juridiskaenheter/count
   headers:
     - name: X-API-Key
-      value: ""
+      value: "{{scb_afr_api_key}}"
   auth: inherit
 
 settings:
