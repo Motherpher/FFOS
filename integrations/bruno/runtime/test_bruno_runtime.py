@@ -9,10 +9,11 @@ class ContractTests(unittest.TestCase):
         t=tempfile.TemporaryDirectory()
         self.addCleanup(t.cleanup)
         self.root=Path(t.name)
-        req=self.root/"request.bru"
+        (self.root/"opencollection.yml").write_text("opencollection: 1.0.0\ninfo:\n  name: Test\n",encoding="utf-8")
+        req=self.root/"request.yml"
         req.write_text("meta {\n name: Example\n}\n",encoding="utf-8")
         self.cfg={"collection_root":str(self.root),"operations":{"kolada.municipality.lookup":{
-            "request":"request.bru","sha256":hashlib.sha256(req.read_bytes()).hexdigest(),
+            "request":"request.yml","sha256":hashlib.sha256(req.read_bytes()).hexdigest(),
             "environment":"Development","allowed_parameters":{"municipality_id":"[0-9]{4}"}}}}
         self.job={"job_id":"ffos-municipality-001","operation_id":"kolada.municipality.lookup",
                   "parameters":{"municipality_id":"0380"}}
@@ -28,11 +29,14 @@ class ContractTests(unittest.TestCase):
         self.job["parameters"]["municipality_id"]="0380;rm"
         with self.assertRaises(ValueError): run(self.cfg,self.job)
     def test_reject_changed_request(self):
-        (self.root/"request.bru").write_text("changed",encoding="utf-8")
+        (self.root/"request.yml").write_text("changed",encoding="utf-8")
         with self.assertRaises(ValueError): run(self.cfg,self.job)
     def test_reject_path_outside_collection(self):
-        self.cfg["operations"]["kolada.municipality.lookup"]["request"]="../missing.bru"
+        self.cfg["operations"]["kolada.municipality.lookup"]["request"]="../missing.yml"
         with self.assertRaises((ValueError,FileNotFoundError)): run(self.cfg,self.job)
+    def test_missing_collection_marker(self):
+        (self.root/"opencollection.yml").unlink()
+        with self.assertRaises(ValueError): run(self.cfg,self.job)
     def test_mock_execution_receipt(self):
         fake=self.root/"mockbru"
         fake.write_text("#!/usr/bin/env python3\nimport sys,json,pathlib\na=sys.argv\npathlib.Path(a[a.index('--reporter-json')+1]).write_text(json.dumps({'results': []}))\n",encoding="utf-8")
