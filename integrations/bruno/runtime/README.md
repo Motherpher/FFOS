@@ -88,3 +88,30 @@ bru run -h | head -80
 ```
 
 Do **not** paste request/environment YAML contents: those may contain live tokens or personally identifying data. Review safely on Mac before hash approval. No live API execution or export is claimed.
+
+## Verified local inventory / first executable pilot (2026-11-16)
+
+**Director-provided terminal evidence:** CLI `/Users/linusfast/.local/bin/bru` version `4.3.0`; OpenCollection root `/Users/linusfast/Documents/bruno/Central API Ledger`. Bruno CLI supports `--env`, `--env-var`, `--reporter-json`, `--reporter-skip-all-headers`, `--reporter-skip-body`, and `--bail`. Existing Kolada municipality lookup is:
+
+```text
+02 - Statistik & samhällsdata/02.02 - Kolada/01 – Geografiska enheter/02 - Municipality Lookup.yml
+```
+
+No real HTTP request, request-body review, or secrets inspection has yet been performed. Use *this pre-agent manual pilot* only after confirming it is GET/read-only and that all inherited folder/collection scripts are safe:
+
+```bash
+cd "$HOME/Documents/bruno/Central API Ledger"
+bru run '02 - Statistik & samhällsdata/02.02 - Kolada/01 – Geografiska enheter/02 - Municipality Lookup.yml' \\
+  --env Development --env-var municipality_id=0380 \\
+  --reporter-skip-all-headers --reporter-skip-body --bail
+```
+
+Only share the request's name, HTTP status and any nonsecret error summary; do not share credentials, authorization headers or private environment values. Verify that the returned record represents Uppsala (0380). The manual `bru run` check does not yet prove that the FFOS adapter is wired into the Mac execution path.
+
+To pin the exact existing request for FFOS adapter integration, compute the hash locally:
+
+```bash
+shasum -a 256 '02 - Statistik & samhällsdata/02.02 - Kolada/01 – Geografiska enheter/02 - Municipality Lookup.yml'
+```
+
+Store its hash in the local approved operation config and run the adapter's dry-run first. A later independent test must validate the live reporter schema, not merely CLI return code.
