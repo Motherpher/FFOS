@@ -49,10 +49,10 @@ export function assessAssetReuse(
   if (!/^[a-f0-9]{64}$/.test(candidate.contentSha256) || candidate.qaStatus !== "PASS") {
     return { disposition: "BLOCKED", candidateAssetVersionId: candidate.assetVersionId, reasons: ["UNVERIFIED_ASSET"] };
   }
-  const required: (keyof DataAssetRequirement)[] = [
+  const required = [
     "kind","schemaRef","populationDefinition","geographyType",
     "geographyId","geographyVintage","observationPeriod",
-  ];
+  ] as const;
   const mismatches = required.filter(k => candidate[k] !== request[k]).map(k => `MISMATCH_${k}`);
   if (mismatches.length) {
     return { disposition: "NEW_SOURCE_REQUIRED", candidateAssetVersionId: candidate.assetVersionId, reasons: mismatches };
