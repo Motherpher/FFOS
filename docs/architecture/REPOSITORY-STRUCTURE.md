@@ -63,6 +63,10 @@ MESSI receives a module only when implementation work actually begins.
 - `docs/research/` — evidence and research.
 - `docs/governance/` — FFOS-local governance bindings.
 
+## Proposed data-asset/work-order governance — non-canonical pointer
+
+See [Asset-first Work Orders v0.1](../specifications/ASSET-FIRST-WORKORDER-GOVERNANCE-PROPOSED-v0.1.md) for candidate rules covering existing-asset discovery, stable asset versions, layered outputs, FF-Spatial ownership and per-domain work-order lineage. Do not implement a new parallel registry or treat this design as deployed until Director and schema/runtime gates pass.
+
 ## Prohibited structural drift
 
 Do not:
