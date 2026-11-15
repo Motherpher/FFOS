@@ -115,3 +115,24 @@ shasum -a 256 '02 - Statistik & samhällsdata/02.02 - Kolada/01 – Geografiska 
 ```
 
 Store its hash in the local approved operation config and run the adapter's dry-run first. A later independent test must validate the live reporter schema, not merely CLI return code.
+
+## Director-verified operation manifest (2026-11-16)
+
+The live-tested Kolada request was approved for **pilot testing**, not production, with SHA256 `75e04c848cef01562e9787c453647beec61f67cd795dd985eaab302d869b99ed`.
+
+Two non-secret example manifests are checked into this branch:
+
+- `examples/kolada-municipality-operation.json` — collection root, exact YAML relative path, file SHA-256, environment, allowed parameter.
+- `examples/kolada-uppsala-job.json` — Uppsala lookup, `0380`.
+
+From the root of an authenticated local checkout of this **feature branch**:
+
+```bash
+python3 integrations/bruno/runtime/bruno_runtime.py \
+  --config integrations/bruno/runtime/examples/kolada-municipality-operation.json \
+  --job integrations/bruno/runtime/examples/kolada-uppsala-job.json
+```
+
+Expected: `validated_dry_run`, no API call. Only after this succeeds and the local request plus inherited scripts are reviewed, add `--execute` for an actual local Bruno call. A repeat live run requires a **new job_id**, because receipt directories cannot be overwritten.
+
+The private reporter may contain sensitive response data; inspect locally without pasting its contents into chat. Note that `200 OK` and a JSON-parseable reporter **do not yet prove the returned municipality's identity**.
