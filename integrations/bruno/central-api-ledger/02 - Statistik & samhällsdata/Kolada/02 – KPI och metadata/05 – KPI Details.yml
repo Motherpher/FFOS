@@ -1,0 +1,16 @@
+info:
+  name: 05 – KPI Details
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{kolada_base_url}}/kpi/{{kpi_id}}"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

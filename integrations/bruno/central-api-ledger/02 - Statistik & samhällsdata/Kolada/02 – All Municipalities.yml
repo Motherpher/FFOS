@@ -1,0 +1,16 @@
+info:
+  name: 02 – All Municipalities
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: https://api.kolada.se/v3/municipality
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

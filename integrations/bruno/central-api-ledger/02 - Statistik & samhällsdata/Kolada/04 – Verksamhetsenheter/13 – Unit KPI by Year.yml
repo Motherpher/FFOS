@@ -1,0 +1,29 @@
+info:
+  name: 13 – Unit KPI by Year
+  type: http
+  seq: 3
+
+http:
+  method: GET
+  url: "{{kolada_base_url}}/oudata/kpi/{{kpi_id}}/ou/{{ou_id}}/year/{{year}}"
+  params:
+    - name: page
+      value: "1"
+      type: query
+      disabled: true
+    - name: per_page
+      value: "100"
+      type: query
+      disabled: true
+    - name: from_date
+      value: 2025-01-01
+      type: query
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
