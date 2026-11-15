@@ -1,0 +1,19 @@
+name: FFC Bruno integration contracts
+on:
+  pull_request:
+    paths:
+      - 'integrations/bruno/runtime/**'
+      - '.github/workflows/ffc-bruno-integration-tests.yml'
+  workflow_dispatch:
+jobs:
+  offline-contracts:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: No-network Bruno adapter tests
+        run: python3 -m unittest discover -s integrations/bruno/runtime -p 'test_bruno_runtime.py' -v
