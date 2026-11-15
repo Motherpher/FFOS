@@ -1,0 +1,23 @@
+name: Bruno Central API Ledger static QA
+
+on:
+  pull_request:
+    paths:
+      - 'integrations/bruno/**'
+      - '.github/workflows/bruno-central-api-ledger.yml'
+  push:
+    paths:
+      - 'integrations/bruno/**'
+      - '.github/workflows/bruno-central-api-ledger.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate OpenCollection requests offline
+        run: python3 integrations/bruno/validate_collection.py
