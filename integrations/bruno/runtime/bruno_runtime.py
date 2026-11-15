@@ -19,8 +19,11 @@ def resolve(config, job):
     if not isinstance(op,dict): raise ValueError("Operation not allowlisted")
     root=Path(config["collection_root"]).expanduser().resolve(strict=True)
     request=(root/op["request"]).resolve(strict=True)
-    if not request.is_relative_to(root) or request.suffix!=".bru":
-        raise ValueError("Request outside collection root")
+    if not request.is_relative_to(root) or request.suffix not in (".bru", ".yml"):
+        raise ValueError("Request outside collection root or unsupported format")
+    marker = "opencollection.yml" if request.suffix == ".yml" else "bruno.json"
+    if not (root / marker).is_file():
+        raise ValueError("Missing expected collection marker: " + marker)
     if not isinstance(op.get("sha256"),str) or not re.fullmatch("[a-f0-9]{64}",op["sha256"]):
         raise ValueError("Missing or invalid approved request hash")
     if sha256(request)!=op["sha256"]:
