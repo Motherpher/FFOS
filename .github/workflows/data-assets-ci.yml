@@ -4,12 +4,16 @@ on:
     paths:
       - 'packages/registry/src/data-assets.ts'
       - 'packages/registry/tests/data-assets.test.ts'
+      - 'packages/registry/tests/data-assets-store.test.ts'
+      - 'packages/registry/src/data-assets-store.ts'
       - 'packages/registry/migrations/0006_data_asset_workorders.sql'
       - '.github/workflows/data-assets-ci.yml'
   push:
     paths:
       - 'packages/registry/src/data-assets.ts'
       - 'packages/registry/tests/data-assets.test.ts'
+      - 'packages/registry/tests/data-assets-store.test.ts'
+      - 'packages/registry/src/data-assets-store.ts'
       - 'packages/registry/migrations/0006_data_asset_workorders.sql'
       - '.github/workflows/data-assets-ci.yml'
 permissions:
@@ -24,4 +28,4 @@ jobs:
         with:
           node-version: '22'
       - name: Pure reuse contract checks (no external APIs/database)
-        run: node --experimental-strip-types --test packages/registry/tests/data-assets.test.ts
+        run: node --experimental-strip-types --test packages/registry/tests/data-assets.test.ts packages/registry/tests/data-assets-store.test.ts
