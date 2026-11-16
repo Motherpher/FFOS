@@ -96,7 +96,8 @@ def main():
     if not path.is_file() or path.is_symlink():
         raise SystemExit("Expected an existing regular private reporter file")
     payload = json.loads(path.read_text(encoding="utf-8"))
-    print(json.dumps({"reporter_structure": structure(payload),\n                      "response_data_diagnostics": response_data_shape(payload)},
+    print(json.dumps({"reporter_structure": structure(payload),
+                      "response_data_diagnostics": response_data_shape(payload)},
                      indent=2, ensure_ascii=False))
 
 if __name__ == "__main__":
