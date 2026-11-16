@@ -8,6 +8,10 @@ FFOS is the central operating shell for Form & Flöde. It coordinates work acros
 
 **No retrospective migration:** existing/historical work packages, repositories, active processes and releases are not rewritten or evaluated against this new model. CDX, AMA, Pius/HCC and canonical domain obligations remain in force independently. See the [transition record](docs/operations/devops/TRANSITION-DECISION-2026-11-16.md).
 
+## Cloud execution (Mac-independent pilot)
+
+[Cloud-independent execution contract](docs/architecture/CLOUD-INDEPENDENT-EXECUTION-2026-11-16.md) defines GitHub-hosted Kolada API export, direct FFOS→FF-Spatial dispatch and the headless GIS path. **Manual cloud pilot only**, not yet an accepted durable production service. Bruno and QGIS Desktop are optional operator interfaces; local LaunchAgents are not required by these new workflows.
+
 ## Start here — operating FFOS
 
 - **[GitHub Estate Operations — WP04](docs/governance/github-estate/README.md)** — private source-backed estate register, portfolio, dashboard, operating standard and DG-04 review (implementation candidate; not accepted or runtime-bound).
