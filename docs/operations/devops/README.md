@@ -1,10 +1,16 @@
-# FFOS DevOps Operating Model 1.0
+# FFOS DevOps Operating Model 1.1 — optional discovery and Director activation
 
-**ID:** FFOS-DEVOPS-OM-001  
-**Decision:** Director direction, 16 November 2026: future-only use for **all newly initiated DevOps processes** in the Form & Flöde / FFOS ecosystem.  
+**ID:** FFOS-DEVOPS-OM-001@1.1  
+**Decision:** Original forward-only adoption 2026-11-16; **1.1 amendment**: the model is always discoverable and **OPTIONAL** for newly initiated substantial DevOps processes, activated only by Director choice.  
 **Purpose:** Improve development coherence, throughput, reproducibility and learning **without turning ordinary work into a nine-gate assurance programme**.  
-**Effective:** For a DevOps process first initiated after the Director's adoption instruction on 2026-11-16. A historical or already-open process is NOT reclassified merely because this model is published.  
+**Effective:** The 1.1 optional-discovery rule applies prospectively after the Director's 2026-11-16 amendment instruction. The 1.0 rule and work history remain recorded; already-open or completed processes are NOT reclassified.  
 **Class:** Operating method / process guidance. NOT a constitutional policy, automatic release authorization, CI status, or certification.
+
+## 1.1 — optional repository discovery
+
+**A hook is a reminder, not a mandate.** The local `.ffos/devops-hook.json` provides one reference to the model. For a small change, or if the Director declines, work continues normally with no additional DevOps administration. For a newly contemplated substantial development effort, the Director may **ACTIVATE / DECLINE / DEFER**; only activation starts the six phases. No hidden CI, mandatory review or automatic work package is introduced. Existing authoritative CDX/AMA/Pius/HCC controls still apply independently.
+
+**Versioned sources:** [Optional-discovery amendment 1.1](AMENDMENT-v1.1-OPTIONAL-DISCOVERY.md) · [Hook contract](HOOK-CONTRACT-v1.1.md) · [Conditional CDX review discovery](CDX-REVIEW-INTERFACE-v1.1.md).
 
 ## 1. Scope: a new process, not old work
 
@@ -12,11 +18,11 @@ A **DevOps process** is a newly initiated, bounded development effort with an id
 
 | Situation | Application |
 |---|---|
-| New DevOps process initiated after the effective instruction | **Use this model** at L1, L2 or L3 |
-| New standalone process initiated inside an existing programme | Use this model for the **new process only**; preserve parent programme's requirements |
+| New substantial DevOps process considered after the 1.1 amendment | **Offer** the model; activate L1/L2/L3 **only if Director selects USE** |
+| New standalone development process within an existing programme | Offer the model **only for the new process**, never retrofit the parent; Director may decline |
 | Existing work package, active development branch, historical process, completed work or accepted release | **Do not retrofit**. Keep its original definitions, stages, evidence and authority |
 | Existing agent / runtime or CDX-bound operation | Existing applicable CDX, AMA, Pius/HCC and source-repository controls **continue unchanged**, regardless of process level |
-| New non-DevOps research, organizational or service-design work | Not automatically covered unless the Director explicitly places the work in a DevOps development process |
+| Small edits or Director declines DevOps | **Continue the normal repository workflow**; no framework task, record or extra approval created |
 
 This is **prospective adoption**, not a migration. Old process artefacts remain auditable in their original form. No historical WPs are renamed, reopened, backfilled, scored or measured against this model.
 
@@ -53,7 +59,7 @@ Choose the **lowest level that safely handles the work** at initiation. Reclassi
 
 ## 4. Standard operating rhythm
 
-1. **Intake**: Name the process and owner, link the canonical source, select L1–L3, state outcome and “done”.
+1. **Optional intake, after Director activation**: Name the process and owner, link the canonical source, select L1–L3, state outcome and “done”. For small or declined work, no DevOps intake is needed.
 2. **Execution**: Follow the six phases at suitable depth; reuse existing WPs, test suites, CI and review workflows. Prefer one living work record over six duplicative documents.
 3. **Decision**: At the relevant point, distinguish `proposed`, `implemented`, `tested`, `merged`, `released`, `deployed` and `accepted`. These are never interchangeable.
 4. **Feedback**: Close with a short result, evidence link, an observed constraint and any next iteration; preserve failed attempts without overwriting history.
@@ -75,7 +81,7 @@ A mandatory control is mandatory **because of its authoritative source or real r
 
 ## 6. Minimal process record
 
-Use [New DevOps process template](NEW-DEVOPS-PROCESS-TEMPLATE.md). An L1 process can fit in a few sentences; L2/L3 record additional evidence as appropriate. Each record answers:
+**Only if activated:** use [New DevOps process template](NEW-DEVOPS-PROCESS-TEMPLATE.md). An L1 process can fit in a few sentences; L2/L3 record additional evidence as appropriate. Each record answers:
 
 **Process / owner / scope / level / outcome / phase / change / verification / release disposition / learning.**
 
@@ -90,9 +96,9 @@ A new process can start in an Issue, work package, PR or another governed source
 
 ## 8. Operational rollout
 
-- **FFOS** hosts this model as the cross-system operating reference for newly initiated DevOps processes.
-- **Pius DevOps Galaxy, CDX, and other canonical domains** should link to this model when opening a *new DevOps process*. Their existing workflows remain governed by their canonical sources, including current Pius workflows and CDX release/acceptance gates.
+- **FFOS** hosts this model as the cross-system **optional discovery reference** for newly considered substantial DevOps processes.
+- **Pius DevOps Galaxy and other active development domains** may install the passive `.ffos/devops-hook.json` to **offer**, not require, this model. CDX review discovery is separate from the canonical `.cdx/anchor.json`. Their existing workflows remain governed by their canonical sources.
 - The method applies from initiation **forward**; do not mark existing open WPs or historic deployments noncompliant for lack of this template.
-- First actual new process should identify `FFOS-DEVOPS-OM-001@1.0` and L1/L2/L3 and be closed with a learning note. Adoption can then be evaluated empirically, not by a fabricated maturity level.
+- The first actually **activated** new process should identify `FFOS-DEVOPS-OM-001@1.1` and L1/L2/L3, then close with a learning note. Offered/declined processes do not become compliance findings.
 
 **Decision rule:** Prioritise coherent movement and evidence proportional to consequence. Preserve higher-source controls; do not invent new ones.
