@@ -12,6 +12,14 @@
 
 **Versioned sources:** [Optional-discovery amendment 1.1](AMENDMENT-v1.1-OPTIONAL-DISCOVERY.md) · [Hook contract](HOOK-CONTRACT-v1.1.md) · [Conditional CDX review discovery](CDX-REVIEW-INTERFACE-v1.1.md).
 
+## Keeping the model and 30 repository hooks in sync
+
+The [canonical model release pointer](model-release.json) declares the current version. A hook's link to this README opens current text, but its stored `model.version` is only the last installed snapshot. **It does not update automatically.**
+
+A narrow [version-update pipeline](VERSION-UPDATE-PIPELINE-v1.md) checks model-version consistency when canonical FFOS model documents change and opens a **tracked downstream hook-update issue** after a new version merges. The [estate hook index](HOOK-ESTATE-INDEX.json) records 30 installed hooks, including the seven historical Tier D repositories; the constitutional CDX source remains excluded. Barnombudet is already among the Tier B installs and was not modified for the historical expansion.
+
+This mechanism does not activate the optional DevOps model, require new paperwork for small changes, auto-merge downstream code, or bypass CDX review. Future hook versions propagate through verified normal repository PRs.
+
 ## 1. Scope: a new process, not old work
 
 A **DevOps process** is a newly initiated, bounded development effort with an identifiable outcome, owner, source repository, implementation path, verification and closure. It may span several tasks, WPs or repositories. Use this model **once at process intake**, not as six separate approval tickets for every small commit.
