@@ -66,3 +66,10 @@ jobs:
       - name: ProjectHub PostgreSQL transaction test
         if: steps.present.outputs.value == 'true'
         run: npm test --prefix modules/projecthub
+
+  l3-assurance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: ProjectHub L3 release static assurance
+        run: python scripts/projecthub_l3_assurance.py
