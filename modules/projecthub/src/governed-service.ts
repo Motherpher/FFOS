@@ -9,8 +9,16 @@ import type {ProjectHubStore} from "./store.ts";
 import {StoreBackedProjectHubAuthorizer} from "./rights.ts";
 import type {CanonicalMutationGate} from "./effect-gate.ts";
 
+function ordered(value:unknown):unknown{
+  if(typeof value==="bigint")return {__bigint:value.toString()};
+  if(Array.isArray(value))return value.map(ordered);
+  if(value&&typeof value==="object")return Object.fromEntries(
+    Object.keys(value as Record<string,unknown>).sort().map(k=>[k,ordered((value as Record<string,unknown>)[k])])
+  );
+  return value;
+}
 function digest(value:unknown){
-  return createHash("sha256").update(JSON.stringify(value,Object.keys(value as object).sort())).digest("hex");
+  return createHash("sha256").update(JSON.stringify(ordered(value))).digest("hex");
 }
 function stamp(){return new Date().toISOString();}
 function audit(ctx:CommandContext,projectId:string,objectId:string,eventType:string,dataClass:ProjectDataClass,payload:Record<string,unknown>,provenance:ProvenanceRef[]=[]):ProjectHubAuditEvent{
@@ -25,14 +33,14 @@ export class GovernedProjectHubService {
   private async execute<T>(ctx:CommandContext,projectId:string,operation:ProjectOperation,dataClass:ProjectDataClass,
     body:Record<string,unknown>,fn:(tx:ProjectHubStore)=>Promise<{result:T;event:ProjectHubAuditEvent}>,
     create=false):Promise<{result:T;replayed:boolean}>{
+    const auth=new StoreBackedProjectHubAuthorizer(this.store);
+    if(create)await auth.assertCreate(ctx);else await auth.assertProjectOperation(ctx,projectId,operation,dataClass);
     const existing=await this.store.getIdempotency(ctx.idempotencyKey);
     if(existing){
       if(existing.commandDigest!==digest(body))throw new ProjectHubInvariantError("IDEMPOTENCY_KEY_REUSED_WITH_DIFFERENT_COMMAND");
       return {result:structuredClone(existing.result) as T,replayed:true};
     }
     if(!this.mutationGate)throw new ProjectHubInvariantError("PROJECTHUB_CDX_EFFECT_GATE_NOT_BOUND");
-    const auth=new StoreBackedProjectHubAuthorizer(this.store);
-    if(create)await auth.assertCreate(ctx);else await auth.assertProjectOperation(ctx,projectId,operation,dataClass);
     return this.mutationGate.executeA3(ctx,{projectId,operation,resourceRef:projectId,
       localAuthorizationDecisionId:"LOCAL-AUTH:"+ctx.idempotencyKey},()=>this.store.transaction(async tx=>{
       const inside=await tx.getIdempotency(ctx.idempotencyKey);

@@ -59,3 +59,18 @@ test("transaction rollback removes partial state in memory store",async()=>{
  }));
  assert.equal((await store.listAuditEvents("P")).length,0);
 });
+
+test("idempotent replay never bypasses current authorization",async()=>{
+ const store=new MemoryProjectHubStore();const svc=new GovernedProjectHubService(store,allowGate as any);
+ await svc.createProject(director("CREATE-AUTH"),input);
+ await assert.rejects(()=>svc.createProject(owner("CREATE-AUTH"),input),
+   (e:any)=>e instanceof ProjectHubInvariantError&&e.code==="PROJECT_CREATE_REQUIRES_DIRECTOR");
+});
+
+test("idempotency digest includes nested command payload",async()=>{
+ const store=new MemoryProjectHubStore();const svc=new GovernedProjectHubService(store,allowGate as any);
+ await svc.createProject(director("CREATE-NESTED"),input);
+ await svc.setField(director("NESTED"),"P1","Need","DRAFT",{note:"first",evidenceRefs:["E1"]});
+ await assert.rejects(()=>svc.setField(director("NESTED"),"P1","Need","DRAFT",{note:"changed",evidenceRefs:["E2"]}),
+   (e:any)=>e instanceof ProjectHubInvariantError&&e.code==="IDEMPOTENCY_KEY_REUSED_WITH_DIFFERENT_COMMAND");
+});
