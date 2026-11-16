@@ -8,6 +8,10 @@ FFOS is the central operating shell for Form & Flöde. It coordinates work acros
 
 **No retrospective migration:** existing/historical work packages, repositories, active processes and releases are not rewritten or evaluated against this new model. CDX, AMA, Pius/HCC and canonical domain obligations remain in force independently. See the [transition record](docs/operations/devops/TRANSITION-DECISION-2026-11-16.md).
 
+## Cloud Storage v1 (Google Drive)
+
+[Google Drive storage adapter and OAuth acceptance](docs/architecture/GOOGLE-DRIVE-CLOUD-STORAGE-v1.md) stages optional, independently SHA256-verified persistent outputs to the Director-selected private Drive folder. **Drive uploads are disabled by default until a separate authorized OAuth grant is configured and verified.**
+
 ## Cloud execution (Mac-independent pilot)
 
 [Cloud-independent execution contract](docs/architecture/CLOUD-INDEPENDENT-EXECUTION-2026-11-16.md) defines GitHub-hosted Kolada API export, direct FFOS→FF-Spatial dispatch and the headless GIS path. **Manual cloud pilot only**, not yet an accepted durable production service. Bruno and QGIS Desktop are optional operator interfaces; local LaunchAgents are not required by these new workflows.

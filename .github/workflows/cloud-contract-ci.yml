@@ -4,6 +4,7 @@ on:
     paths:
       - 'integrations/cloud/**'
       - 'tests/test_cloud_kolada_lookup.py'
+      - 'tests/test_cloud_drive_storage.py'
       - '.github/workflows/cloud-*.yml'
   push:
     paths:
@@ -24,3 +25,5 @@ jobs:
         run: |
           python -m py_compile integrations/cloud/kolada_lookup.py
           python -m unittest discover -s tests -p 'test_cloud_kolada_lookup.py' -v
+          python -m py_compile integrations/cloud/drive_storage.py
+          python -m unittest discover -s tests -p 'test_cloud_drive_storage.py' -v
