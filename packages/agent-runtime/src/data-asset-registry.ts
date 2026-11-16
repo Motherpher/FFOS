@@ -27,10 +27,12 @@ export interface ReuseReceipt {
   recordType: "REUSE_DECISION";
 }
 export class DataAssetPgRuntime {
-  constructor(
-    private readonly pool: SqlPool,
-    private readonly gate: DataRegistryAuthority,
-  ) {}
+  private readonly pool: SqlPool;
+  private readonly gate: DataRegistryAuthority;
+  constructor(pool: SqlPool, gate: DataRegistryAuthority) {
+    this.pool=pool;
+    this.gate=gate;
+  }
   private async tx<T>(task: (db: Awaited<ReturnType<SqlPool["connect"]>>) => Promise<T>): Promise<T> {
     const client = await this.pool.connect();
     let begun = false;
