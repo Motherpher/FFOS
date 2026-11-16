@@ -8,6 +8,7 @@
 | Need | Start here |
 | --- | --- |
 | Understand purpose and current state | [FFOS repository README](../../README.md) |
+| Consider optional DevOps method for a larger **new** development effort | Check local `.ffos/devops-hook.json`, offer [FFOS DevOps Operating Model 1.1](../operations/devops/README.md) only if Director wants it; minor changes and declines continue normally. CDX review requests use separate [review discovery](../operations/devops/CDX-REVIEW-INTERFACE-v1.1.md). |
 | Orient yourself in the system | [FFOS Operator Manual](FFOS-OPERATOR-MANUAL-v1.0.md) — sections 1–3 |
 | Understand how an authorised work package proceeds | [Operator Manual](FFOS-OPERATOR-MANUAL-v1.0.md#4-operating-a-governed-work-package) |
 | Find real GitHub work and evidence | [Motherpher Estate Portfolio](https://github.com/orgs/Motherpher/projects/2) and [Operator Manual](FFOS-OPERATOR-MANUAL-v1.0.md#5-using-github-as-the-operational-projection) |
