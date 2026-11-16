@@ -45,8 +45,31 @@ jobs:
           MUNICIPALITY_ID: ${{ inputs.municipality_id }}
         run: |
           python integrations/cloud/kolada_lookup.py --municipality-id "$MUNICIPALITY_ID" --output-dir "$RUNNER_TEMP/ffos-kolada"
-      - name: Publish to approved Google Drive folder with SHA256 readback
-        if: ${{ inputs.persist_to_drive }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ffos-kolada-${{ inputs.municipality_id }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/ffos-kolada/
+          if-no-files-found: error
+          retention-days: 14
+
+  drive-publish:
+    needs: lookup
+    if: ${{ inputs.persist_to_drive }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    environment: drive-publish
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: ffos-kolada-${{ inputs.municipality_id }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/ffos-drive-upload
+      - name: Publish verified Kolada artifacts to approved Google Drive
         env:
           FFOS_GDRIVE_CLIENT_ID: ${{ secrets.FFOS_GDRIVE_CLIENT_ID }}
           FFOS_GDRIVE_CLIENT_SECRET: ${{ secrets.FFOS_GDRIVE_CLIENT_SECRET }}
@@ -54,13 +77,13 @@ jobs:
           DRIVE_FOLDER_ID: 1xO4YWl4yQmyRJ6t-A_4j9vaVDkiBhArD
         run: |
           python integrations/cloud/drive_storage.py \
-            --source-dir "$RUNNER_TEMP/ffos-kolada" \
+            --source-dir "$RUNNER_TEMP/ffos-drive-upload" \
             --root-folder-id "$DRIVE_FOLDER_ID" \
             --namespace FFOS \
             --run-id "kolada_${{ inputs.municipality_id }}_${{ github.run_id }}"
       - uses: actions/upload-artifact@v4
         with:
-          name: ffos-kolada-${{ inputs.municipality_id }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/ffos-kolada/
+          name: ffos-drive-receipt-${{ github.run_id }}
+          path: ${{ runner.temp }}/ffos-drive-upload/drive-receipt.json
           if-no-files-found: error
           retention-days: 14
