@@ -32,11 +32,39 @@
       ]
     },
     {
+      "requirement_id": "A04",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_ama_fin01_admission.py",
+      "test_functions": [
+        "test_A04_cross_boundary_identity_collision_denied",
+        "test_A04_missing_runtime_identity_denied"
+      ]
+    },
+    {
       "requirement_id": "A05",
       "relation": "PARTIAL_TEST_EVIDENCE",
       "test_file": "packages/agent-model/conformance/tests/test_m1_contracts.py",
       "test_functions": [
         "test_migration_never_automatically_activates"
+      ]
+    },
+    {
+      "requirement_id": "A06",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_ama_fin01_admission.py",
+      "test_functions": [
+        "test_A06_discovery_effect_promotion_denied",
+        "test_A06_documentation_cannot_mint_authority"
+      ]
+    },
+    {
+      "requirement_id": "A07",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_ama_fin01_admission.py",
+      "test_functions": [
+        "test_A07_missing_limitations_denied",
+        "test_A07_missing_test_profile_denied",
+        "test_A07_no_discovery_description_denied"
       ]
     },
     {
