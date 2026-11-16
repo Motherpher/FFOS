@@ -68,5 +68,30 @@ class DriveStorageTests(unittest.TestCase):
     def test_google_file_id(self):
         self.assertTrue(DRIVE_ID.fullmatch(ROOT_ID))
         self.assertFalse(DRIVE_ID.fullmatch("../a"))
+
+    def test_remote_readback_sha256_is_mandatory(self):
+        class StubStorage(DriveStorage):
+            def __init__(self, readback):
+                self.readback=readback
+                self.operations=[]
+            def request(self,url,method="GET",payload=None,content_type=None,accept=None):
+                self.operations.append((method,url))
+                if method=="POST":
+                    return 200,{"Location":"https://www.googleapis.com/upload/drive/v3/files?upload_id=test"},b""
+                if method=="PUT":
+                    return 200,{},json.dumps({"id":CHILD_ID,"name":"data.csv","parents":[ROOT_ID],
+                                              "size":len(payload),"version":"1"}).encode()
+                if method=="GET":
+                    return 200,{},self.readback
+                raise AssertionError("Unexpected method")
+        with tempfile.TemporaryDirectory() as tmp:
+            p=Path(tmp)/"data.csv"
+            p.write_bytes(b"identity,data\n0380,Uppsala\n")
+            stored=StubStorage(p.read_bytes()).upload(ROOT_ID,p)
+            self.assertTrue(stored["readback_verified"])
+            self.assertEqual(stored["sha256"],hashlib.sha256(p.read_bytes()).hexdigest())
+            with self.assertRaises(ValueError):
+                StubStorage(b"tampered").upload(ROOT_ID,p)
+
 if __name__=="__main__":
     unittest.main()
