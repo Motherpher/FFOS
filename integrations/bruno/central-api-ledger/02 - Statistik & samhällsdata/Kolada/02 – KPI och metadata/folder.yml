@@ -1,0 +1,7 @@
+info:
+  name: 02 – KPI och metadata
+  type: folder
+  seq: 4
+
+request:
+  auth: inherit
