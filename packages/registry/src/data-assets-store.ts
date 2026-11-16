@@ -51,7 +51,7 @@ export async function persistWorkOrder(db: SqlClient, order: WorkOrderInsert): P
   requireNonEmpty(order.workOrderId, order.requestId, order.ownerRepo, order.authorityRef, order.createdBy, order.purpose);
   if (!Number.isFinite(Date.parse(order.createdAt))) throw new Error("Invalid createdAt");
   await db.query(
-    `insert into ffos_data_work_orders
+    `insert into ffos.data_work_orders
     (work_order_id,request_id,owner_repo,purpose,authority_ref,requirements,created_at,created_by)
     values ($1,$2,$3,$4,$5,$6::jsonb,$7,$8)`,
     [order.workOrderId,order.requestId,order.ownerRepo,order.purpose,order.authorityRef,
@@ -64,7 +64,7 @@ export async function persistAssetVersion(db: SqlClient, asset: AssetVersionInse
   if (!/^[a-f0-9]{64}$/.test(asset.sha256)) throw new Error("Invalid SHA256");
   if (!Number.isFinite(Date.parse(asset.sourceAsOf))) throw new Error("Invalid sourceAsOf");
   await db.query(
-    `insert into ffos_data_asset_versions
+    `insert into ffos.data_asset_versions
     (asset_version_id,asset_id,owner_repo,asset_kind,schema_ref,location_ref,
      content_sha256,source_as_of,validity,compatibility,license_ref,qa_receipt_ref,
      source_refs,supersedes_version_id,registered_by)
@@ -82,7 +82,7 @@ export async function persistReuseDecision(db: SqlClient, d: ReuseDecisionInsert
     throw new Error("Exact reuse requires one selected version");
   }
   await db.query(
-    `insert into ffos_data_reuse_decisions
+    `insert into ffos.data_reuse_decisions
     (decision_id,work_order_id,decision,candidates,selected_asset_version_ids,
      rationale,evidence_refs,decided_by,decided_at)
     values ($1,$2,$3,$4::jsonb,$5::jsonb,$6,$7::jsonb,$8,$9)`,
