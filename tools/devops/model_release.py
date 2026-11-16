@@ -17,12 +17,16 @@ ROOT = Path(__file__).resolve().parents[2]
 RELEASE = "docs/operations/devops/model-release.json"
 INDEX = "docs/operations/devops/HOOK-ESTATE-INDEX.json"
 LOCAL_HOOK = ".ffos/devops-hook.json"
-NORMATIVE = {
-    "docs/operations/devops/README.md",
-    "docs/operations/devops/HOOK-CONTRACT-v1.1.md",
-    "docs/operations/devops/AMENDMENT-v1.1-OPTIONAL-DISCOVERY.md",
-    "docs/operations/devops/CDX-REVIEW-INTERFACE-v1.1.md",
-}
+def is_normative(path: str) -> bool:
+    root = "docs/operations/devops/"
+    if not path.startswith(root):
+        return False
+    name = path[len(root):]
+    return (name == "README.md"
+            or name.startswith("HOOK-CONTRACT-v")
+            or name.startswith("AMENDMENT-v")
+            or name.startswith("CDX-REVIEW-INTERFACE-v"))
+
 SHA = re.compile(r"^[a-f0-9]{40}$")
 VERSION = re.compile(r"^\d+\.\d+(?:\.\d+)?$")
 
@@ -130,7 +134,7 @@ def check_consistency(base_sha: str | None = None) -> dict:
             prior_v = before["current_version"]
             if version_tuple(v) < version_tuple(prior_v):
                 fail("model version may not decrease")
-            if (NORMATIVE & changed) and v == prior_v:
+            if any(is_normative(path) for path in changed) and v == prior_v:
                 fail("canonical model content changed without a version bump")
     return {"version": v, "known_hooks": len(installs), "excluded": len(exclusions)}
 
@@ -205,6 +209,8 @@ def release_event(before_sha: str, json_output: Path, body_output: Path) -> None
 
 
 def self_test() -> None:
+    assert is_normative("docs/operations/devops/AMENDMENT-v1.2.md")
+    assert not is_normative("docs/operations/devops/ROLLOUT-REPORT-v1.1.md")
     assert version_tuple("1.1") < version_tuple("1.2")
     assert version_tuple("1.1.1") > version_tuple("1.1")
     for invalid in ("latest", "v1.2", "1", "1.2-beta"):
