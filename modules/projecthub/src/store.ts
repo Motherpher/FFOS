@@ -66,10 +66,10 @@ export class MemoryProjectHubStore implements ProjectHubStore {
     rows.push(structuredClone(relation));this.relations.set(relation.id,rows);
   }
   async listNodes(projectId:string) {
-    return [...this.nodes.values()].map((x)=>x[x.length-1]).filter((x)=>x.projectId===projectId).map(structuredClone);
+    return [...this.nodes.values()].map((x)=>x[x.length-1]).filter((x)=>x.projectId===projectId).map(x=>structuredClone(x));
   }
   async listRelations(projectId:string) {
-    return [...this.relations.values()].map((x)=>x[x.length-1]).filter((x)=>x.projectId===projectId).map(structuredClone);
+    return [...this.relations.values()].map((x)=>x[x.length-1]).filter((x)=>x.projectId===projectId).map(x=>structuredClone(x));
   }
   async getIdempotency(key:string){return this.idempotency.has(key)?structuredClone(this.idempotency.get(key)!):null;}
   async appendIdempotency(receipt:IdempotencyReceipt){
@@ -77,7 +77,7 @@ export class MemoryProjectHubStore implements ProjectHubStore {
     this.idempotency.set(receipt.idempotencyKey,structuredClone(receipt));
   }
   async appendAuditEvent(event:ProjectHubAuditEvent){this.audit.push(structuredClone(event));}
-  async listAuditEvents(projectId:string){return this.audit.filter(x=>x.projectId===projectId).map(structuredClone);}
+  async listAuditEvents(projectId:string){return this.audit.filter(x=>x.projectId===projectId).map(x=>structuredClone(x));}
   async appendRoleGrant(grant:ProjectRoleGrant){
     const rows=this.grants.get(grant.grantId)??[];const current=rows[rows.length-1];
     if(current&&grant.version!==current.version+1)throw new ProjectHubInvariantError("GRANT_VERSION_DISCONTINUITY");
@@ -86,7 +86,7 @@ export class MemoryProjectHubStore implements ProjectHubStore {
   }
   async listRoleGrants(projectId:string,principalRef?:string){
     return [...this.grants.values()].map(x=>x[x.length-1])
-      .filter(x=>x.projectId===projectId&&(!principalRef||x.principalRef===principalRef)).map(structuredClone);
+      .filter(x=>x.projectId===projectId&&(!principalRef||x.principalRef===principalRef)).map(x=>structuredClone(x));
   }
   async transaction<T>(fn:(tx:ProjectHubStore)=>Promise<T>):Promise<T>{
     const snapshot={
