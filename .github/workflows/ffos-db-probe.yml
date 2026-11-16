@@ -1,0 +1,60 @@
+name: FFOS database admission read-only probe checks
+on:
+  pull_request:
+    paths:
+      - 'packages/registry/scripts/probe-postgres-readonly.sh'
+      - '.github/workflows/ffos-db-probe.yml'
+  push:
+    paths:
+      - 'packages/registry/scripts/probe-postgres-readonly.sh'
+      - '.github/workflows/ffos-db-probe.yml'
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: ffos_fixture
+          POSTGRES_PASSWORD: disposable_ci_only
+          POSTGRES_DB: ffos_probe_fixture
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U ffos_fixture -d ffos_probe_fixture"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 12
+    env:
+      PGHOST: localhost
+      PGPORT: 5432
+      PGUSER: ffos_fixture
+      PGPASSWORD: disposable_ci_only
+      PGDATABASE: ffos_probe_fixture
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install psql client
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq postgresql-client
+      - name: Shell syntax check
+        run: bash -n packages/registry/scripts/probe-postgres-readonly.sh
+      - name: Verify schema admission before migration
+        run: |
+          bash packages/registry/scripts/probe-postgres-readonly.sh > /tmp/before.txt
+          grep -F 'ffos_schema_exists' /tmp/before.txt
+          grep -E 'ffos_table_count[[:space:]]*\\|[[:space:]]*0' /tmp/before.txt
+      - name: Create isolated schema with existing reviewed migration
+        run: psql -X -v ON_ERROR_STOP=1 -f packages/registry/migrations/0007_ffos_isolated_data_assets.sql
+      - name: Verify schema admission after migration
+        run: |
+          bash packages/registry/scripts/probe-postgres-readonly.sh > /tmp/after.txt
+          grep -E 'ffos_table_count[[:space:]]*\\|[[:space:]]*4' /tmp/after.txt
+          grep -E 'public_legacy_0006_count[[:space:]]*\\|[[:space:]]*0' /tmp/after.txt
+      - name: Ensure unknown runtime has no silent success without configuration
+        run: |
+          if env -u DATABASE_URL -u PGHOST bash packages/registry/scripts/probe-postgres-readonly.sh > /tmp/no_conn.out 2>&1; then
+            echo 'ERROR: probe allowed no connection configuration'
+            exit 1
+          fi
