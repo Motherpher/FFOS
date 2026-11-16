@@ -91,6 +91,8 @@ jobs:
         run: |
           python packages/agent-model/conformance/ama_m7a_release_audit.py \
             --output "$RUNNER_TEMP/ama-m7a-readiness.json"
+      - name: Validate AMA FIN protocol transition module syntax
+        run: python -m py_compile packages/agent-model/conformance/ama_fin_protocol_progression.py
       - name: Unit tests and negative/adversarial cases
         run: python -m unittest discover -s packages/agent-model/conformance/tests -v
       - name: Emit M7 minimal and complex synthetic blueprint references
