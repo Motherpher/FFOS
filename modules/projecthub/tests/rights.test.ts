@@ -9,11 +9,12 @@ const director=(key:string)=>({principalRef:"FFOS:DIRECTOR",principalClass:"DIRE
  authorityRef:"AUTH:DIRECTOR",mandateRef:"MANDATE:PH",idempotencyKey:key,correlationId:"C-"+key,causationId:"K-"+key});
 const owner=(key:string)=>({principalRef:"USER:OWNER",principalClass:"PROJECT_ROLE" as const,
  authorityRef:"AUTH:OWNER",mandateRef:"MANDATE:P1",idempotencyKey:key,correlationId:"C-"+key,causationId:"K-"+key});
+const allowGate={executeA3:async (_c:any,_i:any,perform:any)=>perform()};
 const input={id:"P1",title:"P",ownerRef:"USER:OWNER",mandateRef:"MANDATE:P1",methodologyProfile:"PROJECT_NATIVE" as const,
  purpose:"Purpose",createdBy:"FFOS:DIRECTOR"};
 
 test("governed mutation is idempotent and audited",async()=>{
- const store=new MemoryProjectHubStore();const svc=new GovernedProjectHubService(store);
+ const store=new MemoryProjectHubStore();const svc=new GovernedProjectHubService(store,allowGate as any);
  const a=await svc.createProject(director("CREATE"),input);
  const b=await svc.createProject(director("CREATE"),input);
  assert.equal(a.replayed,false);assert.equal(b.replayed,true);
@@ -21,14 +22,14 @@ test("governed mutation is idempotent and audited",async()=>{
 });
 
 test("same idempotency key with different command is rejected",async()=>{
- const store=new MemoryProjectHubStore();const svc=new GovernedProjectHubService(store);
+ const store=new MemoryProjectHubStore();const svc=new GovernedProjectHubService(store,allowGate as any);
  await svc.createProject(director("CREATE"),input);
  await assert.rejects(()=>svc.setField(director("CREATE"),"P1","Need","DRAFT"),
    (e:any)=>e instanceof ProjectHubInvariantError&&e.code==="IDEMPOTENCY_KEY_REUSED_WITH_DIFFERENT_COMMAND");
 });
 
 test("non-Director is denied until a project grant exists",async()=>{
- const store=new MemoryProjectHubStore();const svc=new GovernedProjectHubService(store);
+ const store=new MemoryProjectHubStore();const svc=new GovernedProjectHubService(store,allowGate as any);
  await svc.createProject(director("CREATE"),input);
  await assert.rejects(()=>svc.getProject(owner("READ"),"P1"),
    (e:any)=>e instanceof ProjectHubInvariantError&&e.code==="PROJECT_OPERATION_NOT_AUTHORIZED");
@@ -40,7 +41,7 @@ test("non-Director is denied until a project grant exists",async()=>{
 });
 
 test("PH-D4 and secrets are not admitted in first native release",async()=>{
- const store=new MemoryProjectHubStore();const svc=new GovernedProjectHubService(store);
+ const store=new MemoryProjectHubStore();const svc=new GovernedProjectHubService(store,allowGate as any);
  await assert.rejects(()=>svc.createProject(director("SENSITIVE"),{...input,id:"P4",dataClassCeiling:"PH-D4" as const}),
    (e:any)=>e instanceof ProjectHubInvariantError&&e.code==="PROJECT_DATA_CLASS_NOT_ADMITTED_V1");
  await svc.createProject(director("CREATE"),input);

@@ -8,6 +8,7 @@ import {GovernedProjectHubService} from "../src/governed-service.ts";
 
 const url=process.env.PROJECTHUB_TEST_DATABASE_URL;
 const root=resolve(dirname(fileURLToPath(import.meta.url)),"../../..");
+const allowGate={executeA3:async (_c:any,_i:any,perform:any)=>perform()};
 const ctx=(key)=>({principalRef:"FFOS:DIRECTOR",principalClass:"DIRECTOR",authorityRef:"AUTH:D",
  mandateRef:"MANDATE:PH",idempotencyKey:key,correlationId:"C-"+key,causationId:"K-"+key});
 
@@ -15,7 +16,7 @@ test("PostgreSQL: atomic ProjectHub write and append-only history",{skip:!url},a
  const {Pool}=await import("pg");const pool=new Pool({connectionString:url});
  try{
    await pool.query(await readFile(resolve(root,"packages/registry/migrations/0008_projecthub.sql"),"utf8"));
-   const store=new PgProjectHubStore(pool);const svc=new GovernedProjectHubService(store);
+   const store=new PgProjectHubStore(pool);const svc=new GovernedProjectHubService(store,allowGate as any);
    await svc.createProject(ctx("CREATE"),{id:"PG-P1",title:"PG",ownerRef:"OWNER",mandateRef:"M",
      methodologyProfile:"PROJECT_NATIVE",purpose:"Test",createdBy:"FFOS:DIRECTOR"});
    await svc.setField(ctx("FIELD"),"PG-P1","Need","DRAFT",{note:"test"});

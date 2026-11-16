@@ -7,6 +7,7 @@ import {ProjectHubInvariantError} from "../../../packages/projecthub-model/src/i
 import {ProjectHubService} from "./service.ts";
 import type {ProjectHubStore} from "./store.ts";
 import {StoreBackedProjectHubAuthorizer} from "./rights.ts";
+import type {CanonicalMutationGate} from "./effect-gate.ts";
 
 function digest(value:unknown){
   return createHash("sha256").update(JSON.stringify(value,Object.keys(value as object).sort())).digest("hex");
@@ -19,7 +20,7 @@ function audit(ctx:CommandContext,projectId:string,objectId:string,eventType:str
 }
 
 export class GovernedProjectHubService {
-  constructor(private readonly store:ProjectHubStore){}
+  constructor(private readonly store:ProjectHubStore,private readonly mutationGate:CanonicalMutationGate|null=null){}
 
   private async execute<T>(ctx:CommandContext,projectId:string,operation:ProjectOperation,dataClass:ProjectDataClass,
     body:Record<string,unknown>,fn:(tx:ProjectHubStore)=>Promise<{result:T;event:ProjectHubAuditEvent}>,
@@ -29,20 +30,24 @@ export class GovernedProjectHubService {
       if(existing.commandDigest!==digest(body))throw new ProjectHubInvariantError("IDEMPOTENCY_KEY_REUSED_WITH_DIFFERENT_COMMAND");
       return {result:structuredClone(existing.result) as T,replayed:true};
     }
-    return this.store.transaction(async tx=>{
+    if(!this.mutationGate)throw new ProjectHubInvariantError("PROJECTHUB_CDX_EFFECT_GATE_NOT_BOUND");
+    const auth=new StoreBackedProjectHubAuthorizer(this.store);
+    if(create)await auth.assertCreate(ctx);else await auth.assertProjectOperation(ctx,projectId,operation,dataClass);
+    return this.mutationGate.executeA3(ctx,{projectId,operation,resourceRef:projectId,
+      localAuthorizationDecisionId:"LOCAL-AUTH:"+ctx.idempotencyKey},()=>this.store.transaction(async tx=>{
       const inside=await tx.getIdempotency(ctx.idempotencyKey);
       if(inside){
         if(inside.commandDigest!==digest(body))throw new ProjectHubInvariantError("IDEMPOTENCY_KEY_REUSED_WITH_DIFFERENT_COMMAND");
         return {result:structuredClone(inside.result) as T,replayed:true};
       }
-      const auth=new StoreBackedProjectHubAuthorizer(tx);
-      if(create)await auth.assertCreate(ctx);else await auth.assertProjectOperation(ctx,projectId,operation,dataClass);
+      const authTx=new StoreBackedProjectHubAuthorizer(tx);
+      if(create)await authTx.assertCreate(ctx);else await authTx.assertProjectOperation(ctx,projectId,operation,dataClass);
       const out=await fn(tx);
       await tx.appendAuditEvent(out.event);
       await tx.appendIdempotency({idempotencyKey:ctx.idempotencyKey,projectId,operation,
         commandDigest:digest(body),result:out.result,recordedAt:stamp()});
       return {result:out.result,replayed:false};
-    });
+    }));
   }
 
   async createProject(ctx:CommandContext,input:CreateProjectInput){
