@@ -30,7 +30,7 @@
     "fin01_primary_source_attestation": "UNVERIFIED",
     "fin01_director_acceptance": "NOT_RECEIVED",
     "fin01_formal_clearance": "HOLD",
-    "next_stage_engineering_preparation": "PERMITTED_BY_CURRENT_USER_REQUEST_WITHIN_AM_A_SCOPE",
+    "next_stage_engineering_preparation": "PERMITTED_BY_CURRENT_USER_REQUEST_WITHIN_AMA_SCOPE",
     "next_stage_automatic_trigger": "NOT_AUTHORIZED",
     "release_approval": "NOT_AUTHORIZED"
   },
