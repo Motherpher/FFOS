@@ -32,3 +32,16 @@ Scope: AMA v1.0 only. Household Family is used solely for its inspection → bou
 **Disposition: FIN-01 PARTIALLY EXECUTED / HOLD, NOT ACCEPTED.** The source-traceability phase is passed on connector readback; the FIN-01 evidence and owner decision gates remain open.
 
 Tracked issue: https://github.com/Motherpher/FFOS/issues/37
+
+## Follow-up corrective pass — A04, A06, A07
+
+This section supersedes the earlier snapshot counts above; it does not overwrite their recorded historical observations.
+
+- Added a portable M1 admission evidence checker for identity separation and public documentation in `packages/agent-model/conformance/ama_fin01_admission.py`.
+- Added eight synthetic positive/negative assertions in `packages/agent-model/conformance/tests/test_ama_fin01_admission.py`, including identity collision, privilege claims in discovery metadata and missing limitations/test profiles.
+- Linked A04, A06, A07 into the partial test-evidence bridge (`PARTIAL_TEST_EVIDENCE`, not PASS) and reconciled FIN-01 source/mission registers.
+- Current: **96** requirements; **68** partial test links; **28** without direct test links, with individual negative-test plans.
+- J2 source decisions K02/K03 remain held, primary source HARP verification remains outstanding, and Director adoption has not occurred.
+- GitHub connector verified source presence and seven newly cited method names; no exact-head executable Python test result is available. The new checker is an isolated candidate contract; its composition with the wider AMA admission path requires separate validation.
+
+**Final FIN-01 decision after this pass: HOLD, source-evidence coverage improved but not formally accepted.**
