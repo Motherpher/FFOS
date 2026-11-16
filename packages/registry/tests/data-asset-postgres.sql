@@ -49,7 +49,7 @@ end $$;
 
 -- Each append-only table must reject updates and deletes with the exact trigger
 -- message, rather than merely failing due to unrelated SQL errors.
-do $
+do $$
 declare
   tbl text;
   old_count integer;
