@@ -18,9 +18,9 @@
   "counts": {
     "requirements": 96,
     "exact_source_line_matches": 96,
-    "partial_evidence_linked": 68,
-    "missing_direct_evidence": 28,
-    "unlinked_with_documented_test_plan": 28,
+    "partial_evidence_linked": 70,
+    "missing_direct_evidence": 26,
+    "unlinked_with_documented_test_plan": 26,
     "source_review_J2": 2,
     "accepted": 0
   },
@@ -205,32 +205,6 @@
       "director_decision": "NOT_RECORDED"
     },
     {
-      "id": "I06",
-      "package": "F6",
-      "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
-      "source_line": 126,
-      "proposed_disposition": "ADOPT_CONDITIONAL",
-      "normative_target": "packages/agent-model/schemas/ama_evidence.vNext.json",
-      "existing_negative_test_plan": "Store unknown token cost as 0; reject metric semantics.",
-      "household_protocol_classification": "J0_EVIDENCE_INSPECTION_THEN_AUTHORIZED_J1_REPAIR_IF_NEEDED",
-      "required_to_close": "DIRECT_ASSERTION_EVIDENCE_OR_APPROVED_BOUNDED_DISPOSITION",
-      "status": "OPEN_NO_DIRECT_TEST_LINK",
-      "director_decision": "NOT_RECORDED"
-    },
-    {
-      "id": "I07",
-      "package": "F6",
-      "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
-      "source_line": 127,
-      "proposed_disposition": "ADOPT_CORE",
-      "normative_target": "packages/agent-model/schemas/ama_evidence.vNext.json",
-      "existing_negative_test_plan": "Sample away mandatory policy-denial evidence; reject audit completeness.",
-      "household_protocol_classification": "J0_EVIDENCE_INSPECTION_THEN_AUTHORIZED_J1_REPAIR_IF_NEEDED",
-      "required_to_close": "DIRECT_ASSERTION_EVIDENCE_OR_APPROVED_BOUNDED_DISPOSITION",
-      "status": "OPEN_NO_DIRECT_TEST_LINK",
-      "director_decision": "NOT_RECORDED"
-    },
-    {
       "id": "J03",
       "package": "F7",
       "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
@@ -400,5 +374,5 @@
       "director_decision": "NOT_RECORDED"
     }
   ],
-  "provenance_note": "68 source-referenced partial tests including new A04/A06/A07 cases; no exact-head Python execution, Director approval or primary RefA verification inferred."
+  "provenance_note": "70 partial evidence links, 26 without direct links; I06/I07 synthetic tests committed but not executed. No formal acceptance."
 }
