@@ -506,6 +506,27 @@
       ]
     },
     {
+      "requirement_id": "I06",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_ama_fin01_evidence_invariants.py",
+      "test_functions": [
+        "test_I06_unknown_is_explicitly_not_zero",
+        "test_I06_unobserved_zero_rejected",
+        "test_I06_negative_and_boolean_metrics_rejected"
+      ]
+    },
+    {
+      "requirement_id": "I07",
+      "relation": "PARTIAL_TEST_EVIDENCE",
+      "test_file": "packages/agent-model/conformance/tests/test_ama_fin01_evidence_invariants.py",
+      "test_functions": [
+        "test_I07_sampling_does_not_remove_required_audit",
+        "test_I07_sampled_policy_denial_evidence_rejected",
+        "test_I07_audit_cannot_depend_on_mutable_session",
+        "test_I07_missing_mandatory_effect_record_rejected"
+      ]
+    },
+    {
       "requirement_id": "I08",
       "relation": "PARTIAL_TEST_EVIDENCE",
       "test_file": "packages/agent-model/conformance/tests/test_m4_durability.py",
