@@ -9,14 +9,14 @@
   "state": "TRIAGED_PENDING_EVIDENCE_AND_DIRECTOR_DECISIONS",
   "summary": {
     "total": 96,
-    "partial_links": 65,
-    "unlinked": 31,
+    "partial_links": 68,
+    "unlinked": 28,
     "owner_adopted": 0,
     "requirements_verified_complete": 0,
     "by_milestone": {
       "M1": {
         "total": 7,
-        "unlinked": 3
+        "unlinked": 0
       },
       "M2": {
         "total": 20,
@@ -126,12 +126,15 @@
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_plan": "Swap principal and workload IDs across two runs; reject attribution and cross-boundary execution.",
       "original_test_status": "NOT_IMPLEMENTED",
-      "evidence_status": "NO_DIRECT_TEST_REFERENCE",
-      "test_file": null,
-      "test_functions": [],
-      "fin01_disposition": "TRIAGED_GAP_REQUIRES_TEST_OR_BOUNDED_DEFERRAL",
+      "evidence_status": "PARTIAL_TEST_FUNCTION_REFERENCE_ONLY",
+      "test_file": "packages/agent-model/conformance/tests/test_ama_fin01_admission.py",
+      "test_functions": [
+        "test_A04_cross_boundary_identity_collision_denied",
+        "test_A04_missing_runtime_identity_denied"
+      ],
+      "fin01_disposition": "TRIAGED_PARTIAL_LINK_NOT_VERIFIED",
       "fin01_acceptance": "PENDING_SOURCE_AND_TEST_VALIDATION",
-      "next_action": "Create targeted semantic/negative evidence or explicitly document bounded scope exclusion with Director approval"
+      "next_action": "Execute exact test cases and review semantic coverage before Director acceptance"
     },
     {
       "id": "A05",
@@ -170,12 +173,15 @@
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_plan": "Make a discoverable description claim an E3 capability; verify no permission is granted.",
       "original_test_status": "NOT_IMPLEMENTED",
-      "evidence_status": "NO_DIRECT_TEST_REFERENCE",
-      "test_file": null,
-      "test_functions": [],
-      "fin01_disposition": "TRIAGED_GAP_REQUIRES_TEST_OR_BOUNDED_DEFERRAL",
+      "evidence_status": "PARTIAL_TEST_FUNCTION_REFERENCE_ONLY",
+      "test_file": "packages/agent-model/conformance/tests/test_ama_fin01_admission.py",
+      "test_functions": [
+        "test_A06_discovery_effect_promotion_denied",
+        "test_A06_documentation_cannot_mint_authority"
+      ],
+      "fin01_disposition": "TRIAGED_PARTIAL_LINK_NOT_VERIFIED",
       "fin01_acceptance": "PENDING_SOURCE_AND_TEST_VALIDATION",
-      "next_action": "Create targeted semantic/negative evidence or explicitly document bounded scope exclusion with Director approval"
+      "next_action": "Execute exact test cases and review semantic coverage before Director acceptance"
     },
     {
       "id": "A07",
@@ -191,12 +197,16 @@
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_plan": "Submit an agent without stated limitations or test profile; reject its documentation admission gate.",
       "original_test_status": "NOT_IMPLEMENTED",
-      "evidence_status": "NO_DIRECT_TEST_REFERENCE",
-      "test_file": null,
-      "test_functions": [],
-      "fin01_disposition": "TRIAGED_GAP_REQUIRES_TEST_OR_BOUNDED_DEFERRAL",
+      "evidence_status": "PARTIAL_TEST_FUNCTION_REFERENCE_ONLY",
+      "test_file": "packages/agent-model/conformance/tests/test_ama_fin01_admission.py",
+      "test_functions": [
+        "test_A07_missing_limitations_denied",
+        "test_A07_missing_test_profile_denied",
+        "test_A07_no_discovery_description_denied"
+      ],
+      "fin01_disposition": "TRIAGED_PARTIAL_LINK_NOT_VERIFIED",
       "fin01_acceptance": "PENDING_SOURCE_AND_TEST_VALIDATION",
-      "next_action": "Create targeted semantic/negative evidence or explicitly document bounded scope exclusion with Director approval"
+      "next_action": "Execute exact test cases and review semantic coverage before Director acceptance"
     },
     {
       "id": "B01",
