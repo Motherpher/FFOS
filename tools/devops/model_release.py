@@ -125,8 +125,18 @@ def check_consistency(base_sha: str | None = None) -> dict:
         fail("canonical CDX source exception missing")
     if any(name in exclusions for name in names):
         fail("repository included in both installed and excluded")
-    if "Hybrismannen/Barnombudet" not in names:
-        fail("previously installed Barnombudet hook missing from ledger")
+    # A historic repository rollout does not establish Barnombudet's independent
+    # organisational approval. Keep the explicit exclusion visible and do not
+    # generate future hook update work for that repository.
+    barn = "Hybrismannen/Barnombudet"
+    barn_exclusion = next(
+        (item for item in index.get("excluded", [])
+         if item.get("repository") == barn), None
+    )
+    if barn in names or not barn_exclusion:
+        fail("Barnombudet must be excluded pending separate organisational adoption")
+    if barn_exclusion.get("reason") != "LOCAL_ORGANISATIONAL_GOVERNANCE_NOT_ADOPTED":
+        fail("Barnombudet exclusion reason missing or altered")
     if base_sha:
         changed = changed_paths(base_sha)
         before = previous_release(base_sha)
