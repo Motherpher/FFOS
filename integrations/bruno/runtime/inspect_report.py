@@ -46,6 +46,48 @@ def structure(value, depth=0):
         return "number"
     return "string"
 
+def response_data_shape(payload):
+    """Return presence, type and aggregate sizes only; never payload values."""
+    if not isinstance(payload, list):
+        return {"error": "unexpected_report_root_type"}
+    details = []
+    for batch in payload[:5]:
+        if not isinstance(batch, dict) or not isinstance(batch.get("results"), list):
+            details.append({"error": "unexpected_results_shape"})
+            continue
+        for result in batch["results"][:5]:
+            if not isinstance(result, dict):
+                details.append({"error": "unexpected_result_type"})
+                continue
+            resp = result.get("response")
+            if not isinstance(resp, dict):
+                details.append({"response_present": False})
+                continue
+            data_present = "data" in resp
+            data = resp.get("data")
+            if data is None:
+                data_type = "null"
+            elif isinstance(data, dict):
+                data_type = "object"
+            elif isinstance(data, list):
+                data_type = "array"
+            elif isinstance(data, str):
+                data_type = "string"
+            elif isinstance(data, (int,float,bool)):
+                data_type = "scalar"
+            else:
+                data_type = "unknown"
+            details.append({
+                "response_present": True,
+                "http_status": resp.get("status") if isinstance(resp.get("status"), int)
+                    and not isinstance(resp.get("status"), bool) else None,
+                "data_field_present": data_present,
+                "data_type": data_type,
+                "data_empty": data in (None, "", [], {}),
+                "data_item_count": len(data) if isinstance(data, (list,dict)) else None
+            })
+    return details
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--report", required=True)
@@ -54,7 +96,7 @@ def main():
     if not path.is_file() or path.is_symlink():
         raise SystemExit("Expected an existing regular private reporter file")
     payload = json.loads(path.read_text(encoding="utf-8"))
-    print(json.dumps({"reporter_structure": structure(payload)},
+    print(json.dumps({"reporter_structure": structure(payload),\n                      "response_data_diagnostics": response_data_shape(payload)},
                      indent=2, ensure_ascii=False))
 
 if __name__ == "__main__":
