@@ -13,7 +13,6 @@ STAGES=tuple(f"FIN-0{i}" for i in range(1,6))
 ALLOWED_CLASSIFICATIONS={"J0","J1","J2"}
 PASS_MARKER="VERIFIED_PASS"
 MANDATORY=("janitor_inspection","handyman_scope","verifier_evidence")
-DIRECTOR_REQUIRED=("FIN-01","FIN-04","FIN-05")
 
 def evaluate(record:dict)->dict:
     errors=[]
@@ -35,14 +34,14 @@ def evaluate(record:dict)->dict:
             errors.append("MISSING_VERIFIED_EVIDENCE:"+item)
     if classification=="J1" and not record.get("registered_recipe_ref"):
         errors.append("J1_RECIPE_REQUIRED")
-    if not record.get("mandate_ref"):
-        errors.append("DIRECTOR_MANDATE_REF_REQUIRED")
+    if not record.get("mandate_ref") or record.get("mandate_validation")!="EXTERNALLY_VERIFIED":
+        errors.append("DIRECTOR_MANDATE_NOT_VERIFIED")
     # Director's upstream acceptance must not be created by the execution/verifier.
     if not isinstance(record.get("director_acceptance"),dict):
         errors.append("EXTERNAL_DIRECTOR_ACCEPTANCE_REQUIRED")
     else:
         d=record["director_acceptance"]
-        if d.get("stage")!=current or d.get("decision")!="ACCEPT" or not d.get("external_evidence_ref"):
+        if d.get("stage")!=current or d.get("decision")!="ACCEPT" or not d.get("external_evidence_ref") or d.get("validation")!="EXTERNALLY_VERIFIED" or not d.get("signature_verification_ref"):
             errors.append("EXTERNAL_DIRECTOR_ACCEPTANCE_REQUIRED")
         if d.get("source") in ("HOUSEHOLD","AMA","VERIFIER","HANDYMAN","JANITOR"):
             errors.append("SELF_ACCEPTANCE_FORBIDDEN")
@@ -50,9 +49,9 @@ def evaluate(record:dict)->dict:
     next_stage=STAGES[index+1] if 0<=index<len(STAGES)-1 else None
     if current=="FIN-05":
         errors.append("TERMINAL_STAGE_REQUIRES_DIRECTOR_RELEASE")
-    elif next_stage and record.get("next_stage_mandate")!=next_stage:
+    elif next_stage and (record.get("next_stage_mandate")!=next_stage or record.get("next_stage_mandate_validation")!="EXTERNALLY_VERIFIED"):
         errors.append("NEXT_STAGE_MANDATE_REQUIRED")
-    if record.get("exact_head_tests_required") and evidence.get("exact_head_tests",{}).get("status")!=PASS_MARKER:
+    if record.get("exact_head_tests_required") and (not isinstance(evidence.get("exact_head_tests"),dict) or evidence["exact_head_tests"].get("status")!=PASS_MARKER):
         errors.append("EXACT_HEAD_TESTS_NOT_VERIFIED")
     return {
         "schema":"ama.fin.protocol-transition-decision/v1",
