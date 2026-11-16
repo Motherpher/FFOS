@@ -2,6 +2,12 @@
 
 FFOS is the central operating shell for Form & Flöde. It coordinates work across domains without absorbing their canonical repositories.
 
+## New DevOps processes — operating model 1.0
+
+**Effective for newly initiated DevOps processes after the Director's 2026-11-16 instruction.** Use the [six-phase DevOps Operating Model](docs/operations/devops/README.md): **Plan → Design → Build → Test → Release → Learn**, choosing proportionate **L1 (Lightweight), L2 (Structured) or L3 (Controlled)** according to actual risk and consequences. Start with the [minimal process template](docs/operations/devops/NEW-DEVOPS-PROCESS-TEMPLATE.md), not a nine-gate assurance case.
+
+**No retrospective migration:** existing/historical work packages, repositories, active processes and releases are not rewritten or evaluated against this new model. CDX, AMA, Pius/HCC and canonical domain obligations remain in force independently. See the [transition record](docs/operations/devops/TRANSITION-DECISION-2026-11-16.md).
+
 ## Start here — operating FFOS
 
 - **[GitHub Estate Operations — WP04](docs/governance/github-estate/README.md)** — private source-backed estate register, portfolio, dashboard, operating standard and DG-04 review (implementation candidate; not accepted or runtime-bound).
