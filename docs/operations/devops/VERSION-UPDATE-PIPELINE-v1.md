@@ -45,3 +45,7 @@ The seven new Tier D hooks do not modify historical work: they advertise a possi
 If GitHub Actions fails, investigate rather than assuming hooks updated. The upstream version remains source truth and stale downstream versions remain explicit in the index. Correct the error/permissions and re-run. Issue-creation idempotency prevents duplicates.
 
 This is a distribution **notification and tracking pipeline** with one scoped merge integrity check. It does not claim autonomous cross-repository synchronization, remote secret management, runtime CDX mediation or an estate-wide agent.
+
+## Verification status
+
+The single native FFOS required status check and a negative blocked-merge test are recorded in the [final technical verification](RELEASE-WATCH-VERIFICATION-2026-11-16.md). The first main push ran the issue-publisher safely with no model-version bump; the first **actual future new-version issue publication remains untested** until such a version is released. The 30-repository index is based on authenticated observations, not automatic remote polling.
