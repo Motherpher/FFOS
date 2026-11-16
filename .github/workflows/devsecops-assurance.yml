@@ -1,0 +1,34 @@
+name: FFOS DevSecOps candidate assurance register
+on:
+  pull_request:
+    paths:
+      - 'docs/governance/devsecops/**'
+      - 'tools/devsecops/**'
+      - '.github/workflows/devsecops-assurance.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'docs/governance/devsecops/**'
+      - 'tools/devsecops/**'
+      - '.github/workflows/devsecops-assurance.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  candidate-register-validation:
+    name: Validate FFOS-DSA-001 register (not runtime assurance)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout exact workflow revision
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Validate structurally and exercise negative claim tests
+        run: python3 tools/devsecops/validate_register.py --self-test
+      - name: Statement of limits
+        run: |
+          echo 'Candidate register syntax and negative-case checks only.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Does NOT prove branch protection, required status configuration, independent review or production runtime.' >> "$GITHUB_STEP_SUMMARY"
