@@ -18,7 +18,7 @@ def assess(record:dict)->dict:
         errors.append("OUT_OF_SCOPE")
     if counts.get("requirements")!=96 or counts.get("missing_direct_evidence")!=28:
         errors.append("REQUIREMENT_BASELINE_MISMATCH")
-    if len(gap_queue)!=28 or len({g.get("id") for g in gap_queue})!=31:
+    if len(gap_queue)!=28 or len({g.get("id") for g in gap_queue})!=28:
         errors.append("INCOMPLETE_GAP_QUEUE")
     for row in gap_queue:
         if row.get("status")!="OPEN_NO_DIRECT_TEST_LINK":
