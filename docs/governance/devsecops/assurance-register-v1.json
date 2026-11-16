@@ -102,11 +102,15 @@
         "https://github.com/Motherpher/FFOS/rules/27341443",
         "https://github.com/Motherpher/FFOS/pull/58",
         "https://github.com/Motherpher/FFOS/actions/runs/43783037876",
-        "docs/governance/devsecops/VERIFICATION-DSA-WP01-2026-11-16.md"
+        "docs/governance/devsecops/VERIFICATION-DSA-WP01-2026-11-16.md",
+        "https://github.com/Motherpher/FFOS/pull/59",
+        "https://github.com/Motherpher/FFOS/actions/runs/43783660932",
+        "docs/governance/devsecops/DSA-WP05-RELEASE-READINESS-2026-11-16.md",
+        "https://github.com/Motherpher/FFOS/issues/60"
       ],
       "verifier": null,
       "decision_ref": null,
-      "limitations": "Native GitHub ruleset active on main, both required check contexts configured and failed CI check produced mergeable_state=blocked on temporary negative PR #58. PR #58 closed unmerged. Required approving reviews=0, no independent Director acceptance, positive-path merge verification, direct-push denial test or production release claim; G6 stays HOLD.",
+      "limitations": "Main native ruleset, both exact required CI check contexts, negative PR #58 blocked on failed validation, and positive test PR #59 both required checks passing are source verified; both test PRs closed unmerged. Positive PR overall mergeable_state=unstable while Vercel status failed (causation not independently proven). GitHub required approving reviews=0, independent human review and Director adoption missing; no compliant authorized merge, production runtime or deployment acceptance. G6 remains PARTIAL / HOLD.",
       "waiver": null
     },
     {
