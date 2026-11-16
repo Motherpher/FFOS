@@ -1,0 +1,88 @@
+name: FFOS DevOps model release watch
+
+# Narrow canonical-model integrity check only. Every PR runs so a required check
+# never goes permanently pending on unrelated changes; only model changes are gated.
+on:
+  pull_request:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/operations/devops/**'
+      - 'tools/devops/**'
+      - '.ffos/devops-hook.json'
+      - '.github/workflows/devops-model-release-watch.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  model-release-integrity:
+    name: FFOS DevOps model release integrity
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout source and base history
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Exercise bounded version/update-queue regression cases
+        run: python3 tools/devops/model_release.py --self-test
+      - name: Check exact candidate model, local hook and observed estate index
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
+            python3 tools/devops/model_release.py --check --base-sha "$BASE_SHA"
+          else
+            python3 tools/devops/model_release.py --check
+          fi
+      - name: Explain assurance boundary
+        run: |
+          echo 'Model-version integrity ONLY: not automatic deployment, Director activation, CDX authorization or downstream hook synchronization.' >> "$GITHUB_STEP_SUMMARY"
+
+  publish-update-queue:
+    name: Track new model versions for repository hook review
+    if: github.event_name == 'push'
+    needs: model-release-integrity
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Checkout released main commit with history
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Determine whether a new semantic model version was released
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+        run: |
+          python3 tools/devops/model_release.py \
+            --release-event \
+            --before-sha "$BEFORE_SHA" \
+            --output "$RUNNER_TEMP/devops-release-event.json" \
+            --issue-body "$RUNNER_TEMP/devops-hook-rollout.md"
+          cat "$RUNNER_TEMP/devops-release-event.json" >> "$GITHUB_STEP_SUMMARY"
+      - name: Create one auditable hook-update issue per new version
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          is_new="$(python3 -c 'import json,os; print(str(json.load(open(os.environ["RUNNER_TEMP"]+"/devops-release-event.json"))["new_release"]).lower())')"
+          if [ "$is_new" != "true" ]; then
+            echo "No semantic version bump; no rollout issue needed." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          version="$(python3 -c 'import json,os; print(json.load(open(os.environ["RUNNER_TEMP"]+"/devops-release-event.json"))["new_version"])')"
+          title="[DevOps Update] FFOS Operating Model v${version} — reconcile hooks"
+          prior="$(gh issue list --repo "$GITHUB_REPOSITORY" --state all --search "$title" --json title --limit 200 --jq '.[].title')"
+          if printf '%s\n' "$prior" | grep -Fqx "$title"; then
+            echo "Version tracking issue already exists; not duplicating." >> "$GITHUB_STEP_SUMMARY"
+          else
+            gh issue create --repo "$GITHUB_REPOSITORY" --title "$title" \
+              --body-file "$RUNNER_TEMP/devops-hook-rollout.md"
+            echo "Created tracked review queue for v${version}; no downstream repository was modified." >> "$GITHUB_STEP_SUMMARY"
+          fi

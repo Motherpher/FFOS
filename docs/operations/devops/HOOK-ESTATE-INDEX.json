@@ -1,0 +1,263 @@
+{
+  "schema": "ffos.devops.hook-index/v1",
+  "model_id": "FFOS-DEVOPS-OM-001",
+  "canonical": "Motherpher/FFOS",
+  "last_reconciled_at": "2026-11-16",
+  "observation_type": "AUTHENTICATED_READ_AT_INSTALLATION_NOT_LIVE",
+  "sync_mode": "VERSIONED_FFOS_ROLLOUT_ISSUES_AND_OWNER_PR",
+  "installed": [
+    {
+      "repository": "Hybrismannen/pius-universe",
+      "tier": "A",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Hybrismannen/pius-universe/pull/30",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "tier": "A",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Motherpher/form-flode/pull/44",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "tier": "A",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Motherpher/FFOS/pull/64",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Hybrismannen/pius-pwe",
+      "tier": "B",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Hybrismannen/pius-pwe/pull/9",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Hybrismannen/nsliengine",
+      "tier": "B",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Hybrismannen/nsliengine/pull/5",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Hybrismannen/udl-twin",
+      "tier": "B",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Hybrismannen/udl-twin/pull/27",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Hybrismannen/green-bell-statsvault",
+      "tier": "B",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Hybrismannen/green-bell-statsvault/pull/18",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Hybrismannen/NSLI",
+      "tier": "B",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Hybrismannen/NSLI/pull/4",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Hybrismannen/Barnombudet",
+      "tier": "B",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Hybrismannen/Barnombudet/pull/2",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Hybrismannen/Opal-Sense-I",
+      "tier": "B",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Hybrismannen/Opal-Sense-I/pull/20",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Motherpher/CareerHubZero",
+      "tier": "B",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Motherpher/CareerHubZero/pull/60",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Motherpher/Politent",
+      "tier": "B",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Motherpher/Politent/pull/26",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Motherpher/FF-Spatial",
+      "tier": "B",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Motherpher/FF-Spatial/pull/45",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Motherpher/BDNA",
+      "tier": "B",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Motherpher/BDNA/pull/18",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Motherpher/Re-Eco",
+      "tier": "B",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Motherpher/Re-Eco/pull/12",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Motherpher/GreenBell",
+      "tier": "B",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Motherpher/GreenBell/pull/15",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Hybrismannen/livicity-cwvs-reference",
+      "tier": "C",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Hybrismannen/livicity-cwvs-reference/pull/4",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Hybrismannen/form-flode-dna",
+      "tier": "C",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Hybrismannen/form-flode-dna/pull/5",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Hybrismannen/RFSU-godex-FF",
+      "tier": "C",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Hybrismannen/RFSU-godex-FF/pull/7",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Hybrismannen/Digital-Apartheid",
+      "tier": "C",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Hybrismannen/Digital-Apartheid/pull/10",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Hybrismannen/metoyo",
+      "tier": "C",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Hybrismannen/metoyo/pull/5",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Motherpher/wpb",
+      "tier": "C",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Motherpher/wpb/pull/21",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Motherpher/Vitalitet",
+      "tier": "C",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Motherpher/Vitalitet/pull/4",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Hybrismannen/Hy",
+      "tier": "D",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Hybrismannen/Hy/pull/5",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Hybrismannen/pius-codex-5",
+      "tier": "D",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Hybrismannen/pius-codex-5/pull/14",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Hybrismannen/pius-lifetime-audit-2026",
+      "tier": "D",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Hybrismannen/pius-lifetime-audit-2026/pull/10",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Hybrismannen/RFSU-godex",
+      "tier": "D",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Hybrismannen/RFSU-godex/pull/13",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Motherpher/Gracey",
+      "tier": "D",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Motherpher/Gracey/pull/11",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Motherpher/CareerHub-LinusF",
+      "tier": "D",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Motherpher/CareerHub-LinusF/pull/11",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
+      "repository": "Motherpher/MusicGenea",
+      "tier": "D",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Motherpher/MusicGenea/pull/4",
+      "provenance": "2026-11-16-verified-passive-hook"
+    }
+  ],
+  "excluded": [
+    {
+      "repository": "Hybrismannen/Conductellence-",
+      "reason": "CANONICAL_CDX_AUTHORITY_ROOT_REQUIRES_HUMAN_SOVEREIGN_APPROVAL",
+      "pr": "https://github.com/Hybrismannen/Conductellence-/pull/75"
+    }
+  ],
+  "notes": [
+    "Tier D hook installation does not activate or migrate historic projects.",
+    "Barnombudet is Tier B; its existing hook was not changed during Tier D expansion.",
+    "A GitHub blob/main link opens latest model text; stored model.version remains a snapshot until a PR updates it.",
+    "CDX sovereign source is intentionally excluded."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "schema": "ffos.devops.model-release/v1",
+  "model_id": "FFOS-DEVOPS-OM-001",
+  "current_version": "1.1",
+  "model_path": "docs/operations/devops/README.md",
+  "model_uri": "https://github.com/Motherpher/FFOS/blob/main/docs/operations/devops/README.md",
+  "hook_schema": "ffos.devops.discovery-hook/v1.1",
+  "hook_template": "docs/operations/devops/devops-hook.example.json",
+  "registry": "docs/operations/devops/HOOK-ESTATE-INDEX.json",
+  "update_mode": "OPEN_TRACKED_ROLLOUT_ISSUE_ON_NEW_MODEL_VERSION",
+  "distribution": "NO_AUTOMERGE_NO_CROSS_REPO_WRITES",
+  "activation": "OFFER_ONLY",
+  "cdx_review": "CONDITIONAL_DISCOVERY"
+}
