@@ -1,10 +1,6 @@
 name: FFOS DevSecOps candidate assurance register
 on:
-  pull_request:
-    paths:
-      - 'docs/governance/devsecops/**'
-      - 'tools/devsecops/**'
-      - '.github/workflows/devsecops-assurance.yml'
+  pull_request: # Always run on every PR; candidate check may later be configured as a required check
   push:
     branches: [main]
     paths:
@@ -32,3 +28,31 @@ jobs:
         run: |
           echo 'Candidate register syntax and negative-case checks only.' >> "$GITHUB_STEP_SUMMARY"
           echo 'Does NOT prove branch protection, required status configuration, independent review or production runtime.' >> "$GITHUB_STEP_SUMMARY"
+
+  pr-credential-indicator-diff:
+    name: Inspect PR added lines for credential indicators
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout exact PR merge revision with ancestry
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Run scanner positive/negative tests
+        run: python3 tools/devsecops/scan_pr_diff.py --self-test
+      - name: Scan PR-added text for high-confidence credential indicators
+        run: |
+          python3 tools/devsecops/scan_pr_diff.py \
+            --base "${{ github.event.pull_request.base.sha }}" \
+            --head HEAD \
+            --output "$RUNNER_TEMP/ffos-pr-credential-indicators.json"
+      - name: Upload redacted scope report
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: ffos-pr-credential-indicators
+          path: ${{ runner.temp }}/ffos-pr-credential-indicators.json
+          retention-days: 7
+          if-no-files-found: warn
