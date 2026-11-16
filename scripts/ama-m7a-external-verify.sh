@@ -42,6 +42,7 @@ run release-gates python3 packages/agent-model/conformance/ama_release_gates.py
 run milestone-integrity python3 packages/agent-model/conformance/ama_milestone_integrity.py --output "$OUT/ama-milestone-integrity.json"
 run realm-stewardship python3 packages/agent-model/conformance/ama_realm.py --output "$OUT/ama-realm-stewardship.json"
 run blueprint-reference python3 packages/agent-model/conformance/ama_blueprint_reference.py --output-dir "$OUT/ama-m7-blueprints"
+run fin-protocol-syntax python3 -m py_compile packages/agent-model/conformance/ama_fin_protocol_progression.py
 run static-tests python3 -m unittest discover -s packages/agent-model/conformance/tests -v
 run security-tests python3 -m unittest discover -s packages/agent-model/conformance -p 'test_ama*.py' -v
 run architecture-boundary python3 packages/agent-model/conformance/ama_architecture_boundary.py
