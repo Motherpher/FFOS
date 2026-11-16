@@ -5,8 +5,8 @@
   "governed_repository": "Motherpher/FFOS",
   "baseline_observed_at": "2026-11-16",
   "baseline_source_revision": "54d4fafcfc4577c2299243346d7dd17e0c0ffef9",
-  "programme_state": "PROPOSAL_NOT_ACCEPTED",
-  "disclaimer": "Register validation is structural only; no runtime gate or repository branch rule is activated by this artifact.",
+  "programme_state": "ENFORCING",
+  "disclaimer": "NEGATIVE GATE TEST ONLY — intentionally invalid: do not merge; source acceptance not granted.",
   "maturity_assessment": {
     "state": "NOT_ASSESSED",
     "maturity_level": null,
