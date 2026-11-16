@@ -45,3 +45,12 @@ This section supersedes the earlier snapshot counts above; it does not overwrite
 - GitHub connector verified source presence and seven newly cited method names; no exact-head executable Python test result is available. The new checker is an isolated candidate contract; its composition with the wider AMA admission path requires separate validation.
 
 **Final FIN-01 decision after this pass: HOLD, source-evidence coverage improved but not formally accepted.**
+
+## Second corrective pass — I06/I07 metrics and audit evidence
+
+- FIN-01 mission-clearance guard stale unique-count comparison corrected (`31` replaced with actual `28` before this pass).
+- Added portable M5/M6 candidate checks for **unknown versus observed-zero metric semantics (I06)** and **non-sampled mandatory policy/effect evidence (I07)**.
+- Added seven synthetic positive/negative regression cases. New test methods and their source paths are present on the branch; **Python suite execution is not authenticated**.
+- Updated bridge and both FIN-01 registers. Current source tally: **96 requirements, 70 partial test links, 26 without direct links**. Core scope and Director authority unchanged.
+- I06/I07 are **partial contract evidence only**: live telemetry collection, independent custody and production semantic integration remain unverified.
+- J2 source decisions K02/K03 still stop formal clearance; FIN-01 **HOLD**, FIN-02 automatic progression **not authorized**.
