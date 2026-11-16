@@ -136,3 +136,37 @@ python3 integrations/bruno/runtime/bruno_runtime.py \
 Expected: `validated_dry_run`, no API call. Only after this succeeds and the local request plus inherited scripts are reviewed, add `--execute` for an actual local Bruno call. A repeat live run requires a **new job_id**, because receipt directories cannot be overwritten.
 
 The private reporter may contain sensitive response data; inspect locally without pasting its contents into chat. Note that `200 OK` and a JSON-parseable reporter **do not yet prove the returned municipality's identity**.
+
+
+## Strict Kolada → R pilot export (Director schema evidence 2026-11-16)
+
+The Director's private Bruno reporter inspection established one result with HTTP 200,
+\`response.data\` as a JSON object, top-level \`values\` array length 1 and \`count\`
+numeric, with first row string fields \`id\`, \`title\`, and \`type\`.
+
+\`export_kolada_municipality.py\` now validates all of these **and the actual record values**
+against the requested Uppsala municipality identity (\`0380\` / \`Uppsala\`),
+and refuses to export on a mismatch. Export includes only approved fields,
+a private CSV with mode 0600 and a private provenance JSON sidecar.
+No API reporter or raw data is written to GitHub.
+
+From the existing Mac FFOS feature-branch checkout:
+
+\`\`\`bash
+git pull --ff-only
+python3 -m unittest discover -s integrations/bruno/runtime -p 'test_*.py' -v
+
+python3 integrations/bruno/runtime/export_kolada_municipality.py \
+  --report "$HOME/.local/share/ffos/bruno-runs/ffos-kolada-uppsala-001/report.private.json" \
+  --output "$HOME/.local/share/ffos/bruno-runs/ffos-kolada-uppsala-001/municipality-0380.csv"
+\`\`\`
+
+The export is intentionally one-time and refuses existing destinations.
+The printed summary includes only validation status, record count and local paths.
+If validation fails, inspect the data privately on the Mac without sending full
+reports, credentials or arbitrary fields to ChatGPT.
+
+**Spatial distinction:** This dataset is municipal identity metadata, not a
+polygon and not DeSO geography. The FF-Spatial R handoff in PR #41 can ingest
+the validated CSV into non-spatial RDS. Any actual QGIS map still requires an
+authoritative geometry dataset with explicit geography vintage and linkage.
