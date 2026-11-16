@@ -94,16 +94,19 @@
     {
       "gate_id": "G6",
       "gate_name": "Release",
-      "evidence_state": "FAILED",
+      "evidence_state": "PARTIAL",
       "assurance_disposition": "HOLD",
       "observed_at": "2026-11-16",
       "source_revision": "54d4fafcfc4577c2299243346d7dd17e0c0ffef9",
       "evidence_refs": [
-        "https://api.github.com/repos/Motherpher/FFOS/branches/main"
+        "https://github.com/Motherpher/FFOS/rules/27341443",
+        "https://github.com/Motherpher/FFOS/pull/58",
+        "https://github.com/Motherpher/FFOS/actions/runs/43783037876",
+        "docs/governance/devsecops/VERIFICATION-DSA-WP01-2026-11-16.md"
       ],
       "verifier": null,
       "decision_ref": null,
-      "limitations": "GitHub branch metadata protected=false; ruleset read unavailable (403); independent owner protection/negative test needed.",
+      "limitations": "Native GitHub ruleset active on main, both required check contexts configured and failed CI check produced mergeable_state=blocked on temporary negative PR #58. PR #58 closed unmerged. Required approving reviews=0, no independent Director acceptance, positive-path merge verification, direct-push denial test or production release claim; G6 stays HOLD.",
       "waiver": null
     },
     {
