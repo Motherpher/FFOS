@@ -1,0 +1,47 @@
+name: FFOS data asset PostgreSQL runtime readback
+on:
+  pull_request:
+    paths:
+      - 'packages/agent-runtime/src/data-asset-registry.ts'
+      - 'packages/agent-runtime/tests/data-asset-registry-pg.test.mjs'
+      - 'packages/registry/src/data-assets-store.ts'
+      - 'packages/registry/migrations/0007_ffos_isolated_data_assets.sql'
+      - '.github/workflows/data-asset-runtime-pg.yml'
+  push:
+    paths:
+      - 'packages/agent-runtime/src/data-asset-registry.ts'
+      - 'packages/agent-runtime/tests/data-asset-registry-pg.test.mjs'
+      - 'packages/registry/src/data-assets-store.ts'
+      - 'packages/registry/migrations/0007_ffos_isolated_data_assets.sql'
+      - '.github/workflows/data-asset-runtime-pg.yml'
+permissions:
+  contents: read
+jobs:
+  transactional-registry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: ffos_fixture
+          POSTGRES_PASSWORD: ci_ephemeral
+          POSTGRES_DB: ffos_data_asset_runtime
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U ffos_fixture -d ffos_data_asset_runtime"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 12
+    env:
+      FFOS_DATA_ASSET_TEST_DATABASE_URL: postgres://ffos_fixture:ci_ephemeral@localhost:5432/ffos_data_asset_runtime
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pinned database client
+        run: npm install --no-save --prefix packages/agent-runtime pg@8.23.1 --ignore-scripts --no-audit --no-fund
+      - name: Execute readback, authorization denial and rollback
+        run: node --experimental-strip-types --test packages/agent-runtime/tests/data-asset-registry-pg.test.mjs
