@@ -18,9 +18,9 @@
   "counts": {
     "requirements": 96,
     "exact_source_line_matches": 96,
-    "partial_evidence_linked": 65,
-    "missing_direct_evidence": 31,
-    "unlinked_with_documented_test_plan": 31,
+    "partial_evidence_linked": 68,
+    "missing_direct_evidence": 28,
+    "unlinked_with_documented_test_plan": 28,
     "source_review_J2": 2,
     "accepted": 0
   },
@@ -35,45 +35,6 @@
     "release_approval": "NOT_AUTHORIZED"
   },
   "gap_queue": [
-    {
-      "id": "A04",
-      "package": "F1",
-      "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
-      "source_line": 33,
-      "proposed_disposition": "ADOPT_CORE",
-      "normative_target": "packages/agent-model/schemas/ama_core.vNext.json",
-      "existing_negative_test_plan": "Swap principal and workload IDs across two runs; reject attribution and cross-boundary execution.",
-      "household_protocol_classification": "J0_EVIDENCE_INSPECTION_THEN_AUTHORIZED_J1_REPAIR_IF_NEEDED",
-      "required_to_close": "DIRECT_ASSERTION_EVIDENCE_OR_APPROVED_BOUNDED_DISPOSITION",
-      "status": "OPEN_NO_DIRECT_TEST_LINK",
-      "director_decision": "NOT_RECORDED"
-    },
-    {
-      "id": "A06",
-      "package": "F1",
-      "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
-      "source_line": 35,
-      "proposed_disposition": "ADOPT_CORE",
-      "normative_target": "packages/agent-model/schemas/ama_core.vNext.json",
-      "existing_negative_test_plan": "Make a discoverable description claim an E3 capability; verify no permission is granted.",
-      "household_protocol_classification": "J0_EVIDENCE_INSPECTION_THEN_AUTHORIZED_J1_REPAIR_IF_NEEDED",
-      "required_to_close": "DIRECT_ASSERTION_EVIDENCE_OR_APPROVED_BOUNDED_DISPOSITION",
-      "status": "OPEN_NO_DIRECT_TEST_LINK",
-      "director_decision": "NOT_RECORDED"
-    },
-    {
-      "id": "A07",
-      "package": "F1",
-      "source_path": "docs/research/AMA-SOURCE-ROUND-GRANULAR-REQUIREMENTS-2026-10-29.md",
-      "source_line": 36,
-      "proposed_disposition": "ADOPT_CORE",
-      "normative_target": "packages/agent-model/schemas/ama_core.vNext.json",
-      "existing_negative_test_plan": "Submit an agent without stated limitations or test profile; reject its documentation admission gate.",
-      "household_protocol_classification": "J0_EVIDENCE_INSPECTION_THEN_AUTHORIZED_J1_REPAIR_IF_NEEDED",
-      "required_to_close": "DIRECT_ASSERTION_EVIDENCE_OR_APPROVED_BOUNDED_DISPOSITION",
-      "status": "OPEN_NO_DIRECT_TEST_LINK",
-      "director_decision": "NOT_RECORDED"
-    },
     {
       "id": "F02",
       "package": "F5",
@@ -439,5 +400,5 @@
       "director_decision": "NOT_RECORDED"
     }
   ],
-  "provenance_note": "Source/readback and existing 93 test-function names are observed; no CI test pass, signed Director decision or primary RefA verification is inferred."
+  "provenance_note": "68 source-referenced partial tests including new A04/A06/A07 cases; no exact-head Python execution, Director approval or primary RefA verification inferred."
 }
