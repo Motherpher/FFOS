@@ -44,14 +44,14 @@ jobs:
         run: |
           bash packages/registry/scripts/probe-postgres-readonly.sh > /tmp/before.txt
           grep -F 'ffos_schema_exists' /tmp/before.txt
-          grep -E 'ffos_table_count[[:space:]]*\\|[[:space:]]*0' /tmp/before.txt
+          awk -F '|' '$1 ~ /ffos_table_count/ && $2 ~ /^[[:space:]]*0[[:space:]]*$/ {ok=1} END {exit !ok}' /tmp/before.txt
       - name: Create isolated schema with existing reviewed migration
         run: psql -X -v ON_ERROR_STOP=1 -f packages/registry/migrations/0007_ffos_isolated_data_assets.sql
       - name: Verify schema admission after migration
         run: |
           bash packages/registry/scripts/probe-postgres-readonly.sh > /tmp/after.txt
-          grep -E 'ffos_table_count[[:space:]]*\\|[[:space:]]*4' /tmp/after.txt
-          grep -E 'public_legacy_0006_count[[:space:]]*\\|[[:space:]]*0' /tmp/after.txt
+          awk -F '|' '$1 ~ /ffos_table_count/ && $2 ~ /^[[:space:]]*4[[:space:]]*$/ {ok=1} END {exit !ok}' /tmp/after.txt
+          awk -F '|' '$1 ~ /public_legacy_0006_count/ && $2 ~ /^[[:space:]]*0[[:space:]]*$/ {ok=1} END {exit !ok}' /tmp/after.txt
       - name: Ensure unknown runtime has no silent success without configuration
         run: |
           if env -u DATABASE_URL -u PGHOST bash packages/registry/scripts/probe-postgres-readonly.sh > /tmp/no_conn.out 2>&1; then
