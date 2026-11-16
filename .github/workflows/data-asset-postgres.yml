@@ -1,0 +1,55 @@
+name: FFOS registry PostgreSQL integration
+
+on:
+  pull_request:
+    paths:
+      - 'packages/registry/schema.sql'
+      - 'packages/registry/migrations/0006_data_asset_workorders.sql'
+      - 'packages/registry/tests/data-asset-postgres.sql'
+      - '.github/workflows/data-asset-postgres.yml'
+  push:
+    paths:
+      - 'packages/registry/schema.sql'
+      - 'packages/registry/migrations/0006_data_asset_workorders.sql'
+      - 'packages/registry/tests/data-asset-postgres.sql'
+      - '.github/workflows/data-asset-postgres.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  postgres-migration-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: ffos_test
+          POSTGRES_PASSWORD: ephemeral_test_only
+          POSTGRES_DB: ffos_asset_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U ffos_test -d ffos_asset_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 12
+    env:
+      PGHOST: localhost
+      PGPORT: 5432
+      PGUSER: ffos_test
+      PGPASSWORD: ephemeral_test_only
+      PGDATABASE: ffos_asset_test
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PostgreSQL client
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq postgresql-client
+      - name: Apply original registry schema
+        run: psql -X -v ON_ERROR_STOP=1 -f packages/registry/schema.sql
+      - name: Apply new migration twice for idempotence
+        run: |
+          psql -X -v ON_ERROR_STOP=1 -f packages/registry/migrations/0006_data_asset_workorders.sql
+          psql -X -v ON_ERROR_STOP=1 -f packages/registry/migrations/0006_data_asset_workorders.sql
+      - name: Verify inserts, links, immutable versions and reject mutations
+        run: psql -X -v ON_ERROR_STOP=1 -f packages/registry/tests/data-asset-postgres.sql
