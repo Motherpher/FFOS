@@ -49,10 +49,11 @@ end $$;
 
 -- Each append-only table must reject updates and deletes with the exact trigger
 -- message, rather than merely failing due to unrelated SQL errors.
-do $$
-declare tbl text;
-declare old_count integer;
-declare blocked boolean;
+do $
+declare
+  tbl text;
+  old_count integer;
+  blocked boolean;
 begin
   foreach tbl in array array[
     'ffos_data_work_orders','ffos_data_asset_versions',
