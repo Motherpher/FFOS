@@ -1,13 +1,14 @@
 ---
 name: New DevOps process (forward-only)
-about: Start a new L1/L2/L3 process using FFOS DevOps Operating Model 1.0
+about: Optional Director-activated L1/L2/L3 process using FFOS DevOps Model 1.1
 title: "[DevOps] "
 labels: []
 assignees: []
 ---
 
-<!-- For NEW DevOps processes only. Do not retrofit ongoing/completed work. -->
-**Model:** [FFOS-DEVOPS-OM-001@1.0](https://github.com/Motherpher/FFOS/blob/main/docs/operations/devops/README.md)
+<!-- ONLY after Director explicitly activates for a new substantial effort. Skip for small changes/declines; do not retrofit. -->
+**Model:** [FFOS-DEVOPS-OM-001@1.1](https://github.com/Motherpher/FFOS/blob/main/docs/operations/devops/README.md)
+**Director activation decision reference:** 
 **Canonical repository / source:** 
 **Owner / intended outcome / done condition:** 
 **Level:** L1 / L2 / L3 — reason: 
