@@ -83,3 +83,13 @@ tbody tr:hover { background: var(--panel2); }
   .grid2 { grid-template-columns: 1fr; }
   .loginPanel { padding: 28px 22px; }
 }
+
+/* ProjectHub native domain components — semantic UI, not a separate data model */
+.phNotice{border:1px solid #755a20;background:#1b160b;padding:18px 20px;margin-bottom:26px}.phNotice strong{color:#ffd86b}.phRuntimeGrid{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.phRuntimeGrid span{border:1px solid #4b3c1a;padding:6px 8px;color:#c6ad72;font-size:11px}
+.phHeroGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:26px}.phHero{background:var(--panel);padding:20px;min-height:138px;display:flex;flex-direction:column}.phHero strong{font-size:32px;margin-top:auto}.phHero>span{color:var(--muted);font-size:11px}
+.phProjectGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.phProjectCard{border:1px solid var(--line);padding:18px;background:#0d1115;min-height:150px;display:flex;flex-direction:column;justify-content:space-between}.phProjectCard:hover{border-color:#5d6770}.phProjectCard h3{font-size:20px;margin:8px 0}.phCode{font-size:10px;color:var(--accent);letter-spacing:.08em}.phProjectMeta{display:flex;gap:7px;flex-wrap:wrap}.phProjectMeta span{border:1px solid var(--line);padding:4px 6px;font-size:9px;color:#8f9aa3}.phEmpty{padding:30px 0;color:#69737b}
+.phPulse{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:26px}.phPulse>div{background:var(--panel);padding:17px}.phPulse span{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.08em}.phPulse strong{display:block;margin-top:9px;font-size:16px}
+.phFieldGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.phFieldCell{border:1px solid var(--line);padding:15px;background:#0d1115}.phFieldCell>span{color:#8d969e;font-size:10px;text-transform:uppercase}.phFieldCell>strong{display:block;margin:8px 0;font-size:14px}.phFieldCell small{color:#606a72}.phMaturity{height:3px;background:#252c33;margin:11px 0}.phMaturity i{display:block;height:100%;background:var(--accent)}
+.phTrace{display:grid;grid-template-columns:74px 1fr auto;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);align-items:center}.phTrace b{color:var(--accent);font-size:10px}.phTrace span{font-size:12px}.phTrace small{color:var(--muted);font-size:9px}
+@media(max-width:1000px){.phProjectGrid,.phFieldGrid{grid-template-columns:repeat(2,1fr)}.phPulse{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.phHeroGrid,.phProjectGrid,.phFieldGrid,.phPulse{grid-template-columns:1fr}}

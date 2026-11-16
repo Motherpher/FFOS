@@ -5,6 +5,7 @@
 ## Current modules
 
 - `household-family/` — implementation candidate for Agent Stable Agent #2. Janitor, Handyman and Verifier remain internal workflows/roles.
+- `projecthub/` — native FFOS ProjectHub reconstitution candidate under DevOps process `FFOS-DEVOPS-PH-RECON-001`; **not released or deployed**.
 
 ## Placement rule
 

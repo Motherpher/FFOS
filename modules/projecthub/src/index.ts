@@ -6,3 +6,4 @@ export * from "./pg-store.ts";
 export * from "./effect-gate.ts";
 export * from "./effect-evidence.ts";
 export * from "./project-steward.ts";
+export * from "./linked-artifacts.ts";

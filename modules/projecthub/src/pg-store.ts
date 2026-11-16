@@ -35,6 +35,11 @@ export class PgProjectHubStore implements ProjectHubStore {
     const r=await this.db.query("select payload from ffos.projecthub_projects where project_id=$1 order by version desc limit 1",[id]);
     return r.rows[0]?project(r.rows[0]):null;
   }
+  async listProjects(){
+    const r=await this.db.query(`select distinct on(project_id) payload from ffos.projecthub_projects
+      order by project_id,version desc`,[]);
+    return r.rows.map(project).sort((a,b)=>a.title.localeCompare(b.title));
+  }
   async appendProject(p:ProjectRecord){
     this.assertTx();
     await this.db.query(`insert into ffos.projecthub_projects

@@ -3,6 +3,7 @@ import {ProjectHubInvariantError} from "../../../packages/projecthub-model/src/i
 
 export interface ProjectHubStore {
   getProject(id:string):Promise<ProjectRecord|null>;
+  listProjects():Promise<ProjectRecord[]>;
   appendProject(project:ProjectRecord):Promise<void>;
   getNode(id:string):Promise<ProjectNode|null>;
   appendNode(node:ProjectNode):Promise<void>;
@@ -29,6 +30,9 @@ export class MemoryProjectHubStore implements ProjectHubStore {
   async getProject(id:string) {
     const rows=this.projects.get(id)??[];
     return rows.length?structuredClone(rows[rows.length-1]):null;
+  }
+  async listProjects(){
+    return [...this.projects.values()].map(rows=>structuredClone(rows[rows.length-1])).sort((a,b)=>a.title.localeCompare(b.title));
   }
   async appendProject(project:ProjectRecord) {
     const rows=this.projects.get(project.id)??[];

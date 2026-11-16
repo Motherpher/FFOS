@@ -1,0 +1,38 @@
+{
+  "schema": "ffos.projecthub.surface-inventory/v0.1",
+  "process": "FFOS-DEVOPS-PH-RECON-001",
+  "status": "BUILD_CANDIDATE",
+  "surfaces": [
+    {
+      "system": "MIRO",
+      "state": "NOT_BOUND",
+      "role": "COLLABORATIVE_SPATIAL_WORK_SURFACE",
+      "writes": false
+    },
+    {
+      "system": "FIGMA",
+      "state": "NOT_BOUND",
+      "role": "VISUAL_DESIGN_AND_INTERFACE_SURFACE",
+      "writes": false
+    },
+    {
+      "system": "GITHUB",
+      "state": "CONTRACT_ONLY",
+      "role": "CODE_SCHEMA_PROVENANCE_SURFACE",
+      "writes": false
+    },
+    {
+      "system": "DRIVE_DOCS",
+      "state": "NOT_BOUND",
+      "role": "SOURCE_DOCUMENT_AND_DELIVERABLE_SURFACE",
+      "writes": false
+    },
+    {
+      "system": "FUNDING_PROVIDER",
+      "state": "PROVIDER_ADMISSION_REQUIRED",
+      "role": "FUNDING_SOURCE_SURFACE",
+      "writes": false
+    }
+  ],
+  "rule": "No ProjectHub provider is represented as live until its exact connector, authority, credentials and effect evidence are verified."
+}
