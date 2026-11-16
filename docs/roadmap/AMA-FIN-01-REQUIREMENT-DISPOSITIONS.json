@@ -9,8 +9,8 @@
   "state": "TRIAGED_PENDING_EVIDENCE_AND_DIRECTOR_DECISIONS",
   "summary": {
     "total": 96,
-    "partial_links": 68,
-    "unlinked": 28,
+    "partial_links": 70,
+    "unlinked": 26,
     "owner_adopted": 0,
     "requirements_verified_complete": 0,
     "by_milestone": {
@@ -32,7 +32,7 @@
       },
       "M5": {
         "total": 17,
-        "unlinked": 7
+        "unlinked": 5
       },
       "M6": {
         "total": 21,
@@ -1713,12 +1713,16 @@
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_plan": "Store unknown token cost as 0; reject metric semantics.",
       "original_test_status": "NOT_IMPLEMENTED",
-      "evidence_status": "NO_DIRECT_TEST_REFERENCE",
-      "test_file": null,
-      "test_functions": [],
-      "fin01_disposition": "TRIAGED_GAP_REQUIRES_TEST_OR_BOUNDED_DEFERRAL",
+      "evidence_status": "PARTIAL_TEST_FUNCTION_REFERENCE_ONLY",
+      "test_file": "packages/agent-model/conformance/tests/test_ama_fin01_evidence_invariants.py",
+      "test_functions": [
+        "test_I06_unknown_is_explicitly_not_zero",
+        "test_I06_unobserved_zero_rejected",
+        "test_I06_negative_and_boolean_metrics_rejected"
+      ],
+      "fin01_disposition": "TRIAGED_PARTIAL_LINK_NOT_VERIFIED",
       "fin01_acceptance": "PENDING_SOURCE_AND_TEST_VALIDATION",
-      "next_action": "Create targeted semantic/negative evidence or explicitly document bounded scope exclusion with Director approval"
+      "next_action": "Execute evidence invariants and verify integration with M5/M6 operations"
     },
     {
       "id": "I07",
@@ -1734,12 +1738,17 @@
       "compatibility": "AMA_0_1_TO_0_2_REVIEW_REQUIRED",
       "test_plan": "Sample away mandatory policy-denial evidence; reject audit completeness.",
       "original_test_status": "NOT_IMPLEMENTED",
-      "evidence_status": "NO_DIRECT_TEST_REFERENCE",
-      "test_file": null,
-      "test_functions": [],
-      "fin01_disposition": "TRIAGED_GAP_REQUIRES_TEST_OR_BOUNDED_DEFERRAL",
+      "evidence_status": "PARTIAL_TEST_FUNCTION_REFERENCE_ONLY",
+      "test_file": "packages/agent-model/conformance/tests/test_ama_fin01_evidence_invariants.py",
+      "test_functions": [
+        "test_I07_sampling_does_not_remove_required_audit",
+        "test_I07_sampled_policy_denial_evidence_rejected",
+        "test_I07_audit_cannot_depend_on_mutable_session",
+        "test_I07_missing_mandatory_effect_record_rejected"
+      ],
+      "fin01_disposition": "TRIAGED_PARTIAL_LINK_NOT_VERIFIED",
       "fin01_acceptance": "PENDING_SOURCE_AND_TEST_VALIDATION",
-      "next_action": "Create targeted semantic/negative evidence or explicitly document bounded scope exclusion with Director approval"
+      "next_action": "Execute evidence invariants and verify integration with M5/M6 operations"
     },
     {
       "id": "I08",
