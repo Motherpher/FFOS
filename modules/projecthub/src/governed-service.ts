@@ -68,6 +68,15 @@ export class GovernedProjectHubService {
     },true);
   }
 
+  async setStatus(ctx:CommandContext,projectId:string,status:import("../../../packages/projecthub-model/src/index.ts").ProjectRecord["status"]){
+    const body={projectId,status};
+    return this.execute(ctx,projectId,"PROJECT_MUTATE","PH-D2",body,async tx=>{
+      const result=await new ProjectHubService(tx).setStatus(projectId,status);
+      return {result,event:audit(ctx,projectId,projectId,"PROJECT_STATUS_CHANGED","PH-D2",
+        {status,version:result.version},result.provenance)};
+    });
+  }
+
   async setField(ctx:CommandContext,projectId:string,dimension:ProjectFieldDimensionName,maturity:FieldMaturity,opts?:{
     note?:string|null;evidenceRefs?:string[];premiseRefs?:string[];provenance?:ProvenanceRef[];
   }){

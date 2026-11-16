@@ -60,6 +60,14 @@ export class ProjectHubService {
     return p;
   }
 
+  async setStatus(projectId:string,status:ProjectRecord["status"]){
+    const current=await this.getProject(projectId);
+    const updated:ProjectRecord=structuredClone(current);
+    updated.status=status;updated.version=current.version+1;updated.updatedAt=now();
+    await this.store.appendProject(updated);
+    return updated;
+  }
+
   async setField(projectId:string,dimension:ProjectFieldDimensionName,maturity:FieldMaturity,opts?:{
     note?:string|null;evidenceRefs?:string[];premiseRefs?:string[];provenance?:ProvenanceRef[];
   }){

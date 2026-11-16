@@ -5,7 +5,7 @@
   "canonical_record": "https://github.com/Motherpher/FFOS/issues/77",
   "working_branch": "devops/projecthub-reconstitution-l3-20261116",
   "current_phase": "TEST",
-  "active_wp": "PH-WP11",
+  "active_wp": "PH-WP12",
   "completed_wps": [
     "PH-WP01",
     "PH-WP02",
@@ -16,7 +16,8 @@
     "PH-WP07",
     "PH-WP08",
     "PH-WP09",
-    "PH-WP10"
+    "PH-WP10",
+    "PH-WP11"
   ],
   "release_state": "NOT_RELEASED",
   "deployment_state": "NOT_DEPLOYED",
@@ -28,5 +29,14 @@
   "ux_contract": "docs/specifications/PROJECTHUB-UX-CONTROL-ROOM-v0.1.md",
   "last_updated": "2026-11-16",
   "build_state": "BUILD_COMPLETE_TEST_ACTIVE",
-  "projecthub_cdx_binding": "IMPLEMENTED_AWAITING_CI_AND_RELEASE_EVIDENCE"
+  "projecthub_cdx_binding": "IMPLEMENTED_AWAITING_CI_AND_RELEASE_EVIDENCE",
+  "test_state": "PH_WP11_PASS_PH_WP12_RUNNING",
+  "test_evidence": {
+    "projecthub_run": 43792759131,
+    "cloud_run": 43792758994,
+    "cdx_binding_run": 43792759057,
+    "cdx_diagnostics_run": 43792759010,
+    "ama_run": 43792759092,
+    "devops_watch_run": 43792758918
+  }
 }
