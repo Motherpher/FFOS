@@ -31,8 +31,12 @@ export class MemoryProjectHubStore implements ProjectHubStore {
     const rows=this.projects.get(id)??[];
     return rows.length?structuredClone(rows[rows.length-1]):null;
   }
-  async listProjects(){
-    return [...this.projects.values()].map(rows=>structuredClone(rows[rows.length-1])).sort((a,b)=>a.title.localeCompare(b.title));
+  async listProjects():Promise<ProjectRecord[]>{
+    const out:ProjectRecord[]=[];
+    for(const rows of this.projects.values()){
+      const current=rows.at(-1);if(current)out.push(structuredClone(current));
+    }
+    return out.sort((a,b)=>a.title.localeCompare(b.title));
   }
   async appendProject(project:ProjectRecord) {
     const rows=this.projects.get(project.id)??[];
@@ -65,11 +69,19 @@ export class MemoryProjectHubStore implements ProjectHubStore {
       throw new ProjectHubInvariantError("INITIAL_RELATION_VERSION_MUST_BE_1");
     rows.push(structuredClone(relation));this.relations.set(relation.id,rows);
   }
-  async listNodes(projectId:string) {
-    return [...this.nodes.values()].map((x)=>x[x.length-1]).filter((x)=>x.projectId===projectId).map(x=>structuredClone(x));
+  async listNodes(projectId:string):Promise<ProjectNode[]> {
+    const out:ProjectNode[]=[];
+    for(const rows of this.nodes.values()){
+      const current=rows.at(-1);if(current&&current.projectId===projectId)out.push(structuredClone(current));
+    }
+    return out;
   }
-  async listRelations(projectId:string) {
-    return [...this.relations.values()].map((x)=>x[x.length-1]).filter((x)=>x.projectId===projectId).map(x=>structuredClone(x));
+  async listRelations(projectId:string):Promise<ProjectRelation[]> {
+    const out:ProjectRelation[]=[];
+    for(const rows of this.relations.values()){
+      const current=rows.at(-1);if(current&&current.projectId===projectId)out.push(structuredClone(current));
+    }
+    return out;
   }
   async getIdempotency(key:string){return this.idempotency.has(key)?structuredClone(this.idempotency.get(key)!):null;}
   async appendIdempotency(receipt:IdempotencyReceipt){
@@ -84,9 +96,13 @@ export class MemoryProjectHubStore implements ProjectHubStore {
     if(!current&&grant.version!==1)throw new ProjectHubInvariantError("INITIAL_GRANT_VERSION_MUST_BE_1");
     rows.push(structuredClone(grant));this.grants.set(grant.grantId,rows);
   }
-  async listRoleGrants(projectId:string,principalRef?:string){
-    return [...this.grants.values()].map(x=>x[x.length-1])
-      .filter(x=>x.projectId===projectId&&(!principalRef||x.principalRef===principalRef)).map(x=>structuredClone(x));
+  async listRoleGrants(projectId:string,principalRef?:string):Promise<ProjectRoleGrant[]>{
+    const out:ProjectRoleGrant[]=[];
+    for(const rows of this.grants.values()){
+      const current=rows.at(-1);
+      if(current&&current.projectId===projectId&&(!principalRef||current.principalRef===principalRef))out.push(structuredClone(current));
+    }
+    return out;
   }
   async transaction<T>(fn:(tx:ProjectHubStore)=>Promise<T>):Promise<T>{
     const snapshot={
