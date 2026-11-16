@@ -16,8 +16,8 @@ class Fin01DispositionIntegrity(unittest.TestCase):
         referenced={x["requirement_id"]:x for x in bridge["entries"]}
         self.assertEqual(len(actual),96)
         self.assertEqual(set(actual),{x["id"] for x in baseline["items"]})
-        self.assertEqual(len(referenced),68)
-        self.assertEqual(report["summary"]["unlinked"],28)
+        self.assertEqual(len(referenced),70)
+        self.assertEqual(report["summary"]["unlinked"],26)
         self.assertEqual(report["summary"]["owner_adopted"],0)
         self.assertEqual(report["summary"]["requirements_verified_complete"],0)
         for item in baseline["items"]:
