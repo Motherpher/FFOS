@@ -18,8 +18,8 @@ class Fin01HarpTests(unittest.TestCase):
         report=load()
         self.assertEqual(report["source_requirement_count"],96)
         self.assertEqual(report["source_lines_exact"],96)
-        self.assertEqual(report["direct_link_gaps"],31)
-        self.assertEqual(report["partial_test_references"],65)
+        self.assertEqual(report["direct_link_gaps"],28)
+        self.assertEqual(report["partial_test_references"],68)
         self.assertEqual(report["structural_result"],"SOURCE_TRACEABILITY_PASS")
         self.assertEqual(report["requirements_accepted"],0)
         self.assertFalse(report["test_assertions_executed"])
@@ -38,9 +38,9 @@ class Fin01HarpTests(unittest.TestCase):
 
     def test_gap_without_test_plan_fail_closed(self):
         a,b,c,d=sources()
-        next(x for x in a["items"] if x["id"]=="A04")["test_plan"]=""
+        next(x for x in a["items"] if x["id"]=="F02")["test_plan"]=""
         result=inspect(a,b,c,d)
-        self.assertIn("UNLINKED_WITHOUT_TEST_PLAN:A04",result["findings"])
+        self.assertIn("UNLINKED_WITHOUT_TEST_PLAN:F02",result["findings"])
 
     def test_unknown_test_link_fail_closed(self):
         a,b,c,d=sources()
