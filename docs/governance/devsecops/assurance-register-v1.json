@@ -1,0 +1,136 @@
+{
+  "schema": "ffos.devsecops.assurance-register/v1.0",
+  "framework_id": "FFOS-DSA-001",
+  "framework_version": "1.0-candidate",
+  "governed_repository": "Motherpher/FFOS",
+  "baseline_observed_at": "2026-11-16",
+  "baseline_source_revision": "54d4fafcfc4577c2299243346d7dd17e0c0ffef9",
+  "programme_state": "PROPOSAL_NOT_ACCEPTED",
+  "disclaimer": "Register validation is structural only; no runtime gate or repository branch rule is activated by this artifact.",
+  "maturity_assessment": {
+    "state": "NOT_ASSESSED",
+    "maturity_level": null,
+    "independent_verifier": null
+  },
+  "gates": [
+    {
+      "gate_id": "G0",
+      "gate_name": "Authority",
+      "evidence_state": "NOT_ASSESSED",
+      "assurance_disposition": "NOT_DECIDED",
+      "observed_at": "2026-11-16",
+      "source_revision": "54d4fafcfc4577c2299243346d7dd17e0c0ffef9",
+      "evidence_refs": [],
+      "verifier": null,
+      "decision_ref": null,
+      "limitations": "Gate not individually audited; do not infer PASS from a workflow file.",
+      "waiver": null
+    },
+    {
+      "gate_id": "G1",
+      "gate_name": "Specification",
+      "evidence_state": "NOT_ASSESSED",
+      "assurance_disposition": "NOT_DECIDED",
+      "observed_at": "2026-11-16",
+      "source_revision": "54d4fafcfc4577c2299243346d7dd17e0c0ffef9",
+      "evidence_refs": [],
+      "verifier": null,
+      "decision_ref": null,
+      "limitations": "Gate not individually audited; do not infer PASS from a workflow file.",
+      "waiver": null
+    },
+    {
+      "gate_id": "G2",
+      "gate_name": "Architecture",
+      "evidence_state": "NOT_ASSESSED",
+      "assurance_disposition": "NOT_DECIDED",
+      "observed_at": "2026-11-16",
+      "source_revision": "54d4fafcfc4577c2299243346d7dd17e0c0ffef9",
+      "evidence_refs": [],
+      "verifier": null,
+      "decision_ref": null,
+      "limitations": "Gate not individually audited; do not infer PASS from a workflow file.",
+      "waiver": null
+    },
+    {
+      "gate_id": "G3",
+      "gate_name": "Implementation",
+      "evidence_state": "NOT_ASSESSED",
+      "assurance_disposition": "NOT_DECIDED",
+      "observed_at": "2026-11-16",
+      "source_revision": "54d4fafcfc4577c2299243346d7dd17e0c0ffef9",
+      "evidence_refs": [],
+      "verifier": null,
+      "decision_ref": null,
+      "limitations": "Gate not individually audited; do not infer PASS from a workflow file.",
+      "waiver": null
+    },
+    {
+      "gate_id": "G4",
+      "gate_name": "Verification",
+      "evidence_state": "NOT_ASSESSED",
+      "assurance_disposition": "NOT_DECIDED",
+      "observed_at": "2026-11-16",
+      "source_revision": "54d4fafcfc4577c2299243346d7dd17e0c0ffef9",
+      "evidence_refs": [],
+      "verifier": null,
+      "decision_ref": null,
+      "limitations": "Gate not individually audited; do not infer PASS from a workflow file.",
+      "waiver": null
+    },
+    {
+      "gate_id": "G5",
+      "gate_name": "Security",
+      "evidence_state": "NOT_ASSESSED",
+      "assurance_disposition": "NOT_DECIDED",
+      "observed_at": "2026-11-16",
+      "source_revision": "54d4fafcfc4577c2299243346d7dd17e0c0ffef9",
+      "evidence_refs": [],
+      "verifier": null,
+      "decision_ref": null,
+      "limitations": "Gate not individually audited; do not infer PASS from a workflow file.",
+      "waiver": null
+    },
+    {
+      "gate_id": "G6",
+      "gate_name": "Release",
+      "evidence_state": "FAILED",
+      "assurance_disposition": "HOLD",
+      "observed_at": "2026-11-16",
+      "source_revision": "54d4fafcfc4577c2299243346d7dd17e0c0ffef9",
+      "evidence_refs": [
+        "https://api.github.com/repos/Motherpher/FFOS/branches/main"
+      ],
+      "verifier": null,
+      "decision_ref": null,
+      "limitations": "GitHub branch metadata protected=false; ruleset read unavailable (403); independent owner protection/negative test needed.",
+      "waiver": null
+    },
+    {
+      "gate_id": "G7",
+      "gate_name": "Runtime",
+      "evidence_state": "NOT_ASSESSED",
+      "assurance_disposition": "NOT_DECIDED",
+      "observed_at": "2026-11-16",
+      "source_revision": "54d4fafcfc4577c2299243346d7dd17e0c0ffef9",
+      "evidence_refs": [],
+      "verifier": null,
+      "decision_ref": null,
+      "limitations": "Gate not individually audited; do not infer PASS from a workflow file.",
+      "waiver": null
+    },
+    {
+      "gate_id": "G8",
+      "gate_name": "Audit & Learning",
+      "evidence_state": "NOT_ASSESSED",
+      "assurance_disposition": "NOT_DECIDED",
+      "observed_at": "2026-11-16",
+      "source_revision": "54d4fafcfc4577c2299243346d7dd17e0c0ffef9",
+      "evidence_refs": [],
+      "verifier": null,
+      "decision_ref": null,
+      "limitations": "Gate not individually audited; do not infer PASS from a workflow file.",
+      "waiver": null
+    }
+  ]
+}
