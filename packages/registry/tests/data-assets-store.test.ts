@@ -31,7 +31,7 @@ test("asset record is immutable insert with sha + verification reference", async
   };
   await persistAssetVersion(db,a);
   assert.equal(calls.length,1);
-  assert.ok(calls[0].sql.includes("insert into ffos_data_asset_versions"));
+  assert.ok(calls[0].sql.includes("insert into ffos.data_asset_versions"));
   await assert.rejects(()=>persistAssetVersion(db,{...a,sha256:"BAD"}));
 });
 test("reuse decision records candidates and requires explicit rationale", async () => {
