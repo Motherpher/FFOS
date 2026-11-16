@@ -7,7 +7,7 @@ assignees: []
 ---
 
 <!-- For NEW DevOps processes only. Do not retrofit ongoing/completed work. -->
-**Model:** [FFOS-DEVOPS-OM-001@1.0](../../docs/operations/devops/README.md)
+**Model:** [FFOS-DEVOPS-OM-001@1.0](https://github.com/Motherpher/FFOS/blob/main/docs/operations/devops/README.md)
 **Canonical repository / source:** 
 **Owner / intended outcome / done condition:** 
 **Level:** L1 / L2 / L3 — reason: 
