@@ -48,6 +48,7 @@ run architecture-boundary python3 packages/agent-model/conformance/ama_architect
 run template-coverage python3 packages/agent-model/conformance/ama_template_coverage.py
 run fin02-catalog python3 packages/agent-model/conformance/ama_fin02_catalog_audit.py --output "$OUT/ama-fin02-catalog.json"
 run fin02-modules python3 packages/agent-model/conformance/ama_fin02_module_audit.py --output "$OUT/ama-fin02-modules.json"
+run fin01-harp python3 packages/agent-model/conformance/ama_fin01_harp_source_audit.py --output "$OUT/ama-fin01-harp.json"
 run source-evidence python3 packages/agent-model/conformance/ama_requirement_evidence.py --output "$OUT/ama-m0-evidence.json"
 run m7a-readiness python3 packages/agent-model/conformance/ama_m7a_release_audit.py --output "$OUT/ama-m7a-readiness.json"
 run schema-compatibility python3 packages/agent-model/conformance/ama_architecture_compatibility.py --output "$OUT/ama-compatibility.json"
