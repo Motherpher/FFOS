@@ -112,3 +112,5 @@ A new process can start in an Issue, work package, PR or another governed source
 **Verified rollout:** [Final 1.1 report](ROLLOUT-REPORT-v1.1-2026-11-16.md) and [machine registry](ROLLOUT-MANIFEST-v1.1-2026-11-16.json) document 23/23 active consumer repositories with passive hooks; CDX's sovereign source and seven historical repositories are explicitly excluded. No automatic intake or CDX review execution is claimed.
 
 **Decision rule:** Prioritise coherent movement and evidence proportional to consequence. Preserve higher-source controls; do not invent new ones.
+
+<!-- TEST ONLY — intentionally unversioned normative change; DO NOT MERGE -->
