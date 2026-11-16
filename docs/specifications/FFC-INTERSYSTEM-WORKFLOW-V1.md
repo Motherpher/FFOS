@@ -47,3 +47,9 @@ A Bruno Kolada municipality lookup is a connectivity check, **not** a source of 
 - Dataset missing/partial/uncertain is not complete; maintain coverage and temporal compatibility assertions.
 - No arbitrary shell commands, agent lifecycle changes, automatic promotion, or direct bridge policy bypass.
 - Do not claim activation without evidence for every connector's actual runtime.
+
+## Verified local execution milestone — 2026-11-16
+
+Director's Mac live run of `ffos-kolada-uppsala-001` via `integrations/bruno/runtime/bruno_runtime.py --execute` reported `status=executed`, `exit_code=0` and a JSON-parseable private Bruno report at `~/.local/share/ffos/bruno-runs/ffos-kolada-uppsala-001/report.private.json`. The exact approved YAML SHA256 was unchanged: `75e04c848cef01562e9787c453647beec61f67cd795dd985eaab302d869b99ed`.
+
+This advances **FFOS → local Bruno → Kolada API → private report** from untested to live exercised. The reporter's semantic content (municipality identity, HTTP status nested in reporter, completeness) and R ingestion remain unverified; the automated ChatGPT dispatch boundary remains unconnected. A read-only private report structure inspector is available in `integrations/bruno/runtime/inspect_report.py` for safe schema reconnaissance, after which a strict canonical data extraction contract must be built and tested.
