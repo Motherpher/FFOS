@@ -29,3 +29,7 @@ An optional `cdx_review.anchor_observed` may be `true` only after an authenticat
 **Reason for separate files:** `.cdx/anchor.json` implements CDX's distinct canonical anchor law. The optional `.ffos/devops-hook.json` only alerts operators and developers that the DevOps method can be offered; it cannot bind or execute policy.
 
 This is a versioned contract for repository discovery, not a GitHub ruleset or hidden mandatory task.
+
+## Frozen-root constitutional source exception
+
+The default path applies to **ordinary consuming repositories**. The canonical [Conductellence source](https://github.com/Hybrismannen/Conductellence-) is a **governing authority**, not an ordinary downstream client: its frozen 1.0 release boundary prohibits new root domains and its protected branch requires `human-sovereign-approval`. Therefore the optional `.ffos` hook is **not installed in CDX main**. Consumers still carry the conditional CDX review reference, and their own existing canonical `.cdx/anchor.json` (where observed) remains authoritative. Do not create exceptions to CDX law or impersonate an anchor to improve hook coverage. See the [final rollout report](ROLLOUT-REPORT-v1.1-2026-11-16.md).

@@ -101,4 +101,6 @@ A new process can start in an Issue, work package, PR or another governed source
 - The method applies from initiation **forward**; do not mark existing open WPs or historic deployments noncompliant for lack of this template.
 - The first actually **activated** new process should identify `FFOS-DEVOPS-OM-001@1.1` and L1/L2/L3, then close with a learning note. Offered/declined processes do not become compliance findings.
 
+**Verified rollout:** [Final 1.1 report](ROLLOUT-REPORT-v1.1-2026-11-16.md) and [machine registry](ROLLOUT-MANIFEST-v1.1-2026-11-16.json) document 23/23 active consumer repositories with passive hooks; CDX's sovereign source and seven historical repositories are explicitly excluded. No automatic intake or CDX review execution is claimed.
+
 **Decision rule:** Prioritise coherent movement and evidence proportional to consequence. Preserve higher-source controls; do not invent new ones.

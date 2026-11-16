@@ -43,3 +43,7 @@ A review can be **REQUESTED**, **NOT_REQUESTED** or **REFER_TO_CANONICAL_CONTROL
 Version 1.0 is preserved in Git history and remains a valid historic process reference for work started during its effective period. From the 1.1 amendment onward, *new* use is optional and Director-controlled. Do not retrofit 1.1 to previously started work.
 
 **Administrative outcome:** Once this bounded amendment and selected-repository linkage are verified, FFOS issue #62 may be closed as the final framework issue. Future changes require a separate explicit mandate and incremented version.
+
+## Verified completion and scope exception
+
+The [rollout report](ROLLOUT-REPORT-v1.1-2026-11-16.md) and [machine ledger](ROLLOUT-MANIFEST-v1.1-2026-11-16.json) record **23/23 active consuming repositories** installed and read back, with seven historical Tier D repositories excluded. CDX's constitutional authority root is independently excluded because its protected, frozen release boundary and mandatory human-sovereign-approval must not be weakened for a passive optional pointer. The conditional CDX review link remains present in consuming hooks. These counts are a dated snapshot, not a live monitoring system.
