@@ -1,0 +1,50 @@
+name: FFOS isolated PostgreSQL schema validation
+on:
+  pull_request:
+    paths:
+      - 'packages/registry/migrations/0007_ffos_isolated_data_assets.sql'
+      - 'packages/registry/tests/data-assets-schema-isolation.sql'
+      - 'packages/registry/src/data-assets-store.ts'
+      - '.github/workflows/data-assets-schema-isolation.yml'
+  push:
+    paths:
+      - 'packages/registry/migrations/0007_ffos_isolated_data_assets.sql'
+      - 'packages/registry/tests/data-assets-schema-isolation.sql'
+      - 'packages/registry/src/data-assets-store.ts'
+      - '.github/workflows/data-assets-schema-isolation.yml'
+permissions:
+  contents: read
+jobs:
+  schema-isolation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: ffos_test
+          POSTGRES_PASSWORD: disposable_ci_only
+          POSTGRES_DB: ffos_isolation_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U ffos_test -d ffos_isolation_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 12
+    env:
+      PGHOST: localhost
+      PGUSER: ffos_test
+      PGPORT: 5432
+      PGPASSWORD: disposable_ci_only
+      PGDATABASE: ffos_isolation_test
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install psql
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq postgresql-client
+      - name: Apply schema-qualified migration twice
+        run: |
+          psql -X -v ON_ERROR_STOP=1 -f packages/registry/migrations/0007_ffos_isolated_data_assets.sql
+          psql -X -v ON_ERROR_STOP=1 -f packages/registry/migrations/0007_ffos_isolated_data_assets.sql
+      - name: Test foreign-schema isolation, inserts and immutability
+        run: psql -X -v ON_ERROR_STOP=1 -f packages/registry/tests/data-assets-schema-isolation.sql
