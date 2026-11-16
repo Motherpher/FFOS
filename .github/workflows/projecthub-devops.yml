@@ -1,0 +1,31 @@
+name: ProjectHub DevOps
+
+on:
+  pull_request:
+    paths:
+      - 'modules/projecthub/**'
+      - 'packages/projecthub-model/**'
+      - 'docs/specifications/PROJECTHUB-**'
+      - 'docs/architecture/PROJECTHUB-**'
+      - '.github/workflows/projecthub-devops.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'modules/projecthub/**'
+      - 'packages/projecthub-model/**'
+      - '.github/workflows/projecthub-devops.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: ProjectHub core tests
+        run: npm test --prefix modules/projecthub
