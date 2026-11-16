@@ -139,9 +139,11 @@ export function assertFieldMaturity(maturity: string): asserts maturity is Field
 }
 
 export function makeEmptyField(): Record<ProjectFieldDimensionName, ProjectFieldDimension> {
-  return Object.fromEntries(PROJECT_FIELD_DIMENSIONS.map((name) => [name, {
-    name, maturity: "UNKNOWN", note: null, evidenceRefs: [], premiseRefs: [], version: 1, provenance: [],
-  }])) as Record<ProjectFieldDimensionName, ProjectFieldDimension>;
+  const out={} as Record<ProjectFieldDimensionName, ProjectFieldDimension>;
+  for(const name of PROJECT_FIELD_DIMENSIONS){
+    out[name]={name,maturity:"UNKNOWN",note:null,evidenceRefs:[],premiseRefs:[],version:1,provenance:[]};
+  }
+  return out;
 }
 
 export const PROJECT_ROLES = [
