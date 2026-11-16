@@ -5,14 +5,15 @@
   "canonical_record": "https://github.com/Motherpher/FFOS/issues/77",
   "working_branch": "devops/projecthub-reconstitution-l3-20261116",
   "current_phase": "BUILD",
-  "active_wp": "PH-WP07",
+  "active_wp": "PH-WP08",
   "completed_wps": [
     "PH-WP01",
     "PH-WP02",
     "PH-WP03",
     "PH-WP04",
     "PH-WP05",
-    "PH-WP06"
+    "PH-WP06",
+    "PH-WP07"
   ],
   "release_state": "NOT_RELEASED",
   "deployment_state": "NOT_DEPLOYED",
@@ -23,5 +24,5 @@
   "architecture": "docs/architecture/PROJECTHUB-NATIVE-ARCHITECTURE-v0.1.md",
   "ux_contract": "docs/specifications/PROJECTHUB-UX-CONTROL-ROOM-v0.1.md",
   "last_updated": "2026-11-16",
-  "build_state": "CORE_SERVICE_IMPLEMENTED_AWAITING_PERSISTENCE_RIGHTS"
+  "build_state": "PERSISTENCE_RIGHTS_IMPLEMENTED_DOMAIN_ENGINES_ACTIVE"
 }

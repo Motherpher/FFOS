@@ -143,3 +143,74 @@ export function makeEmptyField(): Record<ProjectFieldDimensionName, ProjectField
     name, maturity: "UNKNOWN", note: null, evidenceRefs: [], premiseRefs: [], version: 1, provenance: [],
   }])) as Record<ProjectFieldDimensionName, ProjectFieldDimension>;
 }
+
+export const PROJECT_ROLES = [
+  "PROJECT_OWNER","PROJECT_OPERATOR","REVIEWER","SERVICE","PARTICIPANT_DATA_STEWARD"
+] as const;
+export type ProjectRole = typeof PROJECT_ROLES[number];
+
+export const PROJECT_OPERATIONS = [
+  "PROJECT_READ","PROJECT_MUTATE","PROJECT_ROLE_ADMIN","PROJECT_STEWARD_REVIEW","PROJECT_EXPORT"
+] as const;
+export type ProjectOperation = typeof PROJECT_OPERATIONS[number];
+
+export type ProjectRoleGrant = {
+  grantId: string;
+  projectId: string;
+  principalRef: string;
+  role: ProjectRole;
+  allowedOperations: ProjectOperation[];
+  dataClassCeiling: ProjectDataClass;
+  validFrom: string;
+  validUntil?: string;
+  status: "ACTIVE" | "REVOKED" | "EXPIRED";
+  grantAuthorityRef: string;
+  version: number;
+  provenance: ProvenanceRef[];
+};
+
+export type ProjectHubAuditEvent = {
+  eventId: string;
+  projectId: string;
+  objectId: string;
+  eventType: string;
+  fromState?: string;
+  toState?: string;
+  principalRef: string;
+  authorityRef: string;
+  mandateRef: string;
+  commandId: string;
+  correlationId: string;
+  causationId: string;
+  dataClass: ProjectDataClass;
+  occurredAt: string;
+  payload: Record<string, unknown>;
+  provenance: ProvenanceRef[];
+};
+
+export type IdempotencyReceipt = {
+  idempotencyKey: string;
+  projectId: string;
+  operation: string;
+  commandDigest: string;
+  result: unknown;
+  recordedAt: string;
+};
+
+export type CommandContext = {
+  principalRef: string;
+  principalClass: "DIRECTOR" | "PROJECT_ROLE" | "SERVICE";
+  authorityRef: string;
+  mandateRef: string;
+  idempotencyKey: string;
+  correlationId: string;
+  causationId: string;
+};
+
+export const DATA_CLASS_ORDER: Record<ProjectDataClass,number> = {
+  "PH-D0":0,"PH-D1":1,"PH-D2":2,"PH-D3":3,"PH-D4":4,"PH-D5":5
+};
+
+export function dataClassWithin(requested:ProjectDataClass,ceiling:ProjectDataClass):boolean {
+  return DATA_CLASS_ORDER[requested] <= DATA_CLASS_ORDER[ceiling];
+}
