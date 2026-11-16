@@ -1,7 +1,7 @@
 # New DevOps process — working record
 
-**Model:** FFOS-DEVOPS-OM-001@1.0  
-**Applies only to a process first initiated after 2026-11-16.** Do not retrofit existing work.
+**Model:** FFOS-DEVOPS-OM-001@1.1 (only after Director selects ACTIVATE)  
+**Optional for newly initiated substantial DevOps work after the 1.1 amendment; do not create this record for small changes or when the Director declines.** Do not retrofit existing work.
 
 | Field | Fill in briefly |
 |---|---|
@@ -32,4 +32,4 @@
 
 **Do not infer:** code committed ≠ tested; tests passed ≠ deployed; deployed ≠ independently accepted. Existing work packages and releases stay on their existing process definition.
 
-Reference: [FFOS DevOps Operating Model 1.0](README.md).
+Reference: [FFOS DevOps Operating Model 1.1](README.md) · [optional activation amendment](AMENDMENT-v1.1-OPTIONAL-DISCOVERY.md).
