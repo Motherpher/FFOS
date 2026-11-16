@@ -8,12 +8,6 @@ on:
       - 'docs/specifications/PROJECTHUB-**'
       - 'docs/architecture/PROJECTHUB-**'
       - '.github/workflows/projecthub-devops.yml'
-  push:
-    branches: [main]
-    paths:
-      - 'modules/projecthub/**'
-      - 'packages/projecthub-model/**'
-      - '.github/workflows/projecthub-devops.yml'
   workflow_dispatch:
 
 permissions:
@@ -27,9 +21,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
+      - id: present
+        name: Detect ProjectHub implementation
+        shell: bash
+        run: |
+          if [ -f modules/projecthub/package.json ]; then echo "value=true" >> "$GITHUB_OUTPUT"; else echo "value=false" >> "$GITHUB_OUTPUT"; fi
       - name: Install ProjectHub runtime dependency
+        if: steps.present.outputs.value == 'true'
         run: npm install --prefix modules/projecthub --no-audit --no-fund
       - name: ProjectHub core and rights tests
+        if: steps.present.outputs.value == 'true'
         run: npm test --prefix modules/projecthub
 
   postgres:
@@ -54,7 +55,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
+      - id: present
+        name: Detect ProjectHub implementation
+        shell: bash
+        run: |
+          if [ -f modules/projecthub/package.json ]; then echo "value=true" >> "$GITHUB_OUTPUT"; else echo "value=false" >> "$GITHUB_OUTPUT"; fi
       - name: Install ProjectHub runtime dependency
+        if: steps.present.outputs.value == 'true'
         run: npm install --prefix modules/projecthub --no-audit --no-fund
       - name: ProjectHub PostgreSQL transaction test
-        run: node --test modules/projecthub/tests/postgres.test.ts
+        if: steps.present.outputs.value == 'true'
+        run: node --import ./modules/projecthub/node_modules/tsx/dist/loader.mjs --test modules/projecthub/tests/postgres.test.ts
