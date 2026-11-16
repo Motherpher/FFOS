@@ -1,0 +1,289 @@
+{
+  "schema": "ffos.devops.hook-rollout/v1.1",
+  "model_id": "FFOS-DEVOPS-OM-001",
+  "model_version": "1.1",
+  "hook_schema": "ffos.devops.discovery-hook/v1.1",
+  "source": "Motherpher/FFOS docs/operations/devops/README.md",
+  "observed_date": "2026-11-16",
+  "scope": "Tier A/B/C active development repositories except protected CDX constitutional authority root; Tier D history excluded",
+  "claims": {
+    "hooks_are_passive": true,
+    "automatic_activation": false,
+    "automatic_cdx_review": false,
+    "automatic_cdx_authorization": false,
+    "cdx_anchor_continuity_separate": true,
+    "prior_work_retained": true,
+    "no_production_integration_claim": true
+  },
+  "counts": {
+    "estate_total": 31,
+    "active_non_cdx_installed": 23,
+    "cdx_authority_root_excluded": 1,
+    "historical_tier_d_excluded": 7,
+    "installed_by_tier": {
+      "A": 3,
+      "B": 13,
+      "C": 7
+    }
+  },
+  "installations": [
+    {
+      "repository": "Hybrismannen/pius-universe",
+      "tier": "A",
+      "status": "MERGED_VERIFIED",
+      "hook_path": ".ffos/devops-hook.json",
+      "pr_url": "https://github.com/Hybrismannen/pius-universe/pull/30",
+      "cdx_anchor_observed_at_intake": true,
+      "verification": "Authenticated default-branch hook read; JSON parsed; repository identity/model 1.1/OFFER_ONLY/no automatic authorization checked"
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "tier": "A",
+      "status": "MERGED_VERIFIED",
+      "hook_path": ".ffos/devops-hook.json",
+      "pr_url": "https://github.com/Motherpher/form-flode/pull/44",
+      "cdx_anchor_observed_at_intake": true,
+      "verification": "Authenticated default-branch hook read; JSON parsed; repository identity/model 1.1/OFFER_ONLY/no automatic authorization checked"
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "tier": "A",
+      "status": "MERGED_VERIFIED",
+      "hook_path": ".ffos/devops-hook.json",
+      "pr_url": "https://github.com/Motherpher/FFOS/pull/64",
+      "cdx_anchor_observed_at_intake": true,
+      "verification": "Authenticated default-branch hook read; JSON parsed; repository identity/model 1.1/OFFER_ONLY/no automatic authorization checked"
+    },
+    {
+      "repository": "Hybrismannen/pius-pwe",
+      "tier": "B",
+      "status": "MERGED_VERIFIED",
+      "hook_path": ".ffos/devops-hook.json",
+      "pr_url": "https://github.com/Hybrismannen/pius-pwe/pull/9",
+      "cdx_anchor_observed_at_intake": true,
+      "verification": "Authenticated default-branch hook read; JSON parsed; repository identity/model 1.1/OFFER_ONLY/no automatic authorization checked"
+    },
+    {
+      "repository": "Hybrismannen/nsliengine",
+      "tier": "B",
+      "status": "MERGED_VERIFIED",
+      "hook_path": ".ffos/devops-hook.json",
+      "pr_url": "https://github.com/Hybrismannen/nsliengine/pull/5",
+      "cdx_anchor_observed_at_intake": true,
+      "verification": "Authenticated default-branch hook read; JSON parsed; repository identity/model 1.1/OFFER_ONLY/no automatic authorization checked"
+    },
+    {
+      "repository": "Hybrismannen/udl-twin",
+      "tier": "B",
+      "status": "MERGED_VERIFIED",
+      "hook_path": ".ffos/devops-hook.json",
+      "pr_url": "https://github.com/Hybrismannen/udl-twin/pull/27",
+      "cdx_anchor_observed_at_intake": true,
+      "verification": "Authenticated default-branch hook read; JSON parsed; repository identity/model 1.1/OFFER_ONLY/no automatic authorization checked"
+    },
+    {
+      "repository": "Hybrismannen/green-bell-statsvault",
+      "tier": "B",
+      "status": "MERGED_VERIFIED",
+      "hook_path": ".ffos/devops-hook.json",
+      "pr_url": "https://github.com/Hybrismannen/green-bell-statsvault/pull/18",
+      "cdx_anchor_observed_at_intake": true,
+      "verification": "Authenticated default-branch hook read; JSON parsed; repository identity/model 1.1/OFFER_ONLY/no automatic authorization checked"
+    },
+    {
+      "repository": "Hybrismannen/NSLI",
+      "tier": "B",
+      "status": "MERGED_VERIFIED",
+      "hook_path": ".ffos/devops-hook.json",
+      "pr_url": "https://github.com/Hybrismannen/NSLI/pull/4",
+      "cdx_anchor_observed_at_intake": true,
+      "verification": "Authenticated default-branch hook read; JSON parsed; repository identity/model 1.1/OFFER_ONLY/no automatic authorization checked"
+    },
+    {
+      "repository": "Hybrismannen/Barnombudet",
+      "tier": "B",
+      "status": "MERGED_VERIFIED",
+      "hook_path": ".ffos/devops-hook.json",
+      "pr_url": "https://github.com/Hybrismannen/Barnombudet/pull/2",
+      "cdx_anchor_observed_at_intake": false,
+      "verification": "Authenticated default-branch hook read; JSON parsed; repository identity/model 1.1/OFFER_ONLY/no automatic authorization checked"
+    },
+    {
+      "repository": "Hybrismannen/Opal-Sense-I",
+      "tier": "B",
+      "status": "MERGED_VERIFIED",
+      "hook_path": ".ffos/devops-hook.json",
+      "pr_url": "https://github.com/Hybrismannen/Opal-Sense-I/pull/20",
+      "cdx_anchor_observed_at_intake": true,
+      "verification": "Authenticated default-branch hook read; JSON parsed; repository identity/model 1.1/OFFER_ONLY/no automatic authorization checked"
+    },
+    {
+      "repository": "Motherpher/CareerHubZero",
+      "tier": "B",
+      "status": "MERGED_VERIFIED",
+      "hook_path": ".ffos/devops-hook.json",
+      "pr_url": "https://github.com/Motherpher/CareerHubZero/pull/60",
+      "cdx_anchor_observed_at_intake": true,
+      "verification": "Authenticated default-branch hook read; JSON parsed; repository identity/model 1.1/OFFER_ONLY/no automatic authorization checked"
+    },
+    {
+      "repository": "Motherpher/Politent",
+      "tier": "B",
+      "status": "MERGED_VERIFIED",
+      "hook_path": ".ffos/devops-hook.json",
+      "pr_url": "https://github.com/Motherpher/Politent/pull/26",
+      "cdx_anchor_observed_at_intake": true,
+      "verification": "Authenticated default-branch hook read; JSON parsed; repository identity/model 1.1/OFFER_ONLY/no automatic authorization checked"
+    },
+    {
+      "repository": "Motherpher/FF-Spatial",
+      "tier": "B",
+      "status": "MERGED_VERIFIED",
+      "hook_path": ".ffos/devops-hook.json",
+      "pr_url": "https://github.com/Motherpher/FF-Spatial/pull/45",
+      "cdx_anchor_observed_at_intake": true,
+      "verification": "Authenticated default-branch hook read; JSON parsed; repository identity/model 1.1/OFFER_ONLY/no automatic authorization checked"
+    },
+    {
+      "repository": "Motherpher/BDNA",
+      "tier": "B",
+      "status": "MERGED_VERIFIED",
+      "hook_path": ".ffos/devops-hook.json",
+      "pr_url": "https://github.com/Motherpher/BDNA/pull/18",
+      "cdx_anchor_observed_at_intake": true,
+      "verification": "Authenticated default-branch hook read; JSON parsed; repository identity/model 1.1/OFFER_ONLY/no automatic authorization checked"
+    },
+    {
+      "repository": "Motherpher/Re-Eco",
+      "tier": "B",
+      "status": "MERGED_VERIFIED",
+      "hook_path": ".ffos/devops-hook.json",
+      "pr_url": "https://github.com/Motherpher/Re-Eco/pull/12",
+      "cdx_anchor_observed_at_intake": true,
+      "verification": "Authenticated default-branch hook read; JSON parsed; repository identity/model 1.1/OFFER_ONLY/no automatic authorization checked"
+    },
+    {
+      "repository": "Motherpher/GreenBell",
+      "tier": "B",
+      "status": "MERGED_VERIFIED",
+      "hook_path": ".ffos/devops-hook.json",
+      "pr_url": "https://github.com/Motherpher/GreenBell/pull/15",
+      "cdx_anchor_observed_at_intake": true,
+      "verification": "Authenticated default-branch hook read; JSON parsed; repository identity/model 1.1/OFFER_ONLY/no automatic authorization checked"
+    },
+    {
+      "repository": "Hybrismannen/livicity-cwvs-reference",
+      "tier": "C",
+      "status": "MERGED_VERIFIED",
+      "hook_path": ".ffos/devops-hook.json",
+      "pr_url": "https://github.com/Hybrismannen/livicity-cwvs-reference/pull/4",
+      "cdx_anchor_observed_at_intake": true,
+      "verification": "Authenticated default-branch hook read; JSON parsed; repository identity/model 1.1/OFFER_ONLY/no automatic authorization checked"
+    },
+    {
+      "repository": "Hybrismannen/form-flode-dna",
+      "tier": "C",
+      "status": "MERGED_VERIFIED",
+      "hook_path": ".ffos/devops-hook.json",
+      "pr_url": "https://github.com/Hybrismannen/form-flode-dna/pull/5",
+      "cdx_anchor_observed_at_intake": true,
+      "verification": "Authenticated default-branch hook read; JSON parsed; repository identity/model 1.1/OFFER_ONLY/no automatic authorization checked"
+    },
+    {
+      "repository": "Hybrismannen/RFSU-godex-FF",
+      "tier": "C",
+      "status": "MERGED_VERIFIED",
+      "hook_path": ".ffos/devops-hook.json",
+      "pr_url": "https://github.com/Hybrismannen/RFSU-godex-FF/pull/7",
+      "cdx_anchor_observed_at_intake": true,
+      "verification": "Authenticated default-branch hook read; JSON parsed; repository identity/model 1.1/OFFER_ONLY/no automatic authorization checked"
+    },
+    {
+      "repository": "Hybrismannen/Digital-Apartheid",
+      "tier": "C",
+      "status": "MERGED_VERIFIED",
+      "hook_path": ".ffos/devops-hook.json",
+      "pr_url": "https://github.com/Hybrismannen/Digital-Apartheid/pull/10",
+      "cdx_anchor_observed_at_intake": true,
+      "verification": "Authenticated default-branch hook read; JSON parsed; repository identity/model 1.1/OFFER_ONLY/no automatic authorization checked"
+    },
+    {
+      "repository": "Hybrismannen/metoyo",
+      "tier": "C",
+      "status": "MERGED_VERIFIED",
+      "hook_path": ".ffos/devops-hook.json",
+      "pr_url": "https://github.com/Hybrismannen/metoyo/pull/5",
+      "cdx_anchor_observed_at_intake": true,
+      "verification": "Authenticated default-branch hook read; JSON parsed; repository identity/model 1.1/OFFER_ONLY/no automatic authorization checked"
+    },
+    {
+      "repository": "Motherpher/wpb",
+      "tier": "C",
+      "status": "MERGED_VERIFIED",
+      "hook_path": ".ffos/devops-hook.json",
+      "pr_url": "https://github.com/Motherpher/wpb/pull/21",
+      "cdx_anchor_observed_at_intake": true,
+      "verification": "Authenticated default-branch hook read; JSON parsed; repository identity/model 1.1/OFFER_ONLY/no automatic authorization checked"
+    },
+    {
+      "repository": "Motherpher/Vitalitet",
+      "tier": "C",
+      "status": "MERGED_VERIFIED",
+      "hook_path": ".ffos/devops-hook.json",
+      "pr_url": "https://github.com/Motherpher/Vitalitet/pull/4",
+      "cdx_anchor_observed_at_intake": true,
+      "verification": "Authenticated default-branch hook read; JSON parsed; repository identity/model 1.1/OFFER_ONLY/no automatic authorization checked"
+    }
+  ],
+  "exceptions": [
+    {
+      "repository": "Hybrismannen/Conductellence-",
+      "tier": "A",
+      "status": "EXCLUDED_CANONICAL_CDX_AUTHORITY_ROOT",
+      "attempt_pr": "https://github.com/Hybrismannen/Conductellence-/pull/75",
+      "pr_state": "CLOSED_UNMERGED",
+      "reason": "Frozen CDX 1.0 root topology and required native human-sovereign-approval check; CDX 1.0 baseline unchanged. Conditional CDX review link lives in consuming FFOS/other repositories."
+    },
+    {
+      "repository": "Hybrismannen/Hy",
+      "tier": "D",
+      "status": "EXCLUDED_HISTORICAL_NO_RETROFIT"
+    },
+    {
+      "repository": "Hybrismannen/pius-codex-5",
+      "tier": "D",
+      "status": "EXCLUDED_HISTORICAL_NO_RETROFIT"
+    },
+    {
+      "repository": "Hybrismannen/pius-lifetime-audit-2026",
+      "tier": "D",
+      "status": "EXCLUDED_HISTORICAL_NO_RETROFIT"
+    },
+    {
+      "repository": "Hybrismannen/RFSU-godex",
+      "tier": "D",
+      "status": "EXCLUDED_HISTORICAL_NO_RETROFIT"
+    },
+    {
+      "repository": "Motherpher/Gracey",
+      "tier": "D",
+      "status": "EXCLUDED_HISTORICAL_NO_RETROFIT"
+    },
+    {
+      "repository": "Motherpher/CareerHub-LinusF",
+      "tier": "D",
+      "status": "EXCLUDED_HISTORICAL_NO_RETROFIT"
+    },
+    {
+      "repository": "Motherpher/MusicGenea",
+      "tier": "D",
+      "status": "EXCLUDED_HISTORICAL_NO_RETROFIT"
+    }
+  ],
+  "limitations": [
+    "Snapshot is not a scheduled watcher or live hook-consumption test",
+    "Hook presence is not proof of actual Director activation or CDX review",
+    "CDX anchor observed is a path inspection only, not a binding/runtime verification",
+    "No requirement to add or modify hooks in Tier D historical repositories"
+  ]
+}
