@@ -1,0 +1,26 @@
+name: FFOS cloud runtime contract CI
+on:
+  pull_request:
+    paths:
+      - 'integrations/cloud/**'
+      - 'tests/test_cloud_kolada_lookup.py'
+      - '.github/workflows/cloud-*.yml'
+  push:
+    paths:
+      - 'integrations/cloud/**'
+      - 'tests/test_cloud_kolada_lookup.py'
+permissions:
+  contents: read
+jobs:
+  offline-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile and run cloud API tests (no network)
+        run: |
+          python -m py_compile integrations/cloud/kolada_lookup.py
+          python -m unittest discover -s tests -p 'test_cloud_kolada_lookup.py' -v

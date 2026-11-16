@@ -1,0 +1,22 @@
+name: FFOS cloud dispatch — FF-Spatial
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  director-approved-dispatch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    environment: cloud-pilot
+    steps:
+      - name: Dispatch registered bounded FF-Spatial headless workflow
+        env:
+          GH_TOKEN: ${{ secrets.FF_SPATIAL_DISPATCH_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${GH_TOKEN:-}" ]; then
+            echo 'BLOCKED: missing FF_SPATIAL_DISPATCH_TOKEN; no cross-repo dispatch executed'
+            exit 1
+          fi
+          gh api --method POST repos/Motherpher/FF-Spatial/actions/workflows/cloud-headless-adm1.yml/dispatches -f ref=main
+          echo 'Dispatch accepted by GitHub API; execution and artifact verification occur in FF-Spatial.'
