@@ -7,6 +7,12 @@
 **Authority:** Human Director; CDX constitutional and runtime governance; FFOS owns its local enforcement points.  
 **Mandate:** Establish an inspectable, security-aware software delivery assurance process without creating a new constitutional authority, agent or automatic right to release.
 
+## Current assurance status (observed 2026-11-16)
+
+**Native GitHub enforcement is now verified on FFOS `main`; framework adoption is not.** Ruleset [#27341443](https://github.com/Motherpher/FFOS/rules/27341443) targets the default branch, requires two DevSecOps CI checks, and blocked an intentionally noncompliant PR [#58](https://github.com/Motherpher/FFOS/pull/58). Both checks also passed on a compliant nonproduction PR [#59](https://github.com/Motherpher/FFOS/pull/59), which remained unmerged. The current overall PR mergeability was not verified as clean due to a separate unstable status. These results verify limited enforcement behaviour, **not** independent authorization or production acceptance.
+
+Human GitHub reviews are not presently mandatory (`required_approving_review_count=0`); [DSA-WP05 #60](https://github.com/Motherpher/FFOS/issues/60) requires an independent qualified reviewer and an explicit Director decision before adoption. Current assessment remains `G6: PARTIAL / HOLD`. See [DSA-WP01 verification](VERIFICATION-DSA-WP01-2026-11-16.md) and [release-readiness packet](DSA-WP05-RELEASE-READINESS-2026-11-16.md). The initial historical baseline is intentionally preserved separately.
+
 ## Executive purpose
 This framework overlays assurance on the existing AMA, CDX, Household Family, FFOS Estate and Pius development systems. It **does not replace** CDX's seven runtime decisions, AMA's lifecycle and release states, Pius canonical protocol/version history, or repository-specific acceptance processes. It neither authorizes software changes nor grants an agent additional effects.
 
