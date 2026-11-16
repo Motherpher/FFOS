@@ -4,7 +4,7 @@ FFOS is the central operating shell for Form & Flöde. It coordinates work acros
 
 ## New DevOps processes — operating model 1.0
 
-**Effective for newly initiated DevOps processes after the Director's 2026-11-16 instruction.** Use the [six-phase DevOps Operating Model](docs/operations/devops/README.md): **Plan → Design → Build → Test → Release → Learn**, choosing proportionate **L1 (Lightweight), L2 (Structured) or L3 (Controlled)** according to actual risk and consequences. Start with the [minimal process template](docs/operations/devops/NEW-DEVOPS-PROCESS-TEMPLATE.md), not a nine-gate assurance case.
+**Version 1.1 — optionally offered, never imposed.** Active development repositories may use a passive `.ffos/devops-hook.json` to discover the [six-phase DevOps Operating Model](docs/operations/devops/README.md). For larger **new** development efforts the Director may choose to activate L1 (Lightweight), L2 (Structured) or L3 (Controlled). Small changes and explicit declines follow the normal repo workflow. See the [1.1 discovery amendment](docs/operations/devops/AMENDMENT-v1.1-OPTIONAL-DISCOVERY.md) and [conditional CDX review reference](docs/operations/devops/CDX-REVIEW-INTERFACE-v1.1.md).
 
 **No retrospective migration:** existing/historical work packages, repositories, active processes and releases are not rewritten or evaluated against this new model. CDX, AMA, Pius/HCC and canonical domain obligations remain in force independently. See the [transition record](docs/operations/devops/TRANSITION-DECISION-2026-11-16.md).
 
