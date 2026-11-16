@@ -7,6 +7,11 @@ on:
         type: string
         required: true
         default: '0380'
+      persist_to_drive:
+        description: 'Upload verified files to approved Google Drive folder (requires OAuth secrets)'
+        type: boolean
+        required: false
+        default: false
 permissions:
   contents: read
 concurrency:
@@ -38,6 +43,19 @@ jobs:
           MUNICIPALITY_ID: ${{ inputs.municipality_id }}
         run: |
           python integrations/cloud/kolada_lookup.py --municipality-id "$MUNICIPALITY_ID" --output-dir "$RUNNER_TEMP/ffos-kolada"
+      - name: Publish to approved Google Drive folder with SHA256 readback
+        if: ${{ inputs.persist_to_drive }}
+        env:
+          FFOS_GDRIVE_CLIENT_ID: ${{ secrets.FFOS_GDRIVE_CLIENT_ID }}
+          FFOS_GDRIVE_CLIENT_SECRET: ${{ secrets.FFOS_GDRIVE_CLIENT_SECRET }}
+          FFOS_GDRIVE_REFRESH_TOKEN: ${{ secrets.FFOS_GDRIVE_REFRESH_TOKEN }}
+          DRIVE_FOLDER_ID: 1xO4YWl4yQmyRJ6t-A_4j9vaVDkiBhArD
+        run: |
+          python integrations/cloud/drive_storage.py \
+            --source-dir "$RUNNER_TEMP/ffos-kolada" \
+            --root-folder-id "$DRIVE_FOLDER_ID" \
+            --namespace FFOS \
+            --run-id "kolada_${{ inputs.municipality_id }}_${{ github.run_id }}"
       - uses: actions/upload-artifact@v4
         with:
           name: ffos-kolada-${{ inputs.municipality_id }}-${{ github.run_id }}
