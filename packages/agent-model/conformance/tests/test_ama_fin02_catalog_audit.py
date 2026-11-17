@@ -89,5 +89,33 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(report["verified_complete"],0)
         self.assertIn("INDEPENDENT_MODULE_ATTESTATION_FAILED:identity",report["findings"])
 
+
+    def test_forged_attestor_true_without_artifacts_denied(self):
+        catalog=copy.deepcopy(self.catalog)
+        entry=catalog["modules"][0]
+        entry["release_claim"]="COMPLETE"
+        entry["verification"]={k:"VERIFIED_EXECUTED" for k in ("contract","negative","migration","blueprint")}
+        report=audit(self.inventory,catalog,exact_head="a"*40,
+                     evidence_attestor=lambda *args: True)
+        self.assertEqual(report["verified_complete"],0)
+        self.assertIn("MISSING_EVIDENCE_ARTIFACT_DIGESTS:identity",report["findings"])
+        self.assertIn("MISSING_INDEPENDENT_EVIDENCE_RECORD:identity",report["findings"])
+        self.assertIn("MISSING_MODULE_SOURCE_REFERENCES:identity",report["findings"])
+
+    def test_independent_record_without_execution_does_not_count(self):
+        catalog=copy.deepcopy(self.catalog)
+        entry=catalog["modules"][0]
+        entry["release_claim"]="COMPLETE"
+        entry["source_references"]=["test/synthetic/module"]
+        entry["independent_evidence"]={
+            "head_sha":"a"*40,"reviewer_ref":"synthetic/reviewer",
+            "reviewer_independent":True,
+            "artifacts":{k:{"artifact_ref":"synthetic/test/"+k,"sha256":"b"*64}
+                         for k in ("contract","negative","migration","blueprint")}}
+        report=audit(self.inventory,catalog,exact_head="a"*40,
+                     evidence_attestor=lambda *args: True)
+        self.assertEqual(report["verified_complete"],0)
+        self.assertIn("UNSUPPORTED_COMPLETE:identity",report["findings"])
+
 if __name__=="__main__":
     unittest.main()
