@@ -1,0 +1,711 @@
+{
+  "schema": "ama.fin02.module-execution-queue/v1",
+  "scope": "AMA_V1_TEMPLATE_ONLY_NO_AGENT_BUILD",
+  "branch": "feat/ama-v02-canonical-reconcile-20261030",
+  "module_count": 32,
+  "core_count": 13,
+  "optional_count": 19,
+  "verified_complete": 0,
+  "assurance": "SOURCE_INVENTORY_AND_CATALOG_MAPPING_ONLY_NO_EXECUTABLE_PASS",
+  "module_work_items": [
+    {
+      "id": "identity",
+      "milestone": "M1",
+      "classification": "CORE",
+      "contract_source_paths": [],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "mandate",
+      "milestone": "M2",
+      "classification": "CORE",
+      "contract_source_paths": [],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "instruction",
+      "milestone": "M3",
+      "classification": "CORE",
+      "contract_source_paths": [
+        "packages/agent-model/schemas/v0.2/instruction-package.schema.json"
+      ],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "capability",
+      "milestone": "M1",
+      "classification": "CORE",
+      "contract_source_paths": [],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "workflow",
+      "milestone": "M1",
+      "classification": "CORE",
+      "contract_source_paths": [],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "command",
+      "milestone": "M1",
+      "classification": "CORE",
+      "contract_source_paths": [],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "adapter",
+      "milestone": "M1",
+      "classification": "CORE",
+      "contract_source_paths": [],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "authorization",
+      "milestone": "M2",
+      "classification": "CORE",
+      "contract_source_paths": [],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "task-execution",
+      "milestone": "M4",
+      "classification": "CORE",
+      "contract_source_paths": [],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "evidence",
+      "milestone": "M5",
+      "classification": "CORE",
+      "contract_source_paths": [],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "conformance",
+      "milestone": "M5",
+      "classification": "CORE",
+      "contract_source_paths": [],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "lifecycle",
+      "milestone": "M6",
+      "classification": "CORE",
+      "contract_source_paths": [],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "cognition",
+      "milestone": "M3",
+      "classification": "OPTIONAL",
+      "contract_source_paths": [],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "context",
+      "milestone": "M3",
+      "classification": "OPTIONAL",
+      "contract_source_paths": [],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "memory",
+      "milestone": "M3",
+      "classification": "OPTIONAL",
+      "contract_source_paths": [],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "retrieval",
+      "milestone": "M3",
+      "classification": "OPTIONAL",
+      "contract_source_paths": [],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "knowledge",
+      "milestone": "M3",
+      "classification": "OPTIONAL",
+      "contract_source_paths": [
+        "packages/agent-model/schemas/v0.2/knowledge-catalog.schema.json"
+      ],
+      "validator_path": "packages/agent-model/conformance/ama_knowledge.py",
+      "negative_test_path": "packages/agent-model/conformance/tests/test_m3_knowledge.py",
+      "host_obligations": [
+        "SOURCE_PROVENANCE_AUTHENTICATION",
+        "ACCESS_POLICY_ENFORCEMENT",
+        "CONTENT_VERIFICATION"
+      ],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "multi-agent",
+      "milestone": "M2",
+      "classification": "OPTIONAL",
+      "contract_source_paths": [
+        "packages/agent-model/schemas/v0.2/delegation.schema.json"
+      ],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "eventing",
+      "milestone": "M4",
+      "classification": "OPTIONAL",
+      "contract_source_paths": [
+        "packages/agent-model/schemas/v0.2/event-trigger.schema.json"
+      ],
+      "validator_path": "packages/agent-model/conformance/ama_eventing.py",
+      "negative_test_path": "packages/agent-model/conformance/tests/test_m4_eventing.py",
+      "host_obligations": [
+        "SCHEDULER_OR_EVENT_TRANSPORT",
+        "HOST_SOURCE_AUTHENTICATION",
+        "DELIVERY_DEDUPLICATION_AND_REPLAY_ENFORCEMENT",
+        "PER_TRIGGER_POLICY_CHECK"
+      ],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "durability",
+      "milestone": "M4",
+      "classification": "OPTIONAL",
+      "contract_source_paths": [],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "human-interaction",
+      "milestone": "M2",
+      "classification": "OPTIONAL",
+      "contract_source_paths": [
+        "packages/agent-model/schemas/v0.2/approval.schema.json",
+        "packages/agent-model/schemas/v0.2/approval-event.schema.json"
+      ],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "observability",
+      "milestone": "M6",
+      "classification": "OPTIONAL",
+      "contract_source_paths": [
+        "packages/agent-model/schemas/v0.2/health-snapshot.schema.json"
+      ],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "evaluation",
+      "milestone": "M5",
+      "classification": "OPTIONAL",
+      "contract_source_paths": [],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "safety",
+      "milestone": "M2",
+      "classification": "OPTIONAL",
+      "contract_source_paths": [
+        "packages/agent-model/schemas/v0.2/authorization-decision.schema.json",
+        "packages/agent-model/schemas/v0.2/release-plan.schema.json"
+      ],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "privacy",
+      "milestone": "M2",
+      "classification": "OPTIONAL",
+      "contract_source_paths": [
+        "packages/agent-model/schemas/v0.2/memory-profile.schema.json",
+        "packages/agent-model/schemas/v0.2/knowledge-catalog.schema.json"
+      ],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "secrets",
+      "milestone": "M2",
+      "classification": "OPTIONAL",
+      "contract_source_paths": [
+        "packages/agent-model/schemas/v0.2/secret-binding.schema.json"
+      ],
+      "validator_path": "packages/agent-model/conformance/ama_support_profiles.py",
+      "negative_test_path": "packages/agent-model/conformance/tests/test_ama_support_profiles.py",
+      "host_obligations": [
+        "LIVE_SECRET_PROVIDER",
+        "ROTATION_REVOCATION_ENFORCEMENT",
+        "ACCESS_AUDIT"
+      ],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "interoperability",
+      "milestone": "M1",
+      "classification": "OPTIONAL",
+      "contract_source_paths": [
+        "packages/agent-model/schemas/v0.2/tool-adapter.schema.json",
+        "packages/agent-model/schemas/v0.2/operational-profile.schema.json"
+      ],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "deployment",
+      "milestone": "M6",
+      "classification": "OPTIONAL",
+      "contract_source_paths": [
+        "packages/agent-model/schemas/v0.2/release-plan.schema.json",
+        "packages/agent-model/schemas/v0.2/rollback-plan.schema.json"
+      ],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "operations",
+      "milestone": "M6",
+      "classification": "OPTIONAL",
+      "contract_source_paths": [],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "cost-control",
+      "milestone": "M6",
+      "classification": "OPTIONAL",
+      "contract_source_paths": [
+        "packages/agent-model/schemas/v0.2/planning-profile.schema.json",
+        "packages/agent-model/schemas/v0.2/operational-profile.schema.json"
+      ],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "localization",
+      "milestone": "M6",
+      "classification": "OPTIONAL",
+      "contract_source_paths": [
+        "packages/agent-model/schemas/v0.2/localization-profile.schema.json"
+      ],
+      "validator_path": "packages/agent-model/conformance/ama_support_profiles.py",
+      "negative_test_path": "packages/agent-model/conformance/tests/test_ama_support_profiles.py",
+      "host_obligations": [
+        "RUNTIME_LOCALE_RESOLUTION",
+        "TRANSLATION_VALIDATION",
+        "ACCESSIBILITY_HOST_TESTING"
+      ],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    },
+    {
+      "id": "governance",
+      "milestone": "M6",
+      "classification": "CORE",
+      "contract_source_paths": [
+        "packages/agent-model/schemas/v0.2/acceptance-assessment.schema.json",
+        "packages/agent-model/ama-release-gates.json"
+      ],
+      "validator_path": null,
+      "negative_test_path": null,
+      "host_obligations": [],
+      "six_dimension_status": {
+        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
+        "validation": "NOT_EXECUTED",
+        "negative_regression": "NOT_EXECUTED",
+        "construction_blueprint": "NOT_VERIFIED",
+        "compatibility": "NOT_VERIFIED",
+        "host_obligations": "NOT_ATTESTED"
+      },
+      "catalog_release_claim": "NOT_COMPLETED",
+      "release_disposition": "HOLD",
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+    }
+  ],
+  "stop_conditions": [
+    "J2_CONSTITUTIONAL_SOURCE_CONFLICT",
+    "MISSING_EXECUTABLE_EVIDENCE",
+    "UNATTESTED_HOST_OBLIGATIONS",
+    "UNVERIFIED_EXACT_HEAD",
+    "NO_DIRECTOR_ACCEPTANCE"
+  ]
+}
