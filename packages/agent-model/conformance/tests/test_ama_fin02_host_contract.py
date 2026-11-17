@@ -34,6 +34,12 @@ class HostContractTests(unittest.TestCase):
         self.assertIn('DISABLED_CORE:identity',self.check(inv,conf,rec,lambda *args:True)['errors'])
     def test_duplicate_receipts_rejected(self):
         inv,conf,rec=fixture();self.assertIn('DUPLICATE_HOST_RECEIPT:',str(self.check(inv,conf,rec*2,lambda *args:True)['errors']))
+    def test_duplicate_module_rejected(self):
+        inv,conf,rec=fixture();conf['modules'][1]=copy.deepcopy(conf['modules'][0])
+        self.assertIn('NONCANONICAL_MODULE_SET',self.check(inv,conf,rec,lambda *args:True)['errors'])
+    def test_malformed_host_obligations_rejected(self):
+        inv,conf,rec=fixture();next(x for x in conf['modules'] if x['id']=='secrets')['host_obligations']=[{'untrusted':True}]
+        self.assertIn('OBLIGATIONS_NOT_DECLARED:secrets',self.check(inv,conf,rec,lambda *args:True)['errors'])
     def test_claimed_external_attestor_is_not_enough(self):
         inv,conf,rec=fixture();self.assertIn('HOST_ATTESTATION_FAILED:secrets:EXTERNAL_POLICY',self.check(inv,conf,rec,lambda *args:False)['errors'])
     def test_attestor_failure_fails_closed(self):
