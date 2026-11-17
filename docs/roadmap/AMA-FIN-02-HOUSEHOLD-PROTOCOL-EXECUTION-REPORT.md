@@ -54,3 +54,12 @@ For each of the 32 modules:
 - Added seven regression scenarios in `packages/agent-model/conformance/tests/test_ama_fin02_module_blueprints.py`. Existing CI unittest discovery includes the file when runners execute; these seven tests have not yet been run at this commit head.
 
 **Current disposition unchanged:** 32/32 modules inventoried; **0/32 verified complete**; FIN-02 `IN_PROGRESS / HOLD`. FIN-03 is not triggered by this source-only work.
+
+## 18 November 2026 — Actual executable engineering (supersedes prior source-only test claim for these two components)
+
+- Added reusable versioned, 32-module migration preflight `ama_fin02_migration.py` and host-evidence preflight `ama_fin02_host_contract.py`.
+- Executed **22/22 local Python 3.13.5 unittest cases successfully**, including equivalent repository-style unittest discovery. Test code and modules were byte-compared with corresponding GitHub source blobs; all four match.
+- Exact source hashes, local test log SHA-256, tested commit and limitations: `docs/roadmap/AMA-FIN-02-EXECUTION-EVIDENCE-2026-11-18.md`.
+- No independently signed host receipts, real deployment, authorizing migration or agent construction resulted.
+- The local isolated test success does **not** mean repository-wide exact-head CI was run. Full M0–M7, Python 3.12, Node/PostgreSQL, module-by-module integration, independent audit and Director acceptance remain pending.
+- The 32-module matrix retains **0/32 independently verified complete**. FIN-02 remains **IN_PROGRESS/HOLD**; FIN-03 has not been triggered.
