@@ -10,7 +10,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[3]
 DIMENSIONS = ("contract", "negative", "migration", "blueprint")
 
-def audit(inventory, catalog):
+def audit(inventory, catalog, *, evidence_attestor=None, exact_head=None):
+    """Source audit only unless a separate independent evidence attestor verifies.
+
+    The attestor must validate the provenance of each module's executable
+    evidence, review separation and exact immutable git head. A catalog status
+    string alone is never evidence.
+    """
     findings = []
     originals = {row["id"]: row for row in inventory.get("modules", [])}
     rows = catalog.get("modules", [])
@@ -40,9 +46,21 @@ def audit(inventory, catalog):
         if item.get("release_claim") == "COMPLETE":
             if any(item.get("verification", {}).get(k) != "VERIFIED_EXECUTED" for k in DIMENSIONS):
                 findings.append("UNSUPPORTED_COMPLETE:" + key)
+            if not exact_head or not isinstance(exact_head,str) or len(exact_head)!=40 or any(c not in "0123456789abcdef" for c in exact_head):
+                findings.append("MISSING_IMMUTABLE_HEAD:" + key)
+            elif evidence_attestor is None:
+                findings.append("INDEPENDENT_MODULE_ATTESTATION_REQUIRED:" + key)
+            else:
+                try:
+                    independently_verified = evidence_attestor(key,item,exact_head)
+                except Exception:
+                    independently_verified = False
+                if independently_verified is not True:
+                    findings.append("INDEPENDENT_MODULE_ATTESTATION_FAILED:" + key)
     complete = sum(
         row.get("release_claim") == "COMPLETE" and
-        all(row.get("verification", {}).get(k) == "VERIFIED_EXECUTED" for k in DIMENSIONS)
+        all(row.get("verification", {}).get(k) == "VERIFIED_EXECUTED" for k in DIMENSIONS) and
+        not any(f.endswith(":" + row["id"]) for f in findings)
         for row in rows
     )
     return {"schema": "ama.fin02.catalog-audit/v1",
