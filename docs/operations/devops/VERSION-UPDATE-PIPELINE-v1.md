@@ -13,7 +13,7 @@ Therefore, the existing static link does **not** guarantee the per-repository ho
 ## Implemented source of truth
 
 - [model-release.json](model-release.json) identifies canonical **current_version**, model source and the distribution policy.
-- [HOOK-ESTATE-INDEX.json](HOOK-ESTATE-INDEX.json) holds the **29 currently enrolled passive hooks** and their last **observed** versions. It is not live scanning or an approval.
+- [HOOK-ESTATE-INDEX.json](HOOK-ESTATE-INDEX.json) holds all **30 installed passive hooks** and their last **observed** versions. It is not live scanning or an approval.
 - [model_release.py](../../../tools/devops/model_release.py) checks consistency among release version, model README, local FFOS hook, template and index; it generates a per-version issue body from last-observed versions.
 - [GitHub Actions workflow](../../../.github/workflows/devops-model-release-watch.yml) runs a narrow integrity job on **all FFOS pull requests**, but requires version increment only when canonical model or amendment text changes. Unrelated work gets a lightweight PASS; it does not require DevOps activation.
 - When a **new model version lands on FFOS main**, the workflow attempts to create **one idempotent FFOS tracking issue** with a checklist for all downstream hooks observed on an earlier version. It uses only a FFOS-local GitHub Token with issues:write. Actual Actions execution must be verified before claiming issue delivery works.
@@ -22,7 +22,7 @@ Therefore, the existing static link does **not** guarantee the per-repository ho
 
 1. An authorized change updates canonical model documentation.
 2. In the same PR, increment **model-release.json.current_version** and keep the model identity, template hook and FFOS local hook versions consistent.
-3. The narrow GitHub check validates this change. After merge, a main-branch workflow creates a downstream **tracking issue**, rather than silently assuming all enrolled repositories updated.
+3. The narrow GitHub check validates this change. After merge, a main-branch workflow creates a downstream **tracking issue**, rather than silently assuming 30 repositories updated.
 4. Normal owner-compatible PRs update local hook version fields, review compatibility and preserve every repository's CDX anchor and historical work.
 5. Each installed version is **read back** and the index's observed_model_version updated with verified evidence. Complete rollout issue after reconciliation.
 
@@ -36,7 +36,7 @@ Therefore, the existing static link does **not** guarantee the per-repository ho
 
 ## Scope and constitutional exception
 
-29 currently enrolled hooks: Tier A (3), B (12), C (7), D (7). **Conductellence's constitutional source remains excluded** because its protected authority requires sovereign approval. **Barnombudet is separately excluded** following its local governance review and [merged removal PR #3](https://github.com/Hybrismannen/Barnombudet/pull/3). Its earlier Tier B installation is retained only as historical evidence, not as a future rollout target.
+30 installed hooks: Tier A (3), B (13), C (7), D (7). **Conductellence's constitutional source remains excluded** because its protected authority requires sovereign approval. Barnombudet remains Tier B and was **not modified** in the Tier D expansion.
 
 The seven new Tier D hooks do not modify historical work: they advertise a possible method for **new work** when chosen. CDX review remains a conditional, non-authorizing reference.
 
@@ -48,4 +48,4 @@ This is a distribution **notification and tracking pipeline** with one scoped me
 
 ## Verification status
 
-The single native FFOS required status check and a negative blocked-merge test are recorded in the [final technical verification](RELEASE-WATCH-VERIFICATION-2026-11-16.md). The first main push ran the issue-publisher safely with no model-version bump; the first **actual future new-version issue publication remains untested** until such a version is released. The current 29-repository active hook index is based on authenticated observations, not automatic remote polling. The earlier 30-repository installation record remains a dated historical snapshot. See [Barnombudet exclusion decision](BARNOMBUDET-EXCLUSION-2026-11-16.md).
+The single native FFOS required status check and a negative blocked-merge test are recorded in the [final technical verification](RELEASE-WATCH-VERIFICATION-2026-11-16.md). The first main push ran the issue-publisher safely with no model-version bump; the first **actual future new-version issue publication remains untested** until such a version is released. The 30-repository index is based on authenticated observations, not automatic remote polling.

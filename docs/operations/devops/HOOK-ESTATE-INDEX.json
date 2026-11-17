@@ -71,6 +71,14 @@
       "provenance": "2026-11-16-verified-passive-hook"
     },
     {
+      "repository": "Hybrismannen/Barnombudet",
+      "tier": "B",
+      "hook_path": ".ffos/devops-hook.json",
+      "observed_model_version": "1.1",
+      "installation_pr": "https://github.com/Hybrismannen/Barnombudet/pull/2",
+      "provenance": "2026-11-16-verified-passive-hook"
+    },
+    {
       "repository": "Hybrismannen/Opal-Sense-I",
       "tier": "B",
       "hook_path": ".ffos/devops-hook.json",
@@ -244,20 +252,12 @@
       "repository": "Hybrismannen/Conductellence-",
       "reason": "CANONICAL_CDX_AUTHORITY_ROOT_REQUIRES_HUMAN_SOVEREIGN_APPROVAL",
       "pr": "https://github.com/Hybrismannen/Conductellence-/pull/75"
-    },
-    {
-      "repository": "Hybrismannen/Barnombudet",
-      "reason": "LOCAL_ORGANISATIONAL_GOVERNANCE_NOT_ADOPTED",
-      "pr": "https://github.com/Hybrismannen/Barnombudet/pull/3",
-      "status": "REMOVED_FROM_DEFAULT_BRANCH",
-      "note": "Local Barnombudet development governance takes precedence; no local CDX anchor or organisational adoption evidenced. Re-enrol only through separately authorised organisational decision."
     }
   ],
   "notes": [
     "Tier D hook installation does not activate or migrate historic projects.",
+    "Barnombudet is Tier B; its existing hook was not changed during Tier D expansion.",
     "A GitHub blob/main link opens latest model text; stored model.version remains a snapshot until a PR updates it.",
-    "CDX sovereign source is intentionally excluded.",
-    "Barnombudet (Tier B) removed via merged PR #3; its former inclusion is preserved in the historical 2026-11-16 rollout manifest; it must not receive future model-update queues without separate Barnombudet organisational authorisation.",
-    "Current active hook roster: 29 repositories; CDX authority root and Barnombudet are excluded. Historical coverage reports are dated snapshots."
+    "CDX sovereign source is intentionally excluded."
   ]
 }

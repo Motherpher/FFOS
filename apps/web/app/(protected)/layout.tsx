@@ -3,6 +3,7 @@ import Link from "next/link";
 const nav = [
   ["Counter", "/"],
   ["Work", "/work"],
+  ["ProjectHub", "/projecthub"],
   ["FFC", "/ffc"],
   ["Conducellence", "/conducellence"],
   ["UDL", "/udl"],
