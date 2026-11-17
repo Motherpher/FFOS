@@ -1,6 +1,9 @@
 """Offline, deterministic AMA 32-module migration negative tests."""
 import copy
 import unittest
+import sys
+from pathlib import Path
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from ama_fin02_migration import assess_transition
 
 CORE = ["identity","mandate","instruction","capability","workflow","command","adapter","authorization","task-execution","evidence","conformance","lifecycle","governance"]
