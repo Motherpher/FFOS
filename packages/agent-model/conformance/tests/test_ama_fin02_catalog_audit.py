@@ -49,5 +49,45 @@ class CatalogTests(unittest.TestCase):
         catalog["modules"][0]["stage"]="M6"
         self.assertIn("STAGE_MISMATCH:identity",audit(self.inventory,catalog)["findings"])
 
+
+    def test_forged_all_verified_strings_require_independent_attestation(self):
+        catalog=copy.deepcopy(self.catalog)
+        entry=catalog["modules"][0]
+        entry["release_claim"]="COMPLETE"
+        entry["verification"]={k:"VERIFIED_EXECUTED" for k in ("contract","negative","migration","blueprint")}
+        report=audit(self.inventory,catalog)
+        self.assertEqual(report["verified_complete"],0)
+        self.assertIn("MISSING_IMMUTABLE_HEAD:identity",report["findings"])
+
+    def test_exact_head_does_not_replace_independent_attestation(self):
+        catalog=copy.deepcopy(self.catalog)
+        entry=catalog["modules"][0]
+        entry["release_claim"]="COMPLETE"
+        entry["verification"]={k:"VERIFIED_EXECUTED" for k in ("contract","negative","migration","blueprint")}
+        report=audit(self.inventory,catalog,exact_head="a"*40)
+        self.assertEqual(report["verified_complete"],0)
+        self.assertIn("INDEPENDENT_MODULE_ATTESTATION_REQUIRED:identity",report["findings"])
+
+    def test_attestor_failure_holds_completion(self):
+        catalog=copy.deepcopy(self.catalog)
+        entry=catalog["modules"][0]
+        entry["release_claim"]="COMPLETE"
+        entry["verification"]={k:"VERIFIED_EXECUTED" for k in ("contract","negative","migration","blueprint")}
+        report=audit(self.inventory,catalog,exact_head="a"*40,
+                     evidence_attestor=lambda *args: False)
+        self.assertEqual(report["verified_complete"],0)
+        self.assertIn("INDEPENDENT_MODULE_ATTESTATION_FAILED:identity",report["findings"])
+
+    def test_attestor_exception_fails_closed(self):
+        catalog=copy.deepcopy(self.catalog)
+        entry=catalog["modules"][0]
+        entry["release_claim"]="COMPLETE"
+        entry["verification"]={k:"VERIFIED_EXECUTED" for k in ("contract","negative","migration","blueprint")}
+        def unavailable(*args):
+            raise OSError("independent evidence unavailable")
+        report=audit(self.inventory,catalog,exact_head="a"*40,evidence_attestor=unavailable)
+        self.assertEqual(report["verified_complete"],0)
+        self.assertIn("INDEPENDENT_MODULE_ATTESTATION_FAILED:identity",report["findings"])
+
 if __name__=="__main__":
     unittest.main()
