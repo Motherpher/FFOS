@@ -45,3 +45,12 @@ For each of the 32 modules:
 5. Execute and retain exact-head evidence, review independently and preserve Director acceptance.
 
 **No module is promoted to COMPLETE. No architectural release or agent activation is authorised.**
+
+## Additional FIN-02 module specification preflight
+
+- Committed `packages/agent-model/conformance/ama_fin02_module_blueprints.py`, which produces deterministic **32 architecture module blueprint candidates** without constructing agents or authorizing runtime effects.
+- Each blueprint explicitly includes core/optional default, six contract requirements, normative capability, denial case, candidate source/validator/test paths, host obligations and outstanding evidence blockers.
+- Candidate status stays `HOLD`; missing source, executable tests, migration and host evidence cannot be replaced by generated metadata.
+- Added seven regression scenarios in `packages/agent-model/conformance/tests/test_ama_fin02_module_blueprints.py`. Existing CI unittest discovery includes the file when runners execute; these seven tests have not yet been run at this commit head.
+
+**Current disposition unchanged:** 32/32 modules inventoried; **0/32 verified complete**; FIN-02 `IN_PROGRESS / HOLD`. FIN-03 is not triggered by this source-only work.
