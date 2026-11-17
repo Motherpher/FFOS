@@ -44,6 +44,24 @@ def audit(inventory, catalog, *, evidence_attestor=None, exact_head=None):
         if item.get("source_status") != original["implementation_status"]:
             findings.append("UNSUPPORTED_STATUS_CHANGE:" + key)
         if item.get("release_claim") == "COMPLETE":
+            proof = item.get("independent_evidence", {})
+            if not isinstance(proof, dict):
+                proof = {}
+            if proof.get("head_sha") != exact_head or not proof.get("reviewer_ref") or proof.get("reviewer_independent") is not True:
+                findings.append("MISSING_INDEPENDENT_EVIDENCE_RECORD:" + key)
+            artifacts = proof.get("artifacts", {})
+            if not isinstance(artifacts, dict) or any(
+                not isinstance(artifacts.get(k), dict) or
+                not isinstance(artifacts[k].get("artifact_ref"), str) or
+                not artifacts[k]["artifact_ref"].strip() or
+                not isinstance(artifacts[k].get("sha256"), str) or
+                len(artifacts[k]["sha256"]) != 64 or
+                any(c not in "0123456789abcdef" for c in artifacts[k]["sha256"])
+                for k in DIMENSIONS
+            ):
+                findings.append("MISSING_EVIDENCE_ARTIFACT_DIGESTS:" + key)
+            if not item.get("source_references"):
+                findings.append("MISSING_MODULE_SOURCE_REFERENCES:" + key)
             if any(item.get("verification", {}).get(k) != "VERIFIED_EXECUTED" for k in DIMENSIONS):
                 findings.append("UNSUPPORTED_COMPLETE:" + key)
             if not exact_head or not isinstance(exact_head,str) or len(exact_head)!=40 or any(c not in "0123456789abcdef" for c in exact_head):
