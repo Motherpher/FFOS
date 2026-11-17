@@ -16,7 +16,9 @@ def assess_host_obligations(inventory: dict, configuration: dict, receipts: list
     modules=inventory.get("modules", []) if isinstance(inventory, dict) else []
     indexed={r.get("id"):r for r in modules if isinstance(r,dict)}
     selected=configuration.get("modules", []) if isinstance(configuration,dict) else []
-    if len(modules)!=32 or len(indexed)!=32 or len(selected)!=32:
+    selected_ids=[r.get("id") if isinstance(r,dict) else None for r in selected]
+    if (len(modules)!=32 or len(indexed)!=32 or len(selected)!=32 or
+        len(set(selected_ids))!=len(selected_ids) or set(selected_ids)!=set(indexed)):
         errors.append("NONCANONICAL_MODULE_SET")
     if not isinstance(head,str) or not re.fullmatch(r"[a-f0-9]{40}",head):
         errors.append("IMMUTABLE_HEAD_REQUIRED")
@@ -42,7 +44,10 @@ def assess_host_obligations(inventory: dict, configuration: dict, receipts: list
         if not isinstance(obligations,list):
             errors.append("INVALID_OBLIGATION_DECLARATION:"+name);continue
         declared=row.get("host_obligations")
-        if not isinstance(declared,list) or not set(obligations).issubset(set(declared)):
+        if (not isinstance(declared,list) or
+            any(not isinstance(x,str) for x in declared) or
+            any(not isinstance(x,str) for x in obligations) or
+            not set(obligations).issubset(set(declared))):
             errors.append("OBLIGATIONS_NOT_DECLARED:"+name)
         for obligation in obligations:
             receipt=receipt_index.get((name,obligation))
