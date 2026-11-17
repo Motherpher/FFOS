@@ -37,8 +37,8 @@ function context(subject:string,key:string):CommandContext{
 export function projectHubRuntimeStatus(){
   const c=configuration();
   return {database:c.databaseConfigured,authority:c.authorityConfigured,writes:c.writesEnabled,
-    state:c.databaseConfigured&&c.authorityConfigured?"BOUND_CANDIDATE":"NOT_BOUND",
-    release:"NOT_RELEASED",deployment:"NOT_DEPLOYED"};
+    state:c.databaseConfigured&&c.authorityConfigured?"BOUND_INTERNAL_BASELINE":"NOT_BOUND",
+    release:"RELEASED_INTERNAL_BASELINE",deployment:"NOT_DEPLOYED"};
 }
 export async function listProjectsForUi():Promise<ProjectRecord[]>{
   await director();const c=configuration();if(!c.databaseConfigured||!c.authorityConfigured)return [];
