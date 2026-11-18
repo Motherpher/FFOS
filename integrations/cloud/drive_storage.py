@@ -94,6 +94,7 @@ class DriveStorage:
             raise ValueError("Invalid Director-approved Drive root ID")
         self.approved_root_id = approved_root_id
         self.created_folders = set()
+        self.created_files = set()
         self.pending_upload_sessions = {}
         self.consumed_upload_sessions = set()
 
@@ -104,6 +105,14 @@ class DriveStorage:
         ) or parsed.username or parsed.password or parsed.port not in (None, 443):
             raise ValueError("Google API endpoint not allowlisted")
         _assert_create_only_drive_request(url, method, payload)
+        if method.upper() == "GET":
+            # No arbitrary reads with this publisher credential. A separate
+            # ChatGPT read connection has its own independent authorization.
+            target = parsed.path.removeprefix("/drive/v3/files/")
+            permitted = ({self.approved_root_id} | self.created_folders
+                         | self.created_files)
+            if target not in permitted:
+                raise PermissionError("Read target is outside this run's permitted IDs")
         if method.upper() == "POST":
             # Prevent bypass via direct request(), not just high-level helpers.
             # Provider body already passed the syntactic create-only test.
@@ -236,6 +245,12 @@ class DriveStorage:
                 or parent_id not in meta.get("parents", [])
                 or int(meta.get("size", -1)) != size):
             raise ValueError("Google Drive uploaded metadata mismatch")
+        # Google reports the ID only after this adapter starts a NEW upload.
+        # This is not proof against a malicious provider, but prevents unrelated
+        # read targets and stale cross-run IDs from being accepted.
+        if file_id in self.created_files or file_id == self.approved_root_id or file_id in self.created_folders:
+            raise PermissionError("Provider returned reused or reserved file ID")
+        self.created_files.add(file_id)
         # Post-upload readback is independent of Google Drive metadata or ETags.
         status, _, actual = self.request(
             DRIVE_API + "/" + quote(file_id, safe="") + "?alt=media",
