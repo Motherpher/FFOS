@@ -18,6 +18,7 @@ test("PostgreSQL: atomic ProjectHub write and append-only history",{skip:!url},a
  try{
    await pool.query(await readFile(resolve(root,"packages/registry/migrations/0008_projecthub.sql"),"utf8"));
    await pool.query(await readFile(resolve(root,"packages/registry/migrations/0009_projecthub_runtime_role.sql"),"utf8"));
+   await pool.query(await readFile(resolve(root,"packages/registry/migrations/0010_projecthub_readonly_role.sql"),"utf8"));
    const store=new PgProjectHubStore(pool);const svc=new GovernedProjectHubService(store,allowGate as any);
    await svc.createProject(ctx("CREATE"),{id:"PG-P1",title:"PG",ownerRef:"OWNER",mandateRef:"M",
      methodologyProfile:"PROJECT_NATIVE",purpose:"Test",createdBy:"FFOS:DIRECTOR"});
@@ -37,6 +38,19 @@ test("PostgreSQL: atomic ProjectHub write and append-only history",{skip:!url},a
      /PROJECT_SCOPE_REQUIRED/
    );
    assert.equal((await store.listAuditEvents("PG-P1")).length,2);
+   // Reader can see only its project's rows; it cannot append anything.
+   const reader=await pool.connect();
+   try {
+     await reader.query("BEGIN");
+     await reader.query("SET LOCAL ROLE ffos_projecthub_reader");
+     await reader.query("SELECT set_config('ffos.project_scope',$1,true)",["PG-P1"]);
+     const rows=await reader.query("SELECT DISTINCT project_id FROM ffos.projecthub_projects");
+     assert.equal(rows.rows.length,1);
+     await assert.rejects(()=>reader.query(`INSERT INTO ffos.projecthub_idempotency
+       (idempotency_key,project_id,operation,command_digest,result,recorded_at)
+       VALUES ('reader-must-not-write','PG-P1','TEST',$1,'{}'::jsonb,now())`,["f".repeat(64)]),
+       /permission denied/i);
+   } finally {await reader.query("ROLLBACK");reader.release();}
    // A scoped NOLOGIN role is an internal execution privilege only.
    // No scope => zero rows; setting a different scope cannot read PG-P1.
    for (const [scope,expected] of [["",0],["OTHER-PROJECT",0],["PG-P1",1]] as const) {

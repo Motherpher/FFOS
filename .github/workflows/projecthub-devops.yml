@@ -46,6 +46,9 @@ jobs:
       - name: ProjectHub core and rights tests
         if: steps.present.outputs.value == 'true'
         run: npm test --prefix modules/projecthub
+      - name: Check read-only production canary syntax
+        if: steps.present.outputs.value == 'true'
+        run: node --check modules/projecthub/read-canary.mjs
 
   postgres:
     runs-on: ubuntu-latest
