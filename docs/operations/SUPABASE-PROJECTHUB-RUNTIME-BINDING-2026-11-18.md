@@ -49,3 +49,11 @@ Do not perform canonical writes if the CDX port or evidence writer is unavailabl
 ## Status vocabulary
 
 `SCHEMA_DEPLOYED` ≠ `ROLE_ADMITTED` ≠ `RUNTIME_BOUND` ≠ `CDX_ACCEPTED` ≠ `FRONTEND_CONNECTED`.
+
+## Scoped read adapter implementation (candidate)
+
+The FFOS application now includes `modules/projecthub/src/scoped-pg.ts`, an explicit **read-only** scoped transaction. It opens one PostgreSQL connection, starts `BEGIN READ ONLY`, switches to the `NOLOGIN` role with `SET LOCAL ROLE ffos_projecthub_runtime`, verifies effective `current_user`, sets the project scope with a parameterized `set_config(..., true)`, and runs all reads in the same connection before committing or rolling back. The role identity must be granted through a separately approved backend login. When the role cannot be selected, queries fail closed.
+
+The existing `apps/web/lib/projecthub/server.ts` checks the Director session and ProjectHub read feature flag prior to executing the scoped reader. Direct project-specific reads are **candidates only**; no runtime secrets are configured. Portfolio enumeration remains explicitly blocked (single-project RLS must not be weakened merely to populate the dashboard). All web mutation routes remain blocked until separate CDX-evidenced scoped-write acceptance. The current deployment state remains `DATABASE_PRIVATE_APP_NOT_VERIFIED`.
+
+**Required configuration at future runtime deployment (NOT set here):** `FFOS_PROJECTHUB_DATABASE_URL` must identify a dedicated restricted server-only LOGIN role with membership allowing `SET LOCAL ROLE ffos_projecthub_runtime`; `FFOS_PROJECTHUB_AUTHORITY_REF` and `FFOS_PROJECTHUB_MANDATE_REF` must be verified, `FFOS_SESSION_SECRET` must be deployed through protected secrets, and `FFOS_PROJECTHUB_READS_ENABLED=true` only after a bound connection/cross-project test. Do not use the Supabase `postgres` admin URL or any browser-visible `VITE_*` key. `FFOS_PROJECTHUB_WRITES_ENABLED` stays false.

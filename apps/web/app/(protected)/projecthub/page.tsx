@@ -3,12 +3,12 @@ import {listProjectsForUi,projectHubRuntimeStatus} from "../../../lib/projecthub
 
 export default async function ProjectHubPage(){
   const runtime=projectHubRuntimeStatus();
-  const projects=runtime.state==="BOUND_CANDIDATE"?await listProjectsForUi().catch(()=>[]):[];
+  const projects=runtime.state==="READ_CANDIDATE"?await listProjectsForUi().catch(()=>[]):[];
   return <>
     <header className="topbar"><div><p className="eyebrow">FFOS // PROJECT OPERATING SYSTEM</p><h1>ProjectHub</h1></div>
       <div className="runtime">{runtime.state} · {runtime.release}</div></header>
-    {runtime.state!=="BOUND_CANDIDATE"&&<section className="phNotice"><strong>ProjectHub runtime is not bound.</strong>
-      <p>This implementation candidate requires an explicitly configured ProjectHub PostgreSQL target plus authority/mandate references. No mock project state is substituted.</p>
+    {runtime.state!=="READ_CANDIDATE"&&<section className="phNotice"><strong>ProjectHub runtime is not bound.</strong>
+      <p>ProjectHub requires a separately verified scoped database identity, a Director session, and explicit read enablement. Portfolio enumeration and mutations remain disabled. No mock project state is substituted.</p>
       <div className="phRuntimeGrid"><span>Database: {runtime.database?"configured":"not configured"}</span>
         <span>Authority: {runtime.authority?"configured":"not configured"}</span><span>Writes: {runtime.writes?"enabled":"disabled"}</span></div>
     </section>}
