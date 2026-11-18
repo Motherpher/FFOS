@@ -116,3 +116,28 @@ BEGIN
   END LOOP;
 END;
 $$;
+
+-- Supabase admission hardening. This schema remains private and is NOT an
+-- automatically exposed Data API surface. Public/frontend and service_role
+-- keys receive no access to ProjectHub tables by default.
+DO $$
+DECLARE t text;
+BEGIN
+  FOREACH t IN ARRAY ARRAY[
+    'projecthub_projects','projecthub_nodes','projecthub_relations',
+    'projecthub_events','projecthub_idempotency','projecthub_role_grants'
+  ] LOOP
+    EXECUTE format('ALTER TABLE ffos.%I ENABLE ROW LEVEL SECURITY', t);
+    EXECUTE format('REVOKE ALL PRIVILEGES ON TABLE ffos.%I FROM PUBLIC, anon, authenticated, service_role', t);
+  END LOOP;
+END;
+$$;
+REVOKE ALL ON SEQUENCE ffos.projecthub_projects_row_id_seq FROM PUBLIC, anon, authenticated, service_role;
+REVOKE ALL ON SEQUENCE ffos.projecthub_nodes_row_id_seq FROM PUBLIC, anon, authenticated, service_role;
+REVOKE ALL ON SEQUENCE ffos.projecthub_relations_row_id_seq FROM PUBLIC, anon, authenticated, service_role;
+REVOKE ALL ON SEQUENCE ffos.projecthub_role_grants_row_id_seq FROM PUBLIC, anon, authenticated, service_role;
+REVOKE EXECUTE ON FUNCTION ffos.reject_projecthub_mutation() FROM PUBLIC, anon, authenticated, service_role;
+
+-- Admission boundary: no RLS read/write policies here. A later governed
+-- service principal and tested project-scoped auth must be approved before
+-- any ProjectHub runtime writes or frontend query access.
