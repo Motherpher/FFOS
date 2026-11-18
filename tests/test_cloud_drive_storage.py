@@ -4,6 +4,8 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from io import BytesIO
+from urllib.error import HTTPError
 
 from integrations.cloud.drive_storage import (
     DRIVE_ID, DriveStorage, publish_directory, refresh_access_token,
@@ -42,6 +44,14 @@ class DriveStorageTests(unittest.TestCase):
     def test_denies_missing_credentials_before_write(self):
         with self.assertRaises(ValueError):
             refresh_access_token("","","")
+    def test_refresh_error_is_safe_and_classified(self):
+        class BadOpener:
+            def open(self, *_args, **_kwargs):
+                payload=b'{"error":"invalid_client","error_description":"The provided client secret is invalid."}'
+                raise HTTPError("https://oauth2.googleapis.com/token",401,"Unauthorized",{},BytesIO(payload))
+        with self.assertRaisesRegex(ValueError, r"invalid_client.*client secret is invalid"):
+            refresh_access_token("client-id","secret","refresh-token",opener=BadOpener())
+
     def test_denies_bad_root(self):
         with tempfile.TemporaryDirectory() as tmp:
             (Path(tmp)/"a.csv").write_text("test")

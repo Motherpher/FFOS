@@ -14,6 +14,7 @@ from pathlib import Path
 import re
 from urllib.parse import urlencode, quote, urlsplit
 from urllib.request import Request, build_opener, HTTPRedirectHandler
+from urllib.error import HTTPError
 
 DRIVE_API = "https://www.googleapis.com/drive/v3/files"
 UPLOAD_API = "https://www.googleapis.com/upload/drive/v3/files"
@@ -283,11 +284,25 @@ def refresh_access_token(client_id, client_secret, refresh_token, *, opener=None
         "client_id": client_id, "client_secret": client_secret,
         "refresh_token": refresh_token, "grant_type": "refresh_token",
     }).encode("ascii")
-    with op.open(Request(
-        TOKEN_API, data=body,
-        headers={"Content-Type": "application/x-www-form-urlencoded"},
-        method="POST"), timeout=30) as response:
-        raw = response.read(16384)
+    try:
+        with op.open(Request(
+            TOKEN_API, data=body,
+            headers={"Content-Type": "application/x-www-form-urlencoded"},
+            method="POST"), timeout=30) as response:
+            raw = response.read(16384)
+    except HTTPError as exc:
+        safe_code = "http_error"
+        safe_description = "Google OAuth refresh rejected"
+        try:
+            payload = json.loads(exc.read(16384))
+            if payload.get("error") in {"invalid_client","invalid_grant","unauthorized_client","invalid_request"}:
+                safe_code = payload["error"]
+            if isinstance(payload.get("error_description"), str):
+                desc = payload["error_description"].replace("\n"," ").replace("\r"," ")
+                safe_description = desc[:240]
+        except Exception:
+            pass
+        raise ValueError(f"Google OAuth refresh failed [{safe_code}]: {safe_description}") from None
     token = json.loads(raw).get("access_token")
     if not isinstance(token, str) or not token:
         raise ValueError("Google OAuth token exchange failed")
