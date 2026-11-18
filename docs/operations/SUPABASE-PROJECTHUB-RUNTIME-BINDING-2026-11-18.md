@@ -1,6 +1,6 @@
 # ProjectHub scoped Supabase runtime — admission checkpoint
 
-**Status:** NOLOGIN ROLE CANDIDATE / NEVER CLAIMS APPLICATION BINDING  
+**Status:** NOLOGIN ROLE DEPLOYED + APP READ-CANDIDATE SOURCE MERGED / APPLICATION BINDING STILL PENDING  
 **Target:** Existing `FF Estate` Supabase project (`tambsukbyoldkrxnmvpa`), `ffos` private schema.  
 **Canonical source:** `packages/registry/migrations/0009_projecthub_runtime_role.sql`.
 
@@ -57,3 +57,11 @@ The FFOS application now includes `modules/projecthub/src/scoped-pg.ts`, an expl
 The existing `apps/web/lib/projecthub/server.ts` checks the Director session and ProjectHub read feature flag prior to executing the scoped reader. Direct project-specific reads are **candidates only**; no runtime secrets are configured. Portfolio enumeration remains explicitly blocked (single-project RLS must not be weakened merely to populate the dashboard). All web mutation routes remain blocked until separate CDX-evidenced scoped-write acceptance. The current deployment state remains `DATABASE_PRIVATE_APP_NOT_VERIFIED`.
 
 **Required configuration at future runtime deployment (NOT set here):** `FFOS_PROJECTHUB_DATABASE_URL` must identify a dedicated restricted server-only LOGIN role with membership allowing `SET LOCAL ROLE ffos_projecthub_runtime`; `FFOS_PROJECTHUB_AUTHORITY_REF` and `FFOS_PROJECTHUB_MANDATE_REF` must be verified, `FFOS_SESSION_SECRET` must be deployed through protected secrets, and `FFOS_PROJECTHUB_READS_ENABLED=true` only after a bound connection/cross-project test. Do not use the Supabase `postgres` admin URL or any browser-visible `VITE_*` key. `FFOS_PROJECTHUB_WRITES_ENABLED` stays false.
+
+## Independently verified live admission (2026-11-18)
+
+- Canonical [PR #107](https://github.com/Motherpher/FFOS/pull/107) merged, with passing ProjectHub PostgreSQL CI.
+- Supabase migration `20261118033752 ffos_projecthub_scoped_nologin_role_v0011` applied successfully in existing `FF Estate`.
+- Live verification: exactly 12 project-scoped RLS policies across 6 RLS-protected ProjectHub tables; dedicated role `rolcanlogin=false`, `rolbypassrls=false`; zero actual project/audit rows; **Supabase security advisors: 0 findings**.
+- Canonical [PR #108](https://github.com/Motherpher/FFOS/pull/108) merged, and ProjectHub PostgreSQL CI passed. Scoped read adapter requires Director auth, single read-only transaction, exact runtime role and exact transaction-local project scope. Legacy unscoped mutation path is fail-closed.
+- Application service URL, dedicated backend login role membership, protected credentials, real server deployment and read-only Supabase HTTP canary **NOT YET VERIFIED**. CDX A3 writes and public frontend access remain denied.
