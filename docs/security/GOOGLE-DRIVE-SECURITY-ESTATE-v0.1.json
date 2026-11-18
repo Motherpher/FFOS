@@ -1,0 +1,91 @@
+{
+  "schema": "ffos.google-drive-security-estate/v0.1",
+  "observed_at": "2026-11-18",
+  "status": "SOURCE_OBSERVED_NOT_RUNTIME_ATTESTED",
+  "policy_id": "OAI-DRIVE-APPEND-ONLY-001",
+  "policy_version_in_force": "1.0",
+  "draft_successor": "v1.1 DRAFT NOT ADOPTED",
+  "director_policy_folder_id": "16jyKv3HHGcmNQY1XO_STdOmuSvnhUxkA",
+  "approved_creation_root_ids": [
+    "1xO4YWl4yQmyRJ6t-A_4j9vaVDkiBhArD"
+  ],
+  "explicit_protected_root_ids": [
+    "16jyKv3HHGcmNQY1XO_STdOmuSvnhUxkA"
+  ],
+  "account_type": "NOT_VERIFIED",
+  "credentials": {
+    "production_token_inventory_complete": false,
+    "actual_oauth_scope_inventory_complete": false,
+    "broad_token_revocation_verified": false,
+    "isolated_credentials_issued": false,
+    "verified_privileged_writer_paths": 0,
+    "remaining_unclassified_writer_paths": "UNKNOWN"
+  },
+  "known_consumers": [
+    {
+      "id": "chatgpt-google-drive",
+      "kind": "CHATGPT_CONNECTOR",
+      "evidence": "Plugin settings readback 2026-11-18",
+      "app_permission": "ask_before_writes",
+      "effect_gate": "HOST_APPROVAL_BEFORE_ALL_WRITES",
+      "production_provider_create_only_verified": false,
+      "other_google_apps_covered": false
+    },
+    {
+      "id": "ffos-cloud-drive",
+      "kind": "GITHUB_ACTIONS_AND_PYTHON_ADAPTER",
+      "source": "integrations/cloud/drive_storage.py",
+      "branch": "policy/openai-drive-create-only-20261118",
+      "code_guard": "OFFLINE_CI_PASS_ON_DRAFT_PR",
+      "production_api_guard": "NOT_DEPLOYED",
+      "oauth_live_preflight": "NOT_ATTESTED_CURRENT_TURN",
+      "independent_spetl_for_drive": "NOT_VERIFIED"
+    },
+    {
+      "id": "ff-spatial-drive",
+      "kind": "GITHUB_ACTIONS_AND_PYTHON_ADAPTER",
+      "source": "Motherpher/FF-Spatial:gateway/drive_storage.py",
+      "branch": "policy/openai-drive-create-only-20261118",
+      "code_guard": "OFFLINE_CI_PASS_ON_DRAFT_PR",
+      "production_api_guard": "NOT_DEPLOYED",
+      "oauth_live_preflight": "NOT_ATTESTED_CURRENT_TURN",
+      "independent_spetl_for_drive": "NOT_VERIFIED"
+    }
+  ],
+  "potential_unclassified_integrations": [
+    "Google Apps Script",
+    "Lovable",
+    "Notion",
+    "Miro",
+    "Other OAuth clients",
+    "Google Workspace automations",
+    "Desktop sync tools",
+    "External MCP providers"
+  ],
+  "consent_authority": {
+    "responsible": "Director",
+    "verifier_source": "integrations/cloud/drive_approval.py",
+    "grant_issuer": "NOT_IMPLEMENTED",
+    "grant_verifier": "OFFLINE_CANDIDATE",
+    "cross_worker_replay_store": "NOT_IMPLEMENTED",
+    "source_of_truth": "Director-controlled authority and CDX"
+  },
+  "acceptance": {
+    "all_writer_clients_inventoried": false,
+    "all_writers_pre_effect_guarded": false,
+    "policy_pinned_and_loaded_at_runtime": false,
+    "exact_target_human_approval_service_live": false,
+    "cross_worker_replay_guarantee": false,
+    "independent_drive_spetl_custody_verified": false,
+    "tested_restore_and_backups": false,
+    "production_denial_verified": false,
+    "director_final_acceptance": false,
+    "estate_wide_hardgate_verified": false
+  },
+  "non_goals": [
+    "No Google Drive file/folder modifications",
+    "No silent replacement of user-level Google Drive OAuth grants",
+    "No inference that a draft PR is deployed",
+    "No inference that CDX general FFOS runtime verification covers Drive publishing"
+  ]
+}
