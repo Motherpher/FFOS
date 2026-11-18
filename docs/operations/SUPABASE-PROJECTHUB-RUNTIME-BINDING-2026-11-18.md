@@ -79,3 +79,22 @@ The existing `apps/web/lib/projecthub/server.ts` checks the Director session and
 **Security note:** The custom `ffos.project_scope` setting is scope plumbing, not a database-enforced proof of Director authorization. If the reader login password is stolen, arbitrary project scope could be chosen within the private database. The secret therefore belongs exclusively to a trusted FFOS backend with authenticated, project-authorized requests; do not create a direct client/Supabase Data API access path. Future multi-user admission requires a stronger authenticated principal-to-project DB boundary.
 
 **Release classification:** `READ_ROLE_DEPLOYED` / `RESTRICTED_LOGIN_BOUND_TO_CLOUD_CANARY` / `LIVE_CANARY_PASS` are separate from `PROJECTHUB_APP_DEPLOYED` and `CDX_A3_WRITES_ACCEPTED`. Never merge these statuses.
+
+
+## WP01–WP02 evidence ledger (updated 2026-11-18)
+
+| Gate | Evidence | Status |
+| --- | --- | --- |
+| Canonical read-only migration | FFOS [PR #111](https://github.com/Motherpher/FFOS/pull/111); ProjectHub PostgreSQL CI PASS | MERGED / TESTED |
+| Supabase role migration | `20261118115925 ffos_projecthub_select_only_reader_v0012` | DEPLOYED |
+| Dedicated read-only identity | `ffos_projecthub_reader_login`, LOGIN, NOINHERIT, NOBYPASSRLS, no direct project table privileges | DB VERIFIED |
+| Role membership | `ffos_projecthub_reader` exclusively; `inherit_option=false`, `set_option=true` | DB VERIFIED |
+| Application credential | GitHub `projecthub-read-canary` encrypted environment secret `FFOS_PROJECTHUB_READ_DATABASE_URL`, required Director reviewer | SECURED / METADATA VERIFIED |
+| Live GitHub canary | [Actions run #44300285768](https://github.com/Motherpher/FFOS/actions/runs/44300285768) | WAITING ON DIRECTOR APPROVAL at recording time; NOT A PASS |
+| Deployed FFOS Next.js runtime | No authenticated service URL/runtime binding evidence | NOT DEPLOYED / NOT VERIFIED |
+| Live authenticated HTTP project read | Requires approved service and explicit scope | NOT ACCEPTED |
+| CDX A3 write capability | Separate governed mutation implementation/release | BLOCKED |
+
+**Approval action:** The Director opens run #44300285768, selects the pending `projecthub-read-canary` deployment and approves it in GitHub. After the job finishes, inspect its conclusion and JSON output in Actions logs; only then register `LIVE_CANARY_PASS` if all checks succeed. Do not automatically set `FFOS_PROJECTHUB_READS_ENABLED=true` or deploy the Next.js app from this canary.
+
+The original append-capable `ffos_projecthub_runtime` remains separate and is **not** a member of the login. The SELECT-only role is applied only after server-side Director and project-scope authorization. The custom PostgreSQL setting is a scoping mechanism, not an authentication proof.
