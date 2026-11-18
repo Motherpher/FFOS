@@ -50,4 +50,19 @@ class MigrationTest(unittest.TestCase):
         inv,old=setup();new=copy.deepcopy(old);new['modules'][0]['enabled']=1
         self.assertIn('INVALID_ENABLED:after:identity',assess_transition(inv,old,new)['errors'])
 
+    def test_spoofed_core_classification_cannot_disable_identity(self):
+        inv, old=setup()
+        new=copy.deepcopy(old)
+        next(r for r in inv["modules"] if r["id"]=="identity")["requirement"]="OPTIONAL"
+        new["modules"][0]["enabled"]=False
+        result=assess_transition(inv,old,new)
+        self.assertIn("CANONICAL_CLASSIFICATION_DRIFT:identity",result["errors"])
+        self.assertIn("CORE_CANNOT_BE_DISABLED:after:identity",result["errors"])
+
+    def test_spoofed_optional_classification_cannot_elevate_memory(self):
+        inv,old=setup();new=copy.deepcopy(old)
+        next(r for r in inv["modules"] if r["id"]=="memory")["requirement"]="CORE"
+        result=assess_transition(inv,old,new)
+        self.assertIn("CANONICAL_CLASSIFICATION_DRIFT:memory",result["errors"])
+
 if __name__=='__main__':unittest.main()
