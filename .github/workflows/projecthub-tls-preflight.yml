@@ -1,0 +1,18 @@
+name: ProjectHub Supabase TLS preflight (no credentials)
+on:
+  pull_request:
+    paths:
+      - 'scripts/projecthub-verify-supabase-tls.sh'
+      - '.github/workflows/projecthub-tls-preflight.yml'
+      - '.github/workflows/projecthub-production-read-canary.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-pooler:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate public Supabase CA and real pooler TLS
+        run: bash scripts/projecthub-verify-supabase-tls.sh "$RUNNER_TEMP/supabase-root-ca.pem"
