@@ -44,6 +44,9 @@ def audit(inventory, catalog, *, evidence_attestor=None, exact_head=None):
         if item.get("source_status") != original["implementation_status"]:
             findings.append("UNSUPPORTED_STATUS_CHANGE:" + key)
         if item.get("release_claim") == "COMPLETE":
+            if (item.get("source_status") != "COMPLETE" or
+                original.get("implementation_status") != "COMPLETE"):
+                findings.append("PARTIAL_IMPLEMENTATION_CANNOT_COMPLETE:" + key)
             proof = item.get("independent_evidence", {})
             if not isinstance(proof, dict):
                 proof = {}
