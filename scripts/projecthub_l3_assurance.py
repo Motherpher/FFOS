@@ -38,6 +38,16 @@ assert not any(x.get("state")=="LIVE" for x in surfaces["surfaces"])
 
 status=json.loads((root/"docs/operations/devops/processes/projecthub-reconstitution/status.json").read_text())
 assert status["deployment_state"]=="NOT_DEPLOYED"
-assert status["acceptance_state"]=="NOT_ACCEPTED"
+assert status["acceptance_state"] in {"NOT_ACCEPTED","DIRECTOR_ACCEPTED_INTERNAL_BASELINE"}
+
+if status["acceptance_state"]=="NOT_ACCEPTED":
+    assert status["release_state"] in {"NOT_RELEASED","RELEASE_CANDIDATE_AWAITING_ASSURANCE_AND_DIRECTOR"}
+else:
+    assert status.get("director_disposition")=="ACCEPT"
+    assert status["release_state"]=="RELEASED_INTERNAL_BASELINE"
+    assert status.get("process_state")=="CLOSED"
+    assert status.get("projection_update",{}).get("result")=="PASS"
+    assert status.get("merge_commit")
+    assert "CANONICAL ACCEPTED PROJECTHUB CONTRACT" in contract
 
 print("PROJECTHUB_L3_RELEASE_ASSURANCE_PASS")
