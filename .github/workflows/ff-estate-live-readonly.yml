@@ -1,0 +1,22 @@
+name: FF Estate private DB connection admission (manual, read-only)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  admission:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    environment: ffos-db-admission
+    env:
+      FFOS_DATABASE_URL: ${{ secrets.FFOS_DATABASE_URL }}
+      FFOS_EXPECTED_LOGIN_ROLE: ${{ vars.FFOS_EXPECTED_LOGIN_ROLE }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pinned PG adapter
+        run: npm install --no-save --prefix packages/agent-runtime pg@8.23.1 --ignore-scripts --no-audit --no-fund
+      - name: Preflight without altering any production record
+        run: node --experimental-strip-types packages/agent-runtime/scripts/ff-estate-readonly-admission.mjs

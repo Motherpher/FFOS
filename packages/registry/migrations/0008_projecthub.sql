@@ -117,26 +117,43 @@ BEGIN
 END;
 $$;
 
--- Supabase admission hardening. This schema remains private and is NOT an
--- automatically exposed Data API surface. Public/frontend and service_role
--- keys receive no access to ProjectHub tables by default.
+-- Supabase admission hardening. RLS denies by default; no application
+-- access or policies are introduced. On vanilla PostgreSQL CI, Supabase
+-- roles may not exist; revoke from each role only if that role exists.
 DO $$
-DECLARE t text;
+DECLARE
+  t text;
+  seq_name text;
+  r text;
 BEGIN
   FOREACH t IN ARRAY ARRAY[
     'projecthub_projects','projecthub_nodes','projecthub_relations',
     'projecthub_events','projecthub_idempotency','projecthub_role_grants'
   ] LOOP
     EXECUTE format('ALTER TABLE ffos.%I ENABLE ROW LEVEL SECURITY', t);
-    EXECUTE format('REVOKE ALL PRIVILEGES ON TABLE ffos.%I FROM PUBLIC, anon, authenticated, service_role', t);
+    EXECUTE format('REVOKE ALL PRIVILEGES ON TABLE ffos.%I FROM PUBLIC', t);
+    FOR r IN SELECT rolname FROM pg_catalog.pg_roles
+             WHERE rolname IN ('anon','authenticated','service_role') LOOP
+      EXECUTE format('REVOKE ALL PRIVILEGES ON TABLE ffos.%I FROM %I', t, r);
+    END LOOP;
+  END LOOP;
+  FOREACH seq_name IN ARRAY ARRAY[
+    'projecthub_projects_row_id_seq','projecthub_nodes_row_id_seq',
+    'projecthub_relations_row_id_seq','projecthub_role_grants_row_id_seq'
+  ] LOOP
+    EXECUTE format('REVOKE ALL ON SEQUENCE ffos.%I FROM PUBLIC', seq_name);
+    FOR r IN SELECT rolname FROM pg_catalog.pg_roles
+             WHERE rolname IN ('anon','authenticated','service_role') LOOP
+      EXECUTE format('REVOKE ALL ON SEQUENCE ffos.%I FROM %I', seq_name, r);
+    END LOOP;
+  END LOOP;
+  REVOKE EXECUTE ON FUNCTION ffos.reject_projecthub_mutation() FROM PUBLIC;
+  FOR r IN SELECT rolname FROM pg_catalog.pg_roles
+           WHERE rolname IN ('anon','authenticated','service_role') LOOP
+    EXECUTE format('REVOKE EXECUTE ON FUNCTION ffos.reject_projecthub_mutation() FROM %I', r);
   END LOOP;
 END;
 $$;
-REVOKE ALL ON SEQUENCE ffos.projecthub_projects_row_id_seq FROM PUBLIC, anon, authenticated, service_role;
-REVOKE ALL ON SEQUENCE ffos.projecthub_nodes_row_id_seq FROM PUBLIC, anon, authenticated, service_role;
-REVOKE ALL ON SEQUENCE ffos.projecthub_relations_row_id_seq FROM PUBLIC, anon, authenticated, service_role;
-REVOKE ALL ON SEQUENCE ffos.projecthub_role_grants_row_id_seq FROM PUBLIC, anon, authenticated, service_role;
-REVOKE EXECUTE ON FUNCTION ffos.reject_projecthub_mutation() FROM PUBLIC, anon, authenticated, service_role;
 
 -- Admission boundary: no RLS read/write policies here. A later governed
 -- service principal and tested project-scoped auth must be approved before
