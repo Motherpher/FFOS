@@ -1,0 +1,2724 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ama.example/contracts/v0.2/fin02-module-controls.schema.json",
+  "title": "AMA FIN-02 32-module semantic control configuration candidate",
+  "description": "Portable candidate schema, not a runtime authorization or completed-module attestation.",
+  "type": "object",
+  "required": [
+    "modules"
+  ],
+  "properties": {
+    "schema": {
+      "const": "ama.fin02.semantic-module-config/v1"
+    },
+    "modules": {
+      "type": "array",
+      "minItems": 32,
+      "maxItems": 32,
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled",
+              "version",
+              "controls",
+              "host_obligations"
+            ],
+            "properties": {
+              "id": {
+                "const": "identity"
+              },
+              "enabled": {
+                "const": true
+              },
+              "version": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+              },
+              "controls": {
+                "type": "object",
+                "required": [
+                  "definition_id",
+                  "deployment_id",
+                  "principal_id",
+                  "instance_id",
+                  "run_id"
+                ],
+                "properties": {
+                  "definition_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "deployment_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "principal_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "instance_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "run_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  }
+                },
+                "additionalProperties": true
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled",
+              "version",
+              "controls",
+              "host_obligations"
+            ],
+            "properties": {
+              "id": {
+                "const": "mandate"
+              },
+              "enabled": {
+                "const": true
+              },
+              "version": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+              },
+              "controls": {
+                "type": "object",
+                "required": [
+                  "owner_ref",
+                  "scope",
+                  "expiry_rule",
+                  "revocation_rule"
+                ],
+                "properties": {
+                  "owner_ref": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "scope": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "expiry_rule": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "revocation_rule": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  }
+                },
+                "additionalProperties": true
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled",
+              "version",
+              "controls",
+              "host_obligations"
+            ],
+            "properties": {
+              "id": {
+                "const": "instruction"
+              },
+              "enabled": {
+                "const": true
+              },
+              "version": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+              },
+              "controls": {
+                "type": "object",
+                "required": [
+                  "priority_order",
+                  "untrusted_input_rule",
+                  "conflict_rule"
+                ],
+                "properties": {
+                  "priority_order": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "untrusted_input_rule": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "conflict_rule": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  }
+                },
+                "additionalProperties": true
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled",
+              "version",
+              "controls",
+              "host_obligations"
+            ],
+            "properties": {
+              "id": {
+                "const": "capability"
+              },
+              "enabled": {
+                "const": true
+              },
+              "version": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+              },
+              "controls": {
+                "type": "object",
+                "required": [
+                  "registry_ref",
+                  "effect_ceiling",
+                  "resource_scope_rule"
+                ],
+                "properties": {
+                  "registry_ref": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "effect_ceiling": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "resource_scope_rule": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  }
+                },
+                "additionalProperties": true
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled",
+              "version",
+              "controls",
+              "host_obligations"
+            ],
+            "properties": {
+              "id": {
+                "const": "workflow"
+              },
+              "enabled": {
+                "const": true
+              },
+              "version": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+              },
+              "controls": {
+                "type": "object",
+                "required": [
+                  "step_graph_ref",
+                  "terminal_rule",
+                  "cycle_denial_rule"
+                ],
+                "properties": {
+                  "step_graph_ref": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "terminal_rule": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "cycle_denial_rule": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  }
+                },
+                "additionalProperties": true
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled",
+              "version",
+              "controls",
+              "host_obligations"
+            ],
+            "properties": {
+              "id": {
+                "const": "command"
+              },
+              "enabled": {
+                "const": true
+              },
+              "version": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+              },
+              "controls": {
+                "type": "object",
+                "required": [
+                  "token_registry_ref",
+                  "workflow_binding_rule",
+                  "input_validation_rule"
+                ],
+                "properties": {
+                  "token_registry_ref": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "workflow_binding_rule": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "input_validation_rule": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  }
+                },
+                "additionalProperties": true
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled",
+              "version",
+              "controls",
+              "host_obligations"
+            ],
+            "properties": {
+              "id": {
+                "const": "adapter"
+              },
+              "enabled": {
+                "const": true
+              },
+              "version": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+              },
+              "controls": {
+                "type": "object",
+                "required": [
+                  "interface_ref",
+                  "credential_boundary_rule",
+                  "failure_rule"
+                ],
+                "properties": {
+                  "interface_ref": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "credential_boundary_rule": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "failure_rule": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  }
+                },
+                "additionalProperties": true
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled",
+              "version",
+              "controls",
+              "host_obligations"
+            ],
+            "properties": {
+              "id": {
+                "const": "authorization"
+              },
+              "enabled": {
+                "const": true
+              },
+              "version": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+              },
+              "controls": {
+                "type": "object",
+                "required": [
+                  "policy_decision_ref",
+                  "deny_rule",
+                  "approval_separation_rule"
+                ],
+                "properties": {
+                  "policy_decision_ref": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "deny_rule": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "approval_separation_rule": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  }
+                },
+                "additionalProperties": true
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled",
+              "version",
+              "controls",
+              "host_obligations"
+            ],
+            "properties": {
+              "id": {
+                "const": "task-execution"
+              },
+              "enabled": {
+                "const": true
+              },
+              "version": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+              },
+              "controls": {
+                "type": "object",
+                "required": [
+                  "state_machine_ref",
+                  "retry_rule",
+                  "cancellation_rule",
+                  "unknown_effect_rule"
+                ],
+                "properties": {
+                  "state_machine_ref": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "retry_rule": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "cancellation_rule": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "unknown_effect_rule": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  }
+                },
+                "additionalProperties": true
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled",
+              "version",
+              "controls",
+              "host_obligations"
+            ],
+            "properties": {
+              "id": {
+                "const": "evidence"
+              },
+              "enabled": {
+                "const": true
+              },
+              "version": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+              },
+              "controls": {
+                "type": "object",
+                "required": [
+                  "provenance_rule",
+                  "immutable_custody_ref",
+                  "correlation_rule"
+                ],
+                "properties": {
+                  "provenance_rule": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "immutable_custody_ref": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "correlation_rule": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  }
+                },
+                "additionalProperties": true
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled",
+              "version",
+              "controls",
+              "host_obligations"
+            ],
+            "properties": {
+              "id": {
+                "const": "conformance"
+              },
+              "enabled": {
+                "const": true
+              },
+              "version": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+              },
+              "controls": {
+                "type": "object",
+                "required": [
+                  "schema_test_ref",
+                  "negative_test_ref",
+                  "independent_verification_rule"
+                ],
+                "properties": {
+                  "schema_test_ref": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "negative_test_ref": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "independent_verification_rule": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  }
+                },
+                "additionalProperties": true
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled",
+              "version",
+              "controls",
+              "host_obligations"
+            ],
+            "properties": {
+              "id": {
+                "const": "lifecycle"
+              },
+              "enabled": {
+                "const": true
+              },
+              "version": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+              },
+              "controls": {
+                "type": "object",
+                "required": [
+                  "version_policy",
+                  "migration_rule",
+                  "rollback_rule",
+                  "retirement_rule"
+                ],
+                "properties": {
+                  "version_policy": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "migration_rule": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "rollback_rule": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "retirement_rule": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  }
+                },
+                "additionalProperties": true
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled"
+            ],
+            "properties": {
+              "id": {
+                "const": "cognition"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "version": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "controls": {
+                "type": "object"
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "enabled": {
+                      "const": true
+                    }
+                  },
+                  "required": [
+                    "enabled"
+                  ]
+                },
+                "then": {
+                  "required": [
+                    "version",
+                    "controls",
+                    "host_obligations",
+                    "approval_ref",
+                    "approval_attested"
+                  ],
+                  "properties": {
+                    "controls": {
+                      "type": "object",
+                      "required": [
+                        "model_pin_rule",
+                        "reasoning_budget",
+                        "untrusted_output_rule"
+                      ],
+                      "properties": {
+                        "model_pin_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "reasoning_budget": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "untrusted_output_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled"
+            ],
+            "properties": {
+              "id": {
+                "const": "context"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "version": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "controls": {
+                "type": "object"
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "enabled": {
+                      "const": true
+                    }
+                  },
+                  "required": [
+                    "enabled"
+                  ]
+                },
+                "then": {
+                  "required": [
+                    "version",
+                    "controls",
+                    "host_obligations",
+                    "approval_ref",
+                    "approval_attested"
+                  ],
+                  "properties": {
+                    "controls": {
+                      "type": "object",
+                      "required": [
+                        "context_budget",
+                        "source_trust_rule",
+                        "injection_boundary"
+                      ],
+                      "properties": {
+                        "context_budget": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "source_trust_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "injection_boundary": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled"
+            ],
+            "properties": {
+              "id": {
+                "const": "memory"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "version": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "controls": {
+                "type": "object"
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "enabled": {
+                      "const": true
+                    }
+                  },
+                  "required": [
+                    "enabled"
+                  ]
+                },
+                "then": {
+                  "required": [
+                    "version",
+                    "controls",
+                    "host_obligations",
+                    "approval_ref",
+                    "approval_attested"
+                  ],
+                  "properties": {
+                    "controls": {
+                      "type": "object",
+                      "required": [
+                        "retention_rule",
+                        "consent_rule",
+                        "retrieval_scope_rule"
+                      ],
+                      "properties": {
+                        "retention_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "consent_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "retrieval_scope_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled"
+            ],
+            "properties": {
+              "id": {
+                "const": "retrieval"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "version": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "controls": {
+                "type": "object"
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "enabled": {
+                      "const": true
+                    }
+                  },
+                  "required": [
+                    "enabled"
+                  ]
+                },
+                "then": {
+                  "required": [
+                    "version",
+                    "controls",
+                    "host_obligations",
+                    "approval_ref",
+                    "approval_attested"
+                  ],
+                  "properties": {
+                    "controls": {
+                      "type": "object",
+                      "required": [
+                        "source_authorization_rule",
+                        "freshness_rule",
+                        "citation_rule"
+                      ],
+                      "properties": {
+                        "source_authorization_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "freshness_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "citation_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled"
+            ],
+            "properties": {
+              "id": {
+                "const": "knowledge"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "version": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "controls": {
+                "type": "object"
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "enabled": {
+                      "const": true
+                    }
+                  },
+                  "required": [
+                    "enabled"
+                  ]
+                },
+                "then": {
+                  "required": [
+                    "version",
+                    "controls",
+                    "host_obligations",
+                    "approval_ref",
+                    "approval_attested"
+                  ],
+                  "properties": {
+                    "controls": {
+                      "type": "object",
+                      "required": [
+                        "catalog_ref",
+                        "source_provenance_rule",
+                        "trust_tier_rule"
+                      ],
+                      "properties": {
+                        "catalog_ref": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "source_provenance_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "trust_tier_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled"
+            ],
+            "properties": {
+              "id": {
+                "const": "multi-agent"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "version": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "controls": {
+                "type": "object"
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "enabled": {
+                      "const": true
+                    }
+                  },
+                  "required": [
+                    "enabled"
+                  ]
+                },
+                "then": {
+                  "required": [
+                    "version",
+                    "controls",
+                    "host_obligations",
+                    "approval_ref",
+                    "approval_attested"
+                  ],
+                  "properties": {
+                    "controls": {
+                      "type": "object",
+                      "required": [
+                        "delegation_scope_rule",
+                        "identity_binding",
+                        "revocation_rule"
+                      ],
+                      "properties": {
+                        "delegation_scope_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "identity_binding": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "revocation_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled"
+            ],
+            "properties": {
+              "id": {
+                "const": "eventing"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "version": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "controls": {
+                "type": "object"
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "enabled": {
+                      "const": true
+                    }
+                  },
+                  "required": [
+                    "enabled"
+                  ]
+                },
+                "then": {
+                  "required": [
+                    "version",
+                    "controls",
+                    "host_obligations",
+                    "approval_ref",
+                    "approval_attested"
+                  ],
+                  "properties": {
+                    "controls": {
+                      "type": "object",
+                      "required": [
+                        "trigger_registry",
+                        "idempotency_rule",
+                        "replay_denial_rule"
+                      ],
+                      "properties": {
+                        "trigger_registry": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "idempotency_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "replay_denial_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled"
+            ],
+            "properties": {
+              "id": {
+                "const": "durability"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "version": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "controls": {
+                "type": "object"
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "enabled": {
+                      "const": true
+                    }
+                  },
+                  "required": [
+                    "enabled"
+                  ]
+                },
+                "then": {
+                  "required": [
+                    "version",
+                    "controls",
+                    "host_obligations",
+                    "approval_ref",
+                    "approval_attested"
+                  ],
+                  "properties": {
+                    "controls": {
+                      "type": "object",
+                      "required": [
+                        "checkpoint_rule",
+                        "lease_fence_rule",
+                        "reconciliation_rule"
+                      ],
+                      "properties": {
+                        "checkpoint_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "lease_fence_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "reconciliation_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled"
+            ],
+            "properties": {
+              "id": {
+                "const": "human-interaction"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "version": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "controls": {
+                "type": "object"
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "enabled": {
+                      "const": true
+                    }
+                  },
+                  "required": [
+                    "enabled"
+                  ]
+                },
+                "then": {
+                  "required": [
+                    "version",
+                    "controls",
+                    "host_obligations",
+                    "approval_ref",
+                    "approval_attested"
+                  ],
+                  "properties": {
+                    "controls": {
+                      "type": "object",
+                      "required": [
+                        "handoff_rule",
+                        "approval_identity_rule",
+                        "timeout_rule"
+                      ],
+                      "properties": {
+                        "handoff_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "approval_identity_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "timeout_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled"
+            ],
+            "properties": {
+              "id": {
+                "const": "observability"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "version": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "controls": {
+                "type": "object"
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "enabled": {
+                      "const": true
+                    }
+                  },
+                  "required": [
+                    "enabled"
+                  ]
+                },
+                "then": {
+                  "required": [
+                    "version",
+                    "controls",
+                    "host_obligations",
+                    "approval_ref",
+                    "approval_attested"
+                  ],
+                  "properties": {
+                    "controls": {
+                      "type": "object",
+                      "required": [
+                        "correlation_rule",
+                        "telemetry_schema",
+                        "redaction_rule"
+                      ],
+                      "properties": {
+                        "correlation_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "telemetry_schema": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "redaction_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled"
+            ],
+            "properties": {
+              "id": {
+                "const": "evaluation"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "version": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "controls": {
+                "type": "object"
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "enabled": {
+                      "const": true
+                    }
+                  },
+                  "required": [
+                    "enabled"
+                  ]
+                },
+                "then": {
+                  "required": [
+                    "version",
+                    "controls",
+                    "host_obligations",
+                    "approval_ref",
+                    "approval_attested"
+                  ],
+                  "properties": {
+                    "controls": {
+                      "type": "object",
+                      "required": [
+                        "gold_dataset_ref",
+                        "negative_suite_ref",
+                        "independent_grader_rule"
+                      ],
+                      "properties": {
+                        "gold_dataset_ref": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "negative_suite_ref": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "independent_grader_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled"
+            ],
+            "properties": {
+              "id": {
+                "const": "safety"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "version": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "controls": {
+                "type": "object"
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "enabled": {
+                      "const": true
+                    }
+                  },
+                  "required": [
+                    "enabled"
+                  ]
+                },
+                "then": {
+                  "required": [
+                    "version",
+                    "controls",
+                    "host_obligations",
+                    "approval_ref",
+                    "approval_attested"
+                  ],
+                  "properties": {
+                    "controls": {
+                      "type": "object",
+                      "required": [
+                        "threat_model_ref",
+                        "effect_denial_rule",
+                        "incident_stop_rule"
+                      ],
+                      "properties": {
+                        "threat_model_ref": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "effect_denial_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "incident_stop_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled"
+            ],
+            "properties": {
+              "id": {
+                "const": "privacy"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "version": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "controls": {
+                "type": "object"
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "enabled": {
+                      "const": true
+                    }
+                  },
+                  "required": [
+                    "enabled"
+                  ]
+                },
+                "then": {
+                  "required": [
+                    "version",
+                    "controls",
+                    "host_obligations",
+                    "approval_ref",
+                    "approval_attested"
+                  ],
+                  "properties": {
+                    "controls": {
+                      "type": "object",
+                      "required": [
+                        "classification_rule",
+                        "retention_rule",
+                        "erasure_boundary"
+                      ],
+                      "properties": {
+                        "classification_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "retention_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "erasure_boundary": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled"
+            ],
+            "properties": {
+              "id": {
+                "const": "secrets"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "version": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "controls": {
+                "type": "object"
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "enabled": {
+                      "const": true
+                    }
+                  },
+                  "required": [
+                    "enabled"
+                  ]
+                },
+                "then": {
+                  "required": [
+                    "version",
+                    "controls",
+                    "host_obligations",
+                    "approval_ref",
+                    "approval_attested"
+                  ],
+                  "properties": {
+                    "controls": {
+                      "type": "object",
+                      "required": [
+                        "secret_reference_rule",
+                        "rotation_rule",
+                        "no_plaintext_rule"
+                      ],
+                      "properties": {
+                        "secret_reference_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "rotation_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "no_plaintext_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled"
+            ],
+            "properties": {
+              "id": {
+                "const": "interoperability"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "version": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "controls": {
+                "type": "object"
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "enabled": {
+                      "const": true
+                    }
+                  },
+                  "required": [
+                    "enabled"
+                  ]
+                },
+                "then": {
+                  "required": [
+                    "version",
+                    "controls",
+                    "host_obligations",
+                    "approval_ref",
+                    "approval_attested"
+                  ],
+                  "properties": {
+                    "controls": {
+                      "type": "object",
+                      "required": [
+                        "protocol_version_pin",
+                        "authorization_boundary",
+                        "capability_negotiation_rule"
+                      ],
+                      "properties": {
+                        "protocol_version_pin": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "authorization_boundary": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "capability_negotiation_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled"
+            ],
+            "properties": {
+              "id": {
+                "const": "deployment"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "version": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "controls": {
+                "type": "object"
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "enabled": {
+                      "const": true
+                    }
+                  },
+                  "required": [
+                    "enabled"
+                  ]
+                },
+                "then": {
+                  "required": [
+                    "version",
+                    "controls",
+                    "host_obligations",
+                    "approval_ref",
+                    "approval_attested"
+                  ],
+                  "properties": {
+                    "controls": {
+                      "type": "object",
+                      "required": [
+                        "immutable_build_ref",
+                        "readiness_gate",
+                        "rollback_gate"
+                      ],
+                      "properties": {
+                        "immutable_build_ref": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "readiness_gate": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "rollback_gate": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled"
+            ],
+            "properties": {
+              "id": {
+                "const": "operations"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "version": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "controls": {
+                "type": "object"
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "enabled": {
+                      "const": true
+                    }
+                  },
+                  "required": [
+                    "enabled"
+                  ]
+                },
+                "then": {
+                  "required": [
+                    "version",
+                    "controls",
+                    "host_obligations",
+                    "approval_ref",
+                    "approval_attested"
+                  ],
+                  "properties": {
+                    "controls": {
+                      "type": "object",
+                      "required": [
+                        "monitoring_rule",
+                        "incident_escalation",
+                        "stale_state_stop"
+                      ],
+                      "properties": {
+                        "monitoring_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "incident_escalation": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "stale_state_stop": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled"
+            ],
+            "properties": {
+              "id": {
+                "const": "cost-control"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "version": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "controls": {
+                "type": "object"
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "enabled": {
+                      "const": true
+                    }
+                  },
+                  "required": [
+                    "enabled"
+                  ]
+                },
+                "then": {
+                  "required": [
+                    "version",
+                    "controls",
+                    "host_obligations",
+                    "approval_ref",
+                    "approval_attested"
+                  ],
+                  "properties": {
+                    "controls": {
+                      "type": "object",
+                      "required": [
+                        "cost_ceiling",
+                        "unknown_cost_rule",
+                        "overrun_stop"
+                      ],
+                      "properties": {
+                        "cost_ceiling": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "unknown_cost_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "overrun_stop": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled"
+            ],
+            "properties": {
+              "id": {
+                "const": "localization"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "version": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "controls": {
+                "type": "object"
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "enabled": {
+                      "const": true
+                    }
+                  },
+                  "required": [
+                    "enabled"
+                  ]
+                },
+                "then": {
+                  "required": [
+                    "version",
+                    "controls",
+                    "host_obligations",
+                    "approval_ref",
+                    "approval_attested"
+                  ],
+                  "properties": {
+                    "controls": {
+                      "type": "object",
+                      "required": [
+                        "locale_policy",
+                        "fallback_rule",
+                        "accessibility_rule"
+                      ],
+                      "properties": {
+                        "locale_policy": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "fallback_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "accessibility_rule": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "enabled",
+              "version",
+              "controls",
+              "host_obligations"
+            ],
+            "properties": {
+              "id": {
+                "const": "governance"
+              },
+              "enabled": {
+                "const": true
+              },
+              "version": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"
+              },
+              "controls": {
+                "type": "object",
+                "required": [
+                  "accountable_owner",
+                  "risk_register_ref",
+                  "external_acceptance_rule"
+                ],
+                "properties": {
+                  "accountable_owner": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "risk_register_ref": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "external_acceptance_rule": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  }
+                },
+                "additionalProperties": true
+              },
+              "host_obligations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "approval_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approval_attested": {
+                "type": "boolean",
+                "const": true
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "additionalProperties": false
+}
