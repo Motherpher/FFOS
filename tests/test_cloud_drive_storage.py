@@ -90,6 +90,8 @@ class DriveStorageTests(unittest.TestCase):
                 self.created_folders={ROOT_ID}  # synthetic new-parent fixture
                 self.pending_upload_sessions={}
                 self.consumed_upload_sessions=set()
+                self.created_files=set()
+                self.approved_root_id='1OTHER_ALLOWED_ROOT_ABC'
             def request(self,url,method="GET",payload=None,content_type=None,accept=None):
                 self.operations.append((method,url))
                 if method=="POST":
