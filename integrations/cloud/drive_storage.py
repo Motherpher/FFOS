@@ -104,6 +104,21 @@ class DriveStorage:
         ) or parsed.username or parsed.password or parsed.port not in (None, 443):
             raise ValueError("Google API endpoint not allowlisted")
         _assert_create_only_drive_request(url, method, payload)
+        if method.upper() == "POST":
+            # Prevent bypass via direct request(), not just high-level helpers.
+            # Provider body already passed the syntactic create-only test.
+            item = json.loads(payload)
+            parents = item["parents"]
+            from urllib.parse import urlsplit as _urlsplit
+            endpoint = _urlsplit(url).path
+            if endpoint == "/drive/v3/files":
+                if parents != [self.approved_root_id]:
+                    raise PermissionError("Unapproved creation parent")
+            elif endpoint == "/upload/drive/v3/files":
+                if len(parents) != 1 or parents[0] not in self.created_folders:
+                    raise PermissionError("Cannot upload outside a fresh run folder")
+            else:
+                raise PermissionError("Unknown creation endpoint")
         # Bind resumable PUT to a session returned by this particular client.
         if method.upper() == "PUT":
             session = self.pending_upload_sessions.pop(url, None)
