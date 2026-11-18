@@ -13,7 +13,9 @@ for (const t of tables) {
 assert.ok(sql.includes("RETURNS trigger LANGUAGE plpgsql SET search_path = '' AS $$"));
 assert.match(sql,/ENABLE ROW LEVEL SECURITY/i);
 assert.match(sql,/REVOKE ALL PRIVILEGES ON TABLE/i);
-assert.match(sql,/FROM PUBLIC, anon, authenticated, service_role/i);
+assert.match(sql,/WHERE rolname IN \('anon','authenticated','service_role'\)/i);
+assert.match(sql,/REVOKE ALL PRIVILEGES ON TABLE/i);
+assert.match(sql,/REVOKE ALL ON SEQUENCE/i);
 assert.match(sql,/CREATE TRIGGER/i);
 assert.doesNotMatch(sql,/\bCREATE TABLE\s+(?:IF NOT EXISTS\s+)?public\./i);
 assert.doesNotMatch(sql,/\bCREATE POLICY\b/i);
