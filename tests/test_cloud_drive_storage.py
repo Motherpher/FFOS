@@ -136,7 +136,7 @@ class DriveStorageTests(unittest.TestCase):
             def request(self,url,method="GET",payload=None,content_type=None,accept=None):
                 self.operations.append((method,url))
                 if method=="POST":
-                    return 200,{"Location":"https://www.googleapis.com/upload/drive/v3/files?upload_id=test"},b""
+                    return 200,{"Location":"https://www.googleapis.com/upload/drive/v3/files?uploadType=resumable&upload_id=test"},b""
                 if method=="PUT":
                     return 200,{},json.dumps({"id":CHILD_ID,"name":"data.csv","parents":[ROOT_ID],
                                               "size":len(payload),"version":"1"}).encode()
