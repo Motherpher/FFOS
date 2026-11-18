@@ -5,6 +5,7 @@ migrate state, sign approvals, instantiate agents, or infer host readiness.
 """
 from __future__ import annotations
 import re
+from ama_fin02_semantic_modules import CONTROLS, CANONICAL_CORE
 
 _VERSION = re.compile(r"^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$")
 
@@ -13,8 +14,13 @@ def assess_transition(inventory: dict, before: dict, after: dict) -> dict:
     errors = []
     changes = []
     definitions = {m.get("id"): m for m in inventory.get("modules", []) if isinstance(m, dict)}
-    if len(definitions) != 32 or set(m.get("requirement") for m in definitions.values()) - {"CORE", "OPTIONAL"}:
+    if (len(inventory.get("modules", [])) != 32 or len(definitions) != 32 or
+        set(definitions) != set(CONTROLS)):
         errors.append("CANONICAL_INVENTORY_INVALID")
+    for name, definition in definitions.items():
+        expected = "CORE" if name in CANONICAL_CORE else "OPTIONAL"
+        if definition.get("requirement") != expected:
+            errors.append("CANONICAL_CLASSIFICATION_DRIFT:" + name)
 
     def index(config, side):
         if not isinstance(config, dict) or not isinstance(config.get("modules"), list):
@@ -37,7 +43,7 @@ def assess_transition(inventory: dict, before: dict, after: dict) -> dict:
         for label, row in (("before", a), ("after", b)):
             if type(row.get("enabled")) is not bool:
                 errors.append("INVALID_ENABLED:" + label + ":" + name)
-            if definition["requirement"] == "CORE" and row.get("enabled") is not True:
+            if name in CANONICAL_CORE and row.get("enabled") is not True:
                 errors.append("CORE_CANNOT_BE_DISABLED:" + label + ":" + name)
             if row.get("enabled") is True and not (
                 isinstance(row.get("config_version"), str) and _VERSION.fullmatch(row["config_version"])
@@ -45,7 +51,7 @@ def assess_transition(inventory: dict, before: dict, after: dict) -> dict:
                 errors.append("UNPINNED_MODULE_VERSION:" + label + ":" + name)
             if row.get("enabled") is True and not isinstance(row.get("host_obligations"), list):
                 errors.append("HOST_OBLIGATIONS_MISSING:" + label + ":" + name)
-        if b.get("enabled") and definition["requirement"] == "OPTIONAL" and not a.get("enabled"):
+        if b.get("enabled") and name not in CANONICAL_CORE and not a.get("enabled"):
             if not isinstance(b.get("approval_ref"), str) or not b["approval_ref"].strip():
                 errors.append("OPTIONAL_ENABLE_APPROVAL_MISSING:" + name)
             if b.get("approval_verified") is not True:
