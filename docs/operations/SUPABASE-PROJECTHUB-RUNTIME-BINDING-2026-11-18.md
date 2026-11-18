@@ -90,12 +90,12 @@ The existing `apps/web/lib/projecthub/server.ts` checks the Director session and
 | Dedicated read-only identity | `ffos_projecthub_reader_login`, LOGIN, NOINHERIT, NOBYPASSRLS, no direct project table privileges | DB VERIFIED |
 | Role membership | `ffos_projecthub_reader` exclusively; `inherit_option=false`, `set_option=true` | DB VERIFIED |
 | Application credential | GitHub `projecthub-read-canary` encrypted environment secret `FFOS_PROJECTHUB_READ_DATABASE_URL`, required Director reviewer | SECURED / METADATA VERIFIED |
-| Live GitHub canary | [Actions run #44300285768](https://github.com/Motherpher/FFOS/actions/runs/44300285768) | WAITING ON DIRECTOR APPROVAL at recording time; NOT A PASS |
+| Live GitHub canary | [Accepted run #44419433670](https://github.com/Motherpher/FFOS/actions/runs/44419433670) | **PASS** — Director-approved restricted DB login, TLS, role and scope |
 | Deployed FFOS Next.js runtime | No authenticated service URL/runtime binding evidence | NOT DEPLOYED / NOT VERIFIED |
 | Live authenticated HTTP project read | Requires approved service and explicit scope | NOT ACCEPTED |
 | CDX A3 write capability | Separate governed mutation implementation/release | BLOCKED |
 
-**Approval action:** The Director opens run #44300285768, selects the pending `projecthub-read-canary` deployment and approves it in GitHub. After the job finishes, inspect its conclusion and JSON output in Actions logs; only then register `LIVE_CANARY_PASS` if all checks succeed. Do not automatically set `FFOS_PROJECTHUB_READS_ENABLED=true` or deploy the Next.js app from this canary.
+**Approval completed:** The Director approved the corrected read-only deployment in [run #44419433670](https://github.com/Motherpher/FFOS/actions/runs/44419433670), which completed SUCCESS. The database connection canary is accepted. **Do not automatically set `FFOS_PROJECTHUB_READS_ENABLED=true` or deploy the Next.js app from this canary; authenticated application HTTP E2E and runtime binding remain unverified.**
 
 The original append-capable `ffos_projecthub_runtime` remains separate and is **not** a member of the login. The SELECT-only role is applied only after server-side Director and project-scope authorization. The custom PostgreSQL setting is a scoping mechanism, not an authentication proof.
 
@@ -106,6 +106,19 @@ Live Director-approved runs [#44300285768](https://github.com/Motherpher/FFOS/ac
 
 The correction is `scripts/projecthub-verify-supabase-tls.sh`: fetch the **public** Supabase root CA over HTTPS from Supabase-owned endpoints; verify the pinned SHA-256 X.509 fingerprint `807025AD50D4ED219D2C9C7D299C004F824EB00CF7F65AFEF607D07B72E6CAFA`; then validate the live pooler certificate chain **and hostname** with OpenSSL. This credential-free check runs on pull requests. Only after it passes may the protected canary use `NODE_EXTRA_CA_CERTS` pointing to the verified temporary CA, retaining `rejectUnauthorized: true`. Do not disable SSL verification or add `sslmode` or `sslrootcert` to the DSN, since those parameters may override Node `pg` options.
 
-**Evidence contract:** TLS preflight PASS is necessary but not sufficient for WP02 PASS. An independently approved live canary must subsequently authenticate the restricted login, verify the reader-only role, confirm absent/foreign project scopes return no data and confirm denied direct table access. The current status remains `WP02_HOLD` until that live run succeeds.
+**Evidence contract:** TLS preflight PASS is necessary but not sufficient for WP02 PASS. An independently approved live canary must subsequently authenticate the restricted login, verify the reader-only role, confirm absent/foreign project scopes return no data and confirm denied direct table access. The corrected live read-only database run subsequently passed (see acceptance below); the earlier `WP02_HOLD` is superseded for the database canary, but not for application HTTP-runtime acceptance.
 
 **Trust and rotation:** The root certificate is public, not a secret. Fingerprint pinning is an operator-level trust decision against Supabase's published root; future CA rotations must be reconciled against authenticated Supabase guidance and a reviewed change. Never trust an unverified certificate just because a network endpoint returned it.
+
+
+## WP02 accepted database-canary evidence — 2026-11-19
+
+**Protected GitHub Actions:** [run #44419433670](https://github.com/Motherpher/FFOS/actions/runs/44419433670) — `read-only-acceptance` job SUCCESS after explicit Director approval. The public CA fingerprint and actual Supabase pooler TLS chain/hostname validation passed before reading credentials.
+
+**Production canary receipt:** `outcome=PASS` with `login_verified=true`, `role_verified=true`, `scope_verified=true`, `direct_access_denied=true`, `zero_rows_without_scope=true`, `zero_rows_with_nonexistent_scope=true`. No provider secrets, project content or query results were emitted.
+
+**Independent post-run database check:** six project-scoped reader RLS policies still exist; `ffos_projecthub_reader_login` has `rolbypassrls=false`; zero `ffos.projecthub_projects` rows; zero `ffos.projecthub_events` rows; Supabase security advisors returned **zero findings**.
+
+**Acceptance:** WP01 dedicated private identity and WP02 real restricted Supabase connection/scope canary **PASS**. These are limited to database access, TLS, role enforcement, project-scope plumbing and empty/unknown project negative tests. They do **not** prove cross-project isolation with nonempty production records, Director application HTTP authentication, live FFOS web deployment, authorized portfolio query, or CDX-mediated canonical writes.
+
+**Remaining release hold:** A deployed, authenticated FFOS application must separately prove Director session, project authorization and actual `GET /api/projecthub/projects/{projectId}` read behavior via the protected read-only database identity. Keep write paths fail-closed; no `formflode-com` public client credentials or database schema exposure.
