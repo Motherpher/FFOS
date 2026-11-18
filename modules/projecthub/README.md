@@ -3,7 +3,7 @@
 Native FFOS ProjectHub implementation established through `FFOS-DEVOPS-PH-RECON-001`.
 
 **Release state:** RELEASED_INTERNAL_BASELINE  
-**Deployment state:** DATABASE_SCHEMA_DEPLOYED_PRIVATE — APPLICATION_RUNTIME_NOT_DEPLOYED  
+**Deployment state:** PRIVATE DATABASE AND SCOPED NOLOGIN ROLE DEPLOYED — APPLICATION_RUNTIME NOT DEPLOYED  
 **Director disposition:** ACCEPT  
 **Implementation PR:** #79  
 **Merge commit:** `d139bcda3d467fb2e6e9c6729c2ae26fc2ec7f1e`
@@ -51,3 +51,10 @@ Runtime configuration remains fail-closed when ProjectHub database and authority
 - `docs/architecture/PROJECTHUB-NATIVE-ARCHITECTURE-v0.1.md`
 - `docs/specifications/PROJECTHUB-DATA-MODEL-v0.1.md`
 - `docs/specifications/PROJECTHUB-UX-CONTROL-ROOM-v0.1.md`
+
+## Supabase runtime substrate (2026-11-18)
+
+- Existing `FF Estate` database migrated to v0011 with `ffos_projecthub_runtime` (NOLOGIN, NOINHERIT, NOBYPASSRLS), exact project-scoped RLS (6 SELECT + 6 INSERT policies), no public roles, no production project records. Supabase security advisors: 0 findings.
+- [FFOS PR #107](https://github.com/Motherpher/FFOS/pull/107) tested project isolation in PostgreSQL and admitted the restricted database role.
+- [FFOS PR #108](https://github.com/Motherpher/FFOS/pull/108) introduced guarded, read-only single-connection transaction scoping in the backend and blocked unscoped portfolio enumeration and write activation. CI: ProjectHub PostgreSQL PASS.
+- Restricted backend LOGIN credentials, deployed application server, scoped authenticated canary, live CDX A3 write mediation and full portfolio read model are **not yet admitted**. Do not interpret database role or merged source as a live application runtime.
