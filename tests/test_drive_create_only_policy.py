@@ -2,9 +2,10 @@
 import json
 import unittest
 
-from integrations.cloud.drive_storage import _assert_create_only_drive_request as gate
+from integrations.cloud.drive_storage import _assert_create_only_drive_request as gate, DriveStorage
 
 BASE = "https://www.googleapis.com"
+ROOT_ID = "1xO4YWl4yQmyRJ6t-A_4j9vaVDkiBhArD"
 FOLDER = json.dumps({"name": "new", "mimeType": "application/vnd.google-apps.folder", "parents": ["1xO4YWl4yQmyRJ6t-A_4j9vaVDkiBhArD"]}).encode()
 UPLOAD = json.dumps({"name": "fresh.csv", "parents": ["1xO4YWl4yQmyRJ6t-A_4j9vaVDkiBhArD"], "mimeType": "application/octet-stream"}).encode()
 
@@ -46,6 +47,82 @@ class DriveCreateOnlyPolicyTests(unittest.TestCase):
             with self.subTest(url=url):
                 with self.assertRaises(PermissionError):
                     gate(url, method, payload)
+
+
+class _NoNetwork:
+    def __init__(self): self.calls = []
+    def open(self, request, timeout=None):
+        self.calls.append((request.get_method(), request.full_url))
+        class Response:
+            status = 200
+            headers = {}
+            def __enter__(self): return self
+            def __exit__(self, *_): return False
+            def read(self, *_): return b"{}"
+        return Response()
+
+
+class DriveEffectBoundaryTests(unittest.TestCase):
+    def test_missing_authorized_root_denies_folder_creation(self):
+        fake = _NoNetwork()
+        x = DriveStorage("offline", opener=fake)
+        with self.assertRaises(PermissionError):
+            x.create_folder("1xO4YWl4yQmyRJ6t-A_4j9vaVDkiBhArD", "new")
+        self.assertEqual(fake.calls, [])
+
+    def test_direct_http_forged_parent_denied_before_network(self):
+        fake = _NoNetwork()
+        x = DriveStorage("offline", opener=fake, approved_root_id=ROOT_ID)
+        with self.assertRaises(PermissionError):
+            x.request(BASE+"/drive/v3/files", "POST", json.dumps({
+                "name":"new", "mimeType":"application/vnd.google-apps.folder",
+                "parents":["1MADEUP_PARENT_ID_999"]
+            }).encode())
+        self.assertEqual(fake.calls, [])
+
+    def test_direct_http_upload_without_fresh_parent_denied(self):
+        fake = _NoNetwork()
+        x = DriveStorage("offline", opener=fake, approved_root_id=ROOT_ID)
+        with self.assertRaises(PermissionError):
+            x.request(BASE+"/upload/drive/v3/files?uploadType=resumable",
+                      "POST", UPLOAD)
+        self.assertEqual(fake.calls, [])
+
+    def test_upload_session_rejects_foreign_and_replay(self):
+        import hashlib
+        fake = _NoNetwork()
+        x = DriveStorage("offline", opener=fake, approved_root_id=ROOT_ID)
+        session = BASE+"/upload/drive/v3/files?upload_id=one-run-only"
+        with self.assertRaises(PermissionError):
+            x.request(session,"PUT",b"payload")
+        self.assertEqual(fake.calls, [])
+        x.pending_upload_sessions[session] = {
+            "size": 7, "sha256": hashlib.sha256(b"payload").hexdigest()
+        }
+        with self.assertRaises(PermissionError):
+            x.request(session,"PUT",b"wrong")
+        self.assertEqual(fake.calls, [])
+        x.pending_upload_sessions[session] = {
+            "size": 7, "sha256": hashlib.sha256(b"payload").hexdigest()
+        }
+        with self.assertRaises(PermissionError):
+            x.request(session,"PUT",b"payload")  # consumed on failed attempt
+        self.assertEqual(fake.calls, [])
+
+    def test_session_valid_once_then_replay_denied(self):
+        import hashlib
+        fake = _NoNetwork()
+        x = DriveStorage("offline", opener=fake, approved_root_id=ROOT_ID)
+        session = BASE+"/upload/drive/v3/files?upload_id=verified-new"
+        x.pending_upload_sessions[session] = {
+            "size": 7, "sha256": hashlib.sha256(b"payload").hexdigest()
+        }
+        result = x.request(session,"PUT",b"payload")
+        self.assertEqual(result[0],200)
+        self.assertEqual(len(fake.calls),1)
+        with self.assertRaises(PermissionError):
+            x.request(session,"PUT",b"payload")
+        self.assertEqual(len(fake.calls),1)
 
 if __name__ == "__main__":
     unittest.main()
