@@ -100,8 +100,8 @@ class BlueprintTests(unittest.TestCase):
         self.assertEqual(blueprint["architecture_stages"],
                          ["M0", "M1", "M2", "M3", "M4", "M5", "M6", "M7"])
         self.assertEqual(blueprint["stages"]["M0"]["research_requirement_count"], 96)
-        self.assertEqual(blueprint["source_requirement_evidence"]["partial_test_link_count"],65)
-        self.assertEqual(blueprint["source_requirement_evidence"]["unmapped_test_link_count"],31)
+        self.assertEqual(blueprint["source_requirement_evidence"]["partial_test_link_count"],70)
+        self.assertEqual(blueprint["source_requirement_evidence"]["unmapped_test_link_count"],26)
         self.assertEqual(blueprint["source_requirement_evidence"]["fully_accepted_requirement_count"],0)
         self.assertFalse(blueprint["template_complete"])
         self.assertFalse(blueprint["agent_registered"])
@@ -295,6 +295,33 @@ class BlueprintTests(unittest.TestCase):
         b = assemble(fixture(), optional_modules=["memory", "memory"])
         self.assertIn("DUPLICATE_OPTIONAL_MODULE", b["validation_errors"])
 
+
+
+    def test_32_module_controls_integrate_without_instance_activation(self):
+        from test_ama_fin02_semantic_modules import fixture as module_fixture
+        _, config=module_fixture()
+        result=assemble(fixture(),module_configuration=config)
+        self.assertEqual(result["module_control_assessment"]["modules_evaluated"],32)
+        self.assertEqual(result["module_control_assessment"]["findings"],[])
+        self.assertFalse(result["template_complete"])
+        self.assertFalse(result["agent_registered"])
+        self.assertFalse(result["effect_authorized"])
+
+    def test_invalid_module_control_cannot_pass_blueprint(self):
+        from test_ama_fin02_semantic_modules import fixture as module_fixture
+        _, config=module_fixture()
+        config["modules"][0]["controls"].pop("definition_id")
+        result=assemble(fixture(),module_configuration=config)
+        self.assertEqual(result["status"],"INVALID_SOURCE")
+        self.assertIn("MODULE_CONTROL:CONTROL_MISSING:identity:definition_id",
+                      result["validation_errors"])
+
+    def test_module_selection_cannot_hide_optional_implementation(self):
+        from test_ama_fin02_semantic_modules import fixture as module_fixture,activate
+        _, config=module_fixture()
+        activate(config,"memory")
+        result=assemble(fixture(),module_configuration=config)
+        self.assertIn("MODULE_CONTROL:SELECTION_MISMATCH",result["validation_errors"])
 
 if __name__ == "__main__":
     unittest.main()
