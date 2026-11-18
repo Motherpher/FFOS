@@ -10,7 +10,7 @@ for (const t of tables) {
   assert.match(sql,new RegExp('CREATE TABLE IF NOT EXISTS ffos\\.'+t+'\\b','i'));
   assert.ok(sql.includes("'"+t+"'"),'Missing immutable/RLS table identity '+t);
 }
-assert.match(sql,/RETURNS trigger LANGUAGE plpgsql SET search_path = '' AS \\$\\$/i);
+assert.ok(sql.includes("RETURNS trigger LANGUAGE plpgsql SET search_path = '' AS $$"));
 assert.match(sql,/ENABLE ROW LEVEL SECURITY/i);
 assert.match(sql,/REVOKE ALL PRIVILEGES ON TABLE/i);
 assert.match(sql,/FROM PUBLIC, anon, authenticated, service_role/i);
