@@ -1,14 +1,14 @@
 # WP04 D33 — Director Handover: GitHub Estate Operations
 
-**Date:** 2026-11-03 · **Status:** DRAFT DIRECTOR HANDOVER — DG-04 pending  
+**Date:** 2026-11-03 · **Status:** BOUNDED WP04 HANDOVER MERGED IN MAIN; DG-04 final acceptance pending  
 **Executive owner:** Human Director · **Coordination:** FFOS · **Source:** [WP04 Work Order Issue #46](https://github.com/Motherpher/FFOS/issues/46).
 
 ## 1. What the estate now contains
 
 - [Motherpher Estate Portfolio #2](https://github.com/orgs/Motherpher/projects/2) — **private** interactive GitHub Project with **22 selected linked native Issues**, including 13 additions under WP04, across 12 actual repositories. This is a work-planning projection, not a canonical system.
 - [Estate Adoption Register](ADOPTION-REGISTER-v1.md) — all **31 accessible** repositories, with explicit Tier A/B/C/D, visibility and feature suitability; not every registered repository is active in the Project.
-- [Estate Dashboard](ESTATE-DASHBOARD.md)
-- [D25 Project Adoption Ledger](PROJECT-ADOPTION-LEDGER-v1.md) — exact 13 newly linked source Issues and controls. — source-backed point-in-time reporting, Project fields and Director/risk queues.
+- [Estate Dashboard](ESTATE-DASHBOARD.md) — source-backed dated Project metrics and Director/risk queues.
+- [D25 Project Adoption Ledger](PROJECT-ADOPTION-LEDGER-v1.md) — exact 13 newly linked native Issues and intake controls.
 - [Repository metadata snapshots](data/) — dated REST metadata, private Project fields, and adoption classifications.
 - [Configuration standard](CONFIGURATION-STANDARD.md) and [templates](templates/) — optional reusable forms, not imposed across the estate.
 - [Sync contract](PROJECT-SYNCHRONISATION-CONTRACT-v1.md) and [FFOS/CDX proposed integration](FFOS-CDX-INTEGRATION-SPEC-v1.md) — rigorous lifecycle and effect-gate boundaries.
@@ -33,7 +33,7 @@
 |---|---|
 | Estate portfolio | [GitHub Project](https://github.com/orgs/Motherpher/projects/2) (requires authorised account) |
 | Current programme control | [WP04 Issue #46](https://github.com/Motherpher/FFOS/issues/46) |
-| WP04 review branch / changes | [PR #47](https://github.com/Motherpher/FFOS/pull/47) (draft; not merged) |
+| WP04 review branch / changes | [PR #47](https://github.com/Motherpher/FFOS/pull/47) (bounded Director-approved merge complete; DG-04 final HOLD) |
 | Previous Director gate DG-02 | [WP02 accepted decision](https://github.com/Motherpher/FFOS/issues/43#issuecomment-6591480963) |
 | Previous Director gate DG-03 | [WP03 accepted decision](https://github.com/Motherpher/FFOS/issues/45#issuecomment-6599403434) |
 | FFOS operator instructions | [Operator manual](https://github.com/Motherpher/FFOS/blob/main/docs/operator/FFOS-OPERATOR-MANUAL-v1.0.md) |
@@ -86,12 +86,12 @@ The code runs without network access or GitHub write permissions and returns `PA
 - Review Project recovery and least-privilege credentials before any recurring integration.
 - Resolve or explicitly scope external Vercel failures and other source-owned release checks.
 - Establish owner-level agreement before distributing Issue/PR templates into 31 repositories.
-- Obtain an independent technical assurance and Director DG-04 decision before merging the WP04 review PR.
+- Obtain independent technical assurance and Director DG-04 final decision before any claim of full WP04 acceptance, live cross-owner synchronisation or runtime certification.
 
 **No work-package document can grant authority to bypass mandatory CDX, AMA, FFC, Pius, source/repository or human acceptance.**
 
 **This handover is a usable management map, not a certificate that the entire estate is operationally automated.**
 
-## 8. FFOS local template pilot (staged, not active)
+## 8. FFOS local templates (merged in main; other repositories not adopted)
 
-The [WP04 draft PR #47](https://github.com/Motherpher/FFOS/pull/47) includes two additive Issue Forms at `.github/ISSUE_TEMPLATE/` and a PR review template at `.github/PULL_REQUEST_TEMPLATE.md`. They will become available for **FFOS only** after an approved merge. The reusable source library remains in [templates](templates/). No template was installed automatically in CareerHubZero, Politent, GreenBell, Pius Universe or the other owner repositories. Never confuse this candidate with an organisation-wide default.
+The [Director-approved merged WP04 PR #47](https://github.com/Motherpher/FFOS/pull/47) includes two additive Issue Forms at `.github/ISSUE_TEMPLATE/` and a PR review template at `.github/PULL_REQUEST_TEMPLATE.md`. They are present in FFOS main as the bounded approved local implementation. The reusable source library remains in [templates](templates/). No template was installed automatically in CareerHubZero, Politent, GreenBell, Pius Universe or the other owner repositories. Never confuse this candidate with an organisation-wide default.

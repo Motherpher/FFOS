@@ -1,0 +1,160 @@
+{
+  "as_of": "2026-11-03",
+  "source": "GitHub REST main trees",
+  "group": "Mixed 2",
+  "rows": [
+    {
+      "repo": "Hybrismannen/RFSU-godex",
+      "tree_sha": "0a213d1bc2bb495998d2976360bdc73ea5c621f5",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "README.md"
+      ],
+      "candidates_total": 1
+    },
+    {
+      "repo": "Hybrismannen/RFSU-godex-FF",
+      "tree_sha": "015c061de7ea39881ccd4093123f79ae51c9c682",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "00-project-control/ITR/README.md",
+        "00-project-control/README.md",
+        "README.md"
+      ],
+      "candidates_total": 3
+    },
+    {
+      "repo": "Hybrismannen/Digital-Apartheid",
+      "tree_sha": "9db82a815b4f50dcaa16bcdaa2e9da1f427476dc",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "README.md"
+      ],
+      "candidates_total": 1
+    },
+    {
+      "repo": "Hybrismannen/NSLI",
+      "tree_sha": "fc011d80481164c1516670cd60d90b6a48646cb0",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "README.md",
+        "docs/03-nsli-line/README.md",
+        "docs/04-implementation/IMPLEMENTATION_MASTER_INDEX.md"
+      ],
+      "candidates_total": 3
+    },
+    {
+      "repo": "Hybrismannen/metoyo",
+      "tree_sha": "435c7b0725d51c6ea3c1a1a1899247fd54fd81c2",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "README.md"
+      ],
+      "candidates_total": 1
+    },
+    {
+      "repo": "Hybrismannen/Conductellence-",
+      "tree_sha": "81efc52d04cc916493fb27ac2f3213876f1c8297",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "GOVERNANCE/CDX-1.0-SYSTEM-GUIDE.md",
+        "GOVERNANCE/household/README.md",
+        "README.md"
+      ],
+      "candidates_total": 3
+    },
+    {
+      "repo": "Hybrismannen/Barnombudet",
+      "tree_sha": "23d8bc57d2fe108374b75e0011290cb930edfa48",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "README.md",
+        "docs/ANVANDARMANUAL.md"
+      ],
+      "candidates_total": 2
+    },
+    {
+      "repo": "Hybrismannen/Opal-Sense-I",
+      "tree_sha": "a31cb46ce5f42b45f783989be613708ca72ec823",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "README.md",
+        "docs/wiki-seed/Culture-and-Identity.md",
+        "docs/wiki-seed/Designers-and-Houses.md",
+        "docs/wiki-seed/Editorial-Method.md",
+        "docs/wiki-seed/Fashion-Lexicon.md",
+        "docs/wiki-seed/Garments-and-Traditions.md",
+        "docs/wiki-seed/Global-Observer.md",
+        "docs/wiki-seed/Home.md",
+        "docs/wiki-seed/Issue-Index.md",
+        "docs/wiki-seed/Object-Catalogue.md",
+        "docs/wiki-seed/Reading-Room.md",
+        "docs/wiki-seed/Source-Register.md",
+        "docs/wiki-seed/_Sidebar.md"
+      ],
+      "candidates_total": 13
+    },
+    {
+      "repo": "Motherpher/form-flode",
+      "tree_sha": "96e7e73cb81865b15917cb914e6f2110312189bb",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "17-ffos/OPERATING-MANUAL.md",
+        "17-ffos/README.md",
+        "17-ffos/agent-stable/README.md",
+        "17-ffos/agent-stable/agents/01-messi/README.md",
+        "17-ffos/agent-stable/agents/02-household-family/README.md",
+        "17-ffos/agents/README.md",
+        "17-ffos/architecture/README.md",
+        "17-ffos/audit/README.md",
+        "17-ffos/current/README.md",
+        "17-ffos/deployment/README.md",
+        "17-ffos/director/README.md",
+        "17-ffos/director/portable/README.md",
+        "17-ffos/household/README.md",
+        "17-ffos/integrations/README.md",
+        "17-ffos/legacy/README.md",
+        "17-ffos/legacy/director-portable-v1/README.md",
+        "17-ffos/legacy/household-v1/README.md",
+        "17-ffos/legacy/household-v1/portable/README.md",
+        "17-ffos/legacy/projecthub-ui-v1/README.md",
+        "17-ffos/legacy/runtime-v1/README.md",
+        "17-ffos/migration/README.md",
+        "17-ffos/operator/README.md",
+        "17-ffos/operator/projecthub-operating-guide-v0.1.md",
+        "17-ffos/operator/projecthub-operating-guide-v0.2.md",
+        "17-ffos/phase-ii/README.md",
+        "17-ffos/phase-iii/README.md",
+        "17-ffos/phase-iv/README.md",
+        "17-ffos/phase-v/README.md",
+        "17-ffos/phase-vi/README.md",
+        "17-ffos/programme/README.md",
+        "17-ffos/programme/history/README.md",
+        "17-ffos/programme/releases/README.md",
+        "17-ffos/projecthub/README.md",
+        "17-ffos/projecthub/seed/bou-2026-10-05/dashboard-readme.md",
+        "17-ffos/projecthub/seed/bou-2026-10-05/state-readme.md"
+      ],
+      "candidates_total": 42
+    },
+    {
+      "repo": "Motherpher/wpb",
+      "tree_sha": "abeb41215eca4fbf6ee98c1a195621821298a4b5",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "README.md"
+      ],
+      "candidates_total": 1
+    }
+  ]
+}

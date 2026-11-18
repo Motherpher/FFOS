@@ -1,6 +1,6 @@
 # WP04 Reusable Repository Configuration Standard v1.0
 
-**Status:** WP04 REVIEW CANDIDATE — not DG-04 accepted. **Owner:** FFOS coordination; per-repository maintainers retain local authority. **Date:** 2026-11-03.
+**Status:** WP04 bounded stage merged into FFOS main; DG-04 full acceptance remains HOLD. Deployment of reusable templates in other repositories is not approved. **Owner:** FFOS coordination; per-repository maintainers retain local authority. **Date:** 2026-11-03.
 
 ## 1. Objective
 
@@ -18,7 +18,7 @@ Provide a small, reusable GitHub operating grammar for the estate, without rewri
 
 ## 3. Reusable configuration assets
 
-Reusable master templates are in [templates](templates/). The present **FFOS-only local implementation candidate** additionally stages copies at `.github/ISSUE_TEMPLATE/estate-work-package.yml`, `.github/ISSUE_TEMPLATE/estate-governance-decision.yml` and `.github/PULL_REQUEST_TEMPLATE.md` on [WP04 draft PR #47](https://github.com/Motherpher/FFOS/pull/47). These will only become active if their local PR is merged after acceptance; no templates have been installed in other repositories. Further adoption requires separate owner-reviewed PRs.
+Reusable master templates are in [templates](templates/). The **FFOS-only bounded implementation now merged into main** contains copies at `.github/ISSUE_TEMPLATE/estate-work-package.yml`, `.github/ISSUE_TEMPLATE/estate-governance-decision.yml` and `.github/PULL_REQUEST_TEMPLATE.md` through [merged PR #47](https://github.com/Motherpher/FFOS/pull/47). These templates now exist in FFOS main; no copies have been installed in other repositories. Further adoption requires separate owner-reviewed PRs.
 
 1. [Work-package Issue Form](templates/ISSUE_FORM_WORKPACKAGE.yml): objective, source, scope, dependencies, output, acceptance and evidence.
 2. [Director / governance decision Issue Form](templates/ISSUE_FORM_GOVERNANCE.yml): mandate, authority, effect, risks, decision and proof.
@@ -60,4 +60,4 @@ Local PR must declare **what is optional**, exactly what is mandatory under the 
 
 Templates are file-only changes. Removal/reversion must use a reviewed PR, preserving issue history and IDs. Previously entered Issues remain native source objects; labels/project membership can be adjusted without rewriting source evidence. No automated deletion, broad label replacement, issue closure or migration is permitted.
 
-**DG-04 remains outstanding.**
+**DG-04 final acceptance remains outstanding; the bounded WP04 merge was Director-authorised and verified.**

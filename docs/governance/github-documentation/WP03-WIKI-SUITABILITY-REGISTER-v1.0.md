@@ -1,6 +1,6 @@
 # WP03 — Wiki and Documentation Suitability Register v1.0
 
-**ID:** FF-GH-WP03-D18 · **Review status:** WP03 implementation proposal, DG-03 pending  
+**ID:** FF-GH-WP03-D18 · **Current decision:** DG-03 bounded documentation pilots ACCEPTED; [Director source record](https://github.com/Motherpher/FFOS/issues/45#issuecomment-6599403434). Native Wiki choices remain selective and require independent publication authority.  
 **Baseline:** WP01 2026-11-02 verified feature inventory (31 discoverable repositories; 11 public Wiki flags enabled, none confirmed populated).  
 **Reconciled:** 2026-11-03. **Evidence:** [WP01 decision matrix](https://github.com/Motherpher/FFOS) (external audit package), sampled READMEs and canonical repository structures.
 
@@ -83,4 +83,4 @@ The public repository already has `docs/wiki-seed/` and a dedicated Issue [#13](
 4. Is independent user testing complete or explicitly deferred?
 5. Do reviewed PRs merit merge into their respective canonical repositories?
 
-**This register proposes suitability, not publication, certification, or permission changes.**
+**This register records suitability, not publication, runtime certification, or permission changes.** DG-03 approved source-controlled FFOS and UDL pilot guides; it did NOT automatically activate any native Wiki.

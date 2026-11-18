@@ -1,0 +1,134 @@
+{
+  "as_of": "2026-11-03",
+  "source": "GitHub REST main trees",
+  "group": "Motherpher 3",
+  "rows": [
+    {
+      "repo": "Motherpher/Gracey",
+      "tree_sha": "6abbfb3d8f2483abc7e6e62329fe2e4239951455",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "CareerHub/README.md",
+        "README.md"
+      ],
+      "candidates_total": 2
+    },
+    {
+      "repo": "Motherpher/CareerHubZero",
+      "tree_sha": "51d07808e4fe5b18547942fb72fa628507cb8341",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "README.md",
+        "docs/history/CHZERO_FAILURE_SEARCH_INDEX.md",
+        "docs/history/README.md"
+      ],
+      "candidates_total": 3
+    },
+    {
+      "repo": "Motherpher/CareerHub-LinusF",
+      "tree_sha": "cc9aef38b4c8d6980a0389159e1fa225635fbb2a",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "README.md"
+      ],
+      "candidates_total": 1
+    },
+    {
+      "repo": "Motherpher/Politent",
+      "tree_sha": "81a434a1d69ee92c1d2bf84f46fa445461ff1f91",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "README.md",
+        "qgis/README.md"
+      ],
+      "candidates_total": 2
+    },
+    {
+      "repo": "Motherpher/FF-Spatial",
+      "tree_sha": "76dcadfb5d116e238d404ad106465b8a39111d6f",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "README.md",
+        "qgis/README.md"
+      ],
+      "candidates_total": 2
+    },
+    {
+      "repo": "Motherpher/BDNA",
+      "tree_sha": "f3a51ad38a84f9b55d7ea572873cd4eef91791fb",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "README.md",
+        "docs/missions/README.md",
+        "docs/missions/SG-INDEX.md",
+        "docs/operations/README.md",
+        "docs/source/README.md"
+      ],
+      "candidates_total": 5
+    },
+    {
+      "repo": "Motherpher/FFOS",
+      "tree_sha": "014b75b538f54e6141504d40aebad22d269ae4b0",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "README.md",
+        "docs/governance/github-documentation/WP03-WIKI-SUITABILITY-REGISTER-v1.0.md",
+        "docs/governance/github-estate/README.md",
+        "docs/operator/FFOS-OPERATOR-MANUAL-v1.0.md",
+        "docs/operator/README.md",
+        "docs/research/AMA-96-REQUIREMENT-COVERAGE-INDEX-2026-10-29.json"
+      ],
+      "candidates_total": 6
+    },
+    {
+      "repo": "Motherpher/MusicGenea",
+      "tree_sha": "3339c44550ab251de41a54adc3678ecbc8943dfd",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "README.md"
+      ],
+      "candidates_total": 1
+    },
+    {
+      "repo": "Motherpher/Re-Eco",
+      "tree_sha": "c368696d07314245a3f2e56edc6c1abd506e08ef",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "README.md"
+      ],
+      "candidates_total": 1
+    },
+    {
+      "repo": "Motherpher/GreenBell",
+      "tree_sha": "c0018efecfdd6a13ffdf6c85665a5fbea0e68d7e",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "12-operations/README.md",
+        "12-operations/dashboards/README.md",
+        "12-operations/work-orders/README.md",
+        "README.md"
+      ],
+      "candidates_total": 4
+    },
+    {
+      "repo": "Motherpher/Vitalitet",
+      "tree_sha": "9eaea64bc0736ae4779c13fd71a63b8d46b5d4f8",
+      "truncated": false,
+      "root": "README.md",
+      "candidates": [
+        "README.md"
+      ],
+      "candidates_total": 1
+    }
+  ]
+}
