@@ -5,11 +5,15 @@ on:
       - 'integrations/cloud/**'
       - 'tests/test_cloud_kolada_lookup.py'
       - 'tests/test_cloud_drive_storage.py'
+      - 'tests/test_drive_create_only_policy.py'
+      - 'tests/test_drive_approval.py'
       - '.github/workflows/cloud-*.yml'
   push:
     paths:
       - 'integrations/cloud/**'
       - 'tests/test_cloud_kolada_lookup.py'
+      - 'tests/test_drive_create_only_policy.py'
+      - 'tests/test_drive_approval.py'
 permissions:
   contents: read
 jobs:
@@ -27,3 +31,6 @@ jobs:
           python -m unittest discover -s tests -p 'test_cloud_kolada_lookup.py' -v
           python -m py_compile integrations/cloud/drive_storage.py
           python -m unittest discover -s tests -p 'test_cloud_drive_storage.py' -v
+          python -m unittest discover -s tests -p 'test_drive_create_only_policy.py' -v
+          python -m py_compile integrations/cloud/drive_approval.py
+          python -m unittest discover -s tests -p 'test_drive_approval.py' -v

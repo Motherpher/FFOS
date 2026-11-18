@@ -22,6 +22,67 @@ MAX_FILE_BYTES = 100 * 1024 * 1024
 MAX_FILES = 12
 SAFE_NAME = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,119}$")
 DRIVE_ID = re.compile(r"^[A-Za-z0-9_-]{12,120}$")
+# Exact source-controlled allowlist. Adding a destination requires a reviewed
+# code change and a separately matched deployment environment variable.
+# Policy/governance folder is NEVER a publisher destination.
+APPROVED_ROOT_IDS = frozenset({
+    "1xO4YWl4yQmyRJ6t-A_4j9vaVDkiBhArD",  # FFC workflow cloud
+})
+POLICY_FOLDER_ID = "16jyKv3HHGcmNQY1XO_STdOmuSvnhUxkA"
+
+
+def _assert_create_only_drive_request(url, method, payload):
+    """Policy OAI-DRIVE-APPEND-ONLY-001: deny mutation APIs before network I/O.
+
+    This adapter permits only folder creation, new resumable upload initiation,
+    continuation of that new upload session, and Drive reads. It has no edit,
+    move, rename, permission-change, trash, overwrite or delete capability.
+    """
+    from urllib.parse import parse_qs
+    parsed = urlsplit(url)
+    args = parse_qs(parsed.query, keep_blank_values=True)
+    path = parsed.path
+    method = method.upper()
+    if parsed.scheme != "https" or parsed.hostname != "www.googleapis.com":
+        raise PermissionError("AI Drive policy: unapproved provider endpoint")
+    if method == "GET":
+        if path.startswith("/drive/v3/files/") and len(path) > len("/drive/v3/files/"):
+            return
+        raise PermissionError("AI Drive policy: only bounded file reads allowed")
+    if method == "POST" and path == "/drive/v3/files":
+        # Every direct POST must be a new folder, never an update or shortcut.
+        try:
+            item = json.loads(payload or b"{}")
+        except (TypeError, ValueError):
+            raise PermissionError("AI Drive policy: unvalidated folder create")
+        if (item.get("mimeType") == "application/vnd.google-apps.folder"
+                and isinstance(item.get("name"), str)
+                and isinstance(item.get("parents"), list)
+                and len(item["parents"]) == 1
+                and "id" not in item
+                and set(item) == {"name", "mimeType", "parents"}):
+            return
+    if method == "POST" and path == "/upload/drive/v3/files":
+        try:
+            item = json.loads(payload or b"{}")
+        except (TypeError, ValueError):
+            raise PermissionError("AI Drive policy: unvalidated upload create")
+        if (args.get("uploadType") == ["resumable"]
+                and item.get("mimeType") == "application/octet-stream"
+                and isinstance(item.get("name"), str)
+                and isinstance(item.get("parents"), list)
+                and len(item["parents"]) == 1
+                and "id" not in item
+                and set(item) == {"name", "parents", "mimeType"}):
+            return
+    if (method == "PUT" and path == "/upload/drive/v3/files"
+            and len(args.get("upload_id", [])) == 1
+            and bool(args["upload_id"][0])):
+        # Only the new-upload session path; never files.update / file-ID routes.
+        return
+    raise PermissionError(
+        "AI Drive policy OAI-DRIVE-APPEND-ONLY-001: mutation denied before effect"
+    )
 
 class NoRedirect(HTTPRedirectHandler):
     def redirect_request(self, *args, **kwargs):
@@ -31,11 +92,19 @@ def _json(data):
     return json.dumps(data, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
 
 class DriveStorage:
-    def __init__(self, token, *, opener=None):
+    def __init__(self, token, *, opener=None, approved_root_id=None):
         if not isinstance(token, str) or not token:
             raise ValueError("Google Drive access token missing")
         self.token = token
         self.opener = opener or build_opener(NoRedirect)
+        # Without a separately configured approved root, this is read-only.
+        if approved_root_id is not None and approved_root_id not in APPROVED_ROOT_IDS:
+            raise ValueError("Invalid Director-approved Drive root ID")
+        self.approved_root_id = approved_root_id
+        self.created_folders = set()
+        self.created_files = set()
+        self.pending_upload_sessions = {}
+        self.consumed_upload_sessions = set()
 
     def request(self, url, method="GET", payload=None, content_type=None, accept=None):
         parsed = urlsplit(url)
@@ -43,6 +112,40 @@ class DriveStorage:
             "www.googleapis.com", "oauth2.googleapis.com"
         ) or parsed.username or parsed.password or parsed.port not in (None, 443):
             raise ValueError("Google API endpoint not allowlisted")
+        _assert_create_only_drive_request(url, method, payload)
+        if method.upper() == "GET":
+            # No arbitrary reads with this publisher credential. A separate
+            # ChatGPT read connection has its own independent authorization.
+            target = parsed.path.removeprefix("/drive/v3/files/")
+            permitted = ({self.approved_root_id} | self.created_folders
+                         | self.created_files)
+            if target not in permitted:
+                raise PermissionError("Read target is outside this run's permitted IDs")
+        if method.upper() == "POST":
+            # Prevent bypass via direct request(), not just high-level helpers.
+            # Provider body already passed the syntactic create-only test.
+            item = json.loads(payload)
+            parents = item["parents"]
+            from urllib.parse import urlsplit as _urlsplit
+            endpoint = _urlsplit(url).path
+            if endpoint == "/drive/v3/files":
+                if parents != [self.approved_root_id]:
+                    raise PermissionError("Unapproved creation parent")
+            elif endpoint == "/upload/drive/v3/files":
+                if len(parents) != 1 or parents[0] not in self.created_folders:
+                    raise PermissionError("Cannot upload outside a fresh run folder")
+            else:
+                raise PermissionError("Unknown creation endpoint")
+        # Bind resumable PUT to a session returned by this particular client.
+        if method.upper() == "PUT":
+            session = self.pending_upload_sessions.pop(url, None)
+            if not session or url in self.consumed_upload_sessions:
+                raise PermissionError("Unknown, replayed or foreign upload session")
+            self.consumed_upload_sessions.add(url)  # before network I/O
+            if (not isinstance(payload, bytes)
+                    or len(payload) != session["size"]
+                    or hashlib.sha256(payload).hexdigest() != session["sha256"]):
+                raise PermissionError("Upload session content mismatch")
         headers = {"Authorization": f"Bearer {self.token}"}
         if content_type:
             headers["Content-Type"] = content_type
@@ -81,6 +184,8 @@ class DriveStorage:
         }
 
     def create_folder(self, parent_id, name):
+        if parent_id != self.approved_root_id:
+            raise PermissionError("Creation target is not a configured approved Drive root")
         if not DRIVE_ID.fullmatch(parent_id) or not SAFE_NAME.fullmatch(name):
             raise ValueError("Unsafe Google Drive parent ID or folder name")
         status, _, raw = self.request(
@@ -97,9 +202,14 @@ class DriveStorage:
         if (not DRIVE_ID.fullmatch(str(meta.get("id", "")))
                 or parent_id not in meta.get("parents", [])):
             raise ValueError("Google Drive folder identity/parent mismatch")
+        if meta["id"] in self.created_folders:
+            raise PermissionError("Provider returned a previously used folder ID")
+        self.created_folders.add(meta["id"])
         return meta["id"]
 
     def upload(self, parent_id, path):
+        if parent_id not in self.created_folders:
+            raise PermissionError("Upload destination not created in this adapter run")
         if not DRIVE_ID.fullmatch(parent_id) or not path.is_file():
             raise ValueError("Missing upload parent or file")
         if not SAFE_NAME.fullmatch(path.name):
@@ -119,8 +229,19 @@ class DriveStorage:
         # Only trust resumable upload session endpoints at Google's upload host.
         session_url = headers.get("Location") or headers.get("location")
         parsed = urlsplit(session_url or "")
-        if parsed.scheme != "https" or parsed.hostname != "www.googleapis.com":
-            raise ValueError("Untrusted Google upload session URL")
+        from urllib.parse import parse_qs
+        q = parse_qs(parsed.query, keep_blank_values=True)
+        if (parsed.scheme != "https" or parsed.hostname != "www.googleapis.com"
+                or parsed.path != "/upload/drive/v3/files"
+                or parsed.username or parsed.password or parsed.port not in (None, 443)
+                or set(q) != {"upload_id"} or len(q["upload_id"]) != 1
+                or not q["upload_id"][0] or session_url in self.consumed_upload_sessions
+                or session_url in self.pending_upload_sessions):
+            raise PermissionError("Foreign or malformed upload session returned by provider")
+        self.pending_upload_sessions[session_url] = {
+            "parent_id": parent_id, "name": path.name,
+            "sha256": expected_hash, "size": size,
+        }
         status, _, raw = self.request(
             session_url, "PUT", path.read_bytes(), "application/octet-stream"
         )
@@ -132,6 +253,12 @@ class DriveStorage:
                 or parent_id not in meta.get("parents", [])
                 or int(meta.get("size", -1)) != size):
             raise ValueError("Google Drive uploaded metadata mismatch")
+        # Google reports the ID only after this adapter starts a NEW upload.
+        # This is not proof against a malicious provider, but prevents unrelated
+        # read targets and stale cross-run IDs from being accepted.
+        if file_id in self.created_files or file_id == self.approved_root_id or file_id in self.created_folders:
+            raise PermissionError("Provider returned reused or reserved file ID")
+        self.created_files.add(file_id)
         # Post-upload readback is independent of Google Drive metadata or ETags.
         status, _, actual = self.request(
             DRIVE_API + "/" + quote(file_id, safe="") + "?alt=media",
@@ -180,11 +307,15 @@ def publish_directory(source_dir, root_folder_id, namespace, run_id, *,
     if any(not SAFE_NAME.fullmatch(p.name) or p.stat().st_size > MAX_FILE_BYTES
            or p.stat().st_size == 0 for p in files):
         raise ValueError("Unsafe cloud artifact files")
+    # A CLI-provided ID does not count as Director authorization.
+    if client is None and (root_folder_id not in APPROVED_ROOT_IDS
+                           or root_folder_id != os.environ.get("FFOS_GDRIVE_APPROVED_ROOT_ID")):
+        raise PermissionError("Director-approved Drive root configuration missing or mismatched")
     storage = client or DriveStorage(refresh_access_token(
         os.environ.get("FFOS_GDRIVE_CLIENT_ID", ""),
         os.environ.get("FFOS_GDRIVE_CLIENT_SECRET", ""),
         os.environ.get("FFOS_GDRIVE_REFRESH_TOKEN", ""),
-    ))
+    ), approved_root_id=root_folder_id)
     folder_id = storage.create_folder(root_folder_id, namespace + "_" + run_id)
     uploaded = [storage.upload(folder_id, f) for f in files]
     receipt = {

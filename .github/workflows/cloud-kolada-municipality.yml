@@ -30,6 +30,8 @@ jobs:
         run: |
           python -m unittest discover -s tests -p 'test_cloud_kolada_lookup.py' -v
           python -m unittest discover -s tests -p 'test_cloud_drive_storage.py' -v
+          python -m unittest discover -s tests -p 'test_drive_create_only_policy.py' -v
+          python -m unittest discover -s tests -p 'test_drive_approval.py' -v
   lookup:
     needs: validate
     runs-on: ubuntu-latest
@@ -54,7 +56,7 @@ jobs:
 
   drive-publish:
     needs: lookup
-    if: ${{ inputs.persist_to_drive }}
+    if: ${{ inputs.persist_to_drive && vars.FFOS_DRIVE_SECURITY_RELEASE_APPROVED == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 8
     environment: drive-publish
@@ -75,7 +77,10 @@ jobs:
           FFOS_GDRIVE_CLIENT_SECRET: ${{ secrets.FFOS_GDRIVE_CLIENT_SECRET }}
           FFOS_GDRIVE_REFRESH_TOKEN: ${{ secrets.FFOS_GDRIVE_REFRESH_TOKEN }}
           DRIVE_FOLDER_ID: ${{ vars.FFOS_GDRIVE_ROOT_FOLDER_ID || '1xO4YWl4yQmyRJ6t-A_4j9vaVDkiBhArD' }}
+          FFOS_GDRIVE_APPROVED_ROOT_ID: ${{ vars.FFOS_GDRIVE_APPROVED_ROOT_ID }}
         run: |
+          test -n "$FFOS_GDRIVE_APPROVED_ROOT_ID" || { echo 'HOLD: independent root approval variable unavailable'; exit 1; }
+          test "$DRIVE_FOLDER_ID" = "$FFOS_GDRIVE_APPROVED_ROOT_ID" || { echo 'HOLD: creation root mismatched'; exit 1; }
           python integrations/cloud/drive_oauth_preflight.py \
             --root-folder-id "$DRIVE_FOLDER_ID" \
             --receipt "$RUNNER_TEMP/drive-oauth-preflight.json"
