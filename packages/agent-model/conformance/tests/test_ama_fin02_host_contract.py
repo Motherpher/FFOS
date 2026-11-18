@@ -47,4 +47,18 @@ class HostContractTests(unittest.TestCase):
         def bad(*args):raise OSError('unavailable')
         self.assertIn('HOST_ATTESTATION_FAILED:secrets:EXTERNAL_POLICY',self.check(inv,conf,rec,bad)['errors'])
 
+    def test_spoofed_core_classification_cannot_disable_host_identity(self):
+        inv,conf,rec=fixture()
+        next(r for r in inv["modules"] if r["id"]=="identity")["requirement"]="OPTIONAL"
+        next(r for r in conf["modules"] if r["id"]=="identity")["enabled"]=False
+        result=self.check(inv,conf,rec,lambda *args:True)
+        self.assertIn("CANONICAL_CLASSIFICATION_DRIFT:identity",result["errors"])
+        self.assertIn("DISABLED_CORE:identity",result["errors"])
+
+    def test_spoofed_optional_classification_is_rejected(self):
+        inv,conf,rec=fixture()
+        next(r for r in inv["modules"] if r["id"]=="secrets")["requirement"]="CORE"
+        result=self.check(inv,conf,rec,lambda *args:True)
+        self.assertIn("CANONICAL_CLASSIFICATION_DRIFT:secrets",result["errors"])
+
 if __name__=='__main__':unittest.main()
