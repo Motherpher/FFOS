@@ -57,6 +57,29 @@ class DriveStorage:
                 raise ValueError("Google response exceeds limit")
             return res.status, dict(res.headers), result
 
+    def probe_folder(self, folder_id):
+        if not DRIVE_ID.fullmatch(folder_id):
+            raise ValueError("Unsafe Google Drive folder ID")
+        status, _, raw = self.request(
+            DRIVE_API + "/" + quote(folder_id, safe="") +
+            "?fields=id,name,mimeType,trashed,capabilities(canAddChildren)"
+        )
+        if status != 200:
+            raise ValueError("Google Drive folder probe failed")
+        meta = json.loads(raw)
+        if (meta.get("id") != folder_id
+                or meta.get("mimeType") != "application/vnd.google-apps.folder"
+                or meta.get("trashed") is True
+                or meta.get("capabilities", {}).get("canAddChildren") is not True):
+            raise ValueError("Google Drive destination is not an active writable folder")
+        return {
+            "folder_id": folder_id,
+            "name": meta.get("name"),
+            "mime_type": meta.get("mimeType"),
+            "can_add_children": True,
+            "trashed": False,
+        }
+
     def create_folder(self, parent_id, name):
         if not DRIVE_ID.fullmatch(parent_id) or not SAFE_NAME.fullmatch(name):
             raise ValueError("Unsafe Google Drive parent ID or folder name")

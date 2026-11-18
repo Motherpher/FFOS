@@ -1,0 +1,37 @@
+name: FFOS Google Drive OAuth preflight
+on:
+  workflow_dispatch:
+    inputs:
+      root_folder_id:
+        description: 'drive.file-authorized destination folder ID; defaults to approved governance root'
+        type: string
+        required: false
+        default: '1xO4YWl4yQmyRJ6t-A_4j9vaVDkiBhArD'
+permissions:
+  contents: read
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    environment: drive-publish
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify OAuth refresh grant and writable Drive destination
+        env:
+          FFOS_GDRIVE_CLIENT_ID: ${{ secrets.FFOS_GDRIVE_CLIENT_ID }}
+          FFOS_GDRIVE_CLIENT_SECRET: ${{ secrets.FFOS_GDRIVE_CLIENT_SECRET }}
+          FFOS_GDRIVE_REFRESH_TOKEN: ${{ secrets.FFOS_GDRIVE_REFRESH_TOKEN }}
+          DRIVE_FOLDER_ID: ${{ inputs.root_folder_id }}
+        run: |
+          python integrations/cloud/drive_oauth_preflight.py \
+            --root-folder-id "$DRIVE_FOLDER_ID" \
+            --receipt "$RUNNER_TEMP/drive-oauth-preflight.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ffos-drive-oauth-preflight-${{ github.run_id }}
+          path: ${{ runner.temp }}/drive-oauth-preflight.json
+          if-no-files-found: error
+          retention-days: 14
