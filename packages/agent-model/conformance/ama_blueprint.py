@@ -12,12 +12,13 @@ from ama_milestone_integrity import load as milestone_integrity
 from ama_requirement_evidence import load as requirement_evidence
 from ama_blueprint_semantics import audit as audit_semantics
 from ama_realm import check_realm
+from ama_fin02_semantic_modules import validate_module_contracts
 
 ROOT = Path(__file__).resolve().parents[3]
 MODEL = ROOT / "packages" / "agent-model"
 
 
-def assemble(bundle, optional_modules=(), use_f8=False, *, at=None, host_trust_domain=None, attestor=None):
+def assemble(bundle, optional_modules=(), use_f8=False, *, at=None, host_trust_domain=None, attestor=None, module_configuration=None):
     """Return a build blueprint and precise blocking obligations.
 
     Invalid bundles and unrecognized optional modules fail closed.
@@ -66,6 +67,15 @@ def assemble(bundle, optional_modules=(), use_f8=False, *, at=None, host_trust_d
     selected = {x["id"] for x in rows if x["requirement"] == "CORE"}
     selected.update(x for x in requested if x in allowed)
     selected.update(implicitly_selected)
+    module_control_result = None
+    if module_configuration is not None:
+        module_control_result = validate_module_contracts(coverage,module_configuration)
+        problems.extend("MODULE_CONTROL:"+x for x in module_control_result["findings"])
+        config_rows = module_configuration.get("modules",[]) if isinstance(module_configuration,dict) else []
+        enabled = {x.get("id") for x in config_rows
+                   if isinstance(x,dict) and x.get("enabled") is True}
+        if enabled != selected:
+            problems.append("MODULE_CONTROL:SELECTION_MISMATCH")
     assessment = {
         "schema": "ama.m7.semantic-assessment/v1",
         "checks": {},
@@ -134,6 +144,7 @@ def assemble(bundle, optional_modules=(), use_f8=False, *, at=None, host_trust_d
                    "ASSESSMENT_INPUT_REQUIRED" if assessment["assessment_inputs_required"] else
                    "CONSTRUCTION_BLUEPRINT_CANDIDATE"),
         "semantic_assessment": assessment,
+        "module_control_assessment": module_control_result,
         "assessment_inputs_required": assessment["assessment_inputs_required"],
         "validation_errors": sorted(set(problems)),
         "template_complete": False if obligations or problems or assessment["assessment_inputs_required"] else stage_report["template_complete"],
@@ -154,10 +165,15 @@ if __name__ == "__main__":
     cli.add_argument("--at", help="Trusted host assessment timestamp with timezone")
     cli.add_argument("--host-trust-domain", help="Injected trust-domain label for knowledge checks")
     cli.add_argument("--output", type=Path)
+    cli.add_argument("--module-configuration", type=Path,
+                     help="32-module semantic control JSON; checks only, no agent construction")
     opts = cli.parse_args()
     obj = json.loads(opts.bundle.read_text(encoding="utf-8"))
+    module_config = (json.loads(opts.module_configuration.read_text(encoding="utf-8"))
+                     if opts.module_configuration else None)
     blueprint = assemble(obj, opts.optional, opts.f8_cdx,
-                         at=opts.at, host_trust_domain=opts.host_trust_domain)
+                         at=opts.at, host_trust_domain=opts.host_trust_domain,
+                         module_configuration=module_config)
     text = json.dumps(blueprint, ensure_ascii=False, indent=2) + "\n"
     if opts.output:
         opts.output.parent.mkdir(parents=True, exist_ok=True)
