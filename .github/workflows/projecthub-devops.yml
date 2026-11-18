@@ -8,6 +8,20 @@ on:
       - 'docs/specifications/PROJECTHUB-**'
       - 'docs/architecture/PROJECTHUB-**'
       - '.github/workflows/projecthub-devops.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'modules/projecthub/**'
+      - 'packages/projecthub-model/**'
+      - 'docs/specifications/PROJECTHUB-**'
+      - 'docs/architecture/PROJECTHUB-**'
+      - 'integrations/projecthub/**'
+      - 'integrations/cdx/projecthub-runtime.ts'
+      - 'apps/web/lib/projecthub/**'
+      - 'apps/web/app/(protected)/projecthub/**'
+      - 'apps/web/app/api/projecthub/**'
+      - 'scripts/projecthub_l3_assurance.py'
+      - '.github/workflows/projecthub-devops.yml'
   workflow_dispatch:
 
 permissions:
