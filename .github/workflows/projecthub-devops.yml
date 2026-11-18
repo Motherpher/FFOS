@@ -80,9 +80,10 @@ jobs:
       - name: Install ProjectHub runtime dependency
         if: steps.present.outputs.value == 'true'
         run: npm install --prefix modules/projecthub --no-audit --no-fund
-      - name: ProjectHub PostgreSQL transaction test
+      - name: ProjectHub PostgreSQL transaction test (serialized schema setup)
         if: steps.present.outputs.value == 'true'
-        run: npm test --prefix modules/projecthub
+        working-directory: modules/projecthub
+        run: node --import tsx --test --test-concurrency=1 tests/*.test.ts
 
   l3-assurance:
     runs-on: ubuntu-latest
