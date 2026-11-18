@@ -65,6 +65,19 @@ class DriveStorageTests(unittest.TestCase):
         client=DriveStorage("test-token")
         with self.assertRaises(ValueError):
             client.request("https://evil.example/get")
+    def test_probe_writable_folder(self):
+        class ProbeStorage(DriveStorage):
+            def __init__(self, meta): self.meta=meta
+            def request(self,*args,**kwargs):
+                return 200,{},json.dumps(self.meta).encode()
+        good={"id":ROOT_ID,"name":"Workflow Cloud","mimeType":"application/vnd.google-apps.folder",
+              "trashed":False,"capabilities":{"canAddChildren":True}}
+        result=ProbeStorage(good).probe_folder(ROOT_ID)
+        self.assertTrue(result["can_add_children"])
+        bad=dict(good); bad["capabilities"]={"canAddChildren":False}
+        with self.assertRaises(ValueError):
+            ProbeStorage(bad).probe_folder(ROOT_ID)
+
     def test_google_file_id(self):
         self.assertTrue(DRIVE_ID.fullmatch(ROOT_ID))
         self.assertFalse(DRIVE_ID.fullmatch("../a"))

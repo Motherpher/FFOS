@@ -74,8 +74,11 @@ jobs:
           FFOS_GDRIVE_CLIENT_ID: ${{ secrets.FFOS_GDRIVE_CLIENT_ID }}
           FFOS_GDRIVE_CLIENT_SECRET: ${{ secrets.FFOS_GDRIVE_CLIENT_SECRET }}
           FFOS_GDRIVE_REFRESH_TOKEN: ${{ secrets.FFOS_GDRIVE_REFRESH_TOKEN }}
-          DRIVE_FOLDER_ID: 1xO4YWl4yQmyRJ6t-A_4j9vaVDkiBhArD
+          DRIVE_FOLDER_ID: ${{ vars.FFOS_GDRIVE_ROOT_FOLDER_ID || '1xO4YWl4yQmyRJ6t-A_4j9vaVDkiBhArD' }}
         run: |
+          python integrations/cloud/drive_oauth_preflight.py \
+            --root-folder-id "$DRIVE_FOLDER_ID" \
+            --receipt "$RUNNER_TEMP/drive-oauth-preflight.json"
           python integrations/cloud/drive_storage.py \
             --source-dir "$RUNNER_TEMP/ffos-drive-upload" \
             --root-folder-id "$DRIVE_FOLDER_ID" \
@@ -84,6 +87,8 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: ffos-drive-receipt-${{ github.run_id }}
-          path: ${{ runner.temp }}/ffos-drive-upload/drive-receipt.json
+          path: |
+            ${{ runner.temp }}/drive-oauth-preflight.json
+            ${{ runner.temp }}/ffos-drive-upload/drive-receipt.json
           if-no-files-found: error
           retention-days: 14

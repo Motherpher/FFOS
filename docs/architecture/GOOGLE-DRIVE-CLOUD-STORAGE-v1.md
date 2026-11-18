@@ -1,6 +1,6 @@
 # FFOS Cloud Storage v1 — Google Drive adapter
 
-**Initiated:** 2026-11-16 · FFOS DevOps level L3 (external persistent writes / credential scope) · **State:** implementation and offline CI candidate, not authenticated live accepted until a Google OAuth grant is configured and a real Drive readback passes.
+**Initiated:** 2026-11-16 · FFOS DevOps level L3 (external persistent writes / credential scope) · **State:** OAuth branding/domain configuration verified by Director screenshot 2026-11-18; implementation/offline CI ready; authenticated live acceptance still HOLD until Desktop OAuth client/grant, GitHub secret admission, folder preflight and real Drive readback pass.
 
 ## Grounded destination
 
@@ -15,7 +15,13 @@ Director-supplied private My Drive folder [Form & Flöde Operational System - wo
 - Google Drive is a useful persistent working file store, **not** immutable object storage: owners/editors can still change/remove files, Drive revisions have separate retention rules, and quotas apply. Do not treat the 'new folder per run' convention as WORM or legally secure archival.
 - GitHub Actions retention remains 14 days as a second evidence trail.
 
-## Required authentication — NOT yet connected
+## Google Auth Platform identity — branding blocker cleared
+
+Director evidence on 2026-11-18 confirms Google Auth Platform Branding is saved for **FFOS Cloud Drive**, with Form & Flöde logo, support/developer contact, `https://formflode.com` homepage, `/privacy`, `/terms`, authorized domain `formflode.com`, and publishing status **Testing**. Google reports app verification is not required while Testing.
+
+This proves the app identity/domain layer only. OAuth client credentials, offline grant and Drive folder access remain separate.
+
+## Required authentication — OAuth grant not yet live accepted
 
 The ChatGPT Google Drive connector grants **ChatGPT** access. It does not grant GitHub-hosted runners access. To bind Actions, Director must explicitly authorize a separate OAuth client/grant, with offline access and access to this particular root folder. Recommended: a dedicated automation identity and the least-privileged `drive.file` scope **only if the folder is explicitly selected/shared with the app using Google Picker or an equivalent authorized file picker**. Google Drive states `drive.file` does not automatically grant access to arbitrary existing folders. Do not silently escalate to full `drive` scope (restricted, whole-Drive access). A full-scope OAuth grant needs a separate documented Director decision and risk review.
 
@@ -27,9 +33,12 @@ Each repo needs secrets named:
 Save these secrets ONLY in the dedicated GitHub Actions **`drive-publish` environment** (not `cloud-pilot`); the Drive publication occurs in a separate job after computing and uploading short-lived artifacts. Do not paste secrets into chat, issues, commits, logs, documents or Google Drive. The FFOS `drive-publish` environment has Director (`Hybrismannen`) required reviewer protection verified 2026-11-16. GitHub rejected required reviewers on FF-Spatial's `drive-publish` environment (HTTP 422, current plan does not support this protection); its Drive job therefore requires **both** `persist_to_drive=true` and a separate administrator-set GitHub Actions variable `FFSPATIAL_DRIVE_PUBLISH_ENABLED=true`. Leave that variable unset until a verified equivalent protection mechanism is available, or upgrade/provision an eligible environment. Merely configuring secrets in FF-Spatial is insufficient to activate its Drive writes. Google credentials can expire/revoke; the adapter fails closed.
 
 OAuth consent procedure (authorized operator):
-1. Configure a Google Cloud project and enable Google Drive API; set an OAuth consent screen and an appropriate OAuth client for the designated automation identity.
-2. Authorize **offline** access using a controlled OAuth flow with the appropriate `drive.file` scope and explicitly select the destination root folder via Picker. Record consent scope and identity privately. Never use the existing ChatGPT connector's token in GitHub.
-3. Create the three named secrets inside `drive-publish` in both repositories. Keep FF-Spatial's extra enable variable unset until equivalent deployment protection has been established, and ensure Director acceptance. Validate the OAuth grant has **writer access** specifically to folder `1xO4YWl4yQmyRJ6t-A_4j9vaVDkiBhArD` without broadening permissions.
+1. In Google Cloud **Clients**, create a **Desktop app** OAuth client for the one-time FFOS bootstrap. Keep the Google Drive API enabled. Do not use a client type that cannot use loopback redirect URIs.
+2. Run `python scripts/google_drive_oauth_bootstrap.py --token-file <private-local-path> --folder-id 1xO4YWl4yQmyRJ6t-A_4j9vaVDkiBhArD`. Enter the Desktop client ID/secret locally when prompted. The helper requests only `drive.file`, offline access and PKCE; it never prints the refresh token.
+3. If the existing governance root is not visible under `drive.file`, **do not broaden to full Drive scope**. Either authorize that root through Google Picker/equivalent app authorization, or rerun the helper with `--create-managed-root "FFOS Cloud Drive Runtime"`. The latter creates an app-owned folder; manually move that folder beneath the approved governance root, then use its ID as `FFOS_GDRIVE_ROOT_FOLDER_ID`.
+4. Create the three named secrets inside GitHub `drive-publish`: `FFOS_GDRIVE_CLIENT_ID`, `FFOS_GDRIVE_CLIENT_SECRET`, `FFOS_GDRIVE_REFRESH_TOKEN`. Never paste them into chat/issues/commits/logs. Delete the local token file after GitHub secret admission is confirmed.
+5. Manually run **FFOS Google Drive OAuth preflight**. It refreshes the token and verifies folder identity + writable-folder capability without mutation. If using an app-managed child, pass its ID or set environment variable `FFOS_GDRIVE_ROOT_FOLDER_ID`.
+6. Only after preflight PASS, run the Kolada canary with `persist_to_drive=true`.
 4. In GitHub Actions manually run `FFOS cloud API — Kolada municipality` with `municipality_id=0380` and `persist_to_drive=true`. Verify that Google Drive contains a new `FFOS_kolada_0380_<runid>` child, the two source files, and the resulting GitHub `drive-receipt.json` with `readback_verified=true`, SHA256, file IDs.
 5. Only after FF-Spatial has appropriate access protections, set its `FFSPATIAL_DRIVE_PUBLISH_ENABLED=true` GitHub Actions variable; then run `FF-Spatial cloud headless ADM1` with `persist_to_drive=true`. Verify the GeoPackage (EPSG:3006, 21 features in the previously accepted public pilot) plus provenance; verify authenticated Drive readback digest.
 6. Check quotas, access from the intended operator account, storage costs, retrieval and document lifecycle. Mark accepted only after both real uploads and later independent download checks succeed.
