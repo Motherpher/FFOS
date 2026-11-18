@@ -18,7 +18,7 @@ def preflight(root_folder_id):
         os.environ.get("FFOS_GDRIVE_CLIENT_SECRET", ""),
         os.environ.get("FFOS_GDRIVE_REFRESH_TOKEN", ""),
     )
-    folder = DriveStorage(token).probe_folder(root_folder_id)
+    folder = DriveStorage(token, approved_root_id=root_folder_id).probe_folder(root_folder_id)
     return {
         "schema": "ffos.drive-oauth-preflight.v1",
         "status": "verified",
