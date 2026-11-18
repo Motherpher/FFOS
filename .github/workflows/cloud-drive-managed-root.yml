@@ -1,0 +1,29 @@
+name: FFOS Google Drive managed runtime root
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  create-managed-root:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    environment: drive-publish
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Create app-owned FFOS runtime folder
+        env:
+          FFOS_GDRIVE_CLIENT_ID: ${{ secrets.FFOS_GDRIVE_CLIENT_ID }}
+          FFOS_GDRIVE_CLIENT_SECRET: ${{ secrets.FFOS_GDRIVE_CLIENT_SECRET }}
+          FFOS_GDRIVE_REFRESH_TOKEN: ${{ secrets.FFOS_GDRIVE_REFRESH_TOKEN }}
+        run: |
+          python -m integrations.cloud.drive_managed_root \
+            --receipt "$RUNNER_TEMP/drive-managed-root.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ffos-drive-managed-root-${{ github.run_id }}
+          path: ${{ runner.temp }}/drive-managed-root.json
+          if-no-files-found: error
+          retention-days: 14
