@@ -98,3 +98,14 @@ The existing `apps/web/lib/projecthub/server.ts` checks the Director session and
 **Approval action:** The Director opens run #44300285768, selects the pending `projecthub-read-canary` deployment and approves it in GitHub. After the job finishes, inspect its conclusion and JSON output in Actions logs; only then register `LIVE_CANARY_PASS` if all checks succeed. Do not automatically set `FFOS_PROJECTHUB_READS_ENABLED=true` or deploy the Next.js app from this canary.
 
 The original append-capable `ffos_projecthub_runtime` remains separate and is **not** a member of the login. The SELECT-only role is applied only after server-side Director and project-scope authorization. The custom PostgreSQL setting is a scoping mechanism, not an authentication proof.
+
+
+## WP02 TLS diagnosis and pinned CA remediation — 2026-11-19
+
+Live Director-approved runs [#44300285768](https://github.com/Motherpher/FFOS/actions/runs/44300285768) and [#44391916261](https://github.com/Motherpher/FFOS/actions/runs/44391916261) failed at `CONNECT`. The second run's safe diagnostics established `SELF_SIGNED_CERT_IN_CHAIN` **before database authentication**. A credential-free `openssl s_client -starttls postgres` check independently observed that the Supabase shared session pooler presents a chain ending in `Supabase Root 2021 CA` with a wildcard certificate for `*.pooler.supabase.com`; Node's default CA bundle does not include this private issuer.
+
+The correction is `scripts/projecthub-verify-supabase-tls.sh`: fetch the **public** Supabase root CA over HTTPS from Supabase-owned endpoints; verify the pinned SHA-256 X.509 fingerprint `807025AD50D4ED219D2C9C7D299C004F824EB00CF7F65AFEF607D07B72E6CAFA`; then validate the live pooler certificate chain **and hostname** with OpenSSL. This credential-free check runs on pull requests. Only after it passes may the protected canary use `NODE_EXTRA_CA_CERTS` pointing to the verified temporary CA, retaining `rejectUnauthorized: true`. Do not disable SSL verification or add `sslmode` or `sslrootcert` to the DSN, since those parameters may override Node `pg` options.
+
+**Evidence contract:** TLS preflight PASS is necessary but not sufficient for WP02 PASS. An independently approved live canary must subsequently authenticate the restricted login, verify the reader-only role, confirm absent/foreign project scopes return no data and confirm denied direct table access. The current status remains `WP02_HOLD` until that live run succeeds.
+
+**Trust and rotation:** The root certificate is public, not a secret. Fingerprint pinning is an operator-level trust decision against Supabase's published root; future CA rotations must be reconciled against authenticated Supabase guidance and a reviewed change. Never trust an unverified certificate just because a network endpoint returned it.
