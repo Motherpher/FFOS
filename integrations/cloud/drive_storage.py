@@ -158,14 +158,38 @@ class DriveStorage:
             headers["Content-Type"] = content_type
         if accept:
             headers["Accept"] = accept
-        with self.opener.open(
-            Request(url, data=payload, headers=headers, method=method),
-            timeout=75
-        ) as res:
-            result = res.read(MAX_FILE_BYTES + 1)
-            if len(result) > MAX_FILE_BYTES:
-                raise ValueError("Google response exceeds limit")
-            return res.status, dict(res.headers), result
+        try:
+            with self.opener.open(
+                Request(url, data=payload, headers=headers, method=method),
+                timeout=75
+            ) as res:
+                result = res.read(MAX_FILE_BYTES + 1)
+                if len(result) > MAX_FILE_BYTES:
+                    raise ValueError("Google response exceeds limit")
+                return res.status, dict(res.headers), result
+        except HTTPError as exc:
+            safe_reason = "http_error"
+            safe_message = "Google Drive request rejected"
+            try:
+                body = json.loads(exc.read(16384))
+                err = body.get("error", {})
+                if isinstance(err, dict):
+                    msg = err.get("message")
+                    if isinstance(msg, str):
+                        safe_message = msg.replace("\n"," ").replace("\r"," ")[:300]
+                    errors = err.get("errors")
+                    if isinstance(errors, list) and errors and isinstance(errors[0], dict):
+                        reason = errors[0].get("reason")
+                        if isinstance(reason, str):
+                            safe_reason = reason[:120]
+                    status_name = err.get("status")
+                    if safe_reason == "http_error" and isinstance(status_name, str):
+                        safe_reason = status_name[:120]
+            except Exception:
+                pass
+            raise ValueError(
+                f"Google Drive request failed [{exc.code}/{safe_reason}]: {safe_message}"
+            ) from None
 
     def probe_folder(self, folder_id):
         if not DRIVE_ID.fullmatch(folder_id):
