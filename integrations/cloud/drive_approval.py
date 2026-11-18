@@ -9,6 +9,7 @@ import hashlib
 import hmac
 import json
 import sqlite3
+from contextlib import closing
 from datetime import datetime, timezone
 
 POLICY_ID = "OAI-DRIVE-APPEND-ONLY-001"
@@ -118,7 +119,7 @@ def verify_and_consume(signed_record, *, shared_verifier_secret, requested,
     # A durable, shared backend is required for concurrent production workers.
     # SQLite is appropriate only for local, single-host candidate verification.
     try:
-        with sqlite3.connect(ledger_path, timeout=5, isolation_level=None) as db:
+        with closing(sqlite3.connect(ledger_path, timeout=5, isolation_level=None)) as db:
             db.execute("CREATE TABLE IF NOT EXISTS used_approvals "
                        "(approval_id TEXT PRIMARY KEY, nonce TEXT UNIQUE NOT NULL)")
             db.execute("BEGIN IMMEDIATE")
@@ -132,9 +133,3 @@ def verify_and_consume(signed_record, *, shared_verifier_secret, requested,
             "approval_id": payload["approval_id"], "target_id": payload["target_id"],
             "effect_digest": payload["effect_digest"]}
 
-
-def make_test_only_signature(payload, secret):
-    """Test helper. NEVER expose an approval-signing method to AI clients."""
-    return {"payload": payload,
-            "signature": hmac.new(secret, _canonical(payload),
-                                  hashlib.sha256).hexdigest()}
