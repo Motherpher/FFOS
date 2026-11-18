@@ -23,6 +23,59 @@ MAX_FILES = 12
 SAFE_NAME = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,119}$")
 DRIVE_ID = re.compile(r"^[A-Za-z0-9_-]{12,120}$")
 
+def _assert_create_only_drive_request(url, method, payload):
+    """Policy OAI-DRIVE-APPEND-ONLY-001: deny mutation APIs before network I/O.
+
+    This adapter permits only folder creation, new resumable upload initiation,
+    continuation of that new upload session, and Drive reads. It has no edit,
+    move, rename, permission-change, trash, overwrite or delete capability.
+    """
+    from urllib.parse import parse_qs
+    parsed = urlsplit(url)
+    args = parse_qs(parsed.query, keep_blank_values=True)
+    path = parsed.path
+    method = method.upper()
+    if parsed.scheme != "https" or parsed.hostname != "www.googleapis.com":
+        raise PermissionError("AI Drive policy: unapproved provider endpoint")
+    if method == "GET":
+        if path.startswith("/drive/v3/files/") and len(path) > len("/drive/v3/files/"):
+            return
+        raise PermissionError("AI Drive policy: only bounded file reads allowed")
+    if method == "POST" and path == "/drive/v3/files":
+        # Every direct POST must be a new folder, never an update or shortcut.
+        try:
+            item = json.loads(payload or b"{}")
+        except (TypeError, ValueError):
+            raise PermissionError("AI Drive policy: unvalidated folder create")
+        if (item.get("mimeType") == "application/vnd.google-apps.folder"
+                and isinstance(item.get("name"), str)
+                and isinstance(item.get("parents"), list)
+                and len(item["parents"]) == 1
+                and "id" not in item
+                and set(item) == {"name", "mimeType", "parents"}):
+            return
+    if method == "POST" and path == "/upload/drive/v3/files":
+        try:
+            item = json.loads(payload or b"{}")
+        except (TypeError, ValueError):
+            raise PermissionError("AI Drive policy: unvalidated upload create")
+        if (args.get("uploadType") == ["resumable"]
+                and item.get("mimeType") == "application/octet-stream"
+                and isinstance(item.get("name"), str)
+                and isinstance(item.get("parents"), list)
+                and len(item["parents"]) == 1
+                and "id" not in item
+                and set(item) == {"name", "parents", "mimeType"}):
+            return
+    if (method == "PUT" and path == "/upload/drive/v3/files"
+            and len(args.get("upload_id", [])) == 1
+            and bool(args["upload_id"][0])):
+        # Only the new-upload session path; never files.update / file-ID routes.
+        return
+    raise PermissionError(
+        "AI Drive policy OAI-DRIVE-APPEND-ONLY-001: mutation denied before effect"
+    )
+
 class NoRedirect(HTTPRedirectHandler):
     def redirect_request(self, *args, **kwargs):
         raise ValueError("Unapproved HTTP redirect in Google Drive storage")
@@ -43,6 +96,7 @@ class DriveStorage:
             "www.googleapis.com", "oauth2.googleapis.com"
         ) or parsed.username or parsed.password or parsed.port not in (None, 443):
             raise ValueError("Google API endpoint not allowlisted")
+        _assert_create_only_drive_request(url, method, payload)
         headers = {"Authorization": f"Bearer {self.token}"}
         if content_type:
             headers["Content-Type"] = content_type
