@@ -59,6 +59,32 @@ class CoreSemantics(unittest.TestCase):
     def test_fake_completion_or_effect_authority_rejected(self):
         inv,config=fixture();config["modules"][0]["implementation_complete"]=True
         self.assertIn("UNSUPPORTED_COMPLETENESS_OR_AUTHORITY:identity",validate_module_contracts(inv,config)["findings"])
+    def test_canonical_core_cannot_be_reclassified_optional(self):
+        inv,config=fixture()
+        next(x for x in inv["modules"] if x["id"]=="identity")["requirement"]="OPTIONAL"
+        config["modules"][0]["enabled"]=False
+        result=validate_module_contracts(inv,config)
+        self.assertIn("CANONICAL_CLASSIFICATION_DRIFT:identity",result["findings"])
+        self.assertIn("CORE_DISABLED:identity",result["findings"])
+
+    def test_canonical_optional_cannot_be_reclassified_core(self):
+        inv,config=fixture()
+        next(x for x in inv["modules"] if x["id"]=="memory")["requirement"]="CORE"
+        result=validate_module_contracts(inv,config)
+        self.assertIn("CANONICAL_CLASSIFICATION_DRIFT:memory",result["findings"])
+
+    def test_non_string_control_value_matches_schema_denial(self):
+        inv,config=fixture()
+        config["modules"][0]["controls"]["definition_id"]=["spoofed", "identity"]
+        result=validate_module_contracts(inv,config)
+        self.assertIn("CONTROL_MISSING:identity:definition_id",result["findings"])
+
+    def test_nonempty_dict_control_is_not_accepted(self):
+        inv,config=fixture()
+        config["modules"][0]["controls"]["definition_id"]={"fake":"evidence"}
+        result=validate_module_contracts(inv,config)
+        self.assertIn("CONTROL_MISSING:identity:definition_id",result["findings"])
+
     def test_bad_version_rejected(self):
         inv,config=fixture();config["modules"][0]["version"]="latest"
         self.assertIn("VERSION_UNPINNED:identity",validate_module_contracts(inv,config)["findings"])
