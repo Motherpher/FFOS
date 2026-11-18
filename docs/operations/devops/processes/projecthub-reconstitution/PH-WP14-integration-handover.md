@@ -1,7 +1,7 @@
 # ProjectHub Reconstitution — PH-WP14 Integration & Handover
 
 **Process:** FFOS-DEVOPS-PH-RECON-001  
-**State:** TECHNICAL INTEGRATION COMPLETE / PROJECTION UPDATE IN PROGRESS  
+**State:** COMPLETE  
 **Date:** 2026-11-18
 
 ## Accepted baseline
@@ -63,4 +63,6 @@ The governed `Motherpher/form-flode/17-ffos` projection must now be updated so:
 - Pius/PIVE is optional governed ingress, not compulsory chain;
 - Barnombudet remains independent donor genealogy.
 
-PH-WP14 closes only after that projection update is merged.
+Projection PR #46 passed FFOS Projection Integrity and merged at `aae0c570be3572bd9a428a6eb26c0e67937d658d`.
+
+**PH-WP14 COMPLETE.**

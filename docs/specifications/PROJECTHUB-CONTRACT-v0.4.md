@@ -1,6 +1,6 @@
 # FFOS ProjectHub Contract v0.4
 
-**Status:** DESIGN BASELINE — FFOS-DEVOPS-PH-RECON-001  
+**Status:** CANONICAL ACCEPTED PROJECTHUB CONTRACT  
 **Date:** 2026-11-16  
 **Supersedes for new implementation:** ProjectHub Contract v0.3 semantics where explicitly changed below  
 **Historical v0.3 remains preserved in Motherpher/form-flode.**
@@ -312,4 +312,15 @@ All v0.3 laws not contradicted here—genealogy independence, monitoring, North 
 
 ## 20. Implementation state
 
-This contract is a design baseline. It becomes canonical for the reconstituted runtime only after the PH-WP13 Director release decision.
+Human Director disposition **ACCEPT** was issued at PH-WP13.
+
+The accepted native ProjectHub candidate `3196e3e8abc48bb18dd7698f78b4965403eec413` was merged through PR #79 at `d139bcda3d467fb2e6e9c6729c2ae26fc2ec7f1e`.
+
+Current state:
+- contract: **CANONICAL ACCEPTED**;
+- release: **RELEASED_INTERNAL_BASELINE**;
+- deployment: **NOT_DEPLOYED**;
+- PH-D4: **NOT ADMITTED**;
+- live provider writes: **NOT ADMITTED**.
+
+The governed FFC-side projection was updated through `Motherpher/form-flode` PR #46 at `aae0c570be3572bd9a428a6eb26c0e67937d658d`.

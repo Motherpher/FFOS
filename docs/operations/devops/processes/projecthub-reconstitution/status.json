@@ -4,8 +4,8 @@
   "level": "L3_CONTROLLED",
   "canonical_record": "https://github.com/Motherpher/FFOS/issues/77",
   "working_branch": "devops/projecthub-reconstitution-l3-20261116",
-  "current_phase": "RELEASE",
-  "active_wp": "PH-WP14",
+  "current_phase": "CLOSED",
+  "active_wp": null,
   "completed_wps": [
     "PH-WP01",
     "PH-WP02",
@@ -19,7 +19,9 @@
     "PH-WP10",
     "PH-WP11",
     "PH-WP12",
-    "PH-WP13"
+    "PH-WP13",
+    "PH-WP14",
+    "PH-WP15"
   ],
   "release_state": "RELEASED_INTERNAL_BASELINE",
   "deployment_state": "NOT_DEPLOYED",
@@ -68,5 +70,27 @@
       "run": 44203675697,
       "result": "UNRELATED_FAIL_TRACKED_ISSUE_84"
     }
-  }
+  },
+  "process_state": "CLOSED",
+  "projection_update": {
+    "repository": "Motherpher/form-flode",
+    "pr": 46,
+    "merge_commit": "aae0c570be3572bd9a428a6eb26c0e67937d658d",
+    "result": "PASS"
+  },
+  "residual_debt": [
+    "PRODUCTION_DB_ADMISSION",
+    "MULTI_USER_IDENTITY_RBAC",
+    "PH_D4_ADMISSION",
+    "LIVE_PROVIDER_WRITES",
+    "LIVE_A4_EFFECTS",
+    "OPTIONAL_DOMAIN_ADAPTER_PRODUCTION_BINDINGS"
+  ],
+  "unrelated_estate_debt": [
+    {
+      "issue": 84,
+      "code": "HOUSEHOLD_NPM_AUDIT_ADVISORY_DRIFT"
+    }
+  ],
+  "closeout": "docs/operations/devops/processes/projecthub-reconstitution/CLOSEOUT-2026-11-18.md"
 }
