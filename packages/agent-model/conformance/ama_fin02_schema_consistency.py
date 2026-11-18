@@ -15,6 +15,18 @@ def audit(schema:dict,inventory:dict)->dict:
     findings=[]
     branches=schema.get("properties",{}).get("modules",{}).get("items",{}).get("oneOf",[])
     by_id={}
+    cardinality=schema.get("properties",{}).get("modules",{}).get("allOf",[])
+    cardinality_ids=[]
+    for entry in cardinality:
+        if not isinstance(entry,dict):
+            findings.append("INVALID_CARDINALITY_ENTRY")
+            continue
+        ident=entry.get("contains",{}).get("properties",{}).get("id",{}).get("const")
+        if entry.get("minContains")!=1 or entry.get("maxContains")!=1:
+            findings.append("INVALID_MODULE_CARDINALITY:"+str(ident))
+        cardinality_ids.append(ident)
+    if len(cardinality_ids)!=32 or len(set(cardinality_ids))!=32 or set(cardinality_ids)!=set(CONTROLS):
+        findings.append("MODULE_CARDINALITY_INCOMPLETE")
     for branch in branches:
         ident=branch.get("properties",{}).get("id",{}).get("const")
         if ident in by_id:findings.append("DUPLICATE_SCHEMA_MODULE:"+str(ident))
