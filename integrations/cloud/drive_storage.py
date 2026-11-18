@@ -295,12 +295,18 @@ class DriveStorage:
         from urllib.parse import parse_qs
         q = parse_qs(parsed.query, keep_blank_values=True)
         expected_fields = "id,name,size,parents,md5Checksum,version"
-        allowed_keys = {"upload_id", "uploadType", "fields"}
+        allowed_keys = {"upload_id", "uploadType", "fields", "session_crd"}
+        session_crd = q.get("session_crd")
+        session_crd_ok = (
+            session_crd is None
+            or (len(session_crd) == 1 and bool(session_crd[0]))
+        )
         allowed_query_shape = (
             set(q).issubset(allowed_keys)
             and set(q) >= {"upload_id"}
             and q.get("uploadType", ["resumable"]) == ["resumable"]
             and q.get("fields", [expected_fields]) == [expected_fields]
+            and session_crd_ok
         )
         if (parsed.scheme != "https" or parsed.hostname != "www.googleapis.com"
                 or parsed.path != "/upload/drive/v3/files"
@@ -308,7 +314,12 @@ class DriveStorage:
                 or not allowed_query_shape or len(q.get("upload_id", [])) != 1
                 or not q["upload_id"][0] or session_url in self.consumed_upload_sessions
                 or session_url in self.pending_upload_sessions):
-            raise PermissionError("Foreign or malformed upload session returned by provider")
+            raise PermissionError(
+                "Foreign or malformed upload session returned by provider "
+                f"[scheme={parsed.scheme};host={parsed.hostname};path={parsed.path};"
+                f"keys={','.join(sorted(q))};uploadType={q.get('uploadType', [''])[0]};"
+                f"fields_match={q.get('fields', [expected_fields]) == [expected_fields]}]"
+            )
         self.pending_upload_sessions[session_url] = {
             "parent_id": parent_id, "name": path.name,
             "sha256": expected_hash, "size": size,
