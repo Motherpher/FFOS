@@ -6,7 +6,7 @@
   "core_count": 13,
   "optional_count": 19,
   "verified_complete": 0,
-  "assurance": "SOURCE_INVENTORY_AND_CATALOG_MAPPING_ONLY_NO_EXECUTABLE_PASS",
+  "assurance": "32_CANDIDATE_SEMANTIC_CONTROL_CONTRACTS_SOURCE_CHECKED_NOT_EXECUTABLE_PASS",
   "module_work_items": [
     {
       "id": "identity",
@@ -17,16 +17,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "mandate",
@@ -37,16 +42,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "instruction",
@@ -59,16 +69,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "capability",
@@ -79,16 +94,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "workflow",
@@ -99,16 +119,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "command",
@@ -119,16 +144,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "adapter",
@@ -139,16 +169,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "authorization",
@@ -159,16 +194,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "task-execution",
@@ -179,16 +219,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "evidence",
@@ -199,16 +244,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "conformance",
@@ -219,16 +269,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "lifecycle",
@@ -239,16 +294,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "cognition",
@@ -259,16 +319,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "context",
@@ -279,16 +344,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "memory",
@@ -299,16 +369,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "retrieval",
@@ -319,16 +394,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "knowledge",
@@ -345,16 +425,21 @@
         "CONTENT_VERIFICATION"
       ],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "multi-agent",
@@ -367,16 +452,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "eventing",
@@ -394,16 +484,21 @@
         "PER_TRIGGER_POLICY_CHECK"
       ],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "durability",
@@ -414,16 +509,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "human-interaction",
@@ -437,16 +537,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "observability",
@@ -459,16 +564,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "evaluation",
@@ -479,16 +589,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "safety",
@@ -502,16 +617,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "privacy",
@@ -525,16 +645,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "secrets",
@@ -551,16 +676,21 @@
         "ACCESS_AUDIT"
       ],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "interoperability",
@@ -574,16 +704,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "deployment",
@@ -597,16 +732,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "operations",
@@ -617,16 +757,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "cost-control",
@@ -640,16 +785,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "localization",
@@ -666,16 +816,21 @@
         "ACCESSIBILITY_HOST_TESTING"
       ],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     },
     {
       "id": "governance",
@@ -689,16 +844,21 @@
       "negative_test_path": null,
       "host_obligations": [],
       "six_dimension_status": {
-        "normative_contract": "CANDIDATE_NOT_ACCEPTED",
-        "validation": "NOT_EXECUTED",
-        "negative_regression": "NOT_EXECUTED",
+        "normative_contract": "CANDIDATE_WITH_TYPED_CONTROL_FIELDS_NOT_ACCEPTED",
+        "validation": "SEMANTIC_CONTROL_PREFLIGHT_ADDED_NOT_EXECUTED",
+        "negative_regression": "PER_MODULE_NEGATIVE_CASE_COMMITTED_NOT_EXECUTED",
         "construction_blueprint": "NOT_VERIFIED",
         "compatibility": "NOT_VERIFIED",
         "host_obligations": "NOT_ATTESTED"
       },
       "catalog_release_claim": "NOT_COMPLETED",
       "release_disposition": "HOLD",
-      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance."
+      "required_action": "Produce verifiable contract, validator, negative test, blueprint, migration, host-binding assessment and exact-head evidence; obtain independent acceptance.",
+      "semantic_contract_candidate": "packages/agent-model/conformance/ama_fin02_semantic_modules.py",
+      "machine_schema_candidate": "packages/agent-model/schemas/v0.2/fin02-module-controls.schema.json",
+      "semantic_negative_test_candidate": "packages/agent-model/conformance/tests/test_ama_fin02_semantic_modules.py",
+      "blueprint_integration_candidate": "packages/agent-model/conformance/ama_blueprint.py",
+      "semantic_contract_status": "SOURCE_MAPPED_EXECUTABLE_VERIFICATION_PENDING"
     }
   ],
   "stop_conditions": [
