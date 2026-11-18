@@ -8,6 +8,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   read-only-acceptance:
+    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     timeout-minutes: 8
     environment: projecthub-read-canary
