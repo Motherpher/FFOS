@@ -308,7 +308,12 @@ class DriveStorage:
                 or not allowed_query_shape or len(q.get("upload_id", [])) != 1
                 or not q["upload_id"][0] or session_url in self.consumed_upload_sessions
                 or session_url in self.pending_upload_sessions):
-            raise PermissionError("Foreign or malformed upload session returned by provider")
+            raise PermissionError(
+                "Foreign or malformed upload session returned by provider "
+                f"[scheme={parsed.scheme};host={parsed.hostname};path={parsed.path};"
+                f"keys={','.join(sorted(q))};uploadType={q.get('uploadType', [''])[0]};"
+                f"fields_match={q.get('fields', [expected_fields]) == [expected_fields]}]"
+            )
         self.pending_upload_sessions[session_url] = {
             "parent_id": parent_id, "name": path.name,
             "sha256": expected_hash, "size": size,
