@@ -15,7 +15,7 @@ const pool=new Pool({
 });
 const report={schema:"ffos.projecthub.read-canary.v1",outcome:"HOLD",
   login_verified:false,role_verified:false,scope_verified:false,
-  writer_denied:false,zero_rows_without_scope:false,zero_rows_with_nonexistent_scope:false};
+  direct_access_denied:false,zero_rows_without_scope:false,zero_rows_with_nonexistent_scope:false};
 try{
  const c=await pool.connect();
  try {
@@ -28,7 +28,7 @@ try{
    try{await c.query("SELECT 1 FROM ffos.projecthub_projects LIMIT 1");}
    catch{blocked=true;}
    assert.equal(blocked,true,"Login can bypass the restricted reader role");
-   report.writer_denied=true;
+   report.direct_access_denied=true;
    await c.query("BEGIN READ ONLY");
    try {
      await c.query("SET LOCAL ROLE ffos_projecthub_reader");
