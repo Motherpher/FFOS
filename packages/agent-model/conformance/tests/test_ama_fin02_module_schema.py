@@ -44,4 +44,21 @@ class ModuleContractSchemaTests(unittest.TestCase):
         self.assertIn("not a runtime authorization",self.schema["description"])
         self.assertNotIn("activationAuthorized",self.schema["properties"])
 
+
+    def test_duplicate_module_substituting_another_id_denied(self):
+        _,config=fixture()
+        config["modules"][1]=copy.deepcopy(config["modules"][0])
+        self.deny(config)
+
+    def test_duplicate_optional_module_substitution_denied(self):
+        _,config=fixture()
+        config["modules"][-2]=copy.deepcopy(config["modules"][-1])
+        self.deny(config)
+
+    def test_optional_claimed_approval_false_denied(self):
+        _,config=fixture()
+        row=activate(config,"localization")
+        row["approval_attested"]=False
+        self.deny(config)
+
 if __name__=="__main__":unittest.main()
