@@ -4,8 +4,8 @@
   "level": "L3_CONTROLLED",
   "canonical_record": "https://github.com/Motherpher/FFOS/issues/77",
   "working_branch": "devops/projecthub-reconstitution-l3-20261116",
-  "current_phase": "RELEASE",
-  "active_wp": "PH-WP13",
+  "current_phase": "CLOSED",
+  "active_wp": null,
   "completed_wps": [
     "PH-WP01",
     "PH-WP02",
@@ -18,17 +18,20 @@
     "PH-WP09",
     "PH-WP10",
     "PH-WP11",
-    "PH-WP12"
+    "PH-WP12",
+    "PH-WP13",
+    "PH-WP14",
+    "PH-WP15"
   ],
-  "release_state": "RELEASE_CANDIDATE_AWAITING_ASSURANCE_AND_DIRECTOR",
+  "release_state": "RELEASED_INTERNAL_BASELINE",
   "deployment_state": "NOT_DEPLOYED",
-  "acceptance_state": "NOT_ACCEPTED",
+  "acceptance_state": "DIRECTOR_ACCEPTED_INTERNAL_BASELINE",
   "cdx_review_state": "REFER_TO_CANONICAL_CONTROL",
   "intake_baseline": "Motherpher/FFOS@4ba011f6b33d0608bcca4c1f89f09882f0cbb447",
   "design_contract": "docs/specifications/PROJECTHUB-CONTRACT-v0.4.md",
   "architecture": "docs/architecture/PROJECTHUB-NATIVE-ARCHITECTURE-v0.1.md",
   "ux_contract": "docs/specifications/PROJECTHUB-UX-CONTROL-ROOM-v0.1.md",
-  "last_updated": "2026-11-16",
+  "last_updated": "2026-11-18",
   "build_state": "BUILD_COMPLETE_TEST_ACTIVE",
   "projecthub_cdx_binding": "IMPLEMENTED_AWAITING_CI_AND_RELEASE_EVIDENCE",
   "test_state": "PASS",
@@ -46,5 +49,48 @@
     "cloud_run": 43793039860,
     "devops_watch_run": 43793039761
   },
-  "runtime_implementation_head": "fe3d1ecf3f17b42e897092e5bb31d68b42fa32c5"
+  "runtime_implementation_head": "fe3d1ecf3f17b42e897092e5bb31d68b42fa32c5",
+  "director_disposition": "ACCEPT",
+  "accepted_candidate_head": "3196e3e8abc48bb18dd7698f78b4965403eec413",
+  "merge_commit": "d139bcda3d467fb2e6e9c6729c2ae26fc2ec7f1e",
+  "post_merge_checks": {
+    "cdx_runtime_binding": {
+      "run": 44203675679,
+      "result": "PASS"
+    },
+    "devops_watch": {
+      "run": 44203675652,
+      "result": "PASS"
+    },
+    "household_ci": {
+      "run": 44203675680,
+      "result": "PASS"
+    },
+    "household_security": {
+      "run": 44203675697,
+      "result": "UNRELATED_FAIL_TRACKED_ISSUE_84"
+    }
+  },
+  "process_state": "CLOSED",
+  "projection_update": {
+    "repository": "Motherpher/form-flode",
+    "pr": 46,
+    "merge_commit": "aae0c570be3572bd9a428a6eb26c0e67937d658d",
+    "result": "PASS"
+  },
+  "residual_debt": [
+    "PRODUCTION_DB_ADMISSION",
+    "MULTI_USER_IDENTITY_RBAC",
+    "PH_D4_ADMISSION",
+    "LIVE_PROVIDER_WRITES",
+    "LIVE_A4_EFFECTS",
+    "OPTIONAL_DOMAIN_ADAPTER_PRODUCTION_BINDINGS"
+  ],
+  "unrelated_estate_debt": [
+    {
+      "issue": 84,
+      "code": "HOUSEHOLD_NPM_AUDIT_ADVISORY_DRIFT"
+    }
+  ],
+  "closeout": "docs/operations/devops/processes/projecthub-reconstitution/CLOSEOUT-2026-11-18.md"
 }

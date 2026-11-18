@@ -46,6 +46,17 @@ Director is external governing authority and governs purpose, mandate, prioritie
 
 AMA does not implement Pius inside FFOS and does not replace Conductellence. See `agent-stable/ama/README.md`.
 
+## Native ProjectHub
+
+FFOS ProjectHub is now merged as the accepted **internal native baseline** under `FFOS-DEVOPS-PH-RECON-001` and ProjectHub Contract v0.4. It supports `FULL_FF`, `CONFIGURED` and `PROJECT_NATIVE`, so projects do not require FFC or Pius by default.
+
+**Release:** RELEASED_INTERNAL_BASELINE  
+**Deployment:** NOT_DEPLOYED  
+**Implementation:** `modules/projecthub/` + `packages/projecthub-model/` + protected `apps/web` routes  
+**Accepted merge:** `d139bcda3d467fb2e6e9c6729c2ae26fc2ec7f1e`
+
+Live production database admission, PH-D4 data, broad multi-user rollout and external provider writes remain separately governed.
+
 ## Initial application spaces
 
 - Counter

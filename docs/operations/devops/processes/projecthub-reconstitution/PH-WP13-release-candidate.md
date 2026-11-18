@@ -2,10 +2,11 @@
 
 **Process:** FFOS-DEVOPS-PH-RECON-001  
 **Level:** L3 Controlled  
-**State:** AWAITING_FINAL_ASSURANCE_AND_DIRECTOR_DISPOSITION  
+**State:** DIRECTOR_ACCEPTED / MERGED  
 **Date:** 2026-11-16  
-**Draft PR:** #79  
-**Runtime implementation head:** `fe3d1ecf3f17b42e897092e5bb31d68b42fa32c5`
+**Implementation PR:** #79 — MERGED  
+**Accepted candidate head:** `3196e3e8abc48bb18dd7698f78b4965403eec413`  
+**Merge commit:** `d139bcda3d467fb2e6e9c6729c2ae26fc2ec7f1e`
 
 ## Candidate proposition
 
@@ -82,4 +83,14 @@ A previous generic `Proceed` is not interpreted as one of these dispositions.
 
 ## Current disposition
 
-**AWAITING_DIRECTOR_DECISION.**
+**ACCEPT — Human Director, 2026-11-18.**
+
+The disposition accepts the native internal ProjectHub baseline for merge/release integration. It does not authorize live production DB admission, PH-D4 handling, broad multi-user deployment, live provider writes, payment/contract/grant effects, automatic Pius routing or Barnombudet synchronization.
+
+PR #79 was merged at `d139bcda3d467fb2e6e9c6729c2ae26fc2ec7f1e`.
+
+Post-merge:
+- CDX Runtime Binding 44203675679 — PASS;
+- FFOS DevOps model release watch 44203675652 — PASS;
+- Household Family CI 44203675680 — PASS;
+- Household Family Security 44203675697 — unrelated npm advisory drift, tracked separately in Issue #84. ProjectHub changed no Household files.

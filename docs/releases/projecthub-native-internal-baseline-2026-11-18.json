@@ -1,0 +1,27 @@
+{
+  "schema": "ffos.projecthub.release/v0.1",
+  "release_id": "PROJECTHUB_NATIVE_INTERNAL_BASELINE_2026-11-18",
+  "process_id": "FFOS-DEVOPS-PH-RECON-001",
+  "director_disposition": "ACCEPT",
+  "accepted_candidate_head": "3196e3e8abc48bb18dd7698f78b4965403eec413",
+  "merge_commit": "d139bcda3d467fb2e6e9c6729c2ae26fc2ec7f1e",
+  "implementation_pr": 79,
+  "release_state": "RELEASED_INTERNAL_BASELINE",
+  "deployment_state": "NOT_DEPLOYED",
+  "contract": "docs/specifications/PROJECTHUB-CONTRACT-v0.4.md",
+  "external_boundaries": [
+    "NO_LIVE_PRODUCTION_DB_ADMISSION",
+    "NO_PH_D4",
+    "NO_BROAD_MULTI_USER_DEPLOYMENT",
+    "NO_AUTONOMOUS_A4",
+    "NO_LIVE_PROVIDER_WRITES",
+    "NO_AUTOMATIC_PIUS_ROUTING",
+    "NO_BARNOMBUDET_SYNC"
+  ],
+  "unrelated_estate_debt": [
+    {
+      "issue": 84,
+      "code": "HOUSEHOLD_NPM_AUDIT_ADVISORY_DRIFT"
+    }
+  ]
+}
