@@ -71,6 +71,16 @@ class DriveStorageTests(unittest.TestCase):
             drive=FakeDrive()
             publish_directory(src,ROOT_ID,"FF-Spatial","run2",client=drive)
             self.assertEqual([x[2] for x in drive.calls[1:]],["other.csv"])
+    def test_drive_http_error_is_safe_and_classified(self):
+        class BadOpener:
+            def open(self,*_args,**_kwargs):
+                payload=b'{"error":{"code":403,"message":"Google Drive API has not been used in project 123 before or it is disabled.","errors":[{"reason":"accessNotConfigured"}],"status":"PERMISSION_DENIED"}}'
+                raise HTTPError("https://www.googleapis.com/drive/v3/files",403,"Forbidden",{},BytesIO(payload))
+        d=DriveStorage("token",opener=BadOpener(),approved_root_id=ROOT_ID)
+        d.created_folders.add(ROOT_ID)
+        with self.assertRaisesRegex(ValueError, r"403/accessNotConfigured.*disabled"):
+            d.probe_folder(ROOT_ID)
+
     def test_google_host_not_arbitrary(self):
         client=DriveStorage("test-token")
         with self.assertRaises(ValueError):
