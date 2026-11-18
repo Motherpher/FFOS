@@ -3,10 +3,10 @@ on:
   workflow_dispatch:
     inputs:
       root_folder_id:
-        description: 'drive.file-authorized destination folder ID; defaults to approved governance root'
+        description: 'Optional drive.file-authorized destination override; default comes from drive-publish environment'
         type: string
         required: false
-        default: '1xO4YWl4yQmyRJ6t-A_4j9vaVDkiBhArD'
+        default: ''
 permissions:
   contents: read
 jobs:
@@ -24,7 +24,7 @@ jobs:
           FFOS_GDRIVE_CLIENT_ID: ${{ secrets.FFOS_GDRIVE_CLIENT_ID }}
           FFOS_GDRIVE_CLIENT_SECRET: ${{ secrets.FFOS_GDRIVE_CLIENT_SECRET }}
           FFOS_GDRIVE_REFRESH_TOKEN: ${{ secrets.FFOS_GDRIVE_REFRESH_TOKEN }}
-          DRIVE_FOLDER_ID: ${{ inputs.root_folder_id }}
+          DRIVE_FOLDER_ID: ${{ inputs.root_folder_id || vars.FFOS_GDRIVE_ROOT_FOLDER_ID }}
         run: |
           python -m integrations.cloud.drive_oauth_preflight \
             --root-folder-id "$DRIVE_FOLDER_ID" \

@@ -27,7 +27,8 @@ DRIVE_ID = re.compile(r"^[A-Za-z0-9_-]{12,120}$")
 # code change and a separately matched deployment environment variable.
 # Policy/governance folder is NEVER a publisher destination.
 APPROVED_ROOT_IDS = frozenset({
-    "1xO4YWl4yQmyRJ6t-A_4j9vaVDkiBhArD",  # FFC workflow cloud
+    "1xO4YWl4yQmyRJ6t-A_4j9vaVDkiBhArD",  # FFC workflow cloud governance root
+    "1Ef5uGEs4TnTHz7G6ZgcyhzBVTw5hVnqi",  # FFOS app-authorized runtime child
 })
 POLICY_FOLDER_ID = "16jyKv3HHGcmNQY1XO_STdOmuSvnhUxkA"
 
