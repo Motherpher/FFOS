@@ -130,7 +130,13 @@ class DriveStorage:
             from urllib.parse import urlsplit as _urlsplit
             endpoint = _urlsplit(url).path
             if endpoint == "/drive/v3/files":
-                if parents != [self.approved_root_id]:
+                if self.approved_root_id is None:
+                    if not (parents == ["root"]
+                            and item.get("name") == "FFOS Cloud Drive Runtime"
+                            and item.get("mimeType") == "application/vnd.google-apps.folder"
+                            and set(item) == {"name","mimeType","parents"}):
+                        raise PermissionError("Unapproved managed-root creation")
+                elif parents != [self.approved_root_id]:
                     raise PermissionError("Unapproved creation parent")
             elif endpoint == "/upload/drive/v3/files":
                 if len(parents) != 1 or parents[0] not in self.created_folders:
@@ -182,6 +188,37 @@ class DriveStorage:
             "mime_type": meta.get("mimeType"),
             "can_add_children": True,
             "trashed": False,
+        }
+
+    def create_managed_root(self, name):
+        if self.approved_root_id is not None:
+            raise PermissionError("Managed root creation requires unbound root mode")
+        if name != "FFOS Cloud Drive Runtime":
+            raise ValueError("Unapproved managed-root name")
+        status, _, raw = self.request(
+            DRIVE_API + "?fields=id,name,mimeType,parents",
+            "POST", _json({
+                "name": name,
+                "mimeType": "application/vnd.google-apps.folder",
+                "parents": ["root"],
+            }), "application/json"
+        )
+        if status not in (200, 201):
+            raise ValueError("Google Drive managed-root creation failed")
+        meta = json.loads(raw)
+        folder_id = str(meta.get("id", ""))
+        if (not DRIVE_ID.fullmatch(folder_id)
+                or meta.get("name") != name
+                or meta.get("mimeType") != "application/vnd.google-apps.folder"):
+            raise ValueError("Google returned invalid managed-root metadata")
+        if folder_id in self.created_folders:
+            raise PermissionError("Provider returned a previously used folder ID")
+        self.created_folders.add(folder_id)
+        return {
+            "id": folder_id,
+            "name": name,
+            "mimeType": meta.get("mimeType"),
+            "parents": meta.get("parents", []),
         }
 
     def create_folder(self, parent_id, name):
