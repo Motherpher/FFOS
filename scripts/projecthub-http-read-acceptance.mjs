@@ -10,7 +10,8 @@ const report={
  schema:"ffos.projecthub.http-read-acceptance.v1", outcome:"HOLD",
  server_ready:false, anonymous_denied:false, bad_session_denied:false,
  bad_credentials_denied:false, valid_director_session:false,
- db_backed_unknown_project_404:false, db_backed_positive_project_200:false,\n portfolio_blocked:false,
+ db_backed_unknown_project_404:false, db_backed_positive_project_200:false,
+ portfolio_blocked:false,
  write_api_blocked:false, oversize_scope_blocked:false
 };
 const get=(path,cookie)=>fetch(origin+path,{
