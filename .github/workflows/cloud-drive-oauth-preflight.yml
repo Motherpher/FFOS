@@ -26,7 +26,7 @@ jobs:
           FFOS_GDRIVE_REFRESH_TOKEN: ${{ secrets.FFOS_GDRIVE_REFRESH_TOKEN }}
           DRIVE_FOLDER_ID: ${{ inputs.root_folder_id }}
         run: |
-          python integrations/cloud/drive_oauth_preflight.py \
+          python -m integrations.cloud.drive_oauth_preflight \
             --root-folder-id "$DRIVE_FOLDER_ID" \
             --receipt "$RUNNER_TEMP/drive-oauth-preflight.json"
       - uses: actions/upload-artifact@v4

@@ -81,7 +81,7 @@ jobs:
         run: |
           test -n "$FFOS_GDRIVE_APPROVED_ROOT_ID" || { echo 'HOLD: independent root approval variable unavailable'; exit 1; }
           test "$DRIVE_FOLDER_ID" = "$FFOS_GDRIVE_APPROVED_ROOT_ID" || { echo 'HOLD: creation root mismatched'; exit 1; }
-          python integrations/cloud/drive_oauth_preflight.py \
+          python -m integrations.cloud.drive_oauth_preflight \
             --root-folder-id "$DRIVE_FOLDER_ID" \
             --receipt "$RUNNER_TEMP/drive-oauth-preflight.json"
           python integrations/cloud/drive_storage.py \
