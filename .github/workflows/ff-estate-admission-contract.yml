@@ -1,0 +1,32 @@
+name: FF Estate admission contract tests
+on:
+  pull_request:
+    paths:
+      - 'packages/agent-runtime/scripts/live-admission-contract.mjs'
+      - 'packages/agent-runtime/scripts/ff-estate-readonly-admission.mjs'
+      - 'packages/agent-runtime/tests/live-admission-contract.test.mjs'
+      - '.github/workflows/ff-estate-admission-contract.yml'
+      - '.github/workflows/ff-estate-live-readonly.yml'
+  push:
+    paths:
+      - 'packages/agent-runtime/scripts/live-admission-contract.mjs'
+      - 'packages/agent-runtime/scripts/ff-estate-readonly-admission.mjs'
+      - 'packages/agent-runtime/tests/live-admission-contract.test.mjs'
+      - '.github/workflows/ff-estate-admission-contract.yml'
+      - '.github/workflows/ff-estate-live-readonly.yml'
+permissions:
+  contents: read
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate syntax and fail-closed checks
+        run: |
+          node --check packages/agent-runtime/scripts/live-admission-contract.mjs
+          node --check packages/agent-runtime/scripts/ff-estate-readonly-admission.mjs
+          node --test packages/agent-runtime/tests/live-admission-contract.test.mjs
