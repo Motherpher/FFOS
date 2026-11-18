@@ -4,6 +4,7 @@ import {readFile} from "node:fs/promises";
 import {resolve,dirname} from "node:path";
 import {fileURLToPath} from "node:url";
 import {PgProjectHubStore} from "../src/pg-store.ts";
+import {withScopedProjectHubRead} from "../src/scoped-pg.ts";
 import {GovernedProjectHubService} from "../src/governed-service.ts";
 
 const url=process.env.PROJECTHUB_TEST_DATABASE_URL;
@@ -22,6 +23,19 @@ test("PostgreSQL: atomic ProjectHub write and append-only history",{skip:!url},a
      methodologyProfile:"PROJECT_NATIVE",purpose:"Test",createdBy:"FFOS:DIRECTOR"});
    await svc.setField(ctx("FIELD"),"PG-P1","Need","DRAFT",{note:"test"});
    const p=await store.getProject("PG-P1");assert.equal(p.version,2);
+   // Read-only scoped adapter always uses a single transaction/connection.
+   const scopedProject=await withScopedProjectHubRead(pool,"PG-P1",store=>store.getProject("PG-P1"));
+   assert.equal(scopedProject?.id,"PG-P1");
+   const foreignProject=await withScopedProjectHubRead(pool,"UNRELATED",store=>store.getProject("PG-P1"));
+   assert.equal(foreignProject,null);
+   await assert.rejects(
+     ()=>withScopedProjectHubRead(pool,"PG-P1",store=>store.appendProject(p)),
+     /read-only transaction/i
+   );
+   await assert.rejects(
+     ()=>withScopedProjectHubRead(pool,"",store=>store.getProject("PG-P1")),
+     /PROJECT_SCOPE_REQUIRED/
+   );
    assert.equal((await store.listAuditEvents("PG-P1")).length,2);
    // A scoped NOLOGIN role is an internal execution privilege only.
    // No scope => zero rows; setting a different scope cannot read PG-P1.
