@@ -31,7 +31,7 @@ test("PostgreSQL: atomic ProjectHub write and append-only history",{skip:!url},a
        await client.query("BEGIN");
        await client.query("SET LOCAL ROLE ffos_projecthub_runtime");
        if(scope)await client.query("SELECT set_config('ffos.project_scope',$1,true)",[scope]);
-       const read=await client.query("SELECT project_id FROM ffos.projecthub_projects");
+       const read=await client.query("SELECT DISTINCT project_id FROM ffos.projecthub_projects");
        assert.equal(read.rows.length,expected);
      } finally { await client.query("ROLLBACK");client.release(); }
    }
