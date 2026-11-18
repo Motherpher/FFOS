@@ -78,7 +78,7 @@ jobs:
         run: |
           python integrations/cloud/drive_oauth_preflight.py \
             --root-folder-id "$DRIVE_FOLDER_ID" \
-            --receipt "$RUNNER_TEMP/ffos-drive-upload/drive-oauth-preflight.json"
+            --receipt "$RUNNER_TEMP/drive-oauth-preflight.json"
           python integrations/cloud/drive_storage.py \
             --source-dir "$RUNNER_TEMP/ffos-drive-upload" \
             --root-folder-id "$DRIVE_FOLDER_ID" \
@@ -88,7 +88,7 @@ jobs:
         with:
           name: ffos-drive-receipt-${{ github.run_id }}
           path: |
-            ${{ runner.temp }}/ffos-drive-upload/drive-oauth-preflight.json
+            ${{ runner.temp }}/drive-oauth-preflight.json
             ${{ runner.temp }}/ffos-drive-upload/drive-receipt.json
           if-no-files-found: error
           retention-days: 14
