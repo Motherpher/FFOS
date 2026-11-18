@@ -87,6 +87,7 @@ class DriveStorageTests(unittest.TestCase):
             def __init__(self, readback):
                 self.readback=readback
                 self.operations=[]
+                self.created_folders={ROOT_ID}  # synthetic new-parent fixture
             def request(self,url,method="GET",payload=None,content_type=None,accept=None):
                 self.operations.append((method,url))
                 if method=="POST":
