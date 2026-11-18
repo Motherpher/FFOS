@@ -22,6 +22,14 @@ MAX_FILE_BYTES = 100 * 1024 * 1024
 MAX_FILES = 12
 SAFE_NAME = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,119}$")
 DRIVE_ID = re.compile(r"^[A-Za-z0-9_-]{12,120}$")
+# Exact source-controlled allowlist. Adding a destination requires a reviewed
+# code change and a separately matched deployment environment variable.
+# Policy/governance folder is NEVER a publisher destination.
+APPROVED_ROOT_IDS = frozenset({
+    "1xO4YWl4yQmyRJ6t-A_4j9vaVDkiBhArD",  # FFC workflow cloud
+})
+POLICY_FOLDER_ID = "16jyKv3HHGcmNQY1XO_STdOmuSvnhUxkA"
+
 
 def _assert_create_only_drive_request(url, method, payload):
     """Policy OAI-DRIVE-APPEND-ONLY-001: deny mutation APIs before network I/O.
@@ -90,7 +98,7 @@ class DriveStorage:
         self.token = token
         self.opener = opener or build_opener(NoRedirect)
         # Without a separately configured approved root, this is read-only.
-        if approved_root_id is not None and not DRIVE_ID.fullmatch(approved_root_id):
+        if approved_root_id is not None and approved_root_id not in APPROVED_ROOT_IDS:
             raise ValueError("Invalid Director-approved Drive root ID")
         self.approved_root_id = approved_root_id
         self.created_folders = set()
@@ -300,7 +308,8 @@ def publish_directory(source_dir, root_folder_id, namespace, run_id, *,
            or p.stat().st_size == 0 for p in files):
         raise ValueError("Unsafe cloud artifact files")
     # A CLI-provided ID does not count as Director authorization.
-    if client is None and root_folder_id != os.environ.get("FFOS_GDRIVE_APPROVED_ROOT_ID"):
+    if client is None and (root_folder_id not in APPROVED_ROOT_IDS
+                           or root_folder_id != os.environ.get("FFOS_GDRIVE_APPROVED_ROOT_ID")):
         raise PermissionError("Director-approved Drive root configuration missing or mismatched")
     storage = client or DriveStorage(refresh_access_token(
         os.environ.get("FFOS_GDRIVE_CLIENT_ID", ""),
