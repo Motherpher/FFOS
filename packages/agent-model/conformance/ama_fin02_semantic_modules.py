@@ -42,6 +42,11 @@ CONTROLS = {
  "localization":("locale_policy","fallback_rule","accessibility_rule"),
  "governance":("accountable_owner","risk_register_ref","external_acceptance_rule"),
 }
+CANONICAL_CORE = frozenset((
+    "identity","mandate","instruction","capability","workflow","command",
+    "adapter","authorization","task-execution","evidence","conformance",
+    "lifecycle","governance"
+))
 VERSION=re.compile(r"^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:-[A-Za-z0-9.-]+)?$")
 
 def validate_module_contracts(inventory:dict, configuration:dict)->dict:
@@ -70,9 +75,10 @@ def validate_module_contracts(inventory:dict, configuration:dict)->dict:
             findings.append("MODULE_MISSING:"+name)
             continue
         evaluated+=1
-        core=source.get("requirement")=="CORE"
-        if source.get("requirement") not in ("CORE","OPTIONAL"):
-            findings.append("INVALID_CLASSIFICATION:"+name)
+        core=name in CANONICAL_CORE
+        expected_classification="CORE" if core else "OPTIONAL"
+        if source.get("requirement") != expected_classification:
+            findings.append("CANONICAL_CLASSIFICATION_DRIFT:"+name)
         if type(row.get("enabled")) is not bool:
             findings.append("INVALID_ENABLED:"+name)
             continue
@@ -89,9 +95,7 @@ def validate_module_contracts(inventory:dict, configuration:dict)->dict:
             controls={}
         for field in required:
             value=controls.get(field)
-            if not isinstance(value,(str,list,dict)) or not value:
-                findings.append("CONTROL_MISSING:"+name+":"+field)
-            elif isinstance(value,str) and not value.strip():
+            if not isinstance(value,str) or not value.strip():
                 findings.append("CONTROL_MISSING:"+name+":"+field)
         if not core:
             if not isinstance(row.get("approval_ref"),str) or not row["approval_ref"].strip():
