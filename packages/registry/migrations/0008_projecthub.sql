@@ -3,7 +3,7 @@
 CREATE SCHEMA IF NOT EXISTS ffos;
 
 CREATE OR REPLACE FUNCTION ffos.reject_projecthub_mutation()
-RETURNS trigger LANGUAGE plpgsql SET search_path = '' AS $
+RETURNS trigger LANGUAGE plpgsql SET search_path = '' AS $$
 BEGIN
   RAISE EXCEPTION 'FFOS ProjectHub history is append-only: % is not permitted on %', TG_OP, TG_TABLE_NAME;
 END;
