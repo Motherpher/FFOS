@@ -6,8 +6,14 @@ const url=process.env.FFOS_PROJECTHUB_READ_DATABASE_URL;
 if(!url)throw new Error("HOLD: restricted read-only connection secret absent");
 const clientUrl=new URL(url);
 assert.ok(["postgres:","postgresql:"].includes(clientUrl.protocol),"Invalid protocol");
-assert.ok(/\.supabase\.com$/.test(clientUrl.hostname),"Unexpected database host");
-assert.equal(clientUrl.username.split(".")[0],"ffos_projecthub_reader_login","Unexpected database login identity");
+assert.equal(clientUrl.hostname,"aws-0-eu-central-1.pooler.supabase.com","Unexpected pooler hostname");
+assert.equal(clientUrl.port,"5432","Unexpected pooler port (session mode required)");
+assert.equal(clientUrl.pathname,"/postgres","Unexpected database name");
+assert.equal(clientUrl.username,"ffos_projecthub_reader_login.tambsukbyoldkrxnmvpa","Unexpected database login");
+for(const key of ["sslmode","sslrootcert","sslcert","sslkey","uselibpqcompat"]){
+ if(clientUrl.searchParams.has(key))throw new Error("HOLD: DSN contains SSL settings that could override the pinned CA");
+}
+if(!process.env.NODE_EXTRA_CA_CERTS)throw new Error("HOLD: verified Supabase CA not configured");
 const pool=new Pool({
  connectionString:url,ssl:{rejectUnauthorized:true},max:1,
  connectionTimeoutMillis:7500,statement_timeout:7500,
