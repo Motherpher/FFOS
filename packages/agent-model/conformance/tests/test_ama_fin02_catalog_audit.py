@@ -117,5 +117,20 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(report["verified_complete"],0)
         self.assertIn("UNSUPPORTED_COMPLETE:identity",report["findings"])
 
+    def test_partial_implementation_rejected_even_with_forged_full_evidence(self):
+        catalog=copy.deepcopy(self.catalog)
+        entry=catalog["modules"][0]
+        entry["release_claim"]="COMPLETE"
+        entry["source_references"]=["synthetic/module"]
+        entry["verification"]={k:"VERIFIED_EXECUTED" for k in ("contract","negative","migration","blueprint")}
+        entry["independent_evidence"]={
+            "head_sha":"a"*40,"reviewer_ref":"synthetic/reviewer",
+            "reviewer_independent":True,
+            "artifacts":{k:{"artifact_ref":"synthetic/"+k,"sha256":"b"*64}
+                         for k in ("contract","negative","migration","blueprint")}}
+        report=audit(self.inventory,catalog,exact_head="a"*40,evidence_attestor=lambda *args:True)
+        self.assertEqual(report["verified_complete"],0)
+        self.assertIn("PARTIAL_IMPLEMENTATION_CANNOT_COMPLETE:identity",report["findings"])
+
 if __name__=="__main__":
     unittest.main()
