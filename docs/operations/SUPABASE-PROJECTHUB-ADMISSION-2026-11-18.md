@@ -12,6 +12,16 @@
 - Existing registry contains zero asset/work-order entries. Do not seed fake project records.
 - ProjectHub implementation is an accepted internal baseline (see `modules/projecthub/README.md`), **not yet a production service**.
 
+## Verified production admission (2026-11-18)
+
+- **Target:** FF Estate / `tambsukbyoldkrxnmvpa` / PostgreSQL 17 / `eu-central-1`.
+- **Migration v0009:** `20261118032128 ffos_projecthub_isolated_private_admission_v0009` applied successfully, six `ffos.projecthub_*` tables.
+- **Hardening v0010:** `20261118032425 ffos_projecthub_trigger_fixed_search_path_v0010` applied successfully; trigger function `search_path` pinned to empty string in canonical source, [PR #103](https://github.com/Motherpher/FFOS/pull/103).
+- **Database acceptance:** all six tables RLS enabled, no `anon` / `authenticated` / `service_role` SELECT grants, six immutable triggers, all ProjectHub tables empty; preexisting four data registry tables preserved.
+- **Security advisors:** zero warnings/high findings; six INFO `rls_enabled_no_policy` are intentional denial by default, not grounds for granting public access.
+- **Evidence:** [schema PR #101](https://github.com/Motherpher/FFOS/pull/101) and the verified acceptance comment; independent Supabase database metadata, migration list and advisor readback.
+- **Release distinction:** **PRIVATE DATABASE SCHEMA DEPLOYED / VERIFIED**; ProjectHub application service / authenticated authorizer / public site integration still **NOT DEPLOYED**. No real project data was ingested.
+
 ## Admission requirements
 1. Apply the complete canonical `0008_projecthub.sql` as one Supabase migration. It creates 6 ProjectHub tables only in private `ffos` schema, scoped indexes and immutable mutation triggers.
 2. Every ProjectHub table must have RLS **enabled with zero access policies** at this stage.
