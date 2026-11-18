@@ -294,10 +294,15 @@ class DriveStorage:
         parsed = urlsplit(session_url or "")
         from urllib.parse import parse_qs
         q = parse_qs(parsed.query, keep_blank_values=True)
+        allowed_query_shapes = (
+            set(q) == {"upload_id"}
+            or (set(q) == {"uploadType", "upload_id"}
+                and q.get("uploadType") == ["resumable"])
+        )
         if (parsed.scheme != "https" or parsed.hostname != "www.googleapis.com"
                 or parsed.path != "/upload/drive/v3/files"
                 or parsed.username or parsed.password or parsed.port not in (None, 443)
-                or set(q) != {"upload_id"} or len(q["upload_id"]) != 1
+                or not allowed_query_shapes or len(q.get("upload_id", [])) != 1
                 or not q["upload_id"][0] or session_url in self.consumed_upload_sessions
                 or session_url in self.pending_upload_sessions):
             raise PermissionError("Foreign or malformed upload session returned by provider")
