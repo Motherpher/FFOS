@@ -19,7 +19,10 @@ jobs:
           node-version: '24'
       - name: Install ProjectHub dependencies
         run: npm install --prefix modules/projecthub --no-audit --no-fund
+      - name: Verify public Supabase CA and pooler TLS before using credentials
+        run: bash scripts/projecthub-verify-supabase-tls.sh "$RUNNER_TEMP/supabase-root-ca.pem"
       - name: Verify restricted Supabase login and read-only scope
         env:
+          NODE_EXTRA_CA_CERTS: ${{ runner.temp }}/supabase-root-ca.pem
           FFOS_PROJECTHUB_READ_DATABASE_URL: ${{ secrets.FFOS_PROJECTHUB_READ_DATABASE_URL }}
         run: node modules/projecthub/read-canary.mjs
