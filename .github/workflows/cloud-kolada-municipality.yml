@@ -76,7 +76,7 @@ jobs:
           FFOS_GDRIVE_CLIENT_ID: ${{ secrets.FFOS_GDRIVE_CLIENT_ID }}
           FFOS_GDRIVE_CLIENT_SECRET: ${{ secrets.FFOS_GDRIVE_CLIENT_SECRET }}
           FFOS_GDRIVE_REFRESH_TOKEN: ${{ secrets.FFOS_GDRIVE_REFRESH_TOKEN }}
-          DRIVE_FOLDER_ID: ${{ vars.FFOS_GDRIVE_ROOT_FOLDER_ID || '1xO4YWl4yQmyRJ6t-A_4j9vaVDkiBhArD' }}
+          DRIVE_FOLDER_ID: ${{ vars.FFOS_GDRIVE_ROOT_FOLDER_ID || '${{ vars.FFOS_GDRIVE_ROOT_FOLDER_ID }}' }}
           FFOS_GDRIVE_APPROVED_ROOT_ID: ${{ vars.FFOS_GDRIVE_APPROVED_ROOT_ID }}
         run: |
           test -n "$FFOS_GDRIVE_APPROVED_ROOT_ID" || { echo 'HOLD: independent root approval variable unavailable'; exit 1; }
