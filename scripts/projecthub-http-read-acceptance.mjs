@@ -10,7 +10,7 @@ const report={
  schema:"ffos.projecthub.http-read-acceptance.v1", outcome:"HOLD",
  server_ready:false, anonymous_denied:false, bad_session_denied:false,
  bad_credentials_denied:false, valid_director_session:false,
- db_backed_unknown_project_404:false, portfolio_blocked:false,
+ db_backed_unknown_project_404:false, db_backed_positive_project_200:false,\n portfolio_blocked:false,
  write_api_blocked:false, oversize_scope_blocked:false
 };
 const get=(path,cookie)=>fetch(origin+path,{
@@ -74,6 +74,15 @@ try{
  const payload=await project.json();
  assert.equal(payload.status,"NOT_FOUND","PROJECT_READ_NOT_DB_BACKED_NOT_FOUND");
  report.db_backed_unknown_project_404=true;
+ if(process.env.FFOS_WP02_LOCAL_FIXTURE_ID){
+   step="POSITIVE_SYNTHETIC_PROJECT_READ";
+   const fixture=await get("/api/projecthub/projects/"+process.env.FFOS_WP02_LOCAL_FIXTURE_ID,cookie);
+   assert.equal(fixture.status,200,"SYNTHETIC_PROJECT_READ_DID_NOT_SUCCEED");
+   const response=await fixture.json();
+   assert.equal(response.status,"OK");
+   assert.equal(response.project?.id,process.env.FFOS_WP02_LOCAL_FIXTURE_ID);
+   report.db_backed_positive_project_200=true;
+ }
  step="PORTFOLIO_DISABLED";
  const portfolio=await get("/api/projecthub/projects",cookie);
  assert.equal(portfolio.status,503,"UNSCOPED_PORTFOLIO_NOT_BLOCKED");
