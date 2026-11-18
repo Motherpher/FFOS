@@ -24,20 +24,8 @@ def create_runtime_root(name):
         os.environ.get("FFOS_GDRIVE_REFRESH_TOKEN",""),
     )
     drive=DriveStorage(token)
-    status,_,raw=drive.request(
-        "https://www.googleapis.com/drive/v3/files?fields=id,name,mimeType,parents",
-        "POST",
-        json.dumps({"name":name,"mimeType":FOLDER_MIME}).encode("utf-8"),
-        "application/json",
-    )
-    if status not in (200,201):
-        raise ValueError("Google Drive managed-root creation failed")
-    meta=json.loads(raw)
-    folder_id=str(meta.get("id",""))
-    if (not DRIVE_ID.fullmatch(folder_id)
-            or meta.get("name")!=name
-            or meta.get("mimeType")!=FOLDER_MIME):
-        raise ValueError("Google Drive returned invalid managed-root metadata")
+    meta=drive.create_managed_root(name)
+    folder_id=meta["id"]
     verified=drive.probe_folder(folder_id)
     return {
         "schema":"ffos.drive-managed-root.v1",

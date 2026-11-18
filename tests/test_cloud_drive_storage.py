@@ -88,6 +88,27 @@ class DriveStorageTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             ProbeStorage(bad).probe_folder(ROOT_ID)
 
+    def test_managed_root_creation_is_exact_and_records_app_owned_id(self):
+        class ManagedRootStorage(DriveStorage):
+            def __init__(self):
+                super().__init__("token", opener=None, approved_root_id=None)
+                self.captured=None
+            def request(self,url,method="GET",payload=None,content_type=None,accept=None):
+                self.captured=(url,method,json.loads(payload))
+                return 200,{},json.dumps({
+                    "id":CHILD_ID,
+                    "name":"FFOS Cloud Drive Runtime",
+                    "mimeType":"application/vnd.google-apps.folder",
+                    "parents":["root"],
+                }).encode()
+        d=ManagedRootStorage()
+        meta=d.create_managed_root("FFOS Cloud Drive Runtime")
+        self.assertEqual(meta["id"],CHILD_ID)
+        self.assertIn(CHILD_ID,d.created_folders)
+        self.assertEqual(d.captured[2]["parents"],["root"])
+        with self.assertRaises(ValueError):
+            d.create_managed_root("Other")
+
     def test_google_file_id(self):
         self.assertTrue(DRIVE_ID.fullmatch(ROOT_ID))
         self.assertFalse(DRIVE_ID.fullmatch("../a"))
