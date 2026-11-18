@@ -1,0 +1,50 @@
+name: FFOS private role and RLS security regression
+on:
+  pull_request:
+    paths:
+      - 'packages/registry/migrations/0008_ffos_registry_writer_rls.sql'
+      - 'packages/registry/tests/ffos-registry-role-rls.sql'
+      - '.github/workflows/ffos-registry-role-rls.yml'
+  push:
+    paths:
+      - 'packages/registry/migrations/0008_ffos_registry_writer_rls.sql'
+      - 'packages/registry/tests/ffos-registry-role-rls.sql'
+      - '.github/workflows/ffos-registry-role-rls.yml'
+permissions:
+  contents: read
+jobs:
+  role-rls-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: ffos_ci
+          POSTGRES_PASSWORD: ephemeral_only
+          POSTGRES_DB: ffos_role_ci
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U ffos_ci -d ffos_role_ci"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 12
+    env:
+      PGHOST: localhost
+      PGUSER: ffos_ci
+      PGPASSWORD: ephemeral_only
+      PGDATABASE: ffos_role_ci
+      PGPORT: 5432
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install psql
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq postgresql-client
+      - name: Provision stock API roles for Supabase-like privilege checks
+        run: |
+          psql -X -v ON_ERROR_STOP=1 -c 'CREATE ROLE anon NOLOGIN; CREATE ROLE authenticated NOLOGIN; CREATE ROLE service_role NOLOGIN'
+      - name: Apply isolated schema
+        run: psql -X -v ON_ERROR_STOP=1 -f packages/registry/migrations/0007_ffos_isolated_data_assets.sql
+      - name: Apply private-role security migration
+        run: psql -X -v ON_ERROR_STOP=1 -f packages/registry/migrations/0008_ffos_registry_writer_rls.sql
+      - name: Verify privileges, role policies and rollback
+        run: psql -X -v ON_ERROR_STOP=1 -f packages/registry/tests/ffos-registry-role-rls.sql
