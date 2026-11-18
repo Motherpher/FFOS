@@ -6,6 +6,7 @@ revocation and live effect checks. No self-asserted trust values count as proof.
 """
 from __future__ import annotations
 import re
+from ama_fin02_semantic_modules import CONTROLS, CANONICAL_CORE
 
 _HEX64 = re.compile(r"^[0-9a-f]{64}$")
 
@@ -18,8 +19,13 @@ def assess_host_obligations(inventory: dict, configuration: dict, receipts: list
     selected=configuration.get("modules", []) if isinstance(configuration,dict) else []
     selected_ids=[r.get("id") if isinstance(r,dict) else None for r in selected]
     if (len(modules)!=32 or len(indexed)!=32 or len(selected)!=32 or
-        len(set(selected_ids))!=len(selected_ids) or set(selected_ids)!=set(indexed)):
+        len(set(selected_ids))!=len(selected_ids) or set(selected_ids)!=set(indexed) or
+        set(indexed)!=set(CONTROLS)):
         errors.append("NONCANONICAL_MODULE_SET")
+    for name, definition in indexed.items():
+        expected="CORE" if name in CANONICAL_CORE else "OPTIONAL"
+        if definition.get("requirement")!=expected:
+            errors.append("CANONICAL_CLASSIFICATION_DRIFT:"+str(name))
     if not isinstance(head,str) or not re.fullmatch(r"[a-f0-9]{40}",head):
         errors.append("IMMUTABLE_HEAD_REQUIRED")
     if not isinstance(receipts,list):
@@ -37,7 +43,7 @@ def assess_host_obligations(inventory: dict, configuration: dict, receipts: list
         name=row["id"];source=indexed[name]
         if type(row.get("enabled")) is not bool:
             errors.append("INVALID_ENABLED:"+name);continue
-        if source.get("requirement")=="CORE" and not row["enabled"]:
+        if name in CANONICAL_CORE and not row["enabled"]:
             errors.append("DISABLED_CORE:"+name)
         if not row["enabled"]:continue
         obligations=source.get("remaining_host_obligations",[])
