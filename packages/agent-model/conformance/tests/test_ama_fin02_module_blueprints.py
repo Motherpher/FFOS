@@ -42,5 +42,17 @@ class BlueprintTests(unittest.TestCase):
         x=next(x for x in r["module_blueprints"] if x["module_id"]=="identity")
         self.assertIn("SOURCE_CONTRACT_UNMAPPED",x["evidence_blockers"])
 
+
+    def test_integrated_semantic_control_preflight_denies_unmapped_core(self):
+        from test_ama_fin02_semantic_modules import fixture
+        _, config=fixture()
+        result=compose(self.inv,self.cat,module_configuration=config)
+        self.assertEqual(result["semantic_preflight"]["findings"],[])
+        self.assertFalse(result["fin02_accepted"])
+        config["modules"][0]["controls"].pop("definition_id")
+        result=compose(self.inv,self.cat,module_configuration=config)
+        self.assertIn("SEMANTIC:CONTROL_MISSING:identity:definition_id",result["findings"])
+        self.assertFalse(result["fin02_accepted"])
+
 if __name__=="__main__":
     unittest.main()
