@@ -16,12 +16,36 @@ test("PostgreSQL: atomic ProjectHub write and append-only history",{skip:!url},a
  const {Pool}=await import("pg");const pool=new Pool({connectionString:url});
  try{
    await pool.query(await readFile(resolve(root,"packages/registry/migrations/0008_projecthub.sql"),"utf8"));
+   await pool.query(await readFile(resolve(root,"packages/registry/migrations/0009_projecthub_runtime_role.sql"),"utf8"));
    const store=new PgProjectHubStore(pool);const svc=new GovernedProjectHubService(store,allowGate as any);
    await svc.createProject(ctx("CREATE"),{id:"PG-P1",title:"PG",ownerRef:"OWNER",mandateRef:"M",
      methodologyProfile:"PROJECT_NATIVE",purpose:"Test",createdBy:"FFOS:DIRECTOR"});
    await svc.setField(ctx("FIELD"),"PG-P1","Need","DRAFT",{note:"test"});
    const p=await store.getProject("PG-P1");assert.equal(p.version,2);
    assert.equal((await store.listAuditEvents("PG-P1")).length,2);
+   // A scoped NOLOGIN role is an internal execution privilege only.
+   // No scope => zero rows; setting a different scope cannot read PG-P1.
+   for (const [scope,expected] of [["",0],["OTHER-PROJECT",0],["PG-P1",1]] as const) {
+     const client=await pool.connect();
+     try {
+       await client.query("BEGIN");
+       await client.query("SET LOCAL ROLE ffos_projecthub_runtime");
+       if(scope)await client.query("SELECT set_config('ffos.project_scope',$1,true)",[scope]);
+       const read=await client.query("SELECT project_id FROM ffos.projecthub_projects");
+       assert.equal(read.rows.length,expected);
+     } finally { await client.query("ROLLBACK");client.release(); }
+   }
+   // INSERT for a different project is blocked by RLS without changing fixtures.
+   const scoped=await pool.connect();
+   try {
+     await scoped.query("BEGIN");
+     await scoped.query("SET LOCAL ROLE ffos_projecthub_runtime");
+     await scoped.query("SELECT set_config('ffos.project_scope',$1,true)",["OTHER-PROJECT"]);
+     await assert.rejects(()=>scoped.query(`insert into ffos.projecthub_idempotency
+       (idempotency_key,project_id,operation,command_digest,result,recorded_at)
+       values ('scope-violation','PG-P1','TEST',$1,'{}'::jsonb,now())`,["a".repeat(64)]),
+       /row-level security/i);
+   } finally {await scoped.query("ROLLBACK");scoped.release();}
    await assert.rejects(()=>pool.query("delete from ffos.projecthub_events where project_id=$1",["PG-P1"]),/append-only/);
 
    // Unique idempotency and DB transaction rollback: the conflicting insert rolls the event back.
