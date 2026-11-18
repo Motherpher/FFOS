@@ -3,7 +3,7 @@
 Native FFOS ProjectHub implementation established through `FFOS-DEVOPS-PH-RECON-001`.
 
 **Release state:** RELEASED_INTERNAL_BASELINE  
-**Deployment state:** NOT_DEPLOYED  
+**Deployment state:** DATABASE_SCHEMA_DEPLOYED_PRIVATE — APPLICATION_RUNTIME_NOT_DEPLOYED  
 **Director disposition:** ACCEPT  
 **Implementation PR:** #79  
 **Merge commit:** `d139bcda3d467fb2e6e9c6729c2ae26fc2ec7f1e`
@@ -33,7 +33,7 @@ Native FFOS ProjectHub implementation established through `FFOS-DEVOPS-PH-RECON-
 The release does **not** itself create a live production ProjectHub service.
 
 Not admitted by this baseline:
-- live production database migration;
+- live application/runtime binding (the private database schema is now deployed);
 - PH-D4 sensitive-data operation;
 - broad multi-user identity/RBAC rollout;
 - autonomous external A4 effects;
