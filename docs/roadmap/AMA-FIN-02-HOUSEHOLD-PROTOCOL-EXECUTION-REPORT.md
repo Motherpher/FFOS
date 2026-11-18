@@ -63,3 +63,14 @@ For each of the 32 modules:
 - No independently signed host receipts, real deployment, authorizing migration or agent construction resulted.
 - The local isolated test success does **not** mean repository-wide exact-head CI was run. Full M0–M7, Python 3.12, Node/PostgreSQL, module-by-module integration, independent audit and Director acceptance remain pending.
 - The 32-module matrix retains **0/32 independently verified complete**. FIN-02 remains **IN_PROGRESS/HOLD**; FIN-03 has not been triggered.
+
+## 18 November 2026 — 32-module semantic implementation pass
+
+- A portable, non-authorizing semantic control validator now declares **101 distinct mandatory control slots** across all **32** candidate modules.
+- Added a Draft 2020-12 schema with 32 per-module branches; maintained 13 CORE-on and 19 OPTIONAL-off defaults.
+- Integrated optional semantic control configuration into the main M0–M7 blueprint construction preflight, with exact selection matching; no agent runtime or instance built.
+- Created drift checks and regression suites, including one negative case per module.
+- **47/47 local Python 3.13.5 tests passed** for the source-byte-matched control validator and machine schema; log digest and exact Git blobs are recorded in `docs/roadmap/AMA-FIN-02-32-MODULE-SEMANTIC-EXECUTION-2026-11-18.md`.
+- Separate integration and source-drift regression tests are committed, but no clean exact-head CI run or independently verified module implementation evidence exists.
+- All 32 queue records now cite these implementations. `COMPLETE` remains **0/32** because candidate control interfaces are not the full underlying module implementations.
+- FIN-02 remains **IN_PROGRESS/HOLD**; FIN-03 remains gated. Director approval unchanged.
