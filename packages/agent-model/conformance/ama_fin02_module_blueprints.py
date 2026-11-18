@@ -7,19 +7,24 @@ candidates until separately authenticated and tested.
 from __future__ import annotations
 import json
 from pathlib import Path
+from ama_fin02_semantic_modules import validate_module_contracts
 
 ROOT=Path(__file__).resolve().parents[3]
 REQUIRED_FIELDS=("version_pinned_configuration","explicit_authority_scope",
                  "typed_input_output","denial_evidence",
                  "change_impact_and_rollback","host_dependency_declaration")
 
-def compose(inventory:dict,catalog:dict)->dict:
+def compose(inventory:dict,catalog:dict,*,module_configuration=None)->dict:
     findings=[]
     source={row.get("id"):row for row in inventory.get("modules",[]) if isinstance(row,dict)}
     rows=catalog.get("modules",[])
     ids=[r.get("id") for r in rows if isinstance(r,dict)]
     if len(source)!=32 or len(rows)!=32 or len(set(ids))!=32 or set(source)!=set(ids):
         findings.append("NOT_EXACT_CANONICAL_32_MODULES")
+    semantic = (validate_module_contracts(inventory,module_configuration)
+                if module_configuration is not None else None)
+    if semantic and semantic["findings"]:
+        findings.extend("SEMANTIC:"+x for x in semantic["findings"])
     blueprints=[]
     for row in rows:
         if not isinstance(row,dict):
@@ -76,6 +81,7 @@ def compose(inventory:dict,catalog:dict)->dict:
             "core_count":sum(x["classification"]=="CORE" for x in blueprints),
             "optional_count":sum(x["classification"]=="OPTIONAL" for x in blueprints),
             "module_blueprints":blueprints,
+            "semantic_preflight":semantic,
             "findings":sorted(set(findings)),
             "status":"INVALID_SOURCE" if findings else "CANDIDATE_BLUEPRINTS_NOT_VERIFIED",
             "verified_complete":0,"agent_constructed":False,
