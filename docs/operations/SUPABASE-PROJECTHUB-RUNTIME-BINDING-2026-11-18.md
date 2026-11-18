@@ -122,3 +122,16 @@ The correction is `scripts/projecthub-verify-supabase-tls.sh`: fetch the **publi
 **Acceptance:** WP01 dedicated private identity and WP02 real restricted Supabase connection/scope canary **PASS**. These are limited to database access, TLS, role enforcement, project-scope plumbing and empty/unknown project negative tests. They do **not** prove cross-project isolation with nonempty production records, Director application HTTP authentication, live FFOS web deployment, authorized portfolio query, or CDX-mediated canonical writes.
 
 **Remaining release hold:** A deployed, authenticated FFOS application must separately prove Director session, project authorization and actual `GET /api/projecthub/projects/{projectId}` read behavior via the protected read-only database identity. Keep write paths fail-closed; no `formflode-com` public client credentials or database schema exposure.
+ 
+
+## WP02 authenticated HTTP read acceptance — 2026-11-19
+
+**Canonical change:** [PR #116](https://github.com/Motherpher/FFOS/pull/116), merged as `a9ddfcc79c7e08699ca505c43374e73f0ff45fed`, adds an actual Next.js production-app HTTP acceptance runner and a separate synthetic PostgreSQL dataset (CI-only, never FF Estate).
+
+**Independent synthetic test PASS:** [GitHub Actions #44422338772](https://github.com/Motherpher/FFOS/actions/runs/44422338772) compiled the FFOS Next.js application and started it as a local HTTP server, then exercised the actual CDX-gated Director login and project-scoped database reader with two synthetic projects: successful authenticated project GET `200`, nonexistent project GET `404`, denied unauthenticated/tampered cookie access, denied invalid login, no unscoped portfolio enumeration, no writes, rejected oversized project scope. Local PostgreSQL RLS isolation was separately asserted with *nonempty* cross-project data.
+
+**Live DB-backed HTTP admission:** manual main-only [run #44422571120](https://github.com/Motherpher/FFOS/actions/runs/44422571120) dispatched under Director-reviewed `projecthub-read-canary` environment. At authoring time this run is **WAITING FOR REQUIRED DIRECTOR APPROVAL**, not accepted. It reuses the existing encrypted restricted reader DSN only inside a temporary GitHub-hosted Next.js production server, independently validates pinned Supabase CA and hostname, then makes authenticated loopback HTTP requests against FF Estate (production database remains empty). Job explicitly sets `FFOS_PROJECTHUB_WRITES_ENABLED=false`. No runtime secrets reach the source repository or website.
+
+**WP02 closure rule:** `WP02_HTTP_CLOSED` only after the live run concludes SUCCESS with an HTTP acceptance JSON `outcome=PASS` and independent database readback confirms no mutations. If the protected run fails, WP02 stays HOLD while corrections are reviewed and rerun.
+
+**WP04 boundary:** The above is a real authenticated application HTTP/DB integration test in a protected ephemeral GitHub-hosted runner. It is **not** a permanently deployed or publicly reachable FFOS ProjectHub service. A durable authenticated application host, environment configuration and UI enablement remain WP04. Do not silently treat these as part of WP02's bounded CI-hosted acceptance or assert them as operational.
