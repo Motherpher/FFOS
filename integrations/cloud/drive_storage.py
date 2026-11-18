@@ -295,12 +295,18 @@ class DriveStorage:
         from urllib.parse import parse_qs
         q = parse_qs(parsed.query, keep_blank_values=True)
         expected_fields = "id,name,size,parents,md5Checksum,version"
-        allowed_keys = {"upload_id", "uploadType", "fields"}
+        allowed_keys = {"upload_id", "uploadType", "fields", "session_crd"}
+        session_crd = q.get("session_crd")
+        session_crd_ok = (
+            session_crd is None
+            or (len(session_crd) == 1 and bool(session_crd[0]))
+        )
         allowed_query_shape = (
             set(q).issubset(allowed_keys)
             and set(q) >= {"upload_id"}
             and q.get("uploadType", ["resumable"]) == ["resumable"]
             and q.get("fields", [expected_fields]) == [expected_fields]
+            and session_crd_ok
         )
         if (parsed.scheme != "https" or parsed.hostname != "www.googleapis.com"
                 or parsed.path != "/upload/drive/v3/files"
