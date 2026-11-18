@@ -36,4 +36,16 @@ class SchemaConsistencyTests(unittest.TestCase):
         branch["properties"]["enabled"]["const"]=False
         self.assertIn("CORE_NOT_DEFAULT_ON:mandate",audit(schema,self.inventory)["findings"])
 
+
+    def test_duplicate_cardinality_rule_denied(self):
+        schema=copy.deepcopy(self.schema)
+        rules=schema["properties"]["modules"]["allOf"]
+        rules[0]=copy.deepcopy(rules[1])
+        self.assertIn("MODULE_CARDINALITY_INCOMPLETE",audit(schema,self.inventory)["findings"])
+
+    def test_cardinality_max_missing_denied(self):
+        schema=copy.deepcopy(self.schema)
+        schema["properties"]["modules"]["allOf"][0].pop("maxContains")
+        self.assertIn("INVALID_MODULE_CARDINALITY:identity",audit(schema,self.inventory)["findings"])
+
 if __name__=="__main__":unittest.main()
