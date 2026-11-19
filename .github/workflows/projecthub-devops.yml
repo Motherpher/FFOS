@@ -5,6 +5,15 @@ on:
     paths:
       - 'modules/projecthub/**'
       - 'packages/projecthub-model/**'
+      - 'packages/registry/migrations/*projecthub*.sql'
+      - 'integrations/projecthub/**'
+      - 'integrations/cdx/projecthub-runtime.ts'
+      - 'apps/web/lib/projecthub/**'
+      - 'apps/web/app/(protected)/projecthub/**'
+      - 'apps/web/app/api/projecthub/**'
+      - 'docs/operations/devops/processes/projecthub-production/**'
+      - 'scripts/projecthub_l3_assurance.py'
+      - '.github/workflows/projecthub-production-write-canary.yml'
       - 'docs/specifications/PROJECTHUB-**'
       - 'docs/architecture/PROJECTHUB-**'
       - '.github/workflows/projecthub-devops.yml'
@@ -13,6 +22,7 @@ on:
     paths:
       - 'modules/projecthub/**'
       - 'packages/projecthub-model/**'
+      - 'packages/registry/migrations/*projecthub*.sql'
       - 'docs/specifications/PROJECTHUB-**'
       - 'docs/architecture/PROJECTHUB-**'
       - 'integrations/projecthub/**'
@@ -46,9 +56,11 @@ jobs:
       - name: ProjectHub core and rights tests
         if: steps.present.outputs.value == 'true'
         run: npm test --prefix modules/projecthub
-      - name: Check read-only production canary syntax
+      - name: Check production canary syntax
         if: steps.present.outputs.value == 'true'
-        run: node --check modules/projecthub/read-canary.mjs
+        run: |
+          node --check modules/projecthub/read-canary.mjs
+          node --check modules/projecthub/write-canary.ts
 
   postgres:
     runs-on: ubuntu-latest
