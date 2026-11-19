@@ -1,0 +1,35 @@
+{
+  "schema": "ffos.projecthub.production-process/v1",
+  "process_id": "FFOS-DEVOPS-PH-PROD-001",
+  "canonical_issue": "Motherpher/FFOS#102",
+  "level": "L3_CONTROLLED",
+  "frozen_main": "d1bbf1545dea19f426ad40b973bd69bb126f1c40",
+  "phase": "BUILD",
+  "active_wp": "PROD-WP06",
+  "completed": [
+    "PROD-WP01",
+    "PROD-WP02",
+    "PROD-WP03",
+    "PROD-WP04",
+    "PROD-WP05"
+  ],
+  "evidence": {
+    "live_db_read_canary": "GitHub Actions #44419433670 PASS",
+    "synthetic_authenticated_http": "GitHub Actions #44422338772 PASS",
+    "production_backed_http": "GitHub Actions #44422571120 WAITING_DIRECTOR_ENVIRONMENT_APPROVAL"
+  },
+  "runtime": {
+    "database_schema": "DEPLOYED_PRIVATE",
+    "reader_identity": "VERIFIED",
+    "app_http_read": "SYNTHETIC_PASS_LIVE_PENDING",
+    "durable_app_host": "NOT_DEPLOYED",
+    "writer_identity": "NOT_ADMITTED",
+    "a3_write_runtime": "NOT_ACCEPTED",
+    "portfolio_read": "NOT_ADMITTED",
+    "ph_d4": "NOT_ADMITTED",
+    "provider_writes": "NOT_ADMITTED"
+  },
+  "release_state": "PRODUCTION_ACTIVATION_IN_PROGRESS",
+  "deployment_state": "NOT_DEPLOYED",
+  "acceptance_state": "NOT_PRODUCTION_ACCEPTED"
+}
