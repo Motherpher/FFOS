@@ -7,3 +7,5 @@ export * from "./effect-gate.ts";
 export * from "./effect-evidence.ts";
 export * from "./project-steward.ts";
 export * from "./linked-artifacts.ts";
+export * from "./scoped-pg.ts";
+export * from "./scoped-store.ts";
