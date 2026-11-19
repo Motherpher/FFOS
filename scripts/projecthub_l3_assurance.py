@@ -8,6 +8,7 @@ required=[
  "docs/architecture/PROJECTHUB-NATIVE-ARCHITECTURE-v0.1.md",
  "packages/registry/migrations/0008_projecthub.sql",
  "modules/projecthub/src/governed-service.ts",
+ "modules/projecthub/src/scoped-pg.ts",
  "modules/projecthub/src/effect-gate.ts",
  "integrations/cdx/projecthub-runtime.ts",
  "apps/web/app/(protected)/projecthub/page.tsx",
@@ -27,6 +28,13 @@ assert "PH-D4" not in re.search(r"data_class text.*?\)",sql,re.S).group(0), "PH-
 server=(root/"apps/web/lib/projecthub/server.ts").read_text()
 assert 'FFOS_PROJECTHUB_WRITES_ENABLED==="true"' in server
 assert "PROJECTHUB_WRITE_RUNTIME_NOT_ENABLED" in server
+
+scoped=(root/"modules/projecthub/src/scoped-pg.ts").read_text()
+assert "withScopedProjectHubRead" in scoped
+assert "withScopedProjectHubWrite" in scoped
+assert "SET LOCAL ROLE ffos_projecthub_reader" in scoped or "ffos_projecthub_reader" in scoped
+assert "ffos_projecthub_runtime" in scoped
+assert "PROJECT_SCOPE_REQUIRED" in scoped
 
 gate=(root/"modules/projecthub/src/effect-gate.ts").read_text()
 assert "PROJECTHUB_CDX_EFFECT_GATE_NOT_BOUND" in gate
@@ -49,5 +57,14 @@ else:
     assert status.get("projection_update",{}).get("result")=="PASS"
     assert status.get("merge_commit")
     assert "CANONICAL ACCEPTED PROJECTHUB CONTRACT" in contract
+
+prod_status=root/"docs/operations/devops/processes/projecthub-production/status.json"
+if prod_status.exists():
+    prod=json.loads(prod_status.read_text())
+    assert prod["process_id"]=="FFOS-DEVOPS-PH-PROD-001"
+    assert prod["runtime"]["ph_d4"]=="NOT_ADMITTED"
+    assert prod["runtime"]["provider_writes"]=="NOT_ADMITTED"
+    assert prod["deployment_state"]=="NOT_DEPLOYED"
+    assert prod["acceptance_state"]=="NOT_PRODUCTION_ACCEPTED"
 
 print("PROJECTHUB_L3_RELEASE_ASSURANCE_PASS")
