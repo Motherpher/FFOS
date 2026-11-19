@@ -24,6 +24,14 @@ export default async function ProjectHubPage(){
         <div className="phProjectMeta"><span>{p.profile.methodologyProfile}</span><span>{p.status}</span><span>v{p.version}</span></div>
       </Link>)}</div>:<p className="phEmpty">No governed ProjectHub projects are currently readable from the configured runtime.</p>}
     </section>
+    <section className="panel compact">
+      <div className="panelHead">
+        <div><p className="eyebrow">CONTENT & WRITING</p><h2>Micro-box and project templates</h2></div>
+        <span className="badge">DEVELOPMENTAL TEXT</span>
+      </div>
+      <p>Optional external writing formats and proportional project plans. The originals are maintained by FFC. They are not published public downloads or automatic ProjectHub ingress.</p>
+      <p><Link href="/projecthub/templates">View the internal content library</Link></p>
+    </section>
     <section className="grid2">
       <article className="panel compact"><p className="eyebrow">CONTROL LAW</p><h2>One project. One canonical state. Many work surfaces.</h2>
         <p>Miro, Figma, GitHub, documents and funding providers remain specialized surfaces. Their changes do not silently rewrite ProjectHub state.</p></article>
