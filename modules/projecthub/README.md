@@ -28,6 +28,14 @@ Native FFOS ProjectHub implementation established through `FFOS-DEVOPS-PH-RECON-
 - review-first linked-artifact semantics;
 - real-project acceptance pilots.
 
+## Optional content library (read-only source addition, 2026-11-19)
+
+- FFC v30.19.6 holds the [developmental Micro-box and external project content originals](https://github.com/Motherpher/form-flode/blob/main/15-innovation/project-content-kit/README.md), including Liten/Mellan/Stor, with Mikro shared from Micro-box D.
+- `src/content-catalog.ts` is a read-only **internal** catalog and `tests/content-catalog.test.ts` tests fail-closed routing. No FFC source text is copied into FFOS as a second canonical source.
+- Protected internal view: `apps/web/app/(protected)/projecthub/templates/page.tsx`; ProjectHub home links to it. This is **not** a public download or client-facing editor.
+- All entries remain `DRAFT_TEXT` / `publicDownloadAllowed:false`. `assessContentRouting` never creates a project, DNA-Box or methodology requirement. Access to source files and public publication remain separately governed.
+- This source addition does not change the accepted ProjectHub Contract v0.4, schema, PH-D data-class ceiling, runtime admission or deployment state. Any real upload/ProjectIngress workflow requires a separately approved implementation.
+
 ## Not deployed / not claimed
 
 The release does **not** itself create a live production ProjectHub service.
