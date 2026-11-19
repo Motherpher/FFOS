@@ -6,6 +6,8 @@ import {fileURLToPath} from "node:url";
 import {PgProjectHubStore} from "../src/pg-store.ts";
 import {withScopedProjectHubRead,withScopedProjectHubWrite} from "../src/scoped-pg.ts";
 import {GovernedProjectHubService} from "../src/governed-service.ts";
+import {MemoryEffectEvidence,ProjectHubEffectGate} from "../src/effect-gate.ts";
+import {FFOSCdxProjectHubPort} from "../../../integrations/cdx/projecthub-runtime.ts";
 
 const url=process.env.PROJECTHUB_TEST_DATABASE_URL;
 const root=resolve(dirname(fileURLToPath(import.meta.url)),"../../..");
@@ -129,5 +131,39 @@ test("PostgreSQL: atomic ProjectHub write and append-only history",{skip:!url},a
      ()=>withScopedProjectHubWrite(pool,"",async()=>true),
      /PROJECT_SCOPE_REQUIRED/
    );
+
+   // Integration of the scoped writer with the actual pinned FFOS CDX adapter.
+   const effectEvidence=new MemoryEffectEvidence();
+   const actualGate=new ProjectHubEffectGate(new FFOSCdxProjectHubPort(),effectEvidence);
+   const cdxWrite=await withScopedProjectHubWrite(pool,"PG-CDX",async scopedStore=>{
+     return new GovernedProjectHubService(scopedStore,actualGate).createProject(ctx("SCOPED-CDX"),{
+       id:"PG-CDX",title:"CDX scoped writer",ownerRef:"OWNER",mandateRef:"M",
+       methodologyProfile:"PROJECT_NATIVE",purpose:"Pinned CDX integration fixture",createdBy:"FFOS:DIRECTOR"
+     });
+   });
+   assert.equal(cdxWrite.result.id,"PG-CDX");
+   assert.deepEqual(effectEvidence.events.map((e:any)=>e.stage),["PRE_EFFECT","POST_EFFECT"]);
+   assert.equal((await store.listAuditEvents("PG-CDX")).length,1);
+
+   // Policy-unavailable must fail closed and leave no canonical project state.
+   const unavailableEvidence=new MemoryEffectEvidence();
+   const unavailableGate=new ProjectHubEffectGate(new FFOSCdxProjectHubPort("UNAVAILABLE"),unavailableEvidence);
+   await assert.rejects(()=>withScopedProjectHubWrite(pool,"PG-CDX-BLOCK",async scopedStore=>{
+     return new GovernedProjectHubService(scopedStore,unavailableGate).createProject(ctx("SCOPED-CDX-BLOCK"),{
+       id:"PG-CDX-BLOCK",title:"Blocked",ownerRef:"OWNER",mandateRef:"M",
+       methodologyProfile:"PROJECT_NATIVE",purpose:"Must fail closed",createdBy:"FFOS:DIRECTOR"
+     });
+   }),/PROJECTHUB_CDX_SECURITY_STOP/);
+   assert.equal(await store.getProject("PG-CDX-BLOCK"),null);
+
+   // PH-D4 stays outside the production admission even under an otherwise valid scope.
+   await assert.rejects(()=>withScopedProjectHubWrite(pool,"PG-D4",async scopedStore=>{
+     return new GovernedProjectHubService(scopedStore,actualGate).createProject(ctx("SCOPED-D4"),{
+       id:"PG-D4",title:"Sensitive",ownerRef:"OWNER",mandateRef:"M",
+       methodologyProfile:"PROJECT_NATIVE",purpose:"Must remain unadmitted",createdBy:"FFOS:DIRECTOR",
+       dataClassCeiling:"PH-D4"
+     });
+   }),/PROJECT_DATA_CLASS_NOT_ADMITTED_V1/);
+   assert.equal(await store.getProject("PG-D4"),null);
  } finally {await pool.end();}
 });
