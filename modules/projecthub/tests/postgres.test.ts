@@ -4,7 +4,7 @@ import {readFile} from "node:fs/promises";
 import {resolve,dirname} from "node:path";
 import {fileURLToPath} from "node:url";
 import {PgProjectHubStore} from "../src/pg-store.ts";
-import {withScopedProjectHubRead} from "../src/scoped-pg.ts";
+import {withScopedProjectHubRead,withScopedProjectHubWrite} from "../src/scoped-pg.ts";
 import {GovernedProjectHubService} from "../src/governed-service.ts";
 
 const url=process.env.PROJECTHUB_TEST_DATABASE_URL;
@@ -86,5 +86,48 @@ test("PostgreSQL: atomic ProjectHub write and append-only history",{skip:!url},a
        commandDigest:"a".repeat(64),result:{},recordedAt:new Date().toISOString()});
    }));
    assert.equal((await store.listAuditEvents("PG-P1")).length,before);
+
+   // Production-candidate scoped writer: successful canonical command commits
+   // state + audit + idempotency inside the exact bound project scope.
+   const scopedWrite=await withScopedProjectHubWrite(pool,"PG-W1",async scopedStore=>{
+     const scopedSvc=new GovernedProjectHubService(scopedStore,allowGate as any);
+     return scopedSvc.createProject(ctx("SCOPED-CREATE"),{
+       id:"PG-W1",title:"Scoped writer",ownerRef:"OWNER",mandateRef:"M",
+       methodologyProfile:"PROJECT_NATIVE",purpose:"Scoped write acceptance fixture",createdBy:"FFOS:DIRECTOR"
+     });
+   });
+   assert.equal(scopedWrite.result.id,"PG-W1");
+   assert.equal(scopedWrite.replayed,false);
+   const scopedWrittenRead=await withScopedProjectHubRead(pool,"PG-W1",s=>s.getProject("PG-W1"));
+   assert.equal(scopedWrittenRead?.id,"PG-W1");
+   assert.equal((await store.listAuditEvents("PG-W1")).length,1);
+
+   // A callback failure rolls back every canonical row from the scoped UoW.
+   await assert.rejects(()=>withScopedProjectHubWrite(pool,"PG-RB",async scopedStore=>{
+     const scopedSvc=new GovernedProjectHubService(scopedStore,allowGate as any);
+     await scopedSvc.createProject(ctx("SCOPED-ROLLBACK"),{
+       id:"PG-RB",title:"Rollback",ownerRef:"OWNER",mandateRef:"M",
+       methodologyProfile:"PROJECT_NATIVE",purpose:"Rollback fixture",createdBy:"FFOS:DIRECTOR"
+     });
+     throw new Error("FORCED_SCOPED_WRITE_ROLLBACK");
+   }),/FORCED_SCOPED_WRITE_ROLLBACK/);
+   assert.equal(await store.getProject("PG-RB"),null);
+   assert.equal((await store.listAuditEvents("PG-RB")).length,0);
+   assert.equal(await store.getIdempotency("SCOPED-ROLLBACK"),null);
+
+   // Binding one project scope cannot append another project's canonical state.
+   await assert.rejects(()=>withScopedProjectHubWrite(pool,"PG-SCOPE-A",async scopedStore=>{
+     const scopedSvc=new GovernedProjectHubService(scopedStore,allowGate as any);
+     return scopedSvc.createProject(ctx("SCOPED-CROSS"),{
+       id:"PG-SCOPE-B",title:"Wrong scope",ownerRef:"OWNER",mandateRef:"M",
+       methodologyProfile:"PROJECT_NATIVE",purpose:"Must fail RLS",createdBy:"FFOS:DIRECTOR"
+     });
+   }),/row-level security/i);
+   assert.equal(await store.getProject("PG-SCOPE-B"),null);
+
+   await assert.rejects(
+     ()=>withScopedProjectHubWrite(pool,"",async()=>true),
+     /PROJECT_SCOPE_REQUIRED/
+   );
  } finally {await pool.end();}
 });
