@@ -23,9 +23,10 @@ async function bindScopedRole(client:SqlClient,roleName:"ffos_projecthub_reader"
  * This helper does not authorize a project, authenticate a Director or supply
  * CDX A3 evidence. Its caller must complete those checks independently.
  */
-export async function withScopedProjectHubRead<T>(
+async function withScopedProjectHubRoleRead<T>(
   pool:SqlPool,
   projectId:string,
+  roleName:"ffos_projecthub_reader"|"ffos_projecthub_runtime",
   read:(store:PgProjectHubStore)=>Promise<T>,
 ):Promise<T>{
   assertProjectScope(projectId);
@@ -34,7 +35,7 @@ export async function withScopedProjectHubRead<T>(
   try{
     await client.query("BEGIN READ ONLY");
     begun=true;
-    await bindScopedRole(client,"ffos_projecthub_reader",projectId);
+    await bindScopedRole(client,roleName,projectId);
     const result=await read(new PgProjectHubStore(client,true));
     await client.query("COMMIT");
     begun=false;
@@ -43,6 +44,29 @@ export async function withScopedProjectHubRead<T>(
     if(begun)try{await client.query("ROLLBACK");}catch{}
     throw error;
   }finally{client.release?.();}
+}
+
+export async function withScopedProjectHubRead<T>(
+  pool:SqlPool,
+  projectId:string,
+  read:(store:PgProjectHubStore)=>Promise<T>,
+):Promise<T>{
+  return withScopedProjectHubRoleRead(pool,projectId,"ffos_projecthub_reader",read);
+}
+
+/**
+ * Read helper for the future writer-only backend identity. It uses the same
+ * ffos_projecthub_runtime role that will execute the write UoW, but the
+ * transaction itself is READ ONLY. This allows pre-authorization and
+ * idempotency checks without granting the writer login membership in the
+ * independent reader role or direct table privileges.
+ */
+export async function withScopedProjectHubRuntimeRead<T>(
+  pool:SqlPool,
+  projectId:string,
+  read:(store:PgProjectHubStore)=>Promise<T>,
+):Promise<T>{
+  return withScopedProjectHubRoleRead(pool,projectId,"ffos_projecthub_runtime",read);
 }
 
 /**
