@@ -4,8 +4,12 @@ import {readFile} from "node:fs/promises";
 import {resolve,dirname} from "node:path";
 import {fileURLToPath} from "node:url";
 import {PgProjectHubStore} from "../src/pg-store.ts";
-import {withScopedProjectHubRead} from "../src/scoped-pg.ts";
+import {withScopedProjectHubRead,withScopedProjectHubWrite} from "../src/scoped-pg.ts";
 import {GovernedProjectHubService} from "../src/governed-service.ts";
+import {ScopedPgProjectHubStore} from "../src/scoped-store.ts";
+import {StoreEffectEvidenceWriter} from "../src/effect-evidence.ts";
+import {MemoryEffectEvidence,ProjectHubEffectGate} from "../src/effect-gate.ts";
+import {FFOSCdxProjectHubPort} from "../../../integrations/cdx/projecthub-runtime.ts";
 
 const url=process.env.PROJECTHUB_TEST_DATABASE_URL;
 const root=resolve(dirname(fileURLToPath(import.meta.url)),"../../..");
@@ -86,5 +90,127 @@ test("PostgreSQL: atomic ProjectHub write and append-only history",{skip:!url},a
        commandDigest:"a".repeat(64),result:{},recordedAt:new Date().toISOString()});
    }));
    assert.equal((await store.listAuditEvents("PG-P1")).length,before);
+
+   // Production-candidate scoped writer: successful canonical command commits
+   // state + audit + idempotency inside the exact bound project scope.
+   const scopedWrite=await withScopedProjectHubWrite(pool,"PG-W1",async scopedStore=>{
+     const scopedSvc=new GovernedProjectHubService(scopedStore,allowGate as any);
+     return scopedSvc.createProject(ctx("SCOPED-CREATE"),{
+       id:"PG-W1",title:"Scoped writer",ownerRef:"OWNER",mandateRef:"M",
+       methodologyProfile:"PROJECT_NATIVE",purpose:"Scoped write acceptance fixture",createdBy:"FFOS:DIRECTOR"
+     });
+   });
+   assert.equal(scopedWrite.result.id,"PG-W1");
+   assert.equal(scopedWrite.replayed,false);
+   const scopedWrittenRead=await withScopedProjectHubRead(pool,"PG-W1",s=>s.getProject("PG-W1"));
+   assert.equal(scopedWrittenRead?.id,"PG-W1");
+   assert.equal((await store.listAuditEvents("PG-W1")).length,1);
+
+   // A callback failure rolls back every canonical row from the scoped UoW.
+   await assert.rejects(()=>withScopedProjectHubWrite(pool,"PG-RB",async scopedStore=>{
+     const scopedSvc=new GovernedProjectHubService(scopedStore,allowGate as any);
+     await scopedSvc.createProject(ctx("SCOPED-ROLLBACK"),{
+       id:"PG-RB",title:"Rollback",ownerRef:"OWNER",mandateRef:"M",
+       methodologyProfile:"PROJECT_NATIVE",purpose:"Rollback fixture",createdBy:"FFOS:DIRECTOR"
+     });
+     throw new Error("FORCED_SCOPED_WRITE_ROLLBACK");
+   }),/FORCED_SCOPED_WRITE_ROLLBACK/);
+   assert.equal(await store.getProject("PG-RB"),null);
+   assert.equal((await store.listAuditEvents("PG-RB")).length,0);
+   assert.equal(await store.getIdempotency("SCOPED-ROLLBACK"),null);
+
+   // Binding one project scope cannot append another project's canonical state.
+   await assert.rejects(()=>withScopedProjectHubWrite(pool,"PG-SCOPE-A",async scopedStore=>{
+     const scopedSvc=new GovernedProjectHubService(scopedStore,allowGate as any);
+     return scopedSvc.createProject(ctx("SCOPED-CROSS"),{
+       id:"PG-SCOPE-B",title:"Wrong scope",ownerRef:"OWNER",mandateRef:"M",
+       methodologyProfile:"PROJECT_NATIVE",purpose:"Must fail RLS",createdBy:"FFOS:DIRECTOR"
+     });
+   }),/row-level security/i);
+   assert.equal(await store.getProject("PG-SCOPE-B"),null);
+
+   await assert.rejects(
+     ()=>withScopedProjectHubWrite(pool,"",async()=>true),
+     /PROJECT_SCOPE_REQUIRED/
+   );
+
+   // Integration of the scoped writer with the actual pinned FFOS CDX adapter.
+   const effectEvidence=new MemoryEffectEvidence();
+   const actualGate=new ProjectHubEffectGate(new FFOSCdxProjectHubPort(),effectEvidence);
+   const cdxWrite=await withScopedProjectHubWrite(pool,"PG-CDX",async scopedStore=>{
+     return new GovernedProjectHubService(scopedStore,actualGate).createProject(ctx("SCOPED-CDX"),{
+       id:"PG-CDX",title:"CDX scoped writer",ownerRef:"OWNER",mandateRef:"M",
+       methodologyProfile:"PROJECT_NATIVE",purpose:"Pinned CDX integration fixture",createdBy:"FFOS:DIRECTOR"
+     });
+   });
+   assert.equal(cdxWrite.result.id,"PG-CDX");
+   assert.deepEqual(effectEvidence.events.map((e:any)=>e.stage),["PRE_EFFECT","POST_EFFECT"]);
+   assert.equal((await store.listAuditEvents("PG-CDX")).length,1);
+
+   // Policy-unavailable must fail closed and leave no canonical project state.
+   const unavailableEvidence=new MemoryEffectEvidence();
+   const unavailableGate=new ProjectHubEffectGate(new FFOSCdxProjectHubPort("UNAVAILABLE"),unavailableEvidence);
+   await assert.rejects(()=>withScopedProjectHubWrite(pool,"PG-CDX-BLOCK",async scopedStore=>{
+     return new GovernedProjectHubService(scopedStore,unavailableGate).createProject(ctx("SCOPED-CDX-BLOCK"),{
+       id:"PG-CDX-BLOCK",title:"Blocked",ownerRef:"OWNER",mandateRef:"M",
+       methodologyProfile:"PROJECT_NATIVE",purpose:"Must fail closed",createdBy:"FFOS:DIRECTOR"
+     });
+   }),/PROJECTHUB_CDX_SECURITY_STOP/);
+   assert.equal(await store.getProject("PG-CDX-BLOCK"),null);
+
+   // PH-D4 stays outside the production admission even under an otherwise valid scope.
+   await assert.rejects(()=>withScopedProjectHubWrite(pool,"PG-D4",async scopedStore=>{
+     return new GovernedProjectHubService(scopedStore,actualGate).createProject(ctx("SCOPED-D4"),{
+       id:"PG-D4",title:"Sensitive",ownerRef:"OWNER",mandateRef:"M",
+       methodologyProfile:"PROJECT_NATIVE",purpose:"Must remain unadmitted",createdBy:"FFOS:DIRECTOR",
+       dataClassCeiling:"PH-D4"
+     });
+   }),/PROJECT_DATA_CLASS_NOT_ADMITTED_V1/);
+   assert.equal(await store.getProject("PG-D4"),null);
+
+   // Full production-candidate sequence: durable PRE_EFFECT, committed canonical
+   // UoW, then durable POST_EFFECT. The scoped facade itself cannot append
+   // outside transaction().
+   const prodCtx=ctx("PROD-CDX-CREATE");
+   const prodStore=new ScopedPgProjectHubStore(pool,"PG-PROD");
+   await assert.rejects(
+     ()=>prodStore.appendAuditEvent({
+       eventId:"OUTSIDE-TX",projectId:"PG-PROD",objectId:"PG-PROD",eventType:"INVALID",
+       principalRef:"D",authorityRef:"A",mandateRef:"M",commandId:"X",correlationId:"C",causationId:"K",
+       dataClass:"PH-D1",occurredAt:new Date().toISOString(),payload:{},provenance:[]
+     }),
+     /SCOPED_PROJECTHUB_WRITE_REQUIRES_TRANSACTION/
+   );
+   const prodEvidence=new StoreEffectEvidenceWriter(prodStore,prodCtx);
+   const prodGate=new ProjectHubEffectGate(new FFOSCdxProjectHubPort(),prodEvidence);
+   const prodSvc=new GovernedProjectHubService(prodStore,prodGate);
+   const prodCreated=await prodSvc.createProject(prodCtx,{
+     id:"PG-PROD",title:"Production candidate",ownerRef:"OWNER",mandateRef:"M",
+     methodologyProfile:"PROJECT_NATIVE",purpose:"Durable effect evidence fixture",createdBy:"FFOS:DIRECTOR"
+   });
+   assert.equal(prodCreated.result.id,"PG-PROD");
+   const prodEvents=await store.listAuditEvents("PG-PROD");
+   assert.deepEqual(prodEvents.map(e=>e.eventType),[
+     "PROJECTHUB_EFFECT_PRE_EFFECT","PROJECT_CREATED","PROJECTHUB_EFFECT_POST_EFFECT"
+   ]);
+   assert.equal((await store.getProject("PG-PROD"))?.version,1);
+
+   // A canonical failure occurs after PRE_EFFECT, rolls back state/idempotency,
+   // and still leaves a durable POST_EFFECT failure receipt.
+   const failCtx=ctx("PROD-CDX-FAIL");
+   const failEvidence=new StoreEffectEvidenceWriter(new ScopedPgProjectHubStore(pool,"PG-PROD"),failCtx);
+   const failGate=new ProjectHubEffectGate(new FFOSCdxProjectHubPort(),failEvidence);
+   const failSvc=new GovernedProjectHubService(new ScopedPgProjectHubStore(pool,"PG-PROD"),failGate);
+   await assert.rejects(()=>failSvc.createProject(failCtx,{
+     id:"PG-PROD",title:"Duplicate",ownerRef:"OWNER",mandateRef:"M",
+     methodologyProfile:"PROJECT_NATIVE",purpose:"Must roll back",createdBy:"FFOS:DIRECTOR"
+   }),/PROJECT_ALREADY_EXISTS/);
+   assert.equal((await store.getProject("PG-PROD"))?.version,1);
+   assert.equal(await store.getIdempotency("PROD-CDX-FAIL"),null);
+   const afterFail=await store.listAuditEvents("PG-PROD");
+   assert.deepEqual(afterFail.slice(-2).map(e=>e.eventType),[
+     "PROJECTHUB_EFFECT_PRE_EFFECT","PROJECTHUB_EFFECT_POST_EFFECT"
+   ]);
+   assert.match(String(afterFail.at(-1)?.payload.detail),/failed or rolled back/i);
  } finally {await pool.end();}
 });
