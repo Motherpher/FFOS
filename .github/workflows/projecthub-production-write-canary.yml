@@ -1,0 +1,32 @@
+name: ProjectHub production writer rollback canary
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ffos-projecthub-write-canary
+  cancel-in-progress: false
+
+jobs:
+  writer-acceptance:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: projecthub-write-canary
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install ProjectHub dependencies
+        run: npm install --prefix modules/projecthub --no-audit --no-fund
+      - name: Verify public Supabase CA and pooler TLS before using credentials
+        run: bash scripts/projecthub-verify-supabase-tls.sh "$RUNNER_TEMP/supabase-root-ca.pem"
+      - name: Verify restricted writer login, scoped RLS, pinned CDX and rollback-only mutation
+        env:
+          NODE_EXTRA_CA_CERTS: ${{ runner.temp }}/supabase-root-ca.pem
+          FFOS_PROJECTHUB_WRITE_DATABASE_URL: ${{ secrets.FFOS_PROJECTHUB_WRITE_DATABASE_URL }}
+        run: node --import ./modules/projecthub/node_modules/tsx/dist/loader.mjs modules/projecthub/write-canary.ts
