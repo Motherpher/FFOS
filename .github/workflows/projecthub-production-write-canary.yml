@@ -26,7 +26,8 @@ jobs:
       - name: Verify public Supabase CA and pooler TLS before using credentials
         run: bash scripts/projecthub-verify-supabase-tls.sh "$RUNNER_TEMP/supabase-root-ca.pem"
       - name: Verify restricted writer login, scoped RLS, pinned CDX and rollback-only mutation
+        working-directory: modules/projecthub
         env:
           NODE_EXTRA_CA_CERTS: ${{ runner.temp }}/supabase-root-ca.pem
           FFOS_PROJECTHUB_WRITE_DATABASE_URL: ${{ secrets.FFOS_PROJECTHUB_WRITE_DATABASE_URL }}
-        run: node --import ./modules/projecthub/node_modules/tsx/dist/loader.mjs modules/projecthub/write-canary.ts
+        run: node --import tsx write-canary.ts
