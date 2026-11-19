@@ -39,22 +39,22 @@ const sourceDir = "15-innovation/project-content-kit/" as const;
 const catalog: readonly ProjectContentFormat[] = [
   {
     id:"MICRO_A_QUESTION",title:"Frågeställning",kind:"MICRO_BOX",
-    sourceRepository:"Motherpher/form-flode",sourcePath:sourceDir+"micro-box-core-v0.1.md#A",
+    sourceRepository:"Motherpher/form-flode",sourcePath:sourceDir+"micro-box-core-v0.1.md",
     language:"sv",state:"DRAFT_TEXT",publicDownloadAllowed:false,candidateForProjectIngressReview:false
   },
   {
     id:"MICRO_B_SYNOPSIS",title:"Synopsis",kind:"MICRO_BOX",
-    sourceRepository:"Motherpher/form-flode",sourcePath:sourceDir+"micro-box-core-v0.1.md#B",
+    sourceRepository:"Motherpher/form-flode",sourcePath:sourceDir+"micro-box-core-v0.1.md",
     language:"sv",state:"DRAFT_TEXT",publicDownloadAllowed:false,candidateForProjectIngressReview:false
   },
   {
     id:"MICRO_C_IDEA_FRAME",title:"Idéram",kind:"MICRO_BOX",
-    sourceRepository:"Motherpher/form-flode",sourcePath:sourceDir+"micro-box-core-v0.1.md#C",
+    sourceRepository:"Motherpher/form-flode",sourcePath:sourceDir+"micro-box-core-v0.1.md",
     language:"sv",state:"DRAFT_TEXT",publicDownloadAllowed:false,candidateForProjectIngressReview:false
   },
   {
     id:"MICRO_D_MICROPROJECT",title:"Mikroprojekt",kind:"MICRO_BOX",
-    sourceRepository:"Motherpher/form-flode",sourcePath:sourceDir+"micro-box-core-v0.1.md#D",
+    sourceRepository:"Motherpher/form-flode",sourcePath:sourceDir+"micro-box-core-v0.1.md",
     language:"sv",state:"DRAFT_TEXT",publicDownloadAllowed:false,candidateForProjectIngressReview:true,projectSize:"MIKRO"
   },
   {
