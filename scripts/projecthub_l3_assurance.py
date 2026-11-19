@@ -13,6 +13,8 @@ required=[
  "integrations/cdx/projecthub-runtime.ts",
  "apps/web/app/(protected)/projecthub/page.tsx",
  "integrations/projecthub/surface-inventory.json",
+ "integrations/projecthub/write-admission.ts",
+ "packages/registry/migrations/0011_projecthub_writer_login_principal.sql",
 ]
 missing=[p for p in required if not (root/p).exists()]
 assert not missing, f"missing release paths: {missing}"
@@ -28,6 +30,9 @@ assert "PH-D4" not in re.search(r"data_class text.*?\)",sql,re.S).group(0), "PH-
 server=(root/"apps/web/lib/projecthub/server.ts").read_text()
 assert 'FFOS_PROJECTHUB_WRITES_ENABLED==="true"' in server
 assert "PROJECTHUB_WRITE_RUNTIME_NOT_ENABLED" in server
+assert "FFOS_PROJECTHUB_WRITE_DATABASE_URL" in server
+assert "PROJECTHUB_WRITE_ADMISSION_NOT_ACCEPTED" in server
+assert "PROJECTHUB_WRITE_ADMISSION.state" in server
 
 scoped=(root/"modules/projecthub/src/scoped-pg.ts").read_text()
 assert "withScopedProjectHubRead" in scoped
@@ -35,6 +40,16 @@ assert "withScopedProjectHubWrite" in scoped
 assert "SET LOCAL ROLE ffos_projecthub_reader" in scoped or "ffos_projecthub_reader" in scoped
 assert "ffos_projecthub_runtime" in scoped
 assert "PROJECT_SCOPE_REQUIRED" in scoped
+
+admission=(root/"integrations/projecthub/write-admission.ts").read_text()
+assert 'state:"NOT_ACCEPTED"' in admission
+assert '"PH-D4","PH-D5"' in admission
+
+writer_sql=(root/"packages/registry/migrations/0011_projecthub_writer_login_principal.sql").read_text()
+assert "ffos_projecthub_writer_login" in writer_sql
+assert "NOLOGIN NOINHERIT" in writer_sql
+assert "NOBYPASSRLS" in writer_sql
+assert "WITH INHERIT FALSE, SET TRUE" in writer_sql
 
 gate=(root/"modules/projecthub/src/effect-gate.ts").read_text()
 assert "PROJECTHUB_CDX_EFFECT_GATE_NOT_BOUND" in gate
