@@ -5,13 +5,15 @@
   "level": "L3_CONTROLLED",
   "frozen_main": "d1bbf1545dea19f426ad40b973bd69bb126f1c40",
   "phase": "BUILD",
-  "active_wp": "PROD-WP06",
+  "active_wp": "PROD-WP08",
   "completed": [
     "PROD-WP01",
     "PROD-WP02",
     "PROD-WP03",
     "PROD-WP04",
-    "PROD-WP05"
+    "PROD-WP05",
+    "PROD-WP06_SOURCE",
+    "PROD-WP07_DIRECTOR_PATH_SOURCE"
   ],
   "evidence": {
     "live_db_read_canary": "GitHub Actions #44419433670 PASS",
@@ -23,13 +25,18 @@
     "reader_identity": "VERIFIED",
     "app_http_read": "SYNTHETIC_PASS_LIVE_PENDING",
     "durable_app_host": "NOT_DEPLOYED",
-    "writer_identity": "NOT_ADMITTED",
-    "a3_write_runtime": "NOT_ACCEPTED",
+    "writer_identity": "SOURCE_PREPARED_NOLOGIN_NOT_LIVE",
+    "a3_write_runtime": "SOURCE_BOUND_BLOCKED_BY_ADMISSION",
     "portfolio_read": "NOT_ADMITTED",
     "ph_d4": "NOT_ADMITTED",
-    "provider_writes": "NOT_ADMITTED"
+    "provider_writes": "NOT_ADMITTED",
+    "http_write_path": "SOURCE_BOUND_NOT_ACCEPTED",
+    "write_canary": "SOURCE_READY_NOT_RUN"
   },
   "release_state": "PRODUCTION_ACTIVATION_IN_PROGRESS",
   "deployment_state": "NOT_DEPLOYED",
-  "acceptance_state": "NOT_PRODUCTION_ACCEPTED"
+  "acceptance_state": "NOT_PRODUCTION_ACCEPTED",
+  "source_refs": {
+    "scoped_writer_merge": "4564d4b13d8fee5be9b0f17e4b98b078d8721ee6"
+  }
 }
