@@ -23,6 +23,30 @@ test("PostgreSQL: atomic ProjectHub write and append-only history",{skip:!url},a
    await pool.query(await readFile(resolve(root,"packages/registry/migrations/0008_projecthub.sql"),"utf8"));
    await pool.query(await readFile(resolve(root,"packages/registry/migrations/0009_projecthub_runtime_role.sql"),"utf8"));
    await pool.query(await readFile(resolve(root,"packages/registry/migrations/0010_projecthub_readonly_role.sql"),"utf8"));
+   await pool.query(await readFile(resolve(root,"packages/registry/migrations/0011_projecthub_writer_login_principal.sql"),"utf8"));
+   const writerPrincipal=await pool.query(`
+     select m.rolcanlogin,m.rolinherit,m.rolbypassrls,
+            r.rolname as granted_role,am.inherit_option,am.set_option
+     from pg_catalog.pg_roles m
+     join pg_catalog.pg_auth_members am on am.member=m.oid
+     join pg_catalog.pg_roles r on r.oid=am.roleid
+     where m.rolname='ffos_projecthub_writer_login'
+   `);
+   assert.equal(writerPrincipal.rows.length,1);
+   assert.equal(writerPrincipal.rows[0].rolcanlogin,false);
+   assert.equal(writerPrincipal.rows[0].rolinherit,false);
+   assert.equal(writerPrincipal.rows[0].rolbypassrls,false);
+   assert.equal(writerPrincipal.rows[0].granted_role,"ffos_projecthub_runtime");
+   assert.equal(writerPrincipal.rows[0].inherit_option,false);
+   assert.equal(writerPrincipal.rows[0].set_option,true);
+
+   const directWriterPrivilege=await pool.query(`
+     select has_table_privilege('ffos_projecthub_writer_login','ffos.projecthub_projects','SELECT') as sel,
+            has_table_privilege('ffos_projecthub_writer_login','ffos.projecthub_projects','INSERT') as ins
+   `);
+   assert.equal(directWriterPrivilege.rows[0].sel,false);
+   assert.equal(directWriterPrivilege.rows[0].ins,false);
+
    const store=new PgProjectHubStore(pool);const svc=new GovernedProjectHubService(store,allowGate as any);
    await svc.createProject(ctx("CREATE"),{id:"PG-P1",title:"PG",ownerRef:"OWNER",mandateRef:"M",
      methodologyProfile:"PROJECT_NATIVE",purpose:"Test",createdBy:"FFOS:DIRECTOR"});
