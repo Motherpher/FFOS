@@ -23,3 +23,9 @@ jobs:
         run: python3 integrations/bruno/validate_collection.py
       - name: Verify non-secret archive inventory (static only)
         run: python3 integrations/bruno/archive_inventory.py --output /tmp/bruno-inventory.json
+
+      - name: Validate archive inventory implementation and negative security tests
+        run: |
+          python3 -m py_compile integrations/bruno/archive_inventory.py
+          python3 -m unittest integrations/bruno/test_archive_inventory.py -v
+          python3 integrations/bruno/archive_inventory.py --output /tmp/bruno-approved-inventory.json
