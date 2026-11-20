@@ -171,3 +171,16 @@ Existing FF-Spatial SRC-WP00–39 remain within their own operational register; 
 **Architecture / other apps:** [FFC workflow proposal](https://github.com/Motherpher/form-flode/blob/main/17-ffos/architecture/FFC-END-TO-END-DATA-SPATIAL-WORKFLOW-PROPOSED-v0.1.md); [asset governance](https://github.com/Motherpher/form-flode/blob/main/17-ffos/architecture/FFC-DATA-ASSET-AND-WORKORDER-GOVERNANCE-PROPOSED-v0.2.md); [integration register](https://github.com/Motherpher/form-flode/blob/main/17-ffos/system-and-integration-register.md); [machine contracts](https://github.com/Motherpher/form-flode/blob/main/17-ffos/integrations/contracts.json).
 
 **Archive work:** [FFOS three-WP draft #122](https://github.com/Motherpher/FFOS/pull/122); [FF-Spatial companion #50](https://github.com/Motherpher/FF-Spatial/pull/50). This audit is **historical reconstruction, not exhaustive raw evidence export**. The next archive reconciliation must inspect the actual Mac collection and authorised runtime receipts without placing secrets or private data into GitHub.
+
+---
+
+## Post-audit evidence addendum — 2026-11-20 (preserves earlier snapshot)
+
+**The earlier paragraphs above are preserved as source-of-record for the first audit pass, but the following original GitHub Actions evidence updates their current-status interpretation.**
+
+1. **FF-Spatial headless cloud pilot DID run successfully:** [Actions run #43789803086](https://github.com/Motherpher/FF-Spatial/actions/runs/43789803086) on 2026-11-16 completed `headless-adm1` with successful GDAL conversion, verification and private artifact upload. Drive upload was skipped. Retained artifact named `ffspatial-swe-adm1-43789803086`. This is more specific than an earlier claim that a live cloud pilot had never run.
+2. **FFOS Kolada→Google Drive DID complete a live published pilot:** [Actions run #44228146764](https://github.com/Motherpher/FFOS/actions/runs/44228146764), 2026-11-18, completed `validate`, `lookup` and `drive-publish` successfully, including live Kolada API and protected Drive publication steps. Two GitHub artifacts existed: `ffos-drive-receipt-44228146764` and `ffos-kolada-0380-44228146764`. This corrects earlier HOLD/pending language for that **specific** cloud path; it does not verify every provider, direct Bruno execution, FF-Spatial Drive upload or whole Bruno→R→QGIS flow.
+3. The archive now includes [35-repository estate inventory](audit/CONNECTED-ESTATE-REPOSITORY-INVENTORY-2026-11-20.json) and [cross-chat development reconstruction](audit/CROSS-CHAT-AND-ESTATE-DEVELOPMENT-HISTORY-2026-11-20.md). These are broad discovery and selected primary-source audit, not an export of every ChatGPT transcript or an exhaustive commit-by-commit audit.
+4. **SCB AFR discrepancy:** a retrieved historical chat excerpt reports a local authenticated SCB AFR `X-API-Key` count operation; the Ideburen repository retains a no-live-authenticated-fetch status for its *separate domain adapter*. Keep both with distinct interface scopes and do not mark all SCB AFR usage verified without local receipts. Any formerly exposed credential must be independently reviewed and rotated.
+
+**Status law:** retain original record and append superseding evidence; never delete a failure or promote an unrelated interface based on one successful workflow.
