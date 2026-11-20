@@ -4,8 +4,8 @@
   "canonical_issue": "Motherpher/FFOS#102",
   "level": "L3_CONTROLLED",
   "frozen_main": "d1bbf1545dea19f426ad40b973bd69bb126f1c40",
-  "phase": "BUILD",
-  "active_wp": "PROD-WP08",
+  "phase": "TEST",
+  "active_wp": "PROD-WP10",
   "completed": [
     "PROD-WP01",
     "PROD-WP02",
@@ -13,30 +13,56 @@
     "PROD-WP04",
     "PROD-WP05",
     "PROD-WP06_SOURCE",
-    "PROD-WP07_DIRECTOR_PATH_SOURCE"
+    "PROD-WP07_DIRECTOR_PATH_SOURCE",
+    "PROD-WP06_LIVE_NOLOGIN_PRINCIPAL",
+    "PROD-WP08_SOURCE_BINDING"
   ],
   "evidence": {
     "live_db_read_canary": "GitHub Actions #44419433670 PASS",
     "synthetic_authenticated_http": "GitHub Actions #44422338772 PASS",
-    "production_backed_http": "GitHub Actions #44422571120 WAITING_DIRECTOR_ENVIRONMENT_APPROVAL"
+    "production_backed_http": "GitHub Actions #44422571120 WAITING_DIRECTOR_ENVIRONMENT_APPROVAL",
+    "scoped_writer_pr": "#119 merged 4564d4b13d8fee5be9b0f17e4b98b078d8721ee6",
+    "writer_binding_pr": "#120 merged f0f0110e6a9889de96f6d5ccc95408e5fe48447a",
+    "live_writer_migration": "0011 projecthub_writer_login_principal APPLIED PASS",
+    "live_writer_role_verification": "PASS — NOLOGIN/NOINHERIT/NOBYPASSRLS; runtime SET membership only; no direct SELECT/INSERT",
+    "supabase_security_advisor_after_writer": "PASS — 0 lints",
+    "supabase_health_advisor_after_writer": "PASS — 0 lints",
+    "protected_live_http_read": "GitHub Actions #44422571120 WAITING_DIRECTOR_ENVIRONMENT_APPROVAL"
   },
   "runtime": {
     "database_schema": "DEPLOYED_PRIVATE",
     "reader_identity": "VERIFIED",
     "app_http_read": "SYNTHETIC_PASS_LIVE_PENDING",
     "durable_app_host": "NOT_DEPLOYED",
-    "writer_identity": "SOURCE_PREPARED_NOLOGIN_NOT_LIVE",
-    "a3_write_runtime": "SOURCE_BOUND_BLOCKED_BY_ADMISSION",
+    "writer_identity": "LIVE_NOLOGIN_VERIFIED",
+    "a3_write_runtime": "SOURCE_BOUND_BLOCKED_BY_ADMISSION_AND_NOLOGIN",
     "portfolio_read": "NOT_ADMITTED",
     "ph_d4": "NOT_ADMITTED",
     "provider_writes": "NOT_ADMITTED",
     "http_write_path": "SOURCE_BOUND_NOT_ACCEPTED",
-    "write_canary": "SOURCE_READY_NOT_RUN"
+    "write_canary": "SOURCE_READY_BLOCKED_ON_PROTECTED_LOGIN_SECRET_AND_ENVIRONMENT_APPROVAL",
+    "writer_identity_properties": {
+      "can_login": false,
+      "inherit": false,
+      "bypass_rls": false,
+      "granted_role": "ffos_projecthub_runtime",
+      "membership_inherit": false,
+      "membership_set": true,
+      "direct_select": false,
+      "direct_insert": false
+    }
   },
-  "release_state": "PRODUCTION_ACTIVATION_IN_PROGRESS",
+  "release_state": "PRODUCTION_TEST_GATE",
   "deployment_state": "NOT_DEPLOYED",
   "acceptance_state": "NOT_PRODUCTION_ACCEPTED",
   "source_refs": {
     "scoped_writer_merge": "4564d4b13d8fee5be9b0f17e4b98b078d8721ee6"
-  }
+  },
+  "blockers": [
+    "Production writer credential is intentionally absent; ffos_projecthub_writer_login remains NOLOGIN.",
+    "Protected projecthub-write-canary environment secret FFOS_PROJECTHUB_WRITE_DATABASE_URL is not provisioned through an available authorized connector.",
+    "Protected environment approval is a Human Director/operator gate and is not bypassed.",
+    "Production-backed authenticated HTTP read run #44422571120 remains waiting on protected environment approval.",
+    "Durable application host remains NOT_DEPLOYED."
+  ]
 }
