@@ -57,7 +57,7 @@ FFOS — estate coordination and operational record
 - [Protocol and thresholds](PROTOCOL-v1.0.md)
 - [Run / reporting template](RUN-TEMPLATE-v1.0.md)
 - [Initial baseline](BASELINE-2026-11-20.md)
-- [Existing estate Wiki and knowledge review](../github-estate/wo002-20261120/WIKI-KNOWLEDGE-ARCHITECTURE-REVIEW-v1.0.md) — **currently staged in separate draft PR #55**, so the relative path is not yet part of `main`; use [draft PR #55](https://github.com/Motherpher/FFOS/pull/55) until merged.
+- [Estate Wiki and knowledge review (draft PR #55)](https://github.com/Motherpher/FFOS/blob/docs/wo002-reconciliation-20261116/docs/governance/github-estate/wo002-20261120/WIKI-KNOWLEDGE-ARCHITECTURE-REVIEW-v1.0.md) — review-branch source, not yet part of `main`.
 
 ## Guardrails
 
