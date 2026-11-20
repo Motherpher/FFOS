@@ -1,0 +1,7 @@
+{
+  "job_id": "ffos-kolada-uppsala-001",
+  "operation_id": "kolada.municipality.lookup",
+  "parameters": {
+    "municipality_id": "0380"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "collection_root": "~/Documents/bruno/Central API Ledger",
+  "operations": {
+    "kolada.municipality.lookup": {
+      "request": "02 - Statistik & samhällsdata/02.02 - Kolada/01 – Geografiska enheter/02 - Municipality Lookup.yml",
+      "sha256": "75e04c848cef01562e9787c453647beec61f67cd795dd985eaab302d869b99ed",
+      "environment": "Development",
+      "allowed_parameters": {
+        "municipality_id": "[0-9]{4}"
+      }
+    }
+  }
+}
