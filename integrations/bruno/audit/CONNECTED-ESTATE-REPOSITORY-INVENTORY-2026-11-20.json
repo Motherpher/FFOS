@@ -1,0 +1,324 @@
+{
+  "schema": "ffos.integration.estate.recon.v1",
+  "generated_date": "2026-11-20",
+  "evidence_class": "REPOSITORY_TREE_DISCOVERY_NOT_FULL_CODE_AUDIT",
+  "coverage": "35 repositories visible through connected GitHub list_repositories",
+  "git_history_note": "main HEAD SHA prefixes are discovery pins only, not immutable full SHA; see repository APIs for full hash",
+  "sources": [
+    {
+      "repository": "Hybrismannen/Hy",
+      "repository_url": "https://github.com/Hybrismannen/Hy",
+      "relation": "related-governance",
+      "evidence": "CDX anchor consumer; specific API/GIS link not evidenced",
+      "head_prefix": "1ab9cba0ed27",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Hybrismannen/pius-pwe",
+      "repository_url": "https://github.com/Hybrismannen/pius-pwe",
+      "relation": "related-governance",
+      "evidence": "Pius workflow experiments, CDX integration references",
+      "head_prefix": "dca51e1f5a70",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Hybrismannen/livicity-cwvs-reference",
+      "repository_url": "https://github.com/Hybrismannen/livicity-cwvs-reference",
+      "relation": "independent-domain",
+      "evidence": "Reference content; common CDX binding, no direct API/GIS connector",
+      "head_prefix": "92682cea5ee5",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Hybrismannen/nsliengine",
+      "repository_url": "https://github.com/Hybrismannen/nsliengine",
+      "relation": "independent-domain",
+      "evidence": "Product/audit and deployment code; no asserted Bruno linkage",
+      "head_prefix": "dfa746989f72",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Hybrismannen/pius-universe",
+      "repository_url": "https://github.com/Hybrismannen/pius-universe",
+      "relation": "governance",
+      "evidence": "Pius 6 workstreams and Piusites; product/release boundary",
+      "head_prefix": "e91571b4776d",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Hybrismannen/udl-twin",
+      "repository_url": "https://github.com/Hybrismannen/udl-twin",
+      "relation": "app-runtime",
+      "evidence": "UDL Twin evaluation application, Lovable sync and metadata cockpit",
+      "head_prefix": "92e51f4c7569",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Hybrismannen/pius-codex-5",
+      "repository_url": "https://github.com/Hybrismannen/pius-codex-5",
+      "relation": "governance",
+      "evidence": "Historical Pius Codex 5/HARP/HCC reference",
+      "head_prefix": "90be571ea6bd",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Hybrismannen/pius-lifetime-audit-2026",
+      "repository_url": "https://github.com/Hybrismannen/pius-lifetime-audit-2026",
+      "relation": "historical-audit",
+      "evidence": "Historical audit corpus with document and PDF master reports",
+      "head_prefix": "9795ba16d3db",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Hybrismannen/green-bell-statsvault",
+      "repository_url": "https://github.com/Hybrismannen/green-bell-statsvault",
+      "relation": "app-runtime",
+      "evidence": "GreenBell StatsVault Lovable+Supabase product implementation",
+      "head_prefix": "6f264fe13fd1",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Hybrismannen/form-flode-dna",
+      "repository_url": "https://github.com/Hybrismannen/form-flode-dna",
+      "relation": "related-domain",
+      "evidence": "FFC DNA and reference sync",
+      "head_prefix": "0e83c5ab466c",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Hybrismannen/RFSU-godex",
+      "repository_url": "https://github.com/Hybrismannen/RFSU-godex",
+      "relation": "project-public",
+      "evidence": "RFSU client-facing Swedish mirror; Vercel downstream",
+      "head_prefix": "239fd989e559",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Hybrismannen/RFSU-godex-FF",
+      "repository_url": "https://github.com/Hybrismannen/RFSU-godex-FF",
+      "relation": "project-internal",
+      "evidence": "Private FFC/RFSU research, PIVE/HARP, dashboards, publication gates",
+      "head_prefix": "3d4d7e7dc2e8",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Hybrismannen/Digital-Apartheid",
+      "repository_url": "https://github.com/Hybrismannen/Digital-Apartheid",
+      "relation": "independent-research",
+      "evidence": "Research corpus with workflow, citation audit and release build",
+      "head_prefix": "f1c726e79e74",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Hybrismannen/NSLI",
+      "repository_url": "https://github.com/Hybrismannen/NSLI",
+      "relation": "independent-domain",
+      "evidence": "NSLI app and audit, Lovable integration history",
+      "head_prefix": "24de4f74f5a0",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Hybrismannen/metoyo",
+      "repository_url": "https://github.com/Hybrismannen/metoyo",
+      "relation": "historical-audit",
+      "evidence": "Historical audits and spatial-memory notes",
+      "head_prefix": "69911e1ac689",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Hybrismannen/Conductellence-",
+      "repository_url": "https://github.com/Hybrismannen/Conductellence-",
+      "relation": "governance",
+      "evidence": "CDX 1.0 constitutional release and runtime control",
+      "head_prefix": "733197849e5f",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Hybrismannen/Barnombudet",
+      "repository_url": "https://github.com/Hybrismannen/Barnombudet",
+      "relation": "independent-domain",
+      "evidence": "Barnombudet agent/budget governance, independent access",
+      "head_prefix": "2e47d5fe0970",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Hybrismannen/Opal-Sense-I",
+      "repository_url": "https://github.com/Hybrismannen/Opal-Sense-I",
+      "relation": "independent-domain",
+      "evidence": "Opal product/governance anchor and GitHub project references",
+      "head_prefix": "eff96772a46e",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Hybrismannen/Texts-n-Lyrics",
+      "repository_url": "https://github.com/Hybrismannen/Texts-n-Lyrics",
+      "relation": "independent-content",
+      "evidence": "Corpus publishing workflows, no direct GIS link",
+      "head_prefix": "c2111016b416",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Hybrismannen/formflode-com",
+      "repository_url": "https://github.com/Hybrismannen/formflode-com",
+      "relation": "app-runtime",
+      "evidence": "Native Form & Flöde website Lovable→GitHub integration",
+      "head_prefix": "d282c3e2d5ea",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Hybrismannen/Barnskoj",
+      "repository_url": "https://github.com/Hybrismannen/Barnskoj",
+      "relation": "independent-domain",
+      "evidence": "Catalog/source watch and documentation tooling",
+      "head_prefix": "d0ce880185c0",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Motherpher/form-flode",
+      "repository_url": "https://github.com/Motherpher/form-flode",
+      "relation": "core-governance",
+      "evidence": "FFC business/method and integration register",
+      "head_prefix": "51e3ac622462",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Motherpher/wpb",
+      "repository_url": "https://github.com/Motherpher/wpb",
+      "relation": "app-profile",
+      "evidence": "CareerHub profile repository, central body consumer",
+      "head_prefix": "86c2c10bb6ee",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Motherpher/Gracey",
+      "repository_url": "https://github.com/Motherpher/Gracey",
+      "relation": "app-profile",
+      "evidence": "CareerHub profile repository, central body consumer",
+      "head_prefix": "5e21b89ea409",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Motherpher/CareerHubZero",
+      "repository_url": "https://github.com/Motherpher/CareerHubZero",
+      "relation": "app-runtime",
+      "evidence": "Canonical CareerHub engine and profile distribution",
+      "head_prefix": "5375a9655537",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Motherpher/CareerHub-LinusF",
+      "repository_url": "https://github.com/Motherpher/CareerHub-LinusF",
+      "relation": "app-profile",
+      "evidence": "CareerHub profile repository, central body consumer",
+      "head_prefix": "6534963e83f3",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Motherpher/Politent",
+      "repository_url": "https://github.com/Motherpher/Politent",
+      "relation": "spatial-consumer",
+      "evidence": "Politent QGIS workspace and geographic validation workflows",
+      "head_prefix": "020ef36e513e",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Motherpher/FF-Spatial",
+      "repository_url": "https://github.com/Motherpher/FF-Spatial",
+      "relation": "core-spatial",
+      "evidence": "R, spatial gateway, QGIS bridge and headless GIS",
+      "head_prefix": "4e8b3ca3afff",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Motherpher/BDNA",
+      "repository_url": "https://github.com/Motherpher/BDNA",
+      "relation": "independent-domain",
+      "evidence": "BDNA code and Vercel mock/deployment records",
+      "head_prefix": "fe052511c90e",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Motherpher/FFOS",
+      "repository_url": "https://github.com/Motherpher/FFOS",
+      "relation": "core-runtime",
+      "evidence": "Orchestration, Bruno archive, cloud/Drive, projecthub and agent stable",
+      "head_prefix": "4b59c9a7bcdb",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Motherpher/MusicGenea",
+      "repository_url": "https://github.com/Motherpher/MusicGenea",
+      "relation": "independent-domain",
+      "evidence": "Minimal music genealogy repository, no evidence of direct integration",
+      "head_prefix": "51cb4aa8b9d0",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Motherpher/Re-Eco",
+      "repository_url": "https://github.com/Motherpher/Re-Eco",
+      "relation": "independent-domain",
+      "evidence": "Dashboard rendering and Vercel configuration",
+      "head_prefix": "dd15ed554be8",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Motherpher/GreenBell",
+      "repository_url": "https://github.com/Motherpher/GreenBell",
+      "relation": "domain-root",
+      "evidence": "Canonical Green Bell venture/research root",
+      "head_prefix": "7671ac17432f",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Motherpher/Vitalitet",
+      "repository_url": "https://github.com/Motherpher/Vitalitet",
+      "relation": "independent-domain",
+      "evidence": "Small domain repository, no verified direct integration",
+      "head_prefix": "e117922206fa",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    },
+    {
+      "repository": "Motherpher/Ideburen",
+      "repository_url": "https://github.com/Motherpher/Ideburen",
+      "relation": "spatial-consumer",
+      "evidence": "Independent SCB AFR ledger, QGIS and FF-Spatial adapter candidate",
+      "head_prefix": "2f61d8bedbff",
+      "audited_scope": "main recursive file inventory; selected docs read for critical repos",
+      "runtime_connection_verified_by_this_audit": false
+    }
+  ]
+}
