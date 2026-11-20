@@ -21,3 +21,5 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate OpenCollection requests offline
         run: python3 integrations/bruno/validate_collection.py
+      - name: Verify non-secret archive inventory (static only)
+        run: python3 integrations/bruno/archive_inventory.py --output /tmp/bruno-inventory.json
