@@ -16,9 +16,9 @@ ALLOWED = {".yml", ".yaml", ".bru", ".json", ".md"}
 SKIP = {".git", ".DS_Store", "__pycache__"}
 RESTRICTED = {"environments", "secrets", "credentials", "cookies", "certificates", "responses", "results"}
 SECRET = [
-    re.compile(r"(?i)\\b(?:Bearer)\\s+[a-z0-9._~+/-]{16,}"),
-    re.compile(r"(?i)\\b(?:gh[pousr]_[a-z0-9_]{20,}|sk-(?:proj-)?[a-z0-9_-]{20,})"),
-    re.compile(r"(?im)^\\s*(?:api[_-]?key|token|password|secret)\\s*[:=]\\s*['\\\"]?(?!\\{\\{)[^\\s'\\\"]{12,}"),
+    re.compile(r"(?i)\b(?:Bearer)\s+[a-z0-9._~+/-]{16,}"),
+    re.compile(r"(?i)\b(?:gh[pousr]_[a-z0-9_]{20,}|sk-(?:proj-)?[a-z0-9_-]{20,})"),
+    re.compile(r"(?im)^\s*(?:api[_-]?key|token|password|secret)\s*[:=]\s*['\\"]?(?!\{\{)[^\s'\\"]{12,}"),
 ]
 
 def inventory(root: Path) -> dict:
