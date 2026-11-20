@@ -57,6 +57,8 @@ FFOS — estate coordination and operational record
 - [Protocol and thresholds](PROTOCOL-v1.0.md)
 - [Run / reporting template](RUN-TEMPLATE-v1.0.md)
 - [Initial baseline](BASELINE-2026-11-20.md)
+- [Six-WP repository improvement programme](REPOSITORY-IMPROVEMENT-WPS-v1.0.md) — governed separately by [Issue #125](https://github.com/Motherpher/FFOS/issues/125)
+- [35-repository source-owned action register](REPOSITORY-ACTION-REGISTER-v1.0.md) — candidate allocation, subject to WP01 exact-source verification
 - [Estate Wiki and knowledge review (draft PR #55)](https://github.com/Motherpher/FFOS/blob/docs/wo002-reconciliation-20261116/docs/governance/github-estate/wo002-20261120/WIKI-KNOWLEDGE-ARCHITECTURE-REVIEW-v1.0.md) — review-branch source, not yet part of `main`.
 
 ## Guardrails
